@@ -1,0 +1,52 @@
+/* Global responsive styles for body */
+@media screen and (min-width: 960px) {
+    body {
+      padding-left: 80px;
+      padding-right: 80px;
+    }
+  }
+  
+  @media screen and (min-width: 1010px) {
+    body {
+      padding-left: 160px;
+      padding-right: 160px;
+    }
+  }
+  
+  @media screen and (min-width: 1200px) {
+    body {
+      padding-left: 200px;
+      padding-right: 200px;
+    }
+  }
+  
+  @media screen and (max-width: 768px) {
+    .section-sidebar {
+      display: none;
+    }
+  }
+  
+  /* Hide scrollbar */
+  ::-webkit-scrollbar {
+    display: none;
+  }
+  
+  body {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    background-color: #293136;
+  }
+
+  /* Add this for debugging */
+body {
+    border: 2px solid red !important;
+    background-color: #293136 !important;
+  }
+  
+  @media screen and (min-width: 960px) {
+    body {
+      border: 2px solid blue !important;
+      padding-left: 80px !important;
+      padding-right: 80px !important;
+    }
+  }

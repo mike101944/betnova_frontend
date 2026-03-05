@@ -1,0 +1,194 @@
+@import 'tailwindcss';
+/* @import 'tailwindcss-primeui'; */
+
+/* Custom styles */
+@layer base {
+  :root {
+    --primary: #f97316;
+    --primary-dark: #ea580c;
+    --secondary: #3b82f6;
+    --dark: #1f2937;
+  }
+  .text-primary-custom {
+    color: #FF6B35;
+  }
+  
+  
+  body {
+    font-family: 'Inter', 'Roboto', system-ui, sans-serif;
+  }
+}
+
+@layer utilities {
+  .text-primary-custom {
+    color: #FF6B35;
+  }
+}
+
+@layer components {
+  .btn-bet {
+    @apply px-4 py-2 rounded-lg font-semibold transition-all duration-200;
+  }
+  
+  .bet-card {
+    @apply rounded-xl border shadow-lg hover:shadow-xl transition-shadow duration-300;
+  }
+  
+  .odds-chip {
+    @apply px-3 py-1 rounded-full text-sm font-bold;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-dark);
+}
+
+
+
+
+
+/* Add these animations to your global CSS */
+@keyframes float {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+  
+  @keyframes pulse-glow {
+    0%, 100% {
+      opacity: 1;
+      box-shadow: 0 0 20px rgba(249, 115, 22, 0.5);
+    }
+    50% {
+      opacity: 0.8;
+      box-shadow: 0 0 30px rgba(249, 115, 22, 0.8);
+    }
+  }
+  
+  @keyframes slideInRight {
+    from {
+      opacity: 0;
+      transform: translateX(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  @keyframes slideInLeft {
+    from {
+      opacity: 0;
+      transform: translateX(-30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+  
+  .animate-pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+  
+  .animate-slide-in-right {
+    animation: slideInRight 0.6s ease-out;
+  }
+  
+  .animate-slide-in-left {
+    animation: slideInLeft 0.6s ease-out;
+  }
+  
+  /* Hover effects */
+  .hover-lift {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .hover-lift:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Glass morphism */
+  .glass {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+  .clors{
+
+    /* primary: '#FF6B35', */
+    background-color: #FF6B35;
+
+    /* secondary: '#1E3A8A', */
+    background-color: #1E3A8A;
+
+    /* success: '#10B981', */
+    background-color: #10B981;
+
+    /* error: '#EF4444', */
+    background-color: #EF4444;
+  }
+  
+  /* Gradient borders */
+  .gradient-border {
+    position: relative;
+    border: double 2px transparent;
+    background-image: linear-gradient(white, white), 
+                      linear-gradient(135deg, #f97316 0%, #3b82f6 100%);
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+  }
+  
+  /* Shimmer effect */
+  .shimmer {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .shimmer::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+      to right,
+      transparent 0%,
+      rgba(255, 255, 255, 0.1) 50%,
+      transparent 100%
+    );
+    transform: rotate(30deg);
+    animation: shimmer 3s infinite;
+  }
+  
+  @keyframes shimmer {
+    0% {
+      transform: translateX(-100%) rotate(30deg);
+    }
+    100% {
+      transform: translateX(100%) rotate(30deg);
+    }
+  }
