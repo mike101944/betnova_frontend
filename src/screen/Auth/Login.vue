@@ -269,7 +269,7 @@ const debugStore = () => {
 
 .quick-fill-btn:hover {
   background: #e9ecef;
-  border-color: #9ce800;
+  border-color: #39ecdd;
 }
 
 /* ===== FORM STYLES ===== */
@@ -382,7 +382,7 @@ p, .page-error, .notify, label, .info {
 
 /* Valid/Error states - apply to wrapper instead */
 .phone-number-input .input-field-wrapper:has(input.valid) {
-  border-color: #9ce800;
+  border-color: #39ecdd;
   background-color: #f9ffe6;
 }
 
@@ -426,7 +426,7 @@ input[type="text"] {
 
 /* Valid state - only change border color, not box model */
 .input-field-wrapper input.valid {
-  border-color: #9ce800;
+  border-color: #39ecdd;
   background-color: #f9ffe6;
 }
 
@@ -471,8 +471,8 @@ input[type="text"] {
 }
 
 .checkbox-input:checked+.checkbox-label .checkbox-input-custom {
-  background: #8dc63f;
-  border-color: #8dc63f;
+  background: #39ecdd;
+  border-color: #39ecdd;
 }
 
 .checkbox-input-custom.with-border {
@@ -516,7 +516,7 @@ input[type="text"] {
 .button-submit {
   color: #252a2d;
   fill: #252a2d;
-  background-color: #9ce800;
+  background-color: #39ecdd;
 }
 
 .button {
