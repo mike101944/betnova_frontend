@@ -65,7 +65,13 @@
           <!-- Join Item -->
           <div class="navigation-item">
             <div class="menu-item">
-              <a href="/register" class="action-link">
+              <a v-if="isAuthenticated" href="/bets" class="action-link">
+                <svg class="svg-icon menu-icon">
+                  <use xlink:href="#icon-join-now"></use>
+                </svg>
+                <div class="menu-title">Mybets</div>
+              </a>
+              <a v-else="!isAuthenticated" href="/register" class="action-link">
                 <svg class="svg-icon menu-icon">
                   <use xlink:href="#icon-join-now"></use>
                 </svg>
@@ -92,6 +98,18 @@
   
   <script setup>
   // No script needed for static component
+  import { useAuthStore } from '../../store/authStore'
+
+
+// Auth store
+const authStore = useAuthStore()
+
+const isAuthenticated = computed(() => {
+  return authStore.isAuthenticated
+})
+
+
+
   </script>
   
   <style scoped>
