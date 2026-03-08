@@ -5,7 +5,7 @@
  <SvgIcon/>
         <Header />
         <main className="flex-1 bg-gray-100 flex flex-row">
-          <aside className='flex-[58%] h-[calc(100vh-100px)] overflow-y-auto border-r border-teal-800 no-scrollbar'>
+          <aside className='flex-[58%] h-[calc(100vh-100px)] bg-white overflow-y-auto border-r border-teal-800 no-scrollbar'>
             <router-view></router-view>
 
             <Footer />

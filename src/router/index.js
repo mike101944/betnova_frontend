@@ -4,6 +4,9 @@ import AuthTabs from '../screen/Auth/AuthPage.vue'
 import LoginForm from '../screen/Auth/Login.vue'    // This is now just the form
 import RegisterForm from '../screen/Auth/Register.vue'
 import BetSlip from '../components/Betlslip/BetSlip.vue'
+import Withdraw from '../screen/Money/Withdraw.vue'
+import Deposite from '../screen/Money/Deposite.vue'
+import Account from '../screen/profile/Profile.vue'
 const routes = [
   {
     path: '/',
@@ -14,6 +17,21 @@ const routes = [
     path: '/betSlip',
     name: 'betslip',
     component: BetSlip
+  },
+  {
+    path: '/account',
+    name: 'account',
+    component: Account
+  },
+  {
+    path: '/withdraw',
+    name: 'withdraw',
+    component: Withdraw
+  },
+  {
+    path: '/deposite',
+    name: 'deposite',
+    component: Deposite
   },
     // Login route - uses AuthTabs as wrapper, LoginForm as child
     {

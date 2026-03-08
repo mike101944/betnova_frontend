@@ -1,20 +1,11 @@
 <script setup>
 import { dummyGamesData } from '../data/dummyGameData'
-import { ref, onMounted, onBeforeUnmount, watch } from 'vue'
+import { ref, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 
 const router = useRouter()
 const games = ref([])
 const selectedBets = ref([])
-
-// Custom event for betslip updates
-const emitBetslipUpdate = () => {
-  // Create and dispatch custom event
-  const event = new CustomEvent('betslip-update', { 
-    detail: selectedBets.value 
-  })
-  window.dispatchEvent(event)
-}
 
 // Load selected bets from localStorage on mount
 onMounted(() => {
@@ -23,53 +14,11 @@ onMounted(() => {
   }, 1200)
   
   // Load saved bets from localStorage
-  loadFromLocalStorage()
-  
-  // Listen for storage changes from other tabs
-  window.addEventListener('storage', handleStorageChange)
-  
-  // Listen for betslip updates from other components
-  window.addEventListener('betslip-update', handleBetslipUpdate)
-})
-
-onBeforeUnmount(() => {
-  window.removeEventListener('storage', handleStorageChange)
-  window.removeEventListener('betslip-update', handleBetslipUpdate)
-})
-
-// Handle storage changes from other tabs
-const handleStorageChange = (event) => {
-  if (event.key === 'betslip_selections') {
-    loadFromLocalStorage()
-  }
-}
-
-// Handle betslip updates from other components
-const handleBetslipUpdate = (event) => {
-  selectedBets.value = event.detail || []
-}
-
-// Load from localStorage
-const loadFromLocalStorage = () => {
   const savedBets = localStorage.getItem('betslip_selections')
   if (savedBets) {
-    try {
-      selectedBets.value = JSON.parse(savedBets)
-      console.log('Bets loaded:', selectedBets.value)
-    } catch (e) {
-      console.error('Error parsing saved bets:', e)
-    }
-  } else {
-    selectedBets.value = []
+    selectedBets.value = JSON.parse(savedBets)
   }
-}
-
-// Save to localStorage and notify
-const saveToLocalStorage = (bets) => {
-  localStorage.setItem('betslip_selections', JSON.stringify(bets))
-  // Dispatch event for same-tab components
-  emitBetslipUpdate()
-}
+})
 
 // Check if game and selection is already in betslip
 const isSelected = (game, selection) => {
@@ -94,16 +43,14 @@ const handleOddsClick = (game, selectionType, oddsValue) => {
   const isSameSelection = existingBetIndex !== -1 && 
     selectedBets.value[existingBetIndex].selection === selectionType
   
-  let newBets = []
-  
   if (isSameSelection) {
     // Remove selection (unselect)
-    newBets = selectedBets.value.filter((_, index) => index !== existingBetIndex)
+    selectedBets.value.splice(existingBetIndex, 1)
   } else {
     // Remove any existing selection for this game
-    const filteredBets = selectedBets.value.filter(
-      bet => bet.eventId !== game.eventId
-    )
+    if (existingBetIndex !== -1) {
+      selectedBets.value.splice(existingBetIndex, 1)
+    }
     
     // Add new selection
     const selection = {
@@ -118,20 +65,12 @@ const handleOddsClick = (game, selectionType, oddsValue) => {
       awayTeam: game.awayTeam
     }
     
-    newBets = [...filteredBets, selection]
+    selectedBets.value.push(selection)
   }
   
-  // Update local state
-  selectedBets.value = newBets
-  
-  // Save to localStorage and notify other components
-  saveToLocalStorage(newBets)
+  // Save to localStorage
+  localStorage.setItem('betslip_selections', JSON.stringify(selectedBets.value))
 }
-
-// Watch for changes in selectedBets (for debugging)
-watch(selectedBets, (newBets) => {
-  console.log('Selected bets updated:', newBets)
-}, { deep: true })
 </script>
 
 <template>

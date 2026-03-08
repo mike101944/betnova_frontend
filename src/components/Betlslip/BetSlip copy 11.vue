@@ -319,9 +319,8 @@ const placeBet = async () => {
 }
 </script>
 
-
 <template>
-  <div class="h-full flex flex-col">
+  <div class="h-full">
     <!-- Toast Messages -->
     <Transition name="fade">
       <div v-if="success" class="fixed top-4 right-4 z-50 bg-emerald-500 text-white px-6 py-3 rounded-lg shadow-lg flex items-center gap-2">
@@ -341,61 +340,84 @@ const placeBet = async () => {
       </div>
     </Transition>
 
-    <!-- Loading Overlay -->
-    <div v-if="isLoading" class="fixed inset-0 bg-transparent flex items-center justify-center z-40">
-      <div class="bg-white p-4 rounded-lg shadow-xl">
-        <div class="animate-spin rounded-full h-8 w-8 border-b-2 border-emerald-600 mx-auto"></div>
-        <p class="text-gray-700 mt-2">{{ loadingMessage }}</p>
+    <!-- Header with Balance Display -->
+    <div class="max-w-2xl mx-auto mb-4 px-3 flex justify-between items-center">
+      <!-- <div>
+        <h1 class="text-xl md:text-3xl text-gray-500">Bet Slip</h1>
+        <p class="text-gray-600 mt-1">Review and place your bets</p>
+      </div> -->
+      
+      <!-- Balance Display (only when authenticated) -->
+      <div v-if="isAuthenticated" class="bg-emerald-50 border flex items-center justify-between border-emerald-200 rounded-lg px-4 py-2 w-full">
+        <div>
+          <p class="text-xs text-emerald-700">Your Balance</p>
+        <p class="text-lg font-bold text-emerald-600">{{ formatBalance(userBalance) }}</p>
+        </div>
+        <div>
+          <router-link 
+        to="/bets" 
+        class="bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-200 flex items-center gap-2"
+      >
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
+        </svg>
+        My Bets
+      </router-link>
+        </div>
+
+
+      </div>
+      <div v-if="!isAuthenticated" class="bg-emerald-50 border flex items-center justify-between border-emerald-200 rounded-lg px-4 py-2 w-full">
+       <div>
+        <h1 class="text-xl md:text-3xl text-gray-500">Bet Slip</h1>
+        <p class="text-gray-600 mt-1">Review and place your bets</p>
+      </div>
+        <div>
+          <router-link 
+        to="/login" 
+        class="bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-200"
+      >
+        Login
+      </router-link>
+        </div>
+
+
       </div>
     </div>
 
-    <!-- Header - Fixed -->
-    <div class="flex-shrink-0">
-      <div class="max-w-2xl mx-auto mb-4 px-3">
-        <!-- Authenticated Header -->
-        <div v-if="isAuthenticated" class="bg-emerald-50 border flex items-center justify-between border-emerald-200 rounded-lg px-4 py-2 w-full">
-          <div>
-            <p class="text-xs text-emerald-700">Your Balance</p>
-            <p class="text-lg font-bold text-emerald-600">{{ formatBalance(userBalance) }}</p>
-          </div>
-          <div>
-            <router-link 
-              to="/bets" 
-              class="bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-200 flex items-center gap-2"
-            >
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
-              </svg>
-              My Bets
-            </router-link>
-          </div>
-        </div>
-
-        <!-- Unauthenticated Header -->
-        <div v-if="!isAuthenticated" class="bg-emerald-50 border flex items-center justify-between border-emerald-200 rounded-lg px-4 py-2 w-full">
-          <div>
-            <p class="text-gray-600 mt-1">Review and place your bets</p>
-          </div>
-          <div>
-            <router-link 
-              to="/login" 
-              class="bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-200"
-            >
-              Login
-            </router-link>
-          </div>
+    <!-- Main Bet Slip Card -->
+    <div class="w-full bg-transparent overflow-hidden">
+      <!-- Loading Overlay -->
+      <div v-if="isLoading" class="fixed inset-0 bg-transparent flex items-center justify-center z-40">
+        <div class="bg-white p-4 rounded-lg shadow-xl">
+          <div class="animate-spin rounded-full h-8 w-8 border-b-2 border-emerald-600 mx-auto"></div>
+          <p class="text-gray-700 mt-2">{{ loadingMessage }}</p>
         </div>
       </div>
-    </div>
 
-    <!-- Main Scrollable Area -->
-    <div class="flex-1 overflow-hidden flex flex-col">
-      <!-- Tabs Header - Fixed -->
-      <div class="flex border-b border-gray-200 bg-gray-50 w-full flex-shrink-0">
+    
+
+      <!-- INSUFFICIENT BALANCE MESSAGE -->
+      <div v-if="isAuthenticated && insufficientBalance && currentSelectionsCount > 0" class="mx-4 mb-4 bg-orange-100 border border-orange-400 text-orange-700 px-4 py-3 rounded relative">
+        <strong class="font-bold">💰 Insufficient Balance! </strong>
+        <span class="block sm:inline">You need Tsh {{ (parseFloat(stakeAmount) - userBalance).toFixed(0) }} more to place this bet.</span>
+        <router-link to="/deposite" class="ml-2 inline-block bg-emerald-600 text-white px-4 py-2 rounded-lg font-bold hover:bg-emerald-700 mt-2 text-center">
+          Deposit Now
+        </router-link>
+      </div>
+
+      <!-- INVALID STAKE MESSAGE -->
+      <div v-if="stakeAmount && !isValidStake && currentSelectionsCount > 0" class="mx-4 mb-4 bg-yellow-100 border border-yellow-400 text-yellow-800 px-4 py-3 rounded relative">
+        <strong class="font-bold">⚠️ Invalid Stake! </strong>
+        <span class="block sm:inline">Minimum stake is 100 Tsh</span>
+      </div>
+
+      <!-- Tabs Header -->
+      <div class="flex border-b border-gray-200 bg-gray-50 w-full">
         <!-- Sports Tab -->
         <button
           @click="activeTab = 'sports'"
-          class="flex-1 py-2 px-6 text-sm md:text-base font-medium transition-all duration-200 relative group"
+          class="flex-1 py-4 px-6 text-sm md:text-base font-medium transition-all duration-200 relative group"
           :class="activeTab === 'sports' 
             ? 'text-emerald-600 bg-white' 
             : 'text-gray-500 hover:text-gray-700 hover:bg-gray-100'"
@@ -416,7 +438,7 @@ const placeBet = async () => {
         <!-- Virtuals Tab -->
         <button
           @click="activeTab = 'virtuals'"
-          class="flex-1 py-2 px-6 text-sm md:text-base font-medium transition-all duration-200 relative group"
+          class="flex-1 py-4 px-6 text-sm md:text-base font-medium transition-all duration-200 relative group"
           :class="activeTab === 'virtuals' 
             ? 'text-emerald-600 bg-white' 
             : 'text-gray-500 hover:text-gray-700 hover:bg-gray-100'"
@@ -435,27 +457,9 @@ const placeBet = async () => {
         </button>
       </div>
 
-      <!-- Warning Messages -->
-      <div class="flex-shrink-0 px-4">
-        <!-- INSUFFICIENT BALANCE MESSAGE -->
-        <div v-if="isAuthenticated && insufficientBalance && currentSelectionsCount > 0" class="mb-4 bg-orange-100 border border-orange-400 text-orange-700 px-4 py-3 rounded relative">
-          <strong class="font-bold">💰 Insufficient Balance! </strong>
-          <span class="block sm:inline">You need Tsh {{ (parseFloat(stakeAmount) - userBalance).toFixed(0) }} more to place this bet.</span>
-          <router-link to="/deposite" class="ml-2 inline-block bg-emerald-600 text-white px-4 py-2 rounded-lg font-bold hover:bg-emerald-700 mt-2 text-center">
-            Deposit Now
-          </router-link>
-        </div>
-
-        <!-- INVALID STAKE MESSAGE -->
-        <div v-if="stakeAmount && !isValidStake && currentSelectionsCount > 0" class="mb-4 bg-yellow-100 border border-yellow-400 text-yellow-800 px-4 py-3 rounded relative">
-          <strong class="font-bold">Invalid Stake! </strong>
-          <span class="block sm:inline">Minimum stake is 100 Tsh</span>
-        </div>
-      </div>
-
-      <!-- Scrollable Content -->
-      <div class="flex-1 overflow-y-auto px-4 pb-4">
-        <!-- Sports Tab Content -->
+      <!-- Tab Content -->
+      <div class="p-6 overflow-y-auto">
+        <!-- Sports Tab -->
         <div v-if="activeTab === 'sports'" class="space-y-6">
           <!-- Booking Code Input -->
           <div v-if="sportsBets.length === 0" class="space-y-4">
@@ -522,7 +526,7 @@ const placeBet = async () => {
           </div>
         </div>
 
-        <!-- Virtuals Tab Content -->
+        <!-- Virtuals Tab -->
         <div v-else class="space-y-6">
           <!-- Virtuals Bets List -->
           <div v-if="virtualsBets.length > 0" class="space-y-4">
@@ -564,79 +568,83 @@ const placeBet = async () => {
           </div>
         </div>
       </div>
-    </div>
 
-    <!-- Bottom Section - Fixed -->
-    <div v-if="currentSelectionsCount > 0" class="border-t border-gray-200 bg-gray-50 p-2 flex-shrink-0">
-    
-
-      <!-- Stake Input -->
-      <div class="mb-2">
-        <label class="block text-sm font-medium text-gray-700 mb-2">Enter Stake Amount (Min: 100 Tsh)</label>
-        <div class="flex gap-2">
-          <input 
-            type="number" 
-            v-model="stakeAmount"
-            placeholder="Enter amount"
-            min="100"
-            step="100"
-            class="flex-1 px-1 py-1 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 text-lg"
-            :disabled="isLoading"
-          >
-          <span class="inline-flex items-center px-2 py-1 bg-gray-100 border border-gray-300 rounded-lg text-gray-700 font-medium">
-            Tsh
-          </span>
+      <!-- Bottom Section -->
+      <div v-if="currentSelectionsCount > 0" class="border-t border-gray-200 bg-gray-50 p-2">
+        <!-- Balance Info -->
+        <div class="mb-2 flex justify-between items-center bg-emerald-50 p-2 rounded-lg">
+          <span class="text-sm font-medium text-emerald-700">Your Balance:</span>
+          <span class="text-lg font-bold text-emerald-600">{{ formatBalance(userBalance) }}</span>
         </div>
-        <p v-if="stakeAmount && stakeAmount < 100" class="text-xs text-red-500 mt-1">
-          Minimum stake is 100 Tsh
+
+        <!-- Stake Input -->
+        <div class="mb-2">
+          <label class="block text-sm font-medium text-gray-700 mb-2">Enter Stake Amount (Min: 100 Tsh)</label>
+          <div class="flex gap-2">
+            <input 
+              type="number" 
+              v-model="stakeAmount"
+              placeholder="Enter amount"
+              min="100"
+              step="100"
+              class="flex-1 px-1 py-1 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 text-lg"
+              :disabled="isLoading"
+            >
+            <span class="inline-flex items-center px-2 py-1 bg-gray-100 border border-gray-300 rounded-lg text-gray-700 font-medium">
+              Tsh
+            </span>
+          </div>
+          <p v-if="stakeAmount && stakeAmount < 100" class="text-xs text-red-500 mt-1">
+            Minimum stake is 100 Tsh
+          </p>
+        </div>
+
+        <!-- Odds and Returns -->
+        <div class="bg-white rounded-lg p-2 mb-1 space-y-3">
+          <div class="flex justify-between items-center">
+            <span class="text-sm text-gray-600">Total Selections:</span>
+            <span class="font-bold text-emerald-600">{{ currentSelectionsCount }}</span>
+          </div>
+          <div class="flex justify-between items-center">
+            <span class="text-sm text-gray-600">Total Odds:</span>
+            <span class="font-bold text-emerald-600 text-lg">{{ currentTotalOdds.toFixed(2) }}</span>
+          </div>
+          <div class="flex justify-between items-center pt-1 border-t border-gray-200">
+            <span class="text-base font-medium">Potential Returns:</span>
+            <span class="text-xl font-bold text-emerald-600">Tsh {{ currentTotalReturns.toFixed(2) }}</span>
+          </div>
+        </div>
+
+        <!-- LOGIN REQUIRED BUTTON -->
+        <div v-if="!isAuthenticated" class="mb-2">
+          <router-link to="/login" class="block w-full py-2 bg-emerald-600 text-white font-bold rounded-lg text-center hover:bg-emerald-700">
+            Login to Place Bet
+          </router-link>
+        </div>
+
+        <!-- INSUFFICIENT BALANCE BUTTON -->
+        <div v-else-if="insufficientBalance" class="mb-2">
+          <router-link to="/deposite" class="block w-full py-2 bg-emerald-600 text-white font-bold rounded-lg text-center hover:bg-emerald-700">
+            Deposit to Continue
+          </router-link>
+        </div>
+
+        <!-- PLACE BET BUTTON -->
+        <button 
+          v-else
+          @click="placeBet"
+          :disabled="!canPlaceBet || isLoading"
+          class="w-full py-2 cursor-pointer bg-[#0AF0B5] text-white font-bold rounded-lg shadow-lg hover:bg-emerald-600 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+        >
+          <span v-if="isLoading">Placing Bet...</span>
+          <span v-else>Place Bet ({{ activeTab }})</span>
+        </button>
+
+        <!-- Terms -->
+        <p class="text-xs text-gray-500 text-center mt-2">
+          By placing a bet, you agree to our <a href="#" class="text-emerald-600 hover:underline">Terms & Conditions</a>
         </p>
       </div>
-
-      <!-- Odds and Returns -->
-      <div class="bg-white rounded-lg p-2 mb-1 space-y-1">
-        <div class="flex justify-between items-center">
-          <span class="text-sm text-gray-600">Total Selections:</span>
-          <span class="font-bold text-emerald-600">{{ currentSelectionsCount }}</span>
-        </div>
-        <div class="flex justify-between items-center">
-          <span class="text-sm text-gray-600">Total Odds:</span>
-          <span class="font-bold text-emerald-600 text-lg">{{ currentTotalOdds.toFixed(2) }}</span>
-        </div>
-        <div class="flex justify-between items-center pt-1 border-t border-gray-200">
-          <span class="text-base font-medium">Potential Returns:</span>
-          <span class="text-xl font-bold text-emerald-600">Tsh {{ currentTotalReturns.toFixed(2) }}</span>
-        </div>
-      </div>
-
-      <!-- LOGIN REQUIRED BUTTON -->
-      <div v-if="!isAuthenticated" class="mb-1">
-        <router-link to="/login" class="block w-full py-2 bg-emerald-600 text-white font-bold rounded-lg text-center hover:bg-emerald-700">
-          Login to Place Bet
-        </router-link>
-      </div>
-
-      <!-- INSUFFICIENT BALANCE BUTTON -->
-      <div v-else-if="insufficientBalance" class="mb-1">
-        <router-link to="/deposite" class="block w-full py-2 bg-emerald-600 text-white font-bold rounded-lg text-center hover:bg-emerald-700">
-          Deposit to Continue
-        </router-link>
-      </div>
-
-      <!-- PLACE BET BUTTON -->
-      <button 
-        v-else
-        @click="placeBet"
-        :disabled="!canPlaceBet || isLoading"
-        class="w-full py-1 cursor-pointer bg-[#0AF0B5] text-white font-bold rounded-lg shadow-lg hover:bg-emerald-600 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
-      >
-        <span v-if="isLoading">Placing Bet...</span>
-        <span v-else>Place Bet ({{ activeTab }})</span>
-      </button>
-
-      <!-- Terms -->
-      <p class="text-xs text-gray-500 text-center mt-2">
-        By placing a bet, you agree to our <a href="#" class="text-emerald-600 hover:underline">Terms & Conditions</a>
-      </p>
     </div>
   </div>
 </template>
@@ -653,25 +661,6 @@ const placeBet = async () => {
   opacity: 0;
 }
 
-/* Scrollbar styling */
-.overflow-y-auto::-webkit-scrollbar {
-  width: 6px;
-}
-
-.overflow-y-auto::-webkit-scrollbar-track {
-  background: #f1f1f1;
-  border-radius: 10px;
-}
-
-.overflow-y-auto::-webkit-scrollbar-thumb {
-  background: #0AF0B5;
-  border-radius: 10px;
-}
-
-.overflow-y-auto::-webkit-scrollbar-thumb:hover {
-  background: #09d6a0;
-}
-
 /* Your existing styles */
 @keyframes spin {
   from {
@@ -684,9 +673,5 @@ const placeBet = async () => {
 
 .animate-spin {
   animation: spin 1s linear infinite;
-}
-
-.h-full {
-  height: 100vh;
 }
 </style>

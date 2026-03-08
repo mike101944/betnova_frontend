@@ -1,10 +1,11 @@
 <script setup>
 import { ref, computed } from 'vue'
 import { useRouter } from 'vue-router'
-import { useAuthStore } from '../../store/authStore'
+// import { useAuthStore } from './stores/authStore'
 
-const router = useRouter()
-const authStore = useAuthStore()
+// Initialize router and store
+// const router = useRouter()
+// const authStore = useAuthStore()
 
 // Reactive states
 const phoneNumber = ref('')
@@ -12,6 +13,9 @@ const password = ref('')
 const showPassword = ref(false)
 const keepLoggedIn = ref(true)
 const errorMessage = ref('')
+
+// Use loading state from store
+// const isLoading = computed(() => authStore.isLoading)
 
 // Form validation
 const isPhoneValid = computed(() => {
@@ -34,43 +38,69 @@ const togglePassword = () => {
 // Handle login submission
 const handleLogin = async (e) => {
   e.preventDefault()
-
-  if (!isFormValid.value || authStore.isLoading) return
-
+  
+  if (!isFormValid.value || isLoading.value) return
+  
   errorMessage.value = ''
-
+  
+  const credentials = {
+    phoneNumber: phoneNumber.value,
+    password: password.value
+  }
+  
   try {
-    const result = await authStore.login({
-      phoneNumber: phoneNumber.value,
-      password: password.value
-    }, keepLoggedIn.value)
-
-    if (result.success) {
+    const result = await authStore.login(credentials, keepLoggedIn.value)
+    
+    // Check if result exists and has success property
+    if (result && result.success) {
       // Redirect to home page
       router.push('/')
     } else {
-      errorMessage.value = result.message || 'Login failed. Please try again.'
+      // Handle error - use result.message or default error
+      errorMessage.value = result?.message || 'Login failed. Please try again.'
     }
   } catch (error) {
     console.error('Login error:', error)
-    errorMessage.value = error.message || 'An unexpected error occurred'
+    errorMessage.value = 'An unexpected error occurred. Please try again.'
   }
+}
+
+// Pre-fill form with valid user data (for testing)
+const fillValidCredentials = () => {
+  phoneNumber.value = '712345678'
+  password.value = 'testpass456'
 }
 
 // Go to register page
 const goToRegister = () => {
   router.push('/join-now')
 }
+
+// For debugging - check store state
+const debugStore = () => {
+  console.log('Auth Store:', {
+    user: authStore.user,
+    isLoggedIn: authStore.isLoggedIn,
+    isLoading: authStore.isLoading,
+    isAuthenticated: authStore.isAuthenticated
+  })
+}
 </script>
 
 <template>
+  <!-- FORM TU - HAKUNA TABS -->
   <form @submit.prevent="handleLogin" class="login-form">
     <!-- Error Message Display -->
     <div v-if="errorMessage" class="error-message">
       {{ errorMessage }}
     </div>
 
-    <!-- Phone Number Input -->
+    <!-- Debug info (optional) -->
+    <div v-if="false" class="debug-info">
+      <button @click="debugStore" type="button">Debug Store</button>
+    </div>
+
+    <!-- Phone Number Input - FIXED WITH FLAG -->
     <div class="country-code-container" data-test-id="loginFormPhoneNumber">
       <div class="input-field phone-number-input">
         <label for="login-form-phoneNumber" class="form">
@@ -80,29 +110,46 @@ const goToRegister = () => {
         <div class="input-field-wrapper input-icon-undefined">
           <span class="fi fi-tz flag" title="TZ"></span>
           <span class="country-code">+255</span>
-          <input v-model="phoneNumber" data-test-id="loginFormPhoneNumber" id="login-form-phoneNumber"
-            :class="{ valid: isPhoneValid && phoneNumber, error: phoneNumber && !isPhoneValid }" name="phoneNumber"
-            type="tel" placeholder="" @input="errorMessage = ''" :disabled="authStore.isLoading" />
+          <input
+            v-model="phoneNumber"
+            data-test-id="loginFormPhoneNumber"
+            id="login-form-phoneNumber"
+            :class="{ valid: isPhoneValid && phoneNumber, error: phoneNumber && !isPhoneValid }"
+            name="phoneNumber"
+            type="tel"
+            placeholder=""
+            @input="errorMessage = ''"
+          />
         </div>
         <div class="help-text">
-          Enter your phone number without the country code (e.g., 712345678).
+          Enter your phone number without the country code (e.g., 123456789).
         </div>
       </div>
     </div>
 
-    <!-- Password Input -->
+    <!-- Password Input - FIXED VERSION -->
     <div class="input-field" autocomplete="new-password">
       <label for="login-form-password-input" class="form">
         Password
-        <span @click="togglePassword" class="optional underline" data-test-id="handle-show-password-button">
+        <span 
+          @click="togglePassword"
+          class="optional underline"
+          data-test-id="handle-show-password-button"
+        >
           {{ showPassword ? 'Hide' : 'Show' }}
         </span>
       </label>
       <div class="input-field-wrapper input-icon-undefined">
-        <input v-model="password" :type="showPassword ? 'text' : 'password'" id="login-form-password-input"
-          :class="{ valid: isPasswordValid && password, error: password && !isPasswordValid }" placeholder=""
-          autocomplete="new-password" name="password-input" @input="errorMessage = ''"
-          :disabled="authStore.isLoading" />
+        <input
+          v-model="password"
+          :type="showPassword ? 'text' : 'password'"
+          id="login-form-password-input"
+          :class="{ valid: isPasswordValid && password, error: password && !isPasswordValid }"
+          placeholder=""
+          autocomplete="new-password"
+          name="password-input"
+          @input="errorMessage = ''"
+        />
       </div>
       <div class="help-text">
         Min. 4 Characters
@@ -110,9 +157,14 @@ const goToRegister = () => {
     </div>
 
     <!-- Keep Me Logged In Checkbox -->
-    <span class="checkbox">
-      <input v-model="keepLoggedIn" id="keepLoggedIn" class="checkbox-input" type="checkbox"
-        data-test-id="on-input-button" :disabled="authStore.isLoading" />
+    <!-- <span class="checkbox">
+      <input
+        v-model="keepLoggedIn"
+        id="keepLoggedIn"
+        class="checkbox-input"
+        type="checkbox"
+        data-test-id="on-input-button"
+      />
       <label class="checkbox-label" for="keepLoggedIn">
         <span class="checkbox-label-extra-space">
           <span class="checkbox-input-custom with-border">
@@ -127,33 +179,52 @@ const goToRegister = () => {
           <span>Keep me logged in on this device</span>
         </span>
       </label>
-    </span>
+    </span> -->
 
     <!-- Login Button -->
-    <button :disabled="!isFormValid || authStore.isLoading" type="submit" data-test-id="logInButton"
-      class="button button-submit button-full">
-      <span v-if="!authStore.isLoading">LOG IN</span>
+    <button
+      :disabled="!isFormValid || isLoading"
+      type="submit"
+      data-test-id="logInButton"
+      class="button button-submit button-full"
+      :class="{ loading: isLoading }"
+    >
+      <span v-if="!isLoading">LOG IN</span>
       <span v-else class="loading-text">LOGGING IN...</span>
     </button>
 
     <!-- Forgot Password Link -->
-    <a href="#" class="info underline text-mid bold" data-test-id="nav-forgot-password-link"
-      @click.prevent="console.log('Forgot password clicked')">
+    <a 
+      href="#" 
+      class="info underline text-mid bold"
+      data-test-id="nav-forgot-password-link"
+      @click.prevent="console.log('Forgot password clicked')"
+    >
       Forgot Password?
     </a>
 
     <!-- Join Now Link -->
     <span class="join-now-text">
-      Don't have an account?
-      <a href="#" class="bold underline" data-test-id="track-link-click-link" @click.prevent="goToRegister">
+      Don't have an account? 
+      <a 
+        href="#" 
+        class="bold underline" 
+        data-test-id="track-link-click-link"
+        @click.prevent="goToRegister"
+      >
         Join Now
       </a>
     </span>
-  </form>
+
+  
+ 
+ </form>
 </template>
 
-<style scoped>
-/* Your existing styles remain exactly the same */
+<style  scoped>
+/* ===== STYLES ZA FORM TU ===== */
+
+/* Error message styling */
 .error-message {
   background-color: #fee;
   color: #c33;
@@ -165,34 +236,50 @@ const goToRegister = () => {
   font-size: 14px;
 }
 
+/* Loading state */
 .loading-text {
   display: inline-block;
   animation: pulse 1.5s infinite;
 }
 
 @keyframes pulse {
-  0% {
-    opacity: 0.6;
-  }
-
-  50% {
-    opacity: 1;
-  }
-
-  100% {
-    opacity: 0.6;
-  }
+  0% { opacity: 0.6; }
+  50% { opacity: 1; }
+  100% { opacity: 0.6; }
 }
 
-/* All your existing styles remain exactly the same */
+/* Quick fill button */
+.quick-fill {
+  margin-top: 15px;
+  padding-top: 15px;
+  border-top: 1px dashed #ddd;
+  text-align: center;
+}
+
+.quick-fill-btn {
+  background: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-radius: 4px;
+  padding: 8px 16px;
+  font-size: 12px;
+  color: #495057;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.quick-fill-btn:hover {
+  background: #e9ecef;
+  border-color: #39ecdd;
+}
+
+/* ===== FORM STYLES ===== */
 .login-form {
   flex-flow: column;
   display: flex;
   width: 100%;
 }
 
-.country-code-container,
-.phone-number-input {
+.country-code-container, .phone-number-input {
   width: 100%;
 }
 
@@ -215,18 +302,11 @@ label {
   display: inline-block;
 }
 
-p,
-.page-error,
-.notify,
-label,
-.info {
+p, .page-error, .notify, label, .info {
   font-weight: 400;
 }
 
-.button-text.medium,
-.notify,
-label,
-.info {
+.button-text.medium, .notify, label, .info {
   font-size: 14px;
   line-height: 18px;
 }
@@ -238,6 +318,7 @@ label,
   cursor: pointer;
 }
 
+/* ===== FLAG STYLES - IMPORTANT ===== */
 .fi {
   width: 1.33333em;
   line-height: 1em;
@@ -252,6 +333,7 @@ label,
   background-image: url(/src/assets/img/flags/tz-BjLtHeil.svg);
 }
 
+/* ===== PHONE INPUT FIX - FLAG NA CODE ZIKO VIZURI ===== */
 .phone-number-input .input-field-wrapper {
   background-color: #e6e7e2;
   border-radius: 2px 5px 5px 2px;
@@ -278,6 +360,8 @@ label,
   margin-right: 4px;
   white-space: nowrap;
   z-index: 2;
+  position: static; /* Override position absolute */
+  left: auto;
 }
 
 .phone-number-input input {
@@ -290,11 +374,13 @@ label,
   outline: none;
 }
 
+/* Remove default border from input */
 .phone-number-input input:focus {
   border: none !important;
   box-shadow: none;
 }
 
+/* Valid/Error states - apply to wrapper instead */
 .phone-number-input .input-field-wrapper:has(input.valid) {
   border-color: #39ecdd;
   background-color: #f9ffe6;
@@ -305,6 +391,9 @@ label,
   background-color: #fff6f6;
 }
 
+/* ===== END PHONE INPUT FIX ===== */
+
+/* Input field wrapper general */
 .input-field-wrapper {
   display: flex;
   position: relative;
@@ -312,6 +401,7 @@ label,
   box-sizing: border-box;
 }
 
+/* ===== FIX FOR PASSWORD INPUT SHRINKING ===== */
 .input-field-wrapper input {
   width: 100%;
   max-width: 100%;
@@ -326,6 +416,7 @@ label,
   transition: none;
 }
 
+/* Ensure both password and text inputs have identical box model */
 input[type="password"],
 input[type="text"] {
   box-sizing: border-box;
@@ -333,6 +424,7 @@ input[type="text"] {
   line-height: 1.1rem;
 }
 
+/* Valid state - only change border color, not box model */
 .input-field-wrapper input.valid {
   border-color: #39ecdd;
   background-color: #f9ffe6;
@@ -354,6 +446,7 @@ input[type="text"] {
   text-decoration: underline;
 }
 
+/* ===== CHECKBOX STYLES ===== */
 .checkbox {
   color: #252a2d;
   cursor: pointer;
@@ -412,6 +505,7 @@ input[type="text"] {
   width: 100%;
 }
 
+/* ===== BUTTON STYLES ===== */
 .button-full {
   width: 100% !important;
   max-width: none !important;
@@ -447,6 +541,7 @@ input[type="text"] {
   background: #e6e7e2;
 }
 
+/* ===== LINK STYLES ===== */
 .login-form .info {
   margin: 16px 0 8px;
   display: block;

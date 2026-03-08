@@ -1,6 +1,29 @@
 <script setup>
-import { ref, computed, inject } from 'vue'
+import { ref, computed, onMounted ,inject } from 'vue'
+import { useAuthStore } from '../../store/authStore'
+import { useUserData } from '../composables/useUserData'
 
+
+const authStore = useAuthStore()
+const { user, balance, transactions, refreshUserData } = useUserData()
+
+// Refresh data when component mounts
+onMounted(() => {
+  refreshUserData()
+})
+
+// Format balance
+const formatBalance = (amount) => {
+  return new Intl.NumberFormat('sw-TZ', {
+    style: 'currency',
+    currency: 'TZS'
+  }).format(amount || 0)
+}
+
+// Manual refresh (e.g., after deposit)
+const handleDepositComplete = async () => {
+  await refreshUserData()
+}
 
 </script>
 
@@ -57,22 +80,22 @@ import { ref, computed, inject } from 'vue'
             </div>
 
             <div data-v-3bcad4de="" class="header-balance-section">
-              <div data-v-3bcad4de="" class="icon-search">
-                <svg data-v-02f45589="" data-v-3bcad4de=""
-                    class="svg-icon icon-size-medium" 
-                    data-test-id="headerIconSearch"
-                    style="vertical-align: unset;">
-                    <use xlink:href="#icon-search"></use>
-                </svg>
-              </div>
+             
               
               <!-- Unauthenticated state - Login/Join buttons -->
               <span  data-v-2658eb31="" data-v-3bcad4de="">
-                <span data-v-2658eb31="" class="header-buttons">
+                <span v-if="!authStore.isAuthenticated" data-v-2658eb31="" class="header-buttons">
                   <a data-v-2658eb31="" href="/login" class="button button-accent"
                       data-test-id="track-top-nav-link">Login</a>
                   <a data-v-2658eb31="" href="/register"
                       class="button button-primary" data-test-id="track-top-nav-link">Register</a>
+                </span>
+                <span v-else data-v-2658eb31="" class="header-buttons">
+                  <a data-v-2658eb31="" href="/deposite" class="border border-sky-300 text-white font-bold px-4 py-1 rounded-l-xl rounded-r-md "  
+                      data-test-id="track-top-nav-link"><span class="text-white">{{ formatBalance(authStore.userBalance) }}</span></a>
+                      <a href="/account" class="group flex items-center  p-2 rounded-lg transition-all duration-200" data-test-id="track-top-nav-link">
+                        <i class="fas fa-user-circle text-[30px] border border-amber-100 rounded-full text-emerald-500 "></i>
+                      </a>
                 </span>
               </span>
 

@@ -1,12 +1,12 @@
 <script setup>
 import { ref, computed, onMounted, onBeforeUnmount, watch } from 'vue'
 import { useAuthStore } from '../../store/authStore'
-import api from '../../services/api'
+import api from '../../services/api' // Only using api
 
 // Active tab
 const activeTab = ref('sports')
 const bookingCode = ref('')
-const stakeAmount = ref('') // Changed from 100 to empty string
+const stakeAmount = ref(100)
 
 // Auth store
 const authStore = useAuthStore()
@@ -14,7 +14,6 @@ const authStore = useAuthStore()
 // Loading and error states
 const isLoading = ref(false)
 const error = ref(null)
-const success = ref(null)
 const loadingMessage = ref('')
 
 // Sports Bets - Load from localStorage
@@ -35,14 +34,7 @@ const userBalance = computed(() => {
 
 // Check if user has sufficient balance
 const insufficientBalance = computed(() => {
-  const stake = parseFloat(stakeAmount.value) || 0
-  return stake > userBalance.value
-})
-
-// Check if stake is valid (minimum 100)
-const isValidStake = computed(() => {
-  const stake = parseFloat(stakeAmount.value) || 0
-  return stake >= 100
+  return parseFloat(stakeAmount.value) > userBalance.value
 })
 
 // Format balance
@@ -63,44 +55,23 @@ onMounted(() => {
     authStore.fetchUserBalance()
   }
   
-  // Listen for storage changes
   window.addEventListener('storage', handleStorageChange)
-  
-  // Listen for betslip updates from games component
-  window.addEventListener('betslip-update', handleBetslipUpdate)
 })
 
 onBeforeUnmount(() => {
   window.removeEventListener('storage', handleStorageChange)
-  window.removeEventListener('betslip-update', handleBetslipUpdate)
 })
 
-// Handle betslip updates from games component
-const handleBetslipUpdate = (event) => {
-  const bets = event.detail || []
-  // Update sportsBets with the new data
-  // You might need to filter based on your data structure
-  sportsBets.value = bets
-  console.log('Betslip updated from event:', bets)
-}
-
-// Handle storage changes from other tabs
+// Handle storage changes
 const handleStorageChange = (event) => {
   if (event.key === 'betslip_selections') {
     loadFromLocalStorage()
   }
 }
 
-// Save to localStorage and notify other components
-const saveToLocalStorage = (bets) => {
-  localStorage.setItem('betslip_selections', JSON.stringify(bets))
-  // Dispatch event for same-tab components
-  window.dispatchEvent(new CustomEvent('betslip-update', { detail: bets }))
-}
-
-// Watch sportsBets and save changes
+// Save to localStorage
 watch(sportsBets, (newBets) => {
-  saveToLocalStorage(newBets)
+  localStorage.setItem('betslip_selections', JSON.stringify(newBets))
 }, { deep: true })
 
 // Load from localStorage
@@ -132,8 +103,7 @@ const totalSportsOdds = computed(() => {
 })
 
 const totalSportsReturns = computed(() => {
-  const stake = parseFloat(stakeAmount.value) || 0
-  return stake * totalSportsOdds.value
+  return (parseFloat(stakeAmount.value) || 0) * totalSportsOdds.value
 })
 
 const virtualsSelections = computed(() => virtualsBets.value)
@@ -146,8 +116,7 @@ const totalVirtualsOdds = computed(() => {
 })
 
 const totalVirtualsReturns = computed(() => {
-  const stake = parseFloat(stakeAmount.value) || 0
-  return stake * totalVirtualsOdds.value
+  return (parseFloat(stakeAmount.value) || 0) * totalVirtualsOdds.value
 })
 
 const currentSelectionsCount = computed(() => {
@@ -165,9 +134,8 @@ const currentTotalReturns = computed(() => {
 })
 
 const canPlaceBet = computed(() => {
-  const stake = parseFloat(stakeAmount.value) || 0
   return currentSelectionsCount.value > 0 && 
-         stake >= 100 && 
+         parseFloat(stakeAmount.value) >= 100 && 
          !isLoading.value &&
          isAuthenticated.value &&
          !insufficientBalance.value
@@ -182,25 +150,15 @@ const removeVirtualBet = (index) => {
   virtualsBets.value.splice(index, 1)
 }
 
-// Auto-hide success message after 3 seconds
-const showSuccessMessage = (message) => {
-  success.value = message
-  setTimeout(() => {
-    success.value = null
-  }, 3000)
-}
-
 // Load booking code using API
 const loadBookingCode = async () => {
   if (!bookingCode.value) {
     error.value = 'Please enter a booking code'
-    setTimeout(() => { error.value = null }, 3000)
     return
   }
   
   if (!isAuthenticated.value) {
     error.value = 'Please login to load booking codes'
-    setTimeout(() => { error.value = null }, 3000)
     return
   }
   
@@ -209,6 +167,7 @@ const loadBookingCode = async () => {
   error.value = null
   
   try {
+    // Using api directly
     const response = await api.get(`/bets/booking/${bookingCode.value}`)
     
     if (response.data.success && response.data.data) {
@@ -227,13 +186,12 @@ const loadBookingCode = async () => {
         
         sportsBets.value = loadedBets
         bookingCode.value = ''
-        showSuccessMessage(`✅ Successfully loaded ${loadedBets.length} selection(s)`)
+        alert(`Successfully loaded ${loadedBets.length} selection(s)`)
       }
     }
   } catch (err) {
     console.error('Error loading booking code:', err)
     error.value = err.response?.data?.message || 'Failed to load booking code'
-    setTimeout(() => { error.value = null }, 3000)
   } finally {
     isLoading.value = false
     loadingMessage.value = ''
@@ -250,14 +208,12 @@ const placeBet = async () => {
   
   if (selections.length === 0) {
     error.value = 'No selections to place'
-    setTimeout(() => { error.value = null }, 3000)
     return
   }
   
   const stake = parseFloat(stakeAmount.value)
   if (stake < 100) {
     error.value = 'Minimum stake is 100 Tsh'
-    setTimeout(() => { error.value = null }, 3000)
     return
   }
   
@@ -275,6 +231,7 @@ const placeBet = async () => {
       time: selection.time
     }))
     
+    // Using api directly
     const response = await api.post('/bets', {
       selections: formattedSelections,
       stake: stake
@@ -284,8 +241,7 @@ const placeBet = async () => {
       // Refresh balance
       await authStore.fetchUserBalance()
       
-      // Show toast message
-      showSuccessMessage(`✅ Bet placed successfully! Code: ${response.data.data.bookingCode}`)
+      alert(`✅ Bet placed successfully!\n\nBooking Code: ${response.data.data.bookingCode}\nPotential Return: Tsh ${response.data.data.potentialReturn.toFixed(2)}`)
       
       // Clear betslip
       if (activeTab.value === 'sports') {
@@ -294,11 +250,7 @@ const placeBet = async () => {
         virtualsBets.value = []
       }
       
-      // Clear stake amount
-      stakeAmount.value = ''
-      
-      // Dispatch event to clear selections in games component
-      window.dispatchEvent(new CustomEvent('bets-cleared'))
+      stakeAmount.value = 100
     }
   } catch (err) {
     console.error('Error placing bet:', err)
@@ -311,7 +263,6 @@ const placeBet = async () => {
     } else {
       error.value = 'Failed to place bet. Please try again.'
     }
-    setTimeout(() => { error.value = null }, 3000)
   } finally {
     isLoading.value = false
     loadingMessage.value = ''
@@ -319,83 +270,70 @@ const placeBet = async () => {
 }
 </script>
 
-
 <template>
-  <div class="h-full flex flex-col">
-    <!-- Toast Messages -->
-    <Transition name="fade">
-      <div v-if="success" class="fixed top-4 right-4 z-50 bg-emerald-500 text-white px-6 py-3 rounded-lg shadow-lg flex items-center gap-2">
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-        </svg>
-        {{ success }}
+  <!-- Your template remains exactly the same as before -->
+  <div class="h-full">
+    <!-- Header with Balance Display -->
+    <div class="max-w-2xl mx-auto mb-4 px-3 flex justify-between items-center">
+      <div>
+        <h1 class="text-xl md:text-3xl text-gray-500">Bet Slip</h1>
+        <p class="text-gray-600 mt-1">Review and place your bets</p>
       </div>
-    </Transition>
-
-    <Transition name="fade">
-      <div v-if="error" class="fixed top-4 right-4 z-50 bg-red-500 text-white px-6 py-3 rounded-lg shadow-lg flex items-center gap-2">
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-        </svg>
-        {{ error }}
-      </div>
-    </Transition>
-
-    <!-- Loading Overlay -->
-    <div v-if="isLoading" class="fixed inset-0 bg-transparent flex items-center justify-center z-40">
-      <div class="bg-white p-4 rounded-lg shadow-xl">
-        <div class="animate-spin rounded-full h-8 w-8 border-b-2 border-emerald-600 mx-auto"></div>
-        <p class="text-gray-700 mt-2">{{ loadingMessage }}</p>
+      
+      <!-- Balance Display (only when authenticated) -->
+      <div v-if="isAuthenticated" class="bg-emerald-50 border border-emerald-200 rounded-lg px-4 py-2">
+        <p class="text-xs text-emerald-700">Your Balance</p>
+        <p class="text-lg font-bold text-emerald-600">{{ formatBalance(userBalance) }}</p>
+        
       </div>
     </div>
 
-    <!-- Header - Fixed -->
-    <div class="flex-shrink-0">
-      <div class="max-w-2xl mx-auto mb-4 px-3">
-        <!-- Authenticated Header -->
-        <div v-if="isAuthenticated" class="bg-emerald-50 border flex items-center justify-between border-emerald-200 rounded-lg px-4 py-2 w-full">
-          <div>
-            <p class="text-xs text-emerald-700">Your Balance</p>
-            <p class="text-lg font-bold text-emerald-600">{{ formatBalance(userBalance) }}</p>
-          </div>
-          <div>
-            <router-link 
-              to="/bets" 
-              class="bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-200 flex items-center gap-2"
-            >
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
-              </svg>
-              My Bets
-            </router-link>
-          </div>
-        </div>
-
-        <!-- Unauthenticated Header -->
-        <div v-if="!isAuthenticated" class="bg-emerald-50 border flex items-center justify-between border-emerald-200 rounded-lg px-4 py-2 w-full">
-          <div>
-            <p class="text-gray-600 mt-1">Review and place your bets</p>
-          </div>
-          <div>
-            <router-link 
-              to="/login" 
-              class="bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-200"
-            >
-              Login
-            </router-link>
-          </div>
+    <!-- Main Bet Slip Card -->
+    <div class="w-full bg-transparent overflow-hidden">
+      <!-- Loading Overlay -->
+      <div v-if="isLoading" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+        <div class="bg-white p-4 rounded-lg shadow-xl">
+          <div class="animate-spin rounded-full h-8 w-8 border-b-2 border-emerald-600 mx-auto"></div>
+          <p class="text-gray-700 mt-2">{{ loadingMessage }}</p>
         </div>
       </div>
-    </div>
 
-    <!-- Main Scrollable Area -->
-    <div class="flex-1 overflow-hidden flex flex-col">
-      <!-- Tabs Header - Fixed -->
-      <div class="flex border-b border-gray-200 bg-gray-50 w-full flex-shrink-0">
+      <!-- NOT AUTHENTICATED MESSAGE -->
+      <div v-if="!isAuthenticated && currentSelectionsCount > 0" class="mx-4 mb-4 bg-yellow-100 border border-yellow-400 text-yellow-800 px-4 py-3 rounded relative">
+        <strong class="font-bold">🔐 Login Required! </strong>
+        <span class="block sm:inline">Please login to place bets.</span>
+        <router-link to="/login" class="ml-2 inline-block bg-emerald-600 text-white px-4 py-2 rounded-lg font-bold hover:bg-emerald-700 mt-2 text-center">
+          Login Now
+        </router-link>
+      </div>
+
+      <!-- INSUFFICIENT BALANCE MESSAGE -->
+      <div v-if="isAuthenticated && insufficientBalance && currentSelectionsCount > 0" class="mx-4 mb-4 bg-orange-100 border border-orange-400 text-orange-700 px-4 py-3 rounded relative">
+        <strong class="font-bold">💰 Insufficient Balance! </strong>
+        <span class="block sm:inline">You need Tsh {{ (stakeAmount - userBalance).toFixed(0) }} more to place this bet.</span>
+        <router-link to="/deposite" class="ml-2 inline-block bg-emerald-600 text-white px-4 py-2 rounded-lg font-bold hover:bg-emerald-700 mt-2 text-center">
+          Deposit Now
+        </router-link>
+      </div>
+
+      <!-- Error Alert -->
+      <div v-if="error" class="mx-4 mb-4 bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+        <strong class="font-bold">Error! </strong>
+        <span class="block sm:inline">{{ error }}</span>
+        <button @click="error = null" class="absolute top-0 bottom-0 right-0 px-4 py-3">
+          <svg class="fill-current h-6 w-6 text-red-500" role="button" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+            <title>Close</title>
+            <path d="M14.348 14.849a1.2 1.2 0 0 1-1.697 0L10 11.819l-2.651 3.029a1.2 1.2 0 1 1-1.697-1.697l2.758-3.15-2.759-3.152a1.2 1.2 0 1 1 1.697-1.697L10 8.183l2.651-3.031a1.2 1.2 0 1 1 1.697 1.697l-2.758 3.152 2.758 3.15a1.2 1.2 0 0 1 0 1.698z"/>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Tabs Header -->
+      <div class="flex border-b border-gray-200 bg-gray-50 w-full">
         <!-- Sports Tab -->
         <button
           @click="activeTab = 'sports'"
-          class="flex-1 py-2 px-6 text-sm md:text-base font-medium transition-all duration-200 relative group"
+          class="flex-1 py-4 px-6 text-sm md:text-base font-medium transition-all duration-200 relative group"
           :class="activeTab === 'sports' 
             ? 'text-emerald-600 bg-white' 
             : 'text-gray-500 hover:text-gray-700 hover:bg-gray-100'"
@@ -416,7 +354,7 @@ const placeBet = async () => {
         <!-- Virtuals Tab -->
         <button
           @click="activeTab = 'virtuals'"
-          class="flex-1 py-2 px-6 text-sm md:text-base font-medium transition-all duration-200 relative group"
+          class="flex-1 py-4 px-6 text-sm md:text-base font-medium transition-all duration-200 relative group"
           :class="activeTab === 'virtuals' 
             ? 'text-emerald-600 bg-white' 
             : 'text-gray-500 hover:text-gray-700 hover:bg-gray-100'"
@@ -435,27 +373,9 @@ const placeBet = async () => {
         </button>
       </div>
 
-      <!-- Warning Messages -->
-      <div class="flex-shrink-0 px-4">
-        <!-- INSUFFICIENT BALANCE MESSAGE -->
-        <div v-if="isAuthenticated && insufficientBalance && currentSelectionsCount > 0" class="mb-4 bg-orange-100 border border-orange-400 text-orange-700 px-4 py-3 rounded relative">
-          <strong class="font-bold">💰 Insufficient Balance! </strong>
-          <span class="block sm:inline">You need Tsh {{ (parseFloat(stakeAmount) - userBalance).toFixed(0) }} more to place this bet.</span>
-          <router-link to="/deposite" class="ml-2 inline-block bg-emerald-600 text-white px-4 py-2 rounded-lg font-bold hover:bg-emerald-700 mt-2 text-center">
-            Deposit Now
-          </router-link>
-        </div>
-
-        <!-- INVALID STAKE MESSAGE -->
-        <div v-if="stakeAmount && !isValidStake && currentSelectionsCount > 0" class="mb-4 bg-yellow-100 border border-yellow-400 text-yellow-800 px-4 py-3 rounded relative">
-          <strong class="font-bold">Invalid Stake! </strong>
-          <span class="block sm:inline">Minimum stake is 100 Tsh</span>
-        </div>
-      </div>
-
-      <!-- Scrollable Content -->
-      <div class="flex-1 overflow-y-auto px-4 pb-4">
-        <!-- Sports Tab Content -->
+      <!-- Tab Content -->
+      <div class="p-6 overflow-y-auto">
+        <!-- Sports Tab -->
         <div v-if="activeTab === 'sports'" class="space-y-6">
           <!-- Booking Code Input -->
           <div v-if="sportsBets.length === 0" class="space-y-4">
@@ -522,7 +442,7 @@ const placeBet = async () => {
           </div>
         </div>
 
-        <!-- Virtuals Tab Content -->
+        <!-- Virtuals Tab -->
         <div v-else class="space-y-6">
           <!-- Virtuals Bets List -->
           <div v-if="virtualsBets.length > 0" class="space-y-4">
@@ -564,129 +484,84 @@ const placeBet = async () => {
           </div>
         </div>
       </div>
-    </div>
 
-    <!-- Bottom Section - Fixed -->
-    <div v-if="currentSelectionsCount > 0" class="border-t border-gray-200 bg-gray-50 p-2 flex-shrink-0">
-    
-
-      <!-- Stake Input -->
-      <div class="mb-2">
-        <label class="block text-sm font-medium text-gray-700 mb-2">Enter Stake Amount (Min: 100 Tsh)</label>
-        <div class="flex gap-2">
-          <input 
-            type="number" 
-            v-model="stakeAmount"
-            placeholder="Enter amount"
-            min="100"
-            step="100"
-            class="flex-1 px-1 py-1 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 text-lg"
-            :disabled="isLoading"
-          >
-          <span class="inline-flex items-center px-2 py-1 bg-gray-100 border border-gray-300 rounded-lg text-gray-700 font-medium">
-            Tsh
-          </span>
+      <!-- Bottom Section -->
+      <div v-if="currentSelectionsCount > 0" class="border-t border-gray-200 bg-gray-50 p-2">
+        <!-- Balance Info -->
+        <div class="mb-2 flex justify-between items-center bg-emerald-50 p-2 rounded-lg">
+          <span class="text-sm font-medium text-emerald-700">Your Balance:</span>
+          <span class="text-lg font-bold text-emerald-600">{{ formatBalance(userBalance) }}</span>
         </div>
-        <p v-if="stakeAmount && stakeAmount < 100" class="text-xs text-red-500 mt-1">
-          Minimum stake is 100 Tsh
+
+        <!-- Stake Input -->
+        <div class="mb-2">
+          <label class="block text-sm font-medium text-gray-700 mb-2">Enter Stake Amount (Min: 100 Tsh)</label>
+          <div class="flex gap-2">
+            <input 
+              type="number" 
+              v-model="stakeAmount"
+              placeholder="e.g., 100"
+              min="100"
+              step="100"
+              class="flex-1 px-1 py-1 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 text-lg"
+              :disabled="isLoading"
+            >
+            <span class="inline-flex items-center px-2 py-1 bg-gray-100 border border-gray-300 rounded-lg text-gray-700 font-medium">
+              Tsh
+            </span>
+          </div>
+        </div>
+
+        <!-- Odds and Returns -->
+        <div class="bg-white rounded-lg p-2 mb-1 space-y-3">
+          <div class="flex justify-between items-center">
+            <span class="text-sm text-gray-600">Total Selections:</span>
+            <span class="font-bold text-emerald-600">{{ currentSelectionsCount }}</span>
+          </div>
+          <div class="flex justify-between items-center">
+            <span class="text-sm text-gray-600">Total Odds:</span>
+            <span class="font-bold text-emerald-600 text-lg">{{ currentTotalOdds.toFixed(2) }}</span>
+          </div>
+          <div class="flex justify-between items-center pt-1 border-t border-gray-200">
+            <span class="text-base font-medium">Potential Returns:</span>
+            <span class="text-xl font-bold text-emerald-600">Tsh {{ currentTotalReturns.toFixed(2) }}</span>
+          </div>
+        </div>
+
+        <!-- LOGIN REQUIRED BUTTON -->
+        <div v-if="!isAuthenticated" class="mb-2">
+          <router-link to="/login" class="block w-full py-2 bg-emerald-600 text-white font-bold rounded-lg text-center hover:bg-emerald-700">
+            Login to Place Bet
+          </router-link>
+        </div>
+
+        <!-- INSUFFICIENT BALANCE BUTTON -->
+        <div v-else-if="insufficientBalance" class="mb-2">
+          <router-link to="/deposite" class="block w-full py-2 bg-emerald-600 text-white font-bold rounded-lg text-center hover:bg-emerald-700">
+            Deposit to Continue
+          </router-link>
+        </div>
+
+        <!-- PLACE BET BUTTON -->
+        <button 
+          v-else
+          @click="placeBet"
+          :disabled="!canPlaceBet || isLoading"
+          class="w-full py-2 cursor-pointer bg-[#0AF0B5] text-white font-bold rounded-lg shadow-lg hover:bg-emerald-600 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+        >
+          <span v-if="isLoading">Placing Bet...</span>
+          <span v-else>Place Bet ({{ activeTab }})</span>
+        </button>
+
+        <!-- Terms -->
+        <p class="text-xs text-gray-500 text-center mt-2">
+          By placing a bet, you agree to our <a href="#" class="text-emerald-600 hover:underline">Terms & Conditions</a>
         </p>
       </div>
-
-      <!-- Odds and Returns -->
-      <div class="bg-white rounded-lg p-2 mb-1 space-y-1">
-        <div class="flex justify-between items-center">
-          <span class="text-sm text-gray-600">Total Selections:</span>
-          <span class="font-bold text-emerald-600">{{ currentSelectionsCount }}</span>
-        </div>
-        <div class="flex justify-between items-center">
-          <span class="text-sm text-gray-600">Total Odds:</span>
-          <span class="font-bold text-emerald-600 text-lg">{{ currentTotalOdds.toFixed(2) }}</span>
-        </div>
-        <div class="flex justify-between items-center pt-1 border-t border-gray-200">
-          <span class="text-base font-medium">Potential Returns:</span>
-          <span class="text-xl font-bold text-emerald-600">Tsh {{ currentTotalReturns.toFixed(2) }}</span>
-        </div>
-      </div>
-
-      <!-- LOGIN REQUIRED BUTTON -->
-      <div v-if="!isAuthenticated" class="mb-1">
-        <router-link to="/login" class="block w-full py-2 bg-emerald-600 text-white font-bold rounded-lg text-center hover:bg-emerald-700">
-          Login to Place Bet
-        </router-link>
-      </div>
-
-      <!-- INSUFFICIENT BALANCE BUTTON -->
-      <div v-else-if="insufficientBalance" class="mb-1">
-        <router-link to="/deposite" class="block w-full py-2 bg-emerald-600 text-white font-bold rounded-lg text-center hover:bg-emerald-700">
-          Deposit to Continue
-        </router-link>
-      </div>
-
-      <!-- PLACE BET BUTTON -->
-      <button 
-        v-else
-        @click="placeBet"
-        :disabled="!canPlaceBet || isLoading"
-        class="w-full py-1 cursor-pointer bg-[#0AF0B5] text-white font-bold rounded-lg shadow-lg hover:bg-emerald-600 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
-      >
-        <span v-if="isLoading">Placing Bet...</span>
-        <span v-else>Place Bet ({{ activeTab }})</span>
-      </button>
-
-      <!-- Terms -->
-      <p class="text-xs text-gray-500 text-center mt-2">
-        By placing a bet, you agree to our <a href="#" class="text-emerald-600 hover:underline">Terms & Conditions</a>
-      </p>
     </div>
   </div>
 </template>
 
 <style scoped>
-/* Fade animation for toasts */
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.3s ease;
-}
-
-.fade-enter-from,
-.fade-leave-to {
-  opacity: 0;
-}
-
-/* Scrollbar styling */
-.overflow-y-auto::-webkit-scrollbar {
-  width: 6px;
-}
-
-.overflow-y-auto::-webkit-scrollbar-track {
-  background: #f1f1f1;
-  border-radius: 10px;
-}
-
-.overflow-y-auto::-webkit-scrollbar-thumb {
-  background: #0AF0B5;
-  border-radius: 10px;
-}
-
-.overflow-y-auto::-webkit-scrollbar-thumb:hover {
-  background: #09d6a0;
-}
-
 /* Your existing styles */
-@keyframes spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-.animate-spin {
-  animation: spin 1s linear infinite;
-}
-
-.h-full {
-  height: 100vh;
-}
 </style>

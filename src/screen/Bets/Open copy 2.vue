@@ -14,33 +14,6 @@ onMounted(async () => {
 const hasData = computed(() => {
   return openBets.value && openBets.value.length > 0
 })
-
-// Helper function to format date
-const formatBetDate = (dateString) => {
-  if (!dateString) return { time: 'N/A', date: 'N/A' }
-  const date = new Date(dateString)
-  return {
-    time: date.toLocaleTimeString(),
-    date: date.toLocaleDateString()
-  }
-}
-
-// Helper function to get selections count
-const getSelectionsCount = (bet) => {
-  if (!bet.selections) return 0
-  try {
-    // If it's already an array
-    if (Array.isArray(bet.selections)) {
-      return bet.selections.length
-    }
-    // If it's a JSON string
-    const parsed = JSON.parse(bet.selections)
-    return Array.isArray(parsed) ? parsed.length : 0
-  } catch (e) {
-    console.error('Error parsing selections:', e)
-    return 0
-  }
-}
 </script>
 
 <template>
@@ -70,9 +43,8 @@ const getSelectionsCount = (bet) => {
             <div data-v-34417751="" class="bet-line bet-header">
               <div data-v-34417751="" class="header-container">
                 <div data-v-34417751="" class="header-title">
-                  <!-- Use createdAt instead of placedAt -->
-                  <span data-v-34417751="" class="time">{{ formatBetDate(bet.createdAt).time }},&nbsp; </span> 
-                  <span data-v-34417751="" class="date">{{ formatBetDate(bet.createdAt).date }}</span>
+                  <span data-v-34417751="" class="time">{{ new Date(bet.createdAt ).toLocaleTimeString() }},&nbsp; </span> 
+                  <span data-v-34417751="" class="date">{{ new Date(bet.createdAt ).toLocaleDateString() }}</span>
                   <span data-v-34417751="" class="bet-live-now"></span>
                 </div>
                 <div data-v-34417751="" class="id" data-test-id="bet-id">ID: #{{ bet.id.toString().slice(0,8) }} </div>
@@ -80,10 +52,7 @@ const getSelectionsCount = (bet) => {
             </div>
             
             <div data-v-34417751="" class="bet-line bet-status">
-              <!-- Parse selections to get actual count -->
-              <div class="outcome">
-                {{ getSelectionsCount(bet) }}/{{ getSelectionsCount(bet) }}
-              </div>
+              <div class="outcome">{{ bet.selections?.length || 0 }}/{{ bet.selections?.length || 0 }} </div>
               <div data-v-beccd7ea="" class="cashout-container">
                 <span data-v-beccd7ea="" class="cashout-title">Cashout</span> 
                 <span data-v-beccd7ea="" class="cashout-icon">

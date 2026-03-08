@@ -1,38 +1,18 @@
-
 <script setup>
 import { ref, computed, onMounted } from 'vue';
 import { useRouter } from 'vue-router'
-import settledBetsData from './assets/settledBetsData';
-
+import { useBets } from '../composables/useBets'
 import Loader from '../../assets/loader/default-spinner-BIEd0VkD.gif'
 
 const router = useRouter();
-const settledBets = ref([]);
-const isLoading = ref(true);
+const { settledBets, isLoading, error, fetchUserBets, formatCurrency } = useBets()
 
-onMounted(() => {
-    // set time out
-
-    setTimeout(()=>{
-        settledBets.value = settledBetsData;
-         // DEBUG: Angalia data structure
-    console.log('Settled bets loaded:', settledBets.value);
-    console.log('First bet:', settledBets.value[0]);
-    console.log('First bet ID type:', typeof settledBets.value[0]?.id);
-    
-    // Store in localStorage
-    localStorage.setItem('settledBets', JSON.stringify(settledBets.value));
-        isLoading.value = false;
-
-    },1500)
-  
-    
-   
-});
+// Fetch bets on mount
+onMounted(async () => {
+  await fetchUserBets()
+})
 
 const goToBetDetails = (bet) => {
-    console.log('Navigating to bet:', bet.id, 'Type:', typeof bet.id);
-    
     router.push({
         path: `/bets/regular/${bet.id}`,
         state: {
@@ -41,9 +21,9 @@ const goToBetDetails = (bet) => {
         }
     });
 }
-    // compute propertise for statistics
 
-    const wonCount = computed(() => {
+// Compute statistics
+const wonCount = computed(() => {
   return settledBets.value.filter(bet => bet.result === 'WON').length;
 });
 
@@ -51,102 +31,130 @@ const lostCount = computed(() => {
   return settledBets.value.filter(bet => bet.result === 'LOST').length;
 });
 
-const voidCount = computed(() => {
-  return settledBets.value.filter(bet => bet.result === 'VOID').length;
+const totalWon = computed(() => {
+  return settledBets.value
+    .filter(bet => bet.result === 'WON')
+    .reduce((sum, bet) => sum + parseFloat(bet.potentialReturn || 0), 0);
 });
 
+const hasData = computed(() => {
+  return settledBets.value && settledBets.value.length > 0
+})
 </script>
 
 <template>
- <div data-v-beccd7ea="" class="bets-list-container">
+  <div data-v-beccd7ea="" class="bets-list-container">
+    <!-- LOADER SECTION -->
+    <div v-if="isLoading" class="loading-container">
+      <img :src="Loader" alt="Loading..." />
+    </div>
 
-                    <!-- LOADER SECTION -->
-                    <div v-if="isLoading" class="loading-container">
-                        <img :src="Loader" alt="Loading..." />
-                    </div>
+    <!-- ERROR SECTION -->
+    <div v-else-if="error" class="error-container">
+      <p class="text-red-600">{{ error }}</p>
+    </div>
 
-            <div v-else>
-                <section data-v-beccd7ea="" aria-hidden="false" class="tab-section">
-                    <!-- <div data-v-beccd7ea="" class="hide-lose-container">
-                        <span data-v-beccd7ea="" class="text-small">HideLost</span>
-                            
-                        <div data-v-f36b6f6d="" data-v-beccd7ea="" class="toggle-container"
-                            data-test-id="settled-filter-toggle">
-                            <div data-v-f36b6f6d="" data-test-id="toggle-container" class="toggle"><button data-v-f36b6f6d=""
-                                    data-test-id="select-button" class="active no-padding"></button><button data-v-f36b6f6d=""
-                                    data-test-id="select-button" class="no-padding"></button></div>
-                        </div>
-                    </div> -->
+    <div v-else>
+      <section data-v-beccd7ea="" aria-hidden="false" class="tab-section">
+        <!-- Statistics Summary -->
+        <div v-if="hasData" class="stats-summary">
+          <div class="stat-card">
+            <span class="stat-label">Total Settled</span>
+            <span class="stat-value">{{ settledBets.length }}</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-label">Won</span>
+            <span class="stat-value text-green-600">{{ wonCount }}</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-label">Lost</span>
+            <span class="stat-value text-red-600">{{ lostCount }}</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-label">Total Won</span>
+            <span class="stat-value text-green-600">{{ formatCurrency(totalWon) }}</span>
+          </div>
+        </div>
 
-                    <div >
-                        <div  v-if="settledBets.length === 0"  data-v-34417751="" class="bet" data-test-id="bet-settled-9336337628" data-test-class="bet-settled">
+        <!-- No Data State -->
+        <div v-if="!hasData" data-v-34417751="" class="bet" data-test-id="bet-settled-9336337628" data-test-class="bet-settled">
+          <div class="empty-state">
+            No settled bets found
+          </div>
+        </div>
 
-                            <div class="empty-state">
-                                No settled bets found
-                            </div>
-
-                        </div>
-
-                        <div v-else>
-
-                        
-                            <div 
-                            v-for="bet in settledBets" 
-                            :key="bet.id"
-                            @click="goToBetDetails(bet)"
-                            
-                            data-v-34417751="" class="bet" data-test-id="bet-settled-9336337628" data-test-class="bet-settled">
-                           
-
-                                    <div data-v-34417751="" class="bet-line bet-header">
-                                        <div data-v-34417751="" class="header-container">
-                                            <div data-v-34417751="" class="header-title"><span data-v-34417751="" class="time">
-                                                    {{ bet.time }},&nbsp; </span> <span data-v-34417751="" class="date">{{ bet.date }}</span> <span
-                                                    data-v-34417751="" class="bet-live-now"></span></div>
-                                            <div data-v-34417751="" class="id" data-test-id="bet-id">ID: #{{ bet.id }} <!----></div>
-                                        </div>
-                                    </div>
-                                    <div data-v-34417751="" class="bet-line bet-status">
-                                        <div data-v-34417751="" class="result-container"><span data-v-34417751=""
-                                                class="result-text result-text-grey">Result:
-                                            </span> <span data-v-34417751="" class="positive status-text">WON <span data-v-891f4695=""
-                                                    data-v-34417751="" class="badge type-win mode-medium badge-result"><!---->
-                                                    </span></span></div>
-                                    </div>
-                                    <div data-v-34417751="" class="bet-status-line"></div>
-                                    <div data-v-34417751="" class="bet-line bet-body">
-                                        <div data-v-34417751="" class="bet-detail"><span data-v-34417751="" class="label">STAKE</span>
-                                            <div data-v-34417751="" class="currency-container">
-                                                <div data-v-34417751="" class="currency value"> <span class="amount">{{ bet.stake }}</span>
-                                                    </div>
-                                            </div>
-                                        </div>
-                                        <div data-v-34417751="" class="bet-detail"><span data-v-34417751="" class="label">ODDS</span> <span
-                                                data-v-34417751="" class="value">{{ bet.odds }}</span> <!----></div>
-                                        <div data-v-34417751="" class="bet-detail end"><span data-v-34417751="" class="label">PAYOUT</span>
-                                            <div data-v-34417751="" class="currency-container bold-symbol">
-                                                <div data-v-34417751="" class="currency value"> <span class="symbol contrast">TSh</span>
-                                                    <span class="amount">{{ bet.payout }}</span> <!----></div>
-                                            </div> 
-                                        </div>
-                                    </div>
-
-                        </div>
-                        </div>
-
+        <!-- Bets List -->
+        <div v-else>
+          <div 
+            v-for="bet in settledBets" 
+            :key="bet.id"
+            @click="goToBetDetails(bet)"
+            data-v-34417751="" 
+            class="bet cursor-pointer" 
+            data-test-id="bet-settled-9336337628" 
+            data-test-class="bet-settled"
+          >
+            <div data-v-34417751="" class="bet-line bet-header">
+              <div data-v-34417751="" class="header-container">
+                <div data-v-34417751="" class="header-title">
+                  <span data-v-34417751="" class="time">{{ new Date(bet.placedAt).toLocaleTimeString() }},&nbsp;</span> 
+                  <span data-v-34417751="" class="date">{{ new Date(bet.placedAt).toLocaleDateString() }}</span>
+                  <span data-v-34417751="" class="bet-live-now"></span>
                 </div>
+                <div data-v-34417751="" class="id" data-test-id="bet-id">
+                  ID: #{{ String(bet.id).slice(0,8) }}
+                </div>
+              </div>
+            </div>
             
-
-                </section>
-
+            <div data-v-34417751="" class="bet-line bet-status">
+              <div data-v-34417751="" class="result-container">
+                <span data-v-34417751="" class="result-text result-text-grey">Result:</span> 
+                <span 
+                  data-v-34417751="" 
+                  class="status-text" 
+                  :class="bet.result === 'WON' ? 'positive' : 'negative'"
+                >
+                  {{ bet.result }}
+                </span>
+              </div>
             </div>
+            
+            <div data-v-34417751="" class="bet-status-line"></div>
+            
+            <div data-v-34417751="" class="bet-line bet-body">
+              <div data-v-34417751="" class="bet-detail">
+                <span data-v-34417751="" class="label">STAKE</span>
+                <div data-v-34417751="" class="currency-container">
+                  <div data-v-34417751="" class="currency value"> 
+                    <span class="amount">{{ bet.stake }}</span>
+                  </div>
+                </div>
+              </div>
+              
+              <div data-v-34417751="" class="bet-detail">
+                <span data-v-34417751="" class="label">ODDS</span> 
+                <span data-v-34417751="" class="value">{{ bet.totalOdds }}</span>
+              </div>
+              
+              <div data-v-34417751="" class="bet-detail end">
+                <span data-v-34417751="" class="label">PAYOUT</span>
+                <div data-v-34417751="" class="currency-container bold-symbol">
+                  <div data-v-34417751="" class="currency value"> 
+                    <span class="symbol contrast">TSh</span>
+                    <span class="amount">{{ bet.result === 'WON' ? bet.potentialReturn : 0 }}</span>
+                  </div>
+                </div> 
+              </div>
             </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
 </template>
 
-
-
-<style  scoped>
-
+<style scoped>
 .loading-container{
     display: flex;
     justify-content: center;
@@ -157,7 +165,46 @@ const voidCount = computed(() => {
     height: 32px;
     width: 32px;
 }
-    .bets-list-container[data-v-beccd7ea] {
+.error-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 400px;
+    color: #ef4444;
+}
+.stats-summary {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-bottom: 20px;
+    padding: 10px;
+    background: #f9fafb;
+    border-radius: 8px;
+}
+.stat-card {
+    text-align: center;
+    padding: 8px;
+    background: white;
+    border-radius: 6px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+.stat-label {
+    display: block;
+    font-size: 11px;
+    color: #6b7280;
+    margin-bottom: 4px;
+}
+.stat-value {
+    display: block;
+    font-size: 16px;
+    font-weight: 700;
+    color: #1f2937;
+}
+.text-green-600 { color: #059669; }
+.text-red-600 { color: #dc2626; }
+.cursor-pointer { cursor: pointer; }
+
+.bets-list-container[data-v-beccd7ea] {
     padding: 20px 12px;
 }
 section {
@@ -225,16 +272,15 @@ section {
     transition: background-color .2s;
 }
 
-
-
 .bet[data-v-34417751] {
     color: #252a2d;
-    border: 1px solid #e6e7e2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     margin-bottom: 12px;
     font-size: 12px;
     line-height: 16px;
     font-weight: 400;
-
 }
 .bet-line.bet-header[data-v-34417751] {
     background-color: #f4f5f0;
@@ -306,6 +352,9 @@ section {
 .bet-line .positive[data-v-34417751] {
     color: #0AF0B5;
 }
+.bet-line .negative[data-v-34417751] {
+    color: #ef4444;
+}
 .bet-line .status-text[data-v-34417751] {
     font-weight: 700;
     font-size: 14px;
@@ -357,11 +406,7 @@ section {
 }
 .bet-line .bet-detail .label[data-v-34417751] {
     color: #8e9398;
-}
-.bet-line .bet-detail .label[data-v-34417751] {
     font-weight: 500;
-}
-.bet-line .bet-detail .label[data-v-34417751], .bet[data-v-34417751] {
     font-size: 12px;
     line-height: 16px;
 }
@@ -374,44 +419,9 @@ section {
     line-height: 18px;
     font-weight: 400;
 }
-.bet-line .bet-detail[data-v-34417751] {
-    flex-direction: column;
-    flex: 1;
-    align-items: flex-start;
-    gap: 1px;
-    padding-right: 4px;
-    font-weight: 700;
-    display: flex;
-}
-.bet-line .bet-detail .label[data-v-34417751] {
-    color: #8e9398;
-    font-weight: 500;
-    font-size: 12px;
-    line-height: 16px;
-}
 .bet-line .bet-detail.end[data-v-34417751] {
     align-items: flex-end;
     padding-right: 0;
-}
-
-.bet-line .bet-detail[data-v-34417751] {
-    flex-direction: column;
-    flex: 1;
-    align-items: flex-start;
-    gap: 1px;
-    padding-left: 4px;
-    font-weight: 700;
-    display: flex;
-}
-.bet-line .bet-detail .label[data-v-34417751] {
-    color: #8e9398;
-    font-weight: 500;
-    font-size: 12px;
-    line-height: 16px;
-}
-.bet-line .bet-detail .currency-container[data-v-34417751] {
-    align-items: center;
-    display: flex;
 }
 .bet-line .bet-detail .bold-symbol .value[data-v-34417751]{
     font-weight: 700;
@@ -423,8 +433,4 @@ section {
     font-size: 12px;
     margin-right: 2px;
 }
-
-
-
-
 </style>
