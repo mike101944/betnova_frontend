@@ -98,6 +98,7 @@
   
   <script setup>
   // No script needed for static component
+  import { computed} from 'vue'
   import { useAuthStore } from '../../store/authStore'
 
 
