@@ -83,7 +83,7 @@
           <!-- Account Item -->
           <div class="navigation-item">
             <div class="menu-item">
-              <a class="action-link" >
+              <a class="action-link" href="/account" >
                 <svg class="svg-icon menu-icon">
                   <use xlink:href="#icon-top-menu"></use>
                 </svg>

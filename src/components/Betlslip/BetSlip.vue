@@ -562,14 +562,17 @@ const placeBet = async () => {
             <p class="text-gray-500 font-medium">No virtual bets selected</p>
             <p class="text-sm text-gray-400 mt-1">Add bets from the virtual sports page</p>
           </div>
+
         </div>
+        
       </div>
+
+    
     </div>
 
     <!-- Bottom Section - Fixed -->
     <div v-if="currentSelectionsCount > 0" class="border-t border-gray-200 bg-gray-50 p-2 flex-shrink-0">
     
-
       <!-- Stake Input -->
       <div class="mb-2">
         <label class="block text-sm font-medium text-gray-700 mb-2">Enter Stake Amount (Min: 100 Tsh)</label>
