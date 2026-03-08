@@ -1,6 +1,6 @@
 // game-dummy-data-array.js
 
-export const dummyGamesData = [
+export const dnmmyGamesData = [
   // Europe - Premier League
   {
     id: 1,
@@ -55,7 +55,7 @@ export const dummyGamesData = [
 
 // game-dummy-data-array.js
 
-export const dnmmyGamesData = [
+export const dummyGamesData = [
   // Europe - Premier League
   {
     id: 1,
