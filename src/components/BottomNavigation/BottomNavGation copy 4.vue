@@ -9,7 +9,7 @@
 
         <div class="relative flex flex-col items-center" style="width: 70px;">
           <button 
-             @click="handleMenuClick"
+            @click="setActiveTab('menu', 0)"
             class="w-12 h-12 rounded-full bg-sky-700 flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110 active:scale-95"
             :class="{
               'translate-y-[-20px]': activeTab === 'menu',
@@ -36,7 +36,7 @@
 
         <div class="relative flex flex-col items-center" style="width: 70px;">
           <button 
-            @click="handleSportsClick"
+            @click="setActiveTab('sports', 1)"
             class="w-12 h-12 rounded-full bg-sky-700 flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110 active:scale-95"
             :class="{
               'translate-y-[-20px]': activeTab === 'sports',
@@ -56,7 +56,7 @@
         <!-- Center FAB - Betslip -->
         <div class="relative flex flex-col items-center" style="width: 70px;">
           <button 
-            @click="handleBetslipClick"
+            @click="setActiveTab('betslip', 2)"
             class="w-12 h-12 rounded-full bg-sky-700 flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110 active:scale-95"
             :class="{
               'translate-y-[-20px]': activeTab === 'betslip',
@@ -76,29 +76,29 @@
         </div>
 
         <!-- Mybets/Join Item -->
-<div class="relative flex flex-col items-center" style="width: 70px;">
-  <button 
-    @click="handleMybetsLoginClick"
-    class="w-12 h-12 rounded-full bg-sky-700 flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110 active:scale-95"
-    :class="{
-      'translate-y-[-20px]': activeTab === 'mybets' || activeTab === 'login',
-      'translate-y-0': activeTab !== 'mybets' && activeTab !== 'login'
-    }"
-  >
-    <span v-if="isAuthenticated" class="text-white text-xl">📋</span>
-    <span v-else class="text-white text-xl">🔑</span>
-  </button>
-  <span class="text-[10px] font-medium mt-1 transition-all duration-300"
-        :class="activeTab === 'mybets' || activeTab === 'login' ? 'text-[#0AF0B5] translate-y-[-20px]' : 'text-gray-400'">
-    {{ isAuthenticated ? 'Mybets' : 'Login' }}
-  </span>
-</div>
+        <div class="relative flex flex-col items-center" style="width: 70px;">
+            <button 
+              @click="isAuthenticated ? setActiveTab('mybets', 3) : setActiveTab('login', 3)"
+              class="w-12 h-12 rounded-full bg-sky-700 flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110 active:scale-95"
+              :class="{
+                'translate-y-[-20px]': activeTab === 'mybets' || activeTab === 'login',
+                'translate-y-0': activeTab !== 'mybets' && activeTab !== 'login'
+              }"
+            >
+              <span v-if="isAuthenticated">📋</span> <!-- Clipboard/Mybets icon -->
+              <span v-else>🔑</span> <!-- Key/Login icon -->
+            </button>
+            <span class="text-[10px] font-medium mt-1 transition-all duration-300"
+                  :class="activeTab === 'mybets' || activeTab === 'login' ? 'text-[#0AF0B5] translate-y-[-20px]' : 'text-gray-400'">
+              {{ isAuthenticated ? 'Mybets' : 'Login' }}
+            </span>
+        </div>
 
         <!-- Account Item -->
 
         <div class="relative flex flex-col items-center" style="width: 70px;">
           <button 
-             @click="handleAccountClick"
+            @click="setActiveTab('account', 4)"
             class="w-12 h-12 rounded-full bg-sky-700 flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110 active:scale-95"
             :class="{
               'translate-y-[-20px]': activeTab === 'account',
@@ -133,55 +133,39 @@ const authStore = useAuthStore()
 const activeIndex = ref(1) // Default to Sports (index 1)
 const activeTab = ref('sports')
 
-// Map routes to tabs - SAHIHISHA HAPA
+// Map routes to tabs
 const routeToTab = {
   '/': { tab: 'sports', index: 1 },
   '/menu': { tab: 'menu', index: 0 },
   '/betSlip': { tab: 'betslip', index: 2 },
   '/bets': { tab: 'mybets', index: 3 },
   '/account': { tab: 'account', index: 4 },
-  '/join-now': { tab: 'mybets', index: 3 },  // Register inaenda kwa mybets tab
-  '/login': { tab: 'login', index: 3 }        // Login inaenda kwa login tab
+  '/register': { tab: 'mybets', index: 3 }
 }
 
-// Helper function kwa mybets/login button
-const handleMybetsLoginClick = () => {
-  if (isAuthenticated.value) {
-    // Ameingia - nenda kwa mybets
-    setActiveTab('mybets', 3)
-    router.push('/bets')
-  } else {
-    // Hajaingia - nenda kwa login
-    setActiveTab('login', 3)
-    router.push('/login')
-  }
-}
+// Watch route changes
+watch(() => route.path, (newPath) => {
+  const mapping = routeToTab[newPath] || routeToTab['/']
+  activeTab.value = mapping.tab
+  activeIndex.value = mapping.index
+}, { immediate: true })
 
 const setActiveTab = (tab, index) => {
   activeTab.value = tab
   activeIndex.value = index
-  // TUMEONDOA navigation kutoka hapa - navigation inafanywa na handleMybetsLoginClick
-}
-
-// Badilisha setActiveTab kwenye buttons zingine
-const handleMenuClick = () => {
-  setActiveTab('menu', 0)
-  router.push('/menu')
-}
-
-const handleSportsClick = () => {
-  setActiveTab('sports', 1)
-  router.push('/')
-}
-
-const handleBetslipClick = () => {
-  setActiveTab('betslip', 2)
-  router.push('/betSlip')
-}
-
-const handleAccountClick = () => {
-  setActiveTab('account', 4)
-  router.push('/account')
+  
+  // Navigate based on tab
+  const routes = {
+    menu: '/menu',
+    sports: '/',
+    betslip: '/betSlip',
+    mybets: isAuthenticated.value ? '/bets' : '/register',
+    account: '/account'
+  }
+  
+  if (routes[tab]) {
+    router.push(routes[tab])
+  }
 }
 
 const isAuthenticated = computed(() => authStore.isAuthenticated)

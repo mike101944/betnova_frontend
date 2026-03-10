@@ -112,7 +112,7 @@ watch(selectedBets, (newBets) => {
 </script>
 
 <template>
-  <div class="relative bg-sky-900">
+  <div class="relative bg-sky-700">
     <!-- Category Header -->
     <div class="bg-sky-950 p-3 relative cursor-pointer header-glow">
   <h1 class="text-[22px] font-bold leading-[26px] pr-5 text-amber-100 flex items-center gap-2">
@@ -134,22 +134,22 @@ watch(selectedBets, (newBets) => {
     <div
       v-for="game in games"
       :key="game.id"
-      class="border-b border-sky-950 p-3 "
+      class="border-b border-[#e6e7e2] p-3 "
     >
       <a :href="`/event/${game.eventId}`" class="block w-full cursor-pointer">
         <!-- Header -->
         <div class="flex justify-between items-center mb-1">
-          <span class="text-sm text-white/70 font-normal">{{ game.time }}</span>
-          <span class="text-sm text-white/70 font-bold">{{ game.date }}</span>
+          <span class="text-sm leading-[18px] font-normal">{{ game.time }}</span>
+          <span class="text-sm leading-[18px] font-bold">{{ game.date }}</span>
         </div>
 
         <!-- Teams -->
-        <div class="flex flex-col gap-1 w-full ">
+        <div class="flex flex-col gap-1 w-full mb-1">
           <div class="flex items-center gap-1.5">
-            <span class="text-[14px] text-amber-200/70 font-bold">{{ game.homeTeam }}</span>
+            <span class="text-lg leading-6 font-bold">{{ game.homeTeam }}</span>
           </div>
           <div class="flex items-center gap-1.5">
-            <span class="text-[14px] text-amber-200/70 font-bold">{{ game.awayTeam }}</span>
+            <span class="text-lg leading-6 font-bold">{{ game.awayTeam }}</span>
           </div>
         </div>
 
@@ -170,7 +170,7 @@ watch(selectedBets, (newBets) => {
                   <!-- Home Odds -->
                   <span class="flex-1 mr-2 overflow-hidden">
                     <span
-                      class="flex w-full cursor-pointer whitespace-nowrap bg-[#f4f5f0] opacity-50 border border-[#e6e7e2] rounded transition-all duration-200 hover:bg-[#e0f2e9]"
+                      class="flex w-full cursor-pointer whitespace-nowrap bg-[#f4f5f0] border border-[#e6e7e2] rounded transition-all duration-200 hover:bg-[#e0f2e9]"
                       :class="{
                         '!bg-[#0AF0B5] !border-[#0AF0B5]': isSelected(game, '1'),
                         'opacity-50': getCurrentSelection(game) && getCurrentSelection(game) !== '1'
@@ -189,7 +189,7 @@ watch(selectedBets, (newBets) => {
                   <!-- Draw Odds -->
                   <span class="flex-1 mr-2 overflow-hidden">
                     <span
-                      class="flex w-full cursor-pointer whitespace-nowrap opacity-50 bg-[#f4f5f0] border border-[#e6e7e2] rounded transition-all duration-200 hover:bg-[#e0f2e9]"
+                      class="flex w-full cursor-pointer whitespace-nowrap bg-[#f4f5f0] border border-[#e6e7e2] rounded transition-all duration-200 hover:bg-[#e0f2e9]"
                       :class="{
                         '!bg-[#0AF0B5] !border-[#0AF0B5]': isSelected(game, 'X'),
                         'opacity-50': getCurrentSelection(game) && getCurrentSelection(game) !== 'X'
@@ -208,7 +208,7 @@ watch(selectedBets, (newBets) => {
                   <!-- Away Odds -->
                   <span class="flex-1 mr-2 overflow-hidden">
                     <span
-                      class="flex w-full cursor-pointer whitespace-nowrap opacity-50 bg-[#f4f5f0] border border-[#e6e7e2] rounded transition-all duration-200 hover:bg-[#e0f2e9]"
+                      class="flex w-full cursor-pointer whitespace-nowrap bg-[#f4f5f0] border border-[#e6e7e2] rounded transition-all duration-200 hover:bg-[#e0f2e9]"
                       :class="{
                         '!bg-[#0AF0B5] !border-[#0AF0B5]': isSelected(game, '2'),
                         'opacity-50': getCurrentSelection(game) && getCurrentSelection(game) !== '2'
@@ -312,8 +312,8 @@ watch(selectedBets, (newBets) => {
 
   box-shadow:
     0 0 6px rgba(255,255,255,0.9),
-    0 0 10px rgba(255,255,255,0.7),
-    0 0 18px rgba(255,255,255,0.5);
+    0 0 12px rgba(255,255,255,0.7),
+    0 0 20px rgba(255,255,255,0.5);
 
   animation:glowMove 4s linear infinite;
 }

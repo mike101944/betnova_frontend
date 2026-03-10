@@ -1,10 +1,8 @@
 <script setup>
 import { onMounted } from 'vue'
-import { useRouter } from 'vue-router'
 import { useAuthStore } from '../../store/authStore'
 import { useUserData } from '../composables/useUserData'
 
-const router = useRouter()
 const authStore = useAuthStore()
 const { refreshUserData } = useUserData()
 
@@ -21,15 +19,6 @@ const formatBalance = (amount) => {
     minimumFractionDigits: 0,
     maximumFractionDigits: 0
   }).format(amount || 0)
-}
-
-// Handle restricted tabs
-const handleRestrictedTab = (tabName) => {
-  const confirmUpgrade = confirm(`You don't have access to ${tabName}.\n\nUpgrade your account to access this feature.`)
-  
-  if (confirmUpgrade) {
-    router.push('/')
-  }
 }
 </script>
 
@@ -85,7 +74,7 @@ const handleRestrictedTab = (tabName) => {
           <span v-if="!authStore.isAuthenticated" class="inline-flex items-center gap-2">
             <router-link 
               to="/login" 
-              class="text-white font-bold px-2 py-1.5 text-sm hover:bg-[#353b40] transition-colors"
+              class="text-white font-bold px-2 py-1.5 text-sm  hover:bg-[#353b40] transition-colors"
               data-test-id="track-top-nav-link"
             >
               Login
@@ -136,7 +125,7 @@ const handleRestrictedTab = (tabName) => {
             </router-link>
           </li>
 
-          <!-- Sports - Always accessible -->
+          <!-- Sports -->
           <li class="flex-1 min-w-fit px-3 py-2.5 text-[#aaaeb0] border-b-2 border-transparent hover:text-[#0AF0B5] hover:border-[#0AF0B5] transition-colors cursor-pointer"
               :class="{ '!text-[#0AF0B5] !border-[#0AF0B5]': $route.path === '/sports' }"
               data-test-id="tabs-Upcoming"
@@ -147,62 +136,58 @@ const handleRestrictedTab = (tabName) => {
             </router-link>
           </li>
 
-          <!-- Live - Restricted -->
-          <li 
-            class="flex-1 min-w-fit px-3 py-2.5 text-[#aaaeb0] border-b-2 border-transparent hover:text-[#0AF0B5] hover:border-[#0AF0B5] transition-colors cursor-pointer"
-            @click="handleRestrictedTab('Live betting')"
-            data-test-id="tabs-Live"
+          <!-- Live -->
+          <li class="flex-1 min-w-fit px-3 py-2.5 text-[#aaaeb0] border-b-2 border-transparent hover:text-[#0AF0B5] hover:border-[#0AF0B5] transition-colors cursor-pointer"
+              :class="{ '!text-[#0AF0B5] !border-[#0AF0B5]': $route.path === '/live' }"
+              data-test-id="tabs-Live"
           >
-            <div class="flex items-center justify-center gap-2">
+            <router-link to="/live" class="flex items-center justify-center gap-2">
               <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 14 14">
                 <circle cx="7" cy="7" r="2" fill="currentColor"/>
                 <circle cx="7" cy="7" r="5" stroke="currentColor" fill="none"/>
               </svg>
               <span class="text-xs font-bold uppercase">Live</span>
-            </div>
+            </router-link>
           </li>
 
-          <!-- Casino - Restricted -->
-          <li 
-            class="flex-1 min-w-fit px-3 py-2.5 text-[#aaaeb0] border-b-2 border-transparent hover:text-[#0AF0B5] hover:border-[#0AF0B5] transition-colors cursor-pointer"
-            @click="handleRestrictedTab('Casino games')"
-            data-test-id="tabs-Casino"
+          <!-- Casino -->
+          <li class="flex-1 min-w-fit px-3 py-2.5 text-[#aaaeb0] border-b-2 border-transparent hover:text-[#0AF0B5] hover:border-[#0AF0B5] transition-colors cursor-pointer"
+              :class="{ '!text-[#0AF0B5] !border-[#0AF0B5]': $route.path === '/casino' }"
+              data-test-id="tabs-Casino"
           >
-            <div class="flex items-center justify-center gap-2">
+            <router-link to="/casino" class="flex items-center justify-center gap-2">
               <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 14 14">
                 <rect x="2" y="2" width="10" height="10" stroke="currentColor" fill="none"/>
                 <circle cx="7" cy="7" r="1" fill="currentColor"/>
               </svg>
               <span class="text-xs font-bold uppercase">Casino</span>
-            </div>
+            </router-link>
           </li>
 
-          <!-- Virtuals - Restricted -->
-          <li 
-            class="flex-1 min-w-fit px-3 py-2.5 text-[#aaaeb0] border-b-2 border-transparent hover:text-[#0AF0B5] hover:border-[#0AF0B5] transition-colors cursor-pointer"
-            @click="handleRestrictedTab('Virtual sports')"
-            data-test-id="tabs-Virtual Sports"
+          <!-- Virtuals -->
+          <li class="flex-1 min-w-fit px-3 py-2.5 text-[#aaaeb0] border-b-2 border-transparent hover:text-[#0AF0B5] hover:border-[#0AF0B5] transition-colors cursor-pointer"
+              :class="{ '!text-[#0AF0B5] !border-[#0AF0B5]': $route.path === '/virtuals' }"
+              data-test-id="tabs-Virtual Sports"
           >
-            <div class="flex items-center justify-center gap-2">
+            <router-link to="/virtuals" class="flex items-center justify-center gap-2">
               <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 14 14">
                 <path d="M3 3L7 1L11 3L11 11L7 13L3 11L3 3Z" stroke="currentColor" fill="none"/>
               </svg>
               <span class="text-xs font-bold uppercase">Virtuals</span>
-            </div>
+            </router-link>
           </li>
 
-          <!-- Aviator - Restricted -->
-          <li 
-            class="flex-1 min-w-fit px-3 py-2.5 text-[#aaaeb0] border-b-2 border-transparent hover:text-[#0AF0B5] hover:border-[#0AF0B5] transition-colors cursor-pointer"
-            @click="handleRestrictedTab('Aviator game')"
-            data-test-id="tabs-Aviator"
+          <!-- Aviator -->
+          <li class="flex-1 min-w-fit px-3 py-2.5 text-[#aaaeb0] border-b-2 border-transparent hover:text-[#0AF0B5] hover:border-[#0AF0B5] transition-colors cursor-pointer"
+              :class="{ '!text-[#0AF0B5] !border-[#0AF0B5]': $route.path === '/aviator' }"
+              data-test-id="tabs-Casino"
           >
-            <div class="flex items-center justify-center gap-2">
+            <router-link to="/aviator" class="flex items-center justify-center gap-2">
               <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 14 14">
                 <path d="M2 12L7 2L12 12L7 9L2 12Z" stroke="currentColor" fill="none"/>
               </svg>
               <span class="text-xs font-bold uppercase">Aviator</span>
-            </div>
+            </router-link>
           </li>
         </ul>
       </div>

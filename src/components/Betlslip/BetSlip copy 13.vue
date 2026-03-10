@@ -319,8 +319,9 @@ const placeBet = async () => {
 }
 </script>
 
+
 <template>
-  <div class=" flex flex-col flex-[36%] bg-gray-300  h-[calc(100vh-91px)] ">
+  <div class="h-full flex flex-col">
     <!-- Toast Messages -->
     <Transition name="fade">
       <div v-if="success" class="fixed top-4 right-4 z-50 bg-emerald-500 text-white px-6 py-3 rounded-lg shadow-lg flex items-center gap-2">
@@ -434,7 +435,7 @@ const placeBet = async () => {
         </button>
       </div>
 
-      <!-- Warning Messages - Fixed -->
+      <!-- Warning Messages -->
       <div class="flex-shrink-0 px-4">
         <!-- INSUFFICIENT BALANCE MESSAGE -->
         <div v-if="isAuthenticated && insufficientBalance && currentSelectionsCount > 0" class="mb-4 bg-orange-100 border border-orange-400 text-orange-700 px-4 py-3 rounded relative">
@@ -452,8 +453,8 @@ const placeBet = async () => {
         </div>
       </div>
 
-      <!-- Scrollable Content (with bottom section inside) -->
-      <div class="flex-1 overflow-y-auto px-4 pb-20 pt-4">
+      <!-- Scrollable Content -->
+      <div class="flex-1 overflow-y-auto px-4 pb-4">
         <!-- Sports Tab Content -->
         <div v-if="activeTab === 'sports'" class="space-y-6">
           <!-- Booking Code Input -->
@@ -472,7 +473,7 @@ const placeBet = async () => {
                 <button 
                   @click="loadBookingCode"
                   :disabled="isLoading || !bookingCode"
-                  class="px-6 py-2 bg-[#0AF0B5] hover:bg-emerald-700 text-white rounded-lg transition-colors duration-200 text-sm font-medium disabled:opacity-50 disabled:cursor-not-allowed"
+                  class="px-6 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg transition-colors duration-200 text-sm font-medium disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   Load
                 </button>
@@ -513,7 +514,7 @@ const placeBet = async () => {
               <!-- Selected selection -->
               <div class="mt-1 flex items-center gap-2">
                 <span class="text-sm text-gray-600">Selected:</span>
-                <span class="text-sm font-medium text-[#0AF0B5] bg-emerald-50 px-2 py-1 rounded">
+                <span class="text-sm font-medium text-emerald-600 bg-emerald-50 px-2 py-1 rounded">
                   {{ bet.selection }} @ {{ bet.odds }}
                 </span>
               </div>
@@ -561,79 +562,84 @@ const placeBet = async () => {
             <p class="text-gray-500 font-medium">No virtual bets selected</p>
             <p class="text-sm text-gray-400 mt-1">Add bets from the virtual sports page</p>
           </div>
+
         </div>
+        
+      </div>
 
-        <!-- Bottom Section - Now inside scrollable area -->
-        <div v-if="currentSelectionsCount > 0" class="border-t border-gray-200 bg-gray-50 p-2 mt-6 rounded-lg">
-          <!-- Stake Input -->
-          <div class="mb-4">
-            <label class="block text-sm font-medium text-gray-700 mb-1">Enter Stake Amount (Min: 100 Tsh)</label>
-            <div class="flex gap-2">
-              <input 
-                type="number" 
-                v-model="stakeAmount"
-                placeholder="Enter amount"
-                min="100"
-                step="100"
-                class="flex-1 px-1 py-1 border border-gray-300 rounded-lg focus:outline-none focus:ring-1 focus:ring-[#0AF0B5] text-[13px]"
-                :disabled="isLoading"
-              >
-              <span class="inline-flex items-center px-3 py-2 bg-gray-100 border border-gray-300 rounded-lg text-gray-700 font-medium">
-                Tsh
-              </span>
-            </div>
-            <p v-if="stakeAmount && stakeAmount < 100" class="text-xs text-red-500 mt-1">
-              Minimum stake is 100 Tsh
-            </p>
-          </div>
+    
+    </div>
 
-          <!-- Odds and Returns -->
-          <div class="bg-white rounded-lg p-2 mb-3 space-y-2">
-            <div class="flex justify-between items-center">
-              <span class="text-sm text-gray-600">Total Selections:</span>
-              <span class="font-bold text-[#0AF0B5]">{{ currentSelectionsCount }}</span>
-            </div>
-            <div class="flex justify-between items-center">
-              <span class="text-sm text-gray-600">Total Odds:</span>
-              <span class="font-bold text-[#0AF0B5] text-[13px]">{{ currentTotalOdds.toFixed(2) }}</span>
-            </div>
-            <div class="flex justify-between items-center pt-2 border-t border-gray-200">
-              <span class="text-base font-medium">Potential Returns:</span>
-              <span class="text-[14px] font-bold text-[#0AF0B5]">Tsh {{ currentTotalReturns.toFixed(2) }}</span>
-            </div>
-          </div>
-
-          <!-- LOGIN REQUIRED BUTTON -->
-          <div v-if="!isAuthenticated" class="mb-2">
-            <router-link to="/login" class="block w-full py-1 bg-[#04c796] text-white font-bold rounded-lg text-center hover:bg-emerald-700">
-              Login to Place Bet
-            </router-link>
-          </div>
-
-          <!-- INSUFFICIENT BALANCE BUTTON -->
-          <div v-else-if="insufficientBalance" class="mb-2">
-            <router-link to="/deposite" class="block w-full py-1 bg-[#04c796] text-white font-bold rounded-lg text-center hover:bg-emerald-700">
-              Deposit to Continue
-            </router-link>
-          </div>
-
-          <!-- PLACE BET BUTTON -->
-          <button 
-            v-else
-            @click="placeBet"
-            :disabled="!canPlaceBet || isLoading"
-            class="w-full py-3 cursor-pointer bg-[#0AF0B5] text-white font-bold rounded-lg shadow-lg hover:bg-emerald-600 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+    <!-- Bottom Section - Fixed -->
+    <div v-if="currentSelectionsCount > 0" class="border-t border-gray-200 bg-gray-50 p-2 flex-shrink-0">
+    
+      <!-- Stake Input -->
+      <div class="mb-2">
+        <label class="block text-sm font-medium text-gray-700 mb-2">Enter Stake Amount (Min: 100 Tsh)</label>
+        <div class="flex gap-2">
+          <input 
+            type="number" 
+            v-model="stakeAmount"
+            placeholder="Enter amount"
+            min="100"
+            step="100"
+            class="flex-1 px-1 py-1 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 text-lg"
+            :disabled="isLoading"
           >
-            <span v-if="isLoading">Placing Bet...</span>
-            <span v-else>Place Bet ({{ activeTab }})</span>
-          </button>
+          <span class="inline-flex items-center px-2 py-1 bg-gray-100 border border-gray-300 rounded-lg text-gray-700 font-medium">
+            Tsh
+          </span>
+        </div>
+        <p v-if="stakeAmount && stakeAmount < 100" class="text-xs text-red-500 mt-1">
+          Minimum stake is 100 Tsh
+        </p>
+      </div>
 
-          <!-- Terms -->
-          <p class="text-xs text-gray-500 text-center mt-3">
-            By placing a bet, you agree to our <a href="#" class="text-emerald-600 hover:underline">Terms & Conditions</a>
-          </p>
+      <!-- Odds and Returns -->
+      <div class="bg-white rounded-lg p-2 mb-1 space-y-1">
+        <div class="flex justify-between items-center">
+          <span class="text-sm text-gray-600">Total Selections:</span>
+          <span class="font-bold text-emerald-600">{{ currentSelectionsCount }}</span>
+        </div>
+        <div class="flex justify-between items-center">
+          <span class="text-sm text-gray-600">Total Odds:</span>
+          <span class="font-bold text-emerald-600 text-lg">{{ currentTotalOdds.toFixed(2) }}</span>
+        </div>
+        <div class="flex justify-between items-center pt-1 border-t border-gray-200">
+          <span class="text-base font-medium">Potential Returns:</span>
+          <span class="text-xl font-bold text-emerald-600">Tsh {{ currentTotalReturns.toFixed(2) }}</span>
         </div>
       </div>
+
+      <!-- LOGIN REQUIRED BUTTON -->
+      <div v-if="!isAuthenticated" class="mb-1">
+        <router-link to="/login" class="block w-full py-2 bg-emerald-600 text-white font-bold rounded-lg text-center hover:bg-emerald-700">
+          Login to Place Bet
+        </router-link>
+      </div>
+
+      <!-- INSUFFICIENT BALANCE BUTTON -->
+      <div v-else-if="insufficientBalance" class="mb-1">
+        <router-link to="/deposite" class="block w-full py-2 bg-emerald-600 text-white font-bold rounded-lg text-center hover:bg-emerald-700">
+          Deposit to Continue
+        </router-link>
+      </div>
+
+      <!-- PLACE BET BUTTON -->
+      <button 
+        v-else
+        @click="placeBet"
+        :disabled="!canPlaceBet || isLoading"
+        class="w-full py-1 cursor-pointer bg-[#0AF0B5] text-white font-bold rounded-lg shadow-lg hover:bg-emerald-600 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+      >
+        <span v-if="isLoading">Placing Bet...</span>
+        <span v-else>Place Bet ({{ activeTab }})</span>
+      </button>
+
+      <!-- Terms -->
+      <p class="text-xs text-gray-500 text-center mt-2">
+        By placing a bet, you agree to our <a href="#" class="text-emerald-600 hover:underline">Terms & Conditions</a>
+      </p>
     </div>
   </div>
 </template>

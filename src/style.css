@@ -1,6 +1,19 @@
 @import 'tailwindcss';
 /* @import 'tailwindcss-primeui'; */
 
+
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+#app {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
 /* Custom styles */
 @layer base {
   :root {
@@ -192,3 +205,39 @@
       transform: translateX(100%) rotate(30deg);
     }
   }
+
+
+
+  /* Custom styles for mobile responsiveness */
+@media screen and (max-width: 768px) {
+  .progress-bar-text {
+    @apply justify-start text-left px-4;
+  }
+  
+  .menu-icon {
+    @apply w-5 h-5;
+  }
+  
+  .menu-title {
+    @apply text-[10px] mt-0.5;
+  }
+  
+  .betslip-menu {
+    @apply w-16 h-16;
+  }
+}
+
+/* Small phones */
+@media screen and (max-width: 360px) {
+  .menu-title {
+    @apply text-[9px];
+  }
+  
+  .progress-bar-text-small {
+    @apply text-[11px];
+  }
+  
+  .betslip-menu {
+    @apply w-[60px] h-[60px];
+  }
+}

@@ -5,11 +5,11 @@
         <HomeCanvaCard/>
         <LeagueShortcut/>
         <Football/>
-        <LiveMatches :games="games"/>
+        <!-- <LiveMatches :games="games"/>
                             <CasionoGames/>
                             <Efootball/>
                             <BasketBall/>
-                            <Tennis/>
+                            <Tennis/> -->
     </div>
 </template>
 

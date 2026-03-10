@@ -1,26 +1,27 @@
 <template>
+  <div class="flex flex-col min-h-screen px-0 sm:px-0 md:px-12 lg:px-16 xl:px-48 2xl:px-48 bg-gray-800">
+    <SvgIcon/>
+    <Header />
+    
+    <!-- Main Content - Inachukua nafasi yote iliyobaki -->
+    <main class="flex-1 bg-transparent flex flex-row w-full min-h-0 relative">
+      <!-- Left Column - Scrollable -->
+      <aside class="flex-[58%] h-full bg-sky-800 overflow-y-auto border-r border-teal-800 no-scrollbar pb-24">
+        <router-view></router-view>
+        <Footer />
+      </aside>
+      
+      <!-- Right Column - Fixed kwenye desktop -->
+      <aside class="hidden flex-[36%] bg-sky-100 lg:flex xl:flex h-full overflow-y-auto no-scrollbar">
+        <BetSlip />
+      </aside>
+    </main>
 
-    <div className="flex flex-col min-h-screen px-0 sm:px-0 md:px-12 lg:px-16 xl:px-48 2xl:px-48
- bg-gray-800">
- <SvgIcon/>
-        <Header />
-        <main className="flex-1 bg-gray-100 flex flex-row">
-          <aside className='flex-[58%] h-[calc(100vh-100px)] bg-white overflow-y-auto border-r border-teal-800 no-scrollbar'>
-            <router-view></router-view>
-
-            <Footer />
-          </aside>
-          <aside className='hidden flex-[36%]  h-[calc(100vh-128px)]  sm:hidden md:hidden lg:flex xl:flex'>
-            <BetSlip />
-          </aside>
-   
-        </main>
-        <section class="block sm:block md:block lg:hidden xl:hidden">
-          <BottomTabs/>
-        </section>
-      </div>
-
-
+    <!-- Bottom Tabs - Fixed chini kwa mobile (HAICHUKUI SPACE) -->
+    <section class="fixed bottom-0 left-0 right-0 z-50 block lg:hidden">
+      <BottomTabs/>
+    </section>
+  </div>
 </template>
 
 <script setup>
@@ -31,6 +32,22 @@ import BottomTabs from './components/BottomNavigation/BottomNavGation.vue'
 import SvgIcon from './SvgIcons.vue/SvgIcon.vue';
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
+/* Hakikisha main inachukua nafasi zote zilizobaki */
+main {
+  height: calc(100vh - 91px); /* 91px ni urefu wa Header */
+}
 
+/* Scrollable aside */
+aside {
+  height: 100%;
+  overflow-y: auto;
+}
+
+/* Padding chini kwa mobile */
+@media (max-width: 1024px) {
+  aside.flex-\[58\%\] {
+    padding-bottom: 80px; /* Nafasi kwa bottom tabs */
+  }
+}
 </style>
