@@ -67,7 +67,7 @@ const goToRegister = () => {
 </script>
 
 <template>
-  <div class="min-h-screen bg-gray-100 p-5 flex items-center justify-center flex-col text-[#252a2d] relative">
+  <div class="h-full bg-transparent p-5 flex items-center justify-center flex-col text-[#252a2d] relative">
     <div class="w-full max-w-md bg-white p-6 rounded-2xl shadow-2xl">
       
       <div class="w-full grid grid-cols-1 md:grid-cols-2 gap-2 items-center pb-6">

@@ -7,7 +7,12 @@
     <main class="flex-1 bg-transparent flex flex-row w-full min-h-0 relative">
       <!-- Left Column - Scrollable -->
       <aside class="flex-[58%] h-full bg-sky-800 overflow-y-auto border-r border-teal-800 no-scrollbar pb-24">
-        <router-view></router-view>
+        <!-- RouterView container yenye flex-1 -->
+        <div class="flex-1 flex flex-col">
+          <router-view v-slot="{ Component }">
+            <component :is="Component" class="flex-1 flex flex-col" />
+          </router-view>
+        </div>
         <Footer />
       </aside>
       
