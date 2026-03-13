@@ -124,12 +124,12 @@ const totalPotentialReturn = computed(() => {
 
             <div class="flex justify-between items-center bg-transparent mb-1"> 
 
-                <div class="flex gap-2 flex-row items-center justify-center rounded-[14px] bg-orange-100/50 px-2 py-1">
+                <div class="flex gap-2 flex-row items-center justify-center rounded-[14px] bg-yellow-700 px-2 py-1">
                     <div class=" p-1 rounded-full bg-white flex items-center justify-center  ">
                       <CheckIcon class="w-3 h-3  text-emerald-600  font-bold" />
                     </div>
-                    <span  class="text-[10px] font-bold text-amber-400">{{ (bet.result).toUpperCase() }}</span>
-                    <span class="text-xs font-bold text-amber-600">(2/2)</span>
+                    <span  class="text-[10px] font-bold text-yellow-100">{{ (bet.result).toUpperCase() }}</span>
+                    <span class="text-xs font-bold text-amber-100">(2/2)</span>
                 </div>
                 <div class="flex flex-row items-center justify-center">
                         <span class="text-md text-gray-400 font-extrabold">ID:</span>

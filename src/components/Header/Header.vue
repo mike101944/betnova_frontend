@@ -103,7 +103,7 @@ const handleRestrictedTab = (tabName) => {
           <span v-else class="inline-flex items-center gap-2">
             <router-link 
               to="/deposite" 
-              class="border border-sky-300 text-white font-bold px-4 py-1 rounded-l-xl rounded-r-md hover:bg-white/10 transition-colors"
+              class="border border-sky-300 text-white font-bold px-1 py-1 rounded-l-xl rounded-r-md hover:bg-white/10 transition-colors"
               data-test-id="track-top-nav-link"
             >
               <span class="text-white">{{ formatBalance(authStore.userBalance) }}</span>
