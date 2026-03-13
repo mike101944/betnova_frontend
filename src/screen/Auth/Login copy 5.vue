@@ -6,11 +6,11 @@ import { useAuthStore } from '../../store/authStore'
 const router = useRouter()
 const authStore = useAuthStore()
 
-// Registration form data
+// Login form data
 const phoneNumber = ref('')
 const password = ref('')
-const acceptTerms = ref(true)
 const errorMessage = ref('')
+const keepLoggedIn = ref(false)
 
 // Form validation
 const isPhoneValid = computed(() => {
@@ -22,7 +22,7 @@ const isPasswordValid = computed(() => {
 })
 
 const isFormValid = computed(() => {
-  return isPhoneValid.value && isPasswordValid.value && acceptTerms.value
+  return isPhoneValid.value && isPasswordValid.value
 })
 
 // Toggle password visibility
@@ -31,83 +31,90 @@ const togglePassword = () => {
   showPassword.value = !showPassword.value
 }
 
-// Handle registration
-const handleRegister = async (e) => {
-  e.preventDefault()
-
+// Handle login submission
+const handleLogin = async () => {
+  // Check if form is valid
   if (!isFormValid.value || authStore.isLoading) return
 
+  // Clear previous errors
   errorMessage.value = ''
 
   try {
-    const result = await authStore.register(phoneNumber.value, password.value)
+    const result = await authStore.login({
+      phoneNumber: phoneNumber.value,
+      password: password.value
+    }, keepLoggedIn.value)
 
-    if (result.success) {
-      alert('Registration successful! Please login.')
-      router.push('/login')
+    if (result?.success) {
+      // Redirect to home page
+      router.push('/')
     } else {
-      errorMessage.value = result.message || 'Registration failed. Please try again.'
+      errorMessage.value = result?.message || 'Login failed. Please check your credentials and try again.'
     }
   } catch (error) {
-    errorMessage.value = error.message || 'An unexpected error occurred'
+    console.error('Login error:', error)
+    errorMessage.value = error?.message || 'An unexpected error occurred. Please try again.'
   }
 }
 
-// Navigate to login
-const goToLogin = () => {
-  router.push('/login')
+// Navigate to register
+const goToRegister = (e) => {
+  e?.preventDefault()
+  router.push('/register')
 }
 </script>
 
 <template>
   <div class="min-h-screen bg-gray-100 p-5 flex items-center justify-center flex-col text-[#252a2d] relative">
     <div class="w-full max-w-md bg-white p-6 rounded-2xl shadow-2xl">
-      <div class="w-full grid grid-cols-1 md:grid-cols-2 gap-2 items-center pb-6">
-  <!-- Handshake animation infinite -->
-  <span class="font-semibold text-2xl text-sky-500  drop-shadow-lg animate-handshake">Welcome Back</span>
-  
-  <!-- Typing and erasing animation -->
-  <span class="text-[12px] typing-animation">Create your account Now</span>
-</div>
-      <form @submit.prevent="handleRegister" class="w-full  ">
+      
+      <!-- Header with animations -->
+      <div class="w-full flex flex-col md:flex-row gap-2 items-center justify-center pb-6">
+        <!-- Handshake animation infinite -->
+        <span class="font-semibold text-2xl text-sky-500 drop-shadow-lg animate-handshake">Welcome Back</span>
+        
+        <!-- Typing and erasing animation -->
+        <span class="text-[12px] typing-animation">Login to continue...</span>
+      </div>
+
+      <!-- Form - NO @submit.prevent, using @click on button instead -->
+      <div class="w-full">
+        
         <!-- Error Message -->
         <div v-if="errorMessage" 
-          class="bg-red-50 text-red-600 border border-red-200 rounded p-3 mb-4 text-center text-sm">
+          class="bg-red-50 text-red-600 border border-red-200 rounded-lg p-3 mb-4 text-center text-sm">
           {{ errorMessage }}
         </div>
 
         <!-- Phone Number Input -->
         <div class="mb-4" data-test-id="joinNowPhoneNumber">
-          <label for="registration-form-phoneNumber" class="block text-[#252a2d] mb-1.5 text-sm">
-            Mobile number
+          <label for="login-phoneNumber" class="block text-[#252a2d] mb-1.5 text-sm font-medium">
+            Mobile Number
           </label>
-          <div class="flex items-center w-full border border-gray-200 bg-white rounded-md">
+          <div class="flex items-center w-full border border-gray-200 bg-white rounded-lg overflow-hidden focus-within:ring-2 focus-within:ring-teal-300 focus-within:border-teal-300 transition-all">
             <span class="fi fi-tz w-6 h-4 mx-2" title="TZ"></span>
             <span class="text-[#252a2d] text-sm mr-1 whitespace-nowrap">+255</span>
             <input v-model="phoneNumber" 
               data-test-id="joinNowPhoneNumber" 
-              id="registration-form-phoneNumber"
+              id="login-phoneNumber"
               name="phoneNumber"
               type="tel" 
               @input="errorMessage = ''" 
               :disabled="authStore.isLoading"
-              class="flex-1 min-w-0 py-2 px-0 border-none bg-transparent outline-none text-sm"
-              :class="{
-                'bg-transparent': true,
-                'border-transparent': true
-              }" />
+              placeholder="789564432"
+              class="flex-1 min-w-0 py-3 px-0 border-none bg-transparent outline-none text-sm" />
           </div>
           <div class="text-gray-500 mt-1.5 text-xs">
-            Enter your phone number  (e.g., 789564432).
+            Enter your phone number (e.g., 789564432)
           </div>
         </div>
 
         <!-- Password Input with Lock and Eye Icons -->
         <div class="mb-4">
-          <label for="registration-form-password" class="block text-[#252a2d] mb-1.5 text-sm">
+          <label for="login-password" class="block text-[#252a2d] mb-1.5 text-sm font-medium">
             Password
           </label>
-          <div class="flex items-center border bg-white px-2 rounded-md"
+          <div class="flex items-center border bg-white px-2 rounded-lg overflow-hidden focus-within:ring-2 focus-within:ring-teal-300 transition-all"
             :class="[
               password && !isPasswordValid ? 'border-red-500 bg-red-50' : 
               isPasswordValid && password ? 'border-teal-300 bg-teal-50' : 
@@ -131,16 +138,16 @@ const goToLogin = () => {
             <!-- Password Input -->
             <input v-model="password" 
               :type="showPassword ? 'text' : 'password'" 
-              id="registration-form-password"
-              placeholder=""
-              autocomplete="new-password" 
+              id="login-password"
+              placeholder="Enter your password"
+              autocomplete="current-password" 
               name="password" 
               @input="errorMessage = ''" 
               :disabled="authStore.isLoading"
-              class="flex-1 min-w-0 py-2 px-0 border-none bg-transparent outline-none text-sm  " />
+              class="flex-1 min-w-0 py-3 px-0 border-none bg-transparent outline-none text-sm" />
             
             <!-- Eye/Eye-off Icon - Right -->
-            <span class="flex items-center text-gray-500 ml-2 cursor-pointer hover:text-[#252a2d]" 
+            <span class="flex items-center text-gray-500 ml-2 cursor-pointer hover:text-[#252a2d] p-1" 
               @click="togglePassword"
               :class="{
                 'text-[#252a2d]': isPasswordValid && password,
@@ -158,33 +165,48 @@ const goToLogin = () => {
             </span>
           </div>
           <div class="text-gray-500 mt-1.5 text-xs">
-            Min. 4 Characters
+            Minimum 4 characters
           </div>
         </div>
-         <!-- Submit Button -->
-       
 
-         <button type="submit" 
-  class="w-full font-bold text-sm uppercase py-2.5 px-5 cursor-pointer transition-all disabled:opacity-50 disabled:cursor-default rounded-md"
-  :class="[
-    !isFormValid || authStore.isLoading 
-      ? 'bg-gray-200 text-gray-500' 
-      : 'bg-teal-300 text-[#252a2d] hover:bg-teal-400 animate-softPulse'
-  ]"
-  :disabled="!isFormValid || authStore.isLoading">
-  <span v-if="!authStore.isLoading" class="inline-block font-bold text-[14px] text-sky-800">REGISTER</span>
-  <span v-else class="inline-block animate-pulse">PROCESSING...</span>
-</button>
-     
+        <!-- Keep Me Logged In Checkbox -->
+        <div class="mb-6">
+          <label class="flex items-center cursor-pointer select-none">
+            <input 
+              type="checkbox" 
+              v-model="keepLoggedIn" 
+              class="w-4 h-4 text-teal-500 rounded border-gray-300 focus:ring-teal-300"
+              :disabled="authStore.isLoading"
+            />
+            <span class="ml-2 text-sm text-gray-600">Keep me logged in on this device</span>
+          </label>
+        </div>
 
-        <!-- Login Link -->
-        <span class="block text-center mt-4 text-xs">
-          Already have an account?
-          <a href="#" class="underline font-bold" @click.prevent="goToLogin">
-            Log In
-          </a>
-        </span>
-      </form>
+        <!-- Submit Button - Using @click instead of form submit -->
+        <button 
+          type="button" 
+          @click="handleLogin"
+          class="w-full font-bold text-sm uppercase py-3 px-5 cursor-pointer transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed rounded-lg shadow-lg"
+          :class="[
+            !isFormValid || authStore.isLoading 
+              ? 'bg-gray-200 text-gray-500' 
+              : 'bg-teal-300 text-[#252a2d] hover:bg-teal-400 hover:shadow-xl active:scale-95 animate-softPulse'
+          ]"
+          :disabled="!isFormValid || authStore.isLoading">
+          <span v-if="!authStore.isLoading" class="inline-block font-bold text-[14px] text-sky-800">LOGIN</span>
+          <span v-else class="inline-block animate-pulse font-bold">PROCESSING...</span>
+        </button>
+
+        <!-- Register Link -->
+        <div class="text-center mt-6">
+          <span class="text-xs text-gray-600">
+            Don't have an account?
+            <a href="#" class="underline font-bold text-sky-600 hover:text-sky-800 transition-colors" @click.prevent="goToRegister">
+              Register now
+            </a>
+          </span>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -199,24 +221,12 @@ const goToLogin = () => {
   background-position: 50%;
   background-repeat: no-repeat;
 }
-@keyframes softPulse {
-  0%, 100% { 
-    opacity: 1;
-    box-shadow: 0 0 5px rgba(57, 236, 221, 0.2);
-  }
-  50% { 
-    opacity: 0.9;
-    box-shadow: 0 0 15px rgba(57, 236, 221, 0.5);
-  }
-}
-
-.animate-softPulse {
-  animation: softPulse 2s ease-in-out infinite;
-}
 
 .fi-tz {
   background-image: url(/src/assets/img/flags/tz-BjLtHeil.svg);
 }
+
+/* Handshake Animation */
 @keyframes handshake {
   0% { transform: rotate(0deg); }
   10% { transform: rotate(10deg); }
@@ -235,24 +245,40 @@ const goToLogin = () => {
   transform-origin: center center;
 }
 
+/* Typing Animation */
 .typing-animation {
   display: inline-block;
   overflow: hidden;
   white-space: nowrap;
   border-right: 2px solid currentColor;
   width: 0;
-  animation: typing 3s steps(20, end) infinite, 
+  animation: typing 3.5s steps(20, end) infinite, 
              blink-caret 0.75s step-end infinite;
 }
 
 @keyframes typing {
   0%, 100% { width: 0; }
-  30%, 70% { width: 140px; } /* Adjust based on text length */
+  30%, 70% { width: 130px; }
 }
 
 @keyframes blink-caret {
   from, to { border-color: transparent; }
-  50% { border-color: currentColor; }
+  50% { border-color: #3b82f6; }
 }
-/* Remove any remaining custom styles */
+
+/* Soft Pulse Animation for Button */
+@keyframes softPulse {
+  0%, 100% { 
+    opacity: 1;
+    box-shadow: 0 0 5px rgba(57, 236, 221, 0.3);
+  }
+  50% { 
+    opacity: 0.95;
+    box-shadow: 0 0 20px rgba(57, 236, 221, 0.7);
+  }
+}
+
+.animate-softPulse {
+  animation: softPulse 2s ease-in-out infinite;
+}
 </style>

@@ -6,12 +6,12 @@ import { useAuthStore } from '../../store/authStore'
 const router = useRouter()
 const authStore = useAuthStore()
 
-// Reactive states
+// Registration form data
 const phoneNumber = ref('')
 const password = ref('')
-const showPassword = ref(false)
-const keepLoggedIn = ref(true)
+const acceptTerms = ref(true)
 const errorMessage = ref('')
+const keepLoggedIn = ref(false)
 
 // Form validation
 const isPhoneValid = computed(() => {
@@ -27,6 +27,7 @@ const isFormValid = computed(() => {
 })
 
 // Toggle password visibility
+const showPassword = ref(false)
 const togglePassword = () => {
   showPassword.value = !showPassword.value
 }
@@ -57,187 +58,156 @@ const handleLogin = async (e) => {
   }
 }
 
-// Go to register page
+
+
+// Navigate to register
 const goToRegister = () => {
-  router.push('/join-now')
+  router.push('/register')
 }
 </script>
 
 <template>
-  <form @submit.prevent="handleLogin" class="login-form">
-    <!-- Error Message Display -->
-    <div v-if="errorMessage" class="error-message">
-      {{ errorMessage }}
-    </div>
+  <div class="min-h-screen bg-gray-100 p-5 flex items-center justify-center flex-col text-[#252a2d] relative">
+    <div class="w-full max-w-md bg-white p-6 rounded-2xl shadow-2xl">
+      
+      <div class="w-full grid grid-cols-1 md:grid-cols-2 gap-2 items-center pb-6">
+  <!-- Handshake animation infinite -->
+  <span class="font-semibold text-2xl text-sky-500  drop-shadow-lg animate-handshake">Welcome </span>
+  
+  <!-- Typing and erasing animation -->
+  <span class="text-[12px] typing-animation">Login to continue</span>
+</div>
 
-    <!-- Phone Number Input -->
-    <div class="country-code-container" data-test-id="loginFormPhoneNumber">
-      <div class="input-field phone-number-input">
-        <label for="login-form-phoneNumber" class="form">
-          Mobile number
-          <span class="optional optional-slot"></span>
-        </label>
-        <div class="input-field-wrapper input-icon-undefined">
-          <span class="fi fi-tz flag" title="TZ"></span>
-          <span class="country-code">+255</span>
-          <input v-model="phoneNumber" data-test-id="loginFormPhoneNumber" id="login-form-phoneNumber"
-            :class="{ valid: isPhoneValid && phoneNumber, error: phoneNumber && !isPhoneValid }" name="phoneNumber"
-            type="tel" placeholder="" @input="errorMessage = ''" :disabled="authStore.isLoading" />
+      <!-- Form with @submit.prevent (prevents page reload) -->
+      <form @submit.prevent="handleLogin" class="w-full">
+        
+        <!-- Error Message -->
+        <div v-if="errorMessage" 
+          class="bg-red-50 text-red-600 border border-red-200 rounded p-3 mb-4 text-center text-sm">
+          {{ errorMessage }}
         </div>
-        <div class="help-text">
-          Enter your phone number without the country code (e.g., 712345678).
+
+        <!-- Phone Number Input -->
+        <div class="mb-4" data-test-id="joinNowPhoneNumber">
+          <label for="registration-form-phoneNumber" class="block text-[#252a2d] mb-1.5 text-sm">
+            Mobile number
+          </label>
+          <div class="flex items-center w-full border border-gray-200 bg-white rounded-md">
+            <span class="fi fi-tz w-6 h-4 mx-2" title="TZ"></span>
+            <span class="text-[#252a2d] text-sm mr-1 whitespace-nowrap">+255</span>
+            <input v-model="phoneNumber" 
+              data-test-id="joinNowPhoneNumber" 
+              id="registration-form-phoneNumber"
+              name="phoneNumber"
+              type="tel" 
+              @input="errorMessage = ''" 
+              :disabled="authStore.isLoading"
+              class="flex-1 min-w-0 py-2 px-0 border-none bg-transparent outline-none text-sm" />
+          </div>
+          <div class="text-gray-500 mt-1.5 text-xs">
+            Enter your phone number (e.g., 789564432).
+          </div>
         </div>
-      </div>
-    </div>
 
-    <!-- Password Input -->
-    <div class="input-field" autocomplete="new-password">
-      <label for="login-form-password-input" class="form">
-        Password
-        <span @click="togglePassword" class="optional underline" data-test-id="handle-show-password-button">
-          {{ showPassword ? 'Hide' : 'Show' }}
-        </span>
-      </label>
-      <div class="input-field-wrapper input-icon-undefined">
-        <input v-model="password" :type="showPassword ? 'text' : 'password'" id="login-form-password-input"
-          :class="{ valid: isPasswordValid && password, error: password && !isPasswordValid }" placeholder=""
-          autocomplete="new-password" name="password-input" @input="errorMessage = ''"
-          :disabled="authStore.isLoading" />
-      </div>
-      <div class="help-text">
-        Min. 4 Characters
-      </div>
-    </div>
-
-    <!-- Keep Me Logged In Checkbox -->
-    <span class="checkbox">
-      <input v-model="keepLoggedIn" id="keepLoggedIn" class="checkbox-input" type="checkbox"
-        data-test-id="on-input-button" :disabled="authStore.isLoading" />
-      <label class="checkbox-label" for="keepLoggedIn">
-        <span class="checkbox-label-extra-space">
-          <span class="checkbox-input-custom with-border">
-            <div v-if="keepLoggedIn" class="icon-checkbox">
-              <svg class="svg-icon" style="vertical-align: text-top;">
-                <use xlink:href="#icon-checkbox"></use>
+        <!-- Password Input with Lock and Eye Icons -->
+        <div class="mb-4">
+          <label for="registration-form-password" class="block text-[#252a2d] mb-1.5 text-sm">
+            Password
+          </label>
+          <div class="flex items-center border bg-white px-2 rounded-md"
+            :class="[
+              password && !isPasswordValid ? 'border-red-500 bg-red-50' : 
+              isPasswordValid && password ? 'border-teal-300 bg-teal-50' : 
+              'border-gray-200'
+            ]">
+            
+            <!-- Lock Icon - Left -->
+            <span class="flex items-center text-gray-500 mr-2"
+              :class="{
+                'text-[#252a2d]': isPasswordValid && password,
+                'text-red-500': password && !isPasswordValid
+              }">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M19 11H5C3.89543 11 3 11.8954 3 13V20C3 21.1046 3.89543 22 5 22H19C20.1046 22 21 21.1046 21 20V13C21 11.8954 20.1046 11 19 11Z" 
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M7 11V7C7 5.67392 7.52678 4.40215 8.46447 3.46447C9.40215 2.52678 10.6739 2 12 2C13.3261 2 14.5979 2.52678 15.5355 3.46447C16.4732 4.40215 17 5.67392 17 7V11" 
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
-            </div>
-          </span>
+            </span>
+            
+            <!-- Password Input -->
+            <input v-model="password" 
+              :type="showPassword ? 'text' : 'password'" 
+              id="registration-form-password"
+              placeholder=""
+              autocomplete="current-password" 
+              name="password" 
+              @input="errorMessage = ''" 
+              :disabled="authStore.isLoading"
+              class="flex-1 min-w-0 py-2 px-0 border-none bg-transparent outline-none text-sm" />
+            
+            <!-- Eye/Eye-off Icon - Right -->
+            <span class="flex items-center text-gray-500 ml-2 cursor-pointer hover:text-[#252a2d]" 
+              @click="togglePassword"
+              :class="{
+                'text-[#252a2d]': isPasswordValid && password,
+                'text-red-500': password && !isPasswordValid
+              }">
+              <svg v-if="!showPassword" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1 12C1 12 5 4 12 4C19 4 23 12 23 12C23 12 19 20 12 20C5 20 1 12 1 12Z" 
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <svg v-else width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M17.94 17.94C16.2306 19.243 14.1491 19.9649 12 20C5 20 1 12 1 12C2.24389 9.6819 3.96914 7.65663 6.06 6.06M9.9 4.24C10.5883 4.0789 11.2931 3.99834 12 4C19 4 23 12 23 12C22.393 13.1356 21.6691 14.2047 20.84 15.19M14.12 14.12C13.8454 14.4147 13.5141 14.6512 13.1462 14.8151C12.7782 14.9791 12.3809 15.0673 11.9781 15.0744C11.5753 15.0815 11.1752 15.0074 10.8016 14.8565C10.4281 14.7056 10.0887 14.481 9.80385 14.1962C9.51897 13.9113 9.29439 13.5719 9.1435 13.1984C8.99262 12.8248 8.91853 12.4247 8.92563 12.0219C8.93274 11.6191 9.02091 11.2218 9.18488 10.8538C9.34884 10.4858 9.58525 10.1546 9.88 9.88M19 19L5 5" 
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+          </div>
+          <div class="text-gray-500 mt-1.5 text-xs">
+            Min. 4 Characters
+          </div>
+        </div>
+
+        <!-- Keep Me Logged In Checkbox -->
+        <div class="mb-4">
+          <label class="flex items-center cursor-pointer">
+            <input 
+              type="checkbox" 
+              v-model="keepLoggedIn" 
+              class="form-checkbox h-4 w-4 text-teal-500 rounded border-gray-300"
+              :disabled="authStore.isLoading"
+            />
+            <span class="ml-2 text-sm text-gray-600">Keep me logged in on this device</span>
+          </label>
+        </div>
+
+        <!-- Submit Button with Pulse Animation -->
+        <button type="submit" 
+          class="w-full font-bold text-sm uppercase py-2.5 px-5 cursor-pointer transition-all disabled:opacity-50 disabled:cursor-default rounded-md"
+          :class="[
+            !isFormValid || authStore.isLoading 
+              ? 'bg-gray-200 text-gray-500' 
+              : 'bg-teal-300 text-[#252a2d] hover:bg-teal-400 animate-softPulse'
+          ]"
+          :disabled="!isFormValid || authStore.isLoading">
+          <span v-if="!authStore.isLoading" class="inline-block font-bold text-[14px] text-sky-800">LOGIN</span>
+          <span v-else class="inline-block animate-pulse">PROCESSING...</span>
+        </button>
+
+        <!-- Register Link -->
+        <span class="block text-center mt-4 text-xs">
+          Don't have an account?
+          <a href="#" class="underline font-bold text-sky-600 hover:text-sky-800" @click.prevent="goToRegister">
+            Register
+          </a>
         </span>
-        <span class="checkbox-label-wrapper">
-          <span>Keep me logged in on this device</span>
-        </span>
-      </label>
-    </span>
-
-    <!-- Login Button -->
-    <button :disabled="!isFormValid || authStore.isLoading" type="submit" data-test-id="logInButton"
-      class="button button-submit button-full">
-      <span v-if="!authStore.isLoading">LOG IN</span>
-      <span v-else class="loading-text">LOGGING IN...</span>
-    </button>
-
-    <!-- Forgot Password Link -->
-    <a href="#" class="info underline text-mid bold" data-test-id="nav-forgot-password-link"
-      @click.prevent="console.log('Forgot password clicked')">
-      Forgot Password?
-    </a>
-
-    <!-- Join Now Link -->
-    <span class="join-now-text">
-      Don't have an account?
-      <a href="#" class="bold underline" data-test-id="track-link-click-link" @click.prevent="goToRegister">
-        Join Now
-      </a>
-    </span>
-  </form>
+      </form>
+    </div>
+  </div>
 </template>
 
 <style scoped>
-/* Your existing styles remain exactly the same */
-.error-message {
-  background-color: #fee;
-  color: #c33;
-  border: 1px solid #fcc;
-  border-radius: 4px;
-  padding: 10px;
-  margin-bottom: 16px;
-  text-align: center;
-  font-size: 14px;
-}
-
-.loading-text {
-  display: inline-block;
-  animation: pulse 1.5s infinite;
-}
-
-@keyframes pulse {
-  0% {
-    opacity: 0.6;
-  }
-
-  50% {
-    opacity: 1;
-  }
-
-  100% {
-    opacity: 0.6;
-  }
-}
-
-/* All your existing styles remain exactly the same */
-.login-form {
-  flex-flow: column;
-  display: flex;
-  width: 100%;
-}
-
-.country-code-container,
-.phone-number-input {
-  width: 100%;
-}
-
-.input-field {
-  margin-bottom: 16px;
-}
-
-.input-field label {
-  width: 100%;
-}
-
-label.form {
-  color: #252a2d;
-  margin: 0 0 6px;
-}
-
-label {
-  color: #252a2d;
-  margin: 5px 0;
-  display: inline-block;
-}
-
-p,
-.page-error,
-.notify,
-label,
-.info {
-  font-weight: 400;
-}
-
-.button-text.medium,
-.notify,
-label,
-.info {
-  font-size: 14px;
-  line-height: 18px;
-}
-
-.input-field .optional {
-  float: right;
-  color: #8e9398;
-  font-size: 14px;
-  cursor: pointer;
-}
-
 .fi {
   width: 1.33333em;
   line-height: 1em;
@@ -252,236 +222,59 @@ label,
   background-image: url(/src/assets/img/flags/tz-BjLtHeil.svg);
 }
 
-.phone-number-input .input-field-wrapper {
-  background-color: #e6e7e2;
-  border-radius: 2px 5px 5px 2px;
-  align-items: center;
-  width: 100%;
-  display: flex;
-  position: relative;
-  background-color: #fff;
-  border: 1px solid #e6e7e2;
+/* Handshake Animation */
+@keyframes handshake {
+  0% { transform: rotate(0deg); }
+  10% { transform: rotate(10deg); }
+  20% { transform: rotate(-10deg); }
+  30% { transform: rotate(8deg); }
+  40% { transform: rotate(-8deg); }
+  50% { transform: rotate(4deg); }
+  60% { transform: rotate(-4deg); }
+  70% { transform: rotate(0deg); }
+  100% { transform: rotate(0deg); }
 }
 
-.phone-number-input .flag {
-  flex: 0 0 24px;
-  width: 24px;
-  height: 16px;
-  margin: 0 8px 0 12px;
-  z-index: 2;
-}
-
-.phone-number-input .country-code {
-  color: #252a2d;
-  font-size: 14px;
-  font-weight: 400;
-  margin-right: 4px;
-  white-space: nowrap;
-  z-index: 2;
-}
-
-.phone-number-input input {
-  flex: 1;
-  min-width: 0;
-  border: none !important;
-  background: transparent !important;
-  padding: 7px 10px 7px 0 !important;
-  font: 14px / 1.1rem Roboto-flex, Helvetica, Arial, sans-serif;
-  outline: none;
-}
-
-.phone-number-input input:focus {
-  border: none !important;
-  box-shadow: none;
-}
-
-.phone-number-input .input-field-wrapper:has(input.valid) {
-  border-color: #39ecdd;
-  background-color: #f9ffe6;
-}
-
-.phone-number-input .input-field-wrapper:has(input.error) {
-  border-color: #ff4444;
-  background-color: #fff6f6;
-}
-
-.input-field-wrapper {
-  display: flex;
-  position: relative;
-  width: 100%;
-  box-sizing: border-box;
-}
-
-.input-field-wrapper input {
-  width: 100%;
-  max-width: 100%;
-  flex: 1;
-  min-width: 0;
-  box-sizing: border-box;
-  padding: 7px 10px;
-  border: 1px solid #e6e7e2;
-  border-radius: 0;
-  outline: 0;
-  font: 14px / 1.1rem Roboto-flex, Helvetica, Arial, sans-serif;
-  transition: none;
-}
-
-input[type="password"],
-input[type="text"] {
-  box-sizing: border-box;
-  height: auto;
-  line-height: 1.1rem;
-}
-
-.input-field-wrapper input.valid {
-  border-color: #39ecdd;
-  background-color: #f9ffe6;
-}
-
-.input-field-wrapper input.error {
-  border-color: #ff4444;
-  background-color: #fff6f6;
-}
-
-.input-field .help-text {
-  color: #8e9398;
-  margin-top: 6px;
-  font-size: 12px;
-  line-height: 16px;
-}
-
-.underline:not([class*=button]) {
-  text-decoration: underline;
-}
-
-.checkbox {
-  color: #252a2d;
-  cursor: pointer;
-  margin: 0 0 20px;
-  font-size: 14px;
-  font-weight: 400;
-}
-
-.checkbox-input {
-  display: none;
-}
-
-.checkbox-label {
-  align-items: flex-start;
-  margin: 0;
-  display: flex;
-}
-
-.checkbox-label-extra-space {
-  margin: -8px 0 -8px -8px;
-  padding: 8px;
-}
-
-.checkbox-input:checked+.checkbox-label .checkbox-input-custom {
-  background: #39ecdd;
-  border-color: #39ecdd;
-}
-
-.checkbox-input-custom.with-border {
-  border: 1px solid #aaaeb0;
-}
-
-.checkbox-input-custom {
-  background: #fff;
-  border-radius: 2px;
-  justify-content: center;
-  align-items: center;
-  width: 16px;
-  height: 16px;
-  display: flex;
-}
-
-.checkbox-input-custom .icon-checkbox {
-  width: 10px;
-  height: 10px;
-  line-height: 18px;
-}
-
-.checkbox-input-custom .icon-checkbox svg {
-  fill: #fff;
-  width: 100%;
-  height: 100%;
-}
-
-.checkbox-label-wrapper {
-  width: 100%;
-}
-
-.button-full {
-  width: 100% !important;
-  max-width: none !important;
-  display: block !important;
-  box-sizing: border-box !important;
-}
-
-.button-submit {
-  color: #252a2d;
-  fill: #252a2d;
-  background-color: #39ecdd;
-}
-
-.button {
-  cursor: pointer;
-  font-family: inherit;
-  font-weight: 700;
-  font-size: 14px;
-  -webkit-appearance: none;
-  box-sizing: border-box;
-  text-align: center;
-  text-transform: uppercase;
-  border: 0;
-  border-radius: 0;
-  padding: 10px 20px;
+.animate-handshake {
   display: inline-block;
+  animation: handshake 2s ease-in-out infinite;
+  transform-origin: center center;
 }
 
-.button:disabled {
-  cursor: not-allowed;
-  color: #8e9398;
-  fill: #8e9398;
-  background: #e6e7e2;
+/* Typing Animation */
+.typing-animation {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 2px solid currentColor;
+  width: 0;
+  animation: typing 3s steps(20, end) infinite, 
+             blink-caret 0.75s step-end infinite;
 }
 
-.login-form .info {
-  margin: 16px 0 8px;
-  display: block;
+@keyframes typing {
+  0%, 100% { width: 0; }
+  30%, 70% { width: 140px; }
 }
 
-a.underline:not([class*=button]) {
-  text-decoration: underline;
+@keyframes blink-caret {
+  from, to { border-color: transparent; }
+  50% { border-color: currentColor; }
 }
 
-.info {
-  color: #252a2d;
-  margin: 1rem 0;
+/* Soft Pulse Animation for Button */
+@keyframes softPulse {
+  0%, 100% { 
+    opacity: 1;
+    box-shadow: 0 0 5px rgba(57, 236, 221, 0.2);
+  }
+  50% { 
+    opacity: 0.9;
+    box-shadow: 0 0 15px rgba(57, 236, 221, 0.5);
+  }
 }
 
-.text-mid {
-  text-align: center;
-}
-
-.bold {
-  font-weight: 700;
-}
-
-.login-form .join-now-text {
-  text-align: center;
-  font-size: 12px;
-  font-weight: 400;
-  line-height: 16px;
-  margin-top: 16px;
-  display: block;
-}
-
-a {
-  cursor: pointer;
-  user-select: none;
-  color: inherit;
-  text-decoration: none;
+.animate-softPulse {
+  animation: softPulse 2s ease-in-out infinite;
 }
 </style>

@@ -2,38 +2,44 @@
 import { ref, onMounted, computed } from 'vue'
 import { useBets } from '../composables/useBets'
 import Loader from '../../assets/loader/default-spinner-BIEd0VkD.gif'
+import { 
+  ClockIcon, 
+  HashtagIcon, 
+  CurrencyDollarIcon, 
+  ArrowTrendingUpIcon,
+  BanknotesIcon,  
+  TrophyIcon ,     
+  CheckIcon
+} from '@heroicons/vue/24/outline'
+
+
+
 
 const { openBets, isLoading, error, fetchUserBets, formatCurrency } = useBets()
 
-// Fetch bets on mount
 onMounted(async () => {
   await fetchUserBets()
 })
 
-// Computed property for hasData
 const hasData = computed(() => {
   return openBets.value && openBets.value.length > 0
 })
 
-// Helper function to format date
 const formatBetDate = (dateString) => {
   if (!dateString) return { time: 'N/A', date: 'N/A' }
   const date = new Date(dateString)
   return {
-    time: date.toLocaleTimeString(),
-    date: date.toLocaleDateString()
+    time: date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
+    date: date.toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' })
   }
 }
 
-// Helper function to get selections count
 const getSelectionsCount = (bet) => {
   if (!bet.selections) return 0
   try {
-    // If it's already an array
     if (Array.isArray(bet.selections)) {
       return bet.selections.length
     }
-    // If it's a JSON string
     const parsed = JSON.parse(bet.selections)
     return Array.isArray(parsed) ? parsed.length : 0
   } catch (e) {
@@ -41,107 +47,183 @@ const getSelectionsCount = (bet) => {
     return 0
   }
 }
+
+const getStatusColor = (status) => {
+  const colors = {
+    open: 'bg-yellow-100 text-yellow-700 border-yellow-200',
+    won: 'bg-green-100 text-green-700 border-green-200',
+    lost: 'bg-red-100 text-red-700 border-red-200',
+    pending: 'bg-blue-100 text-blue-700 border-blue-200'
+  }
+  return colors[status] || 'bg-gray-100 text-gray-700 border-gray-200'
+}
+
+// Calculate total stake
+const totalStake = computed(() => {
+  return openBets.value.reduce((sum, bet) => sum + Number(bet.stake || 0), 0)
+})
+
+// Calculate total potential return
+const totalPotentialReturn = computed(() => {
+  return openBets.value.reduce((sum, bet) => sum + Number(bet.potentialReturn || 0), 0)
+})
 </script>
 
 <template>
-  <div data-v-beccd7ea="" class="bets-list-container">
-    <!-- LOADER SECTION -->
-    <div v-if="isLoading" class="loading-container">
-      <img :src="Loader" alt="Loading..." />
+  <div class="bets-list-container px-4 py-6 max-w-3xl mx-auto">
+    <!-- LOADER -->
+    <div v-if="isLoading" class="flex justify-center items-center h-96">
+      <div class="relative">
+        <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
+        <img :src="Loader" alt="Loading..." class="h-8 w-8 absolute top-2 left-2 opacity-0" />
+      </div>
     </div>
 
-    <!-- ERROR SECTION -->
-    <div v-else-if="error" class="error-container">
-      <p class="text-red-600">{{ error }}</p>
+    <!-- ERROR -->
+    <div v-else-if="error" class="flex justify-center items-center h-96">
+      <div class="bg-red-50 border border-red-200 rounded-xl p-8 text-center max-w-md">
+        <div class="text-red-500 text-5xl mb-4">⚠️</div>
+        <p class="text-red-700 font-medium mb-2">Oops! Something went wrong</p>
+        <p class="text-sm text-red-500">{{ error }}</p>
+        <button 
+          @click="fetchUserBets" 
+          class="mt-4 px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors text-sm font-medium"
+        >
+          Try Again
+        </button>
+      </div>
     </div>
 
     <div v-else>
-      <!-- HAS DATA SECTION -->
-      <section data-v-beccd7ea="" aria-hidden="false" class="tab-section" v-if="hasData">
-        <div data-v-34417751="" data-v-beccd7ea="">
-          <div 
-            v-for="bet in openBets" 
-            :key="bet.id"
-            data-v-34417751="" 
-            class="bet" 
-            data-test-id="bet-pending-10655410033" 
-            data-test-class="bet-pending"
-          >
-            <div data-v-34417751="" class="bet-line bet-header">
-              <div data-v-34417751="" class="header-container">
-                <div data-v-34417751="" class="header-title">
-                  <!-- Use createdAt instead of placedAt -->
-                  <span data-v-34417751="" class="time">{{ formatBetDate(bet.createdAt).time }},&nbsp; </span> 
-                  <span data-v-34417751="" class="date">{{ formatBetDate(bet.createdAt).date }}</span>
-                  <span data-v-34417751="" class="bet-live-now"></span>
+      <!-- HAS DATA -->
+      <section v-if="hasData" class="space-y-4 pt-10">
+        <!-- Stats Summary -->
+        <!-- <div class="grid grid-cols-3 gap-3 mb-6">
+          <div class="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-4 text-center">
+            <p class="text-xs text-blue-600 font-medium uppercase tracking-wider">Total Bets</p>
+            <p class="text-2xl font-bold text-blue-700">{{ openBets.length }}</p>
+          </div>
+          <div class="bg-gradient-to-br from-green-50 to-green-100 rounded-xl p-4 text-center">
+            <p class="text-xs text-green-600 font-medium uppercase tracking-wider">Total Stake</p>
+            <p class="text-2xl font-bold text-green-700">TSh {{ totalStake.toLocaleString() }}</p>
+          </div>
+          <div class="bg-gradient-to-br from-purple-50 to-purple-100 rounded-xl p-4 text-center">
+            <p class="text-xs text-purple-600 font-medium uppercase tracking-wider">Potential Win</p>
+            <p class="text-2xl font-bold text-purple-700">TSh {{ totalPotentialReturn.toLocaleString() }}</p>
+          </div>
+        </div> -->
+
+        <!-- Bet Cards -->
+        <div 
+          v-for="bet in openBets" 
+          :key="bet.id"
+          class="group bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 overflow-hidden"
+        >
+          <!-- Header with Gradient -->
+          <div class="bg-gradient-to-r from-gray-50 to-white px-2  py-2 border-b border-gray-100">
+
+            <div class="flex justify-between items-center bg-transparent mb-1"> 
+
+                <div class="flex gap-2 flex-row items-center justify-center rounded-[14px] bg-emerald-700 px-2 py-1">
+                    <div class=" p-1 rounded-full bg-white flex items-center justify-center  ">
+                      <CheckIcon class="w-3 h-3  text-emerald-600  font-bold" />
+                    </div>
+                    <span  class="text-md font-bold text-amber-100">{{ (bet.result).toUpperCase() }}</span>
+                    <span class="text-md font-bold text-amber-100">(2/2)</span>
                 </div>
-                <div data-v-34417751="" class="id" data-test-id="bet-id">ID: #{{ bet.id.toString().slice(0,8) }} </div>
-              </div>
+                <div class="flex flex-row items-center justify-center">
+                        <span class="text-xl text-gray-400 font-extrabold">ID:</span>
+                        <span class="text-sm font-bold text-gray-400 px-2">  #{{ bet.id.toString().slice(0,8) }}</span>
+
+                </div>
             </div>
-            
-            <div data-v-34417751="" class="bet-line bet-status">
-              <!-- Parse selections to get actual count -->
-              <div class="outcome">
-                {{ getSelectionsCount(bet) }}/{{ getSelectionsCount(bet) }}
-              </div>
-              <div data-v-beccd7ea="" class="cashout-container">
-                <span data-v-beccd7ea="" class="cashout-title">Cashout</span> 
-                <span data-v-beccd7ea="" class="cashout-icon">
-                  <svg data-v-02f45589="" data-v-beccd7ea="" class="svg-icon icon-size-small" style="vertical-align: middle;">
-                    <title data-v-02f45589="">Cashout</title>
-                    <use data-v-02f45589="" xlink:href="#icon-cashoutable"></use>
-                  </svg>
-                </span>
-              </div>
-            </div>
-            
-            <div data-v-34417751="" class="bet-status-line"></div>
-            
-            <div data-v-34417751="" class="bet-line bet-body">
-              <div data-v-34417751="" class="bet-detail">
-                <span data-v-34417751="" class="label">STAKE</span>
-                <div data-v-34417751="" class="currency-container">
-                  <div data-v-34417751="" class="currency value"> 
-                    <span class="amount">{{ bet.stake }}</span>
-                  </div>
-                </div> 
-              </div>
-              
-              <div data-v-34417751="" class="bet-detail">
-                <span data-v-34417751="" class="label">ODDS</span> 
-                <span data-v-34417751="" class="value">{{ bet.totalOdds }}</span> 
-              </div>
-              
-              <div data-v-34417751="" class="bet-detail end">
-                <span data-v-34417751="" class="label">PAYOUT</span>
-                <div data-v-34417751="" class="currency-container bold-symbol">
-                  <div data-v-34417751="" class="currency value"> 
-                    <span class="symbol contrast">TSh</span> 
-                    <span class="amount">{{ bet.potentialReturn }}</span>
-                  </div>
-                </div> 
-              </div>
+
+
+            <div class="flex items-center space-x-2 py-1">
+                    <span class="text-sm font-medium text-gray-900">{{ formatBetDate(bet.createdAt).time }}</span>
+                    <span class="text-xs text-gray-400">•</span>
+                    <span class="text-sm text-gray-600">{{ formatBetDate(bet.createdAt).date }}</span>
             </div>
           </div>
-        </div> 
+
+         
+
+          <!-- Main Content -->
+          <div class="px-2 py-2">
+            <!-- Stats Grid -->
+            <div class="flex flex-row items-center justify-between">
+              <!-- Stake -->
+              <div class="flex flex-col">
+                <div class="flex items-center ">
+                  <CurrencyDollarIcon class="w-4 h-4 text-gray-400 mr-1" />
+                  <span class="text-xs font-medium text-gray-500 uppercase tracking-wider">Stake</span>
+                </div>
+                <div class="gap-1 flex items-center rounded-lg  ">
+                  <span class="text-lg font-bold text-gray-900">TSh:</span>
+                  <span class="text-lg font-bold text-gray-900 ">{{ Number(bet.stake).toLocaleString() }}</span>
+                </div>
+
+              </div>
+
+              <!-- Odds -->
+              <div class="flex flex-col">
+                <div class="flex items-center ">
+                  <ArrowTrendingUpIcon class="w-4 h-4 text-gray-400 mr-1" />
+                  <span class="text-xs font-medium text-gray-500 uppercase tracking-wider">Odds</span>
+                </div>
+                <div class="rounded-lg ">
+                  <span class="text-lg font-bold text-yellow-700">{{ Number(bet.totalOdds).toFixed(2) }}</span>
+                </div>
+              </div>
+
+              <!-- Potential Win -->
+              <div class="flex flex-col">
+                <div class="flex items-center ">
+                  <BanknotesIcon class="w-4 h-4 text-gray-400 mr-1" />  
+                  <span class="text-xs font-medium text-gray-500 uppercase tracking-wider">Cashout</span>
+                </div>
+                <div class=" rounded-lg gap-1 flex items-center">
+                  <span class="text-sm font-medium text-green-600">TSh:</span>
+                  <span class="text-lg font-bold text-green-700 ">{{ Number(bet.potentialReturn).toLocaleString() }}</span>
+                </div>
+              </div>
+
+
+            </div>
+
+           
+
+          </div>
+
+          <!-- Footer with Match Info -->
+          <div v-if="bet.match" class="bg-gray-50 px-5 py-3 border-t border-gray-100">
+            <div class="flex items-center text-xs text-gray-600">
+              <span class="font-medium">⚽ {{ bet.match }}</span>
+            </div>
+          </div>
+        </div>
       </section>
 
-      <!-- NO DATA SECTION -->
-      <section data-v-beccd7ea="" aria-hidden="false" class="tab-section" v-else>
-        <div data-v-34417751="" data-v-beccd7ea="">
-          <div data-v-34417751="" class="no-data-text">
-            <div data-v-994d5d7e="" data-v-beccd7ea="" class="empty-betslip-open">
-              <svg data-v-02f45589="" data-v-994d5d7e="" class="svg-icon empty-betslip-icon" style="vertical-align: middle;">
-                <use data-v-02f45589="" xlink:href="#icon-betslip-illustration"></use>
-              </svg> 
-              <span data-v-994d5d7e="" class="caption">There are currently no open betslips.</span>
-              <div data-v-994d5d7e="" class="empty-betslip-button">
-                <a data-v-994d5d7e="" href="/events" class="empty-betslip-button-link" data-test-id="emptyBetslipBtn">
-                  Browse Matches
-                </a>
-              </div>
-            </div>
+      <!-- NO DATA - Enhanced Empty State -->
+      <section v-else class="flex flex-col items-center justify-center min-h-[60vh]">
+        <div class="bg-white rounded-2xl shadow-xl p-12 text-center max-w-md">
+          <div class="relative mb-6">
+            <div class="absolute inset-0 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full blur-3xl opacity-20"></div>
+            <svg class="relative w-32 h-32 mx-auto text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+            </svg>
           </div>
+          <h3 class="text-2xl font-bold text-gray-900 mb-2">No Open Bets</h3>
+          <p class="text-gray-500 mb-8">You don't have any active bets at the moment. Start betting now!</p>
+          <a 
+            href="/events" 
+            class="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:from-blue-700 hover:to-purple-700 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl"
+          >
+            <span>Browse Matches</span>
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+            </svg>
+          </a>
         </div>
       </section>
     </div>
@@ -149,303 +231,48 @@ const getSelectionsCount = (bet) => {
 </template>
 
 <style scoped>
-.loading-container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 400px;
-}
-.loading-container img{
-    height: 32px;
-    width: 32px;
-}
-.error-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 400px;
-    color: #ef4444;
-}
-.bets-list-container[data-v-beccd7ea] {
-    padding: 20px 12px;
-}
-section {
-    display: block;
-    unicode-bidi: isolate;
-}
-.no-data-text[data-v-34417751] {
-    text-align: center;
-    margin: 14px;
-}
-.no-data-text[data-v-34417751], .bet-line.bet-header .time[data-v-34417751], .bet-line .bet-detail .value[data-v-34417751] {
-    font-weight: 400;
-}
-.no-data-text[data-v-34417751] {
-    font-size: 16px;
-    line-height: 22px;
-}
-.empty-betslip-open[data-v-994d5d7e] {
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 12px;
-    margin-top: 40px;
-    display: flex;
-}
-.empty-betslip-open .empty-betslip-icon[data-v-994d5d7e] {
-    width: 100px;
-    height: 80px;
-    margin-bottom: 4px;
-}
-svg[data-v-02f45589], img[data-v-02f45589] {
-    width: 32px;
-    height: 32px;
-}
-/* ... rest of your existing styles ... */
-
-
-
-.loading-container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 400px;
-}
-.loading-container img{
-    height: 32px;
-    width: 32px;
-}
-    .bets-list-container[data-v-beccd7ea] {
-    padding: 20px 12px;
-}
-section {
-    display: block;
-    unicode-bidi: isolate;
-}
-.no-data-text[data-v-34417751] {
-    text-align: center;
-    margin: 14px;
-}
-.no-data-text[data-v-34417751], .bet-line.bet-header .time[data-v-34417751], .bet-line .bet-detail .value[data-v-34417751] {
-    font-weight: 400;
-}
-.no-data-text[data-v-34417751] {
-    font-size: 16px;
-    line-height: 22px;
-}
-.empty-betslip-open[data-v-994d5d7e] {
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 12px;
-    margin-top: 40px;
-    display: flex;
-}
-.empty-betslip-open .empty-betslip-icon[data-v-994d5d7e] {
-    width: 100px;
-    height: 80px;
-    margin-bottom: 4px;
-}
-svg[data-v-02f45589], img[data-v-02f45589] {
-    width: 32px;
-    height: 32px;
-}
-.no-data-text[data-v-34417751] {
-    text-align: center;
-    margin: 14px;
-}
-.no-data-text[data-v-34417751], .bet-line.bet-header .time[data-v-34417751], .bet-line .bet-detail .value[data-v-34417751] {
-    font-weight: 400;
-}
-.no-data-text[data-v-34417751] {
-    font-size: 16px;
-    line-height: 22px;
-}
-.no-data-text[data-v-34417751], .bet-line.bet-header .time[data-v-34417751], .bet-line .bet-detail .value[data-v-34417751] {
-    font-weight: 400;
-}
-.no-data-text[data-v-34417751] {
-    font-size: 16px;
-    line-height: 22px;
-}
-.empty-betslip-open .empty-betslip-button[data-v-994d5d7e] {
-    justify-content: center;
-    align-items: center;
-    display: flex;
-}
-.no-data-text[data-v-34417751], .bet-line.bet-header .time[data-v-34417751], .bet-line .bet-detail .value[data-v-34417751] {
-    font-weight: 400;
-}
-.no-data-text[data-v-34417751] {
-    text-align: center;
-    margin: 14px;
-}
-.no-data-text[data-v-34417751] {
-    font-size: 16px;
-    line-height: 22px;
-}
-.empty-betslip-open .empty-betslip-button-link[data-v-994d5d7e] {
-    text-transform: uppercase;
-    user-select: none;
-    cursor: pointer;
-    color: #252a2d;
-    background-color: #39ecdd;
-    justify-content: center;
-    align-self: stretch;
-    align-items: center;
-    gap: 8px;
-    width: 100%;
-    padding: 7px 12px;
-    display: flex;
-}
-.empty-betslip-open .empty-betslip-button-link[data-v-994d5d7e] {
-    font-size: 14px;
-    font-weight: 700;
-    line-height: 18px;
+/* Smooth transitions */
+.bet-card {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+.bet-card:hover {
+  transform: translateY(-2px);
+}
 
+/* Custom scrollbar */
+.bets-list-container::-webkit-scrollbar {
+  width: 6px;
+}
 
+.bets-list-container::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
 
+.bets-list-container::-webkit-scrollbar-thumb {
+  background: #cbd5e0;
+  border-radius: 10px;
+}
 
+.bets-list-container::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
 
-.bet-line.bet-header[data-v-34417751] {
-  background-color: #f4f5f0;
-  border-bottom: 1px solid #e6e7e2;
-  align-items: flex-start;
-  padding: 10px 12px;
-  display: flex;
+/* Loading animation */
+@keyframes pulse-ring {
+  0% {
+    transform: scale(0.8);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(1.3);
+    opacity: 0;
+  }
 }
-.bet[data-v-34417751] {
-  color: #252a2d;
-  border: 1px solid #e6e7e2;
-  margin-bottom: 12px;
-}
-.bet-line.bet-header .header-container[data-v-34417751] {
-  flex-direction: row;
-  flex-grow: 1;
-  justify-content: space-between;
-  align-items: center;
-  display: flex;
-}
-.bet .header-title[data-v-34417751] {
-  align-items: center;
-  display: flex;
-}
-.bet-line.bet-header .time[data-v-34417751]{
-  font-size: 14px;
-  line-height: 18px;
-  font-weight: 400;
-}
-.bet-line.bet-header .date[data-v-34417751]{
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 18px;
-}
-.bet-live-now[data-v-34417751] {
-  width: 16px;
-  height: 16px;
-  margin-left: 8px;
-}
-.bet-line.bet-header .id[data-v-34417751] {
-  color: #8e9398;
-  text-align: right;
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 18px;
-}
-.bet-line.bet-status[data-v-34417751] {
-  color: #ecc239;
-  text-align: right;
-  white-space: nowrap;
-  fill: #39ecdd;
-  justify-content: space-between;
-  padding: 10px 12px;
-  font-weight: 700;
-  display: flex;
-}
-.outcome {
-  font-size: 14px;
-  font-weight: 700;
-  line-height: 18px;
-}
-.cashout-container[data-v-beccd7ea] {
-  background-color: #f4f5f0;
-  border-radius: 4px;
-  justify-content: center;
-  align-items: center;
-  gap: 4px;
-  padding: 2px 4px;
-  display: flex;
-}
-.cashout-container .cashout-title[data-v-beccd7ea] {
-  color: #252a2d;
-  font-size: 10px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 14px;
-}
-.cashout-container .cashout-icon[data-v-beccd7ea] {
-  align-items: center;
-  width: 14px;
-  height: 14px;
-  display: flex;
-}
-.cashout-container .cashout-icon svg[data-v-beccd7ea] {
-  width: 100%;
-  height: 100%;
-}
-svg.icon-size-small[data-v-02f45589], img.icon-size-small[data-v-02f45589] {
-  width: 14px;
-  height: 14px;
-}
-.bet-status-line[data-v-34417751] {
-  border-bottom: 1px solid #e6e7e2;
-  margin-left: 12px;
-  margin-right: 12px;
-}
-.bet-line[data-v-34417751]:last-child {
-  margin-bottom: 0;
-}
-.bet-line.bet-body[data-v-34417751] {
-  flex-wrap: wrap;
-  display: flex;
-  margin: 12px 12px ;
-}
-.bet-line .bet-detail[data-v-34417751] {
-  flex-direction: column;
-  flex: 1;
-  align-items: flex-start;
-  gap: 1px;
-  padding-right: 4px;
-  font-weight: 700;
-  display: flex;
-}
-.bet-line .bet-detail .label[data-v-34417751] {
-  font-weight: 500;
-  color: #8e9398;
-  font-size: 12px;
-  line-height: 16px;
-}
-.bet-line .bet-detail .currency-container[data-v-34417751] {
-  align-items: center;
-  display: flex;
-}
-.bet-line .bet-detail .value[data-v-34417751] {
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 18px;
-}
-.bet-line .bet-detail.end[data-v-34417751] {
-  align-items: flex-end;
-  padding-right: 0;
-}
-.bet-line .bet-detail .currency-container[data-v-34417751] {
-  align-items: center;
-  display: flex;
-}
-.bet-line .bet-detail .currency.value[data-v-34417751] .symbol {
-  color: #aaaeb0;
-  font-size: 12px;
+
+/* Ensure SVGs are hidden initially if sprites not loaded */
+svg use {
+  display: none;
 }
 </style>

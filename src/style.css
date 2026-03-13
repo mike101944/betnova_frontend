@@ -241,3 +241,88 @@ html, body {
     @apply w-[60px] h-[60px];
   }
 }
+
+
+
+
+.tabs-selector.active {
+  @apply bg-white font-bold border-b-2 border-emerald-700;
+}
+
+.tabs-selector.active .tab-text {
+  @apply font-bold;
+}
+
+.tabs-selector .tab-counter {
+  @apply font-normal;
+}
+
+/* Smooth transitions */
+.tabs-selector {
+  @apply transition-colors duration-200;
+}
+
+.tabs-selector:hover:not(.active) {
+  @apply bg-white;
+}
+
+
+.bet {
+  @apply border border-gray-200 mb-3 text-gray-700;
+}
+
+.bet-header {
+  @apply bg-gray-50 border-b border-gray-200 px-3 py-2.5;
+}
+
+.bet-status {
+  @apply flex justify-between items-center px-3 py-2.5 font-bold text-yellow-500;
+}
+
+.cashout-container {
+  @apply bg-gray-50 rounded flex items-center gap-1 px-1 py-0.5;
+}
+
+.cashout-icon {
+  @apply w-3.5 h-3.5 flex items-center;
+}
+
+.bet-body {
+  @apply flex flex-wrap gap-4 p-3;
+}
+
+.bet-detail {
+  @apply flex-1 flex flex-col items-start gap-0.5 pr-1 font-bold;
+}
+
+.bet-detail .label {
+  @apply text-xs font-medium text-gray-500;
+}
+
+.bet-detail .value {
+  @apply text-sm font-normal;
+}
+
+.bet-detail.end {
+  @apply items-end pr-0;
+}
+
+.currency-container {
+  @apply flex items-center;
+}
+
+.currency-container .symbol {
+  @apply text-xs text-gray-400 mr-0.5;
+}
+
+.empty-betslip-open {
+  @apply flex flex-col justify-center items-center gap-3 mt-10;
+}
+
+.empty-betslip-open .empty-betslip-icon {
+  @apply w-24 h-20 mb-1;
+}
+
+.empty-betslip-open .empty-betslip-button-link {
+  @apply uppercase cursor-pointer text-gray-700 bg-teal-300 flex justify-center items-center gap-2 w-full px-3 py-1.5 text-sm font-bold;
+}

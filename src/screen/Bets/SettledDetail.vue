@@ -1,900 +1,307 @@
+<template>
+    <div class="settled-detail-container min-h-screen bg-white">
+        <!-- Header with Gradient -->
+        <div class=" text-xl  px-4 py-1 ">
+            <div class="w-full ">
+                <!-- Back Button -->
+                <button @click="router.back()" class="mb-4 flex cursor-pointer  items-center ">
+                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                    </svg>
+                    <span>Back</span>
+                </button>
+
+
+            </div>
+        </div>
+
+
+        <!-- Header Content -->
+        <!-- Parent div yenye relative positioning -->
+        <div class="relative bg-gradient-to-r from-emerald-600 to-teal-600 text-white px-4 py-6 mt-3 mx-2">
+            <!-- BET ID - positioned absolute juu kabisa -->
+            <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-gray-400 rounded-full px-3 py-1">
+                <span class="text-sm font-semibold">BET ID: #{{ bet?.id?.toString().slice(0, 10) }}</span>
+            </div>
+
+            <!-- Header Content -->
+            <div class="flex justify-between items-start max-w-3xl mx-auto">
+                <div class="flex flex-row items-center justify-center gap-4">
+                    <p class="text-sm font-medium opacity-90 mb-1">CONGRATULATIONS!</p>
+                            <div>
+                                <h2 class="text-xl text-amber-300 font-bold mb-1">WINNING BIG</h2>
+                            <p class="text-xl font-black">{{ formatCurrency(bet.potentialReturn) }}</p>
+                            </div>
+                </div>
+                <TrophyIcon class="w-20 h-20 text-white/30" />
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="w-full ">
+            <!-- Loading State -->
+            <div v-if="isLoading" class="flex justify-center items-center h-64">
+                <div class="animate-spin rounded-full h-12 w-12 border-4 border-emerald-600 border-t-transparent"></div>
+            </div>
+
+            <!-- Error State -->
+            <div v-else-if="error" class="bg-red-50 rounded-2xl p-8 text-center">
+                <div class="text-red-500 text-5xl mb-4">⚠️</div>
+                <p class="text-red-700 font-medium mb-2">Failed to load bet details</p>
+                <p class="text-sm text-red-500 mb-4">{{ error }}</p>
+                <button @click="fetchBetDetails" class="px-6 py-2 bg-red-600 text-white rounded-xl hover:bg-red-700">
+                    Try Again
+                </button>
+            </div>
+
+            <!-- Bet Details Content -->
+            <div v-else-if="bet" class="space-y-4 bg-gradient-to-r from-emerald-600 to-teal-600 mx-2">
+                <!-- Congratulations Banner -->
+                <div class="bg-gray-50 rounded-t-xl p-4 ">
+                        <div class="flex flex-row justify-between items-center">
+                            <p class="text-sm text-gray-500 mb-1">Total Odds</p>
+                            <p class="text-l font-bold text-yellow-600">{{ Number(bet.totalOdds).toFixed(2) }}</p>
+                        </div>
+                        <div class="flex flex-row justify-between items-center">
+                            <p class="text-sm text-gray-500 mb-1">Stake</p>
+                            <p class="text-l font-bold text-gray-900">{{ formatCurrency(bet.stake) }}</p>
+                        </div>
+                        <div class="flex flex-row justify-between items-center">
+                            <p class="text-sm text-gray-500 mb-1">Potential Win</p>
+                            <p class="text-l font-bold text-green-600">{{ formatCurrency(bet.potentialWin ||
+                                bet.potentialReturn) }}</p>
+                        </div>
+                        <div class="flex flex-row justify-between items-center">
+                            <p class="text-sm text-gray-500 mb-1">Tax (10%)</p>
+                            <p class="text-l font-bold text-gray-500">{{ formatCurrency(calculateTax(bet)) }}</p>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-lg font-semibold text-gray-900"> Payout</span>
+                            <span class="text-l font-black text-green-600">{{
+                                formatCurrency(calculateFinalPayout(bet)) }}</span>
+                        </div>
+
+                </div>
+               
+
+              
+                <div class="flex items-center justify-between bg-white rounded-2xl shadow-lg px-2 py-1 mx-10">
+                    <div class="flex items-center gap-2">
+                        <CheckCircleIcon class="w-5 h-5 text-green-500" />
+                        <span class="text-gray-600">Bet Placed</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <CheckCircleIcon class="w-5 h-5 text-green-500" />
+                        <span class="text-gray-600">Matches Played</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <TrophyIcon class="w-5 h-5 text-yellow-500" />
+                        <span class="text-gray-600">🏆</span>
+                    </div>
+                </div>
+              
+
+                <!-- Selections -->
+                <div class=" rounded-2xl shadow-lg overflow-hidden">
+                  
+
+                    <div class="divide-y divide-gray-200">
+                        <div v-for="(selection, index) in parsedSelections" :key="index" class="p-1 m-2 bg-white rounded-[12px]">
+                            <div class="flex items-start justify-between mb-2">
+                               <div class="flex flex-row justify-evenly items-center">
+                                <span class=" text-xl flex items-center justify-center">⚽</span>
+                              
+                                    <p class="font-bold text-gray-900">{{ selection.match || selection.event ||
+                                        selection.homeTeam + ' vs ' + selection.awayTeam }}</p>
+                               </div>
+
+                                <div class="flex items-center gap-2">
+                                    <span
+                                        class=" text-green-700  py-1 rounded-full text-xs font-bold">{{ selection.odds }}</span>
+                                    <span class=" text-gray-700 py-1 rounded-full text-[1]">✅</span>
+                                </div>
+                            </div>
+                           
+                            <div class="pl-6">
+                                <p class="text-sm text-gray-500 mt-1">{{ selection.league }}
+                                </p>
+                            </div>
+                          
+                        <div class="divide-y divide-gray-200">
+                            <div class="flex flex-row items-center justify-between">
+                                    <div>
+                                        <span class="text-gray-500">Prediction:</span>
+                                    <span class="ml-1 font-medium text-gray-900">Correct Score: {{ selection.selection }}</span>
+
+                                    </div>
+                                    <div>
+                                    <span class="ml-1 text-teal-700 font-bold">WON</span>
+                                    </div>
+                            </div>
+                            <div>
+                                
+                            </div>
+
+                        </div>
+
+                        <div class="flex items-center justify-between py-2 text-sm">
+                            <div class="flex items-center gap-1">
+                                <span class="text-gray-500">Odds:</span>
+                                <span class="font-bold text-yellow-600">{{ selection.odds }}</span>
+                            </div>
+                            
+                            <div class="w-px h-4 bg-gray-300"></div>
+                            
+                            <div class="flex items-center gap-1">
+                                <span class="text-gray-500">Result:</span>
+                                <span class="font-medium text-gray-900">2-2</span>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Footer Status -->
+                
+            </div>
+        </div>
+    </div>
+</template>
 
 <script setup>
+import { ref, onMounted, computed } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
-import { ref, onMounted } from 'vue'
-import WiningCupImage from '../../assets/media/main_trophy_bronze_b8a77b5e1a.webp' 
-import WiningCupImageBackground from '../../assets/media/Property_1_Bronze_confetti_b5028c1425.webp' 
+import { TrophyIcon, CheckCircleIcon } from '@heroicons/vue/24/solid'
+import { useBets } from '../composables/useBets'
+
 const route = useRoute()
 const router = useRouter()
-const betId = route.params.id
+const { getBetDetails, formatCurrency, allBets } = useBets()
 
-const currentBet = ref(null)
-
-const isTaxDetailsOpen = ref(false)
-
-const taxDetailTitle = ref('Tax Details')
-
-import Loader from '../../assets/loader/default-spinner-BIEd0VkD.gif'
-
-
+const bet = ref(null)
 const isLoading = ref(false)
+const error = ref(null)
 
-onMounted(()=>{
+// Parse selections from JSON string
+const parsedSelections = computed(() => {
+    if (!bet.value?.selections) return []
 
-
-
-    
-console.log('print bet Id for bet ID:', betId);
-console.log('Type of betId from route:', typeof betId);
-
-
-
-// Method 2: Try localStorage
-const storedBets = localStorage.getItem('settledBets');
-
-if (storedBets) {
-    const allBets = JSON.parse(storedBets);
- 
-    // Try ways to find the bet
-    const foundBet = allBets.find(bet => {
-        
-        
-        // Try loose comparison
-        if (bet.id == betId) { // Double equals for type coercion
-            console.log('Found by loose comparison');
-            return true;
+    try {
+        // If selections is already an array
+        if (Array.isArray(bet.value.selections)) {
+            return bet.value.selections
         }
-        
-        return false;
-    });
-    
-    if (foundBet) {
-        currentBet.value = foundBet;
-        console.log('Found bet:', currentBet.value);
-    } else {
-        console.log('Bet not found. Available IDs:', allBets.map(b => b.id));
-        console.log('Looking for:', betId);
-    }
-} else {
-    console.log('No settledBets in localStorage');
-}
 
-    isLoading.value = true
-    setTimeout(() => {
-        isLoading.value = false
-    }, 1000); // Simulate loading for 1 second
+        // If it's a string, try to parse it
+        if (typeof bet.value.selections === 'string') {
+            const parsed = JSON.parse(bet.value.selections)
+            return Array.isArray(parsed) ? parsed : []
+        }
+
+        // If it's an object with selections property
+        if (bet.value.selections.selections) {
+            return Array.isArray(bet.value.selections.selections)
+                ? bet.value.selections.selections
+                : []
+        }
+
+        return []
+    } catch (e) {
+        console.error('Error parsing selections:', e)
+        return []
+    }
 })
 
-const toggleTaxDetail = ()=>{
-    isTaxDetailsOpen.value = !isTaxDetailsOpen.value
+// Calculate 12% tax
+const calculateTax = (bet) => {
+    const potentialWin = Number(bet.potentialWin || bet.potentialReturn || 0)
+    return Math.round(potentialWin * 0.12)
 }
 
+// Calculate final payout after tax
+const calculateFinalPayout = (bet) => {
+    const potentialWin = Number(bet.potentialWin || bet.potentialReturn || 0)
+    return potentialWin - calculateTax(bet)
+}
 
+// Fetch bet details
+const fetchBetDetails = async () => {
+    isLoading.value = true
+    error.value = null
 
+    try {
+        const betId = route.params.id
 
-    
-    const goBack = () => {
-      router.push({ name: 'Settled' })
-      
-      // router.go(-1)
+        if (!betId) {
+            throw new Error('No bet ID provided')
+        }
+
+        // Try to get bet from router state first
+        if (route.state?.currentBet) {
+            console.log('Using bet from router state')
+            bet.value = route.state.currentBet
+        } else {
+            // Try to find bet in allBets if already loaded
+            if (allBets.value && allBets.value.length > 0) {
+                console.log('Searching in allBets')
+                const foundBet = allBets.value.find(b => b.id.toString() === betId.toString())
+                if (foundBet) {
+                    bet.value = foundBet
+                }
+            }
+
+            // If not found, fetch from API
+            if (!bet.value) {
+                console.log('Fetching from API')
+                const betData = await getBetDetails(betId)
+                if (betData) {
+                    bet.value = betData
+                } else {
+                    throw new Error('Bet not found')
+                }
+            }
+        }
+
+        console.log('Bet loaded:', bet.value)
+
+    } catch (err) {
+        console.error('Error fetching bet:', err)
+        error.value = err.message || 'Failed to load bet details'
+    } finally {
+        isLoading.value = false
     }
-    </script>
-
-
-<template>
-    
-
-
-  <div data-v-7f504cc4="" v-if="currentBet" class="single-betslip router-view">
-     <!-- LOADER SECTION -->
-     <div v-if="isLoading" class="loading-container">
-                        <img :src="Loader" alt="Loading..." />
-            </div>
-        <div v-else>
-        <div data-v-7f504cc4="" class="header">
-            <div data-v-7f504cc4="" @click="goBack"  data-test-id="single-betslip-back-button" class="back">
-                <svg data-v-02f45589=""  
-                    data-v-7f504cc4="" class="svg-icon icon" style="vertical-align: middle;">
-                    <use data-v-02f45589="" xlink:href="#arrow_left"></use>
-                </svg></div>
-            <div data-v-7f504cc4="" class="betslip-title">
-                <div data-v-7f504cc4="" class="id" data-test-id="betSlipID">BET ID # {{ currentBet.id }}</div> 
-            </div> 
-        </div>
-        <div data-v-7f504cc4="" class="summary">
-            <div data-v-af0326d2="" data-v-7f504cc4="" class="tier-banner"><img data-v-5455027b="" data-v-af0326d2=""
-                :src="WiningCupImage" class="trophy-img"> <img data-v-5455027b=""
-                    data-v-af0326d2="" :src="WiningCupImageBackground" class="trophy-bg">
-                <div data-v-af0326d2="" class="currency congrats-text"><span data-v-af0326d2="">Congratulations on <br>
-                        <span class="win-big-text">winning big </span></span> <span class="symbol">TSh</span> <span
-                        class="amount">{{ currentBet.payout }}</span> <!----></div>
-            </div> <!---->
-            <div data-v-7f504cc4="" class="betslip-summary-container win-tier"
-                style="border-image: linear-gradient(to right, rgb(176, 96, 55), rgb(230, 149, 103), rgb(217, 111, 53), rgb(141, 69, 29), rgb(230, 149, 103)) 1 / 1 / 0 stretch;">
-                <div data-v-7f504cc4="" class="summary-line">
-                    <div data-v-7f504cc4="" class="label">Odds:</div>
-                    <div data-v-7f504cc4="" class="value">{{ currentBet.odds }}</div>
-                </div>
-                <div data-v-7f504cc4="" class="summary-line selected">
-                    <div data-v-7f504cc4="" class="label">Stake:</div>
-                    <div data-v-7f504cc4="" class="currency value" data-test-id="stakeAmount"> <span
-                            class="symbol contrast">TSh</span> {{ currentBet.stake }}<span class="amount"></span> <!----></div>
-                </div> 
-                <div data-v-7f504cc4="" class="summary-line selected">
-                    <div data-v-7f504cc4="" class="label">Potential Winnings:</div>
-                    <div data-v-7f504cc4="" class="currency value" data-test-id="possibleWinAmount"> <span
-                            class="symbol contrast">TSh</span> <span class="amount">2.40</span> <!----></div>
-                </div> 
-                <div data-v-5d3da755="" data-v-7f504cc4="" class="tax-details">
-    <div data-v-aabe1219="" data-v-5d3da755=""
-         :class="['expansion-panel', 'minimal', 'small', 
-                  isTaxDetailsOpen ? 'is-open' : '', 
-                  'tax-details-expansion', 'light']">
-        
-        <!-- Clickable header -->
-        <div data-v-aabe1219="" @click="toggleTaxDetail" 
-             data-test-id="toggle-open-button" 
-             class="title table pointer">
-            
-            <div data-v-aabe1219="" class="row-cell align-middle expand-icon expand-icon-left">
-                <svg data-v-02f45589="" data-v-aabe1219="" 
-                     class="svg-icon icon-size-very-small"
-                     :style="{ transform: isTaxDetailsOpen ? 'rotate(180deg)' : 'rotate(0deg)', 
-                               transition: 'transform 0.3s ease' }">
-                    <use data-v-02f45589=""
-                         :xlink:href="isTaxDetailsOpen ? '#icon-arrow-up' : '#icon-arrow-down'"></use>
-                </svg>
-            </div>
-            
-            
-                <div v-if="isTaxDetailsOpen" data-v-aabe1219="" class="row-cell align-middle title-text">
-                    <h3 data-v-aabe1219="">Tax Details :</h3>
-                </div>
-            
-            <div v-else data-v-aabe1219="" style="display: flex; align-items: center; justify-content: space-between;" class=" row-cell align-middle title-text">
-
-
-                <h3 data-v-aabe1219="">Withholding Tax 12% :</h3>
-
-                <!-- Show tax amount in header (always visible) -->
-            <div data-v-aabe1219="" class="row-cell align-middle tax-amount-header">
-                <div data-v-5d3da755="" class="currency value">
-                    <span class="symbol contrast">TSh</span>
-                    <span class="amount">0.29</span>
-                </div>
-            </div>
-            </div>
-            
-            
-
-            
-            
-        </div>
-        
-        <!-- Collapsible content - GROSS WINNINGS ONLY -->
-        <div data-v-aabe1219="" 
-             v-show="isTaxDetailsOpen" 
-             class="expansion-panel-content">
-            
-            <!-- Gross Winnings (hidden by default) -->
-            <div data-v-5d3da755="" class="summary-line">
-                <div data-v-5d3da755="" class="label">Gross Winnings:</div>
-                <div data-v-5d3da755="" class="currency value" data-test-id="grossWinnings">
-                    <span class="symbol contrast">TSh</span>
-                    <span class="amount">2.40</span>
-                </div>
-            </div>
-            
-            <div data-v-5d3da755="" class="divider"></div>
-            
-            <!-- Withholding Tax (also shown in header) -->
-            <div data-v-5d3da755="" class="summary-line">
-                <div data-v-5d3da755="" class="label">Withholding Tax 12%:</div>
-                <div data-v-5d3da755="" class="currency value" data-test-id="withholdingTax">
-                    <span class="symbol contrast">TSh</span>
-                    <span class="amount">0.29</span>
-                </div>
-            </div>
-            
-        </div>
-        
-    </div>
-</div>
-
-                <div data-v-7f504cc4="" class="summary-line result" data-test-id="summaryLine">
-                    <div data-v-7f504cc4="" class="label winning-result">Payout:</div>
-                    <div data-v-7f504cc4="" class="currency value winning-result" data-test-class="betResult"
-                        data-test-id="betResultWon">WON <span class="symbol">TSh</span> <span class="amount">3.11</span>
-                        </div>
-                </div>
-            </div>
-            <div data-v-7f504cc4="" class="betslip-sharing"><button data-v-7f504cc4=""
-                    data-test-id="open-bet-sharing-modal-button" class="button button-primary share-win-button"><svg
-                        data-v-02f45589="" data-v-7f504cc4="" class="svg-icon icon icon-size-medium"
-                        style="vertical-align: middle;"><!---->
-                        <use data-v-02f45589="" xlink:href="#icon-share"></use>
-                    </svg> <span data-v-7f504cc4="">Share your win</span></button></div> <!----> <!----> <!----> <!---->
-        </div> <!---->
-        <div data-v-695b065a="" data-v-7f504cc4="" class="event" data-test-id="stakeInfo"><!----> <!---->
-            <div data-v-695b065a="" class="event-line event-header"><!---->
-                <div data-v-695b065a="" class="event-label">
-                    <div data-v-695b065a="" class="label">
-                        <div data-v-695b065a="">12:00 am <span data-v-695b065a="" class="date">Sat 30/08</span></div>
-                    </div> <!----> <!---->
-                </div>
-                <div data-v-695b065a="" class="value odd win"><span data-v-695b065a="" class="">3.40</span> <span
-                        data-v-891f4695="" data-v-695b065a="" class="badge type-win mode-circle badge-result"><!---->
-                        <!----></span></div>
-            </div>
-            <div data-v-695b065a="" class="event-line">
-                <div data-v-695b065a="" class="label">
-                    <div data-v-695b065a="" class="match" data-test-id="matchName"><svg data-v-02f45589=""
-                            data-v-695b065a="" class="svg-icon sport-icon" style="vertical-align: middle;"><!---->
-                            <use data-v-02f45589="" xlink:href="#icon-football"></use>
-                        </svg> <span data-v-95226610="" data-v-695b065a="">CS Herediano U21 - AD Municipal Liberia
-                            U21</span></div>
-                    <div data-v-695b065a="" class="league">U21 Liga Ulatina</div>
-                    <div data-v-695b065a="" class="bold"><span data-v-695b065a="">Over/Under | Full Time (Under)
-                            (1.5)</span></div>
-                </div>
-                <div data-v-695b065a="" class="value">
-                    <div data-v-695b065a=""><span data-v-695b065a="" class="result">1-0</span></div>
-                    <div data-v-695b065a="" class="event-info"><!----> <!----></div>
-                </div>
-            </div>
-        </div> <!---->
-        <div data-v-7f504cc4="" class="legend">
-            <div data-v-7f504cc4="" class="lightgray placed-date">
-                <div data-v-7f504cc4="">Bet placed on <span data-v-7f504cc4="" class="nowrap">Sat 30/08 at 1:21
-                        am</span></div>
-                <div data-v-7f504cc4="" class="summary-legend"><span data-v-891f4695="" data-v-7f504cc4=""
-                        class="badge type-pending mode-circle"><!----> <!----></span> <span
-                        data-v-7f504cc4="">Pending</span> <span data-v-891f4695="" data-v-7f504cc4=""
-                        class="badge type-win mode-circle"><!----> <!----></span> <span data-v-7f504cc4="">Won</span>
-                    <span data-v-891f4695="" data-v-7f504cc4="" class="badge type-lose mode-circle"><!---->
-                        <!----></span> <span data-v-7f504cc4="">Lost</span> <span data-v-891f4695="" data-v-7f504cc4=""
-                        class="badge type-cancelled mode-circle"><svg data-v-02f45589="" data-v-891f4695=""
-                            class="svg-icon icon icon-size-medium" style="vertical-align: middle;"><!---->
-                            <use data-v-02f45589="" xlink:href="#icon-close"></use>
-                        </svg> <!----></span> <span data-v-7f504cc4="">Void</span></div>
-            </div>
-        </div>
-        <div data-v-fb673205="" data-v-7f504cc4="" class="mybets-regulation">
-            <p data-v-fb673205="" class="mybets-regulation-msg"><span data-v-fb673205="">All bets are accepted and
-                    settled in accordance with our <b><a href="/terms" class="underline">Terms and Conditions</a></b>
-                    and <b><a href="/rules" class="underline">Rules</a></b>.</span></p>
-        </div>
-    </div>
-
-
-</div>
-
-  
-
-
-
-
-
-
- 
-
-
-
-    
-  </template>
-  
-  
-  
-  <style scoped>
-
-.loading-container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 400px; 
-}
-.loading-container img{
-    height: 32px;
-    width: 32px;
 }
 
-.expansion-panel-content {
-    max-height: 0;
-    opacity: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease, opacity 0.3s ease;
+onMounted(() => {
+    fetchBetDetails()
+})
+</script>
+
+<style scoped>
+.settled-detail-container {
+    min-height: 100vh;
 }
 
-.expansion-panel.is-open .expansion-panel-content {
-    max-height: 150px; /* Adjust based on content */
-    opacity: 1;
-    margin-top: 8px;
+/* Smooth transitions */
+.settled-detail-container * {
+    transition: all 0.2s ease;
 }
 
-/* Show tax amount in header */
-.tax-amount-header {
-    margin-left: auto;
-    padding-left: 16px;
+/* Custom scrollbar */
+.settled-detail-container::-webkit-scrollbar {
+    width: 6px;
 }
 
-/* Style for the header tax amount */
-.tax-amount-header .currency.value {
-    font-weight: 700;
-    font-size: 12px;
+.settled-detail-container::-webkit-scrollbar-track {
+    background: #f1f1f1;
 }
 
-/* Ensure proper spacing */
-.expansion-panel .title {
-    display: flex;
-    align-items: center;
-    width: 100%;
+.settled-detail-container::-webkit-scrollbar-thumb {
+    background: #cbd5e0;
+    border-radius: 10px;
 }
 
-.title-text {
-    flex-grow: 1;
+.settled-detail-container::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
 }
-
-/* Arrow rotation */
-.expand-icon svg {
-    transition: transform 0.3s ease;
-}
-
-/* Optional: Add padding to the container when open */
-.expansion-panel.is-open {
-    padding-bottom: 12px;
-}
-    .expansion-panel-content {
-  overflow: hidden;
-  transition: max-height 0.3s ease, opacity 0.3s ease;
-  max-height: 0;
-  opacity: 0;
-}
-
-/* When open */
-.expansion-panel-content.show {
-  max-height: 200px; /* Adjust based on your content height */
-  opacity: 1;
-}
-
-/* Alternative: Use v-show with transition classes */
-.expansion-panel-content-enter-active,
-.expansion-panel-content-leave-active {
-  transition: max-height 0.3s ease, opacity 0.3s ease;
-  overflow: hidden;
-}
-
-.expansion-panel-content-enter-from,
-.expansion-panel-content-leave-to {
-  max-height: 0;
-  opacity: 0;
-}
-
-.expansion-panel-content-enter-to,
-.expansion-panel-content-leave-from {
-  max-height: 200px;
-  opacity: 1;
-}
-
-/* Ongeza hii kwa arrow icon */
-.expand-icon svg {
-  transition: transform 0.3s ease;
-}
-
-/* Optional: Smooth padding for the container */
-.tax-details .tax-details-expansion.light[data-v-5d3da755] {
-  transition: padding-bottom 0.3s ease;
-}
-
-.tax-details .tax-details-expansion.light.is-open[data-v-5d3da755] {
-  padding-bottom: 16px; /* Ongeza padding wakati inafunguka */
-}
-
-/* Optional: Add hover effect to clickable area */
-.title.pointer {
-  cursor: pointer;
-  user-select: none;
-}
-
-.title.pointer:hover {
-  background-color: rgba(0, 0, 0, 0.02);
-}
-
-  .router-view {
-    position: relative;
-    min-width: 38dvw;
-}
-.header[data-v-7f504cc4] {
-    background-color: #fff;
-    border-bottom: 1px solid #e6e7e2;
-    align-items: center;
-    padding: 12px;
-    display: flex;
-    color: #252a2d;
-}
-.header .back[data-v-7f504cc4], .header .share[data-v-7f504cc4] {
-    color: #252a2d;
-    cursor: pointer;
-}
-.header .back .icon[data-v-7f504cc4], .header .share .icon[data-v-7f504cc4] {
-    width: 16px;
-    max-width: 16px;
-    height: 16px;
-    max-height: 16px;
-}
-.header .betslip-title[data-v-7f504cc4] {
-    text-align: center;
-    width: 100%;
-    display: inline-block;
-}
-.header .betslip-title .id[data-v-7f504cc4] {
-    justify-content: center;
-    align-items: center;
-    gap: 8px;
-    font-weight: 700;
-    display: flex;
-}
-.summary[data-v-7f504cc4] {
-    background: #f4f5f0;
-    border-bottom: 1px solid #e6e7e2;
-    padding-top: 8px;
-    color: #252a2d;
-    font-weight: 400;
-    font-size: 12px;
-    line-height: 16px;
-}
-
-.tier-banner[data-v-af0326d2] {
-    align-items: center;
-    column-gap: 16px;
-    width: 100%;
-    max-width: 350px;
-    margin: auto;
-    padding: 8px 12px 16px;
-    display: flex;
-    position: relative;
-}
-.tier-banner .trophy-img[data-v-af0326d2] {
-    width: auto;
-    height: 60px;
-}
-.tier-banner .trophy-bg[data-v-af0326d2] {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    left: 0;
-    right: 0;
-}
-.tier-banner .congrats-text[data-v-af0326d2] {
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 18px;
-}
-.tier-banner .congrats-text[data-v-af0326d2] .amount {
-    text-transform: uppercase;
-    font-weight: 700;
-    font-size: 16px;
-    line-height: 22px;
-
-
-}
-.tier-banner .congrats-text[data-v-af0326d2] .win-big-text{
-    text-transform: uppercase;
-    font-weight: 700;
-    font-size: 16px;
-    line-height: 22px;
-}
-.tier-banner .congrats-text[data-v-af0326d2] .symbol{
-    text-transform: uppercase;
-    font-size: 16px;
-    line-height: 22px;
-    font-weight: 700;
-
-}
-.tier-banner .congrats-text[data-v-af0326d2] .amount{
-    text-transform: uppercase;
-    font-size: 16px;
-    line-height: 22px;
-    font-weight: 700;
-
-}
-.win-tier[data-v-7f504cc4] {
-    border-width: 3px;
-}
-.betslip-summary-container[data-v-7f504cc4] {
-    background-color: #fff;
-    border: 3px solid #e6e7e2;
-    margin: 0 8px 8px;
-    padding: 12px;
-}
-.summary .summary-line[data-v-7f504cc4] {
-    justify-content: space-between;
-    padding-bottom: 4px;
-    display: flex;
-}
-.summary .summary-line .label[data-v-7f504cc4]{
-    font-weight: 700;
-}
-.summary .summary-line .value[data-v-7f504cc4] {
-    font-weight: 700;
-}
-.summary .summary-line[data-v-7f504cc4] {
-    justify-content: space-between;
-    padding-bottom: 4px;
-    display: flex;
-}
-.summary .summary-line.selected .label[data-v-7f504cc4]{
-    color: #7a8185;
-    font-weight: 400;
-}
-.summary .summary-line.selected .value[data-v-7f504cc4] {
-    color: #7a8185;
-    font-weight: 400;
-}
-.summary .summary-line[data-v-7f504cc4] {
-    justify-content: space-between;
-    padding-bottom: 4px;
-    display: flex;
-}
-.tax-details[data-v-5d3da755] {
-    display: block !important;
-}
-.tax-details .tax-details-expansion.light[data-v-5d3da755] {
-    background-color: #f2f2f3;
-    border-radius: 4px;
-    margin-bottom: 4px;
-    padding: 8px;
-}
-
-.tax-details>div[data-v-5d3da755] {
-    color: #484f52;
-}
-.expansion-panel.small .title[data-v-aabe1219] {
-    margin-bottom: 4px;
-    padding: 0;
-}
-
-.expansion-panel.minimal .title[data-v-aabe1219], .expansion-panel.small .title[data-v-aabe1219] {
-    background-color: transparent;
-    border-top: none;
-    padding-top: 0px;
-}
-.expansion-panel .title[data-v-aabe1219] {
-    color: #252a2d;
-    -webkit-tap-highlight-color: transparent;
-    fill: #252a2d;
-    background: #e6e7e1;
-    flex-flow: row;
-    justify-content: space-between;
-    align-items: center;
-    padding: 16px 16px 8px;
-    display: flex;
-}
-.table {
-    width: 100%;
-    display: table;
-}
-.expansion-panel .expand-icon-left[data-v-aabe1219] {
-    margin-right: 8px;
-}
-.expansion-panel .expand-icon[data-v-aabe1219] {
-    display: flex;
-}
-svg.icon-size-very-small[data-v-02f45589], img.icon-size-very-small[data-v-02f45589] {
-    width: 10px;
-    height: 10px;
-}
-.expansion-panel .title .title-text[data-v-aabe1219] {
-    margin-right: auto;
-}
-.table .row-cell.align-middle {
-    vertical-align: middle;
-}
-.table .row-cell {
-    display: table-cell;
-}
-.expansion-panel.minimal .title h3[data-v-aabe1219] {
-    text-transform: none;
-}
-.expansion-panel.minimal .title h3[data-v-aabe1219], .expansion-panel.small .title h3[data-v-aabe1219] {
-    font-weight: 400;
-}
-.expansion-panel.small .title h3[data-v-aabe1219] {
-    font-size: 12px;
-    line-height: 16px;
-}
-.tax-details .summary-line[data-v-5d3da755] {
-    justify-content: space-between;
-    padding-bottom: 4px;
-    display: flex;
-}
-.tax-details .summary-line[data-v-5d3da755] {
-    font-size: 12px;
-    font-weight: 400;
-    line-height: 16px;
-}
-.tax-details .divider[data-v-5d3da755] {
-    background-color: #cacdce;
-    height: 1px;
-    margin-bottom: 4px;
-}
-.summary .summary-line[data-v-7f504cc4]:last-child {
-    border-bottom: none;
-    padding-bottom: 0;
-}
-.summary .summary-line.result[data-v-7f504cc4] {
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 18px;
-}
-.summary .summary-line .winning-result[data-v-7f504cc4] {
-    color: #0AF0B5;
-}
-.summary .summary-line .label[data-v-7f504cc4]{
-    font-weight: 700;
-}
-.summary-line .value[data-v-7f504cc4] {
-    font-weight: 700;
-}
-.single-betslip .betslip-sharing[data-v-7f504cc4] {
-    justify-content: center;
-    padding: 4px 0 12px;
-    display: flex;
-}
-.single-betslip .betslip-sharing .share-win-button[data-v-7f504cc4] {
-    justify-content: center;
-    align-items: center;
-    display: flex;
-}
-.button-primary {
-    color: #252a2d;
-    fill: #252a2d;
-    background-color: #0AF0B5;
-}
-.button {
-    cursor: pointer;
-    max-width: 300px;
-    font-family: inherit;
-    cursor: pointer;
-    max-width: 300px;
-    font-family: inherit;
-    font-weight: 700;
-    font-size: 14px;
-    -webkit-appearance: none;
-    box-sizing: border-box;
-    -ms-box-sizing: border-box;
-    -webkit-background-origin: border-box;
-    text-align: center;
-    text-transform: uppercase;
-    vertical-align: middle;
-    background-origin: border-box;
-    -webkit-background-clip: border-box;
-    background-clip: border-box;
-    border: 0;
-    border-radius: 0;
-    padding: 10px 20px;
-    display: inline-block;
-
-}
-
-
-
-.single-betslip .betslip-sharing .share-win-button .icon[data-v-7f504cc4] {
-    margin-right: 8px;
-}
-svg.icon-size-medium[data-v-02f45589], img.icon-size-medium[data-v-02f45589] {
-    width: 16px;
-    height: 16px;
-}
-.event[data-v-695b065a] {
-    color: #252a2d;
-    border-bottom: 1px solid #e6e7e2;
-    padding: 8px;
-    position: relative;
-    font-weight: 400;
-    font-size: 12px;
-    line-height: 16px;
-}
-.event .event-line.event-header[data-v-695b065a] {
-    align-items: center;
-    font-weight: 400;
-
-}
-.event .event-line.event-header[data-v-695b065a] {
-    font-size: 14px;
-    line-height: 18px;
-}
-.event .event-line[data-v-695b065a] {
-    justify-content: space-between;
-    margin-bottom: 6px;
-    display: flex;
-    position: relative;
-}
-.event-label[data-v-695b065a] {
-    flex-wrap: wrap;
-    align-items: center;
-    display: flex;
-    position: relative;
-}
-.event .event-line .label[data-v-695b065a] {
-    margin-right: 14px;
-}
-.event .event-line.event-header .date[data-v-695b065a] {
-    font-weight: 700;
-}
-.event .event-line.event-header .odd.win[data-v-695b065a] {
-    color: #0AF0B5;
-}
-.event .event-line.event-header .odd[data-v-695b065a] {
-    align-items: center;
-    font-weight: 700;
-    display: flex;
-}
-.event .event-line.event-header .badge[data-v-695b065a] {
-    margin-right: 0;
-}
-.type-win[data-v-891f4695] {
-    color: #252a2d;
-    background: #0AF0B5;
-}
-.mode-circle[data-v-891f4695] {
-    vertical-align: text-bottom;
-    width: 18px;
-    height: 18px;
-    margin: 0 7px;
-}
-.badge {
-    text-align: center;
-    color: #252a2d;
-    background: #fff border-box;
-    border: 0;
-    border-radius: 0;
-    margin-right: 7px;
-    /* padding: 2px 7px; */
-    display: inline-block;
-    font-weight: 400;
-    font-size: 13px;
-    line-height: 16px;
-}
-.event .event-line[data-v-695b065a]:last-child {
-    margin-bottom: 0;
-}
-.event .event-line[data-v-695b065a] {
-    justify-content: space-between;
-    margin-bottom: 6px;
-    display: flex;
-    position: relative;
-}
-.event .event-line .label[data-v-695b065a] {
-    margin-right: 14px;
-}
-.event .event-line .label .match[data-v-695b065a] {
-    align-items: center;
-    display: flex;
-}
-.sport-icon[data-v-695b065a] {
-    fill: #aaaeb0;
-    vertical-align: text-top;
-    flex-shrink: 0;
-    width: 14px;
-    height: 14px;
-    margin-right: 4px;
-    display: inline-block;
-}
-.event .event-line .label .league[data-v-695b065a] {
-    color: #8e9398;
-}
-.bold {
-    font-weight: 700;
-}
-.event .event-line .result[data-v-695b065a] {
-    white-space: nowrap;
-    font-weight: 700;
-
-}
-.event .event-line .result[data-v-695b065a]{
-    font-size: 14px;
-    line-height: 18px;
-}
-.event-info[data-v-695b065a] {
-    text-align: right;
-}
-.legend[data-v-7f504cc4] {
-    text-align: center;
-    padding: 0 8px 8px;
-}
-.legend .placed-date[data-v-7f504cc4] {
-    margin-top: 8px;
-}
-.legend .placed-date[data-v-7f504cc4]{
-    font-weight: 400;
-}
-.legend .placed-date[data-v-7f504cc4] {
-    font-size: 12px;
-    line-height: 16px;
-}
-.lightgray {
-    color: #252a2d;
-}
-.legend .nowrap[data-v-7f504cc4] {
-    white-space: nowrap;
-}
-.legend .summary-legend[data-v-7f504cc4] {
-    margin-top: 6px;
-}
-legend .summary-legend .badge[data-v-7f504cc4]:first-child {
-    margin-left: 0;
-}
-.legend .summary-legend .badge[data-v-7f504cc4] {
-    margin: 0 4px 0 12px;
-}
-.type-pending[data-v-891f4695], .type-pending-dark[data-v-891f4695] {
-    background: #e6e7e2;
-}
-.mode-circle[data-v-891f4695] {
-    vertical-align: text-bottom;
-    width: 18px;
-    height: 18px;
-    margin: 0 7px;
-}
-
-.legend .summary-legend .badge[data-v-7f504cc4] {
-    margin: 0 4px 0 12px;
-}
-.type-win[data-v-891f4695] {
-    color: #252a2d;
-    background: #0AF0B5;
-}
-.mode-circle[data-v-891f4695] {
-    vertical-align: text-bottom;
-    width: 18px;
-    height: 18px;
-    margin: 0 7px;
-}
-.legend .summary-legend .badge[data-v-7f504cc4] {
-    margin: 0 4px 0 12px;
-}
-.type-lose[data-v-891f4695] {
-    background: #cc371b;
-}
-.mode-circle[data-v-891f4695] {
-    vertical-align: text-bottom;
-    width: 18px;
-    height: 18px;
-    margin: 0 7px;
-}
-.type-cancelled[data-v-891f4695] {
-    background: #e6e7e2;
-    padding: 0;
-}
-.mode-circle[data-v-891f4695] {
-    vertical-align: text-bottom;
-    width: 18px;
-    height: 18px;
-    margin: 0 7px;
-}
-.type-cancelled .icon[data-v-891f4695] {
-    fill: #aaaeb0;
-    width: 12px;
-    height: 12px;
-    margin: 0;
-}
-.mybets-regulation[data-v-fb673205] {
-    border-top: 1px solid #e6e7e2;
-    margin-top: 8px;
-    padding: 8px 0;
-    color: #252a2d;
-}
-.mybets-regulation-msg[data-v-fb673205] {
-    text-align: center;
-    padding: 4px 11px;
-    font-style: italic;
-}
-.mybets-regulation-msg[data-v-fb673205] {
-    font-size: 12px;
-    font-weight: 400;
-    line-height: 16px;
-}
-a.underline:not([class*=button]) {
-    text-decoration: underline;
-}
-  </style>
+</style>

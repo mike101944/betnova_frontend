@@ -36,16 +36,25 @@ const routes = [
     // Login route - uses AuthTabs as wrapper, LoginForm as child
     {
       path: '/login',
-      name:'login',
-      component: () => import('../screen/Auth/Login.vue'),     // This has the tabs
-      
+      component: AuthTabs,     // This has the tabs
+      children: [
+        {
+          path: '',            // Empty path means /login shows this
+          component: LoginForm // This is just the form
+        }
+      ]
     },
     
     // Join Now route - uses AuthTabs as wrapper, RegisterForm as child
     {
       path: '/register',
-      name:'register',
-      component: () => import('../screen/Auth/Register.vue'),     // This has the tabs
+      component: AuthTabs,     // This has the tabs
+      children: [
+        {
+          path: '',            // Empty path means /join-now shows this
+          component: RegisterForm // This is just the form
+        }
+      ]
     },
   {
     path: '/bets',
