@@ -72,7 +72,7 @@ const goToRegister = () => {
       
       <div class="w-full grid grid-cols-1 md:grid-cols-2 gap-2 items-center pb-6">
   <!-- Handshake animation infinite -->
-  <span class="font-semibold text-2xl text-sky-500  drop-shadow-lg animate-handshake">Welcome </span>
+  <span class="font-semibold text-2xl text-sky-500  drop-shadow-lg ">Welcome </span>
   
   <!-- Typing and erasing animation -->
   <span class="text-[12px] typing-animation">Login to continue</span>

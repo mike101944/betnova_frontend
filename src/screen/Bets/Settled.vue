@@ -83,7 +83,7 @@ const goToBetDetails = (bet) => {
 </script>
 
 <template>
-  <div class="bets-list-container px-4 py-6 max-w-3xl mx-auto">
+  <div class="bets-list-container px-4 py-4 max-w-3xl mx-auto">
     <!-- LOADER -->
     <div v-if="isLoading" class="flex justify-center items-center h-96">
       <div class="relative">
@@ -109,7 +109,7 @@ const goToBetDetails = (bet) => {
 
     <div v-else>
       <!-- HAS DATA -->
-      <section v-if="hasData" class="space-y-4 pt-10">
+      <section v-if="hasData" class="space-y-4 ">
        
 
         <!-- Bet Cards -->
@@ -128,11 +128,11 @@ const goToBetDetails = (bet) => {
                     <div class=" p-1 rounded-full bg-white flex items-center justify-center  ">
                       <CheckIcon class="w-3 h-3  text-emerald-600  font-bold" />
                     </div>
-                    <span  class="text-md font-bold text-amber-100">{{ (bet.result).toUpperCase() }}</span>
-                    <span class="text-md font-bold text-amber-100">(2/2)</span>
+                    <span  class="text-xs font-bold text-amber-100">{{ (bet.result).toUpperCase() }}</span>
+                    <span class="text-xs font-bold text-amber-100">(2/2)</span>
                 </div>
                 <div class="flex flex-row items-center justify-center">
-                        <span class="text-xl text-gray-400 font-extrabold">ID:</span>
+                        <span class="text-sm text-gray-400 font-extrabold">ID:</span>
                         <span class="text-sm font-bold text-gray-400 px-2">  #{{ bet.id.toString().slice(0,8) }}</span>
 
                 </div>
@@ -159,8 +159,8 @@ const goToBetDetails = (bet) => {
                   <span class="text-xs font-medium text-gray-500 uppercase tracking-wider">Stake</span>
                 </div>
                 <div class="gap-1 flex items-center rounded-lg  ">
-                  <span class="text-lg font-bold text-gray-900">TSh:</span>
-                  <span class="text-lg font-bold text-gray-900 ">{{ Number(bet.stake).toLocaleString() }}</span>
+                  <span class="text-xs font-bold text-gray-900">TSh:</span>
+                  <span class="text-xs font-bold text-gray-900 ">{{ Number(bet.stake).toLocaleString() }}</span>
                 </div>
 
               </div>
@@ -172,7 +172,7 @@ const goToBetDetails = (bet) => {
                   <span class="text-xs font-medium text-gray-500 uppercase tracking-wider">Odds</span>
                 </div>
                 <div class="rounded-lg ">
-                  <span class="text-lg font-bold text-yellow-700">{{ Number(bet.totalOdds).toFixed(2) }}</span>
+                  <span class="text-xs font-bold text-yellow-700">{{ Number(bet.totalOdds).toFixed(2) }}</span>
                 </div>
               </div>
 
@@ -184,7 +184,7 @@ const goToBetDetails = (bet) => {
                 </div>
                 <div class=" rounded-lg gap-1 flex items-center">
                   <span class="text-sm font-medium text-green-600">TSh:</span>
-                  <span class="text-lg font-bold text-green-700 ">{{ Number(bet.potentialReturn).toLocaleString() }}</span>
+                  <span class="text-sm font-bold text-green-700 ">{{ Number(bet.potentialReturn).toLocaleString() }}</span>
                 </div>
               </div>
 

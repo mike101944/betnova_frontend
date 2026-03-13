@@ -70,7 +70,7 @@ const totalPotentialReturn = computed(() => {
 </script>
 
 <template>
-  <div class="bets-list-container px-4 py-6 max-w-3xl mx-auto">
+  <div class="bets-list-container px-4 py-4 max-w-3xl mx-auto">
     <!-- LOADER -->
     <div v-if="isLoading" class="flex justify-center items-center h-96">
       <div class="relative">
@@ -96,7 +96,7 @@ const totalPotentialReturn = computed(() => {
 
     <div v-else>
       <!-- HAS DATA -->
-      <section v-if="hasData" class="space-y-4 pt-10">
+      <section v-if="hasData" class="space-y-4 ">
         <!-- Stats Summary -->
         <!-- <div class="grid grid-cols-3 gap-3 mb-6">
           <div class="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-4 text-center">

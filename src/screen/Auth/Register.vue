@@ -64,7 +64,7 @@ const goToLogin = () => {
     <div class="w-full max-w-md bg-white p-6 rounded-2xl shadow-2xl">
       <div class="w-full grid grid-cols-1 md:grid-cols-2 gap-2 items-center pb-6">
   <!-- Handshake animation infinite -->
-  <span class="font-semibold text-2xl text-sky-500  drop-shadow-lg animate-handshake">Welcome Back</span>
+  <span class="font-semibold text-2xl text-sky-500  drop-shadow-lg ">Welcome Back</span>
   
   <!-- Typing and erasing animation -->
   <span class="text-[12px] typing-animation">Create your account Now</span>

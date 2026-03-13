@@ -262,8 +262,8 @@ html, body {
   @apply transition-colors duration-200;
 }
 
-.tabs-selector:hover:not(.active) {
-  @apply bg-white;
+.tabs-selector:not(.active) {
+  @apply bg-white border-b border-gray-200;
 }
 
 
