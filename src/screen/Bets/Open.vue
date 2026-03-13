@@ -128,11 +128,11 @@ const totalPotentialReturn = computed(() => {
                     <div class=" p-1 rounded-full bg-white flex items-center justify-center  ">
                       <CheckIcon class="w-3 h-3  text-emerald-600  font-bold" />
                     </div>
-                    <span  class="text-md font-bold text-amber-100">{{ (bet.result).toUpperCase() }}</span>
-                    <span class="text-md font-bold text-amber-100">(2/2)</span>
+                    <span  class="text-xs font-bold text-amber-100">{{ (bet.result).toUpperCase() }}</span>
+                    <span class="text-xs font-bold text-amber-100">(2/2)</span>
                 </div>
                 <div class="flex flex-row items-center justify-center">
-                        <span class="text-xl text-gray-400 font-extrabold">ID:</span>
+                        <span class="text-md text-gray-400 font-extrabold">ID:</span>
                         <span class="text-sm font-bold text-gray-400 px-2">  #{{ bet.id.toString().slice(0,8) }}</span>
 
                 </div>
@@ -159,8 +159,8 @@ const totalPotentialReturn = computed(() => {
                   <span class="text-xs font-medium text-gray-500 uppercase tracking-wider">Stake</span>
                 </div>
                 <div class="gap-1 flex items-center rounded-lg  ">
-                  <span class="text-lg font-bold text-gray-900">TSh:</span>
-                  <span class="text-lg font-bold text-gray-900 ">{{ Number(bet.stake).toLocaleString() }}</span>
+                  <span class="text-xs font-bold text-gray-900">TSh:</span>
+                  <span class="text-xs font-bold text-gray-900 ">{{ Number(bet.stake).toLocaleString() }}</span>
                 </div>
 
               </div>
@@ -171,8 +171,8 @@ const totalPotentialReturn = computed(() => {
                   <ArrowTrendingUpIcon class="w-4 h-4 text-gray-400 mr-1" />
                   <span class="text-xs font-medium text-gray-500 uppercase tracking-wider">Odds</span>
                 </div>
-                <div class="rounded-lg ">
-                  <span class="text-lg font-bold text-yellow-700">{{ Number(bet.totalOdds).toFixed(2) }}</span>
+                <div class="rounded-xs ">
+                  <span class="text-xs font-bold text-yellow-700">{{ Number(bet.totalOdds).toFixed(2) }}</span>
                 </div>
               </div>
 
@@ -184,7 +184,7 @@ const totalPotentialReturn = computed(() => {
                 </div>
                 <div class=" rounded-lg gap-1 flex items-center">
                   <span class="text-sm font-medium text-green-600">TSh:</span>
-                  <span class="text-lg font-bold text-green-700 ">{{ Number(bet.potentialReturn).toLocaleString() }}</span>
+                  <span class="text-xs font-bold text-green-700 ">{{ Number(bet.potentialReturn).toLocaleString() }}</span>
                 </div>
               </div>
 
