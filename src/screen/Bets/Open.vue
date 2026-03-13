@@ -117,18 +117,18 @@ const totalPotentialReturn = computed(() => {
         <div 
           v-for="bet in openBets" 
           :key="bet.id"
-          class="group bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 overflow-hidden"
+          class="group rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 overflow-hidden"
         >
           <!-- Header with Gradient -->
           <div class="bg-gradient-to-r from-gray-50 to-white px-2  py-2 border-b border-gray-100">
 
             <div class="flex justify-between items-center bg-transparent mb-1"> 
 
-                <div class="flex gap-2 flex-row items-center justify-center rounded-[14px] bg-emerald-700 px-2 py-1">
+                <div class="flex gap-2 flex-row items-center justify-center rounded-[14px] bg-yellow-700 px-2 py-1">
                     <div class=" p-1 rounded-full bg-white flex items-center justify-center  ">
                       <CheckIcon class="w-3 h-3  text-emerald-600  font-bold" />
                     </div>
-                    <span  class="text-[10px] font-bold text-amber-100">{{ (bet.result).toUpperCase() }}</span>
+                    <span  class="text-[10px] font-bold text-yellow-100">{{ (bet.result).toUpperCase() }}</span>
                     <span class="text-xs font-bold text-amber-100">(2/2)</span>
                 </div>
                 <div class="flex flex-row items-center justify-center">
