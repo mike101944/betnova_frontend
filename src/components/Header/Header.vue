@@ -3,7 +3,10 @@ import { onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { useAuthStore } from '../../store/authStore'
 import { useUserData } from '../composables/useUserData'
-
+import { 
+  ClockIcon, 
+  PlusIcon
+} from '@heroicons/vue/24/outline'
 const router = useRouter()
 const authStore = useAuthStore()
 const { refreshUserData } = useUserData()
@@ -103,10 +106,11 @@ const handleRestrictedTab = (tabName) => {
           <span v-else class="inline-flex items-center gap-2">
             <router-link 
               to="/deposite" 
-              class="border border-sky-300 text-white font-bold px-1 py-1 rounded-l-xl rounded-r-md hover:bg-white/10 transition-colors"
+              class=" text-white font-bold px-1 py-1 bg-emerald-600 rounded-full  hover:bg-red-400/10 transition-colors"
               data-test-id="track-top-nav-link"
             >
-              <span class="text-white">{{ formatBalance(authStore.userBalance) }}</span>
+              <!-- <span class="text-white text-[12px]">{{ formatBalance(authStore.userBalance) }}</span> -->
+              <PlusIcon class="text-white h-5 w-5" />
             </router-link>
             <router-link 
               to="/account" 

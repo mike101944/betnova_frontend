@@ -1,11 +1,14 @@
 <script setup>
-import { ref, computed } from 'vue';
+import { ref, computed, watch } from 'vue';
 import { useAuthStore } from '../../store/authStore'
 import api from '../../services/api'
 
 // Constants
-const minDeposite = 100;
-const maxDeposite = 3000000;
+const minDeposit = 100;
+const maxDeposit = 3000000;
+
+// Quick amount presets
+const quickAmounts = [5000, 10000, 20000, 50000, 100000, 500000];
 
 // State
 const authStore = useAuthStore()
@@ -13,11 +16,24 @@ const amount = ref(null)
 const loading = ref(false)
 const errorMessage = ref('')
 const successMessage = ref('')
+const selectedPaymentMethod = ref('mpesa')
+const showConfirmation = ref(false)
+const termsAccepted = ref(false)
 
 // Get user phone number from auth store
 const userPhone = computed(() => {
     return authStore.user?.phone_number || 'Not available'
 })
+
+// Format balance
+const formatBalance = (amount) => {
+  return new Intl.NumberFormat('sw-TZ', {
+    style: 'currency',
+    currency: 'TZS',
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 0
+  }).format(amount || 0)
+}
 
 // Format phone number for display
 const formattedPhone = computed(() => {
@@ -30,373 +46,373 @@ const formattedPhone = computed(() => {
 })
 
 // Validate amount
-const isInvalid = computed(() => {
-    if (!amount.value) return true;
+const isAmountValid = computed(() => {
+    if (!amount.value) return false;
     const numAmount = Number(amount.value);
-    return numAmount < minDeposite || numAmount > maxDeposite;
+    return numAmount >= minDeposit && numAmount <= maxDeposit;
+})
+
+// Get amount as number
+const numericAmount = computed(() => Number(amount.value) || 0)
+
+// Calculate bonus (10% bonus on deposits over 1000)
+const bonusAmount = computed(() => {
+    if (numericAmount.value >= 1000) {
+        return Math.floor(numericAmount.value * 0.1);
+    }
+    return 0;
+})
+
+// Total to be credited
+const totalCredit = computed(() => numericAmount.value + bonusAmount.value)
+
+// Check if form is valid
+const isFormValid = computed(() => {
+    return isAmountValid.value && termsAccepted.value;
+})
+
+// Set quick amount
+const setQuickAmount = (value) => {
+    amount.value = value;
+    errorMessage.value = '';
+}
+
+// Watch amount for real-time validation
+watch(amount, (newValue) => {
+    if (newValue && !isAmountValid.value) {
+        if (numericAmount.value < minDeposit) {
+            errorMessage.value = `Minimum deposit is ${minDeposit.toLocaleString()} TSh`;
+        } else if (numericAmount.value > maxDeposit) {
+            errorMessage.value = `Maximum deposit is ${maxDeposit.toLocaleString()} TSh`;
+        }
+    } else {
+        errorMessage.value = '';
+    }
 })
 
 // Handle deposit
-const handleDeposite = async () => {
-    if (isInvalid.value) return;
-    
+const handleDeposit = async () => {
+    if (!isFormValid.value) return;
+    showConfirmation.value = true;
+}
+
+// Confirm deposit
+const confirmDeposit = async () => {
     loading.value = true;
     errorMessage.value = '';
     successMessage.value = '';
+    showConfirmation.value = false;
     
     try {
         const response = await api.post('/auth/deposit', { 
-            amount: Number(amount.value) 
+            amount: numericAmount.value,
+            paymentMethod: selectedPaymentMethod.value,
+            phoneNumber: userPhone.value
         });
         
         // Refresh balance after successful deposit
         await authStore.fetchUserBalance();
         
         // Show success message
-        successMessage.value = 'Deposit successful!';
+        successMessage.value = 'Deposit successful! Your account has been credited.';
         
         // Clear amount after success
         amount.value = null;
+        termsAccepted.value = false;
         
-        // Log success (optional)
         console.log('Deposit successful:', response.data);
         
     } catch (error) {
         console.error('Deposit failed:', error);
         
-        // Handle different error responses
         if (error.response) {
-            // Server responded with error
             errorMessage.value = error.response.data.message || 'Deposit failed. Please try again.';
         } else if (error.request) {
-            // Request made but no response
             errorMessage.value = 'Network error. Please check your connection.';
         } else {
-            // Something else happened
             errorMessage.value = 'An error occurred. Please try again.';
         }
     } finally {
         loading.value = false;
         
-        // Auto-hide success message after 3 seconds
         if (successMessage.value) {
             setTimeout(() => {
                 successMessage.value = '';
-            }, 3000);
+            }, 5000);
         }
     }
+}
+
+// Cancel deposit
+const cancelDeposit = () => {
+    showConfirmation.value = false;
 }
 </script>
 
 <template>
-    <div data-v-3cb9dec9="" class="withdraw router-view" params="[object Object]">
-        <div data-v-c9b60287="" data-v-3cb9dec9="">
-            <div data-v-907442d3="" class="header-container">
-                <h2 data-v-907442d3="">Deposite</h2>
+    <div class="h-full p-5 flex items-center justify-center">
+        <div class="max-w-[600px] w-full mx-auto">
+            <!-- Header -->
+            <div class="text-center mb-6">
+                <h2 class="text-white text-3xl font-bold mb-2">Deposit Funds</h2>
+                <p class="text-white/90 text-sm">Add money to your betting account</p>
             </div>
-            <div data-v-c9b60287="" class="withdraw-component">
-                <div data-v-c9b60287="" class="withdraw-form-wrapper">
-                    <div data-v-c9b60287="">
-                        <div data-v-4b7cd401="" data-v-c9b60287="" class="withdraw-form">
-                            <form data-v-4b7cd401="" class="form" @submit.prevent="handleDeposite">
-                                
-                                <!-- Success Message -->
-                                <div v-if="successMessage" class="success-message" data-v-4b7cd401>
-                                    {{ successMessage }}
-                                </div>
-                                
-                                <!-- Error Message -->
-                                <div v-if="errorMessage" class="error-message" data-v-4b7cd401>
-                                    {{ errorMessage }}
-                                </div>
-                                
-                                <div data-v-3e7e08c6="" data-v-d7674060="" data-v-4b7cd401="" class="user-phone withdraw-phone">
-                                    <div data-v-3e7e08c6="" class="table">
-                                        
-                                        <div data-v-3e7e08c6="" class="row-cell align-middle user-phone-number">
-                                            <div data-v-3e7e08c6="" class="user-phone-info-wrapper">
-                                                <div data-v-3e7e08c6="" class="user-phone-info">
-                                                    <div data-v-3e7e08c6="" class="user-phone-label">Your mobile number</div>
-                                                    <div data-v-3e7e08c6="">{{ formattedPhone }}</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <div data-v-1a892a33="" data-v-4b7cd401="" class="input-field withdraw-amount">
-                                    <label data-v-1a892a33="" for="withdraw-form-amount" class="form">
-                                        Amount 
-                                        <span data-v-1a892a33="" class="optional optional-slot">
-                                            <div data-v-b1b046d0="" data-v-4b7cd401="" class="withdraw-fee">
-                                                <span data-v-b1b046d0="" class="label-text"> </span>
-                                            </div>
-                                        </span>
-                                    </label>
-                                    <div data-v-1a892a33="" class="input-field-wrapper input-icon-undefined">
-                                        <span data-v-1a892a33="" class="currency-symbol">TSh</span>
-                                        <input 
-                                            v-model="amount"
-                                            data-v-1a892a33="" 
-                                            pattern="[0-9]*" 
-                                            inputmode="numeric"
-                                            id="withdraw-form-amount" 
-                                            name="amount" 
-                                            type="text"
-                                            :disabled="loading"
-                                            @keypress="(e) => {
-                                                // Allow only numbers
-                                                if (!/[0-9]/.test(e.key)) {
-                                                    e.preventDefault();
-                                                }
-                                            }"
-                                        >
-                                    </div>
-                                    <div data-v-1a892a33="" class="help-text">
-                                        Min: {{ minDeposite.toLocaleString() }}, 
-                                        Max: {{ maxDeposite.toLocaleString() }}
-                                    </div>
-                                </div>
-                                
-                                <button 
-                                    data-v-cb45c6b7="" 
-                                    data-v-4b7cd401=""
-                                    class="button button-primary button-full" 
-                                    :disabled="isInvalid || loading"
-                                    type="submit"
-                                >
-                                    <span v-if="loading">Processing...</span>
-                                    <span v-else>Deposit</span>
-                                </button>
-                            </form>
+
+            <!-- Main Content -->
+            <div class="bg-white rounded-2xl p-6 shadow-2xl">
+                <!-- Balance Card -->
+                <div class="bg-gradient-to-br from-sky-400 to-sky-700 rounded-xl p-5 mb-6 text-white">
+                    <div class="text-sm opacity-90 mb-2">Your Balance</div>
+                    <div class="text-3xl font-bold">{{ formatBalance(authStore.userBalance) }}</div>
+                </div>
+
+                <!-- Success Message -->
+                <transition name="fade">
+                    <div v-if="successMessage" class="flex items-center gap-3 p-4 rounded-xl mb-5 text-sm bg-green-100 text-green-800 border border-green-200">
+                        <svg class="w-5 h-5 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                        </svg>
+                        {{ successMessage }}
+                    </div>
+                </transition>
+
+                <!-- Error Message -->
+                <transition name="fade">
+                    <div v-if="errorMessage" class="flex items-center gap-3 p-4 rounded-xl mb-5 text-sm bg-red-100 text-red-800 border border-red-200">
+                        <svg class="w-5 h-5 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" />
+                        </svg>
+                        {{ errorMessage }}
+                    </div>
+                </transition>
+
+                <!-- Payment Methods -->
+                <div class="mb-6">
+                    <h3 class="text-base font-semibold text-gray-800 mb-3">Payment Method</h3>
+                    <div class="grid grid-cols-4 gap-3">
+                        <button 
+                            class="flex flex-col items-center gap-2 p-3 bg-gray-100 border-2 border-transparent rounded-xl cursor-pointer transition-all hover:bg-gray-200"
+                            :class="{ 'border-indigo-500 bg-white shadow-md': selectedPaymentMethod === 'mpesa' }"
+                            @click="selectedPaymentMethod = 'mpesa'"
+                        >
+                            <span class="text-xs font-medium text-gray-800">M-Pesa</span>
+                        </button>
+                        <button 
+                            class="flex flex-col items-center gap-2 p-3 bg-gray-100 border-2 border-transparent rounded-xl cursor-pointer transition-all hover:bg-gray-200"
+                            :class="{ 'border-indigo-500 bg-white shadow-md': selectedPaymentMethod === 'tigo' }"
+                            @click="selectedPaymentMethod = 'tigo'"
+                        >
+                            <span class="text-xs font-medium text-gray-800">Tigo Pesa</span>
+                        </button>
+                        <button 
+                            class="flex flex-col items-center gap-2 p-3 bg-gray-100 border-2 border-transparent rounded-xl cursor-pointer transition-all hover:bg-gray-200"
+                            :class="{ 'border-indigo-500 bg-white shadow-md': selectedPaymentMethod === 'airtel' }"
+                            @click="selectedPaymentMethod = 'airtel'"
+                        >
+                            <span class="text-xs font-medium text-gray-800">Airtel Money</span>
+                        </button>
+                        <button 
+                            class="flex flex-col items-center gap-2 p-3 bg-gray-100 border-2 border-transparent rounded-xl cursor-pointer transition-all hover:bg-gray-200"
+                            :class="{ 'border-indigo-500 bg-white shadow-md': selectedPaymentMethod === 'card' }"
+                            @click="selectedPaymentMethod = 'card'"
+                        >
+                            <svg class="w-8 h-8 text-indigo-500" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M4 6h16v2H4V6zm2-4h12v2H6V2zm16 7v10H2V9h20zm-2 2H4v6h16v-6z"/>
+                            </svg>
+                            <span class="text-xs font-medium text-gray-800">Card</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Phone Number Display -->
+                <div class="bg-gray-100 rounded-xl p-4 mb-6">
+                    <div class="text-xs text-gray-500 mb-1">Mobile Number</div>
+                    <div class="text-lg font-semibold text-gray-800 mb-1">{{ formattedPhone }}</div>
+                    <p class="text-xs text-gray-500">You will receive a prompt on this number</p>
+                </div>
+
+                <!-- Quick Amount Selector -->
+                <div class="mb-6">
+                    <h3 class="text-base font-semibold text-gray-800 mb-3">Quick Select</h3>
+                    <div class="grid grid-cols-3 gap-2">
+                        <button 
+                            v-for="quickAmount in quickAmounts" 
+                            :key="quickAmount"
+                            class="p-3 bg-gray-100 border-2 border-transparent rounded-xl text-sm font-medium text-gray-800 cursor-pointer transition-all hover:bg-gray-200"
+                            :class="{ 'border-indigo-500 bg-white text-indigo-500': Number(amount) === quickAmount }"
+                            @click="setQuickAmount(quickAmount)"
+                        >
+                            {{ quickAmount.toLocaleString() }} TSh
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Amount Input -->
+                <div class="mb-5">
+                    <label class="block text-sm font-medium text-gray-800 mb-2">Enter Amount</label>
+                    <div class="flex items-center border-2 border-gray-200 rounded-xl overflow-hidden transition-all focus-within:border-indigo-500">
+                        <span class="p-3 bg-gray-100 font-medium text-gray-500 border-r-2 border-gray-200">TSh</span>
+                        <input 
+                            v-model="amount"
+                            type="text"
+                            inputmode="numeric"
+                            pattern="[0-9]*"
+                            placeholder="0"
+                            :disabled="loading"
+                            class="flex-1 p-3 border-none outline-none text-base font-medium"
+                            @keypress="(e) => {
+                                if (!/[0-9]/.test(e.key)) {
+                                    e.preventDefault();
+                                }
+                            }"
+                        >
+                    </div>
+                    <div class="mt-2 text-xs text-gray-500">
+                        Min: {{ minDeposit.toLocaleString() }} | Max: {{ maxDeposit.toLocaleString() }}
+                    </div>
+                </div>
+
+                <!-- Bonus Display -->
+                <transition name="slide">
+                    <div v-if="bonusAmount > 0" class="flex items-center gap-4 p-4 bg-gradient-to-br from-pink-400 to-amber-800 rounded-xl mb-5 text-white">
+                        <div class="text-3xl">🎁</div>
+                        <div>
+                            <div class="text-sm font-medium opacity-90 mb-1">Welcome Bonus!</div>
+                            <div class="text-xl font-bold mb-1">+{{ bonusAmount.toLocaleString() }} TSh</div>
+                            <div class="text-xs opacity-90">10% bonus on deposits over 1,000 TSh</div>
                         </div>
                     </div>
+                </transition>
+
+                <!-- Total Summary -->
+                <div class="bg-gray-50 rounded-xl p-4 mb-5">
+                    <div class="flex justify-between mb-2 text-sm text-gray-500">
+                        <span>Deposit Amount:</span>
+                        <span>{{ numericAmount.toLocaleString() }} TSh</span>
+                    </div>
+                    <div class="flex justify-between mb-2 text-sm text-green-600 font-medium">
+                        <span>Bonus:</span>
+                        <span>+{{ bonusAmount.toLocaleString() }} TSh</span>
+                    </div>
+                    <div class="flex justify-between pt-2 mt-2 border-t border-gray-200 text-base font-bold text-gray-800">
+                        <span>Total Credit:</span>
+                        <span>{{ totalCredit.toLocaleString() }} TSh</span>
+                    </div>
+                </div>
+
+                <!-- Terms Agreement -->
+                <label class="flex items-center gap-3 mb-5 cursor-pointer relative">
+                    <input type="checkbox" v-model="termsAccepted" class="absolute opacity-0 h-0 w-0">
+                    <span class="relative inline-block w-5 h-5 bg-gray-100 border-2 border-gray-200 rounded-md transition-all"
+                          :class="{ 'bg-indigo-500 border-indigo-500': termsAccepted }">
+                        <span v-if="termsAccepted" class="absolute left-[6px] top-[2px] w-[5px] h-[10px] border-solid border-white border-0 border-r-2 border-b-2 rotate-45"></span>
+                    </span>
+                    <span class="text-sm text-gray-800">
+                        I agree to the <a href="#" class="text-indigo-500 no-underline font-medium hover:underline">Terms and Conditions</a>
+                    </span>
+                </label>
+
+                <!-- Deposit Button -->
+                <button 
+                    class="w-full p-4 bg-gradient-to-br from-sky-400 to-sky-800 border-none rounded-xl text-white text-base font-bold cursor-pointer transition-all mb-5 relative disabled:opacity-50 disabled:cursor-not-allowed hover:not(:disabled):translate-y-[-2px] hover:not(:disabled):shadow-xl"
+                    :class="{ 'cursor-wait': loading }"
+                    :disabled="!isFormValid || loading"
+                    @click="handleDeposit"
+                >
+                    <span v-if="loading" class="inline-block w-5 h-5 border-3 border-white/30 border-t-white rounded-full animate-spin"></span>
+                    <span v-else>Deposit Now</span>
+                </button>
+
+                <!-- Security Note -->
+                <div class="flex items-center justify-center gap-2 text-xs text-gray-500">
+                    <svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd" />
+                    </svg>
+                    <span>Secure transaction. Your information is encrypted.</span>
                 </div>
             </div>
         </div>
+
+        <!-- Confirmation Modal -->
+        <transition name="modal">
+            <div v-if="showConfirmation" class="fixed inset-0 bg-black/50 flex items-center justify-center z-[1000] backdrop-blur-sm" @click="cancelDeposit">
+                <div class="bg-white rounded-2xl p-6 max-w-[400px] w-[90%] max-h-[90vh] overflow-y-auto shadow-2xl" @click.stop>
+                    <h3 class="text-xl font-bold text-gray-800 mb-4 text-center">Confirm Deposit</h3>
+                    <div class="mb-6">
+                        <p class="text-gray-500 mb-4 text-sm">Please confirm your deposit details:</p>
+                        <div class="bg-gray-100 rounded-xl p-4">
+                            <div class="flex justify-between mb-3 text-sm text-gray-800">
+                                <span>Amount:</span>
+                                <strong>{{ numericAmount.toLocaleString() }} TSh</strong>
+                            </div>
+                            <div class="flex justify-between mb-3 text-sm text-gray-800">
+                                <span>Bonus:</span>
+                                <strong class="text-green-600">+{{ bonusAmount.toLocaleString() }} TSh</strong>
+                            </div>
+                            <div class="flex justify-between pt-3 mt-3 border-t border-gray-200 text-base font-bold text-gray-800">
+                                <span>Total:</span>
+                                <strong>{{ totalCredit.toLocaleString() }} TSh</strong>
+                            </div>
+                            <div class="flex justify-between mt-3 text-sm text-gray-800">
+                                <span>Payment Method:</span>
+                                <strong>{{ selectedPaymentMethod.toUpperCase() }}</strong>
+                            </div>
+                            <div class="flex justify-between mt-3 text-sm text-gray-800">
+                                <span>Phone:</span>
+                                <strong>{{ formattedPhone }}</strong>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex gap-3">
+                        <button class="flex-1 p-3 bg-gray-100 rounded-lg text-sm font-medium text-gray-500 cursor-pointer transition-all hover:bg-gray-200" @click="cancelDeposit">Cancel</button>
+                        <button class="flex-1 p-3 bg-gradient-to-br from-indigo-500 to-purple-700 rounded-lg text-sm font-medium text-white cursor-pointer transition-all hover:translate-y-[-2px] hover:shadow-lg" @click="confirmDeposit">Confirm</button>
+                    </div>
+                </div>
+            </div>
+        </transition>
     </div>
 </template>
 
-<style lang="scss" scoped>
-/* Original styles - untouched */
-.withdraw[data-v-3cb9dec9] {
-    padding: 20px;
-    background-color: #fff;
+<style scoped>
+/* Animations */
+.fade-enter-active,
+.fade-leave-active {
+    transition: opacity 0.3s ease;
 }
 
-.router-view {
-    position: relative;
-}
-.header-container[data-v-907442d3] {
-    display: flex;
-}
-h2[data-v-907442d3] {
-    font-size: 1.26rem;
+.fade-enter-from,
+.fade-leave-to {
+    opacity: 0;
 }
 
-h2[data-v-907442d3] {
-    font-weight: 700;
-}
-h2[data-v-907442d3] {
-    font-size: 18px;
-    color: #252a2d;
-    line-height: 24px;
-}
-.withdraw-form[data-v-4b7cd401] {
-    background: #f4f5f0;
-    margin: 10px 0;
-    padding: 12px;
-}
-.withdraw-form form[data-v-4b7cd401] {
-    flex-direction: column;
-    display: flex;
-}
-.user-phone[data-v-d7674060] {
-    background: #f4f5f0;
-    margin: 10px 0;
-    padding: 8px;
+.slide-enter-active,
+.slide-leave-active {
+    transition: all 0.3s ease;
 }
 
-.table {
-    width: 100%;
-    display: table;
-}
-.table .row-cell.align-middle {
-    vertical-align: middle;
+.slide-enter-from,
+.slide-leave-to {
+    opacity: 0;
+    transform: translateY(-20px);
 }
 
-.table .row-cell {
-    display: table-cell;
-}
-.user-phone-icon[data-v-3e7e08c6] {
-    width: 32px;
-    height: 32px;
-    padding-right: 8px;
-}
-.user-phone-icon img[data-v-3e7e08c6] {
-    vertical-align: middle;
-    width: 32px;
-    height: 32px;
+.modal-enter-active,
+.modal-leave-active {
+    transition: all 0.3s ease;
 }
 
-.user-phone-number[data-v-3e7e08c6] {
-    width: 100%;
-    font-size: 14px;
-    line-height: 17px;
-    color: #252a2d ;
-}
-.user-phone-info-wrapper[data-v-3e7e08c6] {
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    display: flex;
-}
-.user-phone-label[data-v-3e7e08c6] {
-    color: #8e9398;
-    margin: 0 0 2px;
-    font-size: 12px;
-    line-height: 14px;
-}
-.input-field[data-v-1a892a33] {
-    margin-bottom: 16px;
-}
-.input-field label[data-v-1a892a33] {
-    width: 100%;
+.modal-enter-from,
+.modal-leave-to {
+    opacity: 0;
+    transform: scale(0.9);
 }
 
-label.form {
-    color: #252a2d;
-    margin: 0 0 6px;
-}
-.withdraw-amount[data-v-4b7cd401] .optional-slot {
-    color: inherit;
+/* Custom animations */
+@keyframes spin {
+    to { transform: rotate(360deg); }
 }
 
-.input-field .optional[data-v-1a892a33] {
-    float: right;
-    color: #8e9398;
-    font-size: 14px;
-}
-.withdraw-fee[data-v-4b7cd401] {
-    align-items: center;
-    display: flex;
-    position: relative;
-}
-.withdraw-fee .withdraw-fee-info-modal[data-v-4b7cd401], .withdraw-form .caption[data-v-4b7cd401], .withdraw-fee[data-v-4b7cd401] .label-text {
-    font-weight: 400;
-}
-
-.withdraw-form .caption[data-v-4b7cd401], .withdraw-fee[data-v-4b7cd401] .label-text {
-    font-size: 12px;
-    line-height: 16px;
-}
-.label-text[data-v-b1b046d0] {
-    margin-right: 5px;
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 18px;
-}
-.input-field-wrapper[data-v-1a892a33] {
-    display: flex;
-    position: relative;
-}
-.input-field .currency-symbol[data-v-1a892a33] {
-    color: #8e9398;
-    text-transform: uppercase;
-    white-space: nowrap;
-    background: #e6e7e2;
-    justify-content: center;
-    align-items: center;
-    padding: 0 8px;
-    display: flex;
-}
-
-.input-field .currency-symbol[data-v-1a892a33], .input-field .help-text[data-v-1a892a33] {
-    font-weight: 400;
-}
-.input-field .currency-symbol[data-v-1a892a33] {
-    font-size: 14px;
-    line-height: 18px;
-}
-.input-field-wrapper input[data-v-1a892a33] {
-    width: 100%;
-    max-width: 100%;
-}
-
-input[type=text], input[type=password], input[type=email], input[type=url], input[type=number], input[type=date], input[type=tel], input[type=search] {
-    border: 1px solid #e6e7e2;
-    border-radius: 0;
-    outline: 0;
-    padding: 7px 10px;
-    font: 14px / 1.1rem Roboto-flex, Helvetica, Arial, sans-serif;
-}
-.input-field .help-text[data-v-1a892a33] {
-    color: #8e9398;
-    margin-top: 6px;
-}
-
-.input-field .help-text[data-v-1a892a33] {
-    font-size: 12px;
-    line-height: 16px;
-}
-
-.disabled.button, [disabled].button, .button:disabled {
-    cursor: default;
-    color: #8e9398 !important;
-    background: #e6e7e2 !important;
-}
-
-/* FIX: Hapa nimeondoa max-width ili iwe full width kweli */
-.button-full {
-    width: 100% !important;
-    max-width: none !important; 
-}
-
-.button-primary {
-    color: #252a2d;
-    fill: #252a2d;
-    background-color: #39ecdd;
-}
-.button {
-    cursor: pointer;
-    font-family: inherit;
-    font-weight: 700;
-    font-size: 14px;
-    -webkit-appearance: none;
-    box-sizing: border-box;
-    text-align: center;
-    text-transform: uppercase;
-    vertical-align: middle;
-    border: 0;
-    border-radius: 0;
-    padding: 10px 20px;
-    display: inline-block;
-}
-
-/* Additional styles for messages - keeping consistent with design */
-.success-message {
-    background-color: #d4edda;
-    color: #155724;
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #c3e6cb;
-    font-size: 14px;
-    text-align: center;
-}
-
-.error-message {
-    background-color: #f8d7da;
-    color: #721c24;
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #f5c6cb;
-    font-size: 14px;
-    text-align: center;
-}
-
-/* Loading state for button */
-.button:disabled {
-    opacity: 0.7;
-    cursor: not-allowed;
+.animate-spin {
+    animation: spin 1s linear infinite;
 }
 </style>

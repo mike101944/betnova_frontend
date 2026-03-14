@@ -29,6 +29,17 @@ const routes = [
     component: Withdraw
   },
   {
+    path: '/betList',
+    name: 'betList',
+    component: () => import('../screen/Bets/ApproveBet/BetsList.vue'),
+  },
+  {
+    path: '/betList/:id',
+    name: 'bet-details',
+    component: () => import('../screen/Bets/ApproveBet/BetDetails.vue'),
+    props: true // This passes route params as props
+  },
+  {
     path: '/deposite',
     name: 'deposite',
     component: Deposite
@@ -63,6 +74,7 @@ const routes = [
         component: () => import('../screen/Bets/Settled.vue'),
         meta: { requiresSettledData: true },
       },
+     
       {
         path: 'jackpots',
         name: 'Jackpots',

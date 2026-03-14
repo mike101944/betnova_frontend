@@ -5,6 +5,8 @@
       <!-- Navigation Items -->
       <div class="flex items-end justify-around px-2 relative" style="height: 70px;">
         <!-- Menu Item -->
+       
+
         <div class="relative flex flex-col items-center" style="width: 70px;">
           <button 
              @click="handleMenuClick"
@@ -29,7 +31,9 @@
           </span>
         </div>
 
-        <!-- Sports Item -->
+        <!-- Sports Item - sasa itaonyesha emoji ⚽ -->
+       
+
         <div class="relative flex flex-col items-center" style="width: 70px;">
           <button 
             @click="handleSportsClick"
@@ -47,11 +51,13 @@
           </span>
         </div>
 
-        <!-- Center FAB - Betslip with Counter -->
+        
+
+        <!-- Center FAB - Betslip -->
         <div class="relative flex flex-col items-center" style="width: 70px;">
           <button 
             @click="handleBetslipClick"
-            class="w-12 h-12 rounded-full bg-sky-700 flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110 active:scale-95 relative"
+            class="w-12 h-12 rounded-full bg-sky-700 flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110 active:scale-95"
             :class="{
               'translate-y-[-20px]': activeTab === 'betslip',
               'translate-y-0': activeTab !== 'betslip'
@@ -62,14 +68,6 @@
               <line x1="12" y1="8" x2="12" y2="16"/>
               <line x1="8" y1="12" x2="16" y2="12"/>
             </svg>
-            
-            <!-- Counter Badge - Shows number of bets -->
-            <span 
-              v-if="betslipCount > 0"
-              class="absolute -top-1 -right-1 bg-[#0AF0B5] text-[#1a1e24] text-[10px] font-bold min-w-[18px] h-[18px] rounded-full flex items-center justify-center px-1 border-2 border-[#1a1e24]"
-            >
-              {{ betslipCount > 99 ? '99+' : betslipCount }}
-            </span>
           </button>
           <span class="text-[10px] font-medium mt-1 transition-all duration-300"
                 :class="activeTab === 'betslip' ? 'text-[#0AF0B5] translate-y-[-20px]' : 'text-gray-400'">
@@ -78,25 +76,26 @@
         </div>
 
         <!-- Mybets/Join Item -->
-        <div class="relative flex flex-col items-center" style="width: 70px;">
-          <button 
-            @click="handleMybetsLoginClick"
-            class="w-12 h-12 rounded-full bg-sky-700 flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110 active:scale-95"
-            :class="{
-              'translate-y-[-20px]': activeTab === 'mybets' || activeTab === 'login',
-              'translate-y-0': activeTab !== 'mybets' && activeTab !== 'login'
-            }"
-          >
-            <span v-if="isAuthenticated" class="text-white text-xl">📋</span>
-            <span v-else class="text-white text-xl">🔑</span>
-          </button>
-          <span class="text-[10px] font-medium mt-1 transition-all duration-300"
-                :class="activeTab === 'mybets' || activeTab === 'login' ? 'text-[#0AF0B5] translate-y-[-20px]' : 'text-gray-400'">
-            {{ isAuthenticated ? 'Mybets' : 'Login' }}
-          </span>
-        </div>
+<div class="relative flex flex-col items-center" style="width: 70px;">
+  <button 
+    @click="handleMybetsLoginClick"
+    class="w-12 h-12 rounded-full bg-sky-700 flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110 active:scale-95"
+    :class="{
+      'translate-y-[-20px]': activeTab === 'mybets' || activeTab === 'login',
+      'translate-y-0': activeTab !== 'mybets' && activeTab !== 'login'
+    }"
+  >
+    <span v-if="isAuthenticated" class="text-white text-xl">📋</span>
+    <span v-else class="text-white text-xl">🔑</span>
+  </button>
+  <span class="text-[10px] font-medium mt-1 transition-all duration-300"
+        :class="activeTab === 'mybets' || activeTab === 'login' ? 'text-[#0AF0B5] translate-y-[-20px]' : 'text-gray-400'">
+    {{ isAuthenticated ? 'Mybets' : 'Login' }}
+  </span>
+</div>
 
         <!-- Account Item -->
+
         <div class="relative flex flex-col items-center" style="width: 70px;">
           <button 
              @click="handleAccountClick"
@@ -113,13 +112,16 @@
                 Account
           </span>
         </div>
+
+
+
       </div>
     </div>
   </div>
 </template>
 
 <script setup>
-import { ref, computed, onMounted, onBeforeUnmount } from 'vue'
+import { ref, computed, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { useAuthStore } from '../../store/authStore'
 import NavItem from './NavItem.vue'
@@ -130,7 +132,6 @@ const authStore = useAuthStore()
 
 const activeIndex = ref(1) // Default to Sports (index 1)
 const activeTab = ref('sports')
-const betslipCount = ref(0) // Add this line
 
 // Map routes to tabs - SAHIHISHA HAPA
 const routeToTab = {
@@ -143,35 +144,7 @@ const routeToTab = {
   '/login': { tab: 'login', index: 3 }        // Login inaenda kwa login tab
 }
 
-// Function to get betslip count from localStorage
-const updateBetslipCount = () => {
-  try {
-    const savedBets = localStorage.getItem('betslip_selections')
-    if (savedBets) {
-      const bets = JSON.parse(savedBets)
-      betslipCount.value = Array.isArray(bets) ? bets.length : 0
-    } else {
-      betslipCount.value = 0
-    }
-  } catch (e) {
-    console.error('Error reading betslip count:', e)
-    betslipCount.value = 0
-  }
-}
 
-// Listen for betslip updates
-const handleBetslipUpdate = (event) => {
-  const bets = event.detail || []
-  betslipCount.value = bets.length
-  console.log('Betslip count updated:', betslipCount.value)
-}
-
-// Handle storage changes from other tabs
-const handleStorageChange = (event) => {
-  if (event.key === 'betslip_selections') {
-    updateBetslipCount()
-  }
-}
 
 // Helper function kwa mybets/login button
 const handleMybetsLoginClick = () => {
@@ -214,18 +187,6 @@ const handleAccountClick = () => {
 }
 
 const isAuthenticated = computed(() => authStore.isAuthenticated)
-
-// Lifecycle hooks - Add these
-onMounted(() => {
-  updateBetslipCount()
-  window.addEventListener('betslip-update', handleBetslipUpdate)
-  window.addEventListener('storage', handleStorageChange)
-})
-
-onBeforeUnmount(() => {
-  window.removeEventListener('betslip-update', handleBetslipUpdate)
-  window.removeEventListener('storage', handleStorageChange)
-})
 </script>
 
 <style scoped>
