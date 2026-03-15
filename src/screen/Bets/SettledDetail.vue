@@ -1,168 +1,237 @@
 <template>
-    <div class="settled-detail-container min-h-screen bg-white">
-        <!-- Header with Gradient -->
-        <div class=" text-xl  px-4 py-1 ">
-            <div class="w-full ">
+    <div class="h-full bg-gray-50">
+        <!-- Header with proper typography -->
+        <div class="sticky top-0 bg-white border-b border-gray-200 z-10">
+            <div class="max-w-3xl mx-auto px-4">
                 <!-- Back Button -->
-                <button @click="router.back()" class="mb-4 flex cursor-pointer  items-center ">
-                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <button @click="router.back()" 
+                        class="inline-flex items-center py-3 text-sm font-medium text-gray-600 hover:text-emerald-600 transition-colors">
+                    <svg class="w-5 h-5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
                     </svg>
-                    <span>Back</span>
+                    <span class="font-inter">Back to Bets</span>
                 </button>
-
-
             </div>
         </div>
 
+        <!-- Loading State -->
+        <div v-if="isLoading" class="flex justify-center items-center py-20">
+            <div class="animate-spin rounded-full h-12 w-12 border-4 border-emerald-600 border-t-transparent"></div>
+        </div>
 
-        <!-- Header Content -->
-        <!-- Parent div yenye relative positioning -->
-        <div class="relative bg-gradient-to-r from-emerald-600 to-teal-600 text-white px-4 py-6 mt-3 mx-2">
-            <!-- BET ID - positioned absolute juu kabisa -->
-            <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-gray-400 rounded-full px-3 py-1">
-                <span class="text-sm font-semibold">BET ID: #{{ bet?.id?.toString().slice(0, 10) }}</span>
-            </div>
-
-            <!-- Header Content -->
-            <div class="flex justify-between items-start max-w-3xl mx-auto">
-                <div class="flex flex-row items-center justify-center gap-4">
-                    <p class="text-sm font-medium opacity-90 mb-1">CONGRATULATIONS!</p>
-                            <div>
-                                <h2 class="text-xl text-amber-300 font-bold mb-1">WINNING BIG</h2>
-                            <p class="text-xl font-black">{{ formatCurrency(bet.potentialReturn) }}</p>
-                            </div>
-                </div>
-                <TrophyIcon class="w-20 h-20 text-white/30" />
+        <!-- Error State -->
+        <div v-else-if="error" class="max-w-3xl mx-auto px-4 py-12">
+            <div class="bg-red-50 rounded-2xl p-8 text-center">
+                <div class="text-red-500 text-5xl mb-4">⚠️</div>
+                <p class="text-lg font-semibold text-red-700 mb-2 font-inter">Failed to load bet details</p>
+                <p class="text-sm text-red-500 mb-4 font-inter">{{ error }}</p>
+                <button @click="fetchBetDetails" 
+                        class="px-6 py-2.5 bg-red-600 text-white rounded-xl hover:bg-red-700 font-medium text-sm font-inter transition-colors">
+                    Try Again
+                </button>
             </div>
         </div>
 
         <!-- Main Content -->
-        <div class="w-full ">
-            <!-- Loading State -->
-            <div v-if="isLoading" class="flex justify-center items-center h-64">
-                <div class="animate-spin rounded-full h-12 w-12 border-4 border-emerald-600 border-t-transparent"></div>
-            </div>
-
-            <!-- Error State -->
-            <div v-else-if="error" class="bg-red-50 rounded-2xl p-8 text-center">
-                <div class="text-red-500 text-5xl mb-4">⚠️</div>
-                <p class="text-red-700 font-medium mb-2">Failed to load bet details</p>
-                <p class="text-sm text-red-500 mb-4">{{ error }}</p>
-                <button @click="fetchBetDetails" class="px-6 py-2 bg-red-600 text-white rounded-xl hover:bg-red-700">
-                    Try Again
-                </button>
-            </div>
-
-            <!-- Bet Details Content -->
-            <div v-else-if="bet" class="space-y-4 bg-gradient-to-r from-emerald-600 to-teal-600 mx-2">
-                <!-- Congratulations Banner -->
-                <div class="bg-gray-50 rounded-t-xl p-4 ">
-                        <div class="flex flex-row justify-between items-center">
-                            <p class="text-sm text-gray-500 mb-1">Total Odds</p>
-                            <p class="text-l font-bold text-yellow-600">{{ Number(bet.totalOdds).toFixed(2) }}</p>
-                        </div>
-                        <div class="flex flex-row justify-between items-center">
-                            <p class="text-sm text-gray-500 mb-1">Stake</p>
-                            <p class="text-l font-bold text-gray-900">{{ formatCurrency(bet.stake) }}</p>
-                        </div>
-                        <div class="flex flex-row justify-between items-center">
-                            <p class="text-sm text-gray-500 mb-1">Potential Win</p>
-                            <p class="text-l font-bold text-green-600">{{ formatCurrency(bet.potentialWin ||
-                                bet.potentialReturn) }}</p>
-                        </div>
-                        <div class="flex flex-row justify-between items-center">
-                            <p class="text-sm text-gray-500 mb-1">Tax (10%)</p>
-                            <p class="text-l font-bold text-gray-500">{{ formatCurrency(calculateTax(bet)) }}</p>
-                        </div>
-                        <div class="flex justify-between items-center">
-                            <span class="text-lg font-semibold text-gray-900"> Payout</span>
-                            <span class="text-l font-black text-green-600">{{
-                                formatCurrency(calculateFinalPayout(bet)) }}</span>
-                        </div>
-
+        <div v-else-if="bet" class="w-full mx-auto px-4 py-6">
+            <!-- Success Banner - Professional Card Design -->
+            <div class="relative bg-gradient-to-br from-emerald-600 via-emerald-600 to-teal-600 rounded-2xl shadow-xl overflow-hidden mb-6">
+                <!-- Decorative Pattern -->
+                <div class="absolute inset-0 opacity-10">
+                    <svg class="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+                        <defs>
+                            <pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse">
+                                <path d="M 10 0 L 0 0 0 10" fill="none" stroke="white" stroke-width="0.5"/>
+                            </pattern>
+                        </defs>
+                        <rect width="100%" height="100%" fill="url(#grid)"/>
+                    </svg>
                 </div>
-               
 
-              
-                <div class="flex items-center justify-between bg-white rounded-2xl shadow-lg px-2 py-1 mx-10">
-                    <div class="flex items-center gap-2">
-                        <CheckCircleIcon class="w-5 h-5 text-green-500" />
-                        <span class="text-gray-600">Bet Placed</span>
-                    </div>
-                    <div class="flex items-center gap-2">
-                        <CheckCircleIcon class="w-5 h-5 text-green-500" />
-                        <span class="text-gray-600">Matches Played</span>
-                    </div>
-                    <div class="flex items-center gap-2">
-                        <TrophyIcon class="w-5 h-5 text-yellow-500" />
-                        <span class="text-gray-600">🏆</span>
+                <!-- Bet ID Badge -->
+                <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/3">
+                    <div class="bg-white backdrop-blur-sm px-5 py-2 rounded-full shadow-lg border border-emerald-100">
+                        <span class="text-xs font-medium text-gray-600 font-mono">BET ID</span>
+                        <span class="ml-2 text-sm font-bold text-emerald-700 font-mono">#{{ bet?.id?.toString().slice(0, 10) }}</span>
                     </div>
                 </div>
-              
 
-                <!-- Selections -->
-                <div class=" rounded-2xl shadow-lg overflow-hidden">
-                  
+                <!-- Banner Content -->
+                <div class="relative px-1 py-8">
+                    <div class="flex items-center justify-between">
+                        <div class="space-y-3">
+                            <!-- Success Badge -->
+                            <div class="inline-flex items-center px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full">
+                                <TrophyIcon class="w-4 h-4 text-yellow-300 mr-1.5" />
+                                <span class="text-xs font-semibold text-white uppercase tracking-wider font-inter">Winner!</span>
+                            </div>
+                            
+                            <!-- Main Message -->
+                            <div>
+                                <h1 class="text-2xl font-bold text-white mb-1 font-poppins">Congratulations!</h1>
+                                <p class="text-emerald-100 text-sm font-inter">Your bet has been settled successfully</p>
+                            </div>
+                            
+                            <!-- Prize Amount -->
+                            <div class="pt-2">
+                                <p class="text-xs font-medium text-emerald-200 uppercase tracking-wider font-inter">Total Payout</p>
+                                <p class="text-4xl font-black text-white font-poppins">{{ formatCurrency(calculateFinalPayout(bet)) }}</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Decorative Trophy -->
+                        <div class="hidden sm:block">
+                            <TrophyIcon class="w-28 h-28 text-white/20" />
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-                    <div class="divide-y divide-gray-200">
-                        <div v-for="(selection, index) in parsedSelections" :key="index" class="p-1 m-2 bg-white rounded-[12px]">
-                            <div class="flex items-start justify-between mb-2">
-                               <div class="flex flex-row justify-evenly items-center">
-                                <span class=" text-xl flex items-center justify-center">⚽</span>
-                              
-                                    <p class="font-bold text-gray-900">{{ selection.match || selection.event ||
-                                        selection.homeTeam + ' vs ' + selection.awayTeam }}</p>
-                               </div>
+            <!-- Bet Summary Card -->
+            <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-1 mb-6">
+                <h2 class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4 font-inter">Bet Summary</h2>
+                
+                <div class="grid grid-cols-2 gap-4">
+                    <!-- Total Odds -->
+                    <div class="space-y-1">
+                        <p class="text-xs text-gray-500 font-inter">Total Odds</p>
+                        <p class="text-sm font-bold text-yellow-600 font-mono">{{ Number(bet.totalOdds).toFixed(2) }}</p>
+                    </div>
+                    
+                    <!-- Stake -->
+                    <div class="space-y-1">
+                        <p class="text-xs text-gray-500 font-inter">Stake</p>
+                        <p class="text-sm font-bold text-gray-900 font-mono">{{ formatCurrency(bet.stake) }}</p>
+                    </div>
+                    
+                    <!-- Potential Win -->
+                    <div class="space-y-1">
+                        <p class="text-xs text-gray-500 font-inter">Gross Winnings</p>
+                        <p class="text-sm font-bold text-emerald-600 font-mono">{{ formatCurrency(bet.potentialWin || bet.potentialReturn) }}</p>
+                    </div>
+                    
+                    <!-- Tax (10%) -->
+                    <div class="space-y-1">
+                        <p class="text-xs text-gray-500 font-inter">Tax (10%)</p>
+                        <p class="text-sm font-bold text-gray-400 font-mono">- {{ formatCurrency(calculateTax(bet)) }}</p>
+                    </div>
+                </div>
 
-                                <div class="flex items-center gap-2">
-                                    <span
-                                        class=" text-green-700  py-1 rounded-full text-xs font-bold">{{ selection.odds }}</span>
-                                    <span class=" text-gray-700 py-1 rounded-full text-[1]">✅</span>
+                <!-- Net Payout -->
+                <div class="mt-4 pt-4 border-t border-gray-200">
+                    <div class="flex items-center justify-between">
+                        <span class="text-sm font-semibold text-gray-700 font-inter">Net Payout</span>
+                        <span class="text-sm font-black text-green-600 font-mono">{{ formatCurrency(calculateFinalPayout(bet)) }}</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Progress Timeline -->
+            <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-5 mb-6">
+                <div class="flex items-center justify-between">
+                    <!-- Bet Placed -->
+                    <div class="flex flex-col items-center text-center">
+                        <div class="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center mb-2">
+                            <CheckCircleIcon class="w-5 h-5 text-green-600" />
+                        </div>
+                        <span class="text-xs font-medium text-gray-700 font-inter">Bet Placed</span>
+                        <span class="text-[10px] text-gray-500 font-inter mt-1">{{ formatDate(bet.createdAt) }}</span>
+                    </div>
+
+                    <!-- Connector Line -->
+                    <div class="flex-1 h-0.5 bg-green-200 mx-2"></div>
+
+                    <!-- Matches Played -->
+                    <div class="flex flex-col items-center text-center">
+                        <div class="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center mb-2">
+                            <CheckCircleIcon class="w-5 h-5 text-green-600" />
+                        </div>
+                        <span class="text-xs font-medium text-gray-700 font-inter">Matches Played</span>
+                        <span class="text-[10px] text-gray-500 font-inter mt-1">Completed</span>
+                    </div>
+
+                    <!-- Connector Line -->
+                    <div class="flex-1 h-0.5 bg-green-200 mx-2"></div>
+
+                    <!-- Settled -->
+                    <div class="flex flex-col items-center text-center">
+                        <div class="w-8 h-8 rounded-full bg-yellow-100 flex items-center justify-center mb-2">
+                            <TrophyIcon class="w-5 h-5 text-yellow-600" />
+                        </div>
+                        <span class="text-xs font-medium text-gray-700 font-inter">Settled</span>
+                        <span class="text-[10px] text-gray-500 font-inter mt-1">{{ formatDate(bet.settledAt) || 'Just now' }}</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Selections Section -->
+            <div class="space-y-4">
+                <h2 class="text-sm font-semibold text-gray-700 px-1 font-inter">Bet Selections ({{ parsedSelections.length }})</h2>
+                
+                <div v-for="(selection, index) in parsedSelections" :key="index" 
+                     class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
+                    
+                    <!-- Selection Header -->
+                    <div class="bg-gradient-to-r from-gray-50 to-white px-4 py-3 border-b border-gray-200">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-6 h-6 rounded-full bg-emerald-100 flex items-center justify-center">
+                                    <span class="text-xs font-bold text-emerald-700 font-inter">{{ index + 1 }}</span>
+                                </div>
+                                <span class="text-sm font-semibold text-gray-900 font-inter line-clamp-1">
+                                    {{ selection.match || selection.event || selection.homeTeam + ' vs ' + selection.awayTeam }}
+                                </span>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <span class="px-2.5 py-1 bg-yellow-50 text-yellow-700 rounded-full text-xs font-bold font-mono">
+                                    {{ selection.odds }}
+                                </span>
+                                <span class="px-2.5 py-1 bg-green-50 text-green-700 rounded-full text-xs font-semibold font-inter">
+                                    WON
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Selection Details -->
+                    <div class="p-4">
+                        <!-- League & Competition -->
+                        <p class="text-xs text-gray-500 mb-3 font-inter">
+                            {{ selection.league || selection.tournament || 'Football' }}
+                        </p>
+
+                        <!-- Prediction & Result -->
+                        <div class="bg-gray-50 rounded-lg p-3 mb-3">
+                            <div class="flex items-center justify-between text-sm">
+                                <div>
+                                    <span class="text-xs text-gray-500 block mb-0.5 font-inter">Your Prediction</span>
+                                    <span class="font-medium text-gray-900 font-inter">{{ selection.selection }}</span>
+                                </div>
+                                <div class="text-right">
+                                    <span class="text-xs text-gray-500 block mb-0.5 font-inter">Final Score</span>
+                                    <span class="font-medium text-gray-900 font-inter">{{ selection.score || selection.result || '2-2' }}</span>
                                 </div>
                             </div>
-                           
-                            <div class="pl-6">
-                                <p class="text-sm text-gray-500 mt-1">{{ selection.league }}
-                                </p>
-                            </div>
-                          
-                        <div class="divide-y divide-gray-200">
-                            <div class="flex flex-row items-center justify-between">
-                                    <div>
-                                        <span class="text-gray-500">Prediction:</span>
-                                    <span class="ml-1 font-medium text-gray-900">Correct Score: {{ selection.selection }}</span>
-
-                                    </div>
-                                    <div>
-                                    <span class="ml-1 text-teal-700 font-bold">WON</span>
-                                    </div>
-                            </div>
-                            <div>
-                                
-                            </div>
-
                         </div>
 
-                        <div class="flex items-center justify-between py-2 text-sm">
-                            <div class="flex items-center gap-1">
-                                <span class="text-gray-500">Odds:</span>
-                                <span class="font-bold text-yellow-600">{{ selection.odds }}</span>
+                        <!-- Match Stats -->
+                        <div class="flex items-center justify-between text-xs">
+                            <div class="flex items-center space-x-3">
+                                <span class="text-gray-500 font-inter">Odds: <span class="font-bold text-yellow-600 font-mono">{{ selection.odds }}</span></span>
+                                <span class="text-gray-300">|</span>
+                                <span class="text-gray-500 font-inter">Market: <span class="font-medium text-gray-700 font-inter">{{ selection.market || 'Match Winner' }}</span></span>
                             </div>
-                            
-                            <div class="w-px h-4 bg-gray-300"></div>
-                            
-                            <div class="flex items-center gap-1">
-                                <span class="text-gray-500">Result:</span>
-                                <span class="font-medium text-gray-900">2-2</span>
-                            </div>
-                        </div>
+                            <span class="text-green-600 font-medium font-inter">✅ Won</span>
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <!-- Footer Status -->
-                
+            <!-- Footer Note -->
+            <div class="mt-6 text-center">
+                <p class="text-xs text-gray-400 font-inter">
+                    Settled on {{ formatDate(bet.settledAt) || formatDate(bet.createdAt) }}
+                </p>
             </div>
         </div>
     </div>
@@ -182,29 +251,33 @@ const bet = ref(null)
 const isLoading = ref(false)
 const error = ref(null)
 
+// Font configurations - Add these to your main CSS file
+/*
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&family=Space+Mono:wght@400;700&display=swap');
+
+Then use:
+- Inter: for body text, UI elements (font-inter)
+- Poppins: for headings, large text (font-poppins)  
+- Space Mono: for numbers, odds, currency (font-mono)
+*/
+
 // Parse selections from JSON string
 const parsedSelections = computed(() => {
     if (!bet.value?.selections) return []
 
     try {
-        // If selections is already an array
         if (Array.isArray(bet.value.selections)) {
             return bet.value.selections
         }
-
-        // If it's a string, try to parse it
         if (typeof bet.value.selections === 'string') {
             const parsed = JSON.parse(bet.value.selections)
             return Array.isArray(parsed) ? parsed : []
         }
-
-        // If it's an object with selections property
         if (bet.value.selections.selections) {
             return Array.isArray(bet.value.selections.selections)
                 ? bet.value.selections.selections
                 : []
         }
-
         return []
     } catch (e) {
         console.error('Error parsing selections:', e)
@@ -212,16 +285,28 @@ const parsedSelections = computed(() => {
     }
 })
 
-// Calculate 12% tax
+// Calculate 10% tax
 const calculateTax = (bet) => {
     const potentialWin = Number(bet.potentialWin || bet.potentialReturn || 0)
-    return Math.round(potentialWin * 0.12)
+    return Math.round(potentialWin * 0.1)
 }
 
 // Calculate final payout after tax
 const calculateFinalPayout = (bet) => {
     const potentialWin = Number(bet.potentialWin || bet.potentialReturn || 0)
     return potentialWin - calculateTax(bet)
+}
+
+// Format date
+const formatDate = (dateString) => {
+    if (!dateString) return null
+    const date = new Date(dateString)
+    return date.toLocaleDateString('en-US', { 
+        month: 'short', 
+        day: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit'
+    })
 }
 
 // Fetch bet details
@@ -238,12 +323,10 @@ const fetchBetDetails = async () => {
 
         // Try to get bet from router state first
         if (route.state?.currentBet) {
-            console.log('Using bet from router state')
             bet.value = route.state.currentBet
         } else {
             // Try to find bet in allBets if already loaded
             if (allBets.value && allBets.value.length > 0) {
-                console.log('Searching in allBets')
                 const foundBet = allBets.value.find(b => b.id.toString() === betId.toString())
                 if (foundBet) {
                     bet.value = foundBet
@@ -252,7 +335,6 @@ const fetchBetDetails = async () => {
 
             // If not found, fetch from API
             if (!bet.value) {
-                console.log('Fetching from API')
                 const betData = await getBetDetails(betId)
                 if (betData) {
                     bet.value = betData
@@ -261,9 +343,6 @@ const fetchBetDetails = async () => {
                 }
             }
         }
-
-        console.log('Bet loaded:', bet.value)
-
     } catch (err) {
         console.error('Error fetching bet:', err)
         error.value = err.message || 'Failed to load bet details'
@@ -278,13 +357,30 @@ onMounted(() => {
 </script>
 
 <style scoped>
-.settled-detail-container {
-    min-height: 100vh;
+/* Professional Font System */
+.font-inter {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
-/* Smooth transitions */
-.settled-detail-container * {
-    transition: all 0.2s ease;
+.font-poppins {
+    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.font-mono {
+    font-family: 'Space Mono', 'Courier New', monospace;
+}
+
+/* Smooth Transitions */
+* {
+    transition: background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Line clamp utility */
+.line-clamp-1 {
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 
 /* Custom scrollbar */

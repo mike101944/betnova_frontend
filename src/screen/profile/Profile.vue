@@ -53,7 +53,7 @@
                   <p class="text-2xl font-bold text-emerald-600">{{ formatBalance(userBalance) }}</p>
                   <div class="flex gap-2 mt-3">
                     <router-link 
-                      to="/deposit" 
+                      to="/deposite" 
                       class="flex-1 bg-emerald-600 hover:bg-emerald-700 text-white text-sm text-center py-2 px-3 rounded-lg transition-all hover:shadow-md"
                     >
                       Deposit
