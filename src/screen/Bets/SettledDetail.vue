@@ -16,7 +16,11 @@
 
         <!-- Loading State -->
         <div v-if="isLoading" class="flex justify-center items-center py-20">
-            <div class="animate-spin rounded-full h-12 w-12 border-4 border-emerald-600 border-t-transparent"></div>
+            <div class="relative">
+        <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
+        <img :src="Loader" alt="Loading..." class="h-8 w-8 absolute top-2 left-2 opacity-0" />
+      </div>
+            <!-- <div class="animate-spin rounded-full h-12 w-12 border-4 border-emerald-600 border-t-transparent"></div> -->
         </div>
 
         <!-- Error State -->
@@ -35,7 +39,7 @@
         <!-- Main Content -->
         <div v-else-if="bet" class="w-full mx-auto px-4 py-2">
             <!-- Success Banner - Professional Card Design -->
-            <div class="relative bg-gradient-to-br from-emerald-600 via-emerald-600 to-teal-600 rounded-2xl shadow-xl overflow-hidden mb-3">
+            <div class="relative bg-gradient-to-br from-sky-500 via-sky-600 to-teal-600 rounded-2xl shadow-xl overflow-hidden mb-3">
                 <!-- Decorative Pattern -->
                 <div class="absolute inset-0 opacity-10">
                     <svg class="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
@@ -95,7 +99,7 @@
                         <span class="text-sm font-semibold text-gray-500 font-inter">Total Odds</span>
                         <span class="text-sm font-black text-gray-900 font-mono">{{ Number(bet.totalOdds).toFixed(2) }}</span>
                     </div>
-                    
+
                 <div class="flex items-center justify-between">
                         <span class="text-sm font-semibold text-gray-500 font-inter">Stake</span>
                         <span class="text-sm font-black text-gray-900 font-mono">{{ formatCurrency(bet.stake) }}</span>
@@ -234,6 +238,7 @@ import { ref, onMounted, computed } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { TrophyIcon, CheckCircleIcon } from '@heroicons/vue/24/solid'
 import { useBets } from '../composables/useBets'
+import Loader from '../../assets/loader/default-spinner-BIEd0VkD.gif'
 
 const route = useRoute()
 const router = useRouter()
