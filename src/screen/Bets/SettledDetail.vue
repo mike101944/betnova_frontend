@@ -77,7 +77,7 @@
                             
                             <!-- Prize Amount -->
                             <div class=" flex items-center justify-center gap-2">
-                                <p class="text-xs font-medium text-emerald-200 uppercase tracking-wider font-inter">Total Payout</p>
+                                <p class="text-xs font-medium text-emerald-200  tracking-wider font-inter">Total Payout</p>
                                 <p class="text-sm font-black text-white font-poppins">{{ formatCurrency(calculateFinalPayout(bet)) }}</p>
                             </div>
                         </div>
