@@ -92,7 +92,7 @@
             </div>
 
             <!-- Bet Summary Card -->
-            <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-1 mb-1">
+            <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-1 px-3 mb-1">
              
                 <div class="flex items-center justify-between">
                         <span class="text-sm font-semibold text-gray-500 font-inter">Total Odds</span>
