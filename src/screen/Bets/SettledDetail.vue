@@ -101,15 +101,15 @@
 
                 <div class="flex items-center justify-between">
                         <span class="text-sm font-semibold text-gray-500 font-inter">Stake</span>
-                        <span class="text-sm font-black text-gray-900 font-inter">{{ formatCurrency(bet.stake) }}</span>
+                        <span class="text-xs font-black text-gray-900 font-inter">{{ formatCurrency(bet.stake) }}</span>
                     </div>
                     <div class="flex items-center justify-between">
                         <span class="text-sm font-semibold text-gray-700 font-inter">Gross Winnings</span>
-                        <span class="text-sm font-black text-emerald-600 font-inter">{{ formatCurrency(bet.potentialWin || bet.potentialReturn) }}</span>
+                        <span class="text-xs font-black text-gray-900 font-inter">{{ formatCurrency(bet.potentialWin || bet.potentialReturn) }}</span>
                     </div>
                     <div class="flex items-center justify-between">
                         <span class="text-sm font-semibold text-gray-700 font-inter">Tax (10%)</span>
-                        <span class="text-sm font-black text-gray-400 font-inter">- {{ formatCurrency(calculateTax(bet)) }}</span>
+                        <span class="text-xs font-black text-gray-900 font-inter">- {{ formatCurrency(calculateTax(bet)) }}</span>
                     </div>
 
                 <!-- Net Payout -->
