@@ -72,7 +72,7 @@
                             
                             <!-- Main Message -->
                             <div>
-                                <h1 class="text-2xl font-bold text-white mb-1 font-poppins">Congratulations!</h1>
+                                <h1 class="text-sm font-bold text-white mb-1 font-poppins">Congratulations!</h1>
                             </div>
                             
                             <!-- Prize Amount -->
@@ -83,8 +83,9 @@
                         </div>
                         
                         <!-- Decorative Trophy -->
-                        <div class="hidden sm:block">
-                            <TrophyIcon class="w-28 h-28 text-white/20" />
+                        <div class="">
+                            <TrophyIcon class="w-20 h-20 text-white/20" />
+                            <!-- <TrophyIcon class="w-4 h-4 text-yellow-300 mr-1.5" /> -->
                         </div>
                     </div>
                 </div>
