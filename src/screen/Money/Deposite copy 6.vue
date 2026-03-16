@@ -1,5 +1,5 @@
 <script setup>
-import { ref, computed, onUnmounted, watch } from 'vue';
+import { ref, computed, watch } from 'vue';
 import { useAuthStore } from '../../store/authStore'
 import api from '../../services/api'
 
@@ -19,13 +19,6 @@ const successMessage = ref('')
 const selectedPaymentMethod = ref('mpesa')
 const showConfirmation = ref(false)
 const termsAccepted = ref(false)
-
-// Payment tracking
-const isCheckingPayment = ref(false)
-const paymentStatus = ref('')
-const paymentStatusMessage = ref('')
-let checkInterval = null
-let orderId = ref('')
 
 // Get user phone number from auth store
 const userPhone = computed(() => {
@@ -103,18 +96,7 @@ const handleDeposit = async () => {
     showConfirmation.value = true;
 }
 
-// Clear payment checking
-const clearPaymentCheck = () => {
-    if (checkInterval) {
-        clearInterval(checkInterval);
-        checkInterval = null;
-    }
-    isCheckingPayment.value = false;
-    loading.value = false;
-    paymentStatus.value = '';
-}
-
-// Confirm deposit - badilisha sehemu ya status check
+// Confirm deposit
 const confirmDeposit = async () => {
     loading.value = true;
     errorMessage.value = '';
@@ -122,113 +104,26 @@ const confirmDeposit = async () => {
     showConfirmation.value = false;
     
     try {
-        // Send deposit request to backend
         const response = await api.post('/auth/deposit', { 
-            amount: numericAmount.value
+            amount: numericAmount.value,
+            paymentMethod: selectedPaymentMethod.value,
+            phoneNumber: userPhone.value
         });
         
-        // Get order ID from response
-        orderId.value = response.data.data.order_id;
+        // Refresh balance after successful deposit
+        await authStore.fetchUserBalance();
         
-        // Show payment initiation message
-        successMessage.value = 'Payment initiated! Please check your phone and enter your PIN.';
+        // Show success message
+        successMessage.value = 'Deposit successful! Your account has been credited.';
         
-        // Start payment checking
-        isCheckingPayment.value = true;
-        paymentStatus.value = 'waiting';
-        paymentStatusMessage.value = 'Waiting for payment confirmation...';
+        // Clear amount after success
+        amount.value = null;
+        termsAccepted.value = false;
         
-        console.log('Deposit initiated:', response.data);
-        
-        // Start checking payment status every 3 seconds
-        let checkCount = 0;
-        const maxChecks = 15; // 15 * 3 seconds = 45 seconds (reduce from 40 to 15)
-        
-        checkInterval = setInterval(async () => {
-            checkCount++;
-            paymentStatusMessage.value = `Waiting for payment confirmation... (${checkCount * 3}s)`;
-            
-            try {
-                const statusRes = await api.get(`/auth/payment-status/${orderId.value}`);
-                
-                console.log('Status check:', statusRes.data);
-                
-                // Check if payment exists and has status
-                if (statusRes.data.success && statusRes.data.data) {
-                    const paymentData = statusRes.data.data;
-                    const currentStatus = paymentData.status;
-                    
-                    console.log('Payment status:', currentStatus);
-                    
-                    // COMPLETED - when payment is successful
-                    if (currentStatus === 'completed') {
-                        clearPaymentCheck();
-                        
-                        // Payment completed - refresh balance
-                        await authStore.fetchUserBalance();
-                        
-                        // Show success message with amount
-                        const depositedAmount = numericAmount.value;
-                        const bonus = bonusAmount.value;
-                        
-                        if (bonus > 0) {
-                            successMessage.value = `🎉 Deposit successful! ${formatBalance(depositedAmount)} added + ${formatBalance(bonus)} bonus!`;
-                        } else {
-                            successMessage.value = `✅ Deposit successful! ${formatBalance(depositedAmount)} has been added to your account.`;
-                        }
-                        
-                        // Clear form
-                        amount.value = null;
-                        termsAccepted.value = false;
-                        
-                        // Auto hide success message after 5 seconds
-                        setTimeout(() => {
-                            successMessage.value = '';
-                        }, 5000);
-                        
-                        return; // Exit the interval callback
-                    }
-                    // FAILED - when payment fails
-                    else if (currentStatus === 'failed') {
-                        clearPaymentCheck();
-                        errorMessage.value = '❌ Payment failed. Please try again.';
-                        return; // Exit the interval callback
-                    }
-                    // PROCESSING or PENDING - continue checking
-                    else if (currentStatus === 'processing' || currentStatus === 'pending') {
-                        paymentStatusMessage.value = `Payment is being processed... Please wait (${checkCount * 3}s)`;
-                        
-                        // After 20 seconds, assume it failed (since HarakaPay not updating status)
-                        if (checkCount >= 7) { // 7 * 3 = 21 seconds
-                            clearPaymentCheck();
-                            errorMessage.value = '❌ Payment failed: Insufficient balance or transaction cancelled. Please try again.';
-                            return;
-                        }
-                    }
-                }
-                
-                // Stop checking after maxChecks
-                if (checkCount >= maxChecks) {
-                    clearPaymentCheck();
-                    errorMessage.value = '⏰ Payment confirmation timeout. Please check your transaction in history or contact support.';
-                }
-                
-            } catch (statusError) {
-                console.error('Status check error:', statusError);
-                
-                // If we get 404, order might be invalid
-                if (statusError.response?.status === 404) {
-                    clearPaymentCheck();
-                    errorMessage.value = 'Payment order not found. Please contact support.';
-                }
-                // Don't stop checking on other errors, just continue
-            }
-        }, 3000);
+        console.log('Deposit successful:', response.data);
         
     } catch (error) {
         console.error('Deposit failed:', error);
-        
-        clearPaymentCheck();
         
         if (error.response) {
             errorMessage.value = error.response.data.message || 'Deposit failed. Please try again.';
@@ -237,6 +132,14 @@ const confirmDeposit = async () => {
         } else {
             errorMessage.value = 'An error occurred. Please try again.';
         }
+    } finally {
+        loading.value = false;
+        
+        if (successMessage.value) {
+            setTimeout(() => {
+                successMessage.value = '';
+            }, 5000);
+        }
     }
 }
 
@@ -244,11 +147,6 @@ const confirmDeposit = async () => {
 const cancelDeposit = () => {
     showConfirmation.value = false;
 }
-
-// Clean up interval when component is unmounted
-onUnmounted(() => {
-    clearPaymentCheck();
-});
 </script>
 
 <template>
@@ -270,14 +168,9 @@ onUnmounted(() => {
 
                 <!-- Success Message -->
                 <transition name="fade">
-                    <div v-if="successMessage" 
-                         class="flex items-center gap-3 p-4 rounded-xl mb-5 text-sm"
-                         :class="successMessage.includes('successful') || successMessage.includes('✅') ? 'bg-green-100 text-green-800 border border-green-200' : 'bg-blue-100 text-blue-800 border border-blue-200'">
-                        <svg v-if="successMessage.includes('successful') || successMessage.includes('✅')" class="w-5 h-5 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
+                    <div v-if="successMessage" class="flex items-center gap-3 p-4 rounded-xl mb-5 text-sm bg-green-100 text-green-800 border border-green-200">
+                        <svg class="w-5 h-5 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
                             <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
-                        </svg>
-                        <svg v-else class="w-5 h-5 flex-shrink-0 animate-pulse" viewBox="0 0 20 20" fill="currentColor">
-                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd" />
                         </svg>
                         {{ successMessage }}
                     </div>
@@ -365,7 +258,7 @@ onUnmounted(() => {
                             inputmode="numeric"
                             pattern="[0-9]*"
                             placeholder="0"
-                            :disabled="loading || isCheckingPayment"
+                            :disabled="loading"
                             class="flex-1 p-3 border-none outline-none text-base font-medium"
                             @keypress="(e) => {
                                 if (!/[0-9]/.test(e.key)) {
@@ -381,32 +274,12 @@ onUnmounted(() => {
 
                 <!-- Bonus Display -->
                 <transition name="slide">
-                    <div v-if="bonusAmount > 0 && !isCheckingPayment && !successMessage" class="flex items-center gap-4 p-4 bg-gradient-to-br from-pink-400 to-amber-800 rounded-xl mb-5 text-white">
+                    <div v-if="bonusAmount > 0" class="flex items-center gap-4 p-4 bg-gradient-to-br from-pink-400 to-amber-800 rounded-xl mb-5 text-white">
                         <div class="text-3xl">🎁</div>
                         <div>
                             <div class="text-sm font-medium opacity-90 mb-1">Welcome Bonus!</div>
                             <div class="text-xl font-bold mb-1">+{{ bonusAmount.toLocaleString() }} TSh</div>
                             <div class="text-xs opacity-90">10% bonus on deposits over 1,000 TSh</div>
-                        </div>
-                    </div>
-                </transition>
-
-                <!-- Payment Status -->
-                <transition name="fade">
-                    <div v-if="isCheckingPayment" 
-                         class="mb-5 p-4 bg-blue-50 rounded-xl border border-blue-200">
-                        <div class="flex items-center gap-3">
-                            <svg class="w-6 h-6 text-blue-500 animate-spin" viewBox="0 0 24 24">
-                                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" fill="none"/>
-                                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"/>
-                            </svg>
-                            <div>
-                                <div class="font-medium text-blue-800">{{ paymentStatusMessage }}</div>
-                                <div class="text-xs text-blue-600 mt-1">
-                                    • Enter your PIN on the phone when prompted<br>
-                                    • Do not close this page
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </transition>
@@ -429,7 +302,7 @@ onUnmounted(() => {
 
                 <!-- Terms Agreement -->
                 <label class="flex items-center gap-3 mb-5 cursor-pointer relative">
-                    <input type="checkbox" v-model="termsAccepted" class="absolute opacity-0 h-0 w-0" :disabled="loading || isCheckingPayment">
+                    <input type="checkbox" v-model="termsAccepted" class="absolute opacity-0 h-0 w-0">
                     <span class="relative inline-block w-5 h-5 bg-gray-100 border-2 border-gray-200 rounded-md transition-all"
                           :class="{ 'bg-indigo-500 border-indigo-500': termsAccepted }">
                         <span v-if="termsAccepted" class="absolute left-[6px] top-[2px] w-[5px] h-[10px] border-solid border-white border-0 border-r-2 border-b-2 rotate-45"></span>
@@ -442,12 +315,11 @@ onUnmounted(() => {
                 <!-- Deposit Button -->
                 <button 
                     class="w-full p-4 bg-gradient-to-br from-sky-400 to-sky-800 border-none rounded-xl text-white text-base font-bold cursor-pointer transition-all mb-5 relative disabled:opacity-50 disabled:cursor-not-allowed hover:not(:disabled):translate-y-[-2px] hover:not(:disabled):shadow-xl"
-                    :class="{ 'cursor-wait': loading || isCheckingPayment }"
-                    :disabled="!isFormValid || loading || isCheckingPayment"
+                    :class="{ 'cursor-wait': loading }"
+                    :disabled="!isFormValid || loading"
                     @click="handleDeposit"
                 >
                     <span v-if="loading" class="inline-block w-5 h-5 border-3 border-white/30 border-t-white rounded-full animate-spin"></span>
-                    <span v-else-if="isCheckingPayment">Processing Payment...</span>
                     <span v-else>Deposit Now</span>
                 </button>
 
@@ -490,9 +362,6 @@ onUnmounted(() => {
                                 <strong>{{ formattedPhone }}</strong>
                             </div>
                         </div>
-                        <p class="text-xs text-gray-500 mt-4 text-center">
-                            You will receive a payment prompt on your phone
-                        </p>
                     </div>
                     <div class="flex gap-3">
                         <button class="flex-1 p-3 bg-gray-100 rounded-lg text-sm font-medium text-gray-500 cursor-pointer transition-all hover:bg-gray-200" @click="cancelDeposit">Cancel</button>
@@ -545,18 +414,5 @@ onUnmounted(() => {
 
 .animate-spin {
     animation: spin 1s linear infinite;
-}
-
-.animate-pulse {
-    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-}
-
-@keyframes pulse {
-    0%, 100% {
-        opacity: 1;
-    }
-    50% {
-        opacity: .5;
-    }
 }
 </style>

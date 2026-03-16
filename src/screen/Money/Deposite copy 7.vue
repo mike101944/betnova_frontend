@@ -1,5 +1,5 @@
 <script setup>
-import { ref, computed, onUnmounted, watch } from 'vue';
+import { ref, computed, onUnmounted,watch } from 'vue';
 import { useAuthStore } from '../../store/authStore'
 import api from '../../services/api'
 
@@ -23,7 +23,6 @@ const termsAccepted = ref(false)
 // Payment tracking
 const isCheckingPayment = ref(false)
 const paymentStatus = ref('')
-const paymentStatusMessage = ref('')
 let checkInterval = null
 let orderId = ref('')
 
@@ -111,10 +110,9 @@ const clearPaymentCheck = () => {
     }
     isCheckingPayment.value = false;
     loading.value = false;
-    paymentStatus.value = '';
 }
 
-// Confirm deposit - badilisha sehemu ya status check
+// Confirm deposit
 const confirmDeposit = async () => {
     loading.value = true;
     errorMessage.value = '';
@@ -135,76 +133,51 @@ const confirmDeposit = async () => {
         
         // Start payment checking
         isCheckingPayment.value = true;
-        paymentStatus.value = 'waiting';
-        paymentStatusMessage.value = 'Waiting for payment confirmation...';
+        paymentStatus.value = 'Waiting for payment confirmation...';
         
         console.log('Deposit initiated:', response.data);
         
         // Start checking payment status every 3 seconds
         let checkCount = 0;
-        const maxChecks = 15; // 15 * 3 seconds = 45 seconds (reduce from 40 to 15)
+        const maxChecks = 40; // 40 * 3 seconds = 2 minutes
         
         checkInterval = setInterval(async () => {
             checkCount++;
-            paymentStatusMessage.value = `Waiting for payment confirmation... (${checkCount * 3}s)`;
+            paymentStatus.value = `Waiting for payment confirmation... (${checkCount * 3}s)`;
             
             try {
                 const statusRes = await api.get(`/auth/payment-status/${orderId.value}`);
                 
                 console.log('Status check:', statusRes.data);
                 
-                // Check if payment exists and has status
-                if (statusRes.data.success && statusRes.data.data) {
-                    const paymentData = statusRes.data.data;
-                    const currentStatus = paymentData.status;
+                if (statusRes.data.data.status === 'completed') {
+                    clearPaymentCheck();
                     
-                    console.log('Payment status:', currentStatus);
+                    // Payment completed - refresh balance
+                    await authStore.fetchUserBalance();
                     
-                    // COMPLETED - when payment is successful
-                    if (currentStatus === 'completed') {
-                        clearPaymentCheck();
-                        
-                        // Payment completed - refresh balance
-                        await authStore.fetchUserBalance();
-                        
-                        // Show success message with amount
-                        const depositedAmount = numericAmount.value;
-                        const bonus = bonusAmount.value;
-                        
-                        if (bonus > 0) {
-                            successMessage.value = `🎉 Deposit successful! ${formatBalance(depositedAmount)} added + ${formatBalance(bonus)} bonus!`;
-                        } else {
-                            successMessage.value = `✅ Deposit successful! ${formatBalance(depositedAmount)} has been added to your account.`;
-                        }
-                        
-                        // Clear form
-                        amount.value = null;
-                        termsAccepted.value = false;
-                        
-                        // Auto hide success message after 5 seconds
-                        setTimeout(() => {
-                            successMessage.value = '';
-                        }, 5000);
-                        
-                        return; // Exit the interval callback
+                    // Show success message with amount
+                    const depositedAmount = numericAmount.value;
+                    const bonus = bonusAmount.value;
+                    
+                    if (bonus > 0) {
+                        successMessage.value = `🎉 Deposit successful! ${formatBalance(depositedAmount)} added + ${formatBalance(bonus)} bonus!`;
+                    } else {
+                        successMessage.value = `✅ Deposit successful! ${formatBalance(depositedAmount)} has been added to your account.`;
                     }
-                    // FAILED - when payment fails
-                    else if (currentStatus === 'failed') {
-                        clearPaymentCheck();
-                        errorMessage.value = '❌ Payment failed. Please try again.';
-                        return; // Exit the interval callback
-                    }
-                    // PROCESSING or PENDING - continue checking
-                    else if (currentStatus === 'processing' || currentStatus === 'pending') {
-                        paymentStatusMessage.value = `Payment is being processed... Please wait (${checkCount * 3}s)`;
-                        
-                        // After 20 seconds, assume it failed (since HarakaPay not updating status)
-                        if (checkCount >= 7) { // 7 * 3 = 21 seconds
-                            clearPaymentCheck();
-                            errorMessage.value = '❌ Payment failed: Insufficient balance or transaction cancelled. Please try again.';
-                            return;
-                        }
-                    }
+                    
+                    // Clear form
+                    amount.value = null;
+                    termsAccepted.value = false;
+                    
+                    // Auto hide success message after 5 seconds
+                    setTimeout(() => {
+                        successMessage.value = '';
+                    }, 5000);
+                    
+                } else if (statusRes.data.data.status === 'failed') {
+                    clearPaymentCheck();
+                    errorMessage.value = '❌ Payment failed. Please try again.';
                 }
                 
                 // Stop checking after maxChecks
@@ -215,13 +188,7 @@ const confirmDeposit = async () => {
                 
             } catch (statusError) {
                 console.error('Status check error:', statusError);
-                
-                // If we get 404, order might be invalid
-                if (statusError.response?.status === 404) {
-                    clearPaymentCheck();
-                    errorMessage.value = 'Payment order not found. Please contact support.';
-                }
-                // Don't stop checking on other errors, just continue
+                // Don't stop checking on error, just continue
             }
         }, 3000);
         
@@ -272,8 +239,8 @@ onUnmounted(() => {
                 <transition name="fade">
                     <div v-if="successMessage" 
                          class="flex items-center gap-3 p-4 rounded-xl mb-5 text-sm"
-                         :class="successMessage.includes('successful') || successMessage.includes('✅') ? 'bg-green-100 text-green-800 border border-green-200' : 'bg-blue-100 text-blue-800 border border-blue-200'">
-                        <svg v-if="successMessage.includes('successful') || successMessage.includes('✅')" class="w-5 h-5 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
+                         :class="successMessage.includes('successful') ? 'bg-green-100 text-green-800 border border-green-200' : 'bg-blue-100 text-blue-800 border border-blue-200'">
+                        <svg v-if="successMessage.includes('successful')" class="w-5 h-5 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
                             <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
                         </svg>
                         <svg v-else class="w-5 h-5 flex-shrink-0 animate-pulse" viewBox="0 0 20 20" fill="currentColor">
@@ -381,7 +348,7 @@ onUnmounted(() => {
 
                 <!-- Bonus Display -->
                 <transition name="slide">
-                    <div v-if="bonusAmount > 0 && !isCheckingPayment && !successMessage" class="flex items-center gap-4 p-4 bg-gradient-to-br from-pink-400 to-amber-800 rounded-xl mb-5 text-white">
+                    <div v-if="bonusAmount > 0 && !isCheckingPayment" class="flex items-center gap-4 p-4 bg-gradient-to-br from-pink-400 to-amber-800 rounded-xl mb-5 text-white">
                         <div class="text-3xl">🎁</div>
                         <div>
                             <div class="text-sm font-medium opacity-90 mb-1">Welcome Bonus!</div>
@@ -401,7 +368,7 @@ onUnmounted(() => {
                                 <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"/>
                             </svg>
                             <div>
-                                <div class="font-medium text-blue-800">{{ paymentStatusMessage }}</div>
+                                <div class="font-medium text-blue-800">{{ paymentStatus }}</div>
                                 <div class="text-xs text-blue-600 mt-1">
                                     • Enter your PIN on the phone when prompted<br>
                                     • Do not close this page
