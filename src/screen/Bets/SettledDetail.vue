@@ -113,7 +113,7 @@
                     </div>
 
                 <!-- Net Payout -->
-                <div class="mt-4 pt-2 border-t border-gray-200">
+                <div class=" border-t border-gray-200">
                     <div class="flex items-center justify-between">
                         <span class="text-sm font-semibold text-gray-700 font-inter">Net Payout</span>
                         <span class="text-sm font-black text-green-600 font-inter">{{ formatCurrency(calculateFinalPayout(bet)) }}</span>
