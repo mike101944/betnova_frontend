@@ -76,7 +76,7 @@
                             </div>
                             
                             <!-- Prize Amount -->
-                            <div class=" flex items-center justify-center gap-2">
+                            <div class="pt-2 flex items-center justify-center gap-2">
                                 <p class="text-xs font-medium text-emerald-200 uppercase tracking-wider font-inter">Total Payout</p>
                                 <p class="text-xl font-black text-white font-poppins">{{ formatCurrency(calculateFinalPayout(bet)) }}</p>
                             </div>
@@ -91,7 +91,7 @@
             </div>
 
             <!-- Bet Summary Card -->
-            <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-1 mb-1">
+            <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-1 mb-3">
              
                 <div class="flex items-center justify-between">
                         <span class="text-sm font-semibold text-gray-500 font-inter">Total Odds</span>
@@ -123,13 +123,13 @@
             
 
             <!-- Selections Section -->
-            <div class="space-y-2">
+            <div class="space-y-4">
                 
                 <div v-for="(selection, index) in parsedSelections" :key="index" 
                      class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
                     
                     <!-- Selection Header -->
-                    <div class="bg-gradient-to-r from-gray-50 to-white px-4 py-1 border-b border-gray-200">
+                    <div class="bg-gradient-to-r from-gray-50 to-white px-4 py-3 border-b border-gray-200">
                         <div class="flex items-center justify-between">
                             <div class="flex items-center space-x-3">
                                 
@@ -147,14 +147,14 @@
                     </div>
 
                     <!-- Selection Details -->
-                    <div class="p-2">
+                    <div class="p-4">
                         <!-- League & Competition -->
                         <p class="text-xs text-gray-500 mb-3 font-inter">
                             {{ selection.league || selection.tournament || 'Football' }}
                         </p>
 
                         <!-- Prediction & Result -->
-                        <div class="bg-gray-50 rounded-lg p-0 mb-2">
+                        <div class="bg-gray-50 rounded-lg p-3 mb-3">
                             <div class="flex items-center justify-between text-sm">
                                 <div class="flex gap-2 items-center">
                                     <span class="text-xs text-gray-500 block mb-0.5 font-inter">Correct Score</span>
