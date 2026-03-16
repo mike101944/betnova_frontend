@@ -96,27 +96,27 @@
              
                 <div class="flex items-center justify-between">
                         <span class="text-sm font-semibold text-gray-500 font-inter">Total Odds</span>
-                        <span class="text-sm font-black text-gray-900 font-mono">{{ Number(bet.totalOdds).toFixed(2) }}</span>
+                        <span class="text-sm font-black text-gray-900 font-inter">{{ Number(bet.totalOdds).toFixed(2) }}</span>
                     </div>
 
                 <div class="flex items-center justify-between">
                         <span class="text-sm font-semibold text-gray-500 font-inter">Stake</span>
-                        <span class="text-sm font-black text-gray-900 font-mono">{{ formatCurrency(bet.stake) }}</span>
+                        <span class="text-sm font-black text-gray-900 font-inter">{{ formatCurrency(bet.stake) }}</span>
                     </div>
                     <div class="flex items-center justify-between">
                         <span class="text-sm font-semibold text-gray-700 font-inter">Gross Winnings</span>
-                        <span class="text-sm font-black text-emerald-600 font-mono">{{ formatCurrency(bet.potentialWin || bet.potentialReturn) }}</span>
+                        <span class="text-sm font-black text-emerald-600 font-inter">{{ formatCurrency(bet.potentialWin || bet.potentialReturn) }}</span>
                     </div>
                     <div class="flex items-center justify-between">
                         <span class="text-sm font-semibold text-gray-700 font-inter">Tax (10%)</span>
-                        <span class="text-sm font-black text-gray-400 font-mono">- {{ formatCurrency(calculateTax(bet)) }}</span>
+                        <span class="text-sm font-black text-gray-400 font-inter">- {{ formatCurrency(calculateTax(bet)) }}</span>
                     </div>
 
                 <!-- Net Payout -->
                 <div class="mt-4 pt-2 border-t border-gray-200">
                     <div class="flex items-center justify-between">
                         <span class="text-sm font-semibold text-gray-700 font-inter">Net Payout</span>
-                        <span class="text-sm font-black text-green-600 font-mono">{{ formatCurrency(calculateFinalPayout(bet)) }}</span>
+                        <span class="text-sm font-black text-green-600 font-inter">{{ formatCurrency(calculateFinalPayout(bet)) }}</span>
                     </div>
                 </div>
             </div>
@@ -162,7 +162,7 @@
                                     <span class="font-medium text-gray-900 font-inter">({{ selection.selection }})</span>
                                 </div>
                                 <div class="text-right flex items-center justify-center gap-2">
-                                    <span class="text-xs text-gray-500 block mb-0.5 font-inter">Odss</span>
+                                    <span class="text-xs text-gray-500 block mb-0.5 font-inter">Odds</span>
                                     <span class="font-medium text-gray-900 font-inter">{{ selection.odds }}</span>
                                 </div>
                                 <div class="text-right flex items-center justify-center gap-2">
