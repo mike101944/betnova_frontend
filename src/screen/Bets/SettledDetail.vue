@@ -39,7 +39,7 @@
         <!-- Main Content -->
         <div v-else-if="bet" class="w-full mx-auto px-4 py-2">
             <!-- Success Banner - Professional Card Design -->
-            <div class="relative bg-gradient-to-br from-sky-500 via-sky-600 to-teal-600 rounded-2xl shadow-xl overflow-hidden mb-3">
+            <div class="relative bg-gradient-to-br from-sky-500 via-sky-600 to-teal-600 rounded-t-2xl shadow-t-xl overflow-hidden">
                 <!-- Decorative Pattern -->
                 <div class="absolute inset-0 opacity-10">
                     <svg class="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
@@ -92,7 +92,7 @@
             </div>
 
             <!-- Bet Summary Card -->
-            <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-1 py-2 gap-2  px-3 mb-1">
+            <div class="bg-white rounded-b-xl shadow-sm border-b border-gray-200 p-1 py-2 gap-2  px-3 mb-1">
              
                 <div class="flex items-center justify-between mt-1">
                         <span class="text-sm font-semibold text-gray-500 font-inter">Total Odds</span>
