@@ -78,7 +78,7 @@
                             <!-- Prize Amount -->
                             <div class=" flex items-center justify-center gap-2">
                                 <p class="text-xs font-medium text-emerald-200 uppercase tracking-wider font-inter">Total Payout</p>
-                                <p class="text-xl font-black text-white font-poppins">{{ formatCurrency(calculateFinalPayout(bet)) }}</p>
+                                <p class="text-sm font-black text-white font-poppins">{{ formatCurrency(calculateFinalPayout(bet)) }}</p>
                             </div>
                         </div>
                         
@@ -129,7 +129,7 @@
                      class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
                     
                     <!-- Selection Header -->
-                    <div class="bg-gradient-to-r from-gray-50 to-white px-4 py-1 border-b border-gray-200">
+                    <div class="bg-gradient-to-r from-gray-50 to-white px-2 py-1 border-b border-gray-200">
                         <div class="flex items-center justify-between">
                             <div class="flex items-center space-x-3">
                                 
@@ -180,41 +180,9 @@
 
 
             <!-- Progress Timeline -->
-            <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-5 mt-4">
-                <div class="flex items-center justify-between">
-                    <!-- Bet Placed -->
-                    <div class="flex flex-col items-center text-center">
-                        <div class="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center mb-2">
-                            <CheckCircleIcon class="w-5 h-5 text-green-600" />
-                        </div>
-                        <span class="text-xs font-medium text-gray-700 font-inter">Bet Placed</span>
-                        <span class="text-[10px] text-gray-500 font-inter mt-1">{{ formatDate(bet.createdAt) }}</span>
-                    </div>
-
-                    <!-- Connector Line -->
-                    <div class="flex-1 h-0.5 bg-green-200 mx-2"></div>
-
-                    <!-- Matches Played -->
-                    <div class="flex flex-col items-center text-center">
-                        <div class="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center mb-2">
-                            <CheckCircleIcon class="w-5 h-5 text-green-600" />
-                        </div>
-                        <span class="text-xs font-medium text-gray-700 font-inter">Matches Played</span>
-                        <span class="text-[10px] text-gray-500 font-inter mt-1">Completed</span>
-                    </div>
-
-                    <!-- Connector Line -->
-                    <div class="flex-1 h-0.5 bg-green-200 mx-2"></div>
-
-                    <!-- Settled -->
-                    <div class="flex flex-col items-center text-center">
-                        <div class="w-8 h-8 rounded-full bg-yellow-100 flex items-center justify-center mb-2">
-                            <TrophyIcon class="w-5 h-5 text-yellow-600" />
-                        </div>
-                        <span class="text-xs font-medium text-gray-700 font-inter">Settled</span>
-                        <span class="text-[10px] text-gray-500 font-inter mt-1">{{ formatDate(bet.settledAt) || 'Just now' }}</span>
-                    </div>
-                </div>
+            <div class="bg-transparent rounded-xl  px-5 mt-2 flex items-center justify-center gap-2">
+                <span class="text-xs font-medium text-gray-700 font-inter">Bet Placed</span>
+                <span class="text-[10px] text-gray-500 font-inter mt-1">{{ formatDate(bet.createdAt) }}</span>
             </div>
 
         </div>
