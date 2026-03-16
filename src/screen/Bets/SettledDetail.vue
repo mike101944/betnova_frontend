@@ -92,9 +92,9 @@
             </div>
 
             <!-- Bet Summary Card -->
-            <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-1 px-3 mb-1">
+            <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-1 py-2 gap-2  px-3 mb-1">
              
-                <div class="flex items-center justify-between">
+                <div class="flex items-center justify-between mt-1">
                         <span class="text-sm font-semibold text-gray-500 font-inter">Total Odds</span>
                         <span class="text-sm font-black text-gray-900 font-inter">{{ Number(bet.totalOdds).toFixed(2) }}</span>
                     </div>
@@ -107,7 +107,7 @@
                         <span class="text-sm font-semibold text-gray-700 font-inter">Gross Winnings</span>
                         <span class="text-xs font-black text-gray-900 font-inter">{{ formatCurrency(bet.potentialWin || bet.potentialReturn) }}</span>
                     </div>
-                    <div class="flex items-center justify-between">
+                    <div class="flex items-center justify-between mb-1">
                         <span class="text-sm font-semibold text-gray-700 font-inter">Tax (10%)</span>
                         <span class="text-xs font-black text-gray-900 font-inter">- {{ formatCurrency(calculateTax(bet)) }}</span>
                     </div>
