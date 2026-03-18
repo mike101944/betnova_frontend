@@ -1,13 +1,15 @@
 <template>
     <div class="left-sidebar fixed left-0 top-0 h-full w-[280px] bg-[#1a1e24] text-white shadow-2xl z-50 flex z-[1001] flex-col">
       <!-- Logo Section -->
-      <div class="p-5 border-b border-gray-800">
-        <router-link to="/" class="flex items-center gap-2">
+      <div class="p-3 flex flex-row items-center justify-between border-b border-gray-800">
+        <div>
+            <router-link to="/" class="flex items-center gap-2">
           <div class="text-2xl font-bold">
             <span class="text-[#0AF0B5]">Bet</span>
             <span class="text-white">Nova</span>
           </div>
         </router-link>
+        </div>
         <button @click="$emit('close')" class="p-2 text-gray-400 hover:text-white lg:hidden">
           <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
