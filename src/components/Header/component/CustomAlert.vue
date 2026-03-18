@@ -1,10 +1,10 @@
 <template>
     <Transition name="fade">
       <div v-if="visible" 
-           class="fixed inset-0 flex items-center justify-center px-4 z-[9999] pointer-events-none">
+           class="fixed inset-0 flex items-center justify-center  z-[9999] pointer-events-none">
         <div class="w-full min-w-[320px] max-w-[450px] rounded-xl shadow-lg pointer-events-auto"
              :class="typeClasses">
-          <div class="flex items-start p-2 gap-3">
+          <div class="flex items-start p-1 gap-1">
             <!-- Icon -->
             <div class="flex-shrink-0 w-5 h-5" :class="iconColorClasses">
               <svg v-if="type === 'success'" viewBox="0 0 20 20" fill="currentColor" class="w-full h-full">
