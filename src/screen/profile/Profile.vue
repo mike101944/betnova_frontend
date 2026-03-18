@@ -2,16 +2,16 @@
   <div class="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
     <!-- Header with Gradient Background -->
     <div class="bg-gradient-to-r from-emerald-600 to-teal-600 text-white">
-      <div class="max-w-4xl mx-auto px-4 py-8">
+      <div class="w-full px-4 py-2">
         <div class="flex items-center gap-3 mb-2">
           <router-link to="/" class="hover:bg-white/20 p-2 rounded-lg transition-colors">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
             </svg>
           </router-link>
-          <h1 class="text-2xl md:text-3xl font-bold">My Profile</h1>
+          <h1 class="text-2xl md:text-sm font-bold">My Profile</h1>
         </div>
-        <p class="text-emerald-50 text-sm md:text-base">Manage your account information and preferences</p>
+        <p class="text-emerald-50 text-sm self-center ">Manage your account information and preferences</p>
       </div>
     </div>
 
