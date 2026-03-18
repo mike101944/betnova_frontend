@@ -51,7 +51,7 @@
         <div class="relative flex flex-col items-center" style="width: 70px;">
           <button 
             @click="handleBetslipClick"
-            class="w-12 h-12 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110 active:scale-95 relative"
+            class="w-12 h-12 rounded-full flex bg-sky-700  items-center justify-center shadow-lg transition-all duration-300 hover:scale-110 active:scale-95 relative"
             :class="{
               'translate-y-[-20px] border-6 bg-sky-700  border-amber-200 rounded-full': activeTab === 'betslip',
               'translate-y-0': activeTab !== 'betslip'
