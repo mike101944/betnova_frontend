@@ -10,7 +10,7 @@
              @click="handleMenuClick"
             class=" rounded-full  flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110 active:scale-95"
             :class="{
-              'translate-y-[-20px] p-2 border-6 bg-sky-700  border-amber-200 rounded-full': activeTab === 'betList',
+              'translate-y-[-5px] p-2 border-6 bg-sky-700  border-amber-200 rounded-full': activeTab === 'betList',
               'translate-y-0': activeTab !== 'betList'
             }"
           >
@@ -35,7 +35,7 @@
             @click="handleSportsClick"
             class="rounded-full flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110 active:scale-95"
             :class="{
-              'translate-y-[-20px] p-2 border-6 bg-sky-700  border-amber-200 rounded-full': activeTab === 'sports',
+              'translate-y-[-5px] p-2 border-6 bg-sky-700  border-amber-200 rounded-full': activeTab === 'sports',
               'translate-y-0': activeTab !== 'sports'
             }"
           >
@@ -53,7 +53,7 @@
             @click="handleBetslipClick"
             class=" rounded-full flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110 active:scale-95 relative"
             :class="{
-              'translate-y-[-20px] p-2 border-6 bg-sky-700  border-amber-200 rounded-full': activeTab === 'betslip',
+              'translate-y-[-5px] p-2 border-6 bg-sky-700  border-amber-200 rounded-full': activeTab === 'betslip',
               'translate-y-0': activeTab !== 'betslip'
             }"
           >
@@ -92,7 +92,7 @@
             @click="handleMybetsLoginClick"
             class=" rounded-full flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110 active:scale-95"
             :class="{
-              'translate-y-[-20px] p-2 border-6 bg-sky-700  border-amber-200 rounded-full': activeTab === 'mybets' || activeTab === 'login',
+              'translate-y-[-5px] p-2 border-6 bg-sky-700  border-amber-200 rounded-full': activeTab === 'mybets' || activeTab === 'login',
               'translate-y-0': activeTab !== 'mybets' && activeTab !== 'login'
             }"
           >
@@ -111,7 +111,7 @@
              @click="handleAccountClick"
             class="  rounded-full flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110 active:scale-95"
             :class="{
-              'translate-y-[-20px] p-2 border-6 bg-sky-700  border-amber-200 rounded-full': activeTab === 'account',
+              'translate-y-[-5px] p-2 border-6 bg-sky-700  border-amber-200 rounded-full': activeTab === 'account',
               'translate-y-0': activeTab !== 'account'
             }"
           >
