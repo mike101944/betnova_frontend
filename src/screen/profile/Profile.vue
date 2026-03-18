@@ -218,9 +218,9 @@
         </div>
 
         <!-- Recent Activity Card -->
-        <div class="bg-white rounded-2xl shadow-xl p-6">
-          <h3 class="font-semibold text-gray-800 mb-6 flex items-center gap-2">
-            <div class="p-2 bg-emerald-100 rounded-lg">
+        <div class="bg-white rounded-2xl shadow-xl p-1">
+          <h3 class="font-semibold text-gray-800 mb-2 flex items-center gap-2">
+            <div class="p-1 bg-emerald-100 rounded-lg">
               <svg class="w-5 h-5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
               </svg>
@@ -230,22 +230,22 @@
           
           <div v-if="recentActivity.length > 0" class="space-y-3">
             <div v-for="(activity, index) in recentActivity" :key="index" 
-                 class="flex items-center justify-between p-4 bg-gray-50 hover:bg-gray-100 rounded-xl transition-all">
+                 class="flex items-center justify-between p-2 bg-gray-50 hover:bg-gray-100 rounded-xl transition-all">
               <div class="flex items-center gap-4">
                 <!-- Icon based on activity type -->
-                <div :class="getActivityIconClass(activity.type)" class="p-3 rounded-xl">
-                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div :class="getActivityIconClass(activity.type)" class="p-1 rounded-xl">
+                  <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path v-if="activity.type === 'bet'" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
                     <path v-if="activity.type === 'deposit'" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
                     <path v-if="activity.type === 'withdraw'" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4"></path>
                   </svg>
                 </div>
                 <div>
-                  <p class="text-sm font-medium text-gray-800">{{ activity.description }}</p>
+                  <p class="text-xs font-medium text-gray-800">{{ activity.description }}</p>
                   <p class="text-xs text-gray-500 mt-1">{{ activity.time }}</p>
                 </div>
               </div>
-              <span :class="getAmountClass(activity.type)" class="font-semibold text-lg">
+              <span :class="getAmountClass(activity.type)" class="font-semibold text-xs">
                 {{ activity.type === 'bet' ? '- ' : '+' }}{{ formatBalance(activity.amount) }}
               </span>
             </div>
@@ -263,8 +263,8 @@
           </div>
 
           <!-- View All Link -->
-          <div v-if="recentActivity.length > 0" class="mt-6 text-center">
-            <router-link to="/bets" class="inline-flex items-center gap-2 text-emerald-600 hover:text-emerald-700 text-sm font-medium bg-emerald-50 hover:bg-emerald-100 px-6 py-3 rounded-xl transition-all">
+          <div v-if="recentActivity.length > 0" class="mt-3 text-center">
+            <router-link to="/bets" class="inline-flex items-center gap-2 text-emerald-600 hover:text-emerald-700 text-sm font-medium bg-emerald-50 hover:bg-emerald-100 px-3 py-1 rounded-xl transition-all">
               View All Activity
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
