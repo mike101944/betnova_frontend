@@ -96,32 +96,28 @@
           </div>
 
           <!-- View Mode -->
-          <div v-if="!editMode" class="flex flex-col md:flex-row md:items-start gap-4">
-  <!-- Phone Number - Inachukua nafasi sawa -->
-  <div class="flex-1">
-    <div class="bg-gray-50 rounded-xl p-2">
-      <label class="block text-xs text-gray-500 mb-1">Phone Number</label>
-      <p class="text-gray-800 font-medium text-sm">{{ formattedPhone }}</p>
-    </div>
-  </div>
-
-  <!-- Last Login na Status - Ziko pamoja horizontally -->
-  <div class="flex-1">
-    <div class="flex flex-col sm:flex-row gap-1">
-      <div class="flex-1 bg-gray-50 rounded-xl p-2 ">
-        <label class="block text-xs text-gray-500 ">Last Login</label>
-        <p class="text-gray-800 font-medium text-sm">{{ lastLogin }}</p>
-      </div>
-      <div class="flex-1 bg-gray-50 rounded-xl p-2 ">
-        <label class="block text-xs text-gray-500 mb-1">Account Status</label>
-        <div class="flex items-center gap-1">
-          <span class="w-2 h-2 bg-green-500 rounded-full"></span>
-          <span class="text-gray-800 font-medium text-sm">Active</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+          <div v-if="!editMode" class="grid grid-cols-1 md:grid-cols-3 gap-2">
+            <div class="space-y-2">
+              <div class="bg-gray-50 rounded-xl p-1">
+                <label class="block text-xs text-gray-500 mb-1">Phone Number</label>
+                <p class="text-gray-800 font-medium text-xs">{{ formattedPhone }}</p>
+              </div>
+              
+            </div>
+            <div class="space-y-4">
+              <div class="bg-gray-50 rounded-xl p-1">
+                <label class="block text-xs text-gray-500 mb-1">Last Login</label>
+                <p class="text-gray-800 font-medium text-xs">{{ lastLogin }}</p>
+              </div>
+              <div class="bg-gray-50 rounded-xl p-1">
+                <label class="block text-xs text-gray-500 mb-1">Account Status</label>
+                <div class="flex items-center gap-2">
+                  <span class="w-2 h-2 bg-green-500 rounded-full"></span>
+                  <span class="text-gray-800 font-medium text-sm">Active</span>
+                </div>
+              </div>
+            </div>
+          </div>
 
           <!-- Edit Mode -->
           <div v-else class="space-y-4">
