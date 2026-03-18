@@ -180,7 +180,7 @@ const goToBetDetails = (bet) => {
               <div class="flex flex-col">
                 <div class="flex items-center ">
                   <BanknotesIcon class="w-4 h-4 text-gray-400 mr-1" />  
-                  <span class="text-xs font-medium text-gray-500 uppercase tracking-wider">Cashout</span>
+                  <span class="text-xs font-medium text-gray-500 uppercase tracking-wider">Payout</span>
                 </div>
                 <div class=" rounded-lg gap-1 flex items-center">
                   <span class="text-sm font-medium text-green-600">TSh:</span>
