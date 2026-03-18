@@ -51,25 +51,34 @@
         <div class="relative flex flex-col items-center" style="width: 70px;">
           <button 
             @click="handleBetslipClick"
-            class="w-12 h-12 rounded-full bg-sky-700 flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110 active:scale-95 relative"
+            class="w-12 h-12 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110 active:scale-95 relative"
             :class="{
-              'translate-y-[-20px]': activeTab === 'betslip',
+              'translate-y-[-20px] border-6 bg-sky-700  border-amber-200 rounded-full': activeTab === 'betslip',
               'translate-y-0': activeTab !== 'betslip'
             }"
           >
-            <svg class="w-7 h-7 text-[#1a1e24]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <div v-if="betslipCount > 0">
+              <span class="text-white font-bold text-lg">
+                {{ betslipCount > 99 ? '99+' : betslipCount }}
+             
+            </span>
+
+            </div>
+            <div v-else>
+              <svg class="w-7 h-7 text-white font-bold" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <rect x="4" y="4" width="16" height="16" stroke="currentColor" fill="none"/>
               <line x1="12" y1="8" x2="12" y2="16"/>
               <line x1="8" y1="12" x2="16" y2="12"/>
             </svg>
+            </div>
             
             <!-- Counter Badge - Shows number of bets -->
-            <span 
+            <!-- <span 
               v-if="betslipCount > 0"
               class="absolute -top-1 -right-1 bg-[#0AF0B5] text-[#1a1e24] text-[10px] font-bold min-w-[18px] h-[18px] rounded-full flex items-center justify-center px-1 border-2 border-[#1a1e24]"
             >
               {{ betslipCount > 99 ? '99+' : betslipCount }}
-            </span>
+            </span> -->
           </button>
           <span class="text-[10px] font-medium mt-1 transition-all duration-300"
                 :class="activeTab === 'betslip' ? 'text-[#0AF0B5] translate-y-[-20px]' : 'text-gray-400'">

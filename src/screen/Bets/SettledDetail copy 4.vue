@@ -146,7 +146,7 @@ const getStatusColor = (status) => {
 
 
       <!-- custom card  -->
-       <div class="flex flex-col bg-gradient-to-r from-sky-400 via-sky-600 to-sky-300 rounded-t-md">
+       <div v-for="key in betKeys" :key="key"  class="flex flex-col bg-gradient-to-r from-sky-400 via-sky-600 to-sky-300 rounded-t-md">
         <div class="flex h-30 p-1 bg-gradient-tr from-sky-400 via-sky-700 to-sky-300">
             1
         </div>
