@@ -1,7 +1,7 @@
 <template>
   <div class="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
     <!-- Header with Gradient Background -->
-    <div class="bg-gradient-to-r from-emerald-600 to-teal-600 text-white">
+    <!-- <div class="bg-gradient-to-r from-sky-400 to-sky-600 text-white">
       <div class="w-full px-4 py-2">
         <div class="flex items-center gap-3 mb-2">
           <router-link to="/" class="hover:bg-white/20 p-2 rounded-lg transition-colors">
@@ -9,22 +9,24 @@
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
             </svg>
           </router-link>
-          <h1 class="text-2xl md:text-sm font-bold">My Profile</h1>
+          <h1 class="text-sm font-bold">My Profile</h1>
         </div>
         <p class="text-emerald-50 text-sm self-center ">Manage your account information and preferences</p>
       </div>
-    </div>
+    </div> -->
 
     <div class="max-w-4xl mx-auto px-4 py-8">
       <!-- Profile Content - Single Column -->
       <div class="flex flex-col space-y-6">
         <!-- Profile Summary Card - Premium Design -->
         <div class="bg-white rounded-2xl shadow-xl overflow-hidden">
-          <div class="bg-gradient-to-r from-emerald-600 to-teal-600 h-24"></div>
-          <div class="relative px-6 pb-6">
+          <div class="bg-gradient-to-r from-sky-600 to-teal-600 h-16 flex flex-row items-center justify-center px-6 pt-3">
+            <h1 class="text-sm font-bold text-white">My Profile</h1>
+          </div>
+          <div class="relative px-3 pb-3">
             <!-- Avatar - Overlapping Design -->
             <div class="absolute -top-12 left-6">
-              <div class="w-24 h-24 bg-white rounded-2xl shadow-lg flex items-center justify-center border-4 border-white">
+              <div class="w-16 h-16 bg-white rounded-2xl shadow-lg flex items-center justify-center border-4 border-white">
                 <!-- <span class="text-4xl font-bold text-emerald-600">
                   {{ userInitials }}
                 </span> -->
@@ -35,10 +37,10 @@
             </div>
             
             <!-- Profile Info -->
-            <div class="pt-16">
+            <div class="pt-12">
               <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
                 <div>
-                  <h2 class="text-2xl font-bold text-gray-800">{{ formattedPhone }}</h2>
+                  <h2 class="text-sm font-bold text-gray-800">{{ formattedPhone }}</h2>
                   <div class="flex items-center gap-2 mt-1">
                     <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-emerald-100 text-emerald-800">
                       Active Account
@@ -50,7 +52,7 @@
                 <!-- Balance Card -->
                 <div class="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-4 min-w-[200px] border border-gray-200">
                   <p class="text-xs text-gray-500 mb-1">Available Balance</p>
-                  <p class="text-2xl font-bold text-emerald-600">{{ formatBalance(userBalance) }}</p>
+                  <p class="text-sm font-bold text-emerald-600">{{ formatBalance(userBalance) }}</p>
                   <div class="flex gap-2 mt-3">
                     <router-link 
                       to="/deposite" 
