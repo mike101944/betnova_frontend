@@ -1,6 +1,6 @@
 <template>
   <div class="bottom-nav-container fixed bottom-0 left-0 right-0">
-    <div class="bottom-nav relative bg-[#1a1e24] rounded-t-3xl shadow-2xl">
+    <div class="bottom-nav relative bg-sky-950 border-t border-white rounded-t-3xl shadow-2xl">
 
       <div class="flex items-end justify-around h-[60px] ">
 
@@ -191,10 +191,10 @@ onBeforeUnmount(() => {
   padding-bottom: env(safe-area-inset-bottom);
 }
 
-.bottom-nav {
-  background: rgba(26, 30, 36, 0.95);
+/* .bottom-nav {
+  /* background: rgb(38, 38, 90); 
   border-top: 1px solid #fff;
-}
+} */
 
 /* Optional smooth animation feel */
 .nav-item button {
