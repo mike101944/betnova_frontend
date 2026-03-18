@@ -173,8 +173,8 @@
         </div>
 
         <!-- Betting Statistics Card -->
-        <div class="bg-white rounded-2xl shadow-xl p-6">
-          <h3 class="font-semibold text-gray-800 mb-6 flex items-center gap-2">
+        <div class="bg-white rounded-2xl shadow-xl p-2">
+          <h3 class="font-semibold text-gray-800 mb-3 flex items-center gap-2">
             <div class="p-2 bg-emerald-100 rounded-lg">
               <svg class="w-5 h-5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
@@ -184,33 +184,33 @@
           </h3>
           
           <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-            <div class="bg-gradient-to-br from-gray-50 to-gray-100 p-4 rounded-xl text-center">
+            <div class="bg-gradient-to-br from-gray-50 to-gray-100 p-1 rounded-xl text-center justify-center">
               <p class="text-xs text-gray-500 mb-1">Total Bets</p>
-              <p class="text-xl font-bold text-gray-800">{{ stats.totalBets || 0 }}</p>
+              <p class="text-sm font-bold text-gray-800">{{ stats.totalBets || 0 }}</p>
             </div>
-            <div class="bg-gradient-to-br from-gray-50 to-gray-100 p-4 rounded-xl text-center">
+            <div class="bg-gradient-to-br from-gray-50 to-gray-100 p-1 rounded-xl text-center">
               <p class="text-xs text-gray-500 mb-1">Total Stake</p>
               <p class="text-sm font-bold text-gray-800">{{ formatBalance(stats.totalStake) }}</p>
             </div>
-            <div class="bg-gradient-to-br from-gray-50 to-gray-100 p-4 rounded-xl text-center">
+            <div class="bg-gradient-to-br from-gray-50 to-gray-100 p-1 rounded-xl text-center">
               <p class="text-xs text-gray-500 mb-1">Total Won</p>
               <p class="text-sm font-bold text-green-600">{{ formatBalance(stats.totalWon) }}</p>
             </div>
-            <div class="bg-gradient-to-br from-gray-50 to-gray-100 p-4 rounded-xl text-center">
+            <div class="bg-gradient-to-br from-gray-50 to-gray-100 p-1 rounded-xl text-center">
               <p class="text-xs text-gray-500 mb-1">Win Rate</p>
               <p class="text-sm font-bold text-gray-800">{{ stats.winRate || 0 }}%</p>
             </div>
           </div>
 
           <!-- Progress Bar -->
-          <div class="mt-6">
-            <div class="flex justify-between text-sm text-gray-500 mb-2">
-              <span>Won: {{ stats.wonBets || 0 }}</span>
-              <span>Lost: {{ stats.lostBets || 0 }}</span>
+          <div class="mt-2">
+            <div class="flex justify-between text-sm text-gray-500 mb-1">
+              <span class="text-xs">Won: {{ stats.wonBets || 0 }}</span>
+              <span class="text-xs">Lost: {{ stats.lostBets || 0 }}</span>
             </div>
-            <div class="w-full bg-gray-200 rounded-full h-3">
+            <div class="w-full bg-gray-200 rounded-full h-2">
               <div 
-                class="bg-gradient-to-r from-emerald-500 to-teal-500 h-3 rounded-full transition-all duration-500" 
+                class="bg-gradient-to-r from-emerald-500 to-teal-500 h-2 rounded-full transition-all duration-500" 
                 :style="{ width: winRateProgress + '%' }"
               ></div>
             </div>
