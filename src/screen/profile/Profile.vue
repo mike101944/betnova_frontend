@@ -102,10 +102,7 @@
                 <label class="block text-xs text-gray-500 mb-1">Phone Number</label>
                 <p class="text-gray-800 font-medium text-lg">{{ formattedPhone }}</p>
               </div>
-              <div class="bg-gray-50 rounded-xl p-4">
-                <label class="block text-xs text-gray-500 mb-1">Email Address</label>
-                <p class="text-gray-800 font-medium">{{ userEmail || 'Not provided' }}</p>
-              </div>
+              
             </div>
             <div class="space-y-4">
               <div class="bg-gray-50 rounded-xl p-4">
