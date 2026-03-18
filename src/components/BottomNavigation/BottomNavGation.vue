@@ -31,18 +31,17 @@
            <div class="absolute -top-8 flex flex-col items-center">
             <button 
               @click="handleBetslipClick"
-              class="w-14 h-14 rounded-full flex items-center justify-center shadow-2xl transition-all duration-300 active:scale-90 border-4 border-[#1a1e24] relative overflow-hidden"
+              class="w-10 h-10 rounded-full flex items-center justify-center shadow-2xl transition-all duration-300 active:scale-90 border-4 border-[#1a1e24] relative overflow-hidden"
               :class="[activeTab === 'betslip' ? 'bg-amber-500 text-black scale-110' : 'bg-gradient-to-br from-sky-500 to-blue-700 text-white']"
             >
               <div v-if="betslipCount > 0" class="flex flex-col items-center">
                 <span class="font-bold text-lg leading-none">{{ betslipCount > 99 ? '99' : betslipCount }}</span>
-                <span class="text-[8px] uppercase font-black">Bets</span>
               </div>
               <svg v-else class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
                 <rect x="8" y="2" width="8" height="4" rx="1" /><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" />
               </svg>
             </button>
-            <span :class="['nav-label mt-1', activeTab === 'betslip' ? 'text-amber-400 font-bold' : '']">Betslip</span>
+            <span :class="['nav-label', activeTab === 'betslip' ? 'text-amber-400 font-bold' : '']">Betslip</span>
            </div>
         </div>
 
