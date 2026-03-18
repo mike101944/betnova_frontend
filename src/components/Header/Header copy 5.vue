@@ -1,5 +1,5 @@
 <script setup>
-import { onMounted, ref } from 'vue'
+import { onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { useAuthStore } from '../../store/authStore'
 import { useUserData } from '../composables/useUserData'
@@ -7,16 +7,9 @@ import {
   ClockIcon, 
   PlusIcon
 } from '@heroicons/vue/24/outline'
-import CustomAlert from './component/CustomAlert.vue' // Adjust path as needed
-
 const router = useRouter()
 const authStore = useAuthStore()
 const { refreshUserData } = useUserData()
-
-// Alert state
-const showAlert = ref(false)
-const alertMessage = ref('')
-const alertType = ref('info')
 
 // Refresh data when component mounts
 onMounted(() => {
@@ -33,38 +26,18 @@ const formatBalance = (amount) => {
   }).format(amount || 0)
 }
 
-// Handle restricted tabs - NOW USING CUSTOM ALERT
+// Handle restricted tabs
 const handleRestrictedTab = (tabName) => {
-  // Show custom alert instead of browser confirm
-  alertMessage.value = `You don't have access to ${tabName}. Upgrade your account to access this feature.`
-  alertType.value = 'warning'
-  showAlert.value = true
+  const confirmUpgrade = confirm(`You don't have access to ${tabName}.\n\nUpgrade your account to access this feature.`)
   
-  // Optionally auto redirect after showing alert
-  // setTimeout(() => {
-  //   router.push('/')
-  // }, 2000)
-}
-
-// Handle alert close
-const handleAlertClose = () => {
-  console.log('Alert closed')
-  // Optionally redirect after alert closes
-  // router.push('/')
+  if (confirmUpgrade) {
+    router.push('/')
+  }
 }
 </script>
 
 <template>
   <div class="header">
-    <!-- Custom Alert Component -->
-    <CustomAlert 
-      v-model:show="showAlert"
-      :type="alertType"
-      :message="alertMessage"
-      :duration="5000"
-      @close="handleAlertClose"
-    />
-
     <!-- Main Header -->
     <div class="bg-sky-950 text-left relative">
       <div class="flex flex-wrap justify-between items-center p-2">
@@ -133,15 +106,18 @@ const handleAlertClose = () => {
           <span v-else class="inline-flex items-center gap-1">
             <router-link 
               to="/deposite" 
-              class="text-white font-bold px-1 py-1 bg-gray-500/75 rounded-full transition-colors"
+              class=" text-white font-bold px-1 py-1 bg-gray-500/75 rounded-full transition-colors"
               data-test-id="track-top-nav-link"
             >
-              <div class="flex flex-row items-center gap-2">
-                <div class="text-white font-bold px-1 py-1 bg-emerald-600 rounded-full">
-                  <PlusIcon class="text-white h-3 w-3" />
-                </div>
-                <span class="text-white text-xs mr-2">{{ formatBalance(authStore.userBalance) }}</span>
+            <div class="flex flex-row items-center gap-2 ">
+              <div class="text-white font-bold px-1  py-1 bg-emerald-600 rounded-full ">
+                <PlusIcon class="text-white h-3 w-3" />
               </div>
+              <span class="text-white text-xs mr-2">{{ formatBalance(authStore.userBalance) }}</span>
+
+
+            </div>
+              
             </router-link>
             <router-link 
               to="/account" 
@@ -182,7 +158,7 @@ const handleAlertClose = () => {
             </router-link>
           </li>
 
-          <!-- Live - Restricted - NOW WITH CUSTOM ALERT -->
+          <!-- Live - Restricted -->
           <li 
             class="flex-1 min-w-fit px-3 py-2.5 text-[#aaaeb0] border-b-2 border-transparent hover:text-[#0AF0B5] hover:border-[#0AF0B5] transition-colors cursor-pointer"
             @click="handleRestrictedTab('Live betting')"
@@ -197,7 +173,7 @@ const handleAlertClose = () => {
             </div>
           </li>
 
-          <!-- Casino - Restricted - NOW WITH CUSTOM ALERT -->
+          <!-- Casino - Restricted -->
           <li 
             class="flex-1 min-w-fit px-3 py-2.5 text-[#aaaeb0] border-b-2 border-transparent hover:text-[#0AF0B5] hover:border-[#0AF0B5] transition-colors cursor-pointer"
             @click="handleRestrictedTab('Casino games')"
@@ -212,7 +188,7 @@ const handleAlertClose = () => {
             </div>
           </li>
 
-          <!-- Virtuals - Restricted - NOW WITH CUSTOM ALERT -->
+          <!-- Virtuals - Restricted -->
           <li 
             class="flex-1 min-w-fit px-3 py-2.5 text-[#aaaeb0] border-b-2 border-transparent hover:text-[#0AF0B5] hover:border-[#0AF0B5] transition-colors cursor-pointer"
             @click="handleRestrictedTab('Virtual sports')"
@@ -226,7 +202,7 @@ const handleAlertClose = () => {
             </div>
           </li>
 
-          <!-- Aviator - Restricted - NOW WITH CUSTOM ALERT -->
+          <!-- Aviator - Restricted -->
           <li 
             class="flex-1 min-w-fit px-3 py-2.5 text-[#aaaeb0] border-b-2 border-transparent hover:text-[#0AF0B5] hover:border-[#0AF0B5] transition-colors cursor-pointer"
             @click="handleRestrictedTab('Aviator game')"
