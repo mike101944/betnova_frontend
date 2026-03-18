@@ -137,18 +137,24 @@ const handleAlertClose = () => {
               data-test-id="track-top-nav-link"
             >
               <div class="flex flex-row items-center gap-2">
-                <div class="text-white font-bold px-1 py-1 bg-emerald-600 rounded-full">
-                  <PlusIcon class="text-white h-3 w-3" />
+                <div class="text-white font-bold  h-4 flex w-4 items-center justify-center bg-sky-600 rounded-full">
+
+                  <span class="text-white ">
+                  +
+                </span>
                 </div>
-                <span class="text-white text-xs mr-2">{{ formatBalance(authStore.userBalance) }}</span>
+                
+                <span class="text-white text-xs mr-1">{{ formatBalance(authStore.userBalance) }}</span>
               </div>
             </router-link>
             <router-link 
               to="/account" 
-              class="group flex items-center p-2 rounded-lg hover:bg-white/10 transition-colors"
+              class="group flex items-center justify-center p-1 rounded-full bg-sky-600 transition-colors"
               data-test-id="track-top-nav-link"
             >
-              <i class="fas fa-user-circle text-[30px] border border-amber-100 rounded-full text-emerald-500"></i>
+              <svg class="w-[16px] h-[16px] text-white fill-current" viewBox="0 0 24 24">
+                <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+              </svg>
             </router-link>
           </span>
         </div>
