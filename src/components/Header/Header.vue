@@ -36,7 +36,7 @@ const formatBalance = (amount) => {
 // Handle restricted tabs - NOW USING CUSTOM ALERT
 const handleRestrictedTab = (tabName) => {
   // Show custom alert instead of browser confirm
-  alertMessage.value = `You don't have access to ${tabName}. Upgrade your account to access this feature.`
+  alertMessage.value = ` ${tabName} is currently unavailable in your location. This feature is only accessible in supported regions.`
   alertType.value = 'warning'
   showAlert.value = true
   
