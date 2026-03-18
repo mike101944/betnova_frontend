@@ -99,16 +99,14 @@ const activeTab = computed(() => routeToTab[route.path]?.tab || 'sports')
 const indicatorStyle = computed(() => {
   const current = routeToTab[route.path] || { index: 1 }
   const index = current.index
-  
-  // Hesabu ya katikati ya kila slot (kuna slots 5, kila moja ni 20%)
+  // Kwa vile tuna items 5, kila moja ni 20% ya upana.
+  // Tunapiga hesabu ya katikati ya kila 20%.
   const leftPos = (index * 20) + 10 
   
   return {
     left: `${leftPos}%`,
-    width: '45px', 
-    height: '3px',  
-    transform: 'translateX(-50%)', 
-    transition: 'all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55)'
+    width: '20px',
+    transform: 'translateX(-50%)' // Hii inahakikisha inakaa center ya ile icon
   }
 })
 
@@ -138,7 +136,25 @@ onMounted(() => {
   padding-bottom: calc(env(safe-area-inset-bottom) + 0.5rem);
 }
 
+.nav-item {
+  @apply flex-1 flex flex-col items-center justify-center transition-all duration-300;
+}
 
+.icon-wrapper {
+  @apply p-1 rounded-xl text-gray-500 transition-all duration-300;
+}
+
+.active-icon {
+  @apply text-sky-400 scale-110;
+}
+
+.nav-label {
+  @apply text-[10px] font-medium text-gray-500 mt-0.5 transition-colors duration-300;
+}
+
+.active-label {
+  @apply text-sky-400 font-bold;
+}
 
 .bottom-nav::after {
   content: '';
