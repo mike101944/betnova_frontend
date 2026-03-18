@@ -10,7 +10,7 @@
              @click="handleMenuClick"
             class="w-12 h-12 rounded-full bg-sky-700 flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110 active:scale-95"
             :class="{
-              'translate-y-[-20px]': activeTab === 'betList',
+              'translate-y-[-20px] border-6 bg-sky-700  border-amber-200 rounded-full': activeTab === 'betList',
               'translate-y-0': activeTab !== 'betList'
             }"
           >
@@ -35,7 +35,7 @@
             @click="handleSportsClick"
             class="w-12 h-12 rounded-full bg-sky-700 flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110 active:scale-95"
             :class="{
-              'translate-y-[-20px]': activeTab === 'sports',
+              'translate-y-[-20px] border-6 bg-sky-700  border-amber-200 rounded-full': activeTab === 'sports',
               'translate-y-0': activeTab !== 'sports'
             }"
           >
@@ -92,7 +92,7 @@
             @click="handleMybetsLoginClick"
             class="w-12 h-12 rounded-full bg-sky-700 flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110 active:scale-95"
             :class="{
-              'translate-y-[-20px]': activeTab === 'mybets' || activeTab === 'login',
+              'translate-y-[-20px] border-6 bg-sky-700  border-amber-200 rounded-full': activeTab === 'mybets' || activeTab === 'login',
               'translate-y-0': activeTab !== 'mybets' && activeTab !== 'login'
             }"
           >
@@ -111,7 +111,7 @@
              @click="handleAccountClick"
             class="w-12 h-12 rounded-full bg-sky-700 flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110 active:scale-95"
             :class="{
-              'translate-y-[-20px]': activeTab === 'account',
+              'translate-y-[-20px] border-6 bg-sky-700  border-amber-200 rounded-full': activeTab === 'account',
               'translate-y-0': activeTab !== 'account'
             }"
           >
