@@ -50,19 +50,19 @@
                 </div>
                 
                 <!-- Balance Card -->
-                <div class="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-4 min-w-[200px] border border-gray-200">
+                <div class="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-2 min-w-[200px] border border-gray-200">
                   <p class="text-xs text-gray-500 mb-1">Available Balance</p>
                   <p class="text-sm font-bold text-emerald-600">{{ formatBalance(userBalance) }}</p>
                   <div class="flex gap-2 mt-3">
                     <router-link 
                       to="/deposite" 
-                      class="flex-1 bg-emerald-600 hover:bg-emerald-700 text-white text-sm text-center py-2 px-3 rounded-lg transition-all hover:shadow-md"
+                      class="flex-1 bg-emerald-600 hover:bg-emerald-700 text-white text-sm text-center py-1 px-1 rounded-lg transition-all hover:shadow-md"
                     >
                       Deposit
                     </router-link>
                     <router-link 
                       to="/withdraw" 
-                      class="flex-1 bg-gray-600 hover:bg-gray-700 text-white text-sm text-center py-2 px-3 rounded-lg transition-all hover:shadow-md"
+                      class="flex-1 bg-gray-600 hover:bg-gray-700 text-white text-sm text-center py-1 px-1 rounded-lg transition-all hover:shadow-md"
                     >
                       Withdraw
                     </router-link>
@@ -274,24 +274,24 @@
         </div>
 
         <!-- Security Settings Card -->
-        <div class="bg-white rounded-2xl shadow-xl p-6">
-          <h3 class="font-semibold text-gray-800 mb-6 flex items-center gap-2">
-            <div class="p-2 bg-emerald-100 rounded-lg">
-              <svg class="w-5 h-5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <div class="bg-white rounded-2xl shadow-xl p-2">
+          <h3 class="font-semibold text-gray-800 mb-2 flex items-center gap-2">
+            <div class="p-1 bg-emerald-100 rounded-lg">
+              <svg class="w-3 h-3 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
               </svg>
             </div>
             Security Settings
           </h3>
           
-          <div class="space-y-3">
-            <button class="w-full flex items-center justify-between p-4 bg-gray-50 hover:bg-gray-100 rounded-xl transition-all group">
+          <div class="space-y-1">
+            <button class="w-full flex items-center justify-between p-2 bg-gray-50 hover:bg-gray-100 rounded-xl transition-all group">
               <span class="text-sm text-gray-700 font-medium">Change Password</span>
               <svg class="w-5 h-5 text-gray-400 group-hover:text-emerald-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
               </svg>
             </button>
-            <button class="w-full flex items-center justify-between p-4 bg-gray-50 hover:bg-gray-100 rounded-xl transition-all">
+            <button class="w-full flex items-center justify-between p-2 bg-gray-50 hover:bg-gray-100 rounded-xl transition-all">
               <span class="text-sm text-gray-700 font-medium">Two-Factor Authentication</span>
               <span class="text-xs bg-yellow-100 text-yellow-700 px-3 py-1.5 rounded-full font-medium">Coming Soon</span>
             </button>
@@ -302,7 +302,7 @@
         <div class="flex justify-center pt-4">
           <button 
             @click="handleLogout"
-            class="bg-gradient-to-r from-red-500 to-pink-500 hover:from-red-600 hover:to-pink-600 text-white px-10 py-4 rounded-xl font-medium transition-all hover:shadow-xl flex items-center gap-3 group"
+            class="bg-gradient-to-r w-full   from-red-500 to-pink-500 hover:from-red-600 hover:to-pink-600 text-white px-10 py-2 rounded-xl font-medium transition-all hover:shadow-xl flex items-center gap-3 justify-center cursor-pointer group"
           >
             <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path>
