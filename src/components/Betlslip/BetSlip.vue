@@ -350,7 +350,7 @@ const placeBet = async () => {
 
     <!-- Header - Fixed -->
     <div class="flex-shrink-0">
-      <div class="w-full mt-3 mb-4 px-3">
+      <div class="max-w-2xl mt-4 mx-auto mb-4 px-3">
         <!-- Authenticated Header -->
         <div v-if="isAuthenticated" class="bg-emerald-50 border flex items-center justify-between border-emerald-200 rounded-lg px-4 py-2 w-full">
           <div>
