@@ -103,14 +103,21 @@ const handleRestrictedTab = (tabName) => {
           </span>
 
           <!-- Authenticated -->
-          <span v-else class="inline-flex items-center gap-2">
+          <span v-else class="inline-flex items-center gap-1">
             <router-link 
               to="/deposite" 
-              class=" text-white font-bold px-1 py-1 bg-emerald-600 rounded-full  hover:bg-red-400/10 transition-colors"
+              class=" text-white font-bold px-1 py-1 bg-gray-500/75 rounded-full transition-colors"
               data-test-id="track-top-nav-link"
             >
-              <!-- <span class="text-white text-[12px]">{{ formatBalance(authStore.userBalance) }}</span> -->
-              <PlusIcon class="text-white h-5 w-5" />
+            <div class="flex flex-row items-center gap-2 ">
+              <div class="text-white font-bold px-1  py-1 bg-emerald-600 rounded-full ">
+                <PlusIcon class="text-white h-3 w-3" />
+              </div>
+              <span class="text-white text-xs mr-2">{{ formatBalance(authStore.userBalance) }}</span>
+
+
+            </div>
+              
             </router-link>
             <router-link 
               to="/account" 
