@@ -1,5 +1,5 @@
 <template>
-    <div class="left-sidebar fixed left-0 top-0 h-full w-[280px] bg-[#1a1e24] text-white shadow-2xl z-50 flex flex-col">
+    <div class="left-sidebar fixed left-0 top-0 h-full w-[280px] bg-[#1a1e24] text-white shadow-2xl z-50 flex z-[1001] flex-col">
       <!-- Logo Section -->
       <div class="p-5 border-b border-gray-800">
         <router-link to="/" class="flex items-center gap-2">
@@ -8,6 +8,11 @@
             <span class="text-white">Nova</span>
           </div>
         </router-link>
+        <button @click="$emit('close')" class="p-2 text-gray-400 hover:text-white lg:hidden">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
       </div>
   
       <!-- User Info (if authenticated) -->
@@ -115,6 +120,7 @@
     QuestionMarkCircleIcon as SupportIcon,
     UserIcon
   } from '@heroicons/vue/24/outline'
+  defineEmits(['close'])
   
   const router = useRouter()
   const route = useRoute()
