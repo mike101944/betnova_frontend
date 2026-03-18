@@ -124,14 +124,14 @@
 </div>
 
           <!-- Edit Mode -->
-          <div v-else class="space-y-4">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div v-else class="space-y-2">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
               <div>
                 <label class="block text-sm text-gray-600 mb-1">Phone Number</label>
                 <input 
                   type="text" 
                   v-model="editForm.phone"
-                  class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all"
+                  class="w-full px-2 py-1 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all"
                   placeholder="Phone number"
                 >
               </div>
@@ -140,7 +140,7 @@
                 <input 
                   type="email" 
                   v-model="editForm.email"
-                  class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all"
+                  class="w-full px-2 py-1 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all"
                   placeholder="Email address"
                 >
               </div>
@@ -149,22 +149,22 @@
                 <input 
                   type="text" 
                   v-model="editForm.fullName"
-                  class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all"
+                  class="w-full px-2 py-1 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all"
                   placeholder="Your full name"
                 >
               </div>
             </div>
             
-            <div class="flex gap-3 mt-6">
+            <div class="flex gap-3 mt-2">
               <button 
                 @click="saveProfile"
-                class="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3 rounded-xl font-medium transition-all hover:shadow-lg flex-1"
+                class="bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-1 rounded-xl font-medium transition-all hover:shadow-lg flex-1"
               >
                 Save Changes
               </button>
               <button 
                 @click="editMode = false"
-                class="bg-gray-500 hover:bg-gray-600 text-white px-8 py-3 rounded-xl font-medium transition-all hover:shadow-lg"
+                class="bg-gray-500 hover:bg-gray-600 text-white px-4 py-1 rounded-xl font-medium transition-all hover:shadow-lg"
               >
                 Cancel
               </button>
