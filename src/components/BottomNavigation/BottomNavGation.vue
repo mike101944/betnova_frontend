@@ -1,21 +1,21 @@
 <template>
   <div class="bottom-nav-container fixed bottom-0 left-0 right-0">
-    <div class="bottom-nav relative bg-[#1a1e24] rounded-t-3xl shadow-2xl">
+    <div class="bottom-nav relative bg-[#1a1e24] rounded-t-full shadow-2xl">
       
       <!-- Navigation Items -->
-      <div class="flex items-end justify-around px-2 relative" style="height: 70px;">
+      <div class="flex items-end justify-around px-2 relative" style="height: 55px;">
         <!-- Menu Item -->
         <div class="relative flex flex-col items-center" style="width: 70px;">
           <button 
              @click="handleMenuClick"
-            class="w-12 h-12 rounded-full bg-sky-700 flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110 active:scale-95"
+            class=" rounded-full  flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110 active:scale-95"
             :class="{
-              'translate-y-[-20px] border-6 bg-sky-700  border-amber-200 rounded-full': activeTab === 'betList',
+              'translate-y-[-20px] p-2 border-6 bg-sky-700  border-amber-200 rounded-full': activeTab === 'betList',
               'translate-y-0': activeTab !== 'betList'
             }"
           >
           <svg 
-                class="w-6 h-6 fill-[#aaaeb0] text-[#8e9398] group-hover:fill-[#0AF0B5] transition-colors"
+                class="w-6 h-6 fill-[#fff] text-white group-hover:fill-[#0AF0B5] transition-colors"
                 viewBox="0 0 24 24"
               >
                 <rect x="4" y="6" width="16" height="2" fill="currentColor"/>
@@ -33,9 +33,9 @@
         <div class="relative flex flex-col items-center" style="width: 70px;">
           <button 
             @click="handleSportsClick"
-            class="w-12 h-12 rounded-full bg-sky-700 flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110 active:scale-95"
+            class="rounded-full flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110 active:scale-95"
             :class="{
-              'translate-y-[-20px] border-6 bg-sky-700  border-amber-200 rounded-full': activeTab === 'sports',
+              'translate-y-[-20px] p-2 border-6 bg-sky-700  border-amber-200 rounded-full': activeTab === 'sports',
               'translate-y-0': activeTab !== 'sports'
             }"
           >
@@ -51,14 +51,14 @@
         <div class="relative flex flex-col items-center" style="width: 70px;">
           <button 
             @click="handleBetslipClick"
-            class="w-12 h-12 rounded-full flex bg-sky-700  items-center justify-center shadow-lg transition-all duration-300 hover:scale-110 active:scale-95 relative"
+            class=" rounded-full flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110 active:scale-95 relative"
             :class="{
-              'translate-y-[-20px] border-6 bg-sky-700  border-amber-200 rounded-full': activeTab === 'betslip',
+              'translate-y-[-20px] p-2 border-6 bg-sky-700  border-amber-200 rounded-full': activeTab === 'betslip',
               'translate-y-0': activeTab !== 'betslip'
             }"
           >
             <div v-if="betslipCount > 0">
-              <span class="text-white font-bold text-lg">
+              <span class="text-white font-bold text-">
                 {{ betslipCount > 99 ? '99+' : betslipCount }}
              
             </span>
@@ -90,9 +90,9 @@
         <div class="relative flex flex-col items-center" style="width: 70px;">
           <button 
             @click="handleMybetsLoginClick"
-            class="w-12 h-12 rounded-full bg-sky-700 flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110 active:scale-95"
+            class=" rounded-full flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110 active:scale-95"
             :class="{
-              'translate-y-[-20px] border-6 bg-sky-700  border-amber-200 rounded-full': activeTab === 'mybets' || activeTab === 'login',
+              'translate-y-[-20px] p-2 border-6 bg-sky-700  border-amber-200 rounded-full': activeTab === 'mybets' || activeTab === 'login',
               'translate-y-0': activeTab !== 'mybets' && activeTab !== 'login'
             }"
           >
@@ -109,13 +109,13 @@
         <div class="relative flex flex-col items-center" style="width: 70px;">
           <button 
              @click="handleAccountClick"
-            class="w-12 h-12 rounded-full bg-sky-700 flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110 active:scale-95"
+            class="  rounded-full flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110 active:scale-95"
             :class="{
-              'translate-y-[-20px] border-6 bg-sky-700  border-amber-200 rounded-full': activeTab === 'account',
+              'translate-y-[-20px] p-2 border-6 bg-sky-700  border-amber-200 rounded-full': activeTab === 'account',
               'translate-y-0': activeTab !== 'account'
             }"
           >
-          <i class="fas fa-user-circle text-[50px] text-white rounded-full "></i>
+          <UserIcon class="w-6 h-6 text-white" />
           </button>
           <span class="text-[10px] font-medium mt-1 transition-all duration-300"
                 :class="activeTab === 'account' ? 'text-[#0AF0B5] translate-y-[-20px]' : 'text-gray-400'">
@@ -131,6 +131,7 @@
 import { ref, computed, onMounted, onBeforeUnmount } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { useAuthStore } from '../../store/authStore'
+import { UserIcon } from '@heroicons/vue/24/outline'
 import NavItem from './NavItem.vue'
 
 const route = useRoute()
