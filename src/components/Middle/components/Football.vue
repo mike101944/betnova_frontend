@@ -229,8 +229,8 @@ watch(selectedBets, (newBets) => {
                     :href="`/event/${game.eventId}`"
                     class="min-w-[48px] flex items-center justify-center gap-1 px-1.5 py-2 bg-transparent border border-[#e6e7e2] rounded text-sm font-bold"
                   >
-                    <span>{{ game.betCount }}</span>
-                    <svg class="w-2.5 h-2.5">
+                    <span class="text-white">{{ game.betCount }}</span>
+                    <svg class="w-2.5 h-2.5 text-white">
                       <use xlink:href="#arrow_right"></use>
                     </svg>
                   </a>
