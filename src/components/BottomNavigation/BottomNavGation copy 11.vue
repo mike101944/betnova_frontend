@@ -31,18 +31,17 @@
            <div class="absolute -top-8 flex flex-col items-center">
             <button 
               @click="handleBetslipClick"
-              class="w-14 h-14 rounded-full flex items-center justify-center shadow-2xl transition-all duration-300 active:scale-90 border-4 border-[#1a1e24] relative overflow-hidden"
-              :class="[activeTab === 'betslip' ? 'bg-amber-500 text-black scale-110' : 'bg-gradient-to-br from-sky-500 to-blue-700 text-white']"
+              class="w-10 h-10 rounded-full flex items-center justify-center shadow-2xl transition-all duration-300 active:scale-90 border-4 border-[#1a1e24] relative overflow-hidden"
+              :class="[activeTab === 'betslip' ? 'bg-amber-500 text-black scale-110' : 'bg-gray-700 text-white']"
             >
               <div v-if="betslipCount > 0" class="flex flex-col items-center">
                 <span class="font-bold text-lg leading-none">{{ betslipCount > 99 ? '99' : betslipCount }}</span>
-                <span class="text-[8px] uppercase font-black">Bets</span>
               </div>
-              <svg v-else class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <svg v-else class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
                 <rect x="8" y="2" width="8" height="4" rx="1" /><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" />
               </svg>
             </button>
-            <span :class="['nav-label mt-1', activeTab === 'betslip' ? 'text-amber-400 font-bold' : '']">Betslip</span>
+            <span :class="['nav-label', activeTab === 'betslip' ? 'text-amber-400 font-bold' : '']">Betslip</span>
            </div>
         </div>
 
@@ -99,14 +98,16 @@ const activeTab = computed(() => routeToTab[route.path]?.tab || 'sports')
 const indicatorStyle = computed(() => {
   const current = routeToTab[route.path] || { index: 1 }
   const index = current.index
-  // Kwa vile tuna items 5, kila moja ni 20% ya upana.
-  // Tunapiga hesabu ya katikati ya kila 20%.
+  
+  // Hesabu ya katikati ya kila slot (kuna slots 5, kila moja ni 20%)
   const leftPos = (index * 20) + 10 
   
   return {
     left: `${leftPos}%`,
-    width: '20px',
-    transform: 'translateX(-50%)' // Hii inahakikisha inakaa center ya ile icon
+    width: '45px', 
+    height: '3px',  
+    transform: 'translateX(-50%)', 
+    transition: 'all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55)'
   }
 })
 

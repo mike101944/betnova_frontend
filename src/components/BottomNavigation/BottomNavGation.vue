@@ -1,69 +1,66 @@
 <template>
-  <div class="bottom-nav-container fixed bottom-0 left-0 right-0 z-[100] px-2 pb-2">
-    <div class="bottom-nav relative bg-[#1a1e24]/95 backdrop-blur-xl rounded-2xl shadow-2xl border border-white/10">
-      
-      <div 
-        class="absolute top-0 h-1 bg-sky-500 transition-all duration-500 ease-[cubic-bezier(0.68,-0.55,0.265,1.55)] rounded-full shadow-[0_0_8px_#0ea5e9]"
-        :style="indicatorStyle"
-      ></div>
+  <div class="bottom-nav-container fixed bottom-0 left-0 right-0">
+    <div class="bottom-nav relative bg-[#1a1e24] rounded-t-3xl shadow-2xl">
 
-      <div class="flex items-center justify-between px-2 h-16 relative">
-        
-        <button @click="handleMenuClick" class="nav-item group">
-          <div :class="['icon-wrapper', activeTab === 'betList' ? 'active-icon' : '']">
-            <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <line x1="4" y1="7" x2="20" y2="7" /><line x1="4" y1="12" x2="20" y2="12" /><line x1="4" y1="17" x2="20" y2="17" />
+      <div class="flex items-end justify-around h-[60px] ">
+
+        <!-- Menu -->
+        <div class="nav-item">
+          <button @click="handleMenuClick" :class="navBtnClass('betList')">
+            <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+              <rect x="4" y="6" width="16" height="2"/>
+              <rect x="4" y="11" width="16" height="2"/>
+              <rect x="4" y="16" width="16" height="2"/>
             </svg>
-          </div>
-          <span :class="['nav-label', activeTab === 'betList' ? 'active-label' : '']">Menu</span>
-        </button>
-
-        <button @click="handleSportsClick" class="nav-item group">
-          <div :class="['icon-wrapper', activeTab === 'sports' ? 'active-icon' : '']">
-            <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <circle cx="12" cy="12" r="10" /><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" /><path d="M2 12h20" />
-            </svg>
-          </div>
-          <span :class="['nav-label', activeTab === 'sports' ? 'active-label' : '']">Sports</span>
-        </button>
-
-        <div class="nav-item relative">
-           <div class="absolute -top-8 flex flex-col items-center">
-            <button 
-              @click="handleBetslipClick"
-              class="w-10 h-10 rounded-full flex items-center justify-center shadow-2xl transition-all duration-300 active:scale-90 border-4 border-[#1a1e24] relative overflow-hidden"
-              :class="[activeTab === 'betslip' ? 'bg-amber-500 text-black scale-110' : 'bg-gradient-to-br from-sky-500 to-blue-700 text-white']"
-            >
-              <div v-if="betslipCount > 0" class="flex flex-col items-center">
-                <span class="font-bold text-lg leading-none">{{ betslipCount > 99 ? '99' : betslipCount }}</span>
-              </div>
-              <svg v-else class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                <rect x="8" y="2" width="8" height="4" rx="1" /><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" />
-              </svg>
-            </button>
-            <span :class="['nav-label', activeTab === 'betslip' ? 'text-amber-400 font-bold' : '']">Betslip</span>
-           </div>
+          </button>
+          <span :class="navTextClass('betList')">Menu</span>
         </div>
 
-        <button @click="handleMybetsLoginClick" class="nav-item group">
-          <div :class="['icon-wrapper', (activeTab === 'mybets' || activeTab === 'login') ? 'active-icon' : '']">
-            <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2" /><rect x="9" y="3" width="6" height="4" rx="1" />
-            </svg>
-          </div>
-          <span :class="['nav-label', (activeTab === 'mybets' || activeTab === 'login') ? 'active-label' : '']">
-            {{ isAuthenticated ? 'My Bets' : 'Login' }}
-          </span>
-        </button>
+        <!-- Sports -->
+        <div class="nav-item">
+          <button @click="handleSportsClick" :class="navBtnClass('sports')">
+            ⚽
+          </button>
+          <span :class="navTextClass('sports')">Sport</span>
+        </div>
 
-        <button @click="handleAccountClick" class="nav-item group">
-          <div :class="['icon-wrapper', activeTab === 'account' ? 'active-icon' : '']">
-            <div class="w-6 h-6 rounded-full overflow-hidden border border-white/20 flex items-center justify-center bg-gray-700">
-              <UserIcon class="w-4 h-4 text-emerald-400" />
-            </div>
-          </div>
-          <span :class="['nav-label', activeTab === 'account' ? 'active-label' : '']">Profile</span>
-        </button>
+        <!-- Betslip -->
+        <div class="nav-item">
+          <button @click="handleBetslipClick" :class="navBtnClass('betslip')">
+
+            <span v-if="betslipCount > 0" class="text-white font-bold text-sm">
+              {{ betslipCount > 99 ? '99+' : betslipCount }}
+            </span>
+
+            <svg v-else class="w-6 h-6 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <rect x="4" y="4" width="16" height="16"/>
+              <line x1="12" y1="8" x2="12" y2="16"/>
+              <line x1="8" y1="12" x2="16" y2="12"/>
+            </svg>
+
+          </button>
+          <span :class="navTextClass('betslip')">Betslip</span>
+        </div>
+
+        <!-- Mybets / Login -->
+        <div class="nav-item">
+          <button @click="handleMybetsLoginClick" :class="navBtnClass('mybets')">
+            <span class="text-xl">
+              {{ isAuthenticated ? '📋' : '🔑' }}
+            </span>
+          </button>
+          <span :class="navTextClass('mybets')">
+            {{ isAuthenticated ? 'Mybets' : 'Login' }}
+          </span>
+        </div>
+
+        <!-- Account -->
+        <div class="nav-item">
+          <button @click="handleAccountClick" :class="navBtnClass('account')">
+            <UserIcon class="w-6 h-6 text-white"/>
+          </button>
+          <span :class="navTextClass('account')">Account</span>
+        </div>
 
       </div>
     </div>
@@ -71,78 +68,136 @@
 </template>
 
 <script setup>
-import { ref, computed, onMounted, onBeforeUnmount, watch } from 'vue'
-import { useRoute, useRouter } from 'vue-router'
+import { ref, computed, onMounted, onBeforeUnmount } from 'vue'
+import { useRouter } from 'vue-router'
 import { useAuthStore } from '../../store/authStore'
 import { UserIcon } from '@heroicons/vue/24/outline'
 
-const route = useRoute()
 const router = useRouter()
 const authStore = useAuthStore()
 
+const activeTab = ref('sports')
 const betslipCount = ref(0)
+
 const isAuthenticated = computed(() => authStore.isAuthenticated)
 
-const routeToTab = {
-  '/betList': { tab: 'betList', index: 0 },
-  '/menu': { tab: 'betList', index: 0 },
-  '/': { tab: 'sports', index: 1 },
-  '/betSlip': { tab: 'betslip', index: 2 },
-  '/bets': { tab: 'mybets', index: 3 },
-  '/login': { tab: 'login', index: 3 },
-  '/account': { tab: 'account', index: 4 }
+
+// ================= NAV STYLE HELPERS =================
+const navBtnClass = (tab) => {
+  return [
+    'w-12 h-12 flex items-center justify-center rounded-full transition-all duration-300',
+    activeTab.value === tab
+      ? 'bg-sky-700 text-white -translate-y-3 shadow-xl scale-110 border-3 border-amber-300'
+      : 'text-gray-400'
+  ]
 }
 
-const activeTab = computed(() => routeToTab[route.path]?.tab || 'sports')
+const navTextClass = (tab) => {
+  return [
+    'text-[10px] mt-1 transition-all duration-300',
+    activeTab.value === tab
+      ? 'text-[#0AF0B5] -translate-y-2'
+      : 'text-gray-400'
+  ]
+}
 
-const indicatorStyle = computed(() => {
-  const current = routeToTab[route.path] || { index: 1 }
-  const index = current.index
-  
-  // Hesabu ya katikati ya kila slot (kuna slots 5, kila moja ni 20%)
-  const leftPos = (index * 20) + 10 
-  
-  return {
-    left: `${leftPos}%`,
-    width: '45px', 
-    height: '3px',  
-    transform: 'translateX(-50%)', 
-    transition: 'all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55)'
+
+// ================= NAV ACTIONS =================
+const setActiveTab = (tab) => {
+  activeTab.value = tab
+}
+
+
+
+const handleMenuClick = () => {
+  setActiveTab('betList')
+  router.push('/betList')
+}
+
+const handleSportsClick = () => {
+  setActiveTab('sports')
+  router.push('/')
+}
+
+const handleBetslipClick = () => {
+  setActiveTab('betslip')
+  router.push('/betSlip')
+}
+
+const handleMybetsLoginClick = () => {
+  if (isAuthenticated.value) {
+    setActiveTab('mybets')
+    router.push('/bets')
+  } else {
+    setActiveTab('mybets')
+    router.push('/login')
   }
-})
+}
 
-// Navigation Handlers
-const handleMenuClick = () => router.push('/betList')
-const handleSportsClick = () => router.push('/')
-const handleBetslipClick = () => router.push('/betSlip')
-const handleMybetsLoginClick = () => router.push(isAuthenticated.value ? '/bets' : '/login')
-const handleAccountClick = () => router.push('/account')
+const handleAccountClick = () => {
+  if (isAuthenticated.value) {
+    setActiveTab('account')
+    router.push('/account')
+  }else {
+    setActiveTab('account')
+    router.push('/login')
+  }
+  
+}
 
-// Storage/Count Logic
+
+// ================= BETSLIP COUNT =================
 const updateBetslipCount = () => {
   try {
-    const saved = localStorage.getItem('betslip_selections')
-    betslipCount.value = saved ? JSON.parse(saved).length : 0
-  } catch { betslipCount.value = 0 }
+    const savedBets = localStorage.getItem('betslip_selections')
+    if (savedBets) {
+      const bets = JSON.parse(savedBets)
+      betslipCount.value = Array.isArray(bets) ? bets.length : 0
+    } else {
+      betslipCount.value = 0
+    }
+  } catch (e) {
+    betslipCount.value = 0
+  }
 }
 
+const handleBetslipUpdate = (event) => {
+  const bets = event.detail || []
+  betslipCount.value = bets.length
+}
+
+const handleStorageChange = (event) => {
+  if (event.key === 'betslip_selections') {
+    updateBetslipCount()
+  }
+}
+
+
+// ================= LIFECYCLE =================
 onMounted(() => {
   updateBetslipCount()
-  window.addEventListener('storage', updateBetslipCount)
+  window.addEventListener('betslip-update', handleBetslipUpdate)
+  window.addEventListener('storage', handleStorageChange)
+})
+
+onBeforeUnmount(() => {
+  window.removeEventListener('betslip-update', handleBetslipUpdate)
+  window.removeEventListener('storage', handleStorageChange)
 })
 </script>
 
 <style scoped>
 .bottom-nav-container {
-  padding-bottom: calc(env(safe-area-inset-bottom) + 0.5rem);
+  padding-bottom: env(safe-area-inset-bottom);
 }
 
+.bottom-nav {
+  background: rgba(26, 30, 36, 0.95);
+  border-top: 1px solid #fff;
+}
 
-
-.bottom-nav::after {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0; height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+/* Optional smooth animation feel */
+.nav-item button {
+  transition: all 0.25s ease;
 }
 </style>
