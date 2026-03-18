@@ -110,10 +110,9 @@ const goToBetDetails = (bet) => {
     <div v-else>
       <!-- HAS DATA -->
       <section v-if="hasData" class="space-y-4 ">
-       
 
         <!-- Bet Cards -->
-        <div 
+        <div
           v-for="bet in settledBets" 
           :key="bet.id"
           @click="goToBetDetails(bet)"
@@ -123,7 +122,6 @@ const goToBetDetails = (bet) => {
           <div class="bg-gradient-to-r from-gray-50 to-white px-2  py-2 border-b border-gray-100">
 
             <div class="flex justify-between items-center bg-transparent mb-1"> 
-
                 <div class="flex gap-2 flex-row items-center justify-center rounded-[14px] bg-emerald-700 px-2 py-1">
                     <div class=" p-1 rounded-full bg-white flex items-center justify-center  ">
                       <CheckIcon class="w-3 h-3  text-emerald-600  font-bold" />
@@ -145,9 +143,6 @@ const goToBetDetails = (bet) => {
                     <span class="text-sm text-gray-600">{{ formatBetDate(bet.createdAt).date }}</span>
             </div>
           </div>
-
-         
-
           <!-- Main Content -->
           <div class="px-2 py-2">
             <!-- Stats Grid -->
@@ -162,7 +157,6 @@ const goToBetDetails = (bet) => {
                   <span class="text-xs font-bold text-gray-900">TSh:</span>
                   <span class="text-xs font-bold text-gray-900 ">{{ Number(bet.stake).toLocaleString() }}</span>
                 </div>
-
               </div>
 
               <!-- Odds -->
