@@ -100,8 +100,8 @@
           </transition>
         </div>
         <button @click="navigateTo('/')" class="nav-btn" :class="activeItem === 'mybet' ? 'active-gradient' : 'inactive-style'">
-          <HomeIcon class="w-5 h-5" />
-          
+          <!-- <HomeIcon class="w-5 h-5" /> -->
+          <span class="text-[16px]">📋</span>
            <span class="text-sm font-medium">Mybet</span>
         </button>
 
