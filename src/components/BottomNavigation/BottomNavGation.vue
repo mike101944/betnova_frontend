@@ -23,7 +23,7 @@
         <div class="nav-item flex flex-col items-center">
           <button @click="handleBetslipClick" :class="navBtnClass('betslip')">
             <div class="relative">
-              <span v-if="betslipCount > 0" class="text-white font-bold text-sm">
+              <span v-if="betslipCount > 0" class="text-amber-500 font-bold text-sm">
                 {{ betslipCount > 99 ? '99+' : betslipCount }}
               </span>
               <svg v-else class="w-6 h-6 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -90,7 +90,7 @@ const activeTab = computed(() => {
 const navBtnClass = (tab) => {
   const isActive = activeTab.value === tab
   return [
-    'w-12 h-12 flex items-center justify-center rounded-full transition-all duration-300 cursor-pointer',
+    'w-10 h-10 flex items-center justify-center rounded-full transition-all duration-300 cursor-pointer',
     isActive
       ? 'bg-sky-600 text-white -translate-y-4 shadow-xl scale-110 border-2 border-sky-950 ring-1 ring-amber-400'
       : 'text-gray-400 hover:text-white'
