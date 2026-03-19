@@ -93,7 +93,7 @@ const navBtnClass = (tab) => {
   return [
     'w-12 h-12 flex items-center justify-center rounded-full transition-all duration-300 cursor-pointer',
     isActive
-      ? 'bg-sky-600 text-white -translate-y-4 shadow-xl scale-110 border-4 border-sky-950 ring-2 ring-amber-400'
+      ? 'bg-sky-600 text-white -translate-y-4 shadow-xl scale-110 border-2 border-sky-950 ring-1 ring-amber-400'
       : 'text-gray-400 hover:text-white'
   ]
 }
