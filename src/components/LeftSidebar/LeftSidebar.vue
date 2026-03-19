@@ -38,7 +38,32 @@
            <span class="text-sm font-medium">Sport</span>
         </button>
         <button @click="navigateTo('/')" class="nav-btn" :class="activeItem === 'live' ? 'active-gradient' : 'inactive-style'">
-          <HomeIcon class="w-5 h-5" /> <span class="text-sm font-medium">Live betting</span>
+          <!-- <HomeIcon class="w-5 h-5" /> -->
+          <svg width="20" height="20" viewBox="0 0 72 72">
+  <defs>
+    <radialGradient id="bg2" cx="50%" cy="50%" r="60%">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#020617"/>
+    </radialGradient>
+
+    <linearGradient id="pulse" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fff"/>
+      <stop offset="100%" stop-color="#fff"/>
+    </linearGradient>
+  </defs>
+
+  <circle cx="36" cy="36" r="30" fill="url(#bg2)"/>
+
+  <!-- core -->
+  <circle cx="36" cy="36" r="5" fill="url(#pulse)"/>
+
+  <!-- waves -->
+  <path d="M24 36a12 12 0 0 1 24 0"
+        stroke="url(#pulse)" stroke-width="2" fill="none"/>
+  <path d="M18 36a18 18 0 0 1 36 0"
+        stroke="url(#pulse)" stroke-width="2" fill="none" opacity="0.5"/>
+</svg>
+           <span class="text-sm font-medium">Live betting</span>
         </button>
        
       
