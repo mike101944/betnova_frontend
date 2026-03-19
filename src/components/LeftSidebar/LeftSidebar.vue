@@ -65,7 +65,7 @@
         <div class="my-4 border-t border-gray-800/50"></div>
         <p class="px-3 text-[10px] uppercase text-gray-500 font-bold mb-2">Finance</p>
 
-        <button @click="navigateTo('/deposit')" class="nav-btn text-emerald-400 hover:bg-emerald-500/10">
+        <button @click="navigateTo('/deposite')" class="nav-btn text-emerald-400 hover:bg-emerald-500/10">
           <ArrowDownCircleIcon class="w-5 h-5" /> <span class="text-sm font-medium">Deposit</span>
         </button>
 
