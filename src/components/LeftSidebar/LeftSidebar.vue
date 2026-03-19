@@ -85,7 +85,7 @@
 
         <p class="px-3 text-[10px] uppercase text-gray-500 font-black mb-2 tracking-widest">Wallet & Finance</p>
 
-        <button @click="navigateTo('/deposit')" class="nav-btn group hover:bg-emerald-500/10">
+        <button @click="navigateTo('/deposite')" class="nav-btn group hover:bg-emerald-500/10">
           <ArrowDownCircleIcon class="w-5 h-5 text-emerald-500" />
           <span class="text-sm font-medium text-emerald-400">Deposit Money</span>
         </button>
@@ -143,7 +143,7 @@ const activeItem = computed(() => {
   if (path.includes('/sports')) return 'sports'
   if (path.includes('/live')) return 'live'
   if (path.includes('/bets')) return 'mybet'
-  if (path.includes('/deposit')) return 'deposit'
+  if (path.includes('/deposite')) return 'deposit'
   return ''
 })
 
