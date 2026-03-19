@@ -27,8 +27,15 @@
       <div class="space-y-1 px-3">
         
         <button @click="navigateTo('/')" class="nav-btn" :class="activeItem === 'home' ? 'active-gradient' : 'inactive-style'">
-          <HomeIcon class="w-5 h-5" /> <span class="text-sm font-medium">Home</span>
+          <!-- <HomeIcon class="w-5 h-5" /> -->
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+  <path d="M3 10L12 3l9 7"></path>
+  <path d="M9 21V12h6v9"></path>
+</svg>
+           <span class="text-sm font-medium">Home</span>
         </button>
+
+
         <button @click="navigateTo('/')" class="nav-btn" :class="activeItem === 'sport' ? 'active-gradient' : 'inactive-style'">
           <HomeIcon class="w-5 h-5" /> <span class="text-sm font-medium">Sport</span>
         </button>
@@ -70,7 +77,9 @@
           </transition>
         </div>
         <button @click="navigateTo('/')" class="nav-btn" :class="activeItem === 'mybet' ? 'active-gradient' : 'inactive-style'">
-          <HomeIcon class="w-5 h-5" /> <span class="text-sm font-medium">Mybet</span>
+          <HomeIcon class="w-5 h-5" />
+          
+           <span class="text-sm font-medium">Mybet</span>
         </button>
 
         <div class="my-4 border-t border-gray-800/50"></div>
