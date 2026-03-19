@@ -64,6 +64,7 @@
 </template>
 
 <script setup>
+
 import { ref, computed, onMounted, onBeforeUnmount } from 'vue'
 import { useRouter } from 'vue-router'
 import { useAuthStore } from '../../store/authStore'

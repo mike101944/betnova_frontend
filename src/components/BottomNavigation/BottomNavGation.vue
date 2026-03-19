@@ -1,9 +1,8 @@
 <template>
   <div class="bottom-nav-container fixed bottom-0 left-0 right-0 z-[1000]">
-    <div class="bottom-nav relative bg-sky-950 border-t border-white/20 rounded-t-3xl shadow-2xl">
+    <div class="bottom-nav relative bg-sky-950 border-t border-white rounded-t-3xl shadow-2xl">
 
       <div class="flex items-end justify-around h-[65px] pb-2">
-
         <!-- Home -->
         <div class="nav-item flex flex-col items-center">
           <button @click="handleMenuClick" :class="navBtnClass('home')">
