@@ -26,7 +26,7 @@
               <div v-if="betslipCount > 0" class="relative flex items-center justify-center h-5 w-5">
                   <span class="absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75 animate-ping"></span>
                   
-                  <span class="relative inline-flex items-center justify-center rounded-full h-5 w-5 bg-sky-800 text-lg  text-amber-400 shadow-lg">
+                  <span class="relative inline-flex items-center justify-center rounded-full h-5 w-5 bg-sky-800 text-sm  text-amber-400 shadow-lg">
                     {{ betslipCount > 99 ? '99+' : betslipCount }}
                   </span>
                 </div>
