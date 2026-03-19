@@ -24,11 +24,12 @@
           <button @click="handleBetslipClick" :class="navBtnClass('betslip')">
             <div class="relative">
               <div v-if="betslipCount > 0" class="relative flex items-center justify-center h-5 w-5">
-                <span class="absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75 animate-ping"></span>
-                <span class="relative inline-flex items-center justify-center rounded-full h-5 w-5 bg-sky-800 text-sm text-amber-400 shadow-lg border border-sky-700">
-                  {{ betslipCount > 99 ? '9' : betslipCount }}
-                </span>
-              </div>
+                  <span class="absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75 animate-ping"></span>
+                  
+                  <span class="relative inline-flex items-center justify-center rounded-full h-5 w-5 bg-sky-800 text-sm  text-amber-400 shadow-lg">
+                    {{ betslipCount > 99 ? '99+' : betslipCount }}
+                  </span>
+                </div>
               <svg v-else class="w-6 h-6 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <rect x="4" y="4" width="16" height="16" rx="2"/>
                 <line x1="12" y1="8" x2="12" y2="16"/>
@@ -42,19 +43,9 @@
         <!-- Mybets / Login -->
         <div class="nav-item flex flex-col items-center">
           <button @click="handleMybetsLoginClick" :class="navBtnClass('mybets')">
-            <div class="relative">
-              <!-- Hii ndio Badge ya Open Bets -->
-              <div v-if="isAuthenticated && openBets.length > 0" class="absolute -top-2 -right-2 flex h-4 w-4">
-                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-gray-400 opacity-75"></span>
-                <span class="relative inline-flex rounded-full h-4 w-4 bg-gray-500 text-[10px] items-center justify-center text-white font-bold">
-                  {{ openBets.length }}
-                </span>
-              </div>
-              
-              <span class="text-xl">
-                {{ isAuthenticated ? '📋' : '🔑' }}
-              </span>
-            </div>
+            <span class="text-xl">
+              {{ isAuthenticated ? '📋' : '🔑' }}
+            </span>
           </button>
           <span :class="navTextClass('mybets')">
             {{ isAuthenticated ? 'Mybets' : 'Login' }}
@@ -75,29 +66,20 @@
 </template>
 
 <script setup>
-import { ref, computed, onMounted, onBeforeUnmount, watch } from 'vue'
+import { ref, computed, onMounted, onBeforeUnmount } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
 import { useAuthStore } from '../../store/authStore'
-import { useBets } from '../../screen/composables/useBets' // 1. Import useBets
 import { HomeIcon, UserIcon } from '@heroicons/vue/24/outline'
 
 const router = useRouter()
 const route = useRoute()
 const authStore = useAuthStore()
 
-// 2. Tumia useBets hapa
-const { openBets, fetchUserBets } = useBets()
-
 const betslipCount = ref(0)
 const isAuthenticated = computed(() => authStore.isAuthenticated)
 
-// Logic ya kusoma bets pindi tu user akilogin
-watch(isAuthenticated, (newVal) => {
-  if (newVal) {
-    fetchUserBets()
-  }
-}, { immediate: true })
-
+// ================= AUTOMATIC ACTIVE TAB LOGIC =================
+// Hii computed inasoma URL moja kwa moja. URL ikibadilika, tab inabadilika.
 const activeTab = computed(() => {
   const path = route.path
   if (path === '/') return 'home'
@@ -108,6 +90,7 @@ const activeTab = computed(() => {
   return ''
 })
 
+// ================= NAV STYLE HELPERS =================
 const navBtnClass = (tab) => {
   const isActive = activeTab.value === tab
   return [
@@ -128,6 +111,8 @@ const navTextClass = (tab) => {
   ]
 }
 
+// ================= NAV ACTIONS =================
+// Hakuna haja ya setActiveTab tena, router.push inatosha
 const handleMenuClick = () => router.push('/')
 const handleSportsClick = () => router.push('/sports')
 const handleBetslipClick = () => router.push('/betSlip')
@@ -148,7 +133,7 @@ const handleAccountClick = () => {
   }
 }
 
-// ================= BETSLIP LOGIC =================
+// ================= BETSLIP COUNT LOGIC =================
 const updateBetslipCount = () => {
   try {
     const savedBets = localStorage.getItem('betslip_selections')
@@ -174,12 +159,9 @@ const handleStorageChange = (event) => {
   }
 }
 
+// ================= LIFECYCLE =================
 onMounted(() => {
   updateBetslipCount()
-  // 3. Pia fetch bets wakati wa kuanza kama user tayari yuko logged in
-  if (isAuthenticated.value) {
-    fetchUserBets()
-  }
   window.addEventListener('betslip-update', handleBetslipUpdate)
   window.addEventListener('storage', handleStorageChange)
 })
@@ -189,3 +171,19 @@ onBeforeUnmount(() => {
   window.removeEventListener('storage', handleStorageChange)
 })
 </script>
+
+<style scoped>
+.bottom-nav-container {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+.bottom-nav {
+  transition: background 0.3s ease;
+}
+
+/* Kuzuia text kuchagua/highlight pindi ukibonyeza */
+.nav-item {
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+}
+</style>
