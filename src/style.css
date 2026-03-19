@@ -362,3 +362,37 @@ body {
 .active-label {
   @apply text-sky-400 font-bold;
 }
+
+
+
+
+/* leftSidebar */
+.nav-btn {
+  @apply w-full flex items-center gap-3 p-3 rounded-lg transition-all duration-200 cursor-pointer;
+}
+
+/* Style when active */
+.active-gradient {
+  @apply bg-gradient-to-br from-sky-700 via-teal-500 to-sky-500 text-[#1a1e24] shadow-lg;
+}
+
+/* Style when inactive */
+.inactive-style {
+  @apply text-gray-400 hover:bg-[#252a2d] hover:text-white;
+}
+
+.nav-btn {
+  @apply flex items-center gap-3 p-3 rounded-lg transition-all duration-200 cursor-pointer;
+}
+
+.sub-nav-btn {
+  @apply w-full flex items-center gap-3 p-2 text-sm text-gray-400 hover:text-white hover:bg-gray-800/50 rounded-md transition-all;
+}
+
+.active-gradient {
+  @apply bg-gradient-to-br from-sky-700 via-teal-500 to-sky-500 text-white shadow-lg;
+}
+
+.inactive-style {
+  @apply text-gray-400 hover:bg-[#252a2d] hover:text-white;
+}

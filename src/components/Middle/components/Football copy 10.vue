@@ -318,7 +318,7 @@ watch(selectedBets, (newBets) => {
   animation:glowMove 4s linear infinite;
 }
 
-/* @keyframes glowMove{
+@keyframes glowMove{
   0%{
     opacity:.6;
     transform:translateX(-40%);
@@ -331,5 +331,5 @@ watch(selectedBets, (newBets) => {
     opacity:.6;
     transform:translateX(40%);
   }
-} */
+}
 </style>

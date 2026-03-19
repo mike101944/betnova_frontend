@@ -5,7 +5,6 @@
     
     <!-- Main Content - Inachukua nafasi yote iliyobaki -->
     <main class="flex-1 bg-transparent flex flex-row w-full min-h-0 relative">
-      <!-- Left Column - SIDEBAR (58%) -->
 
 
       <Transition name="fade">
@@ -34,7 +33,7 @@
        
         
         <!-- RouterView container -->
-        <div class="flex-1 flex flex-col mt-4">
+        <div class="flex-1 flex flex-col">
           <router-view v-slot="{ Component }">
             <component :is="Component" class="flex-1 flex flex-col" />
           </router-view>
