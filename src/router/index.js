@@ -7,6 +7,8 @@ import BetSlip from '../components/Betlslip/BetSlip.vue'
 import Withdraw from '../screen/Money/Withdraw.vue'
 import Deposite from '../screen/Money/Deposite.vue'
 import Account from '../screen/profile/Profile.vue'
+import { useAuthStore } from '../store/authStore'
+
 const routes = [
   {
     path: '/',
@@ -32,6 +34,11 @@ const routes = [
     path: '/betList',
     name: 'betList',
     component: () => import('../screen/Bets/ApproveBet/BetsList.vue'),
+  },
+  {
+    path: '/sports',
+    name: 'sport',
+    component: () => import('../screen/sport/SportScreen.vue'),
   },
   {
     path: '/betList/:id',
@@ -62,6 +69,7 @@ const routes = [
     path: '/bets',
     name: 'bets',
     component: () => import('../screen/Bets/Bets.vue'),
+    meta: { requiresAuth: true },
     children: [
       {
         path: '',
@@ -99,6 +107,27 @@ const routes = [
 const router = createRouter({
   history: createWebHistory(),
   routes
+})
+
+
+// 2. WEKA HAPA (Kati ya router na export)
+router.beforeEach((to, from, next) => {
+  const authStore = useAuthStore()
+  
+  // Angalia kama route inayofuatwa ina 'requiresAuth'
+  if (to.matched.some(record => record.meta.requiresAuth)) {
+    if (!authStore.isAuthenticated) {
+      // Kama haja-login, mpeleke login
+      next({
+        name: 'login',
+        query: { redirect: to.fullPath } 
+      })
+    } else {
+      next() // Ameshalogin, mruhusu
+    }
+  } else {
+    next() // Haihitaji ulinzi, mruhusu
+  }
 })
 
 export default router
