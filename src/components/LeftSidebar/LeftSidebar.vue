@@ -29,6 +29,14 @@
         <button @click="navigateTo('/')" class="nav-btn" :class="activeItem === 'home' ? 'active-gradient' : 'inactive-style'">
           <HomeIcon class="w-5 h-5" /> <span class="text-sm font-medium">Home</span>
         </button>
+        <button @click="navigateTo('/')" class="nav-btn" :class="activeItem === 'sport' ? 'active-gradient' : 'inactive-style'">
+          <HomeIcon class="w-5 h-5" /> <span class="text-sm font-medium">Sport</span>
+        </button>
+        <button @click="navigateTo('/')" class="nav-btn" :class="activeItem === 'live' ? 'active-gradient' : 'inactive-style'">
+          <HomeIcon class="w-5 h-5" /> <span class="text-sm font-medium">Live betting</span>
+        </button>
+       
+      
 
         <div>
           <button 
@@ -37,7 +45,7 @@
             :class="activeItem === 'sports' ? 'active-gradient' : 'inactive-style'"
           >
             <TrophyIcon class="w-5 h-5" /> 
-            <span class="text-sm font-medium ml-3">Sports</span>
+            <span class="text-sm font-medium ml-3">Casino</span>
             <ChevronDownIcon 
               class="w-4 h-4 ml-auto transition-transform duration-300" 
               :class="{ 'rotate-180': isSportsOpen }"
@@ -46,10 +54,10 @@
 
           <transition name="expand">
             <div v-if="isSportsOpen" class="mt-1 ml-4 space-y-1 border-l border-gray-700 pl-4 overflow-hidden">
-              <button @click="navigateTo('/casino')" class="sub-nav-btn">
+              <!-- <button @click="navigateTo('/casino')" class="sub-nav-btn">
                 <SparklesIcon class="w-4 h-4 text-yellow-500" />
                 <span>Casino</span>
-              </button>
+              </button> -->
               <button @click="navigateTo('/aviator')" class="sub-nav-btn">
                 <PaperAirplaneIcon class="w-4 h-4 text-red-500 -rotate-45" />
                 <span>Aviator</span>
@@ -61,6 +69,9 @@
             </div>
           </transition>
         </div>
+        <button @click="navigateTo('/')" class="nav-btn" :class="activeItem === 'mybet' ? 'active-gradient' : 'inactive-style'">
+          <HomeIcon class="w-5 h-5" /> <span class="text-sm font-medium">Mybet</span>
+        </button>
 
         <div class="my-4 border-t border-gray-800/50"></div>
         <p class="px-3 text-[10px] uppercase text-gray-500 font-bold mb-2">Finance</p>
