@@ -244,7 +244,7 @@ watch(selectedBets, (newBets) => {
     </div>
 
     <!-- View All -->
-    <div class="flex items-center justify-center bg-white text-[#252a2d] p-3 text-sm font-medium">
+    <div class="flex items-center justify-center bg-transparent text-[#f4f5f0] p-3 text-sm font-medium">
       <span class="underline cursor-pointer">
         View all Football <span class="ml-1">662</span>
       </span>

@@ -227,10 +227,10 @@ watch(selectedBets, (newBets) => {
                   <!-- Bet Count -->
                   <a
                     :href="`/event/${game.eventId}`"
-                    class="min-w-[48px] flex items-center justify-center gap-1 px-1.5 py-2 bg-transparent border border-[#e6e7e2] rounded text-sm font-bold"
+                    class="min-w-[48px] flex items-center justify-center gap-1 px-1.5 py-2 bg-[#f4f5f0] opacity-50 border border-[#e6e7e2] rounded text-sm font-bold"
                   >
-                    <span class="text-white">{{ game.betCount }}</span>
-                    <svg class="w-2.5 h-2.5 text-white">
+                    <span class="text-gray-950">{{ game.betCount }}</span>
+                    <svg class="w-2.5 h-2.5 text-gray-950">
                       <use xlink:href="#arrow_right"></use>
                     </svg>
                   </a>
@@ -244,11 +244,11 @@ watch(selectedBets, (newBets) => {
     </div>
 
     <!-- View All -->
-    <div class="flex items-center justify-center bg-white text-[#252a2d] p-3 text-sm font-medium">
+    <div class="flex items-center justify-center bg-transparent text-[#f4f5f0] p-3 text-sm font-medium">
       <span class="underline cursor-pointer">
         View all Football <span class="ml-1">662</span>
       </span>
-      <svg class="w-2.5 h-2.5 ml-2">
+      <svg class="w-2.5 h-2.5 ml-2 tex-[#f4f5f0] ">
         <use xlink:href="#arrow_right"></use>
       </svg>
     </div>

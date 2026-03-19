@@ -4,6 +4,8 @@
     <div>
         <HomeCanvaCard/>
         <LeagueShortcut/>
+        <CasionoGames/>
+        
         <Football/>
         <!-- <LiveMatches :games="games"/>
                             <CasionoGames/>

@@ -21,12 +21,12 @@ onMounted(() => {
 
 </script>
 <template>
-  <div data-v-fc0cbc39="" class="bg-sky-900" data-test-id="tag-CasinoCollection" data-test-class="cmsTag">
-    <div data-v-33cfb210="" class="content is-home-page ">
-      <div data-v-33cfb210="" class="title ">
-        <div data-v-97dcd69f="" data-v-33cfb210="" data-test-id="on-click-button" class="bg-sky-700 page-headline pointer category"
+  <div data-v-fc0cbc39="" class="" data-test-id="tag-CasinoCollection" data-test-class="cmsTag">
+    <div data-v-33cfb210="" class="content is-home-page">
+      <div data-v-33cfb210="" class="title">
+        <div data-v-97dcd69f="" data-v-33cfb210="" data-test-id="on-click-button" class="page-headline pointer category"
           more-events="869">
-          <h1 data-v-97dcd69f="" class="page-headline-title "><svg data-v-02f45589="" data-v-97dcd69f=""
+          <h1 data-v-97dcd69f="" class="page-headline-title"><svg data-v-02f45589="" data-v-97dcd69f=""
               class="svg-icon page-headline-icon" style="vertical-align: middle;"><!---->
               <use data-v-02f45589="" xlink:href="#icon-casino"></use>
             </svg> Games </h1> <span data-v-97dcd69f="" class="page-headline-count">
@@ -409,11 +409,11 @@ onMounted(() => {
     padding: 0 12px;
 }
 .page-headline.category[data-v-97dcd69f] {
-    /* background: #f4f5f0; */
+    background: #f4f5f0;
 }
 .page-headline[data-v-97dcd69f] {
     white-space: nowrap;
-    /* background: #fff; */
+    background: #fff;
     border-bottom: 1px solid #e6e7e2;
     padding: 10px;
     position: relative;
