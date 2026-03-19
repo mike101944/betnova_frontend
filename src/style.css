@@ -396,3 +396,20 @@ body {
 .inactive-style {
   @apply text-gray-400 hover:bg-[#252a2d] hover:text-white;
 }
+
+
+.nav-btn {
+  @apply flex items-center gap-3 p-3 rounded-xl transition-all duration-200 cursor-pointer;
+}
+
+.sub-nav-btn {
+  @apply w-full flex items-center gap-3 p-2.5 text-sm text-gray-400 hover:text-white hover:bg-white/5 rounded-lg transition-all cursor-pointer;
+}
+
+.active-gradient {
+  @apply bg-gradient-to-r from-sky-600 to-sky-500 text-white shadow-lg shadow-sky-500/20;
+}
+
+.inactive-style {
+  @apply text-gray-400 hover:bg-white/5 hover:text-white;
+}
