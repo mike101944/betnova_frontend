@@ -23,9 +23,13 @@
         <div class="nav-item flex flex-col items-center">
           <button @click="handleBetslipClick" :class="navBtnClass('betslip')">
             <div class="relative">
-              <span v-if="betslipCount > 0" class="text-amber-500 font-bold text-sm">
-                {{ betslipCount > 99 ? '99+' : betslipCount }}
-              </span>
+              <div v-if="betslipCount > 0" class="relative flex items-center justify-center h-5 w-5">
+                  <span class="absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75 animate-ping"></span>
+                  
+                  <span class="relative inline-flex items-center justify-center rounded-full h-5 w-5 bg-sky-500 text-[10px]  text-amber-400 shadow-lg">
+                    {{ betslipCount > 99 ? '99+' : betslipCount }}
+                  </span>
+                </div>
               <svg v-else class="w-6 h-6 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <rect x="4" y="4" width="16" height="16" rx="2"/>
                 <line x1="12" y1="8" x2="12" y2="16"/>
