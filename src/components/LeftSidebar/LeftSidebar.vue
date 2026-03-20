@@ -123,6 +123,9 @@
 import { ref, computed } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
 import { useAuthStore } from '../../store/authStore'
+
+const router = useRouter()
+const authStore = useAuthStore()
 import {
   HomeIcon, TrophyIcon, SparklesIcon, FireIcon as LiveIcon,
   Cog6ToothIcon as SettingsIcon, QuestionMarkCircleIcon as SupportIcon,
@@ -131,9 +134,8 @@ import {
 } from '@heroicons/vue/24/outline'
 
 const emit = defineEmits(['close'])
-const router = useRouter()
+
 const route = useRoute()
-const authStore = useAuthStore()
 
 const isSportsOpen = ref(false)
 
@@ -152,9 +154,11 @@ const navigateTo = (path) => {
   emit('close')
 }
 
-const handleLogout = () => {
+
+const handleLogout = async () => {
+  await authStore.logout()
+  router.push('/')
   emit('close')
-  // authStore.logout()
 }
 
 const isAuthenticated = computed(() => authStore.isAuthenticated)
