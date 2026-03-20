@@ -37,8 +37,8 @@ const formatBalance = (amount) => {
   return new Intl.NumberFormat('sw-TZ', {
     style: 'currency',
     currency: 'TZS',
-    minimumFractionDigits: 0,
-    maximumFractionDigits: 0
+    minimumFractionDigits: 2,  // Change this
+    maximumFractionDigits: 2   // Change this
   }).format(amount || 0)
 }
 
@@ -263,7 +263,7 @@ onUnmounted(() => {
             <!-- Main Content -->
             <div class="bg-white rounded-2xl p-6 shadow-2xl">
                 <!-- Balance Card -->
-                <div class="bg-gradient-to-br from-sky-400 to-sky-700 rounded-xl p-2 mb-3 flex flex-col items-center justify-center text-white">
+                <div class="bg-gradient-to-br from-sky-400 to-teal-700 rounded-xl p-2 mb-3 flex flex-col items-center justify-center text-white">
                     <div class="text-sm opacity-90 ">Your Balance</div>
                     <div class="text-sm font-bold">{{ formatBalance(authStore.userBalance) }}</div>
                 </div>

@@ -163,9 +163,11 @@ const userBalance = computed(() => authStore.userBalance || 0)
 
 const formatBalance = (amount) => {
   return new Intl.NumberFormat('sw-TZ', {
-    style: 'currency', currency: 'TZS',
-    minimumFractionDigits: 0
-  }).format(amount)
+    style: 'currency',
+    currency: 'TZS',
+    minimumFractionDigits: 2,  // Change this
+    maximumFractionDigits: 2   // Change this
+  }).format(amount || 0)
 }
 </script>
 
