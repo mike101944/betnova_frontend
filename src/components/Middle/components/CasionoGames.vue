@@ -1,8 +1,6 @@
 <script setup>
 
 
-import { dummyGamesData } from '../data/dummyGameData'
-
 import { ref, onMounted } from 'vue'
 
 const games = ref([])
