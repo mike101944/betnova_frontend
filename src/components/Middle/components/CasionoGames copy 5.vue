@@ -22,7 +22,7 @@ onMounted(() => {
 
         <div data-v-33cfb210="" class="casino-list-wrapper">
           <div data-v-33cfb210="" class="casino-list"
-            style="grid-auto-columns: calc((100% - (4 - 1) * var(--gap)) / 8); grid-template-rows: repeat(1, auto);">
+            style="grid-auto-columns: calc((100% - (4 - 1) * var(--gap)) / 4); grid-template-rows: repeat(1, auto);">
 
             <div data-v-33cfb210="" class="casino-list-item">
 
@@ -462,11 +462,14 @@ svg.icon-size-little[data-v-02f45589], img.icon-size-little[data-v-02f45589] {
     overflow-x: scroll;
     overflow-y: hidden;
 }
-
+element.style {
+    grid-auto-columns: calc((100% - (4 - 1) * var(--gap)) / 4);
+    grid-template-rows: repeat(1, auto);
+}
 .content .casino-list .casino-list-item[data-v-33cfb210] {
     user-select: none;
     scroll-snap-align: center;
-    scroll-margin: 8px;
+    scroll-margin: 12px;
 }
 .casino-item-wrapper[data-v-1145d684] {
     border: 1px solid #e6e7e2;
@@ -600,7 +603,7 @@ svg.icon-size-medium[data-v-02f45589], img.icon-size-medium[data-v-02f45589] {
 .content .casino-list .casino-list-item[data-v-33cfb210] {
     user-select: none;
     scroll-snap-align: center;
-    scroll-margin: 8px;
+    scroll-margin: 12px;
 }
 .casino-item-wrapper[data-v-1145d684] {
     border: 1px solid #e6e7e2;
