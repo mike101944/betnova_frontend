@@ -6,7 +6,6 @@ import api from '../../services/api'
 // Constants
 const minWithdraw = 5000; // Minimum withdrawal amount
 const maxWithdraw = 1000000; // Maximum withdrawal amount
-const minBalanceRequired = 20000000; // Minimum balance required to withdraw (20 million)
 
 // Quick amount presets
 const quickAmounts = [10000, 20000, 50000, 100000, 200000, 500000];
@@ -20,7 +19,6 @@ const successMessage = ref('')
 const selectedPaymentMethod = ref('mpesa')
 const showConfirmation = ref(false)
 const termsAccepted = ref(false)
-const showMinimumBalanceModal = ref(false) // New state for minimum balance modal
 
 // Payment tracking
 const isProcessing = ref(false)
@@ -37,8 +35,8 @@ const formatBalance = (amount) => {
   return new Intl.NumberFormat('sw-TZ', {
     style: 'currency',
     currency: 'TZS',
-    minimumFractionDigits: 0,
-    maximumFractionDigits: 0
+    minimumFractionDigits: 2,  // Change this
+    maximumFractionDigits: 2   // Change this
   }).format(amount || 0)
 }
 
@@ -46,6 +44,7 @@ const formatBalance = (amount) => {
 const formattedPhone = computed(() => {
     const phone = userPhone.value
     if (phone && phone !== 'Not available') {
+        // Format: +255 XXX XXX XXX
         return phone.replace(/(\d{3})(\d{3})(\d{3})/, '+255 $1 $2 $3')
     }
     return phone
@@ -61,12 +60,12 @@ const isAmountValid = computed(() => {
 // Get amount as number
 const numericAmount = computed(() => Number(amount.value) || 0)
 
-// Check if user has sufficient balance for the withdrawal amount
+// Check if user has sufficient balance
 const hasSufficientBalance = computed(() => {
     return numericAmount.value <= (authStore.userBalance || 0)
 })
 
-// Check if form is valid (without minimum balance check)
+// Check if form is valid
 const isFormValid = computed(() => {
     return isAmountValid.value && hasSufficientBalance.value && termsAccepted.value;
 })
@@ -97,42 +96,10 @@ watch(amount, (newValue) => {
     }
 })
 
-// Handle withdrawal - check minimum balance here
+// Handle withdrawal
 const handleWithdraw = async () => {
-    // Clear any existing error messages
-    errorMessage.value = '';
-    
-    // Check minimum balance requirement first
-    const userBalance = authStore.userBalance || 0;
-    if (userBalance < minBalanceRequired) {
-        showMinimumBalanceModal.value = true;
-        return;
-    }
-    
-    // Check if form is valid
-    if (!isFormValid.value) {
-        if (!isAmountValid.value) {
-            if (!amount.value) {
-                errorMessage.value = 'Please enter an amount';
-            } else if (Number(amount.value) < minWithdraw) {
-                errorMessage.value = `Minimum withdrawal amount is ${minWithdraw.toLocaleString()} TSh`;
-            } else if (Number(amount.value) > maxWithdraw) {
-                errorMessage.value = `Maximum withdrawal amount is ${maxWithdraw.toLocaleString()} TSh`;
-            }
-        } else if (!hasSufficientBalance.value) {
-            errorMessage.value = `Insufficient balance. Your balance is ${formatBalance(authStore.userBalance)}`;
-        } else if (!termsAccepted.value) {
-            errorMessage.value = 'Please confirm the withdrawal details are correct';
-        }
-        return;
-    }
-    
+    if (!isFormValid.value) return;
     showConfirmation.value = true;
-}
-
-// Close minimum balance modal
-const closeMinimumBalanceModal = () => {
-    showMinimumBalanceModal.value = false;
 }
 
 // Clear processing state
@@ -154,29 +121,39 @@ const confirmWithdrawal = async () => {
     showConfirmation.value = false;
     
     try {
+        // Send withdrawal request to backend
         const response = await api.post('/auth/withdraw', { 
             amount: numericAmount.value,
             payment_method: selectedPaymentMethod.value
         });
         
+        // Show processing message
         isProcessing.value = true;
         transactionStatus.value = 'processing';
         successMessage.value = 'Withdrawal request received! Processing your transaction...';
         
         console.log('Withdrawal initiated:', response.data);
         
+        // Simulate processing (in real app, you'd check status from backend)
         processingTimeout = setTimeout(() => {
+            // This would be replaced with actual status check from backend
             isProcessing.value = false;
+            
+            // Update user balance after successful withdrawal
             authStore.fetchUserBalance();
+            
             successMessage.value = `✅ Withdrawal successful! ${formatBalance(numericAmount.value)} has been sent to your ${selectedPaymentMethod.toUpperCase()} account.`;
+            
+            // Clear form
             amount.value = null;
             termsAccepted.value = false;
             
+            // Auto hide success message after 5 seconds
             setTimeout(() => {
                 successMessage.value = '';
             }, 5000);
             
-        }, 5000);
+        }, 5000); // Simulate 5 second processing
         
     } catch (error) {
         console.error('Withdrawal failed:', error);
@@ -206,7 +183,10 @@ onUnmounted(() => {
 
 <template>
     <div class="h-full p-5 flex items-center justify-center">
-        <div class="w-full">
+        <div class=" w-full ">
+            
+
+            <!-- Main Content -->
             <div class="bg-white rounded-2xl p-3 shadow-2xl">
                 <!-- Balance Card -->
                 <div class="bg-gradient-to-br from-sky-400 to-teal-600 rounded-xl p-2 flex flex-col items-center justify-center mb-2 text-white">
@@ -241,7 +221,7 @@ onUnmounted(() => {
 
                 <!-- Payment Methods -->
                 <div class="mb-6">
-                    <h3 class="font-semibold text-sm text-gray-800 mb-2">Withdraw To</h3>
+                    <h3 class=" font-semibold text-sm text-gray-800 mb-2">Withdraw To</h3>
                     <div class="grid grid-cols-4 gap-3">
                         <button 
                             class="flex flex-col items-center gap-2 p-1 bg-gray-100 border-2 border-transparent rounded-xl cursor-pointer transition-all hover:bg-gray-200"
@@ -446,44 +426,11 @@ onUnmounted(() => {
                 </div>
             </div>
         </transition>
-
-        <!-- Minimum Balance Required Modal -->
-        <transition name="modal">
-            <div v-if="showMinimumBalanceModal" class="fixed inset-0 bg-black/50 flex items-center justify-center z-[1000] backdrop-blur-sm" @click="closeMinimumBalanceModal">
-                <div class="bg-white rounded-2xl p-6 max-w-[400px] w-[90%] shadow-2xl" @click.stop>
-                    <div class="text-center">
-                        <!-- Warning Icon -->
-                        <div class="mx-auto mb-4 w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center">
-                            <svg class="w-10 h-10 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
-                            </svg>
-                        </div>
-                        
-                        <!-- Title -->
-                        <h3 class="text-xl font-bold text-gray-800 mb-2">Minimum Balance Required</h3>
-                        
-                        <!-- Message -->
-                        <p class="text-gray-600 mb-6">
-                            You need a minimum balance of {{ formatBalance(minBalanceRequired) }} to withdraw.
-                            <br>
-                            <span class="font-semibold text-gray-800">Your current balance is {{ formatBalance(authStore.userBalance) }}.</span>
-                        </p>
-                        
-                        <!-- Action Button -->
-                        <button 
-                            class="w-full p-3 bg-gradient-to-br from-orange-500 to-red-600 rounded-xl text-white font-semibold cursor-pointer transition-all hover:translate-y-[-2px] hover:shadow-lg"
-                            @click="closeMinimumBalanceModal"
-                        >
-                            Got It
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </transition>
     </div>
 </template>
 
 <style scoped>
+/* Animations */
 .fade-enter-active,
 .fade-leave-active {
     transition: opacity 0.3s ease;
@@ -516,6 +463,7 @@ onUnmounted(() => {
     transform: scale(0.9);
 }
 
+/* Custom animations */
 @keyframes spin {
     to { transform: rotate(360deg); }
 }

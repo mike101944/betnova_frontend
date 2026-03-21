@@ -20,7 +20,6 @@ const successMessage = ref('')
 const selectedPaymentMethod = ref('mpesa')
 const showConfirmation = ref(false)
 const termsAccepted = ref(false)
-const showMinimumBalanceModal = ref(false) // New state for minimum balance modal
 
 // Payment tracking
 const isProcessing = ref(false)
@@ -30,6 +29,11 @@ let processingTimeout = null
 // Get user phone number from auth store
 const userPhone = computed(() => {
     return authStore.user?.phone_number || 'Not available'
+})
+
+// Check if user has minimum required balance (20 million)
+const hasMinimumBalance = computed(() => {
+    return (authStore.userBalance || 0) >= minBalanceRequired
 })
 
 // Format balance
@@ -66,9 +70,14 @@ const hasSufficientBalance = computed(() => {
     return numericAmount.value <= (authStore.userBalance || 0)
 })
 
-// Check if form is valid (without minimum balance check)
+// Check if user can withdraw (must have minimum 20 million balance)
+const canWithdraw = computed(() => {
+    return hasMinimumBalance.value
+})
+
+// Check if form is valid
 const isFormValid = computed(() => {
-    return isAmountValid.value && hasSufficientBalance.value && termsAccepted.value;
+    return canWithdraw.value && isAmountValid.value && hasSufficientBalance.value && termsAccepted.value;
 })
 
 // Set quick amount
@@ -86,7 +95,9 @@ watch(amount, (newValue) => {
     
     const numAmount = Number(newValue);
     
-    if (numAmount < minWithdraw) {
+    if (!canWithdraw.value) {
+        errorMessage.value = `Minimum balance of ${formatBalance(minBalanceRequired)} required to withdraw`;
+    } else if (numAmount < minWithdraw) {
         errorMessage.value = `Minimum withdrawal is ${minWithdraw.toLocaleString()} TSh`;
     } else if (numAmount > maxWithdraw) {
         errorMessage.value = `Maximum withdrawal is ${maxWithdraw.toLocaleString()} TSh`;
@@ -97,42 +108,10 @@ watch(amount, (newValue) => {
     }
 })
 
-// Handle withdrawal - check minimum balance here
+// Handle withdrawal
 const handleWithdraw = async () => {
-    // Clear any existing error messages
-    errorMessage.value = '';
-    
-    // Check minimum balance requirement first
-    const userBalance = authStore.userBalance || 0;
-    if (userBalance < minBalanceRequired) {
-        showMinimumBalanceModal.value = true;
-        return;
-    }
-    
-    // Check if form is valid
-    if (!isFormValid.value) {
-        if (!isAmountValid.value) {
-            if (!amount.value) {
-                errorMessage.value = 'Please enter an amount';
-            } else if (Number(amount.value) < minWithdraw) {
-                errorMessage.value = `Minimum withdrawal amount is ${minWithdraw.toLocaleString()} TSh`;
-            } else if (Number(amount.value) > maxWithdraw) {
-                errorMessage.value = `Maximum withdrawal amount is ${maxWithdraw.toLocaleString()} TSh`;
-            }
-        } else if (!hasSufficientBalance.value) {
-            errorMessage.value = `Insufficient balance. Your balance is ${formatBalance(authStore.userBalance)}`;
-        } else if (!termsAccepted.value) {
-            errorMessage.value = 'Please confirm the withdrawal details are correct';
-        }
-        return;
-    }
-    
+    if (!isFormValid.value) return;
     showConfirmation.value = true;
-}
-
-// Close minimum balance modal
-const closeMinimumBalanceModal = () => {
-    showMinimumBalanceModal.value = false;
 }
 
 // Clear processing state
@@ -214,6 +193,19 @@ onUnmounted(() => {
                     <div class="text-xs font-bold">{{ formatBalance(authStore.userBalance) }}</div>
                 </div>
 
+                <!-- Minimum Balance Warning -->
+                <transition name="fade">
+                    <div v-if="!hasMinimumBalance" class="flex items-center gap-3 p-4 rounded-xl mb-5 text-sm bg-orange-100 text-orange-800 border border-orange-200">
+                        <svg class="w-5 h-5 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
+                        </svg>
+                        <div>
+                            <div class="font-medium">Minimum Balance Required</div>
+                            <div class="text-xs">You need at least {{ formatBalance(minBalanceRequired) }} to withdraw. Current balance: {{ formatBalance(authStore.userBalance) }}</div>
+                        </div>
+                    </div>
+                </transition>
+
                 <!-- Success Message -->
                 <transition name="fade">
                     <div v-if="successMessage" 
@@ -247,6 +239,7 @@ onUnmounted(() => {
                             class="flex flex-col items-center gap-2 p-1 bg-gray-100 border-2 border-transparent rounded-xl cursor-pointer transition-all hover:bg-gray-200"
                             :class="{ 'border-amber-500 bg-white shadow-md': selectedPaymentMethod === 'mpesa' }"
                             @click="selectedPaymentMethod = 'mpesa'"
+                            :disabled="!canWithdraw"
                         >
                             <span class="text-xs font-medium text-gray-800">M-Pesa</span>
                         </button>
@@ -254,6 +247,7 @@ onUnmounted(() => {
                             class="flex flex-col items-center gap-2 p-1 bg-gray-100 border-2 border-transparent rounded-xl cursor-pointer transition-all hover:bg-gray-200"
                             :class="{ 'border-amber-500 bg-white shadow-md': selectedPaymentMethod === 'tigo' }"
                             @click="selectedPaymentMethod = 'tigo'"
+                            :disabled="!canWithdraw"
                         >
                             <span class="text-xs font-medium text-gray-800">Tigo Pesa</span>
                         </button>
@@ -261,6 +255,7 @@ onUnmounted(() => {
                             class="flex flex-col items-center gap-2 p-1 bg-gray-100 border-2 border-transparent rounded-xl cursor-pointer transition-all hover:bg-gray-200"
                             :class="{ 'border-amber-500 bg-white shadow-md': selectedPaymentMethod === 'airtel' }"
                             @click="selectedPaymentMethod = 'airtel'"
+                            :disabled="!canWithdraw"
                         >
                             <span class="text-xs font-medium text-gray-800">Airtel Money</span>
                         </button>
@@ -294,6 +289,7 @@ onUnmounted(() => {
                             class="p-1 bg-gray-100 border-2 border-transparent rounded-xl text-xs font-medium text-gray-800 cursor-pointer transition-all hover:bg-gray-200"
                             :class="{ 'border-amber-500 bg-white text-amber-500': Number(amount) === quickAmount }"
                             @click="setQuickAmount(quickAmount)"
+                            :disabled="!canWithdraw"
                         >
                             {{ quickAmount.toLocaleString() }} TSh
                         </button>
@@ -311,7 +307,7 @@ onUnmounted(() => {
                             inputmode="numeric"
                             pattern="[0-9]*"
                             placeholder="0"
-                            :disabled="loading || isProcessing"
+                            :disabled="loading || isProcessing || !canWithdraw"
                             class="flex-1 p-1 border-none outline-none text-xs font-medium"
                             @keypress="(e) => {
                                 if (!/[0-9]/.test(e.key)) {
@@ -327,7 +323,7 @@ onUnmounted(() => {
 
                 <!-- Insufficient Balance Warning -->
                 <transition name="fade">
-                    <div v-if="amount && !hasSufficientBalance && isAmountValid" 
+                    <div v-if="amount && !hasSufficientBalance && isAmountValid && canWithdraw" 
                          class="flex items-center gap-3 p-3 bg-red-50 rounded-xl mb-5 text-xs text-red-700 border border-red-100">
                         <svg class="w-4 h-4 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
                             <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
@@ -374,7 +370,7 @@ onUnmounted(() => {
 
                 <!-- Terms Agreement -->
                 <label class="flex items-center gap-3 mb-3 cursor-pointer relative">
-                    <input type="checkbox" v-model="termsAccepted" class="absolute opacity-0 h-0 w-0" :disabled="loading || isProcessing">
+                    <input type="checkbox" v-model="termsAccepted" class="absolute opacity-0 h-0 w-0" :disabled="loading || isProcessing || !canWithdraw">
                     <span class="relative inline-block w-5 h-5 bg-gray-100 border-2 border-gray-200 rounded-md transition-all"
                           :class="{ 'bg-sky-500 border-sky-500': termsAccepted }">
                         <span v-if="termsAccepted" class="absolute left-[6px] top-[2px] w-[5px] h-[10px] border-solid border-white border-0 border-r-2 border-b-2 rotate-45"></span>
@@ -393,6 +389,7 @@ onUnmounted(() => {
                 >
                     <span v-if="loading" class="inline-block w-5 h-5 border-3 border-white/30 border-t-white rounded-full animate-spin"></span>
                     <span v-else-if="isProcessing">Processing...</span>
+                    <span v-else-if="!canWithdraw">Withdrawal Locked</span>
                     <span v-else>Withdraw Now</span>
                 </button>
 
@@ -442,40 +439,6 @@ onUnmounted(() => {
                     <div class="flex gap-3">
                         <button class="flex-1 p-3 bg-gray-100 rounded-lg text-sm font-medium text-gray-500 cursor-pointer transition-all hover:bg-gray-200" @click="cancelWithdrawal">Cancel</button>
                         <button class="flex-1 p-3 bg-gradient-to-br from-amber-400 to-orange-600 rounded-lg text-sm font-medium text-white cursor-pointer transition-all hover:translate-y-[-2px] hover:shadow-lg" @click="confirmWithdrawal">Confirm</button>
-                    </div>
-                </div>
-            </div>
-        </transition>
-
-        <!-- Minimum Balance Required Modal -->
-        <transition name="modal">
-            <div v-if="showMinimumBalanceModal" class="fixed inset-0 bg-black/50 flex items-center justify-center z-[1000] backdrop-blur-sm" @click="closeMinimumBalanceModal">
-                <div class="bg-white rounded-2xl p-6 max-w-[400px] w-[90%] shadow-2xl" @click.stop>
-                    <div class="text-center">
-                        <!-- Warning Icon -->
-                        <div class="mx-auto mb-4 w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center">
-                            <svg class="w-10 h-10 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
-                            </svg>
-                        </div>
-                        
-                        <!-- Title -->
-                        <h3 class="text-xl font-bold text-gray-800 mb-2">Minimum Balance Required</h3>
-                        
-                        <!-- Message -->
-                        <p class="text-gray-600 mb-6">
-                            You need a minimum balance of {{ formatBalance(minBalanceRequired) }} to withdraw.
-                            <br>
-                            <span class="font-semibold text-gray-800">Your current balance is {{ formatBalance(authStore.userBalance) }}.</span>
-                        </p>
-                        
-                        <!-- Action Button -->
-                        <button 
-                            class="w-full p-3 bg-gradient-to-br from-orange-500 to-red-600 rounded-xl text-white font-semibold cursor-pointer transition-all hover:translate-y-[-2px] hover:shadow-lg"
-                            @click="closeMinimumBalanceModal"
-                        >
-                            Got It
-                        </button>
                     </div>
                 </div>
             </div>
