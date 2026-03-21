@@ -34,9 +34,15 @@
         
         <!-- RouterView container -->
         <div class="flex-1 flex flex-col">
-          <router-view v-slot="{ Component }">
+          <!-- <router-view v-slot="{ Component }">
             <component :is="Component" class="flex-1 flex flex-col" />
-          </router-view>
+          </router-view> -->
+          <router-view v-slot="{ Component }">
+    <transition name="page" mode="out-in">
+      <component :is="Component" class="flex-1 flex flex-col" />
+    </transition>
+  </router-view>
+
         </div>
         <Footer />
       </aside>
@@ -126,6 +132,23 @@ aside {
 
 .no-scrollbar::-webkit-scrollbar {
   display: none;
+}
+
+
+/* Page transition animations */
+.page-enter-active,
+.page-leave-active {
+  transition: all 0.3s ease;
+}
+
+.page-enter-from {
+  opacity: 0;
+  transform: translateX(20px);
+}
+
+.page-leave-to {
+  opacity: 0;
+  transform: translateX(-20px);
 }
 
 </style>

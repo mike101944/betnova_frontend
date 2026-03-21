@@ -68,6 +68,7 @@ const handleAlertClose = () => {
 </script>
 
 <template>
+  <keep-alive>
   <div class="header">
     <!-- Custom Alert Component -->
     <CustomAlert 
@@ -259,6 +260,7 @@ const handleAlertClose = () => {
       </div>
     </div>
   </div>
+   </keep-alive>
 </template>
 
 <style scoped>
