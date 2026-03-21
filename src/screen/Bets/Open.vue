@@ -67,10 +67,20 @@ const totalStake = computed(() => {
 const totalPotentialReturn = computed(() => {
   return openBets.value.reduce((sum, bet) => sum + Number(bet.potentialReturn || 0), 0)
 })
+
+
+const formatBalance = (amount) => {
+  return new Intl.NumberFormat('sw-TZ', {
+    style: 'currency',
+    currency: 'TZS',
+    minimumFractionDigits: 2,  // Change this
+    maximumFractionDigits: 2   // Change this
+  }).format(amount || 0)
+}
 </script>
 
 <template>
-  <div class="bets-list-container px-4 py-4 max-w-3xl mx-auto">
+  <div class="bets-list-container px-4 py-4 bg-red-500 max-w-3xl mx-auto">
     <!-- LOADER -->
     <div v-if="isLoading" class="flex justify-center items-center h-96">
       <div class="relative">
@@ -160,7 +170,8 @@ const totalPotentialReturn = computed(() => {
                 </div>
                 <div class="gap-1 flex items-center rounded-lg  ">
                   <span class="text-xs font-bold text-gray-900">TSh:</span>
-                  <span class="text-xs font-bold text-gray-900 ">{{ Number(bet.stake).toLocaleString() }}</span>
+                  <!-- <span class="text-xs font-bold text-gray-900 ">{{ Number(bet.stake).toLocaleString() }}</span> -->
+                  <span class="text-xs font-bold text-gray-900 ">{{formatBalance(bet.stake)  }}</span>
                 </div>
 
               </div>
@@ -184,7 +195,7 @@ const totalPotentialReturn = computed(() => {
                 </div>
                 <div class=" rounded-lg gap-1 flex items-center">
                   <span class="text-sm font-medium text-green-600">TSh:</span>
-                  <span class="text-xs font-bold text-green-700 ">{{ Number(bet.potentialReturn).toLocaleString() }}</span>
+                  <span class="text-xs font-bold text-green-700 ">{{ formatBalance(bet.potentialReturn)  }}</span>
                 </div>
               </div>
 

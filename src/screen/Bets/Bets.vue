@@ -43,7 +43,7 @@ const openBetsCount = computed(() => {
 </script>
 
 <template>
-  <div class="my-bets-page w-full mx-auto pb-2.5 bg-inherit text-gray-700 relative">
+  <div class="my-bets-page w-full mx-auto pb-2.5 bg-transparent text-gray-700 relative">
     <div class="my-bets bg-white">
       <div class="tabs relative w-full">
         <!-- Tabs Menu -->
