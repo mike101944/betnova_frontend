@@ -127,10 +127,10 @@ const formatBalance = (amount) => {
           v-for="bet in settledBets" 
           :key="bet.id"
           @click="goToBetDetails(bet)"
-          class="group bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 overflow-hidden"
+          class="group  rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 overflow-hidden"
         >
           <!-- Header with Gradient -->
-          <div class="bg-gradient-to-r from-gray-50 to-white px-2  py-2 border-b border-gray-100">
+          <div class="bg-gradient-to-r from-sky-800 to-sky-950/40 px-2  py-2 border-b border-gray-100">
 
             <div class="flex justify-between items-center bg-transparent mb-1"> 
                 <div class="flex gap-2 flex-row items-center justify-center rounded-[14px] bg-emerald-700 px-2 py-1">
@@ -149,9 +149,9 @@ const formatBalance = (amount) => {
 
 
             <div class="flex items-center space-x-2 py-1">
-                    <span class="text-sm font-medium text-gray-900">{{ formatBetDate(bet.createdAt).time }}</span>
-                    <span class="text-xs text-gray-400">•</span>
-                    <span class="text-sm text-gray-600">{{ formatBetDate(bet.createdAt).date }}</span>
+                    <span class="text-sm font-medium text-amber-400">{{ formatBetDate(bet.createdAt).time }}</span>
+                    <span class="text-xs text-gray-100">•</span>
+                    <span class="text-xs text-gray-100">{{ formatBetDate(bet.createdAt).date }}</span>
             </div>
           </div>
           <!-- Main Content -->
@@ -162,11 +162,11 @@ const formatBalance = (amount) => {
               <div class="flex flex-col">
                 <div class="flex items-center ">
                   <CurrencyDollarIcon class="w-4 h-4 text-gray-400 mr-1" />
-                  <span class="text-xs font-medium text-gray-500 uppercase tracking-wider">Stake</span>
+                  <span class="text-xs font-medium text-gray-400 uppercase tracking-wider">Stake</span>
                 </div>
                 <div class="gap-1 flex items-center rounded-lg  ">
-                  <span class="text-xs font-bold text-gray-900">TSh:</span>
-                  <span class="text-xs font-bold text-gray-900 ">{{ formatBalance(bet.stake) }}</span>
+                  <span class="text-xs font-bold text-amber-700">TSh:</span>
+                  <span class="text-xs font-bold text-amber-700 ">{{ formatBalance(bet.stake) }}</span>
                 </div>
               </div>
 

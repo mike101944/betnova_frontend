@@ -44,7 +44,7 @@ const openBetsCount = computed(() => {
 
 <template>
   <div class="my-bets-page w-full mx-auto pb-2.5 bg-transparent text-gray-700 relative">
-    <div class="my-bets bg-white">
+    <div class="my-bets">
       <div class="tabs relative w-full">
         <!-- Tabs Menu -->
         <ul class="tabs-menu flex list-none select-none border-t border-gray-200">
@@ -56,7 +56,7 @@ const openBetsCount = computed(() => {
               'border-l': true,
               'tabs-selector': true
             }" 
-            class="flex-1 overflow-hidden cursor-pointer  py-4 bg-white first:border-l-0 not-last:border-r-0"
+            class="flex-1 overflow-hidden cursor-pointer  py-4 bg-sky-950 first:border-l-0 not-last:border-r-0"
             data-test-id="tabs-pending"
           >
             <div class="tab-item h-full ">
@@ -114,7 +114,7 @@ const openBetsCount = computed(() => {
               'border-r-0': true,
               'tabs-selector': true
             }" 
-            class="flex-1 overflow-hidden cursor-pointer bg-white"
+            class="flex-1 overflow-hidden cursor-pointer bg-transparent"
             data-test-id="tabs-virtual"
           >
             <div class="tab-item h-full">
