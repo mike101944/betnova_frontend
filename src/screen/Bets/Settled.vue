@@ -94,7 +94,7 @@ const formatBalance = (amount) => {
 </script>
 
 <template>
-  <div class="bets-list-container px-4 py-4 max-w-3xl mx-auto">
+  <div class="bets-list-container px-2 py-4 max-w-3xl mx-auto">
     <!-- LOADER -->
     <div v-if="isLoading" class="flex justify-center items-center h-96">
       <div class="relative">
@@ -127,10 +127,10 @@ const formatBalance = (amount) => {
           v-for="bet in settledBets" 
           :key="bet.id"
           @click="goToBetDetails(bet)"
-          class="group  rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 overflow-hidden"
+          class="group shadow-sky-700 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 overflow-hidden"
         >
           <!-- Header with Gradient -->
-          <div class="bg-gradient-to-r from-sky-800 to-sky-950/40 px-2  py-2 border-b border-gray-100">
+          <div class="bg-gradient-to-r from-sky-700 to-sky-950/40 px-2  py-2 border-b border-gray-100">
 
             <div class="flex justify-between items-center bg-transparent mb-1"> 
                 <div class="flex gap-2 flex-row items-center justify-center rounded-[14px] bg-emerald-700 px-2 py-1">
@@ -165,8 +165,8 @@ const formatBalance = (amount) => {
                   <span class="text-xs font-medium text-gray-400 uppercase tracking-wider">Stake</span>
                 </div>
                 <div class="gap-1 flex items-center rounded-lg  ">
-                  <span class="text-xs font-bold text-amber-700">TSh:</span>
-                  <span class="text-xs font-bold text-amber-700 ">{{ formatBalance(bet.stake) }}</span>
+                  <span class="text-xs font-bold text-amber-600">TSh:</span>
+                  <span class="text-xs font-bold text-amber-600 ">{{ formatBalance(bet.stake) }}</span>
                 </div>
               </div>
 
@@ -174,7 +174,7 @@ const formatBalance = (amount) => {
               <div class="flex flex-col">
                 <div class="flex items-center ">
                   <ArrowTrendingUpIcon class="w-4 h-4 text-gray-400 mr-1" />
-                  <span class="text-xs font-medium text-gray-500 uppercase tracking-wider">Odds</span>
+                  <span class="text-xs font-medium text-gray-400 uppercase tracking-wider">Odds</span>
                 </div>
                 <div class="rounded-lg ">
                   <span class="text-xs font-bold text-yellow-700">{{ Number(bet.totalOdds).toFixed(2) }}</span>
@@ -185,7 +185,7 @@ const formatBalance = (amount) => {
               <div class="flex flex-col">
                 <div class="flex items-center ">
                   <BanknotesIcon class="w-4 h-4 text-gray-400 mr-1" />  
-                  <span class="text-xs font-medium text-gray-500 uppercase tracking-wider">Payout</span>
+                  <span class="text-xs font-medium text-gray-400 uppercase tracking-wider">Payout</span>
                 </div>
                 <div class=" rounded-lg gap-1 flex items-center">
                   <span class="text-sm font-medium text-green-600">TSh:</span>

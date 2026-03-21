@@ -80,7 +80,7 @@ const formatBalance = (amount) => {
 </script>
 
 <template>
-  <div class="bets-list-container px-4 py-4 bg-transparent max-w-3xl mx-auto">
+  <div class="bets-list-container px-2 py-4 bg-transparent max-w-3xl mx-auto">
     <!-- LOADER -->
     <div v-if="isLoading" class="flex justify-center items-center h-96">
       <div class="relative">
@@ -169,9 +169,9 @@ const formatBalance = (amount) => {
                   <span class="text-xs font-medium text-gray-400 uppercase tracking-wider">Stake</span>
                 </div>
                 <div class="gap-1 flex items-center rounded-lg  ">
-                  <span class="text-xs font-bold text-amber-700">TSh:</span>
+                  <span class="text-xs font-bold text-amber-600">TSh:</span>
                   <!-- <span class="text-xs font-bold text-gray-900 ">{{ Number(bet.stake).toLocaleString() }}</span> -->
-                  <span class="text-xs font-bold text-amber-700 ">{{formatBalance(bet.stake)  }}</span>
+                  <span class="text-xs font-bold text-amber-600 ">{{formatBalance(bet.stake)  }}</span>
                 </div>
 
               </div>
@@ -180,7 +180,7 @@ const formatBalance = (amount) => {
               <div class="flex flex-col">
                 <div class="flex items-center ">
                   <ArrowTrendingUpIcon class="w-4 h-4 text-gray-400 mr-1" />
-                  <span class="text-xs font-medium text-gray-500 uppercase tracking-wider">Odds</span>
+                  <span class="text-xs font-medium text-gray-400 uppercase tracking-wider">Odds</span>
                 </div>
                 <div class="rounded-xs ">
                   <span class="text-xs font-bold text-yellow-700">{{ Number(bet.totalOdds).toFixed(2) }}</span>
@@ -191,7 +191,7 @@ const formatBalance = (amount) => {
               <div class="flex flex-col">
                 <div class="flex items-center ">
                   <BanknotesIcon class="w-4 h-4 text-gray-400 mr-1" />  
-                  <span class="text-xs font-medium text-gray-500 uppercase tracking-wider">Payout</span>
+                  <span class="text-xs font-medium text-gray-400 uppercase tracking-wider">Payout</span>
                 </div>
                 <div class=" rounded-lg gap-1 flex items-center">
                   <span class="text-sm font-medium text-green-600">TSh:</span>
