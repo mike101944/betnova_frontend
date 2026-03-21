@@ -1,5 +1,6 @@
 <script setup>
 import { ref, computed, onUnmounted, watch } from 'vue';
+import { useRouter } from 'vue-router';
 import { useAuthStore } from '../../store/authStore'
 import api from '../../services/api'
 
@@ -13,6 +14,7 @@ const quickAmounts = [10000, 20000, 50000, 100000, 200000, 500000];
 
 // State
 const authStore = useAuthStore()
+const router = useRouter()
 const amount = ref(null)
 const loading = ref(false)
 const errorMessage = ref('')
@@ -49,6 +51,15 @@ const formattedPhone = computed(() => {
         return phone.replace(/(\d{3})(\d{3})(\d{3})/, '+255 $1 $2 $3')
     }
     return phone
+})
+
+// Calculate amount needed to reach minimum balance
+const amountNeeded = computed(() => {
+    const userBalance = authStore.userBalance || 0
+    if (userBalance < minBalanceRequired) {
+        return minBalanceRequired - userBalance
+    }
+    return 0
 })
 
 // Validate amount
@@ -133,6 +144,12 @@ const handleWithdraw = async () => {
 // Close minimum balance modal
 const closeMinimumBalanceModal = () => {
     showMinimumBalanceModal.value = false;
+}
+
+// Navigate to deposit page
+const goToDeposit = () => {
+    showMinimumBalanceModal.value = false;
+    router.push('/deposite');
 }
 
 // Clear processing state
@@ -463,19 +480,29 @@ onUnmounted(() => {
                         <h3 class="text-xl font-bold text-gray-800 mb-2">Minimum Balance Required</h3>
                         
                         <!-- Message -->
-                        <p class="text-gray-600 mb-6">
-                            You need a minimum balance of {{ formatBalance(minBalanceRequired) }} to withdraw.
-                            <br>
-                            <span class="font-semibold text-gray-800">Your current balance is {{ formatBalance(authStore.userBalance) }}.</span>
-                        </p>
+                        <div class="text-gray-600 mb-4">
+                            <p class="mb-2">You need a minimum balance of {{ formatBalance(minBalanceRequired) }} to withdraw.</p>
+                            <p class="mb-2">Your current balance is <span class="font-semibold text-gray-800">{{ formatBalance(authStore.userBalance) }}</span>.</p>
+                            <p class="text-orange-600 font-semibold mt-3">
+                                Deposit {{ formatBalance(amountNeeded) }} more to reach the minimum withdrawal requirement.
+                            </p>
+                        </div>
                         
-                        <!-- Action Button -->
-                        <button 
-                            class="w-full p-3 bg-gradient-to-br from-orange-500 to-red-600 rounded-xl text-white font-semibold cursor-pointer transition-all hover:translate-y-[-2px] hover:shadow-lg"
-                            @click="closeMinimumBalanceModal"
-                        >
-                            Got It
-                        </button>
+                        <!-- Action Buttons -->
+                        <div class="flex gap-3">
+                            <button 
+                                class="flex-1 p-3 bg-gray-100 rounded-xl text-gray-700 font-semibold cursor-pointer transition-all hover:bg-gray-200"
+                                @click="closeMinimumBalanceModal"
+                            >
+                                Cancel
+                            </button>
+                            <button 
+                                class="flex-1 p-3 bg-gradient-to-br from-orange-500 to-red-600 rounded-xl text-white font-semibold cursor-pointer transition-all hover:translate-y-[-2px] hover:shadow-lg"
+                                @click="goToDeposit"
+                            >
+                                Add Now
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
