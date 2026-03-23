@@ -106,7 +106,7 @@ const formatBalance = (amount) => {
 
     <div v-else>
       <!-- HAS DATA -->
-      <section v-if="hasData" class="space-y-4 ">
+      <section v-if="hasData" class="space-y-4  ">
         <!-- Stats Summary -->
         <!-- <div class="grid grid-cols-3 gap-3 mb-6">
           <div class="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-4 text-center">
@@ -130,7 +130,7 @@ const formatBalance = (amount) => {
           class="group rounded-2xl shadow-lg opacity-50 bg-[#f4f5f0] shadow-sky-700 cursor-pointer  transition-all duration-300  border border-gray-200 overflow-hidden"
         >
           <!-- Header with Gradient -->
-          <div class="bg-sky-900 px-2  py-2 border-b border-gray-100">
+          <div class=" px-2  py-2 border-b border-gray-100">
 
             <div class="flex justify-between items-center bg-transparent mb-1"> 
 
@@ -159,7 +159,7 @@ const formatBalance = (amount) => {
          
 
           <!-- Main Content -->
-          <div class="px-2 py-2">
+          <div class="px-2 py-2 ">
             <!-- Stats Grid -->
             <div class="flex flex-row items-center justify-between">
               <!-- Stake -->
