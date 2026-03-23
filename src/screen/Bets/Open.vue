@@ -162,21 +162,21 @@ const formatBalance = (amount) => {
           <div class="px-2 py-2 ">
             <!-- Stats Grid -->
             <div class="flex flex-row items-center justify-between">
-              <!-- Stake -->
+             
+
+              <!-- STake -->
               <div class="flex flex-col">
                 <div class="flex items-center ">
                   <CurrencyDollarIcon class="w-4 h-4 text-gray-400 mr-1" />
                   <span class="text-xs font-medium text-gray-400 uppercase tracking-wider">Stake</span>
                 </div>
-                <div class="gap-1 flex items-center rounded-lg  ">
-                  <!-- <span class="text-xs font-bold text-amber-600">TSh:</span> -->
-                  <!-- <span class="text-xs font-bold text-gray-900 ">{{ Number(bet.stake).toLocaleString() }}</span> -->
-                  <span class="text-xs font-bold text-gray-600 ">{{formatBalance(bet.stake)  }}</span>
+                <div class="rounded-xs ">
+                  <span class="text-xs font-bold text-gray-600">{{formatBalance(bet.stake)  }}</span>
                 </div>
-
               </div>
 
-              <!-- Odds -->
+
+                <!-- Odds -->
               <div class="flex flex-col">
                 <div class="flex items-center ">
                   <ArrowTrendingUpIcon class="w-4 h-4 text-gray-400 mr-1" />
@@ -188,14 +188,14 @@ const formatBalance = (amount) => {
               </div>
 
               <!-- Potential Win -->
+
               <div class="flex flex-col">
                 <div class="flex items-center ">
-                  <BanknotesIcon class="w-4 h-4 text-gray-400 mr-1" />  
-                  <span class="text-xs font-medium text-gray-400 uppercase tracking-wider">Payout</span>
+                  <BanknotesIcon class="w-4 h-4 text-gray-400 mr-1" /> 
+                  <span class="text-xs font-medium text-gray-400 uppercase tracking-wider">Odds</span>
                 </div>
-                <div class=" rounded-lg gap-1 flex items-center">
-                  <!-- <span class="text-sm font-medium text-green-600">TSh:</span> -->
-                  <span class="text-xs font-bold text-gray-600 ">{{ formatBalance(bet.potentialReturn)  }}</span>
+                <div class="rounded-xs ">
+                  <span class="text-xs font-bold text-gray-600">{{ formatBalance(bet.potentialReturn)  }}</span>
                 </div>
               </div>
 
