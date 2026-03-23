@@ -130,7 +130,7 @@ const formatBalance = (amount) => {
           class="group rounded-2xl shadow-lg  shadow-sky-700 cursor-pointer  transition-all duration-300 border border-gray-200 overflow-hidden"
         >
           <!-- Header with Gradient -->
-          <div class=" bg-[#f4f5f0]  px-2  py-2 border-b border-gray-100">
+          <div class="bg-gradient-to-r from-sky-700 to-sky-950/40 px-2  py-2 border-b border-gray-100">
 
             <div class="flex justify-between items-center bg-transparent mb-1"> 
 
@@ -149,7 +149,7 @@ const formatBalance = (amount) => {
             </div>
 
 
-            <div class="flex items-center  space-x-2 py-1">
+            <div class="flex items-center space-x-2 py-1">
                     <span class="text-sm font-medium text-amber-400">{{ formatBetDate(bet.createdAt).time }}</span>
                     <span class="text-xs text-gray-100">•</span>
                     <span class="text-xs text-gray-100">{{ formatBetDate(bet.createdAt).date }}</span>
@@ -159,7 +159,7 @@ const formatBalance = (amount) => {
          
 
           <!-- Main Content -->
-          <div class="px-2 py-2 bg-[#f4f5f0] opacity-90 border-t border-amber-50">
+          <div class="px-2 py-2">
             <!-- Stats Grid -->
             <div class="flex flex-row items-center justify-between">
               <!-- Stake -->
