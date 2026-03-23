@@ -31,12 +31,22 @@ export function useBets() {
   })
   
   // Format currency
+  // const formatCurrency = (amount) => {
+  //   return new Intl.NumberFormat('sw-TZ', {
+  //     style: 'currency',
+  //     currency: 'TZS',
+  //     minimumFractionDigits: 0,
+  //     maximumFractionDigits: 0
+  //   }).format(amount || 0)
+  // }
+
+
   const formatCurrency = (amount) => {
     return new Intl.NumberFormat('sw-TZ', {
       style: 'currency',
       currency: 'TZS',
-      minimumFractionDigits: 0,
-      maximumFractionDigits: 0
+      minimumFractionDigits: 2,  // Change this
+      maximumFractionDigits: 2   // Change this
     }).format(amount || 0)
   }
   
