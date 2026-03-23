@@ -251,7 +251,7 @@ body {
 }
 
 .tabs-selector.active {
-  @apply bg-gradient-to-b from-sky-400 to-teal-800 font-bold border-b-2 border-emerald-700 text-amber-50;
+  @apply bg-[#f4f5f0] opacity-70 font-bold border-b-2 border-emerald-700 text-gray-500;
 }
 
 .tabs-selector.active .tab-text {
@@ -268,7 +268,7 @@ body {
 }
 
 .tabs-selector:not(.active) {
-  @apply bg-gradient-to-b from-sky-950 to-teal-700 border-b border-white text-amber-400;
+  @apply bg-sky-900 border-b border-white text-amber-400;
 }
 
 
