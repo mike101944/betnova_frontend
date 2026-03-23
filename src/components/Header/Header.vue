@@ -174,7 +174,7 @@ const handleAlertClose = () => {
 
     <!-- Bottom Tabs Navigation -->
     <div class="relative">
-      <div class="bg-[#353b40] overflow-hidden">
+      <div class="bg-white overflow-hidden">
         <ul class="flex overflow-x-auto scrollbar-hide [-ms-overflow-style:none] [scrollbar-width:none]">
           <!-- Home -->
           <li class="flex-1 min-w-fit px-3 py-2.5 text-[#aaaeb0] border-b-2 border-transparent hover:text-[#0AF0B5] hover:border-[#0AF0B5] transition-colors cursor-pointer"
