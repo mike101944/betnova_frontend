@@ -150,7 +150,7 @@ const formatBalance = (amount) => {
 
 
             <div class="flex items-center space-x-2 py-1">
-                    <span class="text-sm font-medium text-gray-400">{{ formatBetDate(bet.createdAt).time }}</span>
+                    <span class="text-xs font-medium text-gray-400">{{ formatBetDate(bet.createdAt).time }}</span>
                     <span class="text-xs text-gray-400">•</span>
                     <span class="text-xs text-gray-600">{{ formatBetDate(bet.createdAt).date }}</span>
             </div>
@@ -195,7 +195,7 @@ const formatBalance = (amount) => {
                 </div>
                 <div class=" rounded-lg gap-1 flex items-center">
                   <!-- <span class="text-sm font-medium text-green-600">TSh:</span> -->
-                  <span class="text-xs font-bold text-green-700 ">{{ formatBalance(bet.potentialReturn)  }}</span>
+                  <span class="text-xs font-bold text-gray-600 ">{{ formatBalance(bet.potentialReturn)  }}</span>
                 </div>
               </div>
 
