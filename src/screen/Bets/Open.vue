@@ -192,7 +192,7 @@ const formatBalance = (amount) => {
               <div class="flex flex-col">
                 <div class="flex items-center ">
                   <BanknotesIcon class="w-4 h-4 text-gray-400 mr-1" /> 
-                  <span class="text-xs font-medium text-gray-400 uppercase tracking-wider">Odds</span>
+                  <span class="text-xs font-medium text-gray-400 uppercase tracking-wider">payout</span>
                 </div>
                 <div class="rounded-xs ">
                   <span class="text-xs font-bold text-gray-600">{{ formatBalance(bet.potentialReturn)  }}</span>
