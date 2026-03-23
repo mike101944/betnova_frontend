@@ -1,10 +1,10 @@
 <template>
-  <div class="flex flex-col min-h-screen px-0 sm:px-0 md:px-12 lg:px-16 xl:px-48 2xl:px-48 bg-gray-700">
+  <div class="flex flex-col min-h-screen px-0 sm:px-0 md:px-12 lg:px-16 xl:px-48 2xl:px-48 bg-sky-950/90">
     <SvgIcon/>
     <Header />
     
     <!-- Main Content - Inachukua nafasi yote iliyobaki -->
-    <main class="flex-1 bg-white flex flex-row w-full min-h-0 relative">
+    <main class="flex-1 bg-transparent flex flex-row w-full min-h-0 relative">
 
 
       <Transition name="fade">

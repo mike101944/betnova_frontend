@@ -13,7 +13,7 @@ onMounted(() => {
 
 </script>
 <template>
-  <div data-v-fc0cbc39="" class="bg-sky-900" data-test-id="tag-CasinoCollection" data-test-class="cmsTag">
+  <div data-v-fc0cbc39="" class="bg-gray-100" data-test-id="tag-CasinoCollection" data-test-class="cmsTag">
     <div data-v-33cfb210="" class="content is-home-page ">
      
       <div data-v-33cfb210="">
