@@ -127,14 +127,14 @@ const formatBalance = (amount) => {
         <div 
           v-for="bet in openBets" 
           :key="bet.id"
-          class="group rounded-2xl shadow-lg opacity-50 bg-[#f4f5f0]  cursor-pointer  transition-all duration-300   overflow-hidden"
+          class="group rounded-2xl shadow-lg  bg-white cursor-pointer  transition-all duration-300   overflow-hidden"
         >
           <!-- Header with Gradient -->
           <div class=" px-2  py-2 border-b border-gray-100">
 
             <div class="flex justify-between items-center bg-transparent mb-1"> 
 
-                <div class="flex gap-2 flex-row items-center justify-center rounded-[14px] bg-yellow-700 px-2 py-1">
+                <div class="flex gap-2 flex-row items-center justify-center rounded-[14px] bg-amber-700 px-2 py-1">
                     <div class=" p-1 rounded-full bg-white flex items-center justify-center  ">
                       <CheckIcon class="w-3 h-3  text-emerald-600  font-bold" />
                     </div>
@@ -151,8 +151,8 @@ const formatBalance = (amount) => {
 
             <div class="flex items-center space-x-2 py-1">
                     <span class="text-sm font-medium text-amber-400">{{ formatBetDate(bet.createdAt).time }}</span>
-                    <span class="text-xs text-gray-100">•</span>
-                    <span class="text-xs text-gray-100">{{ formatBetDate(bet.createdAt).date }}</span>
+                    <span class="text-xs text-gray-400">•</span>
+                    <span class="text-xs text-gray-600">{{ formatBetDate(bet.createdAt).date }}</span>
             </div>
           </div>
 
