@@ -134,12 +134,12 @@ const formatBalance = (amount) => {
 
             <div class="flex justify-between items-center bg-transparent mb-1"> 
 
-                <div class="flex gap-2 flex-row items-center justify-center rounded-[14px] bg-amber-200/70 px-2 py-1">
+                <div class="flex gap-2 flex-row items-center justify-center rounded-[14px] bg-zinc-200/70 px-2 py-1">
                     <div class=" p-1 rounded-full bg-white flex items-center justify-center  ">
                       <CheckIcon class="w-3 h-3  text-emerald-600  font-bold" />
                     </div>
-                    <span  class="text-[10px] font-bold text-yellow-100">{{ (bet.result).toUpperCase() }}</span>
-                    <span class="text-xs font-bold text-amber-100">(2/2)</span>
+                    <span  class="text-[10px] font-bold text-gray-600">{{ (bet.result).toUpperCase() }}</span>
+                    <span class="text-xs font-bold text-gray-400">(2/2)</span>
                 </div>
                 <div class="flex flex-row items-center justify-center">
                         <span class="text-md text-gray-400 font-extrabold">ID:</span>
