@@ -112,10 +112,10 @@ watch(selectedBets, (newBets) => {
 </script>
 
 <template>
-  <div class="relative bg-white">
+  <div class="relative bg-sky-900">
     <!-- Category Header -->
-    <div class="bg-gray-200 p-3 relative cursor-pointer header-glow">
-  <h1 class="text-[22px] font-bold leading-[26px] pr-5 text-gray-800 flex items-center gap-2">
+    <div class="bg-sky-950 p-3 relative cursor-pointer header-glow">
+  <h1 class="text-[22px] font-bold leading-[26px] pr-5 text-amber-100 flex items-center gap-2">
     <span class="football-animate text-xl flex items-center justify-center">⚽</span>
     <span class="italic">Football</span>
   </h1>
@@ -134,22 +134,22 @@ watch(selectedBets, (newBets) => {
     <div
       v-for="game in games"
       :key="game.id"
-      class="border-b border-gray-200 p-3 "
+      class="border-b border-sky-950 p-3 "
     >
       <a :href="`/event/${game.eventId}`" class="block w-full cursor-pointer">
         <!-- Header -->
         <div class="flex justify-between items-center mb-1">
-          <span class="text-sm text-gray-500 font-normal">{{ game.time }}</span>
-          <span class="text-sm text-gray-500 font-bold">{{ game.date }}</span>
+          <span class="text-sm text-white/70 font-normal">{{ game.time }}</span>
+          <span class="text-sm text-white/70 font-bold">{{ game.date }}</span>
         </div>
 
         <!-- Teams -->
         <div class="flex flex-col gap-1 w-full ">
           <div class="flex items-center gap-1.5">
-            <span class="text-[14px] text-gray-700 font-bold">{{ game.homeTeam }}</span>
+            <span class="text-[14px] text-amber-200/70 font-bold">{{ game.homeTeam }}</span>
           </div>
           <div class="flex items-center gap-1.5">
-            <span class="text-[14px] text-gray-700 font-bold">{{ game.awayTeam }}</span>
+            <span class="text-[14px] text-amber-200/70 font-bold">{{ game.awayTeam }}</span>
           </div>
         </div>
 
@@ -244,7 +244,7 @@ watch(selectedBets, (newBets) => {
     </div>
 
     <!-- View All -->
-    <div class="flex items-center justify-center bg-transparent text-gray-400 p-3 text-sm font-medium">
+    <div class="flex items-center justify-center bg-transparent text-[#f4f5f0] p-3 text-sm font-medium">
       <span class="underline cursor-pointer">
         View all Football <span class="ml-1">662</span>
       </span>
@@ -304,9 +304,9 @@ watch(selectedBets, (newBets) => {
   background:linear-gradient(
     90deg,
     transparent,
-    rgba(46, 61, 192, 0.9),
-    rgba(46, 61, 192, 0.9),
-    rgba(46, 61, 192, 0.9),
+    rgba(255,255,255,0.9),
+    rgba(255,255,255,1),
+    rgba(255,255,255,0.9),
     transparent
   );
 
