@@ -169,9 +169,9 @@ const formatBalance = (amount) => {
                   <span class="text-xs font-medium text-gray-400 uppercase tracking-wider">Stake</span>
                 </div>
                 <div class="gap-1 flex items-center rounded-lg  ">
-                  <span class="text-xs font-bold text-amber-600">TSh:</span>
+                  <!-- <span class="text-xs font-bold text-amber-600">TSh:</span> -->
                   <!-- <span class="text-xs font-bold text-gray-900 ">{{ Number(bet.stake).toLocaleString() }}</span> -->
-                  <span class="text-xs font-bold text-amber-600 ">{{formatBalance(bet.stake)  }}</span>
+                  <span class="text-xs font-bold text-gray-600 ">{{formatBalance(bet.stake)  }}</span>
                 </div>
 
               </div>
@@ -194,7 +194,7 @@ const formatBalance = (amount) => {
                   <span class="text-xs font-medium text-gray-400 uppercase tracking-wider">Payout</span>
                 </div>
                 <div class=" rounded-lg gap-1 flex items-center">
-                  <span class="text-sm font-medium text-green-600">TSh:</span>
+                  <!-- <span class="text-sm font-medium text-green-600">TSh:</span> -->
                   <span class="text-xs font-bold text-green-700 ">{{ formatBalance(bet.potentialReturn)  }}</span>
                 </div>
               </div>
