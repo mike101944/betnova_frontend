@@ -121,11 +121,9 @@
                 </div>
             </div>
 
-            
 
             <!-- Selections Section -->
             <div class="space-y-2">
-                
                 <div v-for="(selection, index) in parsedSelections" :key="index" 
                      class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
                     
