@@ -18,8 +18,7 @@ const emitBetslipUpdate = () => {
 // Load selected bets from localStorage on mount
 onMounted(() => {
   setTimeout(() => {
-    // Only show first 5 games
-    games.value = dummyGamesData.slice(0, 5)
+    games.value = dummyGamesData
   }, 1200)
   
   loadFromLocalStorage()
@@ -107,10 +106,6 @@ const handleOddsClick = (game, selectionType, oddsValue) => {
   saveToLocalStorage(newBets)
 }
 
-const viewAll = () => {
-  router.push('/sports')
-}
-
 watch(selectedBets, (newBets) => {
   console.log('Selected bets updated:', newBets)
 }, { deep: true })
@@ -135,7 +130,7 @@ watch(selectedBets, (newBets) => {
   <div class="glow-line"></div>
 </div>
 
-    <!-- Games List - Only 5 games -->
+    <!-- Games List -->
     <div
       v-for="game in games"
       :key="game.id"
@@ -236,6 +231,9 @@ watch(selectedBets, (newBets) => {
                   >
                     <span class="text-gray-950">{{ game.betCount }}</span>
                     +
+                    <!-- <svg class="w-2.5 h-2.5 text-gray-950">
+                      <use xlink:href="#arrow_right"></use>
+                    </svg> -->
                   </a>
 
                 </div>
@@ -247,14 +245,11 @@ watch(selectedBets, (newBets) => {
     </div>
 
     <!-- View All -->
-    <div 
-      @click="viewAll"
-      class="flex items-center justify-center bg-transparent text-[#f4f5f0] p-3 text-sm font-medium cursor-pointer hover:opacity-80 transition-opacity"
-    >
-      <span class="underline">
-        View all Football <span class="ml-1">{{ games.length > 0 ? dummyGamesData.length : 0 }}</span>
+    <div class="flex items-center justify-center bg-transparent text-[#f4f5f0] p-3 text-sm font-medium">
+      <span class="underline cursor-pointer">
+        View all Football <span class="ml-1">662</span>
       </span>
-      <svg class="w-2.5 h-2.5 ml-2 text-[#f4f5f0]">
+      <svg class="w-2.5 h-2.5 ml-2 tex-[#f4f5f0] ">
         <use xlink:href="#arrow_right"></use>
       </svg>
     </div>
