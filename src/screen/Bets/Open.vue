@@ -150,7 +150,7 @@ const formatBalance = (amount) => {
 
 
             <div class="flex items-center space-x-2 py-1">
-                    <span class="text-sm font-medium text-amber-400">{{ formatBetDate(bet.createdAt).time }}</span>
+                    <span class="text-sm font-medium text-gray-400">{{ formatBetDate(bet.createdAt).time }}</span>
                     <span class="text-xs text-gray-400">•</span>
                     <span class="text-xs text-gray-600">{{ formatBetDate(bet.createdAt).date }}</span>
             </div>
