@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
+  <div class="h-full border-sky-950">
     <!-- Header with Gradient Background -->
     <!-- <div class="bg-gradient-to-r from-sky-400 to-sky-600 text-white">
       <div class="w-full px-4 py-2">
