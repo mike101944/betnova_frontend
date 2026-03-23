@@ -134,7 +134,7 @@ const formatBalance = (amount) => {
 
             <div class="flex justify-between items-center bg-transparent mb-1"> 
 
-                <div class="flex gap-2 flex-row items-center justify-center rounded-[14px] bg-amber-700/90 px-2 py-1">
+                <div class="flex gap-2 flex-row items-center justify-center rounded-[14px] bg-amber-200/70 px-2 py-1">
                     <div class=" p-1 rounded-full bg-white flex items-center justify-center  ">
                       <CheckIcon class="w-3 h-3  text-emerald-600  font-bold" />
                     </div>
