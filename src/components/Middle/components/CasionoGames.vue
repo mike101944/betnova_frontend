@@ -19,7 +19,7 @@ const getCardContent = (index) => {
       <div 
         v-for="i in cards" 
         :key="i"
-        class="flex-shrink-0 h-[90px] w-[80px] rounded-lg bg-gradient-to-br from-zinc-600 to-zinc-700 
+        class="flex-shrink-0 h-[94px] w-[84px] rounded-lg bg-gradient-to-br from-zinc-600 to-zinc-700 
                hover:from-zinc-500 hover:to-zinc-600 transition-all duration-300 
                shadow-lg hover:shadow-xl cursor-pointer
                flex flex-col items-center justify-center"
