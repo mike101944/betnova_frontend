@@ -189,7 +189,7 @@ watch(selectedBets, (newBets) => {
                   <!-- Draw Odds -->
                   <span class="flex-1 mr-2 overflow-hidden">
                     <span
-                      class="flex w-full cursor-pointer whitespace-nowrap opacity-50 bg-[#f4f5f0] border border-[#e6e7e2] rounded transition-all duration-200 hover:bg-[#e0f2e9]"
+                      class="flex w-full cursor-pointer whitespace-nowrap opacity-50 bg-[#f5f0f0] border border-[#e6e7e2] rounded transition-all duration-200 hover:bg-[#e0f2e9]"
                       :class="{
                         '!bg-[#0AF0B5] !border-[#0AF0B5]': isSelected(game, 'X'),
                         'opacity-50': getCurrentSelection(game) && getCurrentSelection(game) !== 'X'
