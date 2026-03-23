@@ -251,7 +251,7 @@ body {
 }
 
 .tabs-selector.active {
-  @apply bg-sky-950/90 font-bold  text-gray-300;
+  @apply bg-sky-950/90 font-bold  text-white;
 }
 
 .tabs-selector.active .tab-text {
@@ -268,7 +268,7 @@ body {
 }
 
 .tabs-selector:not(.active) {
-  @apply bg-sky-900  text-amber-400;
+  @apply bg-sky-900  text-white;
 }
 
 
