@@ -80,7 +80,7 @@ const formatBalance = (amount) => {
 </script>
 
 <template>
-  <div class="bets-list-container px-2 py-4 bg-transparent max-w-3xl mx-auto">
+  <div class="bets-list-container px-2 py-6 bg-transparent max-w-3xl mx-auto">
     <!-- LOADER -->
     <div v-if="isLoading" class="flex justify-center items-center h-96">
       <div class="relative">
