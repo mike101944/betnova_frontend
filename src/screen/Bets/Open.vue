@@ -130,7 +130,7 @@ const formatBalance = (amount) => {
           class="group rounded-2xl shadow-lg  bg-white cursor-pointer  transition-all duration-300   overflow-hidden"
         >
           <!-- Header with Gradient -->
-          <div class=" px-2  py-2 border-b border-gray-100">
+          <div class=" px-2  py-2 border-b border-gray-200">
 
             <div class="flex justify-between items-center bg-transparent mb-1"> 
 
