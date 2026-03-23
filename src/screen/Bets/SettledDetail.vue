@@ -101,7 +101,7 @@
 
                 <div class="flex items-center justify-between">
                         <span class="text-xs  text-gray-500 font-inter">Stake</span>
-                        <span class="text-[10px] font-black text-gray-500">{{ formatCurrency(bet.stake) }}</span>
+                        <span class="text-[10px]  text-gray-900">{{ formatCurrency(bet.stake) }}</span>
                     </div>
                     <div class="flex items-center justify-between">
                         <span class="text-xs  text-gray-500 font-inter">Gross Winnings</span>
@@ -134,7 +134,7 @@
                         <div class="flex items-center justify-between">
                             <div class="flex items-center space-x-3">
                                 
-                                <span class="text-sm font-semibold text-gray-900 font-inter line-clamp-1">
+                                <span class="text-xs font-semibold text-gray-900 font-inter line-clamp-1">
                                     {{ selection.match || selection.event || selection.homeTeam + ' vs ' + selection.awayTeam }}
                                 </span>
                             </div>
