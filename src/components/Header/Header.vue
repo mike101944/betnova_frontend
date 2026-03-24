@@ -177,7 +177,7 @@ const handleAlertClose = () => {
       <div class="bg-white overflow-hidden">
         <ul class="flex overflow-x-auto scrollbar-hide [-ms-overflow-style:none] [scrollbar-width:none]">
           <!-- Home -->
-          <li class="flex-1 min-w-fit px-3 py-2.5 text-[#aaaeb0] border-b-2 border-transparent hover:text-[#0AF0B5] hover:border-[#0AF0B5] transition-colors cursor-pointer"
+          <li class="flex-1 min-w-fit px-3 py-2.5 text-gray-600 border-b-2 border-transparent hover:text-[#0AF0B5] hover:border-[#0AF0B5] transition-colors cursor-pointer"
               :class="{ '!text-[#0AF0B5] !border-[#0AF0B5]': $route.path === '/' }"
               data-test-id="tabs-Homepage"
           >
@@ -189,19 +189,19 @@ const handleAlertClose = () => {
           </li>
 
           <!-- Sports -->
-          <li class="flex-1 min-w-fit px-3 py-2.5 text-[#aaaeb0] border-b-2 border-transparent hover:text-[#0AF0B5] hover:border-[#0AF0B5] transition-colors cursor-pointer"
+          <li class="flex-1 min-w-fit px-3 py-2.5 text-gray-600 border-b-2 border-transparent hover:text-[#0AF0B5] hover:border-[#0AF0B5] transition-colors cursor-pointer"
               :class="{ '!text-[#0AF0B5] !border-[#0AF0B5]': $route.path === '/sports' }"
               data-test-id="tabs-Upcoming"
           >
             <router-link to="/sports" class="flex items-center justify-center gap-2">
-              <span>⚽</span>
+              <span class="text-[10px]">⚽</span>
               <span class="text-xs font-bold uppercase">Sports</span>
             </router-link>
           </li>
 
           <!-- Live - Restricted -->
           <li 
-            class="flex-1 min-w-fit px-3 py-2.5 text-[#aaaeb0] border-b-2 border-transparent hover:text-[#0AF0B5] hover:border-[#0AF0B5] transition-colors cursor-pointer"
+            class="flex-1 min-w-fit px-3 py-2.5 text-gray-600  border-b-2 border-transparent hover:text-[#0AF0B5] hover:border-[#0AF0B5] transition-colors cursor-pointer"
             @click="handleRestrictedTab('Live betting')"
             data-test-id="tabs-Live"
           >
@@ -216,7 +216,7 @@ const handleAlertClose = () => {
 
           <!-- Casino - Restricted -->
           <li 
-            class="flex-1 min-w-fit px-3 py-2.5 text-[#aaaeb0] border-b-2 border-transparent hover:text-[#0AF0B5] hover:border-[#0AF0B5] transition-colors cursor-pointer"
+            class="flex-1 min-w-fit px-3 py-2.5 text-gray-600  border-b-2 border-transparent hover:text-[#0AF0B5] hover:border-[#0AF0B5] transition-colors cursor-pointer"
             @click="handleRestrictedTab('Casino games')"
             data-test-id="tabs-Casino"
           >
@@ -231,7 +231,7 @@ const handleAlertClose = () => {
 
           <!-- Virtuals - Restricted -->
           <li 
-            class="flex-1 min-w-fit px-3 py-2.5 text-[#aaaeb0] border-b-2 border-transparent hover:text-[#0AF0B5] hover:border-[#0AF0B5] transition-colors cursor-pointer"
+            class="flex-1 min-w-fit px-3 py-2.5 text-gray-600  border-b-2 border-transparent hover:text-[#0AF0B5] hover:border-[#0AF0B5] transition-colors cursor-pointer"
             @click="handleRestrictedTab('Virtual sports')"
             data-test-id="tabs-Virtual Sports"
           >
@@ -245,7 +245,7 @@ const handleAlertClose = () => {
 
           <!-- Aviator - Restricted -->
           <li 
-            class="flex-1 min-w-fit px-3 py-2.5 text-[#aaaeb0] border-b-2 border-transparent hover:text-[#0AF0B5] hover:border-[#0AF0B5] transition-colors cursor-pointer"
+            class="flex-1 min-w-fit px-3 py-2.5 text-gray-600  border-b-2 border-transparent hover:text-[#0AF0B5] hover:border-[#0AF0B5] transition-colors cursor-pointer"
             @click="handleRestrictedTab('Aviator game')"
             data-test-id="tabs-Aviator"
           >
