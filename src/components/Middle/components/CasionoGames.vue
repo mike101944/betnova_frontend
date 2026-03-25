@@ -15,7 +15,7 @@ const getCardContent = (index) => {
 
 <template>
   <div class="w-full overflow-x-auto scroll-smooth">
-    <div class="flex gap-3 p-2 min-w-min">
+    <div class="flex gap-3 p-2 min-w-min bg-white">
       <div 
         v-for="i in cards" 
         :key="i"
