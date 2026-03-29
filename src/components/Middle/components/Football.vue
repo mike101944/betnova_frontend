@@ -122,15 +122,16 @@ watch(selectedBets, (newBets) => {
 
 
 
-
-const goToBetDetails = (bet) => {
-    router.push({
-        path: `/sportDetail`,
-        // state: {
-        //     allBets: settledBets.value,
-        //     currentBet: bet
-        // }
-    });
+const goToSportDetails = (game) => {
+  router.push({
+    path: `/sportDetail`,
+    query: {
+      eventId: game.eventId,
+      homeTeam: game.homeTeam,
+      awayTeam: game.awayTeam,
+      league: game.league
+    }
+  })
 }
 </script>
 
@@ -160,7 +161,7 @@ const goToBetDetails = (bet) => {
       :key="game.id"
       class="border-b border-sky-950 p-3 "
     >
-      <a  @click="goToBetDetails(bet)" class="block w-full cursor-pointer">
+      <a  @click="goToSportDetails(game)" class="block w-full cursor-pointer">
         <!-- Header -->
         <div class="flex justify-between items-center mb-1">
           <span class="text-sm text-white/70 font-normal">{{ game.time }}</span>

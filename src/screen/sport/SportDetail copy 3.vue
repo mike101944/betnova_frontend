@@ -77,13 +77,13 @@ const saveToLocalStorage = (bets) => {
   emitBetslipUpdate()
 }
 
-// Check if a specific selection is selected (using full ID)
 const isSelected = (selectionId) => {
-  return selectedBets.value.some(bet => bet.id === selectionId)
+  return selectedBets.value.some(
+    bet => bet.id === `${matchData.value.eventId}-${selectionId}`
+  )
 }
 
 const handleOddsClick = (selectionType, oddsValue, label) => {
-  // Create unique ID for this specific selection
   const selectionId = `${matchData.value.eventId}-${selectionType}`
   const existingBetIndex = selectedBets.value.findIndex(
     bet => bet.id === selectionId
@@ -92,10 +92,10 @@ const handleOddsClick = (selectionType, oddsValue, label) => {
   let newBets = []
   
   if (existingBetIndex !== -1) {
-    // Remove if already selected (toggle off)
+    // Remove if already selected
     newBets = selectedBets.value.filter((_, index) => index !== existingBetIndex)
   } else {
-    // Add new selection (keep all other selections, including other markets for same match)
+    // Add new selection
     const selection = {
       id: selectionId,
       eventId: matchData.value.eventId,
@@ -109,7 +109,6 @@ const handleOddsClick = (selectionType, oddsValue, label) => {
       market: getMarketType(selectionType)
     }
     
-    // Don't filter by eventId - allow multiple selections per match
     newBets = [...selectedBets.value, selection]
   }
   
@@ -118,11 +117,10 @@ const handleOddsClick = (selectionType, oddsValue, label) => {
 }
 
 const getMarketType = (selectionType) => {
-  if (selectionType === '1' || selectionType === 'X' || selectionType === '2') return '1X2'
-  if (selectionType === '1X' || selectionType === 'X2' || selectionType === '12') return 'Double Chance'
-  if (selectionType === 'BTTS_Yes' || selectionType === 'BTTS_No') return 'Both Teams to Score'
-  if (selectionType.startsWith('CS_')) return 'Correct Score'
-  return 'Other'
+  if (['1', 'X', '2'].includes(selectionType)) return '1X2'
+  if (['1X', 'X2', '12'].includes(selectionType)) return 'Double Chance'
+  if (['Yes', 'No'].includes(selectionType)) return 'BTTS'
+  return 'Correct Score'
 }
 
 // Go back to previous page
@@ -153,7 +151,7 @@ const goBack = () => {
         <div 
           @click="handleOddsClick('1', '1.31', '1')"
           class="cursor-pointer bg-[#f4f5f0] border border-[#e6e7e2] rounded transition-all duration-200 hover:bg-[#e0f2e9] p-2 flex flex-row justify-between items-center"
-          :class="{ '!bg-[#0AF0B5] !border-[#0AF0B5]': isSelected(`${matchData.eventId}-1`) }"
+          :class="{ '!bg-[#0AF0B5] !border-[#0AF0B5]': isSelected('1') }"
         >
           <div class="text-xs text-gray-800">1</div>
           <div class="text-xs font-bold text-gray-800">1.31</div>
@@ -161,7 +159,7 @@ const goBack = () => {
         <div 
           @click="handleOddsClick('X', '1.2', 'X')"
           class="cursor-pointer bg-[#f4f5f0] border border-[#e6e7e2] rounded transition-all duration-200 hover:bg-[#e0f2e9] p-2 flex flex-row justify-between items-center"
-          :class="{ '!bg-[#0AF0B5] !border-[#0AF0B5]': isSelected(`${matchData.eventId}-X`) }"
+          :class="{ '!bg-[#0AF0B5] !border-[#0AF0B5]': isSelected('X') }"
         >
           <div class="text-xs text-gray-800">X</div>
           <div class="text-xs font-bold text-gray-800">1.20</div>
@@ -169,7 +167,7 @@ const goBack = () => {
         <div 
           @click="handleOddsClick('2', '3.31', '2')"
           class="cursor-pointer bg-[#f4f5f0] border border-[#e6e7e2] rounded transition-all duration-200 hover:bg-[#e0f2e9] p-2 flex flex-row justify-between items-center"
-          :class="{ '!bg-[#0AF0B5] !border-[#0AF0B5]': isSelected(`${matchData.eventId}-2`) }"
+          :class="{ '!bg-[#0AF0B5] !border-[#0AF0B5]': isSelected('2') }"
         >
           <div class="text-xs text-gray-800">2</div>
           <div class="text-xs font-bold text-gray-800">3.31</div>
@@ -184,7 +182,7 @@ const goBack = () => {
         <div 
           @click="handleOddsClick('1X', '1.07', '1X')"
           class="cursor-pointer bg-[#f4f5f0] border border-[#e6e7e2] rounded transition-all duration-200 hover:bg-[#e0f2e9] p-2 flex flex-row justify-between items-center"
-          :class="{ '!bg-[#0AF0B5] !border-[#0AF0B5]': isSelected(`${matchData.eventId}-1X`) }"
+          :class="{ '!bg-[#0AF0B5] !border-[#0AF0B5]': isSelected('1X') }"
         >
           <div class="text-xs text-gray-800">1X</div>
           <div class="text-xs font-bold text-gray-800">1.07</div>
@@ -192,7 +190,7 @@ const goBack = () => {
         <div 
           @click="handleOddsClick('X2', '3.40', 'X2')"
           class="cursor-pointer bg-[#f4f5f0] border border-[#e6e7e2] rounded transition-all duration-200 hover:bg-[#e0f2e9] p-2 flex flex-row justify-between items-center"
-          :class="{ '!bg-[#0AF0B5] !border-[#0AF0B5]': isSelected(`${matchData.eventId}-X2`) }"
+          :class="{ '!bg-[#0AF0B5] !border-[#0AF0B5]': isSelected('X2') }"
         >
           <div class="text-xs text-gray-800">X2</div>
           <div class="text-xs font-bold text-gray-800">3.40</div>
@@ -200,7 +198,7 @@ const goBack = () => {
         <div 
           @click="handleOddsClick('12', '1.15', '12')"
           class="cursor-pointer bg-[#f4f5f0] border border-[#e6e7e2] rounded transition-all duration-200 hover:bg-[#e0f2e9] p-2 flex flex-row justify-between items-center"
-          :class="{ '!bg-[#0AF0B5] !border-[#0AF0B5]': isSelected(`${matchData.eventId}-12`) }"
+          :class="{ '!bg-[#0AF0B5] !border-[#0AF0B5]': isSelected('12') }"
         >
           <div class="text-xs text-gray-800">12</div>
           <div class="text-xs font-bold text-gray-800">1.15</div>
@@ -215,7 +213,7 @@ const goBack = () => {
         <div 
           @click="handleOddsClick('BTTS_Yes', '2.48', 'Yes')"
           class="cursor-pointer bg-[#f4f5f0] border border-[#e6e7e2] rounded transition-all duration-200 hover:bg-[#e0f2e9] p-2 flex flex-row justify-between items-center"
-          :class="{ '!bg-[#0AF0B5] !border-[#0AF0B5]': isSelected(`${matchData.eventId}-BTTS_Yes`) }"
+          :class="{ '!bg-[#0AF0B5] !border-[#0AF0B5]': isSelected('BTTS_Yes') }"
         >
           <div class="text-xs text-gray-800">Yes</div>
           <div class="text-xs font-bold text-gray-800">2.48</div>
@@ -223,7 +221,7 @@ const goBack = () => {
         <div 
           @click="handleOddsClick('BTTS_No', '1.54', 'No')"
           class="cursor-pointer bg-[#f4f5f0] border border-[#e6e7e2] rounded transition-all duration-200 hover:bg-[#e0f2e9] p-2 flex flex-row justify-between items-center"
-          :class="{ '!bg-[#0AF0B5] !border-[#0AF0B5]': isSelected(`${matchData.eventId}-BTTS_No`) }"
+          :class="{ '!bg-[#0AF0B5] !border-[#0AF0B5]': isSelected('BTTS_No') }"
         >
           <div class="text-xs text-gray-800">No</div>
           <div class="text-xs font-bold text-gray-800">1.54</div>
@@ -250,7 +248,7 @@ const goBack = () => {
           :key="score.label"
           @click="handleOddsClick(`CS_${score.label}`, score.odds, score.label)"
           class="cursor-pointer bg-[#f4f5f0] border border-[#e6e7e2] rounded transition-all duration-200 hover:bg-[#e0f2e9] p-2 flex justify-between items-center"
-          :class="{ '!bg-[#0AF0B5] !border-[#0AF0B5]': isSelected(`${matchData.eventId}-CS_${score.label}`) }"
+          :class="{ '!bg-[#0AF0B5] !border-[#0AF0B5]': isSelected(`CS_${score.label}`) }"
         >
           <div class="text-xs text-gray-950">{{ score.label }}</div>
           <div class="text-xs text-gray-950 font-bold">{{ score.odds }}</div>
