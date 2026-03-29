@@ -41,6 +41,12 @@ const routes = [
     component: () => import('../screen/sport/SportScreen.vue'),
   },
   {
+    path: '/gamePlay/:id' ,
+    name: 'gamePlay',
+    component: () => import('../components/Middle/components/GamePlay.vue'),
+    props: true
+  },
+  {
     path: '/betList/:id',
     name: 'bet-details',
     component: () => import('../screen/Bets/ApproveBet/BetDetails.vue'),

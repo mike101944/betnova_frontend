@@ -1,5 +1,9 @@
 <script setup>
 import { ref } from 'vue'
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
+
 
 const cards = ref([
   { id: 1, title: 'Aviator', image: 'https://images.unsplash.com/photo-1608889175123-8ee362201f81?w=400', live: true, multiplier: '2.5x' },
@@ -13,6 +17,12 @@ const cards = ref([
   { id: 9, title: 'Jackpot', image: 'https://images.unsplash.com/photo-1596451190630-186aff535bf2?w=400' },
   { id: 10, title: 'Spin & Win', image: 'https://images.unsplash.com/photo-1511512578047-dfb367046420?w=400' }
 ])
+
+
+
+const goToGame = (game) => {
+  router.push(`/gamePlay/${game.id}`)
+}
 </script>
 
 <template>
@@ -22,6 +32,7 @@ const cards = ref([
       <div 
         v-for="game in cards" 
         :key="game.id"
+          @click="goToGame(game)"
         class="group relative flex-shrink-0 h-[120px] w-[95px] rounded-xl overflow-hidden
                shadow-lg cursor-pointer transition-all duration-300"
       >
