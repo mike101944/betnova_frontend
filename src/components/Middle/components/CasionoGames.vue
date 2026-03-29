@@ -17,12 +17,12 @@ const cards = ref([
 
 <template>
   <div class="w-full overflow-x-auto scroll-smooth">
-    <div class="flex gap-3 p-2 min-w-min bg-[#0f172a]">
+    <div class="flex gap-2 p-1 min-w-min bg-white opacity-70">
 
       <div 
         v-for="game in cards" 
         :key="game.id"
-        class="group relative flex-shrink-0 h-[130px] w-[100px] rounded-xl overflow-hidden
+        class="group relative flex-shrink-0 h-[120px] w-[95px] rounded-xl overflow-hidden
                shadow-lg cursor-pointer transition-all duration-300"
       >
         <!-- IMAGE -->
