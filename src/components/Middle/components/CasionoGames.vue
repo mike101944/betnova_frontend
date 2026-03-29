@@ -1,57 +1,61 @@
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref } from 'vue'
 
-const cards = ref(20)
-
-// You can customize card data if needed
-const getCardContent = (index) => {
-  return {
-    id: index + 1,
-    title: `Aviator ${index + 1}`,
-    // Add more properties as needed
+const cards = ref([
+  {
+    id: 1,
+    title: 'Aviator',
+    image: 'https://images.unsplash.com/photo-1608889175123-8ee362201f81?w=400'
+  },
+  {
+    id: 2,
+    title: 'Slots',
+    image: 'https://images.unsplash.com/photo-1596838132731-3301c3fd4317?w=400'
+  },
+  {
+    id: 3,
+    title: 'Blackjack',
+    image: 'https://images.unsplash.com/photo-1596838132731-3301c3fd4317?w=400'
+  },
+  {
+    id: 4,
+    title: 'Roulette',
+    image: 'https://images.unsplash.com/photo-1511512578047-dfb367046420?w=400'
+  },
+  {
+    id: 5,
+    title: 'Poker',
+    image: 'https://images.unsplash.com/photo-1608889175123-8ee362201f81?w=400'
   }
-}
+])
 </script>
 
 <template>
   <div class="w-full overflow-x-auto scroll-smooth">
-    <div class="flex gap-3 p-2 min-w-min bg-white">
+    <div class="flex gap-3 p-1 min-w-min bg-white opacity-70">
+
       <div 
-        v-for="i in cards" 
-        :key="i"
-        class="flex-shrink-0 h-[100px] w-[90px] rounded-lg bg-gradient-to-br from-zinc-600 to-zinc-700 
-               hover:from-zinc-500 hover:to-zinc-600 transition-all duration-300 
-               shadow-lg hover:shadow-xl cursor-pointer
-               flex flex-col items-center justify-center"
+        v-for="game in cards" 
+        :key="game.id"
+        class="relative flex-shrink-0 h-[120px] w-[100px] rounded-xl overflow-hidden
+               shadow-lg hover:scale-105 transition-all duration-300 cursor-pointer"
       >
-        <div class="text-white font-semibold text-xs">
-          {{ getCardContent(i-1).title }}
+        <!-- Background Image -->
+        <img 
+          :src="game.image" 
+          class="absolute inset-0 w-full h-full object-cover"
+        />
+
+        <!-- Dark Overlay -->
+        <div class="absolute inset-0 bg-black/50"></div>
+
+        <!-- Title -->
+        <div class="absolute bottom-2 left-2 right-2 text-white text-xs font-bold">
+          {{ game.title }}
         </div>
-        <div class="text-zinc-300 text-sm mt-2">
-          Card {{ i }}
-        </div>
+
       </div>
+
     </div>
   </div>
 </template>
-
-<style scoped>
-/* Hide scrollbar for Chrome, Safari and Opera */
-.overflow-x-auto::-webkit-scrollbar {
-  height: 8px;
-}
-
-.overflow-x-auto::-webkit-scrollbar-track {
-  background: #3f3f46;
-  border-radius: 4px;
-}
-
-.overflow-x-auto::-webkit-scrollbar-thumb {
-  background: #71717a;
-  border-radius: 4px;
-}
-
-.overflow-x-auto::-webkit-scrollbar-thumb:hover {
-  background: #a1a1aa;
-}
-</style>
