@@ -132,22 +132,22 @@ const goBack = () => {
 </script>
 
 <template>
-  <div class="h-full bg-sky-900 text-white p-4 font-sans">
+  <div class="h-full bg-sky-900 text-white p-4 ">
     <!-- Back Button -->
-    <button @click="goBack" class="mb-3 text-amber-100 flex items-center gap-1 text-sm">
+    <button @click="goBack" class="mb-3 text-amber-100 flex p-2 bg-sky-900 opacity-70 shadow-lg shadow-amber-100 items-center gap-1 text-xs">
       ← Back to Football
     </button>
 
     <!-- Header / Match Info -->
-    <div class="mb-4 text-center">
-      <h2 class="text-xl font-bold">{{ matchData.homeTeam }} vs {{ matchData.awayTeam }}</h2>
-      <p class="text-gray-400 text-sm">{{ matchData.league }} • {{ matchData.time }}</p>
+    <div class="mb-4  text-xs mt-2 text-center">
+      <h2 class="text-xs text-amber-100 font-bold">{{ matchData.homeTeam }} vs {{ matchData.awayTeam }}</h2>
+      <p class="text-gray-400 text-xs">{{ matchData.league }} • {{ matchData.time }}</p>
     </div>
 
     <!-- 1. 1X2 / Full Time -->
     <div class="rounded-lg mb-4">
       <div class="flex justify-between items-center mb-2">
-        <span class="text-gray-300 font-medium">1X2 | Full Time</span>
+        <span class="text-gray-300 font-medium text-xs">1X2 | Full Time</span>
       </div>
       <div class="grid grid-cols-3 gap-3 text-center">
         <div 
@@ -179,7 +179,7 @@ const goBack = () => {
 
     <!-- 2. Double Chance -->
     <div class="rounded-lg mb-4">
-      <div class="text-gray-300 font-medium mb-2">Double Chance | Full Time</div>
+      <div class="text-gray-300 font-medium mb-2 text-xs">Double Chance | Full Time</div>
       <div class="grid grid-cols-3 gap-3 text-center">
         <div 
           @click="handleOddsClick('1X', '1.07', '1X')"
@@ -210,7 +210,7 @@ const goBack = () => {
 
     <!-- 3. Both Teams To Score -->
     <div class="rounded-lg mb-4">
-      <div class="text-gray-300 font-medium mb-2">Both Teams To Score | Full Time</div>
+      <div class="text-gray-300 font-medium mb-2 text-xs">Both Teams To Score | Full Time</div>
       <div class="grid grid-cols-2 gap-3 text-center">
         <div 
           @click="handleOddsClick('BTTS_Yes', '2.48', 'Yes')"
@@ -233,7 +233,7 @@ const goBack = () => {
 
     <!-- 4. Correct Score -->
     <div class="rounded-lg mb-4">
-      <div class="text-gray-300 font-medium mb-3">Correct Score | Full Time</div>
+      <div class="text-gray-300 font-medium mb-3 text-xs">Correct Score | Full Time</div>
       <div class="grid grid-cols-3 sm:grid-cols-4 gap-2 text-center">
         <div 
           v-for="score in [
