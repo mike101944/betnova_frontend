@@ -160,7 +160,7 @@ const goToBetDetails = (bet) => {
       :key="game.id"
       class="border-b border-sky-950 p-3 "
     >
-      <a  @click="goToBetDetails(bet)" class="block w-full cursor-pointer">
+      <a :href="`/event/${game.eventId}`" @click="goToBetDetails(bet)" class="block w-full cursor-pointer">
         <!-- Header -->
         <div class="flex justify-between items-center mb-1">
           <span class="text-sm text-white/70 font-normal">{{ game.time }}</span>

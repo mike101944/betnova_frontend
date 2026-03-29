@@ -65,6 +65,11 @@ const routes = [
       name:'register',
       component: () => import('../screen/Auth/Register.vue'),     // This has the tabs
     },
+    {
+      path: '/sportDetail',
+      name:'sportDetail',
+      component: () => import('../screen/sport/SportDetail.vue'),     // This has the tabs
+    },
   {
     path: '/bets',
     name: 'bets',
