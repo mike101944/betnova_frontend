@@ -15,17 +15,42 @@ const cards = ref([
   {
     id: 3,
     title: 'Blackjack',
-    image: 'https://images.unsplash.com/photo-1596838132731-3301c3fd4317?w=400'
+    image: 'https://images.unsplash.com/photo-1511512578047-dfb367046420?w=400'
   },
   {
     id: 4,
     title: 'Roulette',
-    image: 'https://images.unsplash.com/photo-1511512578047-dfb367046420?w=400'
+    image: 'https://images.unsplash.com/photo-1586985289906-406988974504?w=400'
   },
   {
     id: 5,
     title: 'Poker',
     image: 'https://images.unsplash.com/photo-1608889175123-8ee362201f81?w=400'
+  },
+  {
+    id: 6,
+    title: 'Baccarat',
+    image: 'https://images.unsplash.com/photo-1561414927-6d86591d0c4f?w=400'
+  },
+  {
+    id: 7,
+    title: 'Crash Game',
+    image: 'https://images.unsplash.com/photo-1559526324-593bc073d938?w=400'
+  },
+  {
+    id: 8,
+    title: 'Live Casino',
+    image: 'https://images.unsplash.com/photo-1520975916090-3105956dac38?w=400'
+  },
+  {
+    id: 9,
+    title: 'Jackpot',
+    image: 'https://images.unsplash.com/photo-1596451190630-186aff535bf2?w=400'
+  },
+  {
+    id: 10,
+    title: 'Spin & Win',
+    image: 'https://images.unsplash.com/photo-1511512578047-dfb367046420?w=400'
   }
 ])
 </script>
