@@ -152,7 +152,7 @@ const goBack = () => {
       <div class="grid grid-cols-3 gap-3 text-center">
         <div 
           @click="handleOddsClick('1', '1.31', '1')"
-          class="cursor-pointer bg-[#f4f5f0] border border-[#e6e7e2] rounded transition-all duration-200 hover:bg-[#e0f2e9] p-2 flex flex-row justify-between items-center"
+          class="cursor-pointer whitespace-nowrap bg-[#f4f5f0] opacity-75 border border-[#e6e7e2] rounded transition-all duration-200 hover:bg-[#e0f2e9] p-2 flex flex-row justify-between items-center"
           :class="{ '!bg-[#0AF0B5] !border-[#0AF0B5]': isSelected(`${matchData.eventId}-1`) }"
         >
           <div class="text-xs text-gray-800">1</div>
@@ -160,7 +160,7 @@ const goBack = () => {
         </div>
         <div 
           @click="handleOddsClick('X', '1.2', 'X')"
-          class="cursor-pointer bg-[#f4f5f0] border border-[#e6e7e2] rounded transition-all duration-200 hover:bg-[#e0f2e9] p-2 flex flex-row justify-between items-center"
+          class="cursor-pointer whitespace-nowrap bg-[#f4f5f0] opacity-75 border border-[#e6e7e2] rounded transition-all duration-200 hover:bg-[#e0f2e9] p-2 flex flex-row justify-between items-center"
           :class="{ '!bg-[#0AF0B5] !border-[#0AF0B5]': isSelected(`${matchData.eventId}-X`) }"
         >
           <div class="text-xs text-gray-800">X</div>
@@ -168,7 +168,7 @@ const goBack = () => {
         </div>
         <div 
           @click="handleOddsClick('2', '3.31', '2')"
-          class="cursor-pointer bg-[#f4f5f0] border border-[#e6e7e2] rounded transition-all duration-200 hover:bg-[#e0f2e9] p-2 flex flex-row justify-between items-center"
+          class="cursor-pointer whitespace-nowrap bg-[#f4f5f0] opacity-75 border border-[#e6e7e2] rounded transition-all duration-200 hover:bg-[#e0f2e9] p-2 flex flex-row justify-between items-center"
           :class="{ '!bg-[#0AF0B5] !border-[#0AF0B5]': isSelected(`${matchData.eventId}-2`) }"
         >
           <div class="text-xs text-gray-800">2</div>
@@ -183,15 +183,15 @@ const goBack = () => {
       <div class="grid grid-cols-3 gap-3 text-center">
         <div 
           @click="handleOddsClick('1X', '1.07', '1X')"
-          class="cursor-pointer bg-[#f4f5f0] border border-[#e6e7e2] rounded transition-all duration-200 hover:bg-[#e0f2e9] p-2 flex flex-row justify-between items-center"
+          class="cursor-pointer whitespace-nowrap bg-[#f4f5f0] opacity-75 border border-[#e6e7e2] rounded transition-all duration-200 hover:bg-[#e0f2e9] p-2 flex flex-row justify-between items-center"
           :class="{ '!bg-[#0AF0B5] !border-[#0AF0B5]': isSelected(`${matchData.eventId}-1X`) }"
         >
           <div class="text-xs text-gray-800">1X</div>
           <div class="text-xs font-bold text-gray-800">1.07</div>
         </div>
-        <div 
+        <div
           @click="handleOddsClick('X2', '3.40', 'X2')"
-          class="cursor-pointer bg-[#f4f5f0] border border-[#e6e7e2] rounded transition-all duration-200 hover:bg-[#e0f2e9] p-2 flex flex-row justify-between items-center"
+          class="cursor-pointer whitespace-nowrap bg-[#f4f5f0] opacity-75 border border-[#e6e7e2] rounded transition-all duration-200 hover:bg-[#e0f2e9] p-2 flex flex-row justify-between items-center"
           :class="{ '!bg-[#0AF0B5] !border-[#0AF0B5]': isSelected(`${matchData.eventId}-X2`) }"
         >
           <div class="text-xs text-gray-800">X2</div>
@@ -199,7 +199,7 @@ const goBack = () => {
         </div>
         <div 
           @click="handleOddsClick('12', '1.15', '12')"
-          class="cursor-pointer bg-[#f4f5f0] border border-[#e6e7e2] rounded transition-all duration-200 hover:bg-[#e0f2e9] p-2 flex flex-row justify-between items-center"
+          class="cursor-pointer whitespace-nowrap bg-[#f4f5f0] opacity-75 border border-[#e6e7e2] rounded transition-all duration-200 hover:bg-[#e0f2e9] p-2 flex flex-row justify-between items-center"
           :class="{ '!bg-[#0AF0B5] !border-[#0AF0B5]': isSelected(`${matchData.eventId}-12`) }"
         >
           <div class="text-xs text-gray-800">12</div>
@@ -214,7 +214,7 @@ const goBack = () => {
       <div class="grid grid-cols-2 gap-3 text-center">
         <div 
           @click="handleOddsClick('BTTS_Yes', '2.48', 'Yes')"
-          class="cursor-pointer bg-[#f4f5f0] border border-[#e6e7e2] rounded transition-all duration-200 hover:bg-[#e0f2e9] p-2 flex flex-row justify-between items-center"
+          class="cursor-pointer whitespace-nowrap bg-[#f4f5f0] opacity-75 border border-[#e6e7e2] rounded transition-all duration-200 hover:bg-[#e0f2e9] p-2 flex flex-row justify-between items-center"
           :class="{ '!bg-[#0AF0B5] !border-[#0AF0B5]': isSelected(`${matchData.eventId}-BTTS_Yes`) }"
         >
           <div class="text-xs text-gray-800">Yes</div>
@@ -222,7 +222,7 @@ const goBack = () => {
         </div>
         <div 
           @click="handleOddsClick('BTTS_No', '1.54', 'No')"
-          class="cursor-pointer bg-[#f4f5f0] border border-[#e6e7e2] rounded transition-all duration-200 hover:bg-[#e0f2e9] p-2 flex flex-row justify-between items-center"
+          class="cursor-pointer whitespace-nowrap bg-[#f4f5f0] opacity-75 border border-[#e6e7e2] rounded transition-all duration-200 hover:bg-[#e0f2e9] p-2 flex flex-row justify-between items-center"
           :class="{ '!bg-[#0AF0B5] !border-[#0AF0B5]': isSelected(`${matchData.eventId}-BTTS_No`) }"
         >
           <div class="text-xs text-gray-800">No</div>
@@ -249,7 +249,7 @@ const goBack = () => {
           ]"
           :key="score.label"
           @click="handleOddsClick(`CS_${score.label}`, score.odds, score.label)"
-          class="cursor-pointer bg-[#f4f5f0] border border-[#e6e7e2] rounded transition-all duration-200 hover:bg-[#e0f2e9] p-2 flex justify-between items-center"
+          class="cursor-pointer whitespace-nowrap bg-[#f4f5f0] opacity-75 border border-[#e6e7e2] rounded transition-all duration-200 hover:bg-[#e0f2e9] p-2 flex justify-between items-center"
           :class="{ '!bg-[#0AF0B5] !border-[#0AF0B5]': isSelected(`${matchData.eventId}-CS_${score.label}`) }"
         >
           <div class="text-xs text-gray-950">{{ score.label }}</div>
