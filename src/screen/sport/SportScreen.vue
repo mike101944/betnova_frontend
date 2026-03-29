@@ -109,6 +109,21 @@ const handleOddsClick = (game, selectionType, oddsValue) => {
 watch(selectedBets, (newBets) => {
   console.log('Selected bets updated:', newBets)
 }, { deep: true })
+
+
+
+
+const goToSportDetails = (game) => {
+  router.push({
+    path: `/sportDetail`,
+    query: {
+      eventId: game.eventId,
+      homeTeam: game.homeTeam,
+      awayTeam: game.awayTeam,
+      league: game.league
+    }
+  })
+}
 </script>
 
 <template>
@@ -136,7 +151,7 @@ watch(selectedBets, (newBets) => {
       :key="game.id"
       class="border-b border-sky-950 p-3 "
     >
-      <a :href="`/event/${game.eventId}`" class="block w-full cursor-pointer">
+      <a @click="goToSportDetails(game)" class="block w-full cursor-pointer">
         <!-- Header -->
         <div class="flex justify-between items-center mb-1">
           <span class="text-sm text-white/70 font-normal">{{ game.time }}</span>
