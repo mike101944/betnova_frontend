@@ -67,7 +67,7 @@
     </div>
 
     <!-- 5. Correct Score | Full Time (Grid) -->
-    <div class=" rounded-lg p-2 mb-4">
+    <div class=" rounded-lg  mb-4">
       <div class="text-gray-300 font-medium mb-3">Correct Score | Full Time</div>
       <div class="grid grid-cols-3 sm:grid-cols-4 gap-2 text-center">
         <!-- Other -->
