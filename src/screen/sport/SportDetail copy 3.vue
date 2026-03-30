@@ -1,6 +1,7 @@
 <script setup>
 import { ref, onMounted, onBeforeUnmount } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
+import  Data from './demoDataCsv.vue'
 
 const router = useRouter()
 const route = useRoute()

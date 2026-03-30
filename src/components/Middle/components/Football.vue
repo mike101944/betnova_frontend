@@ -1,5 +1,6 @@
 <script setup>
-import { dummyGamesData } from '../data/dummyGameData'
+// import { dummyGamesData } from '../data/dummyGameData'
+import gamesData  from '../data/dummyGameData'
 import { ref, onMounted, onBeforeUnmount, watch } from 'vue'
 import { useRouter } from 'vue-router'
 
@@ -19,7 +20,7 @@ const emitBetslipUpdate = () => {
 onMounted(() => {
   setTimeout(() => {
     // Only show first 5 games
-    games.value = dummyGamesData.slice(0, 5)
+    games.value = gamesData.slice(0, 5)
   }, 1200)
   
   loadFromLocalStorage()
@@ -200,12 +201,12 @@ const goToSportDetails = (game) => {
                         '!bg-[#0AF0B5] !border-[#0AF0B5]': isSelected(game, '1'),
                         'opacity-50': getCurrentSelection(game) && getCurrentSelection(game) !== '1'
                       }"
-                      @click="handleOddsClick(game, '1', game.homeOdds.value)"
+                      @click="handleOddsClick(game, '1', game.homeOdds)"
                     >
                       <span class="flex justify-between w-full">
                         <span class="flex items-center justify-center px-2.5 py-2 text-sm">1</span>
                         <span class="flex items-center justify-center px-2.5 py-2 text-sm font-bold">
-                          {{ game.homeOdds.value }}
+                          {{ game.homeOdds }}
                         </span>
                       </span>
                     </span>
@@ -219,12 +220,12 @@ const goToSportDetails = (game) => {
                         '!bg-[#0AF0B5] !border-[#0AF0B5]': isSelected(game, 'X'),
                         'opacity-50': getCurrentSelection(game) && getCurrentSelection(game) !== 'X'
                       }"
-                      @click="handleOddsClick(game, 'X', game.drawOdds.value)"
+                      @click="handleOddsClick(game, 'X', game.drawOdds)"
                     >
                       <span class="flex justify-between w-full">
                         <span class="flex items-center justify-center px-2.5 py-2 text-sm">X</span>
                         <span class="flex items-center justify-center px-2.5 py-2 text-sm font-bold">
-                          {{ game.drawOdds.value }}
+                          {{ game.drawOdds }}
                         </span>
                       </span>
                     </span>
@@ -238,12 +239,12 @@ const goToSportDetails = (game) => {
                         '!bg-[#0AF0B5] !border-[#0AF0B5]': isSelected(game, '2'),
                         'opacity-50': getCurrentSelection(game) && getCurrentSelection(game) !== '2'
                       }"
-                      @click="handleOddsClick(game, '2', game.awayOdds.value)"
+                      @click="handleOddsClick(game, '2', game.awayOdds)"
                     >
                       <span class="flex justify-between w-full">
                         <span class="flex items-center justify-center px-2.5 py-2 text-sm">2</span>
                         <span class="flex items-center justify-center px-2.5 py-2 text-sm font-bold">
-                          {{ game.awayOdds.value }}
+                          {{ game.awayOdds }}
                         </span>
                       </span>
                     </span>
@@ -254,7 +255,7 @@ const goToSportDetails = (game) => {
                     :href="`/event/${game.eventId}`"
                     class="min-w-[48px] flex items-center justify-center gap-1 px-1.5 py-2 bg-[#f4f5f0] opacity-50 border border-[#e6e7e2] rounded text-sm font-bold"
                   >
-                    <span class="text-gray-950">{{ game.betCount }}</span>
+                    <span class="text-gray-950">{{ game.market }}</span>
                     +
                   </a>
 
@@ -272,7 +273,7 @@ const goToSportDetails = (game) => {
       class="flex items-center justify-center bg-transparent text-[#f4f5f0] p-3 text-sm font-medium cursor-pointer hover:opacity-80 transition-opacity"
     >
       <span class="underline">
-        View all Football <span class="ml-1">{{ games.length > 0 ? dummyGamesData.length : 0 }}</span>
+        View all Football <span class="ml-1">{{ games.length > 0 ? gamesData.length : 0 }}</span>
       </span>
       <svg class="w-2.5 h-2.5 ml-2 text-[#f4f5f0]">
         <use xlink:href="#arrow_right"></use>

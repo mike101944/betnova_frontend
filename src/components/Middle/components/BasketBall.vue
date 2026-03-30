@@ -7,7 +7,7 @@
 // import leagueShortcut from '../league-shortcut.vue';
 // import FootballBannerImage from '../../../../assets/media/lg_990x272_1_4fd3446df7.webp'
 
-import { dummyGamesData } from '../data/dummyGameData'
+import  gamesData from '../data/dummyGameData'
 
 import { ref, onMounted } from 'vue'
 
@@ -15,7 +15,7 @@ const games = ref([])
 
 onMounted(() => {
     setTimeout(() => {
-        games.value = dummyGamesData
+        games.value = gamesData
     }, 1200)
 })
 

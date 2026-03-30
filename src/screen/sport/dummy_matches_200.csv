@@ -1,0 +1,201 @@
+id,eventId,time,date,homeTeam,awayTeam,league,homeOdds,drawOdds,awayOdds,market,bothTeamsToScoreYesOdds,bothTeamsToScoreNoOdds,doubleChance1x,doubleChance12,doubleChance2x
+1,38450170,09:12 AM,Mon 30/03,Roma,Real Madrid,Football / Italy / Serie A,2.62,1.88,3.73,87,3.09,3.99,4.07,3.97,3.03
+2,36404840,09:42 AM,Mon 30/03,AC Milan,Real Madrid,Football / France / Ligue 1,1.56,2.45,3.97,71,2.27,2.89,2.41,2.84,3.1
+3,34259984,10:12 AM,Mon 30/03,Barcelona,Roma,Football / England / Premier League,1.3,2.47,3.22,79,1.45,1.33,4.03,1.37,2.57
+4,38373777,10:42 AM,Mon 30/03,Newcastle,Chelsea FC,Football / Germany / Bundesliga,2.14,3.91,1.59,69,3.44,3.14,3.25,3.94,2.23
+5,30459804,11:12 AM,Mon 30/03,Tottenham,Arsenal,Football / Italy / Serie A,3.54,3.34,3.51,76,2.33,3.05,2.46,3.29,3.98
+6,34629501,11:42 AM,Mon 30/03,Liverpool,Barcelona,Football / Germany / Bundesliga,3.94,2.39,4.29,61,2.51,3.24,4.42,4.03,2.71
+7,38238334,12:12 PM,Mon 30/03,Real Madrid,Roma,Football / England / Premier League,3.47,3.74,3.06,84,1.37,3.71,2.18,1.29,3.46
+8,37567955,12:42 PM,Mon 30/03,Inter Milan,Juventus,Football / England / Premier League,2.19,3.56,3.98,54,3.86,1.7,1.78,3.26,2.12
+9,34471462,01:12 PM,Mon 30/03,Napoli,Chelsea FC,Football / France / Ligue 1,3.07,1.68,2.64,87,1.92,4.42,1.58,2.04,1.85
+10,37789843,01:42 PM,Mon 30/03,Chelsea FC,Barcelona,Football / England / Premier League,4.27,4.16,1.55,83,2.18,1.53,1.71,3.72,1.4
+11,34854975,02:12 PM,Mon 30/03,Roma,Juventus,Football / England / Premier League,2.12,2.9,4.49,55,1.95,3.38,2.06,1.8,2.59
+12,38377787,02:42 PM,Mon 30/03,PSG,Leverkusen,Football / England / Premier League,2.5,4.34,3.67,68,1.71,3.88,4.48,4.46,1.77
+13,33484176,03:12 PM,Mon 30/03,Manchester United,PSG,Football / Spain / La Liga,3.35,4.39,3.29,58,3.18,2.81,3.24,2.05,2.47
+14,39341876,03:42 PM,Mon 30/03,Lyon,Inter Milan,Football / Germany / Bundesliga,3.45,3.83,3.07,81,1.25,1.95,3.09,2.69,1.83
+15,35580456,04:12 PM,Mon 30/03,AC Milan,Inter Milan,Football / Spain / La Liga,2.31,2.92,4.31,94,3.2,3.76,3.16,3.52,3.34
+16,35701781,04:42 PM,Mon 30/03,PSG,Chelsea FC,Football / Italy / Serie A,4.25,1.49,2.66,58,1.59,1.73,3.57,2.82,1.94
+17,30192983,05:12 PM,Mon 30/03,Napoli,PSG,Football / England / Premier League,3.23,2.94,2.77,50,3.49,4.48,1.61,4.34,2.97
+18,32747486,05:42 PM,Mon 30/03,Newcastle,Roma,Football / Spain / La Liga,2.75,2.12,2.71,64,1.99,1.65,2.53,2.32,2.81
+19,32208129,06:12 PM,Mon 30/03,Dortmund,Napoli,Football / France / Ligue 1,2.31,1.37,3.05,71,2.41,3.93,3.37,3.83,1.55
+20,33098293,06:42 PM,Mon 30/03,Leverkusen,Newcastle,Football / England / Premier League,2.3,3.8,1.25,91,2.94,3.59,2.88,2.34,4.03
+21,35151567,07:12 PM,Mon 30/03,Lyon,Napoli,Football / Spain / La Liga,3.01,4.45,2.58,62,1.3,3.03,3.93,3.49,2.26
+22,30894994,07:42 PM,Mon 30/03,Manchester United,Napoli,Football / Italy / Serie A,3.28,4.04,3.95,85,1.82,1.95,3.13,3.23,2.51
+23,31172941,08:12 PM,Mon 30/03,Napoli,Newcastle,Football / Spain / La Liga,2.76,3.67,4.06,53,3.34,4.3,1.46,2.73,2.86
+24,30168155,08:42 PM,Mon 30/03,Dortmund,Ajax,Football / Spain / La Liga,3.79,2.26,2.54,58,3.74,3.84,2.67,2.03,3.79
+25,38019456,09:12 PM,Mon 30/03,AC Milan,Barcelona,Football / Italy / Serie A,2.15,4.4,2.46,97,3.65,4.1,2.56,1.4,3.09
+26,35100535,09:42 PM,Mon 30/03,Tottenham,AC Milan,Football / England / Premier League,3.16,1.96,3.86,100,2.03,2.76,4.3,3.4,4.04
+27,33925622,10:12 PM,Mon 30/03,Arsenal,Newcastle,Football / Italy / Serie A,3.59,1.63,3.25,62,1.76,1.27,3.32,2.3,3.19
+28,34581568,10:42 PM,Mon 30/03,Newcastle,Real Madrid,Football / England / Premier League,1.57,1.69,2.96,78,3.78,1.81,3.64,1.89,3.91
+29,30057625,11:12 PM,Mon 30/03,Newcastle,Inter Milan,Football / Italy / Serie A,3.57,4.34,1.95,87,4.49,3.26,4.22,4.22,2.87
+30,38332029,11:42 PM,Mon 30/03,Roma,Manchester United,Football / Italy / Serie A,2.55,1.55,3.7,88,3.38,2.84,3.36,2.87,3.99
+31,30834101,12:12 AM,Tue 31/03,Liverpool,Lyon,Football / England / Premier League,3.77,2.68,2.84,51,3.24,4.42,3.78,4.08,3.22
+32,36058718,12:42 AM,Tue 31/03,Barcelona,Inter Milan,Football / France / Ligue 1,1.79,4.01,2.27,81,2.23,2.35,1.23,3.13,1.41
+33,34488913,01:12 AM,Tue 31/03,Dortmund,Atletico Madrid,Football / France / Ligue 1,2.18,2.47,2.15,51,3.82,2.88,4.25,1.53,2.53
+34,32272872,01:42 AM,Tue 31/03,Lyon,Tottenham,Football / Germany / Bundesliga,3.95,4.31,3.46,84,1.97,2.81,3.42,1.71,1.91
+35,37577267,02:12 AM,Tue 31/03,Barcelona,Tottenham,Football / France / Ligue 1,2.43,1.42,3.71,66,3.46,2.1,3.43,2.36,2.28
+36,37805949,02:42 AM,Tue 31/03,PSG,Roma,Football / England / Premier League,3.67,2.72,4.48,79,1.36,3.61,2.5,4.11,2.23
+37,38147565,03:12 AM,Tue 31/03,Leverkusen,Atletico Madrid,Football / France / Ligue 1,2.36,4.46,2.51,79,1.8,2.91,4.01,3.82,4.29
+38,30613569,03:42 AM,Tue 31/03,Atletico Madrid,Napoli,Football / Germany / Bundesliga,1.72,1.98,1.49,68,3.12,3.32,3.74,4.0,4.19
+39,38111771,04:12 AM,Tue 31/03,AC Milan,Leverkusen,Football / Germany / Bundesliga,2.38,3.55,4.4,68,3.01,2.7,4.05,1.37,3.31
+40,38108874,04:42 AM,Tue 31/03,Leverkusen,Chelsea FC,Football / Italy / Serie A,1.99,1.99,3.05,75,2.56,2.37,3.34,1.85,3.51
+41,33420957,05:12 AM,Tue 31/03,Manchester United,Inter Milan,Football / Italy / Serie A,1.48,2.27,2.93,50,1.44,1.99,4.4,3.92,2.05
+42,39746083,05:42 AM,Tue 31/03,Newcastle,Barcelona,Football / Germany / Bundesliga,3.91,1.71,3.88,69,2.22,4.1,4.36,2.14,4.42
+43,32012034,06:12 AM,Tue 31/03,Arsenal,PSG,Football / France / Ligue 1,3.89,3.06,1.41,93,2.11,2.48,2.67,1.77,3.08
+44,35274314,06:42 AM,Tue 31/03,Bayern Munich,Juventus,Football / Spain / La Liga,4.29,4.02,2.07,68,2.25,3.66,2.26,3.19,1.98
+45,39637908,07:12 AM,Tue 31/03,PSG,Arsenal,Football / Spain / La Liga,4.05,1.87,2.62,85,1.55,1.59,4.05,1.73,1.93
+46,31908701,07:42 AM,Tue 31/03,PSG,Lyon,Football / France / Ligue 1,4.34,3.65,4.1,63,2.12,3.12,2.12,1.32,1.61
+47,32622281,08:12 AM,Tue 31/03,Roma,Newcastle,Football / Germany / Bundesliga,3.26,2.52,3.25,75,3.69,2.52,1.31,3.53,1.42
+48,33643725,08:42 AM,Tue 31/03,Liverpool,Real Madrid,Football / Germany / Bundesliga,3.59,2.26,2.43,79,2.79,2.29,3.19,2.75,2.24
+49,39762655,09:12 AM,Tue 31/03,Liverpool,Atletico Madrid,Football / Germany / Bundesliga,2.03,3.03,4.1,91,4.42,3.11,1.51,3.08,2.24
+50,38422854,09:42 AM,Tue 31/03,Arsenal,Atletico Madrid,Football / Spain / La Liga,4.11,3.1,3.48,73,1.33,3.82,4.31,2.34,4.23
+51,35646330,10:12 AM,Tue 31/03,Roma,Manchester United,Football / France / Ligue 1,2.15,2.04,2.0,86,2.96,3.14,2.7,4.2,1.44
+52,34632625,10:42 AM,Tue 31/03,Dortmund,Real Madrid,Football / Italy / Serie A,1.63,3.63,3.86,95,1.91,1.57,1.58,4.32,3.52
+53,37279499,11:12 AM,Tue 31/03,Lyon,Manchester United,Football / France / Ligue 1,2.61,2.38,4.32,71,3.47,3.73,4.19,3.75,3.06
+54,34732116,11:42 AM,Tue 31/03,Leverkusen,Barcelona,Football / Spain / La Liga,2.24,3.83,1.43,91,4.37,4.28,1.7,3.83,1.98
+55,30688678,12:12 PM,Tue 31/03,AC Milan,Bayern Munich,Football / Italy / Serie A,1.78,2.49,2.43,99,2.56,3.59,4.48,3.29,2.52
+56,35196198,12:42 PM,Tue 31/03,Newcastle,Real Madrid,Football / Spain / La Liga,2.4,4.38,2.97,64,2.4,3.81,3.08,3.69,2.03
+57,30693590,01:12 PM,Tue 31/03,Juventus,Inter Milan,Football / Germany / Bundesliga,1.47,4.49,3.0,79,2.58,2.67,3.52,1.86,2.51
+58,37453302,01:42 PM,Tue 31/03,Bayern Munich,Chelsea FC,Football / England / Premier League,3.69,1.82,3.44,85,2.52,2.86,2.46,3.64,1.91
+59,34539265,02:12 PM,Tue 31/03,Ajax,Atletico Madrid,Football / France / Ligue 1,3.25,2.11,4.47,89,4.5,4.38,3.75,3.62,3.16
+60,33005208,02:42 PM,Tue 31/03,Leverkusen,Ajax,Football / Spain / La Liga,2.27,2.77,3.64,88,1.33,3.4,1.3,2.91,3.27
+61,38135062,03:12 PM,Tue 31/03,Napoli,Real Madrid,Football / Italy / Serie A,3.08,3.43,3.11,92,3.73,2.12,2.1,2.41,3.87
+62,30538079,03:42 PM,Tue 31/03,Leverkusen,Juventus,Football / France / Ligue 1,1.78,1.37,1.81,61,3.96,2.45,2.08,3.38,3.16
+63,36096293,04:12 PM,Tue 31/03,Chelsea FC,Barcelona,Football / France / Ligue 1,1.51,4.05,1.31,78,2.63,3.5,3.86,3.17,1.31
+64,33798368,04:42 PM,Tue 31/03,Roma,Newcastle,Football / Italy / Serie A,2.26,3.76,2.19,81,1.74,4.0,4.48,3.75,1.21
+65,30138276,05:12 PM,Tue 31/03,Barcelona,Arsenal,Football / France / Ligue 1,2.11,3.08,1.24,87,3.45,4.02,4.09,4.44,3.78
+66,37895081,05:42 PM,Tue 31/03,Juventus,Lyon,Football / Germany / Bundesliga,2.31,2.84,2.54,74,4.42,2.03,1.64,3.12,4.13
+67,39925088,06:12 PM,Tue 31/03,Barcelona,Leverkusen,Football / Italy / Serie A,3.05,1.96,3.84,55,1.21,4.12,2.97,4.34,3.83
+68,30234708,06:42 PM,Tue 31/03,Manchester United,Atletico Madrid,Football / England / Premier League,1.62,3.15,1.32,95,2.16,1.48,2.65,4.12,3.77
+69,33456491,07:12 PM,Tue 31/03,Newcastle,Leverkusen,Football / Italy / Serie A,2.87,4.23,4.42,99,4.05,2.39,3.82,3.71,3.33
+70,39773202,07:42 PM,Tue 31/03,Real Madrid,Manchester United,Football / Spain / La Liga,3.79,1.5,4.4,85,2.4,2.59,2.32,2.01,4.15
+71,38318182,08:12 PM,Tue 31/03,Tottenham,AC Milan,Football / England / Premier League,2.25,3.52,1.98,72,1.47,2.39,1.89,2.72,1.91
+72,35413132,08:42 PM,Tue 31/03,Manchester United,Real Madrid,Football / Italy / Serie A,3.15,1.65,2.49,89,2.49,2.15,1.28,2.87,1.35
+73,38639276,09:12 PM,Tue 31/03,PSG,Real Madrid,Football / Spain / La Liga,3.24,4.06,1.9,92,2.0,3.21,4.44,1.87,4.0
+74,31963151,09:42 PM,Tue 31/03,PSG,Leverkusen,Football / Germany / Bundesliga,3.37,2.73,3.27,59,3.36,3.08,1.88,3.17,3.6
+75,37552146,10:12 PM,Tue 31/03,Inter Milan,Atletico Madrid,Football / Spain / La Liga,1.28,1.51,3.56,51,3.61,1.87,3.09,2.72,4.09
+76,30857570,10:42 PM,Tue 31/03,Atletico Madrid,PSG,Football / Italy / Serie A,2.37,4.07,2.64,89,2.64,3.51,3.72,2.39,2.78
+77,30860352,11:12 PM,Tue 31/03,Inter Milan,Leverkusen,Football / Italy / Serie A,2.38,3.95,1.76,93,2.85,2.25,4.49,2.14,3.9
+78,35570445,11:42 PM,Tue 31/03,Roma,Dortmund,Football / Italy / Serie A,4.29,1.42,4.22,70,2.42,3.31,2.85,3.58,3.63
+79,37734614,12:12 AM,Wed 01/04,Chelsea FC,Dortmund,Football / Germany / Bundesliga,3.17,2.31,3.72,83,1.72,1.74,4.19,1.87,4.15
+80,39484095,12:42 AM,Wed 01/04,Newcastle,Napoli,Football / France / Ligue 1,1.74,4.08,3.02,78,2.17,3.38,3.84,2.48,1.66
+81,31958448,01:12 AM,Wed 01/04,Tottenham,Dortmund,Football / England / Premier League,3.91,3.49,4.25,66,2.71,4.09,1.43,2.72,1.75
+82,36402193,01:42 AM,Wed 01/04,Tottenham,Leverkusen,Football / Spain / La Liga,2.17,2.21,1.61,84,1.3,2.37,3.97,3.56,4.15
+83,34197153,02:12 AM,Wed 01/04,Lyon,Atletico Madrid,Football / Germany / Bundesliga,4.09,1.63,3.05,51,4.47,4.4,3.5,3.46,2.25
+84,35029928,02:42 AM,Wed 01/04,Liverpool,Leverkusen,Football / England / Premier League,2.03,1.43,3.01,85,4.11,2.52,1.8,4.38,3.83
+85,34084835,03:12 AM,Wed 01/04,PSG,Ajax,Football / Italy / Serie A,1.25,2.15,4.2,69,2.4,3.46,2.05,2.14,2.23
+86,30328514,03:42 AM,Wed 01/04,Tottenham,AC Milan,Football / Spain / La Liga,1.25,3.22,3.2,61,2.32,3.2,2.36,3.96,1.72
+87,38774267,04:12 AM,Wed 01/04,PSG,Dortmund,Football / France / Ligue 1,3.45,3.39,1.93,61,1.96,4.12,3.37,1.6,3.11
+88,33726172,04:42 AM,Wed 01/04,Chelsea FC,Liverpool,Football / France / Ligue 1,3.86,2.95,4.31,90,3.39,3.3,4.47,3.78,1.88
+89,36375890,05:12 AM,Wed 01/04,Dortmund,Bayern Munich,Football / Italy / Serie A,3.3,2.2,1.7,61,3.4,2.81,4.23,3.46,4.37
+90,33702374,05:42 AM,Wed 01/04,Lyon,Leverkusen,Football / Italy / Serie A,3.62,2.05,4.14,85,2.06,4.39,4.18,1.8,1.89
+91,32288759,06:12 AM,Wed 01/04,Dortmund,Leverkusen,Football / Germany / Bundesliga,1.69,1.72,1.69,88,4.14,2.02,2.39,2.69,2.43
+92,39170302,06:42 AM,Wed 01/04,Tottenham,Roma,Football / Germany / Bundesliga,1.36,2.07,3.68,70,2.14,1.38,4.35,2.59,3.75
+93,33415003,07:12 AM,Wed 01/04,Inter Milan,Dortmund,Football / France / Ligue 1,2.87,4.03,3.2,71,3.87,1.44,1.79,1.61,3.94
+94,30131416,07:42 AM,Wed 01/04,Real Madrid,Bayern Munich,Football / Germany / Bundesliga,3.52,2.34,4.07,57,3.98,3.48,2.93,4.04,3.94
+95,38095119,08:12 AM,Wed 01/04,Atletico Madrid,Napoli,Football / Italy / Serie A,1.61,2.18,3.02,94,4.2,4.36,3.72,2.28,1.81
+96,37653719,08:42 AM,Wed 01/04,Liverpool,Chelsea FC,Football / Germany / Bundesliga,2.48,2.69,3.23,94,2.61,2.72,1.96,2.95,4.11
+97,32496796,09:12 AM,Wed 01/04,Lyon,AC Milan,Football / England / Premier League,1.81,2.25,1.98,63,1.66,3.3,1.78,4.03,2.79
+98,32189569,09:42 AM,Wed 01/04,Ajax,Inter Milan,Football / France / Ligue 1,1.56,2.45,2.71,56,2.86,2.8,2.02,2.8,2.79
+99,34005420,10:12 AM,Wed 01/04,Ajax,PSG,Football / Spain / La Liga,3.6,4.26,2.45,98,2.5,3.18,2.96,1.7,4.18
+100,30322777,10:42 AM,Wed 01/04,Real Madrid,Chelsea FC,Football / France / Ligue 1,3.8,4.48,3.97,79,3.03,1.73,2.03,3.99,1.27
+101,36930351,11:12 AM,Wed 01/04,Newcastle,Manchester United,Football / Germany / Bundesliga,2.69,3.56,2.28,62,3.86,3.79,1.92,3.85,3.67
+102,32313352,11:42 AM,Wed 01/04,Barcelona,Dortmund,Football / England / Premier League,3.66,3.51,1.69,87,1.86,1.9,3.59,4.32,1.25
+103,38289792,12:12 PM,Wed 01/04,Dortmund,Lyon,Football / France / Ligue 1,3.19,4.02,3.03,51,3.04,3.71,1.36,2.21,4.06
+104,34546591,12:42 PM,Wed 01/04,Lyon,Juventus,Football / Spain / La Liga,2.93,3.17,3.05,79,2.25,3.83,2.89,3.69,2.78
+105,32829057,01:12 PM,Wed 01/04,Inter Milan,AC Milan,Football / Italy / Serie A,2.44,4.02,2.72,91,4.16,1.77,3.83,3.11,2.13
+106,36874614,01:42 PM,Wed 01/04,Liverpool,Real Madrid,Football / England / Premier League,2.69,4.35,3.53,84,1.81,3.38,2.75,3.11,1.67
+107,34959973,02:12 PM,Wed 01/04,Juventus,Atletico Madrid,Football / England / Premier League,1.97,2.64,2.14,61,3.08,2.14,2.58,1.24,1.44
+108,30256452,02:42 PM,Wed 01/04,Roma,Leverkusen,Football / France / Ligue 1,3.35,1.85,3.03,98,2.79,2.64,3.45,1.83,2.1
+109,37437467,03:12 PM,Wed 01/04,Napoli,Atletico Madrid,Football / France / Ligue 1,1.64,3.74,4.25,52,2.01,2.14,3.76,1.87,2.95
+110,31867058,03:42 PM,Wed 01/04,Ajax,Dortmund,Football / Spain / La Liga,1.56,4.26,3.95,83,1.95,3.75,2.13,4.08,3.4
+111,35191281,04:12 PM,Wed 01/04,Lyon,Inter Milan,Football / England / Premier League,3.52,2.88,4.23,68,3.38,3.31,3.0,2.84,3.41
+112,37634881,04:42 PM,Wed 01/04,Dortmund,Liverpool,Football / Germany / Bundesliga,2.84,3.09,1.99,98,1.96,1.47,3.29,3.78,4.24
+113,33356650,05:12 PM,Wed 01/04,Dortmund,Bayern Munich,Football / France / Ligue 1,2.51,1.54,4.2,80,3.57,1.99,2.61,1.89,2.5
+114,39766426,05:42 PM,Wed 01/04,Atletico Madrid,Liverpool,Football / Germany / Bundesliga,2.52,2.9,2.1,76,1.61,4.47,3.31,1.9,3.02
+115,33688447,06:12 PM,Wed 01/04,Arsenal,Juventus,Football / France / Ligue 1,2.85,2.82,3.41,92,4.42,2.31,3.43,1.92,1.5
+116,31732987,06:42 PM,Wed 01/04,Chelsea FC,Dortmund,Football / Germany / Bundesliga,2.07,2.25,2.84,96,2.71,2.91,3.98,1.71,3.98
+117,33652718,07:12 PM,Wed 01/04,Atletico Madrid,Juventus,Football / England / Premier League,1.77,2.69,1.32,50,1.98,3.76,3.42,3.98,2.87
+118,33671385,07:42 PM,Wed 01/04,Tottenham,Barcelona,Football / Spain / La Liga,3.21,1.8,3.28,87,1.36,2.73,3.81,3.4,2.39
+119,35127436,08:12 PM,Wed 01/04,Juventus,Atletico Madrid,Football / France / Ligue 1,2.53,1.26,2.53,65,2.15,3.83,2.73,3.35,3.32
+120,32737288,08:42 PM,Wed 01/04,Lyon,Dortmund,Football / Italy / Serie A,2.23,3.34,4.19,94,3.99,1.27,4.41,4.37,2.52
+121,31794984,09:12 PM,Wed 01/04,Manchester United,Ajax,Football / Italy / Serie A,3.92,3.53,3.06,71,1.27,3.63,1.66,4.18,3.28
+122,37348168,09:42 PM,Wed 01/04,Roma,Napoli,Football / England / Premier League,3.9,3.26,2.51,69,1.81,3.93,3.81,4.31,1.97
+123,31424964,10:12 PM,Wed 01/04,Inter Milan,Barcelona,Football / England / Premier League,1.76,1.88,4.41,98,4.49,3.66,1.8,4.45,3.85
+124,35977927,10:42 PM,Wed 01/04,Inter Milan,Manchester United,Football / Italy / Serie A,1.63,1.48,2.62,96,3.71,2.26,1.32,3.85,3.16
+125,37721080,11:12 PM,Wed 01/04,Real Madrid,Manchester United,Football / Germany / Bundesliga,1.98,1.44,4.44,78,2.21,3.92,3.93,2.65,3.16
+126,33134652,11:42 PM,Wed 01/04,Bayern Munich,Tottenham,Football / Germany / Bundesliga,2.31,1.8,2.4,59,4.28,4.14,2.95,3.29,4.37
+127,34037915,12:12 AM,Thu 02/04,Bayern Munich,Napoli,Football / Italy / Serie A,1.64,4.3,1.4,89,1.65,3.18,3.72,1.58,2.99
+128,35615073,12:42 AM,Thu 02/04,Dortmund,Leverkusen,Football / Germany / Bundesliga,2.25,1.34,3.92,54,4.23,2.73,3.59,2.95,1.3
+129,39563071,01:12 AM,Thu 02/04,Real Madrid,Roma,Football / Italy / Serie A,2.34,1.69,4.12,100,4.14,4.3,1.89,2.64,1.23
+130,36095060,01:42 AM,Thu 02/04,Manchester United,Ajax,Football / Germany / Bundesliga,3.44,3.01,3.17,95,2.65,4.08,2.36,3.41,2.28
+131,30341302,02:12 AM,Thu 02/04,Lyon,Ajax,Football / England / Premier League,1.93,3.7,2.97,57,4.19,2.06,1.49,4.22,3.4
+132,31353540,02:42 AM,Thu 02/04,Tottenham,Dortmund,Football / Italy / Serie A,3.04,4.35,1.86,79,3.71,1.21,4.48,2.36,1.7
+133,31204804,03:12 AM,Thu 02/04,Manchester United,Newcastle,Football / Italy / Serie A,2.82,1.54,3.35,92,1.52,3.27,3.36,2.01,4.08
+134,35889628,03:42 AM,Thu 02/04,Real Madrid,Inter Milan,Football / Italy / Serie A,2.38,3.15,2.98,59,4.46,2.88,3.17,3.68,4.2
+135,33056384,04:12 AM,Thu 02/04,Real Madrid,Roma,Football / Italy / Serie A,1.62,4.06,2.06,98,3.82,3.77,4.37,3.19,1.27
+136,37302126,04:42 AM,Thu 02/04,Juventus,Napoli,Football / Italy / Serie A,3.91,1.86,4.4,87,1.28,1.75,2.35,2.56,1.41
+137,31093056,05:12 AM,Thu 02/04,Arsenal,Atletico Madrid,Football / England / Premier League,1.93,3.91,2.28,77,2.54,1.48,3.28,2.2,3.65
+138,35084681,05:42 AM,Thu 02/04,Inter Milan,Dortmund,Football / Spain / La Liga,1.98,3.82,4.34,88,3.91,1.85,1.88,3.44,2.85
+139,37795342,06:12 AM,Thu 02/04,Leverkusen,Liverpool,Football / Spain / La Liga,1.39,2.64,4.09,56,4.15,1.71,3.07,1.56,1.76
+140,39439958,06:42 AM,Thu 02/04,Lyon,Manchester United,Football / England / Premier League,4.01,2.07,1.81,96,2.05,1.94,1.38,1.81,3.73
+141,37515344,07:12 AM,Thu 02/04,Liverpool,Bayern Munich,Football / France / Ligue 1,1.73,4.01,3.3,75,2.81,1.25,2.66,2.66,3.56
+142,31243559,07:42 AM,Thu 02/04,Chelsea FC,Dortmund,Football / Germany / Bundesliga,2.34,1.32,1.9,61,2.62,3.65,2.83,1.76,1.41
+143,36794357,08:12 AM,Thu 02/04,Ajax,Inter Milan,Football / England / Premier League,1.45,4.46,2.34,67,1.49,4.37,3.98,3.8,3.25
+144,35484557,08:42 AM,Thu 02/04,PSG,Ajax,Football / Italy / Serie A,3.36,4.22,3.64,86,3.37,1.75,2.98,1.41,1.4
+145,35390492,09:12 AM,Thu 02/04,Lyon,Barcelona,Football / Italy / Serie A,1.22,2.08,2.26,86,1.69,3.18,3.97,1.51,4.34
+146,33648910,09:42 AM,Thu 02/04,Manchester United,Leverkusen,Football / England / Premier League,2.86,3.16,1.97,93,3.16,2.97,2.35,1.46,1.39
+147,32022512,10:12 AM,Thu 02/04,Leverkusen,Manchester United,Football / Italy / Serie A,4.46,4.49,2.33,93,3.15,2.46,2.69,1.44,1.31
+148,39184372,10:42 AM,Thu 02/04,Chelsea FC,Barcelona,Football / Germany / Bundesliga,2.07,1.76,2.25,98,2.21,1.73,4.23,1.76,2.83
+149,35940110,11:12 AM,Thu 02/04,Dortmund,Inter Milan,Football / Spain / La Liga,2.42,2.16,3.64,99,3.39,3.03,3.97,1.35,4.06
+150,36852139,11:42 AM,Thu 02/04,Barcelona,Lyon,Football / France / Ligue 1,3.07,3.72,2.0,70,3.31,2.33,3.45,3.45,1.55
+151,30622377,12:12 PM,Thu 02/04,AC Milan,Newcastle,Football / France / Ligue 1,1.46,2.58,3.62,82,1.31,1.99,2.0,3.49,2.36
+152,30868666,12:42 PM,Thu 02/04,Leverkusen,Napoli,Football / Italy / Serie A,1.6,4.25,2.0,94,1.76,2.75,3.7,4.35,2.39
+153,37448109,01:12 PM,Thu 02/04,PSG,Bayern Munich,Football / Italy / Serie A,4.26,2.83,1.66,94,4.19,3.91,1.84,2.72,3.55
+154,32715427,01:42 PM,Thu 02/04,Inter Milan,Liverpool,Football / Germany / Bundesliga,2.09,3.67,2.59,56,3.12,4.24,2.11,4.42,4.49
+155,38603265,02:12 PM,Thu 02/04,Juventus,PSG,Football / France / Ligue 1,2.37,4.21,4.16,90,3.63,4.45,1.55,2.21,3.99
+156,36448380,02:42 PM,Thu 02/04,Lyon,Juventus,Football / Italy / Serie A,2.64,4.36,3.35,50,4.16,2.97,1.99,2.68,4.08
+157,30698701,03:12 PM,Thu 02/04,Lyon,Bayern Munich,Football / France / Ligue 1,1.56,2.47,4.45,82,2.22,3.44,3.67,3.31,2.37
+158,35478702,03:42 PM,Thu 02/04,Bayern Munich,Juventus,Football / Germany / Bundesliga,3.23,2.92,3.62,88,1.74,2.43,3.26,3.24,1.6
+159,37504129,04:12 PM,Thu 02/04,Inter Milan,Lyon,Football / Italy / Serie A,1.34,3.53,2.38,76,1.86,1.84,1.61,1.99,3.63
+160,39604403,04:42 PM,Thu 02/04,Leverkusen,Real Madrid,Football / France / Ligue 1,2.71,3.74,3.19,65,2.44,4.04,3.05,1.63,3.46
+161,36738147,05:12 PM,Thu 02/04,Atletico Madrid,PSG,Football / England / Premier League,1.42,1.77,1.61,88,2.84,1.75,4.34,3.16,2.04
+162,39674094,05:42 PM,Thu 02/04,Liverpool,Chelsea FC,Football / Italy / Serie A,1.75,1.75,2.47,96,1.56,2.46,1.33,2.58,1.93
+163,36710391,06:12 PM,Thu 02/04,Manchester United,PSG,Football / France / Ligue 1,2.48,2.34,1.64,55,1.48,1.61,3.82,1.45,3.26
+164,37084653,06:42 PM,Thu 02/04,Napoli,Barcelona,Football / England / Premier League,1.4,2.9,1.7,69,1.45,2.35,4.0,3.86,3.01
+165,32002929,07:12 PM,Thu 02/04,Liverpool,Roma,Football / Italy / Serie A,1.83,3.17,1.3,79,1.84,1.28,4.09,4.4,4.49
+166,30653955,07:42 PM,Thu 02/04,Newcastle,Manchester United,Football / Italy / Serie A,3.42,2.72,3.67,68,4.14,1.97,3.53,3.82,2.15
+167,35619040,08:12 PM,Thu 02/04,Dortmund,Liverpool,Football / Spain / La Liga,3.34,2.94,4.44,69,2.41,2.62,4.42,2.81,4.39
+168,32918115,08:42 PM,Thu 02/04,Barcelona,PSG,Football / France / Ligue 1,3.35,2.63,4.04,75,2.3,2.83,3.41,3.29,2.59
+169,36187252,09:12 PM,Thu 02/04,Roma,Leverkusen,Football / France / Ligue 1,4.39,2.61,3.35,87,3.9,2.84,1.27,4.05,3.76
+170,37805114,09:42 PM,Thu 02/04,Manchester United,Atletico Madrid,Football / England / Premier League,2.59,4.17,3.46,100,1.55,2.9,2.49,1.66,4.08
+171,32584496,10:12 PM,Thu 02/04,Liverpool,Manchester United,Football / Spain / La Liga,3.86,3.26,2.71,55,1.41,2.92,2.69,3.85,4.29
+172,37643724,10:42 PM,Thu 02/04,AC Milan,Newcastle,Football / England / Premier League,1.29,1.66,3.26,54,2.41,2.11,2.01,2.45,4.19
+173,39056287,11:12 PM,Thu 02/04,Atletico Madrid,Lyon,Football / France / Ligue 1,2.09,4.23,1.88,56,1.28,1.49,4.1,3.57,2.64
+174,30526019,11:42 PM,Thu 02/04,Napoli,AC Milan,Football / Germany / Bundesliga,4.25,2.27,3.22,94,4.07,3.92,3.44,1.63,2.3
+175,39925464,12:12 AM,Fri 03/04,Juventus,Atletico Madrid,Football / England / Premier League,1.66,2.41,4.47,81,1.8,3.26,3.72,1.47,3.6
+176,32099046,12:42 AM,Fri 03/04,Napoli,Newcastle,Football / England / Premier League,2.33,2.74,4.38,65,4.49,1.94,2.35,4.27,2.53
+177,35364938,01:12 AM,Fri 03/04,Tottenham,Atletico Madrid,Football / Italy / Serie A,1.61,1.49,2.67,61,1.4,2.51,3.24,3.34,2.27
+178,35194604,01:42 AM,Fri 03/04,Napoli,Lyon,Football / England / Premier League,3.12,2.84,1.48,64,4.08,4.45,1.4,2.54,2.05
+179,38430396,02:12 AM,Fri 03/04,Dortmund,Inter Milan,Football / Italy / Serie A,1.66,2.99,3.9,52,3.95,2.72,2.38,4.16,3.88
+180,37277320,02:42 AM,Fri 03/04,Napoli,Ajax,Football / France / Ligue 1,4.06,1.76,2.73,96,1.21,3.12,3.89,2.86,3.57
+181,39048169,03:12 AM,Fri 03/04,Dortmund,Leverkusen,Football / Germany / Bundesliga,1.27,2.47,1.84,50,4.3,3.08,1.97,3.19,2.72
+182,32814579,03:42 AM,Fri 03/04,Arsenal,Juventus,Football / Germany / Bundesliga,2.44,3.76,4.01,78,4.46,3.64,2.95,1.77,4.34
+183,37286709,04:12 AM,Fri 03/04,Newcastle,Tottenham,Football / Germany / Bundesliga,3.68,1.67,2.89,77,2.91,1.58,2.92,3.41,3.3
+184,33935902,04:42 AM,Fri 03/04,Ajax,Liverpool,Football / Spain / La Liga,3.24,2.22,2.2,56,4.4,2.8,3.57,2.0,3.88
+185,30886586,05:12 AM,Fri 03/04,Leverkusen,Ajax,Football / France / Ligue 1,2.72,1.41,3.95,96,1.44,3.49,4.11,2.74,1.71
+186,35873851,05:42 AM,Fri 03/04,Newcastle,Chelsea FC,Football / England / Premier League,4.35,1.97,2.31,51,2.66,3.84,2.34,2.0,2.15
+187,38021733,06:12 AM,Fri 03/04,Barcelona,Tottenham,Football / Spain / La Liga,1.8,4.38,2.21,60,3.76,3.27,4.34,1.79,3.42
+188,34405159,06:42 AM,Fri 03/04,Ajax,Atletico Madrid,Football / Spain / La Liga,2.36,1.88,2.07,83,3.66,4.4,1.31,2.51,2.12
+189,33303575,07:12 AM,Fri 03/04,Chelsea FC,Dortmund,Football / France / Ligue 1,3.94,2.62,2.77,83,4.13,2.94,2.73,4.17,1.81
+190,38894791,07:42 AM,Fri 03/04,Manchester United,Arsenal,Football / England / Premier League,1.2,3.35,1.6,51,4.02,2.88,3.17,4.3,1.82
+191,33750969,08:12 AM,Fri 03/04,Barcelona,Chelsea FC,Football / Spain / La Liga,3.87,1.68,4.01,97,1.22,3.16,2.81,4.31,1.44
+192,38995268,08:42 AM,Fri 03/04,Dortmund,Leverkusen,Football / England / Premier League,2.98,1.25,1.56,88,1.32,1.96,1.93,2.45,2.6
+193,35610513,09:12 AM,Fri 03/04,Dortmund,Real Madrid,Football / France / Ligue 1,1.75,3.01,2.42,55,3.37,1.48,4.14,1.91,2.63
+194,36875639,09:42 AM,Fri 03/04,Atletico Madrid,Liverpool,Football / France / Ligue 1,1.75,1.97,2.41,86,3.35,4.04,1.73,2.5,1.62
+195,33926276,10:12 AM,Fri 03/04,Juventus,PSG,Football / Spain / La Liga,2.19,1.72,2.6,52,3.21,2.68,4.27,4.11,1.61
+196,32130449,10:42 AM,Fri 03/04,Manchester United,Leverkusen,Football / Italy / Serie A,2.68,4.29,1.5,88,3.57,1.96,3.67,3.61,3.36
+197,36779356,11:12 AM,Fri 03/04,AC Milan,Atletico Madrid,Football / Germany / Bundesliga,4.08,1.36,4.27,74,3.1,2.8,4.44,3.06,3.4
+198,34811242,11:42 AM,Fri 03/04,Atletico Madrid,PSG,Football / Germany / Bundesliga,3.2,2.44,1.24,89,4.37,3.04,4.05,2.18,2.93
+199,39489362,12:12 PM,Fri 03/04,Juventus,Lyon,Football / France / Ligue 1,2.31,4.34,3.24,68,4.43,2.27,4.26,1.32,3.97
+200,37624401,12:42 PM,Fri 03/04,AC Milan,Ajax,Football / Spain / La Liga,4.29,4.32,4.25,53,4.18,1.64,4.15,3.16,3.35
