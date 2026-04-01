@@ -12,8 +12,8 @@ const gamesData = parsed
   .map((item, index) => ({
     id: Number(item.id) || index + 1,
     eventId: Number(item.eventId) || Math.floor(Math.random() * 100000000),
-    time: item.time || '',
-    date: item.date || '',
+    time: item.Time || '',
+    date: item.Date || '',
     homeTeam: item.homeTeam || '',
     awayTeam: item.awayTeam || '',
     league: item.league || '',

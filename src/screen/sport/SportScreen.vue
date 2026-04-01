@@ -261,14 +261,14 @@ const goToSportDetails = (game) => {
     </div>
 
     <!-- View All -->
-    <div class="flex items-center justify-center bg-transparent text-[#f4f5f0] p-3 text-sm font-medium">
+    <!-- <div class="flex items-center justify-center bg-transparent text-[#f4f5f0] p-3 text-sm font-medium">
       <span class="underline cursor-pointer">
         View all Football <span class="ml-1">662</span>
       </span>
       <svg class="w-2.5 h-2.5 ml-2">
         <use xlink:href="#arrow_right"></use>
       </svg>
-    </div>
+    </div> -->
   </div>
 </template>
 
