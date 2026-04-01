@@ -13,7 +13,7 @@
   import Papa from 'papaparse'
   
   // 🔥 import raw CSV (hakuna fetch)
-  import csvFile from './dummy_matches_200.csv?raw'
+  import csvFile from './matokeo_betpawa_final_removeNAN.csv?raw'
   
   const games = ref([])
   
@@ -47,5 +47,5 @@
   
   games.value = formatted
   
-  console.log("✅ Final JSON:", formatted)
+  console.log("✅ Final JSON: from file", formatted)
   </script>

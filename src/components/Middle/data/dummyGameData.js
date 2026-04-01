@@ -1,5 +1,5 @@
 import Papa from 'papaparse'
-import csvFile from '../../../screen/sport/dummy_matches_200.csv?raw'
+import csvFile from '../../../screen/sport/matokeo_betpawa_final_removeNAN.csv?raw'
 
 const parsed = Papa.parse(csvFile, {
   header: true,
