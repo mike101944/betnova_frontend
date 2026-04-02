@@ -1,85 +1,12 @@
 <script setup>
-import gamesData from '../data/dummyGameData'
-import { ref, onMounted, onBeforeUnmount, watch, computed } from 'vue'
+// import { dummyGamesData } from '../data/dummyGameData'
+import gamesData  from '../data/dummyGameData'
+import { ref, onMounted, onBeforeUnmount, watch } from 'vue'
 import { useRouter } from 'vue-router'
 
-const props = defineProps(['leagueId'])
 const router = useRouter()
 const games = ref([])
 const selectedBets = ref([])
-
-// ========== SORTING LOGIC FOR LEAGUE ==========
-const sortByLeague = ref('default') // 'default', 'az', 'za'
-
-const sortLeagues = (gamesList) => {
-  if (sortByLeague.value === 'default') return gamesList
-  
-  return [...gamesList].sort((a, b) => {
-    if (sortByLeague.value === 'az') {
-      return a.league.localeCompare(b.league)
-    } else if (sortByLeague.value === 'za') {
-      return b.league.localeCompare(a.league)
-    }
-    return 0
-  })
-}
-
-const toggleLeagueSort = () => {
-  if (sortByLeague.value === 'default') {
-    sortByLeague.value = 'az'
-  } else if (sortByLeague.value === 'az') {
-    sortByLeague.value = 'za'
-  } else {
-    sortByLeague.value = 'default'
-  }
-}
-
-const getSortIcon = () => {
-  if (sortByLeague.value === 'az') return '↓ A-Z'
-  if (sortByLeague.value === 'za') return '↑ Z-A'
-  return '⇅'
-}
-// ==========================================
-
-// ========== FILTERING BASED ON LEAGUE ID ==========
-const filteredByLeague = computed(() => {
-  if (!games.value.length) return []
-  
-  // Kama ni 'Live' (ID 11)
-  if (props.leagueId === 11) {
-    return games.value.filter(g => g.isLive)
-  }
-  
-  // League name mapping
-  const leagueMap = {
-    1: 'Football / England / Premier League',
-    2: 'Football / Spain / La Liga',
-    3: 'Football / Italy / Serie A',
-    4: 'Football / Germany / Bundesliga',
-    5: 'Football / France / Ligue 1',
-    6: 'UEFA Champions League',
-    7: 'Eredivisie',
-    8: 'Primeira Liga',
-    9: 'Super Lig',
-    10: 'MLS'
-  }
-  
-  const targetLeagueName = leagueMap[props.leagueId]
-  
-  if (!targetLeagueName) {
-    return games.value
-  }
-  
-  return games.value.filter(game => 
-    game.league && game.league.includes(targetLeagueName)
-  )
-})
-
-// Computed property for filtered + sorted games
-const displayGames = computed(() => {
-  return sortLeagues(filteredByLeague.value)
-})
-// ==========================================
 
 // Custom event for betslip updates
 const emitBetslipUpdate = () => {
@@ -92,7 +19,8 @@ const emitBetslipUpdate = () => {
 // Load selected bets from localStorage on mount
 onMounted(() => {
   setTimeout(() => {
-    games.value = gamesData
+    // Only show first 5 games
+    games.value = gamesData.slice(0, 5)
   }, 1200)
   
   loadFromLocalStorage()
@@ -188,6 +116,13 @@ watch(selectedBets, (newBets) => {
   console.log('Selected bets updated:', newBets)
 }, { deep: true })
 
+
+
+
+
+
+
+
 const goToSportDetails = (game) => {
   router.push({
     path: `/sportDetail`,
@@ -202,43 +137,32 @@ const goToSportDetails = (game) => {
 </script>
 
 <template>
+
   <div class="relative bg-sky-900">
     <!-- Category Header -->
     <div class="bg-sky-950 p-3 relative cursor-pointer header-glow">
-      <div class="flex justify-between items-center">
-        <h1 class="text-[22px] font-bold leading-[26px] pr-5 text-amber-100 flex items-center gap-2">
-          <span class="football-animate text-xl flex items-center justify-center">⚽</span>
-          <span class="italic">Football</span>
-        </h1>
-        
-        <!-- Sort League Button -->
-        <button 
-          @click="toggleLeagueSort"
-          class="px-3 py-1 text-xs font-semibold bg-cyan-800 text-white rounded-full hover:bg-cyan-700 transition-all duration-200 flex items-center gap-1"
-          :title="sortByLeague === 'default' ? 'Sort by League' : (sortByLeague === 'az' ? 'Sort A-Z' : 'Sort Z-A')"
-        >
-          <span>League</span>
-          <span class="text-sm">{{ getSortIcon() }}</span>
-        </button>
-      </div>
+  <h1 class="text-[22px] font-bold leading-[26px] pr-5 text-amber-100 flex items-center gap-2">
+    <span class="football-animate text-xl flex items-center justify-center">⚽</span>
+    <span class="italic">Football</span>
+  </h1>
 
-      <div class="absolute right-3 top-1/2 -translate-y-1/2">
-        <span class="px-2 py-1 text-xs font-semibold bg-orange-100 text-orange-600 rounded-full flex items-center gap-1">
-          🔥 <span class="typing-text">Trending</span>
-        </span>
-      </div>
+  <div class="absolute right-3 top-1/2 -translate-y-1/2">
+    <span class="px-2 py-1 text-xs font-semibold bg-orange-100 text-orange-600 rounded-full flex items-center gap-1">
+      🔥 <span class="typing-text">Trending</span>
+    </span>
+  </div>
 
-      <!-- glowing border -->
-      <div class="glow-line"></div>
-    </div>
+  <!-- glowing border -->
+  <div class="glow-line"></div>
+</div>
 
-    <!-- Games List -->
+    <!-- Games List - Only 5 games -->
     <div
-      v-for="game in displayGames"
+      v-for="game in games"
       :key="game.id"
-      class="border-b border-sky-950 p-3"
+      class="border-b border-sky-950 p-3 "
     >
-      <a @click="goToSportDetails(game)" class="block w-full cursor-pointer">
+      <a  @click="goToSportDetails(game)" class="block w-full cursor-pointer">
         <!-- Header -->
         <div class="flex justify-between items-center mb-1">
           <span class="text-sm text-white/70 font-normal">{{ game.time }}</span>
@@ -246,7 +170,7 @@ const goToSportDetails = (game) => {
         </div>
 
         <!-- Teams -->
-        <div class="flex flex-col gap-1 w-full">
+        <div class="flex flex-col gap-1 w-full ">
           <div class="flex items-center gap-1.5">
             <span class="text-[14px] text-amber-200/70 font-bold">{{ game.homeTeam }}</span>
           </div>
@@ -268,6 +192,7 @@ const goToSportDetails = (game) => {
             <div class="flex w-full">
               <div class="flex flex-wrap gap-2 w-full">
                 <div class="w-full flex">
+
                   <!-- Home Odds -->
                   <span class="flex-1 mr-2 overflow-hidden">
                     <span
@@ -333,6 +258,7 @@ const goToSportDetails = (game) => {
                     <span class="text-gray-950">{{ game.market }}</span>
                     +
                   </a>
+
                 </div>
               </div>
             </div>
@@ -373,6 +299,7 @@ const goToSportDetails = (game) => {
   animation: footballPro 2s ease-in-out infinite;
 }
 
+
 .typing-text {
   display: inline-block;
   overflow: hidden;
@@ -382,6 +309,7 @@ const goToSportDetails = (game) => {
   animation: typing 2s steps(8) infinite, blink 0.7s infinite;
 }
 
+/* typing effect */
 @keyframes typing {
   0% { width: 0 }
   40% { width: 8ch }
@@ -389,6 +317,7 @@ const goToSportDetails = (game) => {
   100% { width: 0 }
 }
 
+/* cursor blink */
 @keyframes blink {
   50% { border-color: transparent }
 }
@@ -407,10 +336,27 @@ const goToSportDetails = (game) => {
     rgba(255,255,255,0.9),
     transparent
   );
+
   box-shadow:
     0 0 6px rgba(255,255,255,0.9),
     0 0 10px rgba(255,255,255,0.7),
     0 0 18px rgba(255,255,255,0.5);
+
   animation:glowMove 4s linear infinite;
 }
+
+/* @keyframes glowMove{
+  0%{
+    opacity:.6;
+    transform:translateX(-40%);
+  }
+  50%{
+    opacity:1;
+    transform:translateX(0);
+  }
+  100%{
+    opacity:.6;
+    transform:translateX(40%);
+  }
+} */
 </style>

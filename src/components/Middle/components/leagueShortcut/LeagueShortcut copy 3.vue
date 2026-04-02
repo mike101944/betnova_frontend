@@ -1,7 +1,7 @@
 <script setup>
 import { ref } from 'vue'
 
-const selectedLeague = ref(2)
+const selectedLeague = ref(1)
 
 // const selectLeague = (league) => {
 //   selectedLeague.value = league.id
@@ -40,7 +40,7 @@ const leagues = [
   },
   { 
     id: 3, 
-    name: 'Football / Italy / Serie A', 
+    name: 'Serie A', 
     icon: 'serie-a', 
     count: 6, 
    
@@ -97,15 +97,24 @@ const leagues = [
 </script>
 
 <template>
-  <div class="w-full h-12.5 bg-emerald-950 overflow-auto relative flex flex-row gap-2 py-2 px-2">
-    <a href="#" 
-       v-for="league in leagues" :key="league.id" 
-       @click.prevent="selectLeague(league.id)"
-       class="inline-flex w-full gap-3 rounded-md p-1 text-white items-center bg-cyan-900"
-       :class="activeLeagueId === league.id ? 'bg-cyan-900 border shadow-lg border-amber-50' : 'bg-cyan-900 hover:bg-emerald-800'"
-    >
+  <div class=" w-full h-12.5 bg-emerald-950 overflow-auto relative flex flex-row gap-2 py-2 px-2">
+    <a href="" 
+    v-for="league in leagues"  :key="league.id" @click.prevent="selectLeague(league)"
+     class="inline-flex w-full gap-3  rounded-md  p-1 text-white items-center bg-cyan-900"
+    :class="selectedLeague === league.id ? 'bg-cyan-900 border  shadow-lg border-amber-50 hover:bg-cyan-900' : 'bg-cyan-900 hover:bg-emerald-800'"
+     
+     >
+            <svg v-if="league.name === 'Live'" data-v-02f45589="" data-v-97dcd69f=""
+                        class="svg-icon page-headline-icon" style="vertical-align: middle; "><!---->
+                        <use data-v-02f45589="" xlink:href="#icon-live"></use>
+                    </svg>
+
+        <div v-else>
+            <img src="" alt="" srcset="">
+        </div>
         <div class="whitespace-nowrap"><span class="text-[15px]">{{ league.name }}</span></div>
     </a>
+    
   </div>
 </template>
 
