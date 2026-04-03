@@ -1,7 +1,7 @@
 <script setup>
 import { ref } from 'vue'
 
-const selectedLeague = ref(2)
+const selectedLeague = ref(1)
 
 // const selectLeague = (league) => {
 //   selectedLeague.value = league.id
