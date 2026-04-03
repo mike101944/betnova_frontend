@@ -47,7 +47,7 @@ const filteredByLeague = computed(() => {
   
   // Kama ni 'Live' (ID 11)
   if (props.leagueId === 11) {
-    return games.value.filter(g => g.isLive === true)
+    return games.value.filter(g => g.isLive)
   }
   
   // League name mapping
@@ -78,29 +78,6 @@ const filteredByLeague = computed(() => {
 // Computed property for filtered + sorted games
 const displayGames = computed(() => {
   return sortLeagues(filteredByLeague.value)
-})
-
-// Get current league name for display
-const currentLeagueName = computed(() => {
-  const leagueNames = {
-    11: 'Live',
-    1: 'Premier League',
-    2: 'La Liga',
-    3: 'Serie A',
-    4: 'Bundesliga',
-    5: 'Ligue 1',
-    6: 'UEFA Champions League',
-    7: 'Eredivisie',
-    8: 'Primeira Liga',
-    9: 'Super Lig',
-    10: 'MLS'
-  }
-  return leagueNames[props.leagueId] || 'Football'
-})
-
-// Check if no matches found for ANY league
-const noMatchesFound = computed(() => {
-  return displayGames.value.length === 0 && games.value.length > 0
 })
 // ==========================================
 
@@ -234,21 +211,15 @@ const goToSportDetails = (game) => {
           <span class="italic">Football</span>
         </h1>
         
-        <!-- Sort League Button - Show only if matches exist -->
-        <!-- <button 
-          v-if="!noMatchesFound"
+        <!-- Sort League Button -->
+        <button 
           @click="toggleLeagueSort"
           class="px-3 py-1 text-xs font-semibold bg-cyan-800 text-white rounded-full hover:bg-cyan-700 transition-all duration-200 flex items-center gap-1"
           :title="sortByLeague === 'default' ? 'Sort by League' : (sortByLeague === 'az' ? 'Sort A-Z' : 'Sort Z-A')"
         >
           <span>League</span>
           <span class="text-sm">{{ getSortIcon() }}</span>
-        </button> -->
-
-     
-
-
-
+        </button>
       </div>
 
       <div class="absolute right-3 top-1/2 -translate-y-1/2">
@@ -261,141 +232,127 @@ const goToSportDetails = (game) => {
       <div class="glow-line"></div>
     </div>
 
-    <!-- No Matches Found Message - For ANY league with no games -->
-    <div 
-      v-if="noMatchesFound"
-      class="flex flex-col items-center justify-center p-12 text-center"
-    >
-      <div class="text-lg mb-4 opacity-50">⚽</div>
-      <h3 class="text-white text-sm font-semibold mb-2">No Matches Found</h3>
-      <p class="text-white/50 text-xs">There are no matches available for <span class="text-amber-300 font-medium">{{ currentLeagueName }}</span> at the moment.</p>
-      <p class="text-white/40 text-xs mt-2">Please check back later or select another league</p>
-    </div>
-
     <!-- Games List -->
-    <template v-else>
-      <div
-        v-for="game in displayGames"
-        :key="game.id"
-        class="border-b border-sky-950 p-3"
-      >
-        <a @click="goToSportDetails(game)" class="block w-full cursor-pointer">
-          <!-- Header -->
-          <div class="flex justify-between items-center mb-1">
-            <span class="text-sm text-white/70 font-normal">{{ game.time }}</span>
-            <span class="text-sm text-white/70 font-bold">{{ game.date }}</span>
+    <div
+      v-for="game in displayGames"
+      :key="game.id"
+      class="border-b border-sky-950 p-3"
+    >
+      <a @click="goToSportDetails(game)" class="block w-full cursor-pointer">
+        <!-- Header -->
+        <div class="flex justify-between items-center mb-1">
+          <span class="text-sm text-white/70 font-normal">{{ game.time }}</span>
+          <span class="text-sm text-white/70 font-bold">{{ game.date }}</span>
+        </div>
+
+        <!-- Teams -->
+        <div class="flex flex-col gap-1 w-full">
+          <div class="flex items-center gap-1.5">
+            <span class="text-[14px] text-amber-200/70 font-bold">{{ game.homeTeam }}</span>
           </div>
-
-          <!-- Teams -->
-          <div class="flex flex-col gap-1 w-full">
-            <div class="flex items-center gap-1.5">
-              <span class="text-[14px] text-amber-200/70 font-bold">{{ game.homeTeam }}</span>
-            </div>
-            <div class="flex items-center gap-1.5">
-              <span class="text-[14px] text-amber-200/70 font-bold">{{ game.awayTeam }}</span>
-            </div>
+          <div class="flex items-center gap-1.5">
+            <span class="text-[14px] text-amber-200/70 font-bold">{{ game.awayTeam }}</span>
           </div>
+        </div>
 
-          <!-- League -->
-          <p class="text-[#8e9398] mb-2 text-xs leading-4 font-normal">
-            {{ game.league }}
-          </p>
-        </a>
+        <!-- League -->
+        <p class="text-[#8e9398] mb-2 text-xs leading-4 font-normal">
+          {{ game.league }}
+        </p>
+      </a>
 
-        <!-- Odds Section -->
+      <!-- Odds Section -->
+      <div class="flex flex-col w-full">
         <div class="flex flex-col w-full">
-          <div class="flex flex-col w-full">
-            <div class="mb-4 last:mb-0">
-              <div class="flex w-full">
-                <div class="flex flex-wrap gap-2 w-full">
-                  <div class="w-full flex">
-                    <!-- Home Odds -->
-                    <span class="flex-1 mr-2 overflow-hidden">
-                      <span
-                        class="flex w-full cursor-pointer whitespace-nowrap bg-[#f4f5f0] opacity-50 border border-[#e6e7e2] rounded transition-all duration-200 hover:bg-[#e0f2e9]"
-                        :class="{
-                          '!bg-[#0AF0B5] !border-[#0AF0B5]': isSelected(game, '1'),
-                          'opacity-50': getCurrentSelection(game) && getCurrentSelection(game) !== '1'
-                        }"
-                        @click="handleOddsClick(game, '1', game.homeOdds)"
-                      >
-                        <span class="flex justify-between w-full">
-                          <span class="flex items-center justify-center px-2.5 py-2 text-sm">1</span>
-                          <span class="flex items-center justify-center px-2.5 py-2 text-sm font-bold">
-                            {{ game.homeOdds }}
-                          </span>
-                        </span>
-                      </span>
-                    </span>
-
-                    <!-- Draw Odds -->
-                    <span class="flex-1 mr-2 overflow-hidden">
-                      <span
-                        class="flex w-full cursor-pointer whitespace-nowrap opacity-50 bg-[#f4f5f0] border border-[#e6e7e2] rounded transition-all duration-200 hover:bg-[#e0f2e9]"
-                        :class="{
-                          '!bg-[#0AF0B5] !border-[#0AF0B5]': isSelected(game, 'X'),
-                          'opacity-50': getCurrentSelection(game) && getCurrentSelection(game) !== 'X'
-                        }"
-                        @click="handleOddsClick(game, 'X', game.drawOdds)"
-                      >
-                        <span class="flex justify-between w-full">
-                          <span class="flex items-center justify-center px-2.5 py-2 text-sm">X</span>
-                          <span class="flex items-center justify-center px-2.5 py-2 text-sm font-bold">
-                            {{ game.drawOdds }}
-                          </span>
-                        </span>
-                      </span>
-                    </span>
-
-                    <!-- Away Odds -->
-                    <span class="flex-1 mr-2 overflow-hidden">
-                      <span
-                        class="flex w-full cursor-pointer whitespace-nowrap opacity-50 bg-[#f4f5f0] border border-[#e6e7e2] rounded transition-all duration-200 hover:bg-[#e0f2e9]"
-                        :class="{
-                          '!bg-[#0AF0B5] !border-[#0AF0B5]': isSelected(game, '2'),
-                          'opacity-50': getCurrentSelection(game) && getCurrentSelection(game) !== '2'
-                        }"
-                        @click="handleOddsClick(game, '2', game.awayOdds)"
-                      >
-                        <span class="flex justify-between w-full">
-                          <span class="flex items-center justify-center px-2.5 py-2 text-sm">2</span>
-                          <span class="flex items-center justify-center px-2.5 py-2 text-sm font-bold">
-                            {{ game.awayOdds }}
-                          </span>
-                        </span>
-                      </span>
-                    </span>
-
-                    <!-- Bet Count -->
-                    <a
-                      :href="`/event/${game.eventId}`"
-                      class="min-w-[48px] flex items-center justify-center gap-1 px-1.5 py-2 bg-[#f4f5f0] opacity-50 border border-[#e6e7e2] rounded text-sm font-bold"
+          <div class="mb-4 last:mb-0">
+            <div class="flex w-full">
+              <div class="flex flex-wrap gap-2 w-full">
+                <div class="w-full flex">
+                  <!-- Home Odds -->
+                  <span class="flex-1 mr-2 overflow-hidden">
+                    <span
+                      class="flex w-full cursor-pointer whitespace-nowrap bg-[#f4f5f0] opacity-50 border border-[#e6e7e2] rounded transition-all duration-200 hover:bg-[#e0f2e9]"
+                      :class="{
+                        '!bg-[#0AF0B5] !border-[#0AF0B5]': isSelected(game, '1'),
+                        'opacity-50': getCurrentSelection(game) && getCurrentSelection(game) !== '1'
+                      }"
+                      @click="handleOddsClick(game, '1', game.homeOdds)"
                     >
-                      <span class="text-gray-950">{{ game.market }}</span>
-                      +
-                    </a>
-                  </div>
+                      <span class="flex justify-between w-full">
+                        <span class="flex items-center justify-center px-2.5 py-2 text-sm">1</span>
+                        <span class="flex items-center justify-center px-2.5 py-2 text-sm font-bold">
+                          {{ game.homeOdds }}
+                        </span>
+                      </span>
+                    </span>
+                  </span>
+
+                  <!-- Draw Odds -->
+                  <span class="flex-1 mr-2 overflow-hidden">
+                    <span
+                      class="flex w-full cursor-pointer whitespace-nowrap opacity-50 bg-[#f4f5f0] border border-[#e6e7e2] rounded transition-all duration-200 hover:bg-[#e0f2e9]"
+                      :class="{
+                        '!bg-[#0AF0B5] !border-[#0AF0B5]': isSelected(game, 'X'),
+                        'opacity-50': getCurrentSelection(game) && getCurrentSelection(game) !== 'X'
+                      }"
+                      @click="handleOddsClick(game, 'X', game.drawOdds)"
+                    >
+                      <span class="flex justify-between w-full">
+                        <span class="flex items-center justify-center px-2.5 py-2 text-sm">X</span>
+                        <span class="flex items-center justify-center px-2.5 py-2 text-sm font-bold">
+                          {{ game.drawOdds }}
+                        </span>
+                      </span>
+                    </span>
+                  </span>
+
+                  <!-- Away Odds -->
+                  <span class="flex-1 mr-2 overflow-hidden">
+                    <span
+                      class="flex w-full cursor-pointer whitespace-nowrap opacity-50 bg-[#f4f5f0] border border-[#e6e7e2] rounded transition-all duration-200 hover:bg-[#e0f2e9]"
+                      :class="{
+                        '!bg-[#0AF0B5] !border-[#0AF0B5]': isSelected(game, '2'),
+                        'opacity-50': getCurrentSelection(game) && getCurrentSelection(game) !== '2'
+                      }"
+                      @click="handleOddsClick(game, '2', game.awayOdds)"
+                    >
+                      <span class="flex justify-between w-full">
+                        <span class="flex items-center justify-center px-2.5 py-2 text-sm">2</span>
+                        <span class="flex items-center justify-center px-2.5 py-2 text-sm font-bold">
+                          {{ game.awayOdds }}
+                        </span>
+                      </span>
+                    </span>
+                  </span>
+
+                  <!-- Bet Count -->
+                  <a
+                    :href="`/event/${game.eventId}`"
+                    class="min-w-[48px] flex items-center justify-center gap-1 px-1.5 py-2 bg-[#f4f5f0] opacity-50 border border-[#e6e7e2] rounded text-sm font-bold"
+                  >
+                    <span class="text-gray-950">{{ game.market }}</span>
+                    +
+                  </a>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
+    </div>
 
-      <!-- View All -->
-      <div 
-        v-if="displayGames.length > 0"
-        @click="viewAll"
-        class="flex items-center justify-center bg-transparent text-[#f4f5f0] p-3 text-xs font-medium cursor-pointer hover:opacity-80 transition-opacity"
-      >
-        <span class="underline">
-          View all Football <span class="ml-1">{{ games.length > 0 ? gamesData.length : 0 }}</span>
-        </span>
-        <svg class="w-2.5 h-2.5 ml-2 text-[#f4f5f0]">
-          <use xlink:href="#arrow_right"></use>
-        </svg>
-      </div>
-    </template>
+    <!-- View All -->
+    <div 
+      @click="viewAll"
+      class="flex items-center justify-center bg-transparent text-[#f4f5f0] p-3 text-sm font-medium cursor-pointer hover:opacity-80 transition-opacity"
+    >
+      <span class="underline">
+        View all Football <span class="ml-1">{{ games.length > 0 ? gamesData.length : 0 }}</span>
+      </span>
+      <svg class="w-2.5 h-2.5 ml-2 text-[#f4f5f0]">
+        <use xlink:href="#arrow_right"></use>
+      </svg>
+    </div>
   </div>
 </template>
 

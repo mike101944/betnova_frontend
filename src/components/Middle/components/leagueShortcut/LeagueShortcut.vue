@@ -40,7 +40,7 @@ const leagues = [
   },
   { 
     id: 3, 
-    name: 'Football / Italy / Serie A', 
+    name: 'Serie A', 
     icon: 'serie-a', 
     count: 6, 
    
@@ -120,3 +120,6 @@ const leagues = [
     color: #ff7a00;
 }
 </style>
+
+
+

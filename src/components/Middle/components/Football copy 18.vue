@@ -80,27 +80,9 @@ const displayGames = computed(() => {
   return sortLeagues(filteredByLeague.value)
 })
 
-// Get current league name for display
-const currentLeagueName = computed(() => {
-  const leagueNames = {
-    11: 'Live',
-    1: 'Premier League',
-    2: 'La Liga',
-    3: 'Serie A',
-    4: 'Bundesliga',
-    5: 'Ligue 1',
-    6: 'UEFA Champions League',
-    7: 'Eredivisie',
-    8: 'Primeira Liga',
-    9: 'Super Lig',
-    10: 'MLS'
-  }
-  return leagueNames[props.leagueId] || 'Football'
-})
-
-// Check if no matches found for ANY league
-const noMatchesFound = computed(() => {
-  return displayGames.value.length === 0 && games.value.length > 0
+// Check if no live games available
+const noLiveGames = computed(() => {
+  return props.leagueId === 11 && displayGames.value.length === 0 && games.value.length > 0
 })
 // ==========================================
 
@@ -234,21 +216,16 @@ const goToSportDetails = (game) => {
           <span class="italic">Football</span>
         </h1>
         
-        <!-- Sort League Button - Show only if matches exist -->
-        <!-- <button 
-          v-if="!noMatchesFound"
+        <!-- Sort League Button (Hide when no live games) -->
+        <button 
+          v-if="!noLiveGames"
           @click="toggleLeagueSort"
           class="px-3 py-1 text-xs font-semibold bg-cyan-800 text-white rounded-full hover:bg-cyan-700 transition-all duration-200 flex items-center gap-1"
           :title="sortByLeague === 'default' ? 'Sort by League' : (sortByLeague === 'az' ? 'Sort A-Z' : 'Sort Z-A')"
         >
           <span>League</span>
           <span class="text-sm">{{ getSortIcon() }}</span>
-        </button> -->
-
-     
-
-
-
+        </button>
       </div>
 
       <div class="absolute right-3 top-1/2 -translate-y-1/2">
@@ -261,14 +238,14 @@ const goToSportDetails = (game) => {
       <div class="glow-line"></div>
     </div>
 
-    <!-- No Matches Found Message - For ANY league with no games -->
+    <!-- No Live Games Message -->
     <div 
-      v-if="noMatchesFound"
+      v-if="noLiveGames"
       class="flex flex-col items-center justify-center p-12 text-center"
     >
-      <div class="text-lg mb-4 opacity-50">⚽</div>
-      <h3 class="text-white text-sm font-semibold mb-2">No Matches Found</h3>
-      <p class="text-white/50 text-xs">There are no matches available for <span class="text-amber-300 font-medium">{{ currentLeagueName }}</span> at the moment.</p>
+      <div class="text-6xl mb-4 opacity-50">📺</div>
+      <h3 class="text-white text-xl font-semibold mb-2">No Live Games</h3>
+      <p class="text-white/50 text-sm">There are no live games active at the moment.</p>
       <p class="text-white/40 text-xs mt-2">Please check back later or select another league</p>
     </div>
 
@@ -384,9 +361,8 @@ const goToSportDetails = (game) => {
 
       <!-- View All -->
       <div 
-        v-if="displayGames.length > 0"
         @click="viewAll"
-        class="flex items-center justify-center bg-transparent text-[#f4f5f0] p-3 text-xs font-medium cursor-pointer hover:opacity-80 transition-opacity"
+        class="flex items-center justify-center bg-transparent text-[#f4f5f0] p-3 text-sm font-medium cursor-pointer hover:opacity-80 transition-opacity"
       >
         <span class="underline">
           View all Football <span class="ml-1">{{ games.length > 0 ? gamesData.length : 0 }}</span>
