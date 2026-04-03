@@ -4,11 +4,11 @@
         <!-- Skeleton Loading -->
         <div v-if="loading" class="space-y-2">
             <!-- Skeleton for Sliding Banner / Card -->
-            <div class="relative w-full h-42 bg-gradient-to-r from-sky-800 to-sky-900 rounded-xl overflow-hidden animate-pulse">
-                <div class="absolute inset-0 bg-gradient-to-r from-yellow-500/20 to-transparent"></div>
-                <div class="absolute bottom-4 left-4 right-4">
-                    <div class="h-6 bg-sky-700/50 rounded w-48 mb-2"></div>
-                    <div class="h-4 bg-sky-700/50 rounded w-64"></div>
+            <div class="relative flex items-center justify-between w-full h-42 bg-gradient-to-r from-sky-800 to-sky-900 rounded-xl overflow-hidden animate-pulse">
+                <!-- <div class="absolute inset-0 bg-gradient-to-r from-amber-100/20 to-transparent"></div> -->
+                <div class="absolute flex items-center justify-between w-full p-12">
+                    <div class="h-10 bg-sky-700/50 rounded-full w-10 "></div>
+                    <div class="h-10 rounded-full  bg-sky-700/50  w-10"></div>
                 </div>
             </div>
 
@@ -21,14 +21,7 @@
                 </div>
             </div>
 
-            <!-- Skeleton for Live Indicator / Featured -->
-            <!-- <div class="px-4 py-2">
-                <div class="flex items-center gap-2">
-                    <div class="w-2 h-2 bg-red-500 rounded-full animate-pulse"></div>
-                    <div class="h-4 bg-sky-800/50 rounded w-16"></div>
-                    <div class="h-6 bg-sky-800/50 rounded w-12"></div>
-                </div>
-            </div> -->
+       
 
             <!-- Skeleton for Casino Games Horizontal List -->
             <div class=" py-1">
