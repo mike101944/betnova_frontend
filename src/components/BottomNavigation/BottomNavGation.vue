@@ -193,7 +193,7 @@ onMounted(() => {
       fetchUserBets()
     }
     loading.value = false
-  }, 800)
+  }, 1200)
   
   window.addEventListener('betslip-update', handleBetslipUpdate)
   window.addEventListener('storage', handleStorageChange)

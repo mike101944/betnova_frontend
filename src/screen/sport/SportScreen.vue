@@ -1,23 +1,20 @@
 <template>
   <div class="relative bg-sky-900">
-    <!-- Category Header -->
-    <div class="bg-sky-950 p-3 relative cursor-pointer header-glow">
-      <h1 class="text-[22px] font-bold leading-[26px] pr-5 text-amber-100 flex items-center gap-2">
-        <span class="football-animate text-xl flex items-center justify-center">⚽</span>
-        <span class="italic">Football</span>
-      </h1>
-
-      <div class="absolute right-3 top-1/2 -translate-y-1/2">
-        <span class="px-2 py-1 text-xs font-semibold bg-orange-100 text-orange-600 rounded-full flex items-center gap-1">
-          🔥 <span class="typing-text">Trending</span>
-        </span>
-      </div>
-
-      <div class="glow-line"></div>
-    </div>
+     
 
     <!-- Skeleton Loading -->
     <div v-if="loading" class="divide-y divide-sky-800/30">
+
+        <!-- Skeleton for Football Section Header -->
+     <div class=" py-2">
+                <div class="flex justify-between items-center bg-sky-950 py-3">
+                    <div class="flex items-center gap-2">
+                        <div class="w-6 h-6 bg-sky-800 rounded-full animate-pulse"></div>
+                        <div class="h-6 bg-sky-800 rounded w-24"></div>
+                    </div>
+                    <div class="h-5 bg-sky-800 rounded w-20"></div>
+                </div>
+            </div>
       <!-- Skeleton Item 1 -->
       <div class="border-b border-sky-950 p-3 animate-pulse">
         <div class="flex justify-between items-center mb-3">
@@ -152,6 +149,22 @@
 
     <!-- Actual Games List -->
     <div v-else>
+      <!-- Category Header -->
+    <div class="bg-sky-950 p-3 relative cursor-pointer header-glow">
+      <h1 class="text-[22px] font-bold leading-[26px] pr-5 text-amber-100 flex items-center gap-2">
+        <span class="football-animate text-xl flex items-center justify-center">⚽</span>
+        <span class="italic">Football</span>
+      </h1>
+
+      <div class="absolute right-3 top-1/2 -translate-y-1/2">
+        <span class="px-2 py-1 text-xs font-semibold bg-orange-100 text-orange-600 rounded-full flex items-center gap-1">
+          🔥 <span class="typing-text">Trending</span>
+        </span>
+      </div>
+
+      <div class="glow-line"></div>
+    </div>
+
       <div
         v-for="game in games"
         :key="game.id"

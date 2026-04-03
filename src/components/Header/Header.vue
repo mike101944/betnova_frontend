@@ -107,12 +107,12 @@ const handleAlertClose = () => {
 
       <!-- Bottom Tabs Navigation Skeleton -->
       <div class="relative">
-        <div class="bg-white overflow-hidden">
+        <div class="bg-sky-800 overflow-hidden">
           <ul class="flex overflow-x-auto scrollbar-hide">
             <li v-for="i in 6" :key="i" class="flex-1 min-w-fit px-3 py-2.5">
               <div class="flex items-center justify-center gap-2">
-                <div class="w-3.5 h-3.5 bg-gray-200 rounded animate-pulse"></div>
-                <div class="w-12 h-3 bg-gray-200 rounded animate-pulse"></div>
+                <div class="w-3.5 h-3.5 bg-sky-900 rounded animate-pulse"></div>
+                <div class="w-12 h-3 bg-sky-900 rounded animate-pulse"></div>
               </div>
             </li>
           </ul>
