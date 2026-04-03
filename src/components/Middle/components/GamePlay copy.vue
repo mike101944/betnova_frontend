@@ -49,7 +49,7 @@
   
   <!-- Scrollable Buttons Container -->
   <div class="flex gap-3 overflow-x-auto scroll-smooth hide-scrollbar" 
-         style="-webkit-overflow-scrolling: touch;">
+       style="scrollbar-width: thin; -webkit-overflow-scrolling: touch;">
     <button 
       v-for="category in categories" 
       :key="category"
@@ -67,7 +67,21 @@
   <div class="absolute right-0 top-0 bottom-0 w-8 bg-transparent z-10 pointer-events-none"></div>
 </div>
 
-
+<!-- Optional: Scroll Buttons (Previous/Next) -->
+<div class="hidden md:flex gap-2 mt-3 justify-center">
+  <button 
+    @click="scrollCategories('left')"
+    class="px-3 py-1 bg-sky-800 rounded-lg text-gray-400 hover:bg-sky-700 transition"
+  >
+    ◀ Previous
+  </button>
+  <button 
+    @click="scrollCategories('right')"
+    class="px-3 py-1 bg-sky-800 rounded-lg text-gray-400 hover:bg-sky-700 transition"
+  >
+    Next ▶
+  </button>
+</div>
         
         <div class="relative">
           <input 

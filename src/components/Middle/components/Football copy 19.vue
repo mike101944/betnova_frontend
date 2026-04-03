@@ -7,7 +7,6 @@ const props = defineProps(['leagueId'])
 const router = useRouter()
 const games = ref([])
 const selectedBets = ref([])
-const loading = ref(true)
 
 // ========== SORTING LOGIC FOR LEAGUE ==========
 const sortByLeague = ref('default') // 'default', 'az', 'za'
@@ -101,7 +100,7 @@ const currentLeagueName = computed(() => {
 
 // Check if no matches found for ANY league
 const noMatchesFound = computed(() => {
-  return displayGames.value.length === 0 && games.value.length > 0 && !loading.value
+  return displayGames.value.length === 0 && games.value.length > 0
 })
 // ==========================================
 
@@ -115,10 +114,8 @@ const emitBetslipUpdate = () => {
 
 // Load selected bets from localStorage on mount
 onMounted(() => {
-  loading.value = true
   setTimeout(() => {
     games.value = gamesData
-    loading.value = false
   }, 1200)
   
   loadFromLocalStorage()
@@ -236,6 +233,22 @@ const goToSportDetails = (game) => {
           <span class="football-animate text-xl flex items-center justify-center">⚽</span>
           <span class="italic">Football</span>
         </h1>
+        
+        <!-- Sort League Button - Show only if matches exist -->
+        <!-- <button 
+          v-if="!noMatchesFound"
+          @click="toggleLeagueSort"
+          class="px-3 py-1 text-xs font-semibold bg-cyan-800 text-white rounded-full hover:bg-cyan-700 transition-all duration-200 flex items-center gap-1"
+          :title="sortByLeague === 'default' ? 'Sort by League' : (sortByLeague === 'az' ? 'Sort A-Z' : 'Sort Z-A')"
+        >
+          <span>League</span>
+          <span class="text-sm">{{ getSortIcon() }}</span>
+        </button> -->
+
+     
+
+
+
       </div>
 
       <div class="absolute right-3 top-1/2 -translate-y-1/2">
@@ -248,78 +261,9 @@ const goToSportDetails = (game) => {
       <div class="glow-line"></div>
     </div>
 
-    <!-- Skeleton Loading -->
-    <div v-if="loading" class="divide-y divide-sky-800/30">
-      <!-- Skeleton Item 1 -->
-      <div class="border-b border-sky-950 p-3 animate-pulse">
-        <div class="flex justify-between items-center mb-3">
-          <div class="h-4 bg-sky-800 rounded w-20"></div>
-          <div class="h-4 bg-sky-800 rounded w-24"></div>
-        </div>
-        
-        <div class="space-y-2 mb-3">
-          <div class="h-5 bg-sky-800 rounded w-3/4"></div>
-          <div class="h-5 bg-sky-800 rounded w-3/4"></div>
-        </div>
-        
-        <div class="h-3 bg-sky-800 rounded w-32 mb-4"></div>
-        
-        <div class="flex gap-2">
-          <div class="flex-1 h-10 bg-sky-800 rounded"></div>
-          <div class="flex-1 h-10 bg-sky-800 rounded"></div>
-          <div class="flex-1 h-10 bg-sky-800 rounded"></div>
-          <div class="w-12 h-10 bg-sky-800 rounded"></div>
-        </div>
-      </div>
-
-      <!-- Skeleton Item 2 -->
-      <div class="border-b border-sky-950 p-3 animate-pulse">
-        <div class="flex justify-between items-center mb-3">
-          <div class="h-4 bg-sky-800 rounded w-20"></div>
-          <div class="h-4 bg-sky-800 rounded w-24"></div>
-        </div>
-        
-        <div class="space-y-2 mb-3">
-          <div class="h-5 bg-sky-800 rounded w-2/3"></div>
-          <div class="h-5 bg-sky-800 rounded w-2/3"></div>
-        </div>
-        
-        <div class="h-3 bg-sky-800 rounded w-28 mb-4"></div>
-        
-        <div class="flex gap-2">
-          <div class="flex-1 h-10 bg-sky-800 rounded"></div>
-          <div class="flex-1 h-10 bg-sky-800 rounded"></div>
-          <div class="flex-1 h-10 bg-sky-800 rounded"></div>
-          <div class="w-12 h-10 bg-sky-800 rounded"></div>
-        </div>
-      </div>
-
-      <!-- Skeleton Item 3 -->
-      <div class="border-b border-sky-950 p-3 animate-pulse">
-        <div class="flex justify-between items-center mb-3">
-          <div class="h-4 bg-sky-800 rounded w-20"></div>
-          <div class="h-4 bg-sky-800 rounded w-24"></div>
-        </div>
-        
-        <div class="space-y-2 mb-3">
-          <div class="h-5 bg-sky-800 rounded w-3/4"></div>
-          <div class="h-5 bg-sky-800 rounded w-3/4"></div>
-        </div>
-        
-        <div class="h-3 bg-sky-800 rounded w-32 mb-4"></div>
-        
-        <div class="flex gap-2">
-          <div class="flex-1 h-10 bg-sky-800 rounded"></div>
-          <div class="flex-1 h-10 bg-sky-800 rounded"></div>
-          <div class="flex-1 h-10 bg-sky-800 rounded"></div>
-          <div class="w-12 h-10 bg-sky-800 rounded"></div>
-        </div>
-      </div>
-    </div>
-
     <!-- No Matches Found Message - For ANY league with no games -->
     <div 
-      v-else-if="noMatchesFound"
+      v-if="noMatchesFound"
       class="flex flex-col items-center justify-center p-12 text-center"
     >
       <div class="text-lg mb-4 opacity-50">⚽</div>
@@ -512,19 +456,4 @@ const goToSportDetails = (game) => {
     0 0 18px rgba(255,255,255,0.5);
   animation:glowMove 4s linear infinite;
 }
-
-/* @keyframes glowMove{
-  0%{
-    opacity:.6;
-    transform:translateX(-40%);
-  }
-  50%{
-    opacity:1;
-    transform:translateX(0);
-  }
-  100%{
-    opacity:.6;
-    transform:translateX(40%);
-  }
-} */
 </style>
