@@ -1,17 +1,17 @@
 <template>
-  <div class="min-h-screen bg-gradient-to-br from-gray-900 via-gray-900 to-black">
+  <div class="h-full bg-sky-900">
     
     <!-- Header Section -->
-    <div class="bg-gradient-to-r from-gray-800 to-gray-900 shadow-xl sticky top-0 z-50">
-      <div class="container mx-auto px-4 py-4">
-        <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+    <div class=" shadow-xl bg-sky-950  sticky top-0 z-50">
+      <div class="  px-3 border-b backdrop-blur-3xl border-amber-50 shadow-lg shadow-amber-100  py-4">
+        <div class="flex flex-col md:flex-row justify-between  gap-4">
           <!-- Logo & Title -->
-          <div class="flex items-center gap-3">
-            <div class="w-10 h-10 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-lg flex items-center justify-center shadow-lg">
+          <div class="flex items-center justify-between gap-3">
+            <div class="w-10 h-10 bg-gradient-to-br from-yellow-200 to-yellow-600 rounded-lg flex items-center justify-center shadow-lg">
               <span class="text-2xl">🎰</span>
             </div>
             <div>
-              <h1 class="text-2xl md:text-3xl font-bold bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text text-transparent">
+              <h1 class="text-sm md:text-sm text-amber-100 font-bold bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text ">
                 Premium Casino
               </h1>
               <p class="text-gray-400 text-sm">Play the best casino games online</p>
@@ -19,18 +19,18 @@
           </div>
 
           <!-- Stats -->
-          <div class="flex gap-6">
+          <div class="flex gap-6 justify-between">
             <div class="text-center">
-              <div class="text-yellow-400 text-2xl font-bold">{{ games.length }}+</div>
-              <div class="text-gray-400 text-xs">Games</div>
+              <div class="text-yellow-400 text-xs font-bold">{{ games.length }}+</div>
+              <div class="text-amber-400 text-xs">Games</div>
             </div>
             <div class="text-center">
-              <div class="text-green-400 text-2xl font-bold">24/7</div>
+              <div class="text-green-400 text-xs font-bold">24/7</div>
               <div class="text-gray-400 text-xs">Support</div>
             </div>
             <button 
               @click="goBack"
-              class="px-6 py-2 bg-gradient-to-r from-yellow-500 to-yellow-600 text-gray-900 font-bold rounded-lg hover:from-yellow-400 hover:to-yellow-500 transition-all shadow-lg"
+              class="px-6 py-2 bg-transparent text-amber-100 font-bold rounded-lg border border-amber-200 hover:from-yellow-400 hover:to-yellow-500 transition-all shadow-lg"
             >
               ⬅ Back
             </button>
@@ -40,22 +40,48 @@
     </div>
 
     <!-- Games Grid -->
-    <div class="container mx-auto px-4 py-8">
+    <div class="container mx-auto px-2 py-8">
       <!-- Filter & Search Bar -->
       <div class="mb-8 flex flex-col gap-4 justify-between items-center">
-        <div class="flex gap-3">
-          <button 
-            v-for="category in categories" 
-            :key="category"
-            @click="activeCategory = category"
-            class="px-5 py-2 rounded-lg font-semibold transition-all duration-300"
-            :class="activeCategory === category 
-              ? 'bg-gradient-to-r from-yellow-500 to-yellow-600 text-gray-900 shadow-lg' 
-              : 'bg-gray-800 text-gray-300 hover:bg-gray-700'"
-          >
-            {{ category }}
-          </button>
-        </div>
+        <div class="relative w-full"> 
+  <!-- Left Gradient (optional - visual indicator) -->
+  <div class="absolute left-0 top-0 bottom-0 w-8  z-10 pointer-events-none"></div>
+  
+  <!-- Scrollable Buttons Container -->
+  <div class="flex gap-3 overflow-x-auto scroll-smooth hide-scrollbar" 
+       style="scrollbar-width: thin; -webkit-overflow-scrolling: touch;">
+    <button 
+      v-for="category in categories" 
+      :key="category"
+      @click="activeCategory = category"
+      class="px-5 py-2 rounded-lg font-semibold transition-all duration-300 whitespace-nowrap flex-shrink-0"
+      :class="activeCategory === category 
+        ? 'bg-gradient-to-r from-yellow-500 to-yellow-600 text-gray-900 shadow-lg' 
+        : 'bg-sky-950 text-gray-300 hover:bg-gray-700'"
+    >
+      {{ category }}
+    </button>
+  </div>
+
+  <!-- Right Gradient (optional - visual indicator) -->
+  <div class="absolute right-0 top-0 bottom-0 w-8 bg-transparent z-10 pointer-events-none"></div>
+</div>
+
+<!-- Optional: Scroll Buttons (Previous/Next) -->
+<div class="hidden md:flex gap-2 mt-3 justify-center">
+  <button 
+    @click="scrollCategories('left')"
+    class="px-3 py-1 bg-sky-800 rounded-lg text-gray-400 hover:bg-sky-700 transition"
+  >
+    ◀ Previous
+  </button>
+  <button 
+    @click="scrollCategories('right')"
+    class="px-3 py-1 bg-sky-800 rounded-lg text-gray-400 hover:bg-sky-700 transition"
+  >
+    Next ▶
+  </button>
+</div>
         
         <div class="relative">
           <input 
@@ -69,7 +95,7 @@
       </div>
 
       <!-- Games Grid -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-6">
         <!-- <div 
           v-for="game in filteredGames" 
           :key="game.id"
@@ -95,8 +121,8 @@
           </div>
 
           <!-- Game Image/Icon -->
-          <div class="relative h-48 overflow-hidden bg-gradient-to-br from-gray-700 to-gray-800">
-            <div class="absolute inset-0 bg-gradient-to-t from-gray-900 via-transparent to-transparent"></div>
+          <div class="relative h-48 overflow-hidden bg-gradient-to-br from-sky-700 to-sky-800">
+            <div class="absolute inset-0 bg-gradient-to-t from-sky-900 via-transparent to-transparent"></div>
             <div class="w-full h-full flex items-center justify-center text-8xl group-hover:scale-110 transition-transform duration-500">
               {{ game.icon }}
             </div>
@@ -151,7 +177,7 @@
     </div>
 
     <!-- Footer -->
-    <div class="bg-gradient-to-r from-gray-900 to-gray-800 mt-12 py-6 border-t border-gray-700">
+    <div class="bg-gradient-to-r from-sky-900 to-sky-800 mt-12 py-6 border-t border-gray-700">
       <div class="container mx-auto px-4 text-center">
         <p class="text-gray-400 text-sm">© 2024 Premium Casino. All rights reserved. 18+ Only. Play Responsibly.</p>
       </div>
