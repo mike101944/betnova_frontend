@@ -186,6 +186,7 @@ const handleStorageChange = (event) => {
 
 onMounted(() => {
   // Simulate loading
+  
   setTimeout(() => {
     updateBetslipCount()
     // Pia fetch bets wakati wa kuanza kama user tayari yuko logged in

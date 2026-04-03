@@ -184,7 +184,7 @@ import Tennis from '../../components/Middle/components/Tennis.vue'
 import HomeCanvaCard from '../../components/Middle/components/CanvaCard/HomeCanvaCard.vue'
 import LeagueShortcut from '../../components/Middle/components/leagueShortcut/LeagueShortcut.vue';
 
-const selectedLeagueId = ref(11); // Default iwe 'Live' au unayotaka
+const selectedLeagueId = ref(1); // Default iwe 'Live' au unayotaka
 const loading = ref(true);
 
 const updateLeague = (id) => {

@@ -1,7 +1,7 @@
 <script setup>
 import { ref } from 'vue'
 
-const selectedLeague = ref(1)
+const selectedLeague = ref(11)
 
 // const selectLeague = (league) => {
 //   selectedLeague.value = league.id
@@ -76,14 +76,12 @@ const leagues = [
     name: 'Primeira Liga', 
     icon: 'primeira-liga', 
     count: 4, 
-    
   },
   { 
     id: 9, 
     name: 'Turkish', 
     icon: 'super-lig', 
     count: 7, 
- 
   },
   { 
     id: 10, 
