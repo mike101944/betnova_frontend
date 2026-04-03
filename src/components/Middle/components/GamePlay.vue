@@ -2,16 +2,16 @@
   <div class="h-full bg-sky-900">
     
     <!-- Header Section -->
-    <div class=" shadow-xl bg-sky-950  sticky top-0 z-50">
-      <div class="  px-3 border-b backdrop-blur-3xl border-amber-50 shadow-lg shadow-amber-100  py-4">
-        <div class="flex flex-col md:flex-row justify-between  gap-4">
+    <div class="shadow-xl bg-sky-950 sticky top-0 z-50">
+      <div class="px-3 border-b backdrop-blur-3xl border-amber-50 shadow-lg shadow-amber-100 py-4">
+        <div class="flex flex-col md:flex-row justify-between gap-4">
           <!-- Logo & Title -->
           <div class="flex items-center justify-between gap-3">
             <div class="w-10 h-10 bg-gradient-to-br from-yellow-200 to-yellow-600 rounded-lg flex items-center justify-center shadow-lg">
               <span class="text-2xl">🎰</span>
             </div>
             <div>
-              <h1 class="text-sm md:text-sm text-amber-100 font-bold bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text ">
+              <h1 class="text-sm md:text-sm text-amber-100 font-bold bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text">
                 Premium Casino
               </h1>
               <p class="text-gray-400 text-sm">Play the best casino games online</p>
@@ -44,32 +44,36 @@
       <!-- Filter & Search Bar -->
       <div class="mb-8 flex flex-col gap-4 justify-between items-center">
         <div class="relative w-full"> 
-  <!-- Left Gradient (optional - visual indicator) -->
-  <div class="absolute left-0 top-0 bottom-0 w-8  z-10 pointer-events-none"></div>
-  
-  <!-- Scrollable Buttons Container -->
-  <div class="flex gap-3 overflow-x-auto scroll-smooth hide-scrollbar" 
-         style="-webkit-overflow-scrolling: touch;">
-    <button 
-      v-for="category in categories" 
-      :key="category"
-      @click="activeCategory = category"
-      class="px-5 py-2 rounded-lg font-semibold transition-all duration-300 whitespace-nowrap flex-shrink-0"
-      :class="activeCategory === category 
-        ? 'bg-gradient-to-r from-yellow-500 to-yellow-600 text-gray-900 shadow-lg' 
-        : 'bg-sky-950 text-gray-300 hover:bg-gray-700'"
-    >
-      {{ category }}
-    </button>
-  </div>
+          <!-- Left Gradient -->
+          <div class="absolute left-0 top-0 bottom-0 w-8 z-10 pointer-events-none"></div>
+          
+          <!-- Scrollable Buttons Container - Skeleton or Actual -->
+          <div v-if="loading" class="flex gap-3 overflow-x-auto scroll-smooth" style="-webkit-overflow-scrolling: touch;">
+            <div v-for="i in 6" :key="i" class="px-5 py-2 rounded-lg bg-sky-800/50 h-10 w-24 animate-pulse"></div>
+          </div>
+          <div v-else class="flex gap-3 overflow-x-auto scroll-smooth hide-scrollbar" style="-webkit-overflow-scrolling: touch;">
+            <button 
+              v-for="category in categories" 
+              :key="category"
+              @click="activeCategory = category"
+              class="px-5 py-2 rounded-lg font-semibold transition-all duration-300 whitespace-nowrap flex-shrink-0"
+              :class="activeCategory === category 
+                ? 'bg-gradient-to-r from-yellow-500 to-yellow-600 text-gray-900 shadow-lg' 
+                : 'bg-sky-950 text-gray-300 hover:bg-gray-700'"
+            >
+              {{ category }}
+            </button>
+          </div>
 
-  <!-- Right Gradient (optional - visual indicator) -->
-  <div class="absolute right-0 top-0 bottom-0 w-8 bg-transparent z-10 pointer-events-none"></div>
-</div>
-
-
+          <!-- Right Gradient -->
+          <div class="absolute right-0 top-0 bottom-0 w-8 bg-transparent z-10 pointer-events-none"></div>
+        </div>
         
-        <div class="relative">
+        <!-- Search Bar - Skeleton or Actual -->
+        <div v-if="loading" class="relative">
+          <div class="px-4 py-2 pl-10 bg-sky-800/50 rounded-lg w-64 h-10 animate-pulse"></div>
+        </div>
+        <div v-else class="relative">
           <input 
             v-model="searchQuery"
             type="text" 
@@ -80,17 +84,52 @@
         </div>
       </div>
 
-      <!-- Games Grid -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-6">
-        <!-- <div 
-          v-for="game in filteredGames" 
-          :key="game.id"
-          @click="playGame(game)"
-          class="group relative bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl overflow-hidden shadow-2xl hover:shadow-yellow-500/20 hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 cursor-pointer"
-        > -->
+      <!-- Skeleton Loading - Games Grid -->
+      <div v-if="loading" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div v-for="i in 6" :key="i" class="group relative bg-gradient-to-br from-gray-800/50 to-gray-900/50 rounded-2xl overflow-hidden shadow-2xl animate-pulse">
+          <!-- Skeleton Badge -->
+          <div class="absolute top-3 right-3 z-10">
+            <div class="w-16 h-6 bg-sky-800/50 rounded-full"></div>
+          </div>
+          
+          <!-- Skeleton Image Area -->
+          <div class="relative h-48 overflow-hidden bg-gradient-to-br from-sky-700/50 to-sky-800/50">
+            <div class="w-full h-full flex items-center justify-center">
+              <div class="w-20 h-20 bg-sky-800/50 rounded-full"></div>
+            </div>
+          </div>
+
+          <!-- Skeleton Game Info -->
+          <div class="p-5">
+            <div class="flex justify-between items-start mb-3">
+              <div class="h-6 bg-sky-800/50 rounded w-32"></div>
+              <div class="flex items-center gap-1">
+                <div class="w-12 h-6 bg-sky-800/50 rounded"></div>
+              </div>
+            </div>
+            
+            <div class="space-y-2 mb-4">
+              <div class="h-4 bg-sky-800/50 rounded w-full"></div>
+              <div class="h-4 bg-sky-800/50 rounded w-3/4"></div>
+            </div>
+            
+            <div class="flex justify-between items-center">
+              <div class="flex gap-2">
+                <div class="h-5 bg-sky-800/50 rounded w-16"></div>
+                <div class="h-5 bg-sky-800/50 rounded w-16"></div>
+              </div>
+              <div class="h-5 bg-sky-800/50 rounded w-12"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Actual Games Grid -->
+      <div v-else class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         <div 
           v-for="game in filteredGames" 
           :key="game.id"
+          @click="playGame(game)"
           class="group relative bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl overflow-hidden shadow-2xl hover:shadow-yellow-500/20 hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 cursor-pointer"
         >
           <!-- Premium Badge -->
@@ -155,7 +194,7 @@
       </div>
 
       <!-- No Results -->
-      <div v-if="filteredGames.length === 0" class="text-center py-20">
+      <div v-if="!loading && filteredGames.length === 0" class="text-center py-20">
         <div class="text-6xl mb-4">🎲</div>
         <h3 class="text-2xl font-bold text-white mb-2">No games found</h3>
         <p class="text-gray-400">Try adjusting your search or filter</p>
@@ -172,44 +211,20 @@
 </template>
 
 <script setup>
-import { ref, computed } from 'vue'
+import { ref, computed, onMounted } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 
 const route = useRoute()
 const router = useRouter()
 const gameId = route.params.id
+const loading = ref(true)
 
 const searchQuery = ref('')
 const activeCategory = ref('All')
 
 const categories = ['All', 'Slots', 'Table Games', 'Live Casino', 'Jackpots', 'Video Poker']
 
-const games = ref([
-  { id: 1, name: 'Starburst', description: 'Classic space-themed slot with expanding wilds and re-spins. High volatility with massive win potential.', icon: '💎', rating: 4.8, provider: 'NetEnt', minBet: 0.10, gameType: 'Slot', isPopular: true, isNew: false, category: 'Slots' },
-  { id: 2, name: 'Mega Moolah', description: 'Progressive jackpot slot that has paid millions. African safari theme with 4 jackpots.', icon: '🦁', rating: 4.9, provider: 'Microgaming', minBet: 0.25, gameType: 'Jackpot', isPopular: true, isNew: false, category: 'Jackpots' },
-  { id: 3, name: 'Blackjack', description: 'Classic 21 card game. Play against dealer with real-time strategy and side bets.', icon: '♠️', rating: 4.7, provider: 'Evolution', minBet: 5, gameType: 'Table', isPopular: true, isNew: false, category: 'Table Games' },
-  { id: 4, name: 'Roulette', description: 'European roulette with multiple betting options. HD streaming and professional dealers.', icon: '🎡', rating: 4.6, provider: 'Playtech', minBet: 1, gameType: 'Table', isPopular: false, isNew: false, category: 'Table Games' },
-  { id: 5, name: 'Gonzo\'s Quest', description: 'Avalanche mechanic with increasing multipliers. Search for Eldorado in this adventure slot.', icon: '🗿', rating: 4.8, provider: 'NetEnt', minBet: 0.20, gameType: 'Slot', isPopular: true, isNew: false, category: 'Slots' },
-  { id: 6, name: 'Book of Dead', description: 'Egyptian-themed slot with free spins and expanding symbols. High volatility adventure.', icon: '📖', rating: 4.7, provider: 'Play\'n GO', minBet: 0.10, gameType: 'Slot', isPopular: true, isNew: false, category: 'Slots' },
-  { id: 7, name: 'Live Baccarat', description: 'Real dealers, real-time action. Squeeze feature and multiple camera angles.', icon: '🎴', rating: 4.9, provider: 'Evolution', minBet: 10, gameType: 'Live', isPopular: false, isNew: true, category: 'Live Casino' },
-  { id: 8, name: 'Video Poker', description: 'Jacks or Better with optimal strategy trainer. 99.5% RTP when played perfectly.', icon: '🃏', rating: 4.5, provider: 'IGT', minBet: 0.25, gameType: 'Poker', isPopular: false, isNew: false, category: 'Video Poker' },
-  { id: 9, name: 'Dead or Alive 2', description: 'Wild West themed slot with 3 different free spin features. High volatility.', icon: '🤠', rating: 4.8, provider: 'NetEnt', minBet: 0.09, gameType: 'Slot', isPopular: true, isNew: false, category: 'Slots' },
-  { id: 10, name: 'Lightning Roulette', description: 'RNG roulette with lucky numbers and multiplied payouts up to 500x.', icon: '⚡', rating: 4.7, provider: 'Evolution', minBet: 1, gameType: 'Live', isPopular: true, isNew: false, category: 'Live Casino' },
-  { id: 11, name: 'Crazy Time', description: 'Money wheel with 4 bonus games. Multipliers and interactive gameplay.', icon: '🎯', rating: 4.9, provider: 'Evolution', minBet: 0.10, gameType: 'Live', isPopular: true, isNew: false, category: 'Live Casino' },
-  { id: 12, name: 'Immortal Romance', description: 'Vampire-themed slot with Chamber of Spins feature. 4 different free spin modes.', icon: '🧛', rating: 4.6, provider: 'Microgaming', minBet: 0.30, gameType: 'Slot', isPopular: false, isNew: false, category: 'Slots' },
-  { id: 13, name: 'Texas Hold\'em', description: 'Play against AI opponents. Tournament and cash game modes.', icon: '🃟', rating: 4.5, provider: 'Pragmatic', minBet: 5, gameType: 'Poker', isPopular: false, isNew: false, category: 'Table Games' },
-  { id: 14, name: 'Sweet Bonanza', description: 'Candy-themed slot with tumbling reels and free spins. Buy bonus feature available.', icon: '🍬', rating: 4.8, provider: 'Pragmatic', minBet: 0.20, gameType: 'Slot', isPopular: true, isNew: true, category: 'Slots' },
-  { id: 15, name: 'Monopoly Live', description: 'Augmented reality Monopoly with Chance and Community Chest. 2D/3D hybrid.', icon: '🎲', rating: 4.7, provider: 'Evolution', minBet: 0.50, gameType: 'Live', isPopular: true, isNew: false, category: 'Live Casino' },
-  { id: 16, name: 'Wolf Gold', description: 'Native American themed slot with 3 jackpots. Money respin feature.', icon: '🐺', rating: 4.6, provider: 'Pragmatic', minBet: 0.25, gameType: 'Jackpot', isPopular: false, isNew: false, category: 'Jackpots' },
-  { id: 17, name: 'Craps', description: 'Dice game with multiple betting options. Practice mode available.', icon: '🎲', rating: 4.4, provider: 'Playtech', minBet: 5, gameType: 'Table', isPopular: false, isNew: false, category: 'Table Games' },
-  { id: 18, name: 'Mega Fortune', description: 'Luxury-themed progressive jackpot slot. 3 different jackpot levels.', icon: '💎', rating: 4.8, provider: 'NetEnt', minBet: 0.25, gameType: 'Jackpot', isPopular: true, isNew: false, category: 'Jackpots' },
-  { id: 19, name: 'Dream Catcher', description: 'Money wheel with multipliers. Simple and fast-paced gameplay.', icon: '🎯', rating: 4.5, provider: 'Evolution', minBet: 0.10, gameType: 'Live', isPopular: false, isNew: false, category: 'Live Casino' },
-  { id: 20, name: 'Jammin Jars', description: 'Fruit-themed slot with jar multipliers and dancing feature. Cluster pays mechanic.', icon: '🍎', rating: 4.7, provider: 'Push Gaming', minBet: 0.20, gameType: 'Slot', isPopular: true, isNew: false, category: 'Slots' },
-  { id: 21, name: 'Andar Bahar', description: 'Traditional Indian card game. Fast-paced with side bets.', icon: '🃟', rating: 4.6, provider: 'Ezugi', minBet: 1, gameType: 'Live', isPopular: false, isNew: true, category: 'Live Casino' },
-  { id: 22, name: 'Mystic Chief', description: 'Aztec-themed slot with free spins and multipliers. High win potential.', icon: '🗿', rating: 4.7, provider: 'Pragmatic', minBet: 0.20, gameType: 'Slot', isPopular: false, isNew: true, category: 'Slots' },
-  { id: 23, name: 'Sic Bo', description: 'Ancient Chinese dice game. Multiple betting combinations.', icon: '🎲', rating: 4.4, provider: 'Evolution', minBet: 1, gameType: 'Live', isPopular: false, isNew: false, category: 'Live Casino' },
-  { id: 24, name: 'Big Bass Bonanza', description: 'Fishing-themed slot with money collect feature. Free spins with multipliers.', icon: '🐟', rating: 4.8, provider: 'Pragmatic', minBet: 0.10, gameType: 'Slot', isPopular: true, isNew: false, category: 'Slots' }
-])
+const games = ref([])
 
 const filteredGames = computed(() => {
   let filtered = games.value
@@ -237,6 +252,40 @@ const goBack = () => {
 const playGame = (game) => {
   router.push(`/casino-game/${game.id}`)
 }
+
+// Load games data on mount
+onMounted(() => {
+  loading.value = true
+  setTimeout(() => {
+    games.value = [
+      { id: 1, name: 'Starburst', description: 'Classic space-themed slot with expanding wilds and re-spins. High volatility with massive win potential.', icon: '💎', rating: 4.8, provider: 'NetEnt', minBet: 0.10, gameType: 'Slot', isPopular: true, isNew: false, category: 'Slots' },
+      { id: 2, name: 'Mega Moolah', description: 'Progressive jackpot slot that has paid millions. African safari theme with 4 jackpots.', icon: '🦁', rating: 4.9, provider: 'Microgaming', minBet: 0.25, gameType: 'Jackpot', isPopular: true, isNew: false, category: 'Jackpots' },
+      { id: 3, name: 'Blackjack', description: 'Classic 21 card game. Play against dealer with real-time strategy and side bets.', icon: '♠️', rating: 4.7, provider: 'Evolution', minBet: 5, gameType: 'Table', isPopular: true, isNew: false, category: 'Table Games' },
+      { id: 4, name: 'Roulette', description: 'European roulette with multiple betting options. HD streaming and professional dealers.', icon: '🎡', rating: 4.6, provider: 'Playtech', minBet: 1, gameType: 'Table', isPopular: false, isNew: false, category: 'Table Games' },
+      { id: 5, name: 'Gonzo\'s Quest', description: 'Avalanche mechanic with increasing multipliers. Search for Eldorado in this adventure slot.', icon: '🗿', rating: 4.8, provider: 'NetEnt', minBet: 0.20, gameType: 'Slot', isPopular: true, isNew: false, category: 'Slots' },
+      { id: 6, name: 'Book of Dead', description: 'Egyptian-themed slot with free spins and expanding symbols. High volatility adventure.', icon: '📖', rating: 4.7, provider: 'Play\'n GO', minBet: 0.10, gameType: 'Slot', isPopular: true, isNew: false, category: 'Slots' },
+      { id: 7, name: 'Live Baccarat', description: 'Real dealers, real-time action. Squeeze feature and multiple camera angles.', icon: '🎴', rating: 4.9, provider: 'Evolution', minBet: 10, gameType: 'Live', isPopular: false, isNew: true, category: 'Live Casino' },
+      { id: 8, name: 'Video Poker', description: 'Jacks or Better with optimal strategy trainer. 99.5% RTP when played perfectly.', icon: '🃏', rating: 4.5, provider: 'IGT', minBet: 0.25, gameType: 'Poker', isPopular: false, isNew: false, category: 'Video Poker' },
+      { id: 9, name: 'Dead or Alive 2', description: 'Wild West themed slot with 3 different free spin features. High volatility.', icon: '🤠', rating: 4.8, provider: 'NetEnt', minBet: 0.09, gameType: 'Slot', isPopular: true, isNew: false, category: 'Slots' },
+      { id: 10, name: 'Lightning Roulette', description: 'RNG roulette with lucky numbers and multiplied payouts up to 500x.', icon: '⚡', rating: 4.7, provider: 'Evolution', minBet: 1, gameType: 'Live', isPopular: true, isNew: false, category: 'Live Casino' },
+      { id: 11, name: 'Crazy Time', description: 'Money wheel with 4 bonus games. Multipliers and interactive gameplay.', icon: '🎯', rating: 4.9, provider: 'Evolution', minBet: 0.10, gameType: 'Live', isPopular: true, isNew: false, category: 'Live Casino' },
+      { id: 12, name: 'Immortal Romance', description: 'Vampire-themed slot with Chamber of Spins feature. 4 different free spin modes.', icon: '🧛', rating: 4.6, provider: 'Microgaming', minBet: 0.30, gameType: 'Slot', isPopular: false, isNew: false, category: 'Slots' },
+      { id: 13, name: 'Texas Hold\'em', description: 'Play against AI opponents. Tournament and cash game modes.', icon: '🃟', rating: 4.5, provider: 'Pragmatic', minBet: 5, gameType: 'Poker', isPopular: false, isNew: false, category: 'Table Games' },
+      { id: 14, name: 'Sweet Bonanza', description: 'Candy-themed slot with tumbling reels and free spins. Buy bonus feature available.', icon: '🍬', rating: 4.8, provider: 'Pragmatic', minBet: 0.20, gameType: 'Slot', isPopular: true, isNew: true, category: 'Slots' },
+      { id: 15, name: 'Monopoly Live', description: 'Augmented reality Monopoly with Chance and Community Chest. 2D/3D hybrid.', icon: '🎲', rating: 4.7, provider: 'Evolution', minBet: 0.50, gameType: 'Live', isPopular: true, isNew: false, category: 'Live Casino' },
+      { id: 16, name: 'Wolf Gold', description: 'Native American themed slot with 3 jackpots. Money respin feature.', icon: '🐺', rating: 4.6, provider: 'Pragmatic', minBet: 0.25, gameType: 'Jackpot', isPopular: false, isNew: false, category: 'Jackpots' },
+      { id: 17, name: 'Craps', description: 'Dice game with multiple betting options. Practice mode available.', icon: '🎲', rating: 4.4, provider: 'Playtech', minBet: 5, gameType: 'Table', isPopular: false, isNew: false, category: 'Table Games' },
+      { id: 18, name: 'Mega Fortune', description: 'Luxury-themed progressive jackpot slot. 3 different jackpot levels.', icon: '💎', rating: 4.8, provider: 'NetEnt', minBet: 0.25, gameType: 'Jackpot', isPopular: true, isNew: false, category: 'Jackpots' },
+      { id: 19, name: 'Dream Catcher', description: 'Money wheel with multipliers. Simple and fast-paced gameplay.', icon: '🎯', rating: 4.5, provider: 'Evolution', minBet: 0.10, gameType: 'Live', isPopular: false, isNew: false, category: 'Live Casino' },
+      { id: 20, name: 'Jammin Jars', description: 'Fruit-themed slot with jar multipliers and dancing feature. Cluster pays mechanic.', icon: '🍎', rating: 4.7, provider: 'Push Gaming', minBet: 0.20, gameType: 'Slot', isPopular: true, isNew: false, category: 'Slots' },
+      { id: 21, name: 'Andar Bahar', description: 'Traditional Indian card game. Fast-paced with side bets.', icon: '🃟', rating: 4.6, provider: 'Ezugi', minBet: 1, gameType: 'Live', isPopular: false, isNew: true, category: 'Live Casino' },
+      { id: 22, name: 'Mystic Chief', description: 'Aztec-themed slot with free spins and multipliers. High win potential.', icon: '🗿', rating: 4.7, provider: 'Pragmatic', minBet: 0.20, gameType: 'Slot', isPopular: false, isNew: true, category: 'Slots' },
+      { id: 23, name: 'Sic Bo', description: 'Ancient Chinese dice game. Multiple betting combinations.', icon: '🎲', rating: 4.4, provider: 'Evolution', minBet: 1, gameType: 'Live', isPopular: false, isNew: false, category: 'Live Casino' },
+      { id: 24, name: 'Big Bass Bonanza', description: 'Fishing-themed slot with money collect feature. Free spins with multipliers.', icon: '🐟', rating: 4.8, provider: 'Pragmatic', minBet: 0.10, gameType: 'Slot', isPopular: true, isNew: false, category: 'Slots' }
+    ]
+    loading.value = false
+  }, 1500)
+})
 </script>
 
 <style scoped>
@@ -245,6 +294,15 @@ const playGame = (game) => {
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
 }
 
 /* Custom scrollbar */
