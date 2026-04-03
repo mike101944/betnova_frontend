@@ -2,9 +2,9 @@
 <template>
     <div>
         <!-- Skeleton Loading -->
-        <div v-if="loading" class="space-y-4">
+        <div v-if="loading" class="space-y-2">
             <!-- Skeleton for Sliding Banner / Card -->
-            <div class="relative w-full h-48 md:h-64 bg-gradient-to-r from-sky-800 to-sky-900 rounded-xl overflow-hidden animate-pulse">
+            <div class="relative w-full h-42 bg-gradient-to-r from-sky-800 to-sky-900 rounded-xl overflow-hidden animate-pulse">
                 <div class="absolute inset-0 bg-gradient-to-r from-yellow-500/20 to-transparent"></div>
                 <div class="absolute bottom-4 left-4 right-4">
                     <div class="h-6 bg-sky-700/50 rounded w-48 mb-2"></div>
@@ -13,7 +13,7 @@
             </div>
 
             <!-- Skeleton for League Horizontal List -->
-            <div class="px-4 py-2">
+            <div class=" py-1">
                 <div class="flex gap-3 overflow-x-auto" style="-webkit-overflow-scrolling: touch;">
                     <div v-for="i in 8" :key="i" class="flex-shrink-0">
                         <div class="px-4 py-2 bg-sky-800/50 rounded-lg h-10 w-24 animate-pulse"></div>
@@ -22,27 +22,27 @@
             </div>
 
             <!-- Skeleton for Live Indicator / Featured -->
-            <div class="px-4 py-2">
+            <!-- <div class="px-4 py-2">
                 <div class="flex items-center gap-2">
                     <div class="w-2 h-2 bg-red-500 rounded-full animate-pulse"></div>
                     <div class="h-4 bg-sky-800/50 rounded w-16"></div>
                     <div class="h-6 bg-sky-800/50 rounded w-12"></div>
                 </div>
-            </div>
+            </div> -->
 
             <!-- Skeleton for Casino Games Horizontal List -->
-            <div class="px-4 py-2">
+            <div class=" py-1">
                 <div class="flex gap-4 overflow-x-auto" style="-webkit-overflow-scrolling: touch;">
                     <div v-for="i in 6" :key="i" class="flex-shrink-0">
-                        <div class="w-24 h-24 md:w-32 md:h-32 bg-gradient-to-br from-sky-800 to-sky-900 rounded-xl animate-pulse"></div>
-                        <div class="h-3 bg-sky-800/50 rounded w-16 mx-auto mt-2"></div>
+                        <div class="w-24 h-[110px]  bg-gradient-to-br from-sky-800 to-sky-900 rounded-xl animate-pulse"></div>
+                        <!-- <div class="h-3 bg-sky-800/50 rounded w-16 mx-auto mt-2"></div> -->
                     </div>
                 </div>
             </div>
 
             <!-- Skeleton for Football Section Header -->
-            <div class="px-4 py-2">
-                <div class="flex justify-between items-center">
+            <div class=" py-2">
+                <div class="flex justify-between items-center bg-sky-800/50">
                     <div class="flex items-center gap-2">
                         <div class="w-6 h-6 bg-sky-800/50 rounded-full animate-pulse"></div>
                         <div class="h-6 bg-sky-800/50 rounded w-24"></div>
@@ -52,31 +52,77 @@
             </div>
 
             <!-- Skeleton for Football Matches -->
-            <div class="space-y-2 px-4">
-                <div v-for="i in 3" :key="i" class="border-b border-sky-950 p-3 animate-pulse">
-                    <!-- Time and Date -->
-                    <div class="flex justify-between items-center mb-3">
-                        <div class="h-4 bg-sky-800 rounded w-20"></div>
-                        <div class="h-4 bg-sky-800 rounded w-24"></div>
-                    </div>
-                    
-                    <!-- Teams -->
-                    <div class="space-y-2 mb-3">
-                        <div class="h-5 bg-sky-800 rounded w-3/4"></div>
-                        <div class="h-5 bg-sky-800 rounded w-3/4"></div>
-                    </div>
-                    
-                    <!-- League Name -->
-                    <div class="h-3 bg-sky-800 rounded w-32 mb-4"></div>
-                    
-                    <!-- Odds Buttons -->
-                    <div class="flex gap-2">
-                        <div class="flex-1 h-10 bg-sky-800 rounded"></div>
-                        <div class="flex-1 h-10 bg-sky-800 rounded"></div>
-                        <div class="flex-1 h-10 bg-sky-800 rounded"></div>
-                        <div class="w-12 h-10 bg-sky-800 rounded"></div>
-                    </div>
-                </div>
+            <div class="space-y-2 ">
+                
+
+                <!-- Skeleton Loading -->
+    <div v-if="loading" class="divide-y divide-sky-800/30">
+      <!-- Skeleton Item 1 -->
+      <div class="border-b border-sky-950 p-3 animate-pulse">
+        <div class="flex justify-between items-center mb-3">
+          <div class="h-4 bg-sky-800 rounded w-20"></div>
+          <div class="h-4 bg-sky-800 rounded w-24"></div>
+        </div>
+        
+        <div class="space-y-2 mb-3">
+          <div class="h-5 bg-sky-800 rounded w-3/4"></div>
+          <div class="h-5 bg-sky-800 rounded w-3/4"></div>
+        </div>
+        
+        <div class="h-3 bg-sky-800 rounded w-32 mb-4"></div>
+        
+        <div class="flex gap-2">
+          <div class="flex-1 h-10 bg-sky-800 rounded"></div>
+          <div class="flex-1 h-10 bg-sky-800 rounded"></div>
+          <div class="flex-1 h-10 bg-sky-800 rounded"></div>
+          <div class="w-12 h-10 bg-sky-800 rounded"></div>
+        </div>
+      </div>
+
+      <!-- Skeleton Item 2 -->
+      <div class="border-b border-sky-950 p-3 animate-pulse">
+        <div class="flex justify-between items-center mb-3">
+          <div class="h-4 bg-sky-800 rounded w-20"></div>
+          <div class="h-4 bg-sky-800 rounded w-24"></div>
+        </div>
+        
+        <div class="space-y-2 mb-3">
+          <div class="h-5 bg-sky-800 rounded w-2/3"></div>
+          <div class="h-5 bg-sky-800 rounded w-2/3"></div>
+        </div>
+        
+        <div class="h-3 bg-sky-800 rounded w-28 mb-4"></div>
+        
+        <div class="flex gap-2">
+          <div class="flex-1 h-10 bg-sky-800 rounded"></div>
+          <div class="flex-1 h-10 bg-sky-800 rounded"></div>
+          <div class="flex-1 h-10 bg-sky-800 rounded"></div>
+          <div class="w-12 h-10 bg-sky-800 rounded"></div>
+        </div>
+      </div>
+
+      <!-- Skeleton Item 3 -->
+      <div class="border-b border-sky-950 p-3 animate-pulse">
+        <div class="flex justify-between items-center mb-3">
+          <div class="h-4 bg-sky-800 rounded w-20"></div>
+          <div class="h-4 bg-sky-800 rounded w-24"></div>
+        </div>
+        
+        <div class="space-y-2 mb-3">
+          <div class="h-5 bg-sky-800 rounded w-3/4"></div>
+          <div class="h-5 bg-sky-800 rounded w-3/4"></div>
+        </div>
+        
+        <div class="h-3 bg-sky-800 rounded w-32 mb-4"></div>
+        
+        <div class="flex gap-2">
+          <div class="flex-1 h-10 bg-sky-800 rounded"></div>
+          <div class="flex-1 h-10 bg-sky-800 rounded"></div>
+          <div class="flex-1 h-10 bg-sky-800 rounded"></div>
+          <div class="w-12 h-10 bg-sky-800 rounded"></div>
+        </div>
+      </div>
+    </div>
             </div>
         </div>
 
