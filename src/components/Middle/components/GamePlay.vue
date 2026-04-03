@@ -42,7 +42,7 @@
     <!-- Games Grid -->
     <div class="container mx-auto px-4 py-8">
       <!-- Filter & Search Bar -->
-      <div class="mb-8 flex flex-col md:flex-row gap-4 justify-between items-center">
+      <div class="mb-8 flex flex-col gap-4 justify-between items-center">
         <div class="flex gap-3">
           <button 
             v-for="category in categories" 
@@ -70,10 +70,15 @@
 
       <!-- Games Grid -->
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-        <div 
+        <!-- <div 
           v-for="game in filteredGames" 
           :key="game.id"
           @click="playGame(game)"
+          class="group relative bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl overflow-hidden shadow-2xl hover:shadow-yellow-500/20 hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 cursor-pointer"
+        > -->
+        <div 
+          v-for="game in filteredGames" 
+          :key="game.id"
           class="group relative bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl overflow-hidden shadow-2xl hover:shadow-yellow-500/20 hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 cursor-pointer"
         >
           <!-- Premium Badge -->
