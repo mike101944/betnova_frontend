@@ -28,8 +28,7 @@ const goToGame = (game) => {
 <template>
   <div class="w-full overflow-x-auto scroll-smooth">
     <div class="flex gap-2 p-1 min-w-min bg-white opacity-70">
-
-      <div 
+      <div
         v-for="game in cards" 
         :key="game.id"
           @click="goToGame(game)"

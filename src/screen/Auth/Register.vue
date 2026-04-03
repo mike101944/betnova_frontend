@@ -241,13 +241,13 @@ const goToLogin = () => {
   white-space: nowrap;
   border-right: 2px solid currentColor;
   width: 0;
-  animation: typing 3s steps(20, end) infinite, 
+  animation: typing 3s steps(21, end) infinite, 
              blink-caret 0.75s step-end infinite;
 }
 
 @keyframes typing {
   0%, 100% { width: 0; }
-  30%, 70% { width: 140px; } /* Adjust based on text length */
+  30%, 70% { width: 149px; } /* Adjust based on text length */
 }
 
 @keyframes blink-caret {
