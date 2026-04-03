@@ -32,10 +32,39 @@
           <span class="text-sm font-medium">Home</span>
         </button>
 
-        <button @click="navigateTo('/sports')" class="nav-btn" :class="activeItem === 'sports' ? 'active-gradient' : 'inactive-style'">
+        <!-- <button @click="navigateTo('/sports')" class="nav-btn" :class="activeItem === 'sports' ? 'active-gradient' : 'inactive-style'">
           <span class="text-base w-5 flex justify-center">⚽</span>
           <span class="text-sm font-medium">Sports Betting</span>
-        </button>
+        </button> -->
+
+
+        <div>
+          <button 
+            @click="isSportsOpen = !isSportsOpen" 
+            class="nav-btn w-full"
+            :class="isSportsOpen ? 'bg-white/5' : 'inactive-style'"
+          >
+          <span class="text-base w-5 flex justify-center">⚽</span>
+            <span class="text-sm font-medium ml-0">Sports Betting</span>
+            <ChevronDownIcon 
+              class="w-4 h-4 ml-auto transition-transform duration-300" 
+              :class="{ 'rotate-180': isSportsOpen }"
+            />
+          </button>
+
+          <transition name="expand">
+            <div v-if="isSportsOpen" class="mt-1 ml-4 space-y-1 border-l-2 border-sky-500/30 pl-3">
+              <button @click="navigateTo('/aviator')" class="sub-nav-btn group">
+                <PaperAirplaneIcon class="w-4 h-4 text-red-500 -rotate-45 group-hover:translate-x-1 transition-transform" />
+                <span>Premier League</span>
+              </button>
+              <button @click="navigateTo('/virtual')" class="sub-nav-btn group">
+                <CpuChipIcon class="w-4 h-4 text-purple-400" />
+                <span>Laliga</span>
+              </button>
+            </div>
+          </transition>
+        </div>
 
         <button @click="navigateTo('/live')" class="nav-btn" :class="activeItem === 'live' ? 'active-gradient' : 'inactive-style'">
           <div class="relative w-5 h-5 flex items-center justify-center">
