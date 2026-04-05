@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onMounted, onBeforeUnmount, computed } from 'vue'
+import { ref, onMounted, onBeforeUnmount } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
 
 const router = useRouter()
@@ -18,135 +18,8 @@ const matchData = ref({
   awayOdds: '0'
 })
 
-// Double chance odds
-const doubleChanceOdds = ref({
-  oneX: '0',
-  xTwo: '0',
-  oneTwo: '0'
-})
-
-// BTTS odds
-const bttsOdds = ref({
-  yes: '0',
-  no: '0'
-})
-
 // Debug: Angalia query parameters zilizopokelewa
 console.log('Route query parameters:', route.query)
-
-// Function to calculate Double Chance odds
-const calculateDoubleChanceOdds = (homeOdds, drawOdds, awayOdds) => {
-  const h = parseFloat(homeOdds)
-  const d = parseFloat(drawOdds)
-  const a = parseFloat(awayOdds)
-  
-  if (isNaN(h) || isNaN(d) || isNaN(a) || h === 0 || d === 0 || a === 0) {
-    return { oneX: '0', xTwo: '0', oneTwo: '0' }
-  }
-  
-  // Calculate implied probabilities
-  const probHome = 1 / h
-  const probDraw = 1 / d
-  const probAway = 1 / a
-  
-  // Double Chance probabilities
-  const probOneX = probHome + probDraw  // Home or Draw
-  const probXTwo = probDraw + probAway  // Draw or Away
-  const probOneTwo = probHome + probAway // Home or Away
-  
-  // Convert back to odds with margin adjustment
-  // Add small margin (1.05) to make odds realistic
-  const margin = 1.05
-  
-  let oddsOneX = (1 / probOneX) * margin
-  let oddsXTwo = (1 / probXTwo) * margin
-  let oddsOneTwo = (1 / probOneTwo) * margin
-  
-  // Round to 2 decimal places
-  oddsOneX = Math.round(oddsOneX * 100) / 100
-  oddsXTwo = Math.round(oddsXTwo * 100) / 100
-  oddsOneTwo = Math.round(oddsOneTwo * 100) / 100
-  
-  return {
-    oneX: oddsOneX.toString(),
-    xTwo: oddsXTwo.toString(),
-    oneTwo: oddsOneTwo.toString()
-  }
-}
-
-// Function to calculate BTTS odds
-const calculateBTTSOdds = (homeOdds, drawOdds, awayOdds) => {
-  const h = parseFloat(homeOdds)
-  const d = parseFloat(drawOdds)
-  const a = parseFloat(awayOdds)
-  
-  if (isNaN(h) || isNaN(d) || isNaN(a) || h === 0 || d === 0 || a === 0) {
-    return { yes: '0', no: '0' }
-  }
-  
-  // Estimate goal expectations based on odds
-  // Lower odds = higher chance of winning = more likely to score
-  const homeStrength = 1 / h
-  const awayStrength = 1 / a
-  
-  // Probability both teams score (simplified model)
-  // If both teams have reasonable chance to win, higher chance of BTTS
-  let probBTTSYes = (homeStrength + awayStrength) * 0.6
-  
-  // Adjust based on draw odds - high draw odds suggest defensive game
-  const drawProb = 1 / d
-  if (drawProb > 0.35) {
-    // High draw probability suggests defensive game, lower BTTS
-    probBTTSYes = probBTTSYes * 0.7
-  } else if (drawProb < 0.25) {
-    // Low draw probability suggests attacking game, higher BTTS
-    probBTTSYes = probBTTSYes * 1.2
-  }
-  
-  // Cap probabilities between 0.25 and 0.75
-  probBTTSYes = Math.max(0.25, Math.min(0.75, probBTTSYes))
-  
-  const probBTTSNo = 1 - probBTTSYes
-  
-  // Convert to odds with margin
-  const margin = 1.08
-  let oddsYes = (1 / probBTTSYes) * margin
-  let oddsNo = (1 / probBTTSNo) * margin
-  
-  // Round to 2 decimal places
-  oddsYes = Math.round(oddsYes * 100) / 100
-  oddsNo = Math.round(oddsNo * 100) / 100
-  
-  return {
-    yes: oddsYes.toString(),
-    no: oddsNo.toString()
-  }
-}
-
-// Generate all derived odds
-const generateDerivedOdds = () => {
-  const homeOdds = matchData.value.homeOdds
-  const drawOdds = matchData.value.drawOdds
-  const awayOdds = matchData.value.awayOdds
-  
-  // Calculate Double Chance odds
-  doubleChanceOdds.value = calculateDoubleChanceOdds(homeOdds, drawOdds, awayOdds)
-  
-  // Calculate BTTS odds
-  bttsOdds.value = calculateBTTSOdds(homeOdds, drawOdds, awayOdds)
-  
-  console.log('Generated Double Chance Odds:', doubleChanceOdds.value)
-  console.log('Generated BTTS Odds:', bttsOdds.value)
-}
-
-// Watch for changes in main odds
-const updateOdds = () => {
-  if (matchData.value.homeOdds !== '0' && 
-      matchData.value.drawOdds !== '0' && 
-      matchData.value.awayOdds !== '0') {
-    generateDerivedOdds()
-  }
-}
 
 onMounted(() => {
   // Chukua data zote kutoka query parameters
@@ -167,9 +40,6 @@ onMounted(() => {
   console.log('Home Odds:', matchData.value.homeOdds)
   console.log('Draw Odds:', matchData.value.drawOdds)
   console.log('Away Odds:', matchData.value.awayOdds)
-  
-  // Generate derived odds
-  updateOdds()
   
   loadFromLocalStorage()
   window.addEventListener('storage', handleStorageChange)
@@ -291,11 +161,8 @@ const goBack = () => {
     <!-- Header / Match Info -->
     <div class="mb-4 text-xs mt-2 text-center">
       <h2 class="text-sm text-amber-100 font-bold">{{ matchData.homeTeam }} vs {{ matchData.awayTeam }}</h2>
-      <p class="text-gray-400 text-xs">{{ matchData.league }}</p>
-      <p class="text-gray-400 text-xs">{{ matchData.time }} {{ matchData.date }}</p>
+      <p class="text-gray-400 text-xs">{{ matchData.league }} • {{ matchData.time }} {{ matchData.date }}</p>
     </div>
-
-  
 
     <!-- 1. 1X2 / Full Time -->
     <div class="rounded-lg mb-4">
@@ -335,56 +202,56 @@ const goBack = () => {
       </div>
     </div>
 
-    <!-- 2. Double Chance - Generated dynamically -->
+    <!-- 2. Double Chance -->
     <div class="rounded-lg mb-4">
       <div class="text-gray-300 font-medium mb-2 text-xs">Double Chance | Full Time</div>
       <div class="grid grid-cols-3 gap-3 text-center">
         <div 
-          @click="handleOddsClick('1X', doubleChanceOdds.oneX, '1X')"
+          @click="handleOddsClick('1X', '1.07', '1X')"
           class="cursor-pointer whitespace-nowrap bg-[#f4f5f0] opacity-75 border border-[#e6e7e2] rounded transition-all duration-200 hover:bg-[#e0f2e9] p-2 flex flex-row justify-between items-center"
           :class="{ '!bg-[#0AF0B5] !border-[#0AF0B5]': isSelected(`${matchData.eventId}-1X`) }"
         >
           <div class="text-xs text-gray-800">1X</div>
-          <div class="text-xs font-bold text-gray-800">{{ doubleChanceOdds.oneX }}</div>
+          <div class="text-xs font-bold text-gray-800">1.07</div>
         </div>
         <div
-          @click="handleOddsClick('X2', doubleChanceOdds.xTwo, 'X2')"
+          @click="handleOddsClick('X2', '3.40', 'X2')"
           class="cursor-pointer whitespace-nowrap bg-[#f4f5f0] opacity-75 border border-[#e6e7e2] rounded transition-all duration-200 hover:bg-[#e0f2e9] p-2 flex flex-row justify-between items-center"
           :class="{ '!bg-[#0AF0B5] !border-[#0AF0B5]': isSelected(`${matchData.eventId}-X2`) }"
         >
           <div class="text-xs text-gray-800">X2</div>
-          <div class="text-xs font-bold text-gray-800">{{ doubleChanceOdds.xTwo }}</div>
+          <div class="text-xs font-bold text-gray-800">3.40</div>
         </div>
         <div 
-          @click="handleOddsClick('12', doubleChanceOdds.oneTwo, '12')"
+          @click="handleOddsClick('12', '1.15', '12')"
           class="cursor-pointer whitespace-nowrap bg-[#f4f5f0] opacity-75 border border-[#e6e7e2] rounded transition-all duration-200 hover:bg-[#e0f2e9] p-2 flex flex-row justify-between items-center"
           :class="{ '!bg-[#0AF0B5] !border-[#0AF0B5]': isSelected(`${matchData.eventId}-12`) }"
         >
           <div class="text-xs text-gray-800">12</div>
-          <div class="text-xs font-bold text-gray-800">{{ doubleChanceOdds.oneTwo }}</div>
+          <div class="text-xs font-bold text-gray-800">1.15</div>
         </div>
       </div>
     </div>
 
-    <!-- 3. Both Teams To Score - Generated dynamically -->
+    <!-- 3. Both Teams To Score -->
     <div class="rounded-lg mb-4">
       <div class="text-gray-300 font-medium mb-2 text-xs">Both Teams To Score | Full Time</div>
       <div class="grid grid-cols-2 gap-3 text-center">
         <div 
-          @click="handleOddsClick('BTTS_Yes', bttsOdds.yes, 'Yes')"
+          @click="handleOddsClick('BTTS_Yes', '2.48', 'Yes')"
           class="cursor-pointer whitespace-nowrap bg-[#f4f5f0] opacity-75 border border-[#e6e7e2] rounded transition-all duration-200 hover:bg-[#e0f2e9] p-2 flex flex-row justify-between items-center"
           :class="{ '!bg-[#0AF0B5] !border-[#0AF0B5]': isSelected(`${matchData.eventId}-BTTS_Yes`) }"
         >
           <div class="text-xs text-gray-800">Yes</div>
-          <div class="text-xs font-bold text-gray-800">{{ bttsOdds.yes }}</div>
+          <div class="text-xs font-bold text-gray-800">2.48</div>
         </div>
         <div 
-          @click="handleOddsClick('BTTS_No', bttsOdds.no, 'No')"
+          @click="handleOddsClick('BTTS_No', '1.54', 'No')"
           class="cursor-pointer whitespace-nowrap bg-[#f4f5f0] opacity-75 border border-[#e6e7e2] rounded transition-all duration-200 hover:bg-[#e0f2e9] p-2 flex flex-row justify-between items-center"
           :class="{ '!bg-[#0AF0B5] !border-[#0AF0B5]': isSelected(`${matchData.eventId}-BTTS_No`) }"
         >
           <div class="text-xs text-gray-800">No</div>
-          <div class="text-xs font-bold text-gray-800">{{ bttsOdds.no }}</div>
+          <div class="text-xs font-bold text-gray-800">1.54</div>
         </div>
       </div>
     </div>
