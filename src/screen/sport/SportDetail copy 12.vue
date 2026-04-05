@@ -20,7 +20,7 @@ const matchData = ref({
 
 // Double chance odds
 const doubleChanceOdds = ref({
-  oneX: '0',
+  oneX: '1.1',
   xTwo: '0',
   oneTwo: '0'
 })
@@ -33,11 +33,16 @@ const bttsOdds = ref({
 
 // Over/Under odds
 const overUnderOdds = ref({
-  over05: '0', under05: '0',
-  over15: '0', under15: '0',
-  over25: '0', under25: '0',
-  over35: '0', under35: '0',
-  over45: '0', under45: '0'
+  over05: '0',
+  under05: '0',
+  over15: '0',
+  under15: '0',
+  over25: '0',
+  under25: '0',
+  over35: '0',
+  under35: '0',
+  over45: '0',
+  under45: '0'
 })
 
 // Correct Score odds
@@ -45,47 +50,28 @@ const correctScoreOdds = ref([])
 
 console.log('Route query parameters:', route.query)
 
-// Helper function to ensure odds are never below 1.00
-const ensureMinimumOdds = (odds, minimum = 1.05) => {
-  let result = parseFloat(odds)
-  if (isNaN(result) || result < minimum) {
-    return minimum
-  }
-  return Math.round(result * 100) / 100
-}
-
-// Calculate Double Chance odds - CORRECTED
+// Calculate Double Chance odds using proper betting formula
 const calculateDoubleChanceOdds = (homeOdds, drawOdds, awayOdds) => {
   const h = parseFloat(homeOdds)
   const d = parseFloat(drawOdds)
   const a = parseFloat(awayOdds)
   
-  // Default realistic values if odds are invalid
-  if (isNaN(h) || isNaN(d) || isNaN(a) || h < 1.01 || d < 1.01 || a < 1.01) {
-    return {
-      oneX: '1.25',
-      xTwo: '1.55',
-      oneTwo: '1.30'
-    }
+  if (isNaN(h) || isNaN(d) || isNaN(a) || h <= 1 || d <= 1 || a <= 1) {
+    return { oneX: '1.30', xTwo: '1.60', oneTwo: '1.33' }
   }
   
-  // Calculate using proper formula: 1/(1/odds1 + 1/odds2)
+  // Formula ya Double Chance: (1/odds1 + 1/odds2) then convert back to odds
   // 1X = Home or Draw
   let oneXProb = (1 / h) + (1 / d)
-  let oneXOdds = 1 / oneXProb
+  let oneXOdds = (1 / oneXProb)
   
   // X2 = Draw or Away
   let xTwoProb = (1 / d) + (1 / a)
-  let xTwoOdds = 1 / xTwoProb
+  let xTwoOdds = (1 / xTwoProb)
   
   // 12 = Home or Away
   let oneTwoProb = (1 / h) + (1 / a)
-  let oneTwoOdds = 1 / oneTwoProb
-  
-  // Ensure minimum odds of 1.10
-  oneXOdds = Math.max(1.10, oneXOdds)
-  xTwoOdds = Math.max(1.10, xTwoOdds)
-  oneTwoOdds = Math.max(1.10, oneTwoOdds)
+  let oneTwoOdds = (1 / oneTwoProb)
   
   // Round to 2 decimal places
   oneXOdds = Math.round(oneXOdds * 100) / 100
@@ -99,14 +85,14 @@ const calculateDoubleChanceOdds = (homeOdds, drawOdds, awayOdds) => {
   }
 }
 
-// Calculate BTTS odds
+// Calculate BTTS odds based on main odds
 const calculateBTTSOdds = (homeOdds, drawOdds, awayOdds) => {
   const h = parseFloat(homeOdds)
   const d = parseFloat(drawOdds)
   const a = parseFloat(awayOdds)
   
-  if (isNaN(h) || isNaN(d) || isNaN(a) || h < 1.01 || d < 1.01 || a < 1.01) {
-    return { yes: '1.85', no: '1.85' }
+  if (isNaN(h) || isNaN(d) || isNaN(a) || h <= 1 || d <= 1 || a <= 1) {
+    return { yes: '1.90', no: '1.90' }
   }
   
   // Calculate implied probabilities
@@ -114,25 +100,25 @@ const calculateBTTSOdds = (homeOdds, drawOdds, awayOdds) => {
   const probDraw = 1 / d
   const probAway = 1 / a
   
-  // Expected goals based on odds
-  const expectedHomeGoals = probHome * 2.2 + probDraw * 1.1
-  const expectedAwayGoals = probAway * 2.2 + probDraw * 1.1
+  // Estimate expected goals
+  const expectedHomeGoals = probHome * 2.5 + probDraw * 1.2
+  const expectedAwayGoals = probAway * 2.5 + probDraw * 1.2
   
-  // Probability each team scores at least 1 goal
+  // Probability of BTTS Yes using Poisson approximation
+  // P(BTTS) = P(Home scores at least 1) * P(Away scores at least 1)
   const probHomeScores = 1 - Math.exp(-expectedHomeGoals)
   const probAwayScores = 1 - Math.exp(-expectedAwayGoals)
   
-  // BTTS probability
   let probYes = probHomeScores * probAwayScores
   
-  // Adjust based on draw probability
+  // Adjust based on league/game characteristics
   if (probDraw > 0.35) {
     probYes = probYes * 0.85
   } else if (probDraw < 0.25) {
-    probYes = probYes * 1.10
+    probYes = probYes * 1.1
   }
   
-  // Keep within realistic range
+  // Keep probability within realistic range
   probYes = Math.max(0.35, Math.min(0.65, probYes))
   const probNo = 1 - probYes
   
@@ -143,10 +129,6 @@ const calculateBTTSOdds = (homeOdds, drawOdds, awayOdds) => {
   // Add small margin
   oddsYes = oddsYes * 1.05
   oddsNo = oddsNo * 1.05
-  
-  // Ensure minimum 1.20
-  oddsYes = Math.max(1.20, oddsYes)
-  oddsNo = Math.max(1.20, oddsNo)
   
   oddsYes = Math.round(oddsYes * 100) / 100
   oddsNo = Math.round(oddsNo * 100) / 100
@@ -163,7 +145,7 @@ const calculateOverUnderOdds = (homeOdds, drawOdds, awayOdds) => {
   const d = parseFloat(drawOdds)
   const a = parseFloat(awayOdds)
   
-  if (isNaN(h) || isNaN(d) || isNaN(a) || h < 1.01 || d < 1.01 || a < 1.01) {
+  if (isNaN(h) || isNaN(d) || isNaN(a) || h <= 1 || d <= 1 || a <= 1) {
     return {
       over05: '1.10', under05: '5.89',
       over15: '1.53', under15: '2.34',
@@ -173,71 +155,57 @@ const calculateOverUnderOdds = (homeOdds, drawOdds, awayOdds) => {
     }
   }
   
-  // Calculate expected goals
+  // Calculate expected goals based on odds
   const probHome = 1 / h
   const probDraw = 1 / d
   const probAway = 1 / a
   
-  let expectedGoals = (probHome * 2.0) + (probDraw * 1.2) + (probAway * 1.8)
-  expectedGoals = Math.max(1.2, Math.min(3.8, expectedGoals))
+  // Expected goals
+  let expectedGoals = (probHome * 2.2) + (probDraw * 1.3) + (probAway * 2.0)
+  expectedGoals = Math.max(1.5, Math.min(3.5, expectedGoals))
   
-  // Poisson probability function
+  // Poisson probabilities for different goal lines
   const poisson = (lambda, k) => {
-    let result = Math.exp(-lambda)
-    for (let i = 1; i <= k; i++) {
-      result *= lambda / i
-    }
-    return result
+    return Math.exp(-lambda) * Math.pow(lambda, k) / (k === 0 ? 1 : (k === 1 ? 1 : (k === 2 ? 2 : (k === 3 ? 6 : (k === 4 ? 24 : 120)))))
   }
   
-  // Calculate cumulative probabilities
-  let probUnder05 = poisson(expectedGoals, 0)
-  let probUnder15 = probUnder05 + poisson(expectedGoals, 1)
-  let probUnder25 = probUnder15 + poisson(expectedGoals, 2)
-  let probUnder35 = probUnder25 + poisson(expectedGoals, 3)
-  let probUnder45 = probUnder35 + poisson(expectedGoals, 4)
+  // Calculate probabilities for different totals
+  let probOver05 = 1 - poisson(expectedGoals, 0)
+  let probOver15 = 1 - (poisson(expectedGoals, 0) + poisson(expectedGoals, 1))
+  let probOver25 = 1 - (poisson(expectedGoals, 0) + poisson(expectedGoals, 1) + poisson(expectedGoals, 2))
+  let probOver35 = 1 - (poisson(expectedGoals, 0) + poisson(expectedGoals, 1) + poisson(expectedGoals, 2) + poisson(expectedGoals, 3))
+  let probOver45 = 1 - (poisson(expectedGoals, 0) + poisson(expectedGoals, 1) + poisson(expectedGoals, 2) + poisson(expectedGoals, 3) + poisson(expectedGoals, 4))
   
-  // Convert to odds with margin
+  // Add market bias (odds slightly favor under in many markets)
   const margin = 1.06
   
-  let oddsOver05 = (1 / (1 - probUnder05)) * margin
-  let oddsUnder05 = (1 / probUnder05) * margin
+  let oddsOver05 = (1 / probOver05) * margin
+  let oddsUnder05 = (1 / (1 - probOver05)) * margin
   
-  let oddsOver15 = (1 / (1 - probUnder15)) * margin
-  let oddsUnder15 = (1 / probUnder15) * margin
+  let oddsOver15 = (1 / probOver15) * margin
+  let oddsUnder15 = (1 / (1 - probOver15)) * margin
   
-  let oddsOver25 = (1 / (1 - probUnder25)) * margin
-  let oddsUnder25 = (1 / probUnder25) * margin
+  let oddsOver25 = (1 / probOver25) * margin
+  let oddsUnder25 = (1 / (1 - probOver25)) * margin
   
-  let oddsOver35 = (1 / (1 - probUnder35)) * margin
-  let oddsUnder35 = (1 / probUnder35) * margin
+  let oddsOver35 = (1 / probOver35) * margin
+  let oddsUnder35 = (1 / (1 - probOver35)) * margin
   
-  let oddsOver45 = (1 / (1 - probUnder45)) * margin
-  let oddsUnder45 = (1 / probUnder45) * margin
+  let oddsOver45 = (1 / probOver45) * margin
+  let oddsUnder45 = (1 / (1 - probOver45)) * margin
   
-  // Ensure minimum odds of 1.01
-  oddsOver05 = Math.max(1.01, oddsOver05)
-  oddsUnder05 = Math.max(1.01, oddsUnder05)
-  oddsOver15 = Math.max(1.01, oddsOver15)
-  oddsUnder15 = Math.max(1.01, oddsUnder15)
-  oddsOver25 = Math.max(1.01, oddsOver25)
-  oddsUnder25 = Math.max(1.01, oddsUnder25)
-  oddsOver35 = Math.max(1.01, oddsOver35)
-  oddsUnder35 = Math.max(1.01, oddsUnder35)
-  oddsOver45 = Math.max(1.01, oddsOver45)
-  oddsUnder45 = Math.max(1.01, oddsUnder45)
-  
+  // Round to 2 decimals
   return {
-    over05: oddsOver05.toFixed(2),
-    under05: oddsUnder05.toFixed(2),
-    over15: oddsOver15.toFixed(2),
-    under15: oddsUnder15.toFixed(2),
-    over25: oddsOver25.toFixed(2),
-    under25: oddsUnder25.toFixed(2),
-    over35: oddsOver35.toFixed(2),
-    under35: oddsUnder35.toFixed(2),
-    over45: oddsOver45.toFixed(2),
-    under45: oddsUnder45.toFixed(2)
+    over05: Math.round(oddsOver05 * 100) / 100,
+    under05: Math.round(oddsUnder05 * 100) / 100,
+    over15: Math.round(oddsOver15 * 100) / 100,
+    under15: Math.round(oddsUnder15 * 100) / 100,
+    over25: Math.round(oddsOver25 * 100) / 100,
+    under25: Math.round(oddsUnder25 * 100) / 100,
+    over35: Math.round(oddsOver35 * 100) / 100,
+    under35: Math.round(oddsUnder35 * 100) / 100,
+    over45: Math.round(oddsOver45 * 100) / 100,
+    under45: Math.round(oddsUnder45 * 100) / 100
   }
 }
 
@@ -252,10 +220,10 @@ const calculateCorrectScoreOdds = (homeOdds, drawOdds, awayOdds) => {
     '2-2', '3-0', '0-3', '3-1', '1-3', '3-2', '2-3', 'Other'
   ]
   
-  if (isNaN(h) || isNaN(d) || isNaN(a) || h < 1.01 || d < 1.01 || a < 1.01) {
+  if (isNaN(h) || isNaN(d) || isNaN(a) || h <= 1 || d <= 1 || a <= 1) {
     return scores.map(score => ({
       label: score,
-      odds: (Math.random() * 40 + 6).toFixed(2)
+      odds: (Math.random() * 50 + 5).toFixed(2)
     }))
   }
   
@@ -263,6 +231,7 @@ const calculateCorrectScoreOdds = (homeOdds, drawOdds, awayOdds) => {
   const probDraw = 1 / d
   const probAway = 1 / a
   
+  // Expected goals
   let expectedHomeGoals = probHome * 2.0 + probDraw * 1.0
   let expectedAwayGoals = probAway * 2.0 + probDraw * 1.0
   
@@ -279,7 +248,7 @@ const calculateCorrectScoreOdds = (homeOdds, drawOdds, awayOdds) => {
   
   const scoreOdds = scores.map(score => {
     if (score === 'Other') {
-      return { label: score, odds: (15 + Math.random() * 25).toFixed(2) }
+      return { label: score, odds: (20 + Math.random() * 30).toFixed(2) }
     }
     
     const [homeScore, awayScore] = score.split('-').map(Number)
@@ -288,7 +257,7 @@ const calculateCorrectScoreOdds = (homeOdds, drawOdds, awayOdds) => {
     if (probability < 0.001) probability = 0.001
     
     let odds = 1 / probability
-    odds = Math.min(100, Math.max(5, odds))
+    odds = Math.min(150, Math.max(4, odds))
     odds = Math.round(odds * 100) / 100
     
     return { label: score, odds: odds.toFixed(2) }
@@ -312,6 +281,7 @@ const generateAllOdds = () => {
   
   console.log('Double Chance:', doubleChanceOdds.value)
   console.log('BTTS:', bttsOdds.value)
+  console.log('Over/Under:', overUnderOdds.value)
 }
 
 onMounted(() => {
