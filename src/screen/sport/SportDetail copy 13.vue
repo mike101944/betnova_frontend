@@ -43,12 +43,6 @@ const overUnderOdds = ref({
 // Correct Score odds
 const correctScoreOdds = ref([])
 
-// Correct Score First Half odds
-const correctScoreFirstHalfOdds = ref([])
-
-// Correct Score Second Half odds
-const correctScoreSecondHalfOdds = ref([])
-
 console.log('Route query parameters:', route.query)
 
 // Helper function to ensure odds are never below 1.00
@@ -60,12 +54,13 @@ const ensureMinimumOdds = (odds, minimum = 1.05) => {
   return Math.round(result * 100) / 100
 }
 
-// Calculate Double Chance odds
+// Calculate Double Chance odds - CORRECTED
 const calculateDoubleChanceOdds = (homeOdds, drawOdds, awayOdds) => {
   const h = parseFloat(homeOdds)
   const d = parseFloat(drawOdds)
   const a = parseFloat(awayOdds)
   
+  // Default realistic values if odds are invalid
   if (isNaN(h) || isNaN(d) || isNaN(a) || h < 1.01 || d < 1.01 || a < 1.01) {
     return {
       oneX: '1.25',
@@ -74,19 +69,25 @@ const calculateDoubleChanceOdds = (homeOdds, drawOdds, awayOdds) => {
     }
   }
   
+  // Calculate using proper formula: 1/(1/odds1 + 1/odds2)
+  // 1X = Home or Draw
   let oneXProb = (1 / h) + (1 / d)
   let oneXOdds = 1 / oneXProb
   
+  // X2 = Draw or Away
   let xTwoProb = (1 / d) + (1 / a)
   let xTwoOdds = 1 / xTwoProb
   
+  // 12 = Home or Away
   let oneTwoProb = (1 / h) + (1 / a)
   let oneTwoOdds = 1 / oneTwoProb
   
-  oneXOdds = Math.max(1.11, oneXOdds)
+  // Ensure minimum odds of 1.10
+  oneXOdds = Math.max(1.10, oneXOdds)
   xTwoOdds = Math.max(1.10, xTwoOdds)
   oneTwoOdds = Math.max(1.10, oneTwoOdds)
   
+  // Round to 2 decimal places
   oneXOdds = Math.round(oneXOdds * 100) / 100
   xTwoOdds = Math.round(xTwoOdds * 100) / 100
   oneTwoOdds = Math.round(oneTwoOdds * 100) / 100
@@ -108,33 +109,42 @@ const calculateBTTSOdds = (homeOdds, drawOdds, awayOdds) => {
     return { yes: '1.85', no: '1.85' }
   }
   
+  // Calculate implied probabilities
   const probHome = 1 / h
   const probDraw = 1 / d
   const probAway = 1 / a
   
+  // Expected goals based on odds
   const expectedHomeGoals = probHome * 2.2 + probDraw * 1.1
   const expectedAwayGoals = probAway * 2.2 + probDraw * 1.1
   
+  // Probability each team scores at least 1 goal
   const probHomeScores = 1 - Math.exp(-expectedHomeGoals)
   const probAwayScores = 1 - Math.exp(-expectedAwayGoals)
   
+  // BTTS probability
   let probYes = probHomeScores * probAwayScores
   
+  // Adjust based on draw probability
   if (probDraw > 0.35) {
     probYes = probYes * 0.85
   } else if (probDraw < 0.25) {
     probYes = probYes * 1.10
   }
   
+  // Keep within realistic range
   probYes = Math.max(0.35, Math.min(0.65, probYes))
   const probNo = 1 - probYes
   
+  // Convert to odds
   let oddsYes = 1 / probYes
   let oddsNo = 1 / probNo
   
+  // Add small margin
   oddsYes = oddsYes * 1.05
   oddsNo = oddsNo * 1.05
   
+  // Ensure minimum 1.20
   oddsYes = Math.max(1.20, oddsYes)
   oddsNo = Math.max(1.20, oddsNo)
   
@@ -163,6 +173,7 @@ const calculateOverUnderOdds = (homeOdds, drawOdds, awayOdds) => {
     }
   }
   
+  // Calculate expected goals
   const probHome = 1 / h
   const probDraw = 1 / d
   const probAway = 1 / a
@@ -170,6 +181,7 @@ const calculateOverUnderOdds = (homeOdds, drawOdds, awayOdds) => {
   let expectedGoals = (probHome * 2.0) + (probDraw * 1.2) + (probAway * 1.8)
   expectedGoals = Math.max(1.2, Math.min(3.8, expectedGoals))
   
+  // Poisson probability function
   const poisson = (lambda, k) => {
     let result = Math.exp(-lambda)
     for (let i = 1; i <= k; i++) {
@@ -178,25 +190,32 @@ const calculateOverUnderOdds = (homeOdds, drawOdds, awayOdds) => {
     return result
   }
   
+  // Calculate cumulative probabilities
   let probUnder05 = poisson(expectedGoals, 0)
   let probUnder15 = probUnder05 + poisson(expectedGoals, 1)
   let probUnder25 = probUnder15 + poisson(expectedGoals, 2)
   let probUnder35 = probUnder25 + poisson(expectedGoals, 3)
   let probUnder45 = probUnder35 + poisson(expectedGoals, 4)
   
+  // Convert to odds with margin
   const margin = 1.06
   
   let oddsOver05 = (1 / (1 - probUnder05)) * margin
   let oddsUnder05 = (1 / probUnder05) * margin
+  
   let oddsOver15 = (1 / (1 - probUnder15)) * margin
   let oddsUnder15 = (1 / probUnder15) * margin
+  
   let oddsOver25 = (1 / (1 - probUnder25)) * margin
   let oddsUnder25 = (1 / probUnder25) * margin
+  
   let oddsOver35 = (1 / (1 - probUnder35)) * margin
   let oddsUnder35 = (1 / probUnder35) * margin
+  
   let oddsOver45 = (1 / (1 - probUnder45)) * margin
   let oddsUnder45 = (1 / probUnder45) * margin
   
+  // Ensure minimum odds of 1.01
   oddsOver05 = Math.max(1.01, oddsOver05)
   oddsUnder05 = Math.max(1.01, oddsUnder05)
   oddsOver15 = Math.max(1.01, oddsOver15)
@@ -222,7 +241,7 @@ const calculateOverUnderOdds = (homeOdds, drawOdds, awayOdds) => {
   }
 }
 
-// Calculate Correct Score Full Time odds
+// Calculate Correct Score odds
 const calculateCorrectScoreOdds = (homeOdds, drawOdds, awayOdds) => {
   const h = parseFloat(homeOdds)
   const d = parseFloat(drawOdds)
@@ -278,62 +297,6 @@ const calculateCorrectScoreOdds = (homeOdds, drawOdds, awayOdds) => {
   return scoreOdds.sort((a, b) => parseFloat(a.odds) - parseFloat(b.odds))
 }
 
-// Calculate Correct Score First Half odds (randomly generated)
-const calculateCorrectScoreFirstHalfOdds = () => {
-  const scores = ['Other', '0-0', '0-1', '0-2', '1-0', '1-1', '1-2', '2-0', '2-1', '2-2']
-  
-  // Base odds pattern similar to real betting
-  const baseOdds = {
-    'Other': 18.40,
-    '0-0': 1.70,
-    '0-1': 5.76,
-    '0-2': 40.00,
-    '1-0': 2.48,
-    '1-1': 8.80,
-    '1-2': 64.00,
-    '2-0': 7.04,
-    '2-1': 24.00,
-    '2-2': 80.80
-  }
-  
-  // Add random variation between 0.85 and 1.15
-  const randomVariation = () => 0.85 + (Math.random() * 0.3)
-  
-  return scores.map(score => {
-    let odds = baseOdds[score] * randomVariation()
-    odds = Math.round(odds * 100) / 100
-    return { label: score, odds: odds.toFixed(2) }
-  })
-}
-
-// Calculate Correct Score Second Half odds (randomly generated)
-const calculateCorrectScoreSecondHalfOdds = () => {
-  const scores = ['Other', '0-0', '0-1', '0-2', '1-0', '1-1', '1-2', '2-0', '2-1', '2-2']
-  
-  // Base odds pattern similar to real betting
-  const baseOdds = {
-    'Other': 10.40,
-    '0-0': 1.88,
-    '0-1': 4.64,
-    '0-2': 24.00,
-    '1-0': 2.36,
-    '1-1': 6.40,
-    '1-2': 36.00,
-    '2-0': 5.44,
-    '2-1': 16.80,
-    '2-2': 80.80
-  }
-  
-  // Add random variation between 0.85 and 1.15
-  const randomVariation = () => 0.85 + (Math.random() * 0.3)
-  
-  return scores.map(score => {
-    let odds = baseOdds[score] * randomVariation()
-    odds = Math.round(odds * 100) / 100
-    return { label: score, odds: odds.toFixed(2) }
-  })
-}
-
 // Generate all odds
 const generateAllOdds = () => {
   const homeOdds = matchData.value.homeOdds
@@ -347,14 +310,8 @@ const generateAllOdds = () => {
   overUnderOdds.value = calculateOverUnderOdds(homeOdds, drawOdds, awayOdds)
   correctScoreOdds.value = calculateCorrectScoreOdds(homeOdds, drawOdds, awayOdds)
   
-  // Generate random odds for First Half and Second Half
-  correctScoreFirstHalfOdds.value = calculateCorrectScoreFirstHalfOdds()
-  correctScoreSecondHalfOdds.value = calculateCorrectScoreSecondHalfOdds()
-  
   console.log('Double Chance:', doubleChanceOdds.value)
   console.log('BTTS:', bttsOdds.value)
-  console.log('First Half Correct Score:', correctScoreFirstHalfOdds.value)
-  console.log('Second Half Correct Score:', correctScoreSecondHalfOdds.value)
 }
 
 onMounted(() => {
@@ -453,9 +410,7 @@ const getMarketType = (selectionType) => {
   if (selectionType === '1X' || selectionType === 'X2' || selectionType === '12') return 'Double Chance'
   if (selectionType === 'BTTS_Yes' || selectionType === 'BTTS_No') return 'Both Teams to Score'
   if (selectionType.startsWith('OU_')) return 'Over/Under'
-  if (selectionType.startsWith('CS_FT_')) return 'Correct Score'
-  if (selectionType.startsWith('CS_FH_')) return 'Correct Score First Half'
-  if (selectionType.startsWith('CS_SH_')) return 'Correct Score Second Half'
+  if (selectionType.startsWith('CS_')) return 'Correct Score'
   return 'Other'
 }
 
@@ -467,7 +422,7 @@ const goBack = () => {
 <template>
   <div class="h-full bg-sky-900 text-white p-4 overflow-y-auto">
     <!-- Back Button -->
-    <button @click="goBack" class="mb-3 text-amber-100 flex p-2 bg-sky-900 opacity-70 shadow-lg shadow-amber-100 items-center gap-1 text-xs rounded sticky top-0 z-10">
+    <button @click="goBack" class="mb-3 text-amber-100 flex p-2 bg-sky-900 opacity-70 shadow-lg shadow-amber-100 items-center gap-1 text-xs rounded">
       ← Back to Football
     </button>
 
@@ -477,7 +432,11 @@ const goBack = () => {
       <p class="text-gray-400 text-xs">{{ matchData.league }} • {{ matchData.time }} {{ matchData.date }}</p>
     </div>
 
-
+    <!-- Warning -->
+    <div v-if="selectedBets.some(bet => bet.eventId === matchData.eventId)" 
+         class="mb-3 p-2 bg-yellow-500/20 border border-yellow-500 rounded text-xs text-center text-yellow-200">
+      ⚠️ You have selected a pick for this match. Select another to replace it.
+    </div>
 
     <!-- 1. 1X2 -->
     <div class="rounded-lg mb-4">
@@ -627,42 +586,14 @@ const goBack = () => {
       </div>
     </div>
 
-    <!-- 5. Correct Score Full Time -->
+    <!-- 5. Correct Score -->
     <div class="rounded-lg mb-4">
       <div class="text-gray-300 font-medium mb-3 text-xs">Correct Score | Full Time</div>
       <div class="grid grid-cols-3 sm:grid-cols-4 gap-2">
         <div v-for="score in correctScoreOdds" :key="score.label"
-          @click="handleOddsClick(`CS_FT_${score.label}`, score.odds, score.label)"
+          @click="handleOddsClick(`CS_${score.label}`, score.odds, score.label)"
           class="cursor-pointer bg-[#f4f5f0] opacity-75 border border-[#e6e7e2] rounded p-2 flex justify-between items-center"
-          :class="{ '!bg-[#0AF0B5] !border-[#0AF0B5]': isSelected(`${matchData.eventId}-CS_FT_${score.label}`) }">
-          <div class="text-xs text-gray-950">{{ score.label }}</div>
-          <div class="text-xs text-gray-950 font-bold">{{ score.odds }}</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- 6. Correct Score First Half -->
-    <div class="rounded-lg mb-4">
-      <div class="text-gray-300 font-medium mb-3 text-xs">Correct Score | First Half</div>
-      <div class="grid grid-cols-3 sm:grid-cols-4 gap-2">
-        <div v-for="score in correctScoreFirstHalfOdds" :key="score.label"
-          @click="handleOddsClick(`CS_FH_${score.label}`, score.odds, score.label)"
-          class="cursor-pointer bg-[#f4f5f0] opacity-75 border border-[#e6e7e2] rounded p-2 flex justify-between items-center"
-          :class="{ '!bg-[#0AF0B5] !border-[#0AF0B5]': isSelected(`${matchData.eventId}-CS_FH_${score.label}`) }">
-          <div class="text-xs text-gray-950">{{ score.label }}</div>
-          <div class="text-xs text-gray-950 font-bold">{{ score.odds }}</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- 7. Correct Score Second Half -->
-    <div class="rounded-lg mb-4">
-      <div class="text-gray-300 font-medium mb-3 text-xs">Correct Score | Second Half</div>
-      <div class="grid grid-cols-3 sm:grid-cols-4 gap-2">
-        <div v-for="score in correctScoreSecondHalfOdds" :key="score.label"
-          @click="handleOddsClick(`CS_SH_${score.label}`, score.odds, score.label)"
-          class="cursor-pointer bg-[#f4f5f0] opacity-75 border border-[#e6e7e2] rounded p-2 flex justify-between items-center"
-          :class="{ '!bg-[#0AF0B5] !border-[#0AF0B5]': isSelected(`${matchData.eventId}-CS_SH_${score.label}`) }">
+          :class="{ '!bg-[#0AF0B5] !border-[#0AF0B5]': isSelected(`${matchData.eventId}-CS_${score.label}`) }">
           <div class="text-xs text-gray-950">{{ score.label }}</div>
           <div class="text-xs text-gray-950 font-bold">{{ score.odds }}</div>
         </div>
