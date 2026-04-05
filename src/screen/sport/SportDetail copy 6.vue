@@ -94,29 +94,20 @@ const isSelected = (selectionId) => {
   return selectedBets.value.some(bet => bet.id === selectionId)
 }
 
-// NEW LOGIC: Replace selection for this match instead of adding multiple
 const handleOddsClick = (selectionType, oddsValue, label) => {
   // Create unique ID for this specific selection
   const selectionId = `${matchData.value.eventId}-${selectionType}`
-  
-  // Check if this exact selection is already selected
-  const existingIndex = selectedBets.value.findIndex(
+  const existingBetIndex = selectedBets.value.findIndex(
     bet => bet.id === selectionId
   )
   
   let newBets = []
   
-  if (existingIndex !== -1) {
-    // If already selected, remove it (toggle off)
-    newBets = selectedBets.value.filter((_, index) => index !== existingIndex)
+  if (existingBetIndex !== -1) {
+    // Remove if already selected (toggle off)
+    newBets = selectedBets.value.filter((_, index) => index !== existingBetIndex)
   } else {
-    // Remove ANY existing selection for this SAME match (eventId)
-    // This ensures only ONE selection per match
-    const betsWithoutThisMatch = selectedBets.value.filter(
-      bet => bet.eventId !== matchData.value.eventId
-    )
-    
-    // Add the new selection
+    // Add new selection (keep all other selections, including other markets for same match)
     const selection = {
       id: selectionId,
       eventId: matchData.value.eventId,
@@ -130,7 +121,8 @@ const handleOddsClick = (selectionType, oddsValue, label) => {
       market: getMarketType(selectionType)
     }
     
-    newBets = [...betsWithoutThisMatch, selection]
+    // Don't filter by eventId - allow multiple selections per match
+    newBets = [...selectedBets.value, selection]
   }
   
   selectedBets.value = newBets

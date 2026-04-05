@@ -18,8 +18,6 @@ const cards = ref([
   { id: 10, title: 'Spin & Win', image: 'https://images.unsplash.com/photo-1511512578047-dfb367046420?w=400' }
 ])
 
-
-
 const goToGame = (game) => {
   router.push(`/gamePlay/${game.id}`)
 }
