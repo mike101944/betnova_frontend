@@ -392,12 +392,7 @@ const goToSportDetails = (game) => {
       eventId: game.eventId,
       homeTeam: game.homeTeam,
       awayTeam: game.awayTeam,
-      league: game.league,
-      time: game.time,           // ← Ongeza hii
-      date: game.date,           // ← Ongeza hii
-      homeOdds: game.homeOdds,   // ← Ongeza hii
-      drawOdds: game.drawOdds,   // ← Ongeza hii
-      awayOdds: game.awayOdds    // ← Ongeza hii
+      league: game.league
     }
   })
 }

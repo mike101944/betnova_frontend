@@ -1,45 +1,33 @@
 <script setup>
 import { ref, onMounted, onBeforeUnmount } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
-
+import  Data from './demoDataCsv.vue'
 const router = useRouter()
 const route = useRoute()
 
-// Match data - itajazwa kutoka route query
+// Get match data from router state or use default
 const matchData = ref({
-  eventId: '',
-  homeTeam: '',
-  awayTeam: '',
-  league: '',
-  time: '',
-  date: '',
-  homeOdds: '0',
-  drawOdds: '0',
-  awayOdds: '0'
+  homeTeam: 'Manchester United',
+  awayTeam: 'Liverpool',
+  league: 'Premier League',
+  eventId: 'match-123',
+  time: 'Full Time'
 })
 
-// Debug: Angalia query parameters zilizopokelewa
-console.log('Route query parameters:', route.query)
-
+// Load match data if passed via router state
 onMounted(() => {
-  // Chukua data zote kutoka query parameters
-  if (route.query.eventId) matchData.value.eventId = route.query.eventId
-  if (route.query.homeTeam) matchData.value.homeTeam = route.query.homeTeam
-  if (route.query.awayTeam) matchData.value.awayTeam = route.query.awayTeam
-  if (route.query.league) matchData.value.league = route.query.league
-  if (route.query.time) matchData.value.time = route.query.time
-  if (route.query.date) matchData.value.date = route.query.date
-  
-  // HIZI NDIO ZILIKUWA ZINAKOSA - ODDS
-  if (route.query.homeOdds) matchData.value.homeOdds = route.query.homeOdds
-  if (route.query.drawOdds) matchData.value.drawOdds = route.query.drawOdds
-  if (route.query.awayOdds) matchData.value.awayOdds = route.query.awayOdds
-  
-  // Log kwa ajili ya debugging - Angalia kama odds zimepokeleka
-  console.log('Match Data loaded:', matchData.value)
-  console.log('Home Odds:', matchData.value.homeOdds)
-  console.log('Draw Odds:', matchData.value.drawOdds)
-  console.log('Away Odds:', matchData.value.awayOdds)
+  if (route.query.eventId) {
+    matchData.value.eventId = route.query.eventId
+  }
+  if (route.query.homeTeam) {
+    matchData.value.homeTeam = route.query.homeTeam
+  }
+  if (route.query.awayTeam) {
+    matchData.value.awayTeam = route.query.awayTeam
+  }
+  if (route.query.league) {
+    matchData.value.league = route.query.league
+  }
   
   loadFromLocalStorage()
   window.addEventListener('storage', handleStorageChange)
@@ -113,7 +101,7 @@ const handleOddsClick = (selectionType, oddsValue, label) => {
       eventId: matchData.value.eventId,
       match: `${matchData.value.homeTeam} vs ${matchData.value.awayTeam}`,
       league: matchData.value.league,
-      time: `${matchData.value.time} ${matchData.value.date || ''}`,
+      time: matchData.value.time,
       selection: label || selectionType,
       odds: oddsValue,
       homeTeam: matchData.value.homeTeam,
@@ -144,16 +132,16 @@ const goBack = () => {
 </script>
 
 <template>
-  <div class="h-full bg-sky-900 text-white p-4">
+  <div class="h-full bg-sky-900 text-white p-4 ">
     <!-- Back Button -->
-    <button @click="goBack" class="mb-3 text-amber-100 flex p-2 bg-sky-900 opacity-70 shadow-lg shadow-amber-100 items-center gap-1 text-xs rounded">
+    <button @click="goBack" class="mb-3 text-amber-100 flex p-2 bg-sky-900 opacity-70 shadow-lg shadow-amber-100 items-center gap-1 text-xs">
       ← Back to Football
     </button>
 
     <!-- Header / Match Info -->
-    <div class="mb-4 text-xs mt-2 text-center">
-      <h2 class="text-sm text-amber-100 font-bold">{{ matchData.homeTeam }} vs {{ matchData.awayTeam }}</h2>
-      <p class="text-gray-400 text-xs">{{ matchData.league }} • {{ matchData.time }} {{ matchData.date }}</p>
+    <div class="mb-4  text-xs mt-2 text-center">
+      <h2 class="text-xs text-amber-100 font-bold">{{ matchData.homeTeam }} vs {{ matchData.awayTeam }}</h2>
+      <p class="text-gray-400 text-xs">{{ matchData.league }} • {{ matchData.time }}</p>
     </div>
 
     <!-- 1. 1X2 / Full Time -->
@@ -162,34 +150,29 @@ const goBack = () => {
         <span class="text-gray-300 font-medium text-xs">1X2 | Full Time</span>
       </div>
       <div class="grid grid-cols-3 gap-3 text-center">
-        <!-- Home Odds (1) -->
         <div 
-          @click="handleOddsClick('1', matchData.homeOdds, '1')"
+          @click="handleOddsClick('1', '1.31', '1')"
           class="cursor-pointer whitespace-nowrap bg-[#f4f5f0] opacity-75 border border-[#e6e7e2] rounded transition-all duration-200 hover:bg-[#e0f2e9] p-2 flex flex-row justify-between items-center"
           :class="{ '!bg-[#0AF0B5] !border-[#0AF0B5]': isSelected(`${matchData.eventId}-1`) }"
         >
-          <div class="text-xs text-gray-800 font-medium">1</div>
-          <div class="text-xs font-bold text-gray-800">{{ matchData.homeOdds || '0' }}</div>
+          <div class="text-xs text-gray-800">1</div>
+          <div class="text-xs font-bold text-gray-800">1.31</div>
         </div>
-        
-        <!-- Draw Odds (X) -->
         <div 
-          @click="handleOddsClick('X', matchData.drawOdds, 'X')"
+          @click="handleOddsClick('X', '1.2', 'X')"
           class="cursor-pointer whitespace-nowrap bg-[#f4f5f0] opacity-75 border border-[#e6e7e2] rounded transition-all duration-200 hover:bg-[#e0f2e9] p-2 flex flex-row justify-between items-center"
           :class="{ '!bg-[#0AF0B5] !border-[#0AF0B5]': isSelected(`${matchData.eventId}-X`) }"
         >
-          <div class="text-xs text-gray-800 font-medium">X</div>
-          <div class="text-xs font-bold text-gray-800">{{ matchData.drawOdds || '0' }}</div>
+          <div class="text-xs text-gray-800">X</div>
+          <div class="text-xs font-bold text-gray-800">1.20</div>
         </div>
-        
-        <!-- Away Odds (2) -->
         <div 
-          @click="handleOddsClick('2', matchData.awayOdds, '2')"
+          @click="handleOddsClick('2', '3.31', '2')"
           class="cursor-pointer whitespace-nowrap bg-[#f4f5f0] opacity-75 border border-[#e6e7e2] rounded transition-all duration-200 hover:bg-[#e0f2e9] p-2 flex flex-row justify-between items-center"
           :class="{ '!bg-[#0AF0B5] !border-[#0AF0B5]': isSelected(`${matchData.eventId}-2`) }"
         >
-          <div class="text-xs text-gray-800 font-medium">2</div>
-          <div class="text-xs font-bold text-gray-800">{{ matchData.awayOdds || '0' }}</div>
+          <div class="text-xs text-gray-800">2</div>
+          <div class="text-xs font-bold text-gray-800">3.31</div>
         </div>
       </div>
     </div>
