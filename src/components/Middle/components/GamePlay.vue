@@ -129,7 +129,6 @@
         <div 
           v-for="game in filteredGames" 
           :key="game.id"
-          @click="playGame(game)"
           class="group relative bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl overflow-hidden shadow-2xl hover:shadow-yellow-500/20 hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 cursor-pointer"
         >
           <!-- Premium Badge -->

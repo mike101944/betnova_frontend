@@ -1,4 +1,4 @@
-<!-- Football.vue - Logic nzuri + Design yako ya awali -->
+<!-- Football.vue -->
 <script setup>
 import gamesData from '../data/dummyGameData'
 import { ref, onMounted, onBeforeUnmount, computed } from 'vue'
@@ -10,10 +10,11 @@ const games = ref([])
 const selectedBets = ref([])
 const loading = ref(true)
 
-// ========== LEAGUE MAPPING ==========
+// ========== LEAGUE MAPPING (Kulingana na muundo wako) ==========
+// Hii ni mapping kati ya leagueId na league name kwenye data yako
 const getLeagueNameFromId = (id) => {
   const leagueMap = {
-    0: 'all',
+    0: 'all', // All Leagues
     1: 'Premier League',
     2: 'La Liga', 
     3: 'Serie A',
@@ -26,18 +27,22 @@ const getLeagueNameFromId = (id) => {
     10: 'Süper Lig',
     11: 'MLS',
     12: 'Brasileirão',
-    13: 'Primera Division',
+    13: 'Primera Division', // Kwa Uruguay na Argentina
     14: 'Liga MX'
   }
   return leagueMap[id]
 }
 
-// ========== FILTERING LOGIC ==========
+// ========== SIMPLE FILTERING ==========
 const filteredByLeague = computed(() => {
   if (!games.value.length) return []
   
-  // ALL LEAGUES (ID 0)
+  console.log('Selected League ID:', props.leagueId)
+  console.log('Total games:', games.value.length)
+  
+  // ALL LEAGUES (ID 0) - Onyesha zote
   if (props.leagueId === 0) {
+    console.log('Showing ALL games')
     return games.value
   }
   
@@ -45,6 +50,7 @@ const filteredByLeague = computed(() => {
   const filtered = games.value.filter(game => {
     const gameLeague = game.league || ''
     
+    // Check kama league inalingana na ID iliyochaguliwa
     switch(props.leagueId) {
       case 1: // Premier League
         return gameLeague.includes('Premier League') || gameLeague.includes('England')
@@ -70,7 +76,7 @@ const filteredByLeague = computed(() => {
         return gameLeague.includes('MLS') || gameLeague.includes('USA')
       case 12: // Brasileirão
         return gameLeague.includes('Brasileirão') || gameLeague.includes('Brazil')
-      case 13: // Primera Division
+      case 13: // Primera Division (Uruguay/Argentina)
         return gameLeague.includes('Primera Division') || gameLeague.includes('Uruguay') || gameLeague.includes('Argentina')
       case 14: // Liga MX
         return gameLeague.includes('Liga MX') || gameLeague.includes('Mexico')
@@ -79,14 +85,20 @@ const filteredByLeague = computed(() => {
     }
   })
   
+  console.log(`Filtered ${filtered.length} games for league ${props.leagueId}`)
+  filtered.forEach(game => {
+    console.log('  -', game.homeTeam, 'vs', game.awayTeam, '(', game.league, ')')
+  })
+  
   return filtered
 })
 
-// Apply limit (5 games tu)
+// Apply limit (kwa All Leagues onyesha 5 tu)
 const displayGames = computed(() => {
   const gamesToShow = filteredByLeague.value
   
   if (props.limit && props.limit > 0) {
+    // Kama ni All Leagues au league specific, onyesha limit
     if (props.leagueId === 0 || gamesToShow.length > props.limit) {
       return gamesToShow.slice(0, props.limit)
     }
@@ -99,22 +111,22 @@ const displayGames = computed(() => {
 const currentLeagueName = computed(() => {
   const names = {
     0: 'All Leagues',
-    1: 'Premier League',
-    2: 'La Liga',
-    3: 'Serie A',
-    4: 'Bundesliga',
-    5: 'Ligue 1',
-    6: 'Champions League',
-    7: 'Europa League',
-    8: 'Eredivisie',
-    9: 'Primeira Liga',
-    10: 'Süper Lig',
-    11: 'MLS',
-    12: 'Brasileirão',
-    13: 'Primera Division',
-    14: 'Liga MX'
+    1: '🏴󠁧󠁢󠁥󠁮󠁧󠁿 Premier League',
+    2: '🇪🇸 La Liga',
+    3: '🇮🇹 Serie A',
+    4: '🇩🇪 Bundesliga',
+    5: '🇫🇷 Ligue 1',
+    6: '🏆 Champions League',
+    7: '🏆 Europa League',
+    8: '🇳🇱 Eredivisie',
+    9: '🇵🇹 Primeira Liga',
+    10: '🇹🇷 Süper Lig',
+    11: '🇺🇸 MLS',
+    12: '🇧🇷 Brasileirão',
+    13: '🇺🇾 Primera Division',
+    14: '🇲🇽 Liga MX'
   }
-  return names[props.leagueId] || 'Football'
+  return names[props.leagueId] || '⚽ Football'
 })
 
 // No matches found
@@ -132,8 +144,13 @@ const emitBetslipUpdate = () => {
 
 onMounted(() => {
   loading.value = true
+  
+  // Load games
   setTimeout(() => {
     games.value = gamesData
+    console.log('=== GAMES LOADED ===')
+    console.log('Total games:', gamesData.length)
+    console.log('Sample game:', gamesData[0])
     loading.value = false
   }, 800)
   
@@ -251,7 +268,7 @@ const goToSportDetails = (game) => {
       <div class="flex justify-between items-center">
         <h1 class="text-[22px] font-bold leading-[26px] pr-5 text-amber-100 flex items-center gap-2">
           <span class="football-animate text-xl flex items-center justify-center">⚽</span>
-          <span class="italic">Football</span>
+          <span class="italic">{{ currentLeagueName }}</span>
         </h1>
       </div>
 
@@ -261,25 +278,31 @@ const goToSportDetails = (game) => {
         </span>
       </div>
 
-      <!-- glowing border -->
       <div class="glow-line"></div>
     </div>
 
-    <!-- Skeleton Loading (Design yako ya awali) -->
+    <!-- Debug Info (Remove baada ya kuthibitisha inafanya kazi) -->
+    <div v-if="!loading && games.length > 0" class="text-[10px] text-white/40 p-2 bg-black/20 border-b border-sky-800">
+      <div class="flex justify-between">
+        <span>League ID: {{ leagueId }}</span>
+        <span>Total: {{ games.length }}</span>
+        <span>Filtered: {{ filteredByLeague.length }}</span>
+        <span>Showing: {{ displayGames.length }}</span>
+      </div>
+    </div>
+
+    <!-- Skeleton Loading -->
     <div v-if="loading" class="divide-y divide-sky-800/30">
       <div v-for="i in (limit || 5)" :key="i" class="border-b border-sky-950 p-3 animate-pulse">
         <div class="flex justify-between items-center mb-3">
           <div class="h-4 bg-sky-800 rounded w-20"></div>
           <div class="h-4 bg-sky-800 rounded w-24"></div>
         </div>
-        
         <div class="space-y-2 mb-3">
           <div class="h-5 bg-sky-800 rounded w-3/4"></div>
           <div class="h-5 bg-sky-800 rounded w-3/4"></div>
         </div>
-        
         <div class="h-3 bg-sky-800 rounded w-32 mb-4"></div>
-        
         <div class="flex gap-2">
           <div class="flex-1 h-10 bg-sky-800 rounded"></div>
           <div class="flex-1 h-10 bg-sky-800 rounded"></div>
@@ -289,139 +312,87 @@ const goToSportDetails = (game) => {
       </div>
     </div>
 
-    <!-- No Matches Found Message -->
+    <!-- No Matches -->
     <div 
       v-else-if="noMatchesFound"
       class="flex flex-col items-center justify-center p-12 text-center"
     >
-      <div class="text-lg mb-4 opacity-50">⚽</div>
+      <div class="text-4xl mb-4">⚽</div>
       <h3 class="text-white text-sm font-semibold mb-2">No Matches Found</h3>
-      <p class="text-white/50 text-xs">There are no matches available for <span class="text-amber-300 font-medium">{{ currentLeagueName }}</span> at the moment.</p>
-      <p class="text-white/40 text-xs mt-2">Please check back later or select another league</p>
+      <p class="text-white/50 text-xs">No matches available for {{ currentLeagueName }}</p>
     </div>
 
-    <!-- Games List (Design yako ya awali) -->
-    <template v-else>
+    <!-- Games List -->
+    <template v-else-if="displayGames.length > 0">
       <div
         v-for="game in displayGames"
         :key="game.id"
-        class="border-b border-sky-950 p-3"
+        class="border-b border-sky-950 p-3 hover:bg-sky-800/30 transition-colors"
       >
-        <a @click="goToSportDetails(game)" class="block w-full cursor-pointer">
-          <!-- Header -->
-          <div class="flex justify-between items-center mb-1">
-            <span class="text-sm text-white/70 font-normal">{{ game.time }}</span>
-            <span class="text-sm text-white/70 font-bold">{{ game.date }}</span>
+        <!-- Match Info (Clickable) -->
+        <div @click="goToSportDetails(game)" class="cursor-pointer">
+          <div class="flex justify-between items-center mb-2">
+            <span class="text-xs text-white/60">{{ game.time }}</span>
+            <span class="text-xs text-white/60">{{ game.date }}</span>
           </div>
 
-          <!-- Teams -->
-          <div class="flex flex-col gap-1 w-full">
-            <div class="flex items-center gap-1.5">
-              <span class="text-[14px] text-amber-200/70 font-bold">{{ game.homeTeam }}</span>
-            </div>
-            <div class="flex items-center gap-1.5">
-              <span class="text-[14px] text-amber-200/70 font-bold">{{ game.awayTeam }}</span>
-            </div>
+          <div class="space-y-1 mb-2">
+            <div class="text-sm font-semibold text-white/90">{{ game.homeTeam }}</div>
+            <div class="text-sm font-semibold text-white/90">{{ game.awayTeam }}</div>
           </div>
 
-          <!-- League -->
-          <p class="text-[#8e9398] mb-2 text-xs leading-4 font-normal">
+          <div class="text-[10px] text-white/40 mb-3 truncate">
             {{ game.league }}
-          </p>
-        </a>
-
-        <!-- Odds Section (Design yako ya awali) -->
-        <div class="flex flex-col w-full">
-          <div class="flex flex-col w-full">
-            <div class="mb-4 last:mb-0">
-              <div class="flex w-full">
-                <div class="flex flex-wrap gap-2 w-full">
-                  <div class="w-full flex">
-                    <!-- Home Odds -->
-                    <span class="flex-1 mr-2 overflow-hidden">
-                      <span
-                        class="flex w-full cursor-pointer whitespace-nowrap bg-[#f4f5f0] opacity-50 border border-[#e6e7e2] rounded transition-all duration-200 hover:bg-[#e0f2e9]"
-                        :class="{
-                          '!bg-[#0AF0B5] !border-[#0AF0B5]': isSelected(game, '1'),
-                          'opacity-50': getCurrentSelection(game) && getCurrentSelection(game) !== '1'
-                        }"
-                        @click="handleOddsClick(game, '1', game.homeOdds)"
-                      >
-                        <span class="flex justify-between w-full">
-                          <span class="flex items-center justify-center px-2.5 py-2 text-sm">1</span>
-                          <span class="flex items-center justify-center px-2.5 py-2 text-sm font-bold">
-                            {{ game.homeOdds }}
-                          </span>
-                        </span>
-                      </span>
-                    </span>
-
-                    <!-- Draw Odds -->
-                    <span class="flex-1 mr-2 overflow-hidden">
-                      <span
-                        class="flex w-full cursor-pointer whitespace-nowrap opacity-50 bg-[#f4f5f0] border border-[#e6e7e2] rounded transition-all duration-200 hover:bg-[#e0f2e9]"
-                        :class="{
-                          '!bg-[#0AF0B5] !border-[#0AF0B5]': isSelected(game, 'X'),
-                          'opacity-50': getCurrentSelection(game) && getCurrentSelection(game) !== 'X'
-                        }"
-                        @click="handleOddsClick(game, 'X', game.drawOdds)"
-                      >
-                        <span class="flex justify-between w-full">
-                          <span class="flex items-center justify-center px-2.5 py-2 text-sm">X</span>
-                          <span class="flex items-center justify-center px-2.5 py-2 text-sm font-bold">
-                            {{ game.drawOdds }}
-                          </span>
-                        </span>
-                      </span>
-                    </span>
-
-                    <!-- Away Odds -->
-                    <span class="flex-1 mr-2 overflow-hidden">
-                      <span
-                        class="flex w-full cursor-pointer whitespace-nowrap opacity-50 bg-[#f4f5f0] border border-[#e6e7e2] rounded transition-all duration-200 hover:bg-[#e0f2e9]"
-                        :class="{
-                          '!bg-[#0AF0B5] !border-[#0AF0B5]': isSelected(game, '2'),
-                          'opacity-50': getCurrentSelection(game) && getCurrentSelection(game) !== '2'
-                        }"
-                        @click="handleOddsClick(game, '2', game.awayOdds)"
-                      >
-                        <span class="flex justify-between w-full">
-                          <span class="flex items-center justify-center px-2.5 py-2 text-sm">2</span>
-                          <span class="flex items-center justify-center px-2.5 py-2 text-sm font-bold">
-                            {{ game.awayOdds }}
-                          </span>
-                        </span>
-                      </span>
-                    </span>
-
-                    <!-- Bet Count -->
-                    <a
-                      :href="`/event/${game.eventId}`"
-                      class="min-w-[48px] flex items-center justify-center gap-1 px-1.5 py-2 bg-[#f4f5f0] opacity-50 border border-[#e6e7e2] rounded text-sm font-bold"
-                    >
-                      <span class="text-gray-950">{{ game.market }}</span>
-                      +
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
+        </div>
+
+        <!-- Odds Buttons -->
+        <div class="flex gap-2">
+          <!-- Home Win (1) -->
+          <button
+            @click="handleOddsClick(game, '1', game.homeOdds)"
+            class="flex-1 bg-white/10 hover:bg-white/20 rounded-lg p-2 text-center transition-all"
+            :class="{'bg-green-500/80 hover:bg-green-500': isSelected(game, '1')}"
+          >
+            <div class="text-[10px] text-white/50">1</div>
+            <div class="text-sm font-bold text-white">{{ game.homeOdds }}</div>
+          </button>
+
+          <!-- Draw (X) -->
+          <button
+            @click="handleOddsClick(game, 'X', game.drawOdds)"
+            class="flex-1 bg-white/10 hover:bg-white/20 rounded-lg p-2 text-center transition-all"
+            :class="{'bg-green-500/80 hover:bg-green-500': isSelected(game, 'X')}"
+          >
+            <div class="text-[10px] text-white/50">X</div>
+            <div class="text-sm font-bold text-white">{{ game.drawOdds }}</div>
+          </button>
+
+          <!-- Away Win (2) -->
+          <button
+            @click="handleOddsClick(game, '2', game.awayOdds)"
+            class="flex-1 bg-white/10 hover:bg-white/20 rounded-lg p-2 text-center transition-all"
+            :class="{'bg-green-500/80 hover:bg-green-500': isSelected(game, '2')}"
+          >
+            <div class="text-[10px] text-white/50">2</div>
+            <div class="text-sm font-bold text-white">{{ game.awayOdds }}</div>
+          </button>
+
+          <!-- More Markets -->
+          <button class="w-12 bg-white/10 hover:bg-white/20 rounded-lg p-2 text-center">
+            <div class="text-[10px] text-white/50">+</div>
+            <div class="text-xs font-bold text-white">{{ game.market }}</div>
+          </button>
         </div>
       </div>
 
-      <!-- View All -->
+      <!-- View All Button -->
       <div 
-        v-if="displayGames.length > 0 && filteredByLeague.length > (limit || 5)"
+        v-if="filteredByLeague.length > (limit || 5)"
         @click="viewAll"
-        class="flex items-center justify-center bg-transparent text-[#f4f5f0] p-3 text-xs font-medium cursor-pointer hover:opacity-80 transition-opacity"
+        class="text-center py-4 text-amber-300/70 text-xs font-medium uppercase tracking-wider cursor-pointer hover:text-amber-300 transition-colors border-t border-sky-800"
       >
-        <span class="underline">
-          View all Football <span class="ml-1">{{ filteredByLeague.length }}</span>
-        </span>
-        <svg class="w-2.5 h-2.5 ml-2 text-[#f4f5f0]">
-          <use xlink:href="#arrow_right"></use>
-        </svg>
+        View All {{ filteredByLeague.length }} Matches →
       </div>
     </template>
   </div>
@@ -429,19 +400,13 @@ const goToSportDetails = (game) => {
 
 <style>
 @keyframes footballPro {
-  0% {
-    transform: rotate(0deg) translateY(0);
-  }
-  50% {
-    transform: rotate(180deg) translateY(-6px);
-  }
-  100% {
-    transform: rotate(360deg) translateY(0);
-  }
+  0%, 100% { transform: rotate(0deg) translateY(0); }
+  50% { transform: rotate(180deg) translateY(-4px); }
 }
 
 .football-animate {
   animation: footballPro 2s ease-in-out infinite;
+  display: inline-block;
 }
 
 .typing-text {
@@ -454,34 +419,26 @@ const goToSportDetails = (game) => {
 }
 
 @keyframes typing {
-  0% { width: 0 }
-  40% { width: 8ch }
-  60% { width: 8ch }
-  100% { width: 0 }
+  0%, 100% { width: 0; }
+  40%, 60% { width: 8ch; }
 }
 
 @keyframes blink {
-  50% { border-color: transparent }
+  50% { border-color: transparent; }
 }
 
-.glow-line{
-  position:absolute;
-  bottom:0;
-  left:0;
-  width:100%;
-  height:2px;
-  background:linear-gradient(
-    90deg,
-    transparent,
-    rgba(255,255,255,0.9),
-    rgba(255,255,255,1),
-    rgba(255,255,255,0.9),
-    transparent
-  );
-  box-shadow:
-    0 0 6px rgba(255,255,255,0.9),
-    0 0 10px rgba(255,255,255,0.7),
-    0 0 18px rgba(255,255,255,0.5);
-  animation:glowMove 4s linear infinite;
+.glow-line {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.9), rgba(255,255,255,1), rgba(255,255,255,0.9), transparent);
+  animation: glowMove 3s ease-in-out infinite;
+}
+
+@keyframes glowMove {
+  0%, 100% { opacity: 0.5; transform: translateX(-10%); }
+  50% { opacity: 1; transform: translateX(10%); }
 }
 </style>
