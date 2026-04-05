@@ -474,7 +474,8 @@ const goBack = () => {
     <!-- Header -->
     <div class="mb-4 text-xs mt-2 text-center">
       <h2 class="text-sm text-amber-100 font-bold">{{ matchData.homeTeam }} vs {{ matchData.awayTeam }}</h2>
-      <p class="text-gray-400 text-xs">{{ matchData.league }} • {{ matchData.time }} {{ matchData.date }}</p>
+      <p class="text-gray-400 text-xs">{{ matchData.league }}</p>
+      <p class="text-gray-400 text-xs">{{ matchData.time }} {{ matchData.date }}</p>
     </div>
 
 
