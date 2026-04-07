@@ -1,6 +1,7 @@
 <!-- availableGames.vue -->
 <template>
-  <div>
+    <div>
+
       <!-- Skeleton Loading -->
       <div v-if="loading" class="space-y-2">
           <!-- Skeleton for Sliding Banner / Card -->
