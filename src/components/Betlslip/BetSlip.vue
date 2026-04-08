@@ -440,7 +440,7 @@ const placeBet = async () => {
     </Transition>
 
     <!-- Loading Overlay -->
-    <div v-if="isLoading" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+    <div v-if="isLoading" class="fixed inset-0 bg-transparent flex items-center justify-center z-50">
       <div class="bg-white p-6 rounded-lg shadow-xl">
         <div class="animate-spin rounded-full h-10 w-10 border-b-2 border-sky-600 mx-auto"></div>
         <p class="text-gray-700 mt-3">{{ loadingMessage }}</p>
