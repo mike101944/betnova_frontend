@@ -84,17 +84,18 @@ export function useUserData() {
       }
       
       // 3. Fetch transactions (optional)
-      // try {
-      //   const transactionsFetched = await authStore.fetchTransactions()
-      //   if (transactionsFetched) {
-      //     console.log('✅ Transactions fetched successfully')
-      //     hasSuccessfulFetch = true
-      //   } else {
-      //     console.log('ℹ️ Transactions fetch returned false')
-      //   }
-      // } catch (transactionsError) {
-      //   console.log('ℹ️ Transactions fetch skipped:', transactionsError?.message || 'Not implemented')
-      // }
+      try {
+        const transactionsFetched = await authStore.fetchTransactions()
+        if (transactionsFetched) {
+          console.log('✅ Transactions fetched successfully')
+          hasSuccessfulFetch = true
+        } else {
+          console.log('ℹ️ Transactions fetch returned false')
+        }
+      } catch (transactionsError) {
+        // Transactions might not be implemented yet - don't show error to user
+        console.log('ℹ️ Transactions fetch skipped:', transactionsError?.message || 'Not implemented')
+      }
       
       // Update last fetch time if any data was fetched successfully
       if (hasSuccessfulFetch) {

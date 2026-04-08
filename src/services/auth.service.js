@@ -67,14 +67,14 @@ export const getBalance = async () => { // Added async
 /**
  * Get user transactions - FIXED: from /account/transactions to /auth/transactions
  */
-export const getTransactions = async () => { // Added async
-  try {
-    const response = await api.get('/auth/transactions') // Changed from '/account/transactions'
-    return response.data
-  } catch (error) {
-    throw handleError(error)
-  }
-}
+// export const getTransactions = async () => { 
+//   try {
+//     const response = await api.get('/auth/transactions') 
+//     return response.data
+//   } catch (error) {
+//     throw handleError(error)
+//   }
+// }
 
 /**
  * Deposit money

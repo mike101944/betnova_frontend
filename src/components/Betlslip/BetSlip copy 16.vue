@@ -609,7 +609,7 @@ const placeBet = async () => {
 
               <div class="mt-2 flex items-center gap-2">
                 <span class="text-xs text-gray-600">Selected:</span>
-                <span class="text-sm font-medium text-sky-200 bg-sky-200 px-2 py-1 rounded">
+                <span class="text-sm font-medium text-sky-600 bg-sky-50 px-2 py-1 rounded">
                   {{ bet.selection }} @ {{ bet.odds }}
                 </span>
                 <span class="text-xs text-gray-500 ml-auto">{{ bet.time }}</span>

@@ -114,7 +114,7 @@ const clearPaymentCheck = () => {
     paymentStatus.value = '';
 }
 
-// Confirm deposit - rekebisha timeout
+// Confirm deposit - badilisha sehemu ya status check
 const confirmDeposit = async () => {
     loading.value = true;
     errorMessage.value = '';
@@ -142,7 +142,7 @@ const confirmDeposit = async () => {
         
         // Start checking payment status every 3 seconds
         let checkCount = 0;
-        const maxChecks = 15; // backup max checks
+        const maxChecks = 15; // 15 * 3 seconds = 45 seconds (reduce from 40 to 15)
         
         checkInterval = setInterval(async () => {
             checkCount++;
@@ -153,57 +153,61 @@ const confirmDeposit = async () => {
                 
                 console.log('Status check:', statusRes.data);
                 
-                // Get status from response
-                const currentStatus = statusRes.data.status;
-                const isSuccess = statusRes.data.success;
-                
-                // COMPLETED - when payment is successful
-                if (currentStatus === 'completed') {
-                    clearPaymentCheck();
+                // Check if payment exists and has status
+                if (statusRes.data.success && statusRes.data.data) {
+                    const paymentData = statusRes.data.data;
+                    const currentStatus = paymentData.status;
                     
-                    // Payment completed - refresh balance
-                    await authStore.fetchUserBalance();
+                    console.log('Payment status:', currentStatus);
                     
-                    // Show success message with amount
-                    const depositedAmount = numericAmount.value;
-                    const bonus = bonusAmount.value;
-                    
-                    if (bonus > 0) {
-                        successMessage.value = `🎉 Deposit successful! ${formatBalance(depositedAmount)} added + ${formatBalance(bonus)} bonus!`;
-                    } else {
-                        successMessage.value = `✅ Deposit successful! ${formatBalance(depositedAmount)} has been added to your account.`;
-                    }
-                    
-                    // Clear form
-                    amount.value = null;
-                    termsAccepted.value = false;
-                    
-                    // Auto hide success message after 5 seconds
-                    setTimeout(() => {
-                        successMessage.value = '';
-                    }, 5000);
-                    
-                    return;
-                }
-                // FAILED - when payment fails (wrong PIN, insufficient balance)
-                else if (currentStatus === 'failed') {
-                    clearPaymentCheck();
-                    errorMessage.value = statusRes.data.message || '❌ Payment failed. Please check your balance and try again.';
-                    return;
-                }
-                // PENDING - continue checking, but timeout after 15 seconds
-                else if (currentStatus === 'pending') {
-                    paymentStatusMessage.value = `Waiting for PIN entry... (${checkCount * 3}s)`;
-                    
-                    // Timeout after 15 seconds (5 checks)
-                    if (checkCount >= 5) {
+                    // COMPLETED - when payment is successful
+                    if (currentStatus === 'completed') {
                         clearPaymentCheck();
-                        errorMessage.value = '⏰ Payment timeout (15 seconds). No PIN entered. Please try again.';
-                        return;
+                        
+                        // Payment completed - refresh balance
+                        await authStore.fetchUserBalance();
+                        
+                        // Show success message with amount
+                        const depositedAmount = numericAmount.value;
+                        const bonus = bonusAmount.value;
+                        
+                        if (bonus > 0) {
+                            successMessage.value = `🎉 Deposit successful! ${formatBalance(depositedAmount)} added + ${formatBalance(bonus)} bonus!`;
+                        } else {
+                            successMessage.value = `✅ Deposit successful! ${formatBalance(depositedAmount)} has been added to your account.`;
+                        }
+                        
+                        // Clear form
+                        amount.value = null;
+                        termsAccepted.value = false;
+                        
+                        // Auto hide success message after 5 seconds
+                        setTimeout(() => {
+                            successMessage.value = '';
+                        }, 5000);
+                        
+                        return; // Exit the interval callback
+                    }
+                    // FAILED - when payment fails
+                    else if (currentStatus === 'failed') {
+                        clearPaymentCheck();
+                        errorMessage.value = '❌ Payment failed. Please try again.';
+                        return; // Exit the interval callback
+                    }
+                    // PROCESSING or PENDING - continue checking
+                    else if (currentStatus === 'processing' || currentStatus === 'pending') {
+                        paymentStatusMessage.value = `Payment is being processed... Please wait (${checkCount * 3}s)`;
+                        
+                        // After 20 seconds, assume it failed (since HarakaPay not updating status)
+                        if (checkCount >= 7) { // 7 * 3 = 21 seconds
+                            clearPaymentCheck();
+                            errorMessage.value = '❌ Payment failed: Insufficient balance or transaction cancelled. Please try again.';
+                            return;
+                        }
                     }
                 }
                 
-                // Backup: Stop checking after maxChecks
+                // Stop checking after maxChecks
                 if (checkCount >= maxChecks) {
                     clearPaymentCheck();
                     errorMessage.value = '⏰ Payment confirmation timeout. Please check your transaction in history or contact support.';
@@ -212,19 +216,12 @@ const confirmDeposit = async () => {
             } catch (statusError) {
                 console.error('Status check error:', statusError);
                 
-                // After 15 seconds, stop on error too
-                if (checkCount >= 5) {
-                    clearPaymentCheck();
-                    errorMessage.value = '⏰ Payment timeout (15 seconds). Please try again.';
-                    return;
-                }
-                
-                // If we get 404, order might be invalid - stop immediately
+                // If we get 404, order might be invalid
                 if (statusError.response?.status === 404) {
                     clearPaymentCheck();
                     errorMessage.value = 'Payment order not found. Please contact support.';
-                    return;
                 }
+                // Don't stop checking on other errors, just continue
             }
         }, 3000);
         
@@ -272,7 +269,7 @@ onUnmounted(() => {
                 </div>
 
                 <!-- Success Message -->
-                <!-- <transition name="fade">
+                <transition name="fade">
                     <div v-if="successMessage" 
                          class="flex items-center gap-3 p-1 rounded-xl mb-2 text-sm"
                          :class="successMessage.includes('successful') || successMessage.includes('✅') ? 'bg-green-100 text-green-800 border border-green-200' : 'bg-blue-100 text-blue-800 border border-blue-200'">
@@ -284,7 +281,7 @@ onUnmounted(() => {
                         </svg>
                         {{ successMessage }}
                     </div>
-                </transition> -->
+                </transition>
 
                 <!-- Error Message -->
                 <transition name="fade">

@@ -208,32 +208,32 @@ export const useAuthStore = defineStore('auth', () => {
     }
   }
 
-  // const fetchTransactions = async (limit = 10, offset = 0) => {
-  //   if (!accessToken.value) {
-  //     console.log('No access token, cannot fetch transactions')
-  //     return false
-  //   }
+  const fetchTransactions = async (limit = 10, offset = 0) => {
+    if (!accessToken.value) {
+      console.log('No access token, cannot fetch transactions')
+      return false
+    }
     
-  //   try {
-  //     const response = await api.get('/auth/transactions', {
-  //       params: { limit, offset }
-  //     })
+    try {
+      const response = await api.get('/auth/transactions', {
+        params: { limit, offset }
+      })
       
-  //     if (response.data?.data) {
-  //       transactions.value = response.data.data
-  //       persistToStorage() 
-  //       return true
-  //     } else if (response.data?.transactions) {
-  //       transactions.value = response.data.transactions
-  //       persistToStorage() 
-  //       return true
-  //     }
-  //     return false
-  //   } catch (err) {
-  //     console.error('Failed to fetch transactions:', err)
-  //     return false
-  //   }
-  // }
+      if (response.data?.data) {
+        transactions.value = response.data.data
+        persistToStorage() // Persist after transactions update
+        return true
+      } else if (response.data?.transactions) {
+        transactions.value = response.data.transactions
+        persistToStorage() // Persist after transactions update
+        return true
+      }
+      return false
+    } catch (err) {
+      console.error('Failed to fetch transactions:', err)
+      return false
+    }
+  }
 
   const updateBalance = (newBalance) => {
     userBalance.value = newBalance
@@ -305,7 +305,7 @@ export const useAuthStore = defineStore('auth', () => {
     checkAuth,
     fetchUserBalance,
     fetchUserProfile,
-    // fetchTransactions,
+    fetchTransactions,
     updateBalance
   }
 })

@@ -18,7 +18,7 @@
           <UserIcon class="w-5 h-5 text-white" />
         </div>
         <div class="flex-1 min-w-0">
-          <div class="text-sm font-bold truncate">{{ userName || 'Mchezaji' }}</div>
+          <div class="text-sm font-bold truncate">{{ userName }}</div>
           <div class="text-xs text-[#0AF0B5] font-mono tracking-tight">{{ formatBalance(userBalance) }}</div>
         </div>
       </div>
@@ -64,7 +64,7 @@
           </transition>
         </div>
 
-        <button @click="navigateTo('/live')" class="nav-btn" :class="activeItem === 'live' ? 'active-gradient' : 'inactive-style'">
+        <button @click="navigateTo('/#')" class="nav-btn" :class="activeItem === 'live' ? 'active-gradient' : 'inactive-style'">
           <div class="relative w-5 h-5 flex items-center justify-center">
              <span class="absolute inline-flex h-3 w-3 rounded-full bg-red-500 opacity-75 animate-ping"></span>
              <span class="relative inline-flex rounded-full h-2 w-2 bg-red-600"></span>
@@ -170,7 +170,7 @@ const activeItem = computed(() => {
   const path = route.path
   if (path === '/') return 'home'
   if (path.includes('/sports')) return 'sports'
-  if (path.includes('/live')) return 'live'
+  if (path.includes('/#')) return 'live'
   if (path.includes('/bets')) return 'mybet'
   if (path.includes('/deposite')) return 'deposit'
   return ''
@@ -189,7 +189,7 @@ const handleLogout = async () => {
 }
 
 const isAuthenticated = computed(() => authStore.isAuthenticated)
-const userName = computed(() => authStore.user?.name)
+const userName = computed(() => authStore.user?.phoneNumber)
 const userBalance = computed(() => authStore.userBalance || 0)
 
 const formatBalance = (amount) => {

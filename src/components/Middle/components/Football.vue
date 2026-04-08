@@ -396,7 +396,7 @@ const goToSportDetails = (game) => {
 
                     <!-- Bet Count -->
                     <a
-                      :href="`/event/${game.eventId}`"
+                       href="javascript:void(0)"
                       class="min-w-[48px] flex items-center justify-center gap-1 px-1.5 py-2 bg-[#f4f5f0] opacity-50 border border-[#e6e7e2] rounded text-sm font-bold"
                     >
                       <span class="text-gray-950">{{ game.market }}</span>

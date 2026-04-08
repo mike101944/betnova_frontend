@@ -187,8 +187,7 @@ const showSuccessMessage = (message) => {
   }, 3000)
 }
 
-// Load booking code using ACTIVE endpoint (only OPEN + PENDING bets)
-// Load booking code using ACTIVE endpoint (only OPEN + PENDING bets)
+// Load booking code using API - FIXED VERSION
 const loadBookingCode = async () => {
   // Clear any existing errors
   error.value = null
@@ -214,102 +213,77 @@ const loadBookingCode = async () => {
   loadingMessage.value = 'Loading bets from booking code...'
   
   try {
-    console.log('Loading booking code from active endpoint:', cleanCode)
+    console.log('Loading booking code:', cleanCode)
     
-    // USE THE ACTIVE ENDPOINT - only returns OPEN + PENDING bets
-    const response = await api.get(`/bets/active/${encodeURIComponent(cleanCode)}`)
+    const response = await api.get(`/bets/load/${encodeURIComponent(cleanCode)}`)
     
-    console.log('FULL API Response:', response)
-    console.log('Response data:', response.data)
-    console.log('Response data type:', typeof response.data)
-    console.log('Response data keys:', Object.keys(response.data))
+    console.log('API Response:', response.data)
     
-    // Check different response structures
-    let bet = null
-    
+    // Check if response is successful
     if (response.data && response.data.success === true && response.data.data) {
-      bet = response.data.data
-      console.log('Bet from data.data:', bet)
-    } else if (response.data && response.data.data && !response.data.success) {
-      bet = response.data.data
-      console.log('Bet from data.data (no success flag):', bet)
-    } else if (response.data && !response.data.data) {
-      bet = response.data
-      console.log('Bet is the whole response:', bet)
-    }
-    
-    if (bet) {
-      console.log('Bet selections:', bet.selections)
-      console.log('Selections type:', typeof bet.selections)
-      console.log('Is selections array?', Array.isArray(bet.selections))
-      console.log('Selections length:', bet.selections?.length)
+      const bet = response.data.data
       
-      // Check where selections might be stored
+      console.log('Bet data received:', bet)
+      
+      // Check if bet is OPEN and PENDING
+      if (bet.status !== 'OPEN' || bet.result !== 'PENDING') {
+        let statusMsg = ''
+        if (bet.status === 'SETTLED') {
+          statusMsg = 'This bet has already been settled'
+        } else if (bet.result === 'WON') {
+          statusMsg = 'This bet has already been won'
+        } else if (bet.result === 'LOST') {
+          statusMsg = 'This bet has already been lost'
+        } else {
+          statusMsg = `Bet status: ${bet.status}, Result: ${bet.result}`
+        }
+        error.value = `❌ Cannot load this bet. ${statusMsg}. Only open and pending bets can be loaded.`
+        setTimeout(() => { error.value = null }, 5000)
+        return
+      }
+      
+      // Check if selections exist
       if (bet.selections && Array.isArray(bet.selections) && bet.selections.length > 0) {
         const loadedBets = bet.selections.map((selection, index) => ({
           id: `${bet.id}-${index}-${Date.now()}`,
-          match: selection.match || selection.matchName || selection.event || 'Unknown Match',
-          league: selection.league || selection.leagueName || selection.competition || 'Unknown League',
-          time: selection.matchTime || selection.time || selection.datetime || 'Today',
+          match: selection.match || selection.matchName || 'Unknown Match',
+          league: selection.league || selection.leagueName || 'Unknown League',
+          time: selection.matchTime || selection.time || 'Today',
           odds: selection.odds ? selection.odds.toString() : '1.00',
-          selection: selection.selection || selection.prediction || selection.bet || 'Unknown',
+          selection: selection.selection || selection.prediction || 'Unknown',
           betId: bet.id
         }))
         
+        // Replace existing bets instead of merging
         sportsBets.value = loadedBets
+        
+        // Clear booking code input
         bookingCode.value = ''
-        showSuccessMessage(`✅ Successfully loaded ${loadedBets.length} selection(s) from active bet!`)
+        
+        // Show success message
+        showSuccessMessage(`✅ Successfully loaded ${loadedBets.length} selection(s) from open bet!`)
+        
+        // Clear any stake amount from previous bet
         stakeAmount.value = ''
       } else {
-        // Log more details about what we received
-        console.error('Selections array is empty or invalid:', bet.selections)
-        console.error('Full bet object:', JSON.stringify(bet, null, 2))
-        
-        // Check if selections might be a string that needs parsing
-        if (bet.selections && typeof bet.selections === 'string') {
-          try {
-            const parsedSelections = JSON.parse(bet.selections)
-            console.log('Parsed selections from string:', parsedSelections)
-            if (Array.isArray(parsedSelections) && parsedSelections.length > 0) {
-              // Use the parsed selections
-              const loadedBets = parsedSelections.map((selection, index) => ({
-                id: `${bet.id}-${index}-${Date.now()}`,
-                match: selection.match || 'Unknown Match',
-                league: selection.league || 'Unknown League',
-                time: selection.matchTime || 'Today',
-                odds: selection.odds ? selection.odds.toString() : '1.00',
-                selection: selection.selection || 'Unknown',
-                betId: bet.id
-              }))
-              sportsBets.value = loadedBets
-              bookingCode.value = ''
-              showSuccessMessage(`✅ Successfully loaded ${loadedBets.length} selection(s)!`)
-              stakeAmount.value = ''
-              return
-            }
-          } catch (e) {
-            console.error('Failed to parse selections string:', e)
-          }
-        }
-        
         error.value = '❌ No selections found in this booking code'
         setTimeout(() => { error.value = null }, 3000)
       }
     } else {
-      console.error('No bet data found in response:', response.data)
+      // Handle unexpected response structure
+      console.error('Unexpected response structure:', response.data)
       error.value = 'Invalid response from server. Please try again.'
       setTimeout(() => { error.value = null }, 3000)
     }
   } catch (err) {
     console.error('Error loading booking code:', err)
-    console.error('Error response:', err.response)
-    console.error('Error response data:', err.response?.data)
+    console.error('Error details:', err.response?.data)
     
     // Handle different error scenarios
     if (err.response) {
+      // Server responded with error status
       const statusCode = err.response.status
-      const errorData = err.response.data
-      const errorMessage = errorData?.message || errorData?.error || ''
+      const errorMessage = err.response.data?.message || err.response.data?.error || ''
       
       if (statusCode === 404) {
         error.value = '❌ Booking code not found. Please check and try again.'
@@ -318,17 +292,23 @@ const loadBookingCode = async () => {
           error.value = '❌ This bet has already been settled and cannot be loaded'
         } else if (errorMessage.toLowerCase().includes('expired')) {
           error.value = '❌ This booking code has expired'
+        } else if (errorMessage.toLowerCase().includes('pending')) {
+          error.value = '❌ This bet is still pending but cannot be loaded'
         } else {
-          error.value = `❌ ${errorMessage || 'Cannot load this bet'}`
+          error.value = `❌ ${errorMessage || 'Invalid booking code'}`
         }
       } else if (statusCode === 401) {
         error.value = '❌ Please login again to load booking codes'
+      } else if (statusCode === 403) {
+        error.value = '❌ You do not have permission to load this booking code'
       } else {
         error.value = `❌ Server error (${statusCode}). Please try again later.`
       }
     } else if (err.request) {
+      // Request was made but no response
       error.value = '❌ Network error. Please check your connection.'
     } else {
+      // Something else happened
       error.value = err.message || '❌ Failed to load booking code. Please try again.'
     }
     
@@ -416,6 +396,23 @@ const placeBet = async () => {
     loadingMessage.value = ''
   }
 }
+
+// Debug function to check API connection
+const testApiConnection = async () => {
+  try {
+    const response = await api.get('/bets/user?limit=1')
+    console.log('API Connection Test:', response.data)
+    return true
+  } catch (err) {
+    console.error('API Connection Failed:', err)
+    return false
+  }
+}
+
+// Test on mount
+onMounted(() => {
+  testApiConnection()
+})
 </script>
 
 <template>
@@ -551,7 +548,7 @@ const placeBet = async () => {
         </div>
       </div>
 
-      <!-- Scrollable Content -->
+      <!-- Scrollable Content (with bottom section inside) -->
       <div class="flex-1 overflow-y-auto px-4 pb-20 pt-4">
         <!-- Sports Tab Content -->
         <div v-if="activeTab === 'sports'" class="space-y-6">
@@ -576,7 +573,7 @@ const placeBet = async () => {
                   {{ isLoading ? 'Loading...' : 'Load' }}
                 </button>
               </div>
-              <p class="text-xs text-gray-500 mt-2">Only open and pending bets can be loaded</p>
+              <p class="text-xs text-gray-500 mt-2">Or select games from the events page</p>
             </div>
 
             <!-- Empty State -->
@@ -593,12 +590,14 @@ const placeBet = async () => {
           <div v-else class="space-y-4">
             <div v-for="(bet, index) in sportsBets" :key="bet.id" 
                  class="group relative bg-gradient-to-r from-gray-50 to-white rounded-lg border border-gray-200 p-3 hover:shadow-md transition-all duration-200">
+              <!-- Remove button -->
               <button @click="removeSportsBet(index)" class="absolute -top-2 -right-2 bg-red-500 text-white rounded-full p-1 opacity-0 group-hover:opacity-100 transition-opacity duration-200 shadow-lg hover:bg-red-600">
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
                 </svg>
               </button>
 
+              <!-- Match info -->
               <div class="flex justify-between items-start mb-2">
                 <div>
                   <h3 class="font-semibold text-sm text-gray-800">{{ bet.match }}</h3>
@@ -607,9 +606,10 @@ const placeBet = async () => {
                 <span class="bg-sky-100 text-sky-700 text-xs font-medium px-2 py-1 rounded-full">1X2</span>
               </div>
 
+              <!-- Selected selection -->
               <div class="mt-2 flex items-center gap-2">
                 <span class="text-xs text-gray-600">Selected:</span>
-                <span class="text-sm font-medium text-sky-200 bg-sky-200 px-2 py-1 rounded">
+                <span class="text-sm font-medium text-sky-600 bg-sky-50 px-2 py-1 rounded">
                   {{ bet.selection }} @ {{ bet.odds }}
                 </span>
                 <span class="text-xs text-gray-500 ml-auto">{{ bet.time }}</span>
@@ -620,15 +620,18 @@ const placeBet = async () => {
 
         <!-- Virtuals Tab Content -->
         <div v-else class="space-y-6">
+          <!-- Virtuals Bets List -->
           <div v-if="virtualsBets.length > 0" class="space-y-4">
             <div v-for="(bet, index) in virtualsBets" :key="bet.id" 
                  class="group relative bg-gradient-to-r from-sky-50 to-white rounded-lg border border-purple-200 p-4 hover:shadow-md transition-all duration-200">
+              <!-- Remove button -->
               <button @click="removeVirtualBet(index)" class="absolute -top-2 -right-2 bg-red-500 text-white rounded-full p-1 opacity-0 group-hover:opacity-100 transition-opacity duration-200 hover:bg-red-600 shadow-lg">
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
                 </svg>
               </button>
 
+              <!-- Virtual match info -->
               <div class="flex justify-between items-start mb-3">
                 <div>
                   <h3 class="font-semibold text-gray-800">{{ bet.match }}</h3>
@@ -637,6 +640,7 @@ const placeBet = async () => {
                 <span class="bg-purple-100 text-purple-700 text-xs font-medium px-2 py-1 rounded-full">Virtual</span>
               </div>
 
+              <!-- Selected selection -->
               <div class="mt-3 flex items-center gap-2">
                 <span class="text-sm text-gray-600">Selected:</span>
                 <span class="text-sm font-medium text-purple-600 bg-purple-50 px-2 py-1 rounded">
@@ -646,6 +650,7 @@ const placeBet = async () => {
             </div>
           </div>
 
+          <!-- Empty state for virtuals -->
           <div v-else class="text-center py-12">
             <svg class="w-16 h-16 text-gray-300 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
@@ -655,8 +660,9 @@ const placeBet = async () => {
           </div>
         </div>
 
-        <!-- Bottom Section -->
+        <!-- Bottom Section - Now inside scrollable area -->
         <div v-if="currentSelectionsCount > 0" class="border-t border-gray-200 bg-gray-50 p-4 mt-6 rounded-lg">
+          <!-- Stake Input -->
           <div class="mb-4">
             <label class="block text-sm font-medium text-gray-700 mb-2">Enter Stake Amount (Min: 100 Tsh)</label>
             <div class="flex gap-2">
@@ -678,6 +684,7 @@ const placeBet = async () => {
             </p>
           </div>
 
+          <!-- Odds and Returns -->
           <div class="bg-white rounded-lg p-4 mb-4 space-y-2">
             <div class="flex justify-between items-center">
               <span class="text-sm text-gray-600">Total Selections:</span>
@@ -693,18 +700,21 @@ const placeBet = async () => {
             </div>
           </div>
 
+          <!-- LOGIN REQUIRED BUTTON -->
           <div v-if="!isAuthenticated" class="mb-2">
             <router-link to="/login" class="block w-full py-3 bg-sky-600 text-white font-bold rounded-lg text-center hover:bg-sky-700 transition-colors">
               Login to Place Bet
             </router-link>
           </div>
 
+          <!-- INSUFFICIENT BALANCE BUTTON -->
           <div v-else-if="insufficientBalance" class="mb-2">
             <router-link to="/deposite" class="block w-full py-3 bg-orange-600 text-white font-bold rounded-lg text-center hover:bg-orange-700 transition-colors">
               Deposit to Continue
             </router-link>
           </div>
 
+          <!-- PLACE BET BUTTON -->
           <button 
             v-else
             @click="placeBet"
@@ -715,6 +725,7 @@ const placeBet = async () => {
             <span v-else>Place Bet ({{ activeTab }})</span>
           </button>
 
+          <!-- Terms -->
           <p class="text-xs text-gray-500 text-center mt-4">
             By placing a bet, you agree to our <a href="#" class="text-sky-600 hover:underline">Terms & Conditions</a>
           </p>

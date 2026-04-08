@@ -143,7 +143,7 @@ const formatBalance = (amount) => {
                 </div>
                 <div class="flex flex-row items-center justify-center">
                         <span class="text-sm text-gray-400 font-extrabold">ID:</span>
-                        <span class="text-sm font-bold text-gray-400 px-2">  #{{ bet.id.toString().slice(0,8) }}</span>
+                        <span class="text-sm font-bold text-gray-400 px-2">  #{{ bet.id }}</span>
 
                 </div>
             </div>
