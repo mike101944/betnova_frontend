@@ -37,8 +37,8 @@ const formatBalance = (amount) => {
   return new Intl.NumberFormat('sw-TZ', {
     style: 'currency',
     currency: 'TZS',
-    minimumFractionDigits: 2,
-    maximumFractionDigits: 2
+    minimumFractionDigits: 2,  // Change this
+    maximumFractionDigits: 2   // Change this
   }).format(amount || 0)
 }
 
@@ -46,6 +46,7 @@ const formatBalance = (amount) => {
 const formattedPhone = computed(() => {
     const phone = userPhone.value
     if (phone && phone !== 'Not available') {
+        // Format: +255 XXX XXX XXX
         return phone.replace(/(\d{3})(\d{3})(\d{3})/, '+255 $1 $2 $3')
     }
     return phone
@@ -113,7 +114,7 @@ const clearPaymentCheck = () => {
     paymentStatus.value = '';
 }
 
-// Confirm deposit - timeout changed to 60 seconds
+// Confirm deposit - rekebisha timeout
 const confirmDeposit = async () => {
     loading.value = true;
     errorMessage.value = '';
@@ -141,12 +142,11 @@ const confirmDeposit = async () => {
         
         // Start checking payment status every 3 seconds
         let checkCount = 0;
-        const maxChecks = 20; // 20 checks * 3 seconds = 60 seconds
+        const maxChecks = 15; // backup max checks
         
         checkInterval = setInterval(async () => {
             checkCount++;
-            const secondsElapsed = checkCount * 3;
-            paymentStatusMessage.value = `Waiting for payment confirmation... (${secondsElapsed}s / 60s)`;
+            paymentStatusMessage.value = `Waiting for payment confirmation... (${checkCount * 3}s)`;
             
             try {
                 const statusRes = await api.get(`/auth/payment-status/${orderId.value}`);
@@ -191,14 +191,14 @@ const confirmDeposit = async () => {
                     errorMessage.value = statusRes.data.message || '❌ Payment failed. Please check your balance and try again.';
                     return;
                 }
-                // PENDING - continue checking, but timeout after 60 seconds
+                // PENDING - continue checking, but timeout after 15 seconds
                 else if (currentStatus === 'pending') {
-                    paymentStatusMessage.value = `Waiting for PIN entry... (${secondsElapsed}s / 60s)`;
+                    paymentStatusMessage.value = `Waiting for PIN entry... (${checkCount * 3}s)`;
                     
-                    // Timeout after 60 seconds (20 checks)
-                    if (checkCount >= maxChecks) {
+                    // Timeout after 15 seconds (5 checks)
+                    if (checkCount >= 15) {
                         clearPaymentCheck();
-                        errorMessage.value = '⏰ Payment timeout (60 seconds). No PIN entered. Please try again.';
+                        errorMessage.value = '⏰ Payment timeout (15 seconds). No PIN entered. Please try again.';
                         return;
                     }
                 }
@@ -206,16 +206,16 @@ const confirmDeposit = async () => {
                 // Backup: Stop checking after maxChecks
                 if (checkCount >= maxChecks) {
                     clearPaymentCheck();
-                    errorMessage.value = '⏰ Payment confirmation timeout (60 seconds). Please check your transaction in history or contact support.';
+                    errorMessage.value = '⏰ Payment confirmation timeout. Please check your transaction in history or contact support.';
                 }
                 
             } catch (statusError) {
                 console.error('Status check error:', statusError);
                 
-                // After 60 seconds, stop on error too
-                if (checkCount >= maxChecks) {
+                // After 15 seconds, stop on error too
+                if (checkCount >= 15) {
                     clearPaymentCheck();
-                    errorMessage.value = '⏰ Payment timeout (60 seconds). Please try again.';
+                    errorMessage.value = '⏰ Payment timeout (15 seconds). Please try again.';
                     return;
                 }
                 
