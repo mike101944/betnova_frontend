@@ -1,5 +1,5 @@
 <script setup>
-import { ref, computed, onMounted, onBeforeUnmount, watch, nextTick } from 'vue'
+import { ref, computed, onMounted, onBeforeUnmount, watch } from 'vue'
 import { useAuthStore } from '../../store/authStore'
 import api from '../../services/api'
 
@@ -22,13 +22,6 @@ const sportsBets = ref([])
 
 // Virtuals Bets
 const virtualsBets = ref([])
-
-// Force update key for iOS/Safari
-const forceUpdateKey = ref(0)
-
-// Detect iOS/Safari
-const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream
-const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent)
 
 // Check if user is authenticated
 const isAuthenticated = computed(() => {
@@ -62,137 +55,71 @@ const formatBalance = (amount) => {
   }).format(amount || 0)
 }
 
-// Save to localStorage with iOS/Safari compatibility
-const saveToLocalStorage = (bets) => {
-  try {
-    const dataToSave = JSON.stringify(bets)
-    localStorage.setItem('betslip_selections', dataToSave)
-    
-    // iOS/Safari compatible custom event
-    if (window.CustomEvent) {
-      try {
-        const event = new CustomEvent('betslip-update', { detail: bets })
-        window.dispatchEvent(event)
-      } catch (e) {
-        // Fallback for older iOS
-        const event = document.createEvent('CustomEvent')
-        event.initCustomEvent('betslip-update', true, true, bets)
-        window.dispatchEvent(event)
-      }
-    }
-    
-    // Force storage event for cross-tab communication
-    try {
-      const storageEvent = new StorageEvent('storage', {
-        key: 'betslip_selections',
-        newValue: dataToSave,
-        oldValue: localStorage.getItem('betslip_selections')
-      })
-      window.dispatchEvent(storageEvent)
-    } catch (e) {
-      // Fallback: manually trigger handleStorageChange
-      handleStorageChange({ key: 'betslip_selections' })
-    }
-    
-    // Force Vue to update for iOS
-    forceUpdateKey.value++
-  } catch (e) {
-    console.error('Error saving to localStorage:', e)
+// Load from localStorage on mount
+onMounted(() => {
+  loadFromLocalStorage()
+  
+  if (isAuthenticated.value) {
+    authStore.fetchUserBalance()
   }
-}
+  
+  // Listen for storage changes
+  window.addEventListener('storage', handleStorageChange)
+  
+  // Listen for betslip updates from games component
+  window.addEventListener('betslip-update', handleBetslipUpdate)
+})
 
-// Load from localStorage with iOS/Safari compatibility
-const loadFromLocalStorage = () => {
-  try {
-    const savedBets = localStorage.getItem('betslip_selections')
-    if (savedBets) {
-      const parsed = JSON.parse(savedBets)
-      if (JSON.stringify(sportsBets.value) !== JSON.stringify(parsed)) {
-        sportsBets.value = parsed
-        console.log('Bets loaded from localStorage:', sportsBets.value)
-        // Force re-render for iOS
-        nextTick(() => {
-          forceUpdateKey.value++
-        })
-      }
-    } else {
-      if (sportsBets.value.length > 0) {
-        sportsBets.value = []
-      }
-    }
-  } catch (e) {
-    console.error('Error parsing saved bets:', e)
-    sportsBets.value = []
-  }
-}
+onBeforeUnmount(() => {
+  window.removeEventListener('storage', handleStorageChange)
+  window.removeEventListener('betslip-update', handleBetslipUpdate)
+})
 
-// iOS/Safari compatible event handler
+// Handle betslip updates from games component
 const handleBetslipUpdate = (event) => {
-  console.log('handleBetslipUpdate called:', event)
-  
-  // Handle different event formats for iOS compatibility
-  let bets = null
-  
-  if (event.detail) {
-    bets = event.detail
-  } else if (event.detail && typeof event.detail === 'object') {
-    bets = event.detail
-  } else if (event && typeof event === 'object') {
-    bets = event
-  }
-  
-  // Check if bets is in the detail property (for older iOS)
-  if (bets && bets.detail && !Array.isArray(bets)) {
-    bets = bets.detail
-  }
-  
-  if (bets && Array.isArray(bets)) {
-    if (JSON.stringify(sportsBets.value) !== JSON.stringify(bets)) {
-      sportsBets.value = bets
-      console.log('Betslip updated from event:', sportsBets.value)
-      // Force re-render for iOS
-      nextTick(() => {
-        forceUpdateKey.value++
-      })
-    }
-  } else if (bets && typeof bets === 'string') {
-    try {
-      const parsed = JSON.parse(bets)
-      if (Array.isArray(parsed)) {
-        sportsBets.value = parsed
-        nextTick(() => {
-          forceUpdateKey.value++
-        })
-      }
-    } catch (e) {
-      console.error('Error parsing bets from event:', e)
-    }
+  const bets = event.detail || []
+  sportsBets.value = bets
+  console.log('Betslip updated from event:', bets)
+}
+
+// Handle storage changes from other tabs
+const handleStorageChange = (event) => {
+  if (event.key === 'betslip_selections') {
+    loadFromLocalStorage()
   }
 }
 
-// Handle storage changes with iOS compatibility
-const handleStorageChange = (event) => {
-  if (event.key === 'betslip_selections' || event.key === null) {
-    // Small delay for iOS to ensure storage is written
-    setTimeout(() => {
-      loadFromLocalStorage()
-    }, 50)
-  }
+// Save to localStorage and notify other components
+const saveToLocalStorage = (bets) => {
+  localStorage.setItem('betslip_selections', JSON.stringify(bets))
+  window.dispatchEvent(new CustomEvent('betslip-update', { detail: bets }))
 }
 
 // Watch sportsBets and save changes
 watch(sportsBets, (newBets) => {
-  if (newBets && Array.isArray(newBets)) {
-    saveToLocalStorage(newBets)
-  }
+  saveToLocalStorage(newBets)
 }, { deep: true })
 
-// Computed properties with force update key for iOS
-const sportsSelections = computed(() => {
-  // Force recomputation when forceUpdateKey changes (iOS fix)
-  forceUpdateKey.value
-  return sportsBets.value
-})
+// Load from localStorage
+const loadFromLocalStorage = () => {
+  const savedBets = localStorage.getItem('betslip_selections')
+  if (savedBets) {
+    try {
+      const parsed = JSON.parse(savedBets)
+      if (JSON.stringify(sportsBets.value) !== JSON.stringify(parsed)) {
+        sportsBets.value = parsed
+        console.log('Bets loaded from localStorage:', sportsBets.value)
+      }
+    } catch (e) {
+      console.error('Error parsing saved bets:', e)
+    }
+  } else {
+    sportsBets.value = []
+  }
+}
+
+// Computed properties
+const sportsSelections = computed(() => sportsBets.value)
 
 const totalSportsOdds = computed(() => {
   if (sportsSelections.value.length === 0) return 0
@@ -245,13 +172,7 @@ const canPlaceBet = computed(() => {
 
 // Methods
 const removeSportsBet = (index) => {
-  const newBets = [...sportsBets.value]
-  newBets.splice(index, 1)
-  sportsBets.value = newBets
-  // Force update for iOS
-  nextTick(() => {
-    forceUpdateKey.value++
-  })
+  sportsBets.value.splice(index, 1)
 }
 
 const removeVirtualBet = (index) => {
@@ -266,24 +187,20 @@ const showSuccessMessage = (message) => {
   }, 3000)
 }
 
-// Force reload bets from localStorage (iOS fix)
-const forceReloadBets = () => {
-  loadFromLocalStorage()
-  nextTick(() => {
-    forceUpdateKey.value++
-  })
-}
-
-// Load booking code
+// Load booking code using ACTIVE endpoint (only OPEN + PENDING bets)
+// Load booking code using ACTIVE endpoint (only OPEN + PENDING bets)
 const loadBookingCode = async () => {
+  // Clear any existing errors
   error.value = null
   
+  // Validate booking code
   if (!bookingCode.value || !bookingCode.value.trim()) {
     error.value = 'Please enter a booking code'
     setTimeout(() => { error.value = null }, 3000)
     return
   }
   
+  // Clean the booking code (remove spaces, convert to uppercase)
   const cleanCode = bookingCode.value.trim().toUpperCase()
   bookingCode.value = cleanCode
   
@@ -297,24 +214,40 @@ const loadBookingCode = async () => {
   loadingMessage.value = 'Loading bets from booking code...'
   
   try {
-    console.log('Loading booking code:', cleanCode)
+    console.log('Loading booking code from active endpoint:', cleanCode)
     
+    // USE THE ACTIVE ENDPOINT - only returns OPEN + PENDING bets
     const response = await api.get(`/bets/active/${encodeURIComponent(cleanCode)}`)
     
+    console.log('FULL API Response:', response)
+    console.log('Response data:', response.data)
+    console.log('Response data type:', typeof response.data)
+    console.log('Response data keys:', Object.keys(response.data))
+    
+    // Check different response structures
     let bet = null
     
     if (response.data && response.data.success === true && response.data.data) {
       bet = response.data.data
+      console.log('Bet from data.data:', bet)
     } else if (response.data && response.data.data && !response.data.success) {
       bet = response.data.data
+      console.log('Bet from data.data (no success flag):', bet)
     } else if (response.data && !response.data.data) {
       bet = response.data
+      console.log('Bet is the whole response:', bet)
     }
     
     if (bet) {
+      console.log('Bet selections:', bet.selections)
+      console.log('Selections type:', typeof bet.selections)
+      console.log('Is selections array?', Array.isArray(bet.selections))
+      console.log('Selections length:', bet.selections?.length)
+      
+      // Check where selections might be stored
       if (bet.selections && Array.isArray(bet.selections) && bet.selections.length > 0) {
         const loadedBets = bet.selections.map((selection, index) => ({
-          id: `${bet.id}-${index}-${Date.now()}-${Math.random()}`,
+          id: `${bet.id}-${index}-${Date.now()}`,
           match: selection.match || selection.matchName || selection.event || 'Unknown Match',
           league: selection.league || selection.leagueName || selection.competition || 'Unknown League',
           time: selection.matchTime || selection.time || selection.datetime || 'Today',
@@ -325,59 +258,54 @@ const loadBookingCode = async () => {
         
         sportsBets.value = loadedBets
         bookingCode.value = ''
-        showSuccessMessage(`✅ Successfully loaded ${loadedBets.length} selection(s)!`)
+        showSuccessMessage(`✅ Successfully loaded ${loadedBets.length} selection(s) from active bet!`)
         stakeAmount.value = ''
+      } else {
+        // Log more details about what we received
+        console.error('Selections array is empty or invalid:', bet.selections)
+        console.error('Full bet object:', JSON.stringify(bet, null, 2))
         
-        // Force iOS update
-        nextTick(() => {
-          forceUpdateKey.value++
-        })
-        
-        // Save to localStorage
-        saveToLocalStorage(loadedBets)
-        
-      } else if (bet.selections && typeof bet.selections === 'string') {
-        try {
-          const parsedSelections = JSON.parse(bet.selections)
-          if (Array.isArray(parsedSelections) && parsedSelections.length > 0) {
-            const loadedBets = parsedSelections.map((selection, index) => ({
-              id: `${bet.id}-${index}-${Date.now()}-${Math.random()}`,
-              match: selection.match || 'Unknown Match',
-              league: selection.league || 'Unknown League',
-              time: selection.matchTime || 'Today',
-              odds: selection.odds ? selection.odds.toString() : '1.00',
-              selection: selection.selection || 'Unknown',
-              betId: bet.id
-            }))
-            sportsBets.value = loadedBets
-            bookingCode.value = ''
-            showSuccessMessage(`✅ Successfully loaded ${loadedBets.length} selection(s)!`)
-            stakeAmount.value = ''
-            
-            nextTick(() => {
-              forceUpdateKey.value++
-            })
-            
-            saveToLocalStorage(loadedBets)
-            return
+        // Check if selections might be a string that needs parsing
+        if (bet.selections && typeof bet.selections === 'string') {
+          try {
+            const parsedSelections = JSON.parse(bet.selections)
+            console.log('Parsed selections from string:', parsedSelections)
+            if (Array.isArray(parsedSelections) && parsedSelections.length > 0) {
+              // Use the parsed selections
+              const loadedBets = parsedSelections.map((selection, index) => ({
+                id: `${bet.id}-${index}-${Date.now()}`,
+                match: selection.match || 'Unknown Match',
+                league: selection.league || 'Unknown League',
+                time: selection.matchTime || 'Today',
+                odds: selection.odds ? selection.odds.toString() : '1.00',
+                selection: selection.selection || 'Unknown',
+                betId: bet.id
+              }))
+              sportsBets.value = loadedBets
+              bookingCode.value = ''
+              showSuccessMessage(`✅ Successfully loaded ${loadedBets.length} selection(s)!`)
+              stakeAmount.value = ''
+              return
+            }
+          } catch (e) {
+            console.error('Failed to parse selections string:', e)
           }
-        } catch (e) {
-          console.error('Failed to parse selections string:', e)
         }
         
         error.value = '❌ No selections found in this booking code'
         setTimeout(() => { error.value = null }, 3000)
-      } else {
-        error.value = '❌ No selections found in this booking code'
-        setTimeout(() => { error.value = null }, 3000)
       }
     } else {
+      console.error('No bet data found in response:', response.data)
       error.value = 'Invalid response from server. Please try again.'
       setTimeout(() => { error.value = null }, 3000)
     }
   } catch (err) {
     console.error('Error loading booking code:', err)
+    console.error('Error response:', err.response)
+    console.error('Error response data:', err.response?.data)
     
+    // Handle different error scenarios
     if (err.response) {
       const statusCode = err.response.status
       const errorData = err.response.data
@@ -437,6 +365,7 @@ const placeBet = async () => {
   error.value = null
   
   try {
+    // Format selections for API
     const formattedSelections = selections.map(selection => ({
       match: selection.match,
       selection: selection.selection,
@@ -451,38 +380,29 @@ const placeBet = async () => {
     })
     
     if (response.data.success) {
+      // Refresh balance
       await authStore.fetchUserBalance()
+      
+      // Show toast message
       showSuccessMessage(`✅ Bet placed successfully! Code: ${response.data.data.bookingCode}`)
       
+      // Clear betslip
       if (activeTab.value === 'sports') {
         sportsBets.value = []
       } else {
         virtualsBets.value = []
       }
       
+      // Clear stake amount
       stakeAmount.value = ''
       
-      // Clear localStorage
-      localStorage.removeItem('betslip_selections')
-      
-      // iOS compatible event dispatch
-      try {
-        const clearEvent = new CustomEvent('bets-cleared')
-        window.dispatchEvent(clearEvent)
-      } catch (e) {
-        const clearEvent = document.createEvent('CustomEvent')
-        clearEvent.initCustomEvent('bets-cleared', true, true, null)
-        window.dispatchEvent(clearEvent)
-      }
-      
-      // Force iOS update
-      nextTick(() => {
-        forceUpdateKey.value++
-      })
+      // Dispatch event to clear selections in games component
+      window.dispatchEvent(new CustomEvent('bets-cleared'))
     }
   } catch (err) {
     console.error('Error placing bet:', err)
     
+    // Handle error messages
     if (err.response?.data?.message) {
       error.value = err.response.data.message
     } else if (err.message) {
@@ -496,60 +416,6 @@ const placeBet = async () => {
     loadingMessage.value = ''
   }
 }
-
-// Lifecycle hooks with iOS/Safari optimizations
-onMounted(() => {
-  console.log('Component mounted - iOS:', isIOS, 'Safari:', isSafari)
-  
-  // Load bets
-  loadFromLocalStorage()
-  
-  if (isAuthenticated.value) {
-    authStore.fetchUserBalance()
-  }
-  
-  // Set up event listeners with iOS compatibility
-  window.addEventListener('storage', handleStorageChange)
-  window.addEventListener('betslip-update', handleBetslipUpdate)
-  
-  // iOS/Safari: Also listen for page visibility changes
-  document.addEventListener('visibilitychange', () => {
-    if (!document.hidden) {
-      // Page became visible again - reload bets
-      setTimeout(() => {
-        loadFromLocalStorage()
-        nextTick(() => {
-          forceUpdateKey.value++
-        })
-      }, 100)
-    }
-  })
-  
-  // iOS/Safari: Periodic check for localStorage changes (every 1 second)
-  let lastStoredValue = localStorage.getItem('betslip_selections')
-  const intervalId = setInterval(() => {
-    const currentValue = localStorage.getItem('betslip_selections')
-    if (currentValue !== lastStoredValue) {
-      lastStoredValue = currentValue
-      loadFromLocalStorage()
-      nextTick(() => {
-        forceUpdateKey.value++
-      })
-    }
-  }, 1000)
-  
-  // Clean up interval on unmount
-  const originalUnmount = onBeforeUnmount
-  originalUnmount(() => {
-    clearInterval(intervalId)
-  })
-})
-
-onBeforeUnmount(() => {
-  window.removeEventListener('storage', handleStorageChange)
-  window.removeEventListener('betslip-update', handleBetslipUpdate)
-  document.removeEventListener('visibilitychange', () => {})
-})
 </script>
 
 <template>
