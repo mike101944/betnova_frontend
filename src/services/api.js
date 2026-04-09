@@ -4,7 +4,7 @@ import axios from 'axios'
 // http://localhost:5000/api
 // Create axios instance
 const api = axios.create({
-  baseURL: 'http://5.189.136.33/api/api',
+  baseURL: 'https://betnover.com/api/api',
   timeout: 30000,
   headers: {
     'Content-Type': 'application/json',
