@@ -807,8 +807,8 @@ onBeforeUnmount(() => {
                 Tsh
               </span>
             </div>
-            <p v-if="stakeAmount && stakeAmount < 100" class="text-xs text-red-500 mt-1">
-              Minimum stake is 100 Tsh
+            <p v-if="stakeAmount && stakeAmount < 117815.00" class="text-xs text-red-500 mt-1">
+              Minimum stake is 117,815.00 Tsh
             </p>
           </div>
 
