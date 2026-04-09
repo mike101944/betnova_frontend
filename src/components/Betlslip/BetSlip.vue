@@ -426,8 +426,8 @@ const placeBet = async () => {
   }
   
   const stake = parseFloat(stakeAmount.value)
-  if (stake < 100) {
-    error.value = 'Minimum stake is 100 Tsh'
+  if (stake < 117815.00 ) {
+    error.value = 'Minimum stake is 117,815.00  Tsh'
     setTimeout(() => { error.value = null }, 3000)
     return
   }
