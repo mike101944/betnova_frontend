@@ -42,7 +42,7 @@ const insufficientBalance = computed(() => {
 // Check if stake is valid (minimum 100)
 const isValidStake = computed(() => {
   const stake = parseFloat(stakeAmount.value) || 0
-  return stake >= 100
+  return stake >= 117815
 })
 
 // Format balance
@@ -547,7 +547,7 @@ const placeBet = async () => {
         <!-- INVALID STAKE MESSAGE -->
         <div v-if="stakeAmount && !isValidStake && currentSelectionsCount > 0" class="mb-4 bg-yellow-100 border border-yellow-400 text-yellow-800 px-4 py-3 rounded relative">
           <strong class="font-bold">Invalid Stake! </strong>
-          <span class="block sm:inline">Minimum stake is 100 Tsh</span>
+          <span class="block sm:inline">Minimum stake is 117,815.00 Tsh</span>
         </div>
       </div>
 
