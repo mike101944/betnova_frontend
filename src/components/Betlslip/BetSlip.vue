@@ -727,7 +727,7 @@ onBeforeUnmount(() => {
           <div v-else class="space-y-4">
             <div v-for="(bet, index) in sportsBets" :key="bet.id" 
                  class="group relative bg-gradient-to-r from-gray-50 to-white rounded-lg border border-gray-200 p-3 hover:shadow-md transition-all duration-200">
-              <button @click="removeSportsBet(index)" class="absolute -top-2 -right-2 bg-red-500 text-white rounded-full p-1 opacity-0 group-hover:opacity-100 transition-opacity duration-200 shadow-lg hover:bg-red-600">
+              <button @click="removeSportsBet(index)" class="absolute -top-2 -right-2 bg-red-500 text-white rounded-full p-1  shadow-lg">
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
                 </svg>
