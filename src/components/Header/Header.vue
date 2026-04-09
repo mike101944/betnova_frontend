@@ -160,7 +160,7 @@ const handleAlertClose = () => {
                 <div class="hidden md:block">
                   <svg class="w-[92px] h-4" viewBox="0 0 92 16">
                     <text x="0" y="12" fill="#0AF0B5" font-weight="bold">Bet</text>
-                    <text x="24" y="12" fill="white" font-weight="bold">Nova</text>
+                    <text x="24" y="12" fill="white" font-weight="bold">Nover</text>
                   </svg>
                 </div>
               </router-link>

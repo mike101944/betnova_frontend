@@ -4,7 +4,7 @@
     <div class="p-3 flex flex-row items-center justify-between border-b border-gray-800/50">
       <router-link to="/" @click="emit('close')" class="flex items-center gap-2 group">
         <div class="text-2xl font-black italic tracking-tighter transition-transform group-hover:scale-105">
-          <span class="text-sky-500">BET</span><span class="text-white">NOVA</span>
+          <span class="text-sky-500">BET</span><span class="text-white">NOVER</span>
         </div>
       </router-link>
       <button @click="emit('close')" class="p-2 text-gray-400 hover:text-white hover:bg-white/5 rounded-full transition-all">
