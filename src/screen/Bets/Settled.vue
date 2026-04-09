@@ -138,7 +138,7 @@ const formatBalance = (amount) => {
                       <CheckIcon class="w-3 h-3  text-emerald-600  font-bold" />
                     </div>
                     <span  class="text-xs font-bold text-amber-100">{{ (bet.result).toUpperCase() }}</span>
-                    <span class="text-xs font-bold text-amber-100">(2/2)</span>
+                    <span class="text-xs font-bold text-amber-100">({{ getSelectionsCount(bet) }})</span>
                 </div>
                 <div class="flex flex-row items-center justify-center">
                         <span class="text-sm text-gray-400 font-extrabold">ID:</span>
