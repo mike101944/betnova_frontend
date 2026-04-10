@@ -156,7 +156,7 @@
                         <div class="bg-gray-50 rounded-lg p-0 mb-2">
                             <div class="flex items-center justify-between text-sm">
                                 <div class="flex gap-2 items-center">
-                                    <span class="text-xs text-gray-500 block mb-0.5 font-inter">Correct Score</span>
+                                    <span class="text-xs text-gray-500 block mb-0.5 font-inter">Selection FT: </span>
                                     <span class="font-medium text-gray-900 font-inter">({{ selection.selection }})</span>
                                 </div>
                                 <div class="text-right flex items-center justify-center gap-2">
@@ -164,7 +164,7 @@
                                     <span class="font-medium text-gray-900 font-inter">{{ selection.odds }}</span>
                                 </div>
                                 <div class="text-right flex items-center justify-center gap-2">
-                                    <span class="text-xs text-gray-500 block mb-0.5 font-inter">Final Score</span>
+                                    <span class="text-xs text-gray-500 block mb-0.5 font-inter">Final Result</span>
                                     <span class="font-medium text-gray-900 font-inter">{{selection.selection }}</span>
                                 </div>
                             </div>
