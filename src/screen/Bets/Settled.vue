@@ -224,7 +224,7 @@ const formatBalance = (amount) => {
           <h3 class="text-2xl font-bold text-gray-900 mb-2">No Open Bets</h3>
           <p class="text-gray-500 mb-8">You don't have any active bets at the moment. Start betting now!</p>
           <a 
-            href="/events" 
+            href="/bets" 
             class="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:from-blue-700 hover:to-purple-700 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl"
           >
             <span>Browse Matches</span>
