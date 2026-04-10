@@ -1,6 +1,7 @@
 // services/api.js
 import axios from 'axios'
 // http://5.189.136.33/api/api
+// https://betnover.com/api/api
 // http://localhost:5000/api
 // Create axios instance
 const api = axios.create({

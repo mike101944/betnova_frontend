@@ -69,6 +69,27 @@ const routes = [
       component: () => import('../screen/Auth/Login.vue'),     // This has the tabs
       
     },
+
+    // Admin routes
+    {
+      path: '/admin',
+      name: 'admin-bets',
+      component: () => import('../screen/profile/AdminBets.vue'),
+      meta: { requiresAdmin: true }
+    },
+    {
+      path: '/admin/:id',
+      name: 'admin-bet-details',
+      component: () => import('../screen/profile/AdminBetDetails.vue'),
+      meta: { requiresAdmin: true }
+    },
+    {
+      path: '/admin/:id/edit',           // ← Hii ina maana /admin/123/edit
+      name: 'admin-bet-edit',
+      component: () => import('../screen/profile/AdminEditBet.vue'),
+      meta: { requiresAdmin: true }
+    },
+     
     
     // Join Now route - uses AuthTabs as wrapper, RegisterForm as child
     {

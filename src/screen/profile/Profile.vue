@@ -1,22 +1,6 @@
 <template>
   <div class="h-full border-sky-950">
-    <!-- Header with Gradient Background -->
-    <!-- <div class="bg-gradient-to-r from-sky-400 to-sky-600 text-white">
-      <div class="w-full px-4 py-2">
-        <div class="flex items-center gap-3 mb-2">
-          <router-link to="/" class="hover:bg-white/20 p-2 rounded-lg transition-colors">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
-            </svg>
-          </router-link>
-          <h1 class="text-sm font-bold">My Profile</h1>
-        </div>
-        <p class="text-emerald-50 text-sm self-center ">Manage your account information and preferences</p>
-      </div>
-    </div> -->
-
     <div class="max-w-4xl mx-auto px-4 py-8">
-      <!-- Profile Content - Single Column -->
       <div class="flex flex-col space-y-6">
         <!-- Profile Summary Card - Premium Design -->
         <div class="bg-white rounded-2xl shadow-xl overflow-hidden">
@@ -27,9 +11,6 @@
             <!-- Avatar - Overlapping Design -->
             <div class="absolute -top-12 left-6">
               <div class="w-16 h-16 bg-white rounded-2xl shadow-lg flex items-center justify-center border-4 border-white">
-                <!-- <span class="text-4xl font-bold text-emerald-600">
-                  {{ userInitials }}
-                </span> -->
                 <svg class="w-5 h-5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
               </svg>
@@ -73,6 +54,34 @@
           </div>
         </div>
 
+        <!-- ✅ ADMIN BUTTON - Only visible to admins -->
+        <div v-if="isAdmin" class="bg-gradient-to-r from-purple-500 to-indigo-600 rounded-2xl shadow-xl overflow-hidden">
+          <div class="p-6">
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-4">
+                <div class="bg-white/20 p-3 rounded-xl">
+                  <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="text-lg font-bold text-white">Admin Dashboard</h3>
+                  <p class="text-purple-100 text-sm">Manage bets, approve wagers, and view statistics</p>
+                </div>
+              </div>
+              <router-link 
+                to="/admin"
+                class="bg-white text-purple-600 hover:bg-purple-50 px-6 py-3 rounded-xl font-semibold transition-all hover:shadow-lg flex items-center gap-2"
+              >
+                Go to Admin Panel
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                </svg>
+              </router-link>
+            </div>
+          </div>
+        </div>
+
         <!-- Account Information Card -->
         <div class="bg-white rounded-2xl shadow-xl p-2">
           <div class="flex justify-between items-center mb-3">
@@ -102,7 +111,6 @@
                 <label class="block text-xs text-gray-500 mb-1">Phone Number</label>
                 <p class="text-gray-800 font-medium text-xs">{{ formattedPhone }}</p>
               </div>
-              
             </div>
             <div class="space-y-4">
               <div class="bg-gray-50 rounded-xl p-1">
@@ -228,7 +236,6 @@
             <div v-for="(activity, index) in recentActivity" :key="index" 
                  class="flex items-center justify-between p-4 bg-gray-50 hover:bg-gray-100 rounded-xl transition-all">
               <div class="flex items-center gap-4">
-                <!-- Icon based on activity type -->
                 <div :class="getActivityIconClass(activity.type)" class="p-3 rounded-xl">
                   <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path v-if="activity.type === 'bet'" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
@@ -319,12 +326,21 @@ import { useRouter } from 'vue-router'
 const router = useRouter()
 const authStore = useAuthStore()
 
+// ✅ Admin phone numbers (same as backend)
+const adminPhoneNumbers = ['683307420', '748090224']
+
 // State
 const editMode = ref(false)
 const editForm = ref({
   phone: '',
   email: '',
   fullName: ''
+})
+
+// ✅ Check if current user is admin
+const isAdmin = computed(() => {
+  const userPhone = authStore.user?.phone_number || ''
+  return adminPhoneNumbers.includes(userPhone)
 })
 
 // Mock data - replace with actual API calls
@@ -437,7 +453,6 @@ const getAmountClass = (type) => {
 const saveProfile = () => {
   console.log('Saving profile:', editForm.value)
   editMode.value = false
-  // Show success message
 }
 
 const handleLogout = async () => {

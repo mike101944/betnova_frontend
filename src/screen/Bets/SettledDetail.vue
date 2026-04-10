@@ -165,7 +165,7 @@
                                 </div>
                                 <div class="text-right flex items-center justify-center gap-2">
                                     <span class="text-xs text-gray-500 block mb-0.5 font-inter">Final Score</span>
-                                    <span class="font-medium text-gray-900 font-inter">{{ selection.score || selection.result || '2-2' }}</span>
+                                    <span class="font-medium text-gray-900 font-inter">{{selection.selection }}</span>
                                 </div>
                             </div>
                         </div>

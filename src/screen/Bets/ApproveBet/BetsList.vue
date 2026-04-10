@@ -253,7 +253,7 @@
     } finally {
       processingId.value = null
     }
-  }
+  } 
   
   const handleApprove = async (id, result) => {
     processingId.value = id
