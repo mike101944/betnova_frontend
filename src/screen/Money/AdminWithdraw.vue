@@ -127,7 +127,7 @@ watch(amount, (newValue) => {
 // Watch phone validation
 watch(phoneNumber, () => {
     if (phoneNumber.value && !isPhoneValid.value) {
-        errorMessage.value = 'Enter valid phone number (e.g., 0683307420 or 255683307420)';
+        errorMessage.value = 'Enter valid phone number (e.g., 0689902225 or 255689902225)';
     } else {
         errorMessage.value = '';
     }

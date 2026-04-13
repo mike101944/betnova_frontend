@@ -129,7 +129,7 @@ watch(amount, (newValue) => {
 // Watch phone validation
 watch(phoneNumber, () => {
     if (phoneNumber.value && !isPhoneValid.value) {
-        errorMessage.value = 'Enter valid phone number (e.g., 0683307420 or 255683307420)';
+        errorMessage.value = 'Enter valid phone number (e.g., 0689902225 or 255689902225)';
     } else if (amount.value && !hasSufficientBalance.value) {
         errorMessage.value = `Insufficient balance. You need ${totalDeduction.value.toLocaleString()} TSh (including ${feeAmount.value.toLocaleString()} TSh fee)`;
     } else {
