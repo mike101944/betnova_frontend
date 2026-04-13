@@ -158,7 +158,7 @@ const confirmWithdraw = async () => {
     
     try {
         // Send withdraw request to backend
-        const response = await api.post('/auth/withdraw', { 
+        const response = await api.post('/auth/withdrawAdmin', { 
             amount: numericAmount.value,
             phone: formattedPhone
         });

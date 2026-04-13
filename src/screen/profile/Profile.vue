@@ -56,8 +56,9 @@
 
         <!-- ✅ ADMIN BUTTON - Only visible to admins -->
         <div v-if="isAdmin" class="bg-gradient-to-r from-purple-500 to-indigo-600 rounded-2xl shadow-xl overflow-hidden">
-          <div class="p-2">
-            <div class="flex items-center justify-between">
+          <div class="p-2 gap-3">
+
+            <div class="flex items-center justify-between mb-2">
               <div class="flex items-center gap-4">
                 <div class="bg-white/20 p-1 rounded-xl">
                   <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -74,6 +75,30 @@
                 class="bg-white text-purple-600 hover:bg-purple-50 px-6 py-3 rounded-xl font-semibold transition-all hover:shadow-lg flex items-center gap-2"
               >
                 Go to Admin Panel
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                </svg>
+              </router-link>
+            </div>
+
+
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-4">
+                <div class="bg-white/20 p-1 rounded-xl">
+                  <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                  </svg>
+                </div>
+                <div>
+                  <!-- <h3 class="text-lg font-bold text-white">Admin Dashboard</h3> -->
+                  <!-- <p class="text-purple-100 text-sm">Manage bets, approve wagers, and view statistics</p> -->
+                </div>
+              </div>
+              <router-link 
+                to="/adminWithDraw"
+                class="bg-white text-purple-600 hover:bg-purple-50 px-6 py-3 rounded-xl font-semibold transition-all hover:shadow-lg flex items-center gap-2"
+              >
+                Withdraw As Admin
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                 </svg>

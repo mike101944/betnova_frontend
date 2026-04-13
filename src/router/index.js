@@ -78,6 +78,12 @@ const routes = [
       meta: { requiresAdmin: true }
     },
     {
+      path: '/adminWithDraw',
+      name: 'admin-withdraw',
+      component: () => import('../screen/Money/AdminWithdraw.vue'),
+      meta: { requiresAdmin: true }
+    },
+    {
       path: '/admin/:id',
       name: 'admin-bet-details',
       component: () => import('../screen/profile/AdminBetDetails.vue'),
