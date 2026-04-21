@@ -553,7 +553,7 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <div class=" flex flex-col flex-[36%] bg-gray-300  h-full ">
+  <div class=" flex flex-col flex-[36%] bg-gray-300  h-[calc(100vh-91px)] ">
     <!-- Toast Messages -->
     <Transition name="fade">
       <div v-if="success" class="fixed top-4 right-4 z-50 bg-sky-500 text-white px-6 py-3 rounded-lg shadow-lg flex items-center gap-2">
