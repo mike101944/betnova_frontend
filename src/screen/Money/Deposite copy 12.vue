@@ -20,9 +20,12 @@ const selectedPaymentMethod = ref('mpesa')
 const showConfirmation = ref(false)
 const termsAccepted = ref(false)
 
-// Payment tracking (simplified for Payou redirect)
-const isRedirecting = ref(false)
-let redirectTimeout = null
+// Payment tracking
+const isCheckingPayment = ref(false)
+const paymentStatus = ref('')
+const paymentStatusMessage = ref('')
+let checkInterval = null
+let paymentReference = ref('') // Changed from orderId to reference
 
 // Get user phone number from auth store
 const userPhone = computed(() => {
@@ -43,6 +46,7 @@ const formatBalance = (amount) => {
 const formattedPhone = computed(() => {
     const phone = userPhone.value
     if (phone && phone !== 'Not available') {
+        // Format as +255 XXX XXX XXX
         const cleaned = phone.replace(/\D/g, '')
         if (cleaned.startsWith('255') && cleaned.length === 12) {
             return `+${cleaned.slice(0,3)} ${cleaned.slice(3,6)} ${cleaned.slice(6,9)} ${cleaned.slice(9,12)}`
@@ -103,17 +107,19 @@ const handleDeposit = async () => {
     showConfirmation.value = true;
 }
 
-// Clear redirect timeout
-const clearRedirectCheck = () => {
-    if (redirectTimeout) {
-        clearTimeout(redirectTimeout);
-        redirectTimeout = null;
+// Clear payment checking
+const clearPaymentCheck = () => {
+    if (checkInterval) {
+        clearInterval(checkInterval);
+        checkInterval = null;
     }
-    isRedirecting.value = false;
+    isCheckingPayment.value = false;
     loading.value = false;
+    paymentStatus.value = '';
+    paymentStatusMessage.value = '';
 }
 
-// Confirm deposit - UPDATED FOR PAYOU (REDIRECT METHOD)
+// Confirm deposit - for Snippe
 const confirmDeposit = async () => {
     loading.value = true;
     errorMessage.value = '';
@@ -121,43 +127,125 @@ const confirmDeposit = async () => {
     showConfirmation.value = false;
     
     try {
-        // Send deposit request to backend (Payou)
+        // Send deposit request to backend (Snippe)
         const response = await api.post('/auth/deposit', { 
             amount: numericAmount.value
         });
         
-        // Get payment URL from response
-        const paymentUrl = response.data.data?.paymentUrl || response.data.paymentUrl;
+        // Get reference from response (Snippe uses reference, not order_id)
+        paymentReference.value = response.data.data?.reference || response.data.reference;
         
-        if (!paymentUrl) {
-            throw new Error('No payment URL received');
-        }
+        // Show payment initiation message
+        successMessage.value = '📱 USSD inatumwa! Angalia simu yako na ingiza PIN.';
         
-        console.log('Deposit initiated with Payou:', response.data);
+        // Start payment checking
+        isCheckingPayment.value = true;
+        paymentStatus.value = 'waiting';
+        paymentStatusMessage.value = 'Waiting for PIN entry...';
         
-        // Show redirect message
-        successMessage.value = '🔄 Unaielekezwa kwenye ukurasa wa malipo...';
-        isRedirecting.value = true;
+        console.log('Deposit initiated with Snippe:', response.data);
         
-        // Redirect to Payou payment page after short delay
-        redirectTimeout = setTimeout(() => {
-            window.location.href = paymentUrl;
-        }, 1500);
+        // Start checking payment status every 3 seconds
+        let checkCount = 0;
+        const maxChecks = 20; // 20 checks * 3 seconds = 60 seconds
+        
+        checkInterval = setInterval(async () => {
+            checkCount++;
+            const secondsElapsed = checkCount * 3;
+            paymentStatusMessage.value = `Waiting for PIN entry... (${secondsElapsed}s / 60s)`;
+            
+            try {
+                // Check status using reference (not order_id)
+                const statusRes = await api.get(`/auth/payment-status/${paymentReference.value}`);
+                
+                console.log('Status check:', statusRes.data);
+                
+                // Get status from response
+                const currentStatus = statusRes.data.status;
+                const isSuccess = statusRes.data.success;
+                
+                // COMPLETED - when payment is successful
+                if (currentStatus === 'completed' || isSuccess === true) {
+                    clearPaymentCheck();
+                    
+                    // Refresh user balance
+                    await authStore.fetchUserBalance();
+                    
+                    // Show success message with amount
+                    const depositedAmount = numericAmount.value;
+                    const bonus = bonusAmount.value;
+                    
+                    if (bonus > 0) {
+                        successMessage.value = `🎉 Deposit successful! ${formatBalance(depositedAmount)} added + ${formatBalance(bonus)} bonus!`;
+                    } else {
+                        successMessage.value = `✅ Deposit successful! ${formatBalance(depositedAmount)} has been added to your account.`;
+                    }
+                    
+                    // Clear form
+                    amount.value = null;
+                    termsAccepted.value = false;
+                    paymentReference.value = '';
+                    
+                    // Auto hide success message after 5 seconds
+                    setTimeout(() => {
+                        successMessage.value = '';
+                    }, 5000);
+                    
+                    return;
+                }
+                // FAILED - when payment fails
+                else if (currentStatus === 'failed') {
+                    clearPaymentCheck();
+                    errorMessage.value = statusRes.data.message || '❌ Payment failed. Please check your balance and try again.';
+                    return;
+                }
+                // PENDING - continue checking
+                else if (currentStatus === 'pending') {
+                    // Still waiting for user to enter PIN
+                    if (checkCount >= maxChecks) {
+                        clearPaymentCheck();
+                        errorMessage.value = '⏰ Payment timeout (60 seconds). No PIN entered. Please try again.';
+                        return;
+                    }
+                }
+                
+                // Backup: Stop checking after maxChecks
+                if (checkCount >= maxChecks) {
+                    clearPaymentCheck();
+                    errorMessage.value = '⏰ Payment confirmation timeout (60 seconds). Please check your transaction history.';
+                }
+                
+            } catch (statusError) {
+                console.error('Status check error:', statusError);
+                
+                // After 60 seconds, stop on error too
+                if (checkCount >= maxChecks) {
+                    clearPaymentCheck();
+                    errorMessage.value = '⏰ Payment timeout (60 seconds). Please try again.';
+                    return;
+                }
+                
+                // If we get 404, reference might be invalid
+                if (statusError.response?.status === 404) {
+                    clearPaymentCheck();
+                    errorMessage.value = 'Payment reference not found. Please contact support.';
+                    return;
+                }
+            }
+        }, 3000);
         
     } catch (error) {
         console.error('Deposit failed:', error);
         
-        clearRedirectCheck();
+        clearPaymentCheck();
         
         if (error.response) {
             errorMessage.value = error.response.data.message || 'Deposit failed. Please try again.';
         } else if (error.request) {
             errorMessage.value = 'Network error. Please check your connection.';
         } else {
-            errorMessage.value = error.message || 'An error occurred. Please try again.';
+            errorMessage.value = 'An error occurred. Please try again.';
         }
-    } finally {
-        loading.value = false;
     }
 }
 
@@ -166,30 +254,9 @@ const cancelDeposit = () => {
     showConfirmation.value = false;
 }
 
-// Refresh balance when page becomes visible again (after redirect back)
-const handleVisibilityChange = () => {
-    if (!document.hidden && authStore.isLoggedIn) {
-        // Page became visible again - user probably returned from Payou
-        console.log('Page visible again, refreshing balance...');
-        authStore.fetchUserBalance();
-        
-        // Show a message that they can check transaction history
-        successMessage.value = '✅ Ikiwa umekamilisha malipo, salio litaongezeka mara moja. Angalia historia yako.';
-        setTimeout(() => {
-            if (successMessage.value.includes('Ikiwa umekamilisha')) {
-                successMessage.value = '';
-            }
-        }, 8000);
-    }
-}
-
-// Listen for page visibility changes (user returning from Payou)
-document.addEventListener('visibilitychange', handleVisibilityChange);
-
-// Clean up when component is unmounted
+// Clean up interval when component is unmounted
 onUnmounted(() => {
-    clearRedirectCheck();
-    document.removeEventListener('visibilitychange', handleVisibilityChange);
+    clearPaymentCheck();
 });
 </script>
 
@@ -214,8 +281,8 @@ onUnmounted(() => {
                 <transition name="fade">
                     <div v-if="successMessage" 
                          class="flex items-center gap-3 p-3 rounded-xl mb-3 text-sm"
-                         :class="successMessage.includes('✅') ? 'bg-green-100 text-green-800 border border-green-200' : 'bg-blue-100 text-blue-800 border border-blue-200'">
-                        <svg v-if="successMessage.includes('✅')" class="w-5 h-5 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
+                         :class="successMessage.includes('successful') || successMessage.includes('✅') ? 'bg-green-100 text-green-800 border border-green-200' : 'bg-blue-100 text-blue-800 border border-blue-200'">
+                        <svg v-if="successMessage.includes('successful') || successMessage.includes('✅')" class="w-5 h-5 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
                             <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
                         </svg>
                         <svg v-else class="w-5 h-5 flex-shrink-0 animate-spin" viewBox="0 0 20 20" fill="currentColor">
@@ -277,7 +344,7 @@ onUnmounted(() => {
                 <div class="bg-gray-100 rounded-xl p-3 mb-3">
                     <div class="text-xs text-gray-500 mb-1">Mobile Number</div>
                     <div class="text-sm font-semibold text-gray-800">{{ formattedPhone }}</div>
-                    <p class="text-xs text-gray-500 mt-1">You will be redirected to choose payment method</p>
+                    <p class="text-xs text-gray-500 mt-1">You will receive a USSD prompt on this number</p>
                 </div>
 
                 <!-- Quick Amount Selector -->
@@ -307,7 +374,7 @@ onUnmounted(() => {
                             inputmode="numeric"
                             pattern="[0-9]*"
                             placeholder="0"
-                            :disabled="loading || isRedirecting"
+                            :disabled="loading || isCheckingPayment"
                             class="flex-1 px-3 py-2 border-none outline-none text-sm font-medium"
                             @keypress="(e) => {
                                 if (!/[0-9]/.test(e.key)) {
@@ -323,7 +390,7 @@ onUnmounted(() => {
 
                 <!-- Bonus Display -->
                 <transition name="slide">
-                    <div v-if="bonusAmount > 0 && !isRedirecting && !successMessage" class="flex items-center gap-3 p-3 bg-gradient-to-br from-pink-400 to-amber-800 rounded-xl mb-4 text-white">
+                    <div v-if="bonusAmount > 0 && !isCheckingPayment && !successMessage" class="flex items-center gap-3 p-3 bg-gradient-to-br from-pink-400 to-amber-800 rounded-xl mb-4 text-white">
                         <div class="text-2xl">🎁</div>
                         <div>
                             <div class="text-xs font-medium opacity-90 mb-1">Welcome Bonus!</div>
@@ -333,9 +400,9 @@ onUnmounted(() => {
                     </div>
                 </transition>
 
-                <!-- Redirect Status -->
+                <!-- Payment Status -->
                 <transition name="fade">
-                    <div v-if="isRedirecting" 
+                    <div v-if="isCheckingPayment" 
                          class="mb-4 p-3 bg-blue-50 rounded-xl border border-blue-200">
                         <div class="flex items-center gap-3">
                             <svg class="w-5 h-5 text-blue-500 animate-spin" viewBox="0 0 24 24">
@@ -343,11 +410,10 @@ onUnmounted(() => {
                                 <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"/>
                             </svg>
                             <div>
-                                <div class="font-medium text-blue-800 text-sm">Unaelekezwa kwenye ukurasa wa malipo...</div>
+                                <div class="font-medium text-blue-800 text-sm">{{ paymentStatusMessage }}</div>
                                 <div class="text-xs text-blue-600 mt-1">
-                                    • Chagua Airtel, Tigo, au Vodacom<br>
-                                    • Ingiza namba yako ya simu<br>
-                                    • Thibitisha kwa PIN
+                                    • Enter your PIN on the phone when prompted<br>
+                                    • Do not close this page
                                 </div>
                             </div>
                         </div>
@@ -372,7 +438,7 @@ onUnmounted(() => {
 
                 <!-- Terms Agreement -->
                 <label class="flex items-center gap-3 mb-4 cursor-pointer">
-                    <input type="checkbox" v-model="termsAccepted" class="hidden" :disabled="loading || isRedirecting">
+                    <input type="checkbox" v-model="termsAccepted" class="hidden" :disabled="loading || isCheckingPayment">
                     <span class="relative inline-block w-5 h-5 bg-gray-100 border-2 border-gray-200 rounded-md transition-all"
                           :class="{ 'bg-indigo-500 border-indigo-500': termsAccepted }">
                         <span v-if="termsAccepted" class="absolute left-[5px] top-[1px] w-[5px] h-[9px] border-solid border-white border-0 border-r-2 border-b-2 rotate-45"></span>
@@ -385,11 +451,11 @@ onUnmounted(() => {
                 <!-- Deposit Button -->
                 <button 
                     class="w-full py-3 bg-gradient-to-br from-sky-400 to-sky-800 border-none rounded-xl text-white text-sm font-bold cursor-pointer transition-all mb-3 disabled:opacity-50 disabled:cursor-not-allowed hover:disabled:translate-y-0 hover:translate-y-[-2px] hover:shadow-xl"
-                    :disabled="!isFormValid || loading || isRedirecting"
+                    :disabled="!isFormValid || loading || isCheckingPayment"
                     @click="handleDeposit"
                 >
                     <span v-if="loading" class="inline-block w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin"></span>
-                    <span v-else-if="isRedirecting">Redirecting...</span>
+                    <span v-else-if="isCheckingPayment">Processing Payment...</span>
                     <span v-else>Deposit Now</span>
                 </button>
 
@@ -398,7 +464,7 @@ onUnmounted(() => {
                     <svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
                         <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd" />
                     </svg>
-                    <span>Secure transaction via Payou. You will be redirected.</span>
+                    <span>Secure transaction. Your information is encrypted.</span>
                 </div>
             </div>
         </div>
@@ -433,7 +499,7 @@ onUnmounted(() => {
                             </div>
                         </div>
                         <p class="text-xs text-gray-500 mt-3 text-center">
-                            Utakaelekezwa kwenye ukurasa wa malipo. Chagua Airtel, Tigo, au Vodacom.
+                            You will receive a USSD prompt on your phone
                         </p>
                     </div>
                     <div class="flex gap-2">

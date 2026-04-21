@@ -26,7 +26,7 @@
                     <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-emerald-100 text-emerald-800">
                       Active Account
                     </span>
-                    <span class="text-sm text-gray-500">Member since {{ memberSince }}</span>
+                    <!-- <span class="text-sm text-gray-500">Member since {{ memberSince }}</span> -->
                   </div>
                 </div>
                 
@@ -247,7 +247,7 @@
         </div>
 
         <!-- Recent Activity Card -->
-        <div class="bg-white rounded-2xl shadow-xl p-6">
+        <!-- <div class="bg-white rounded-2xl shadow-xl p-6">
           <h3 class="font-semibold text-gray-800 mb-6 flex items-center gap-2">
             <div class="p-2 bg-emerald-100 rounded-lg">
               <svg class="w-5 h-5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -279,7 +279,7 @@
             </div>
           </div>
 
-          <!-- Empty State -->
+        // Empty State 
           <div v-else class="text-center py-12">
             <div class="w-20 h-20 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
               <svg class="w-10 h-10 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -290,7 +290,7 @@
             <p class="text-sm text-gray-400 mt-1">Your activity will appear here</p>
           </div>
 
-          <!-- View All Link -->
+         // View All Link 
           <div v-if="recentActivity.length > 0" class="mt-6 text-center">
             <router-link to="/bets" class="inline-flex items-center gap-2 text-emerald-600 hover:text-emerald-700 text-sm font-medium bg-emerald-50 hover:bg-emerald-100 px-6 py-3 rounded-xl transition-all">
               View All Activity
@@ -299,7 +299,7 @@
               </svg>
             </router-link>
           </div>
-        </div>
+        </div> -->
 
         <!-- Security Settings Card -->
         <div class="bg-white rounded-2xl shadow-xl p-6">
