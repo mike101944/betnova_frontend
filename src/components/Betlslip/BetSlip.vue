@@ -521,7 +521,7 @@ onMounted(() => {
         nextTick(() => {
           forceUpdateKey.value++
         })
-      }, 100)
+      }, 200)
     }
   })
   
@@ -582,7 +582,7 @@ onBeforeUnmount(() => {
     </div>
 
     <!-- Header - Fixed -->
-    <div class="flex-shrink-0">
+    <div class="shrink-0">
       <div class="max-w-2xl mt-4 mx-auto mb-4 px-3">
         <!-- Authenticated Header -->
         <div v-if="isAuthenticated" class="bg-sky-50 border flex items-center justify-between border-sky-200 rounded-lg px-4 py-2 w-full">
@@ -593,7 +593,7 @@ onBeforeUnmount(() => {
           <div>
             <router-link 
               to="/bets" 
-              class="bg-gradient-to-r from-sky-600 to-teal-700 hover:bg-sky-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-200 flex items-center gap-2"
+              class="bg-linear-to-r from-sky-600 to-teal-700 hover:bg-sky-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-200 flex items-center gap-2"
             >
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
