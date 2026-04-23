@@ -97,11 +97,11 @@ const processDeposit = async () => {
 }
 
 const goToDashboard = () => {
-    router.push('/dashboard')
+    router.push('/')
 }
 
 const goToDeposit = () => {
-    router.push('/deposit')
+    router.push('/deposite')
 }
 
 onMounted(() => {
