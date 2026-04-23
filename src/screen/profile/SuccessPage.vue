@@ -113,7 +113,7 @@ const processDeposit = async () => {
 }
 
 const goToDashboard = () => {
-    router.push('/dashboard') // or your dashboard route
+    router.push('/') // or your dashboard route
 }
 
 // Process deposit when page loads
