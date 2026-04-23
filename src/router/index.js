@@ -78,6 +78,12 @@ const routes = [
       meta: { requiresAdmin: true }
     },
     {
+      path: '/user/deposit/history',
+      name: 'user-history',
+      component: () => import('../screen/profile/SuccessPage.vue'),
+      // meta: { requiresAdmin: true }
+    },
+    {
       path: '/adminWithDraw',
       name: 'admin-withdraw',
       component: () => import('../screen/Money/AdminWithdraw.vue'),
