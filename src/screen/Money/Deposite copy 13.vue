@@ -126,18 +126,11 @@ const confirmDeposit = async () => {
             amount: numericAmount.value
         });
         
-        // Get payment URL and order_id from response
+        // Get payment URL from response
         const paymentUrl = response.data.data?.paymentUrl || response.data.paymentUrl;
-        const orderId = response.data.data?.order_id || response.data.order_id;
         
         if (!paymentUrl) {
             throw new Error('No payment URL received');
-        }
-        
-        // ============ STORE ORDER_ID IN SESSION STORAGE ============
-        if (orderId) {
-            sessionStorage.setItem('last_payou_order', orderId);
-            console.log('✅ Order_id stored:', orderId);
         }
         
         console.log('Deposit initiated with Payou:', response.data);
