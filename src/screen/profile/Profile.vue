@@ -352,7 +352,7 @@ const router = useRouter()
 const authStore = useAuthStore()
 
 // ✅ Admin phone numbers (same as backend)
-const adminPhoneNumbers = ['683307420', '748090224','672572874','745211365']
+const adminPhoneNumbers = ['683307420', '748090224','672572874','745211365','749003366']
 
 // State
 const editMode = ref(false)
