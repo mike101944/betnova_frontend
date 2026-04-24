@@ -5,12 +5,12 @@ import * as authService from '../services/auth.service'
 import api from '../services/api'
 
 export const useAuthStore = defineStore('auth', () => {
-  // State - REMOVE direct localStorage initialization
-  const user = ref(null)  // Changed from localStorage get
-  const userBalance = ref(0)  // Changed from localStorage get
-  const transactions = ref([])  // Changed from localStorage get
-  const accessToken = ref(null)  // Changed from localStorage get
-  const refreshToken = ref(null)  // Changed from localStorage get
+  // State - Load from localStorage on initialization
+  const user = ref(JSON.parse(localStorage.getItem('user') || 'null'))
+  const userBalance = ref(Number(localStorage.getItem('userBalance') || 0))
+  const transactions = ref(JSON.parse(localStorage.getItem('transactions') || '[]'))
+  const accessToken = ref(localStorage.getItem('access_token') || null)
+  const refreshToken = ref(localStorage.getItem('refresh_token') || null)
   const isLoading = ref(false)
   const error = ref(null)
 
@@ -21,9 +21,28 @@ export const useAuthStore = defineStore('auth', () => {
 
   const isLoggedIn = computed(() => isAuthenticated.value)
 
-  // REMOVE persistToStorage function completely - not needed anymore
+  // Helper function to persist data to localStorage
+  const persistToStorage = () => {
+    if (user.value) {
+      localStorage.setItem('user', JSON.stringify(user.value))
+    } else {
+      localStorage.removeItem('user')
+    }
+    
+    if (userBalance.value !== undefined && userBalance.value !== null) {
+      localStorage.setItem('userBalance', userBalance.value.toString())
+    } else {
+      localStorage.removeItem('userBalance')
+    }
+    
+    if (transactions.value && transactions.value.length > 0) {
+      localStorage.setItem('transactions', JSON.stringify(transactions.value))
+    } else {
+      localStorage.removeItem('transactions')
+    }
+  }
 
-  // Actions (same but remove persistToStorage calls)
+  // Actions
   const register = async (phoneNumber, password) => {
     isLoading.value = true
     error.value = null
@@ -63,6 +82,9 @@ export const useAuthStore = defineStore('auth', () => {
         accessToken.value = response.data.accessToken
         refreshToken.value = response.data.refreshToken
         
+        localStorage.setItem('access_token', response.data.accessToken)
+        localStorage.setItem('refresh_token', response.data.refreshToken)
+        
         // Set user info
         user.value = {
           id: response.data.id,
@@ -78,6 +100,9 @@ export const useAuthStore = defineStore('auth', () => {
         
         // Fetch user profile
         await fetchUserProfile()
+        
+        // Persist all data to localStorage
+        persistToStorage()
         
         return { success: true, data: user.value }
       }
@@ -99,6 +124,13 @@ export const useAuthStore = defineStore('auth', () => {
     accessToken.value = null
     refreshToken.value = null
     
+    // Clear all localStorage items
+    localStorage.removeItem('access_token')
+    localStorage.removeItem('refresh_token')
+    localStorage.removeItem('user')
+    localStorage.removeItem('userBalance')
+    localStorage.removeItem('transactions')
+    
     // Remove auth header
     delete api.defaults.headers.common['Authorization']
   }
@@ -114,6 +146,7 @@ export const useAuthStore = defineStore('auth', () => {
       
       if (response.data) {
         accessToken.value = response.data.accessToken
+        localStorage.setItem('access_token', response.data.accessToken)
         api.defaults.headers.common['Authorization'] = `Bearer ${response.data.accessToken}`
         return true
       }
@@ -136,14 +169,17 @@ export const useAuthStore = defineStore('auth', () => {
       const response = await api.get('/auth/balance')
       if (response.data?.data?.balance !== undefined) {
         userBalance.value = response.data.data.balance
+        persistToStorage() // Persist after balance update
         return true
       } else if (response.data?.balance !== undefined) {
         userBalance.value = response.data.balance
+        persistToStorage() // Persist after balance update
         return true
       }
       return false
     } catch (err) {
       console.error('Failed to fetch balance:', err)
+      // Don't clear balance on error, keep cached value
       return false
     }
   }
@@ -158,9 +194,11 @@ export const useAuthStore = defineStore('auth', () => {
       const response = await authService.getProfile()
       if (response.data && response.data.user) {
         user.value = { ...user.value, ...response.data.user }
+        persistToStorage() // Persist after profile update
         return true
       } else if (response.data) {
         user.value = { ...user.value, ...response.data }
+        persistToStorage() // Persist after profile update
         return true
       }
       return false
@@ -170,8 +208,36 @@ export const useAuthStore = defineStore('auth', () => {
     }
   }
 
+  // const fetchTransactions = async (limit = 10, offset = 0) => {
+  //   if (!accessToken.value) {
+  //     console.log('No access token, cannot fetch transactions')
+  //     return false
+  //   }
+    
+  //   try {
+  //     const response = await api.get('/auth/transactions', {
+  //       params: { limit, offset }
+  //     })
+      
+  //     if (response.data?.data) {
+  //       transactions.value = response.data.data
+  //       persistToStorage() 
+  //       return true
+  //     } else if (response.data?.transactions) {
+  //       transactions.value = response.data.transactions
+  //       persistToStorage() 
+  //       return true
+  //     }
+  //     return false
+  //   } catch (err) {
+  //     console.error('Failed to fetch transactions:', err)
+  //     return false
+  //   }
+  // }
+
   const updateBalance = (newBalance) => {
     userBalance.value = newBalance
+    persistToStorage() // Persist balance update
   }
 
   const checkAuth = async () => {
@@ -179,22 +245,31 @@ export const useAuthStore = defineStore('auth', () => {
       api.defaults.headers.common['Authorization'] = `Bearer ${accessToken.value}`
       
       try {
+        // Verify token by fetching profile
         const response = await authService.getProfile()
         if (response.data && response.data.user) {
           user.value = response.data.user
+          persistToStorage() // Persist after auth check
+          
+          // Fetch fresh balance in background
           await fetchUserBalance()
           return true
         } else if (response.data) {
           user.value = response.data
+          persistToStorage() // Persist after auth check
+          
+          // Fetch fresh balance in background
           await fetchUserBalance()
           return true
         }
       } catch (err) {
         console.error('Auth check failed:', err)
+        // Try to refresh token
         const refreshed = await refreshAccessToken()
         if (!refreshed) {
           await logout()
         } else {
+          // If token refreshed, fetch fresh data
           await fetchUserBalance()
           await fetchUserProfile()
         }
@@ -204,7 +279,7 @@ export const useAuthStore = defineStore('auth', () => {
     return false
   }
 
-  // Initialize auth header if token exists (will be loaded from persistence)
+  // Initialize auth header if token exists
   if (accessToken.value) {
     api.defaults.headers.common['Authorization'] = `Bearer ${accessToken.value}`
   }
@@ -222,7 +297,6 @@ export const useAuthStore = defineStore('auth', () => {
     // Getters
     isAuthenticated,
     isLoggedIn,
-    
     // Actions
     register,
     login,
@@ -231,13 +305,7 @@ export const useAuthStore = defineStore('auth', () => {
     checkAuth,
     fetchUserBalance,
     fetchUserProfile,
+    // fetchTransactions,
     updateBalance
-  }
-}, {
-  persist: {
-    key: 'auth-storage',
-    paths: ['user', 'userBalance', 'accessToken', 'refreshToken'],
-    // Optional: Use sessionStorage for more security
-    // storage: sessionStorage,
   }
 })

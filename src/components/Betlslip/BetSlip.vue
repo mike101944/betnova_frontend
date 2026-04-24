@@ -1,12 +1,12 @@
 <script setup>
-import { ref, computed, onMounted, onBeforeUnmount } from 'vue'
+import { ref, computed, onMounted, onBeforeUnmount, watch, nextTick } from 'vue'
 import { useAuthStore } from '../../store/authStore'
 import api from '../../services/api'
 
 // Active tab
 const activeTab = ref('sports')
 const bookingCode = ref('')
-const stakeAmount = ref(100)
+const stakeAmount = ref('')
 
 // Auth store
 const authStore = useAuthStore()
@@ -17,58 +17,221 @@ const error = ref(null)
 const success = ref(null)
 const loadingMessage = ref('')
 
-// Simple reactive data - direct, no store for bets yet
+// Sports Bets - Load from localStorage
 const sportsBets = ref([])
+
+// Virtuals Bets
 const virtualsBets = ref([])
 
+// Force update key for iOS/Safari
+const forceUpdateKey = ref(0)
+
+// Detect iOS/Safari
+const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream
+const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent)
+
 // Check if user is authenticated
-const isAuthenticated = computed(() => authStore.isAuthenticated)
-const userBalance = computed(() => authStore.userBalance || 0)
+const isAuthenticated = computed(() => {
+  return authStore.isAuthenticated
+})
 
-// Simple localStorage functions
-const saveBets = () => {
-  try {
-    localStorage.setItem('betslip_sports', JSON.stringify(sportsBets.value))
-  } catch(e) { console.error('Save error:', e) }
-}
+// Get user balance from auth store
+const userBalance = computed(() => {
+  return authStore.userBalance || 0
+})
 
-const loadBets = () => {
-  try {
-    const saved = localStorage.getItem('betslip_sports')
-    if (saved) {
-      sportsBets.value = JSON.parse(saved)
-      console.log('Loaded bets:', sportsBets.value.length)
-    }
-  } catch(e) { console.error('Load error:', e) }
-}
-
-// Validation
+// Check if user has sufficient balance
 const insufficientBalance = computed(() => {
   const stake = parseFloat(stakeAmount.value) || 0
   return stake > userBalance.value
 })
 
+// Check if stake is valid (minimum 100)
 const isValidStake = computed(() => {
   const stake = parseFloat(stakeAmount.value) || 0
   return stake >= 100
 })
 
+// Format balance
+const formatBalance = (amount) => {
+  return new Intl.NumberFormat('sw-TZ', {
+    style: 'currency',
+    currency: 'TZS',
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 0
+  }).format(amount || 0)
+}
+
+// Save to localStorage with iOS/Safari compatibility
+const saveToLocalStorage = (bets) => {
+  try {
+    const dataToSave = JSON.stringify(bets)
+    localStorage.setItem('betslip_selections', dataToSave)
+    
+    // iOS/Safari compatible custom event
+    if (window.CustomEvent) {
+      try {
+        const event = new CustomEvent('betslip-update', { detail: bets })
+        window.dispatchEvent(event)
+      } catch (e) {
+        // Fallback for older iOS
+        const event = document.createEvent('CustomEvent')
+        event.initCustomEvent('betslip-update', true, true, bets)
+        window.dispatchEvent(event)
+      }
+    }
+    
+    // Force storage event for cross-tab communication
+    try {
+      const storageEvent = new StorageEvent('storage', {
+        key: 'betslip_selections',
+        newValue: dataToSave,
+        oldValue: localStorage.getItem('betslip_selections')
+      })
+      window.dispatchEvent(storageEvent)
+    } catch (e) {
+      // Fallback: manually trigger handleStorageChange
+      handleStorageChange({ key: 'betslip_selections' })
+    }
+    
+    // Force Vue to update for iOS
+    forceUpdateKey.value++
+  } catch (e) {
+    console.error('Error saving to localStorage:', e)
+  }
+}
+
+// Load from localStorage with iOS/Safari compatibility
+const loadFromLocalStorage = () => {
+  try {
+    const savedBets = localStorage.getItem('betslip_selections')
+    if (savedBets) {
+      const parsed = JSON.parse(savedBets)
+      if (JSON.stringify(sportsBets.value) !== JSON.stringify(parsed)) {
+        sportsBets.value = parsed
+        console.log('Bets loaded from localStorage:', sportsBets.value)
+        // Force re-render for iOS
+        nextTick(() => {
+          forceUpdateKey.value++
+        })
+      }
+    } else {
+      if (sportsBets.value.length > 0) {
+        sportsBets.value = []
+      }
+    }
+  } catch (e) {
+    console.error('Error parsing saved bets:', e)
+    sportsBets.value = []
+  }
+}
+
+// iOS/Safari compatible event handler
+const handleBetslipUpdate = (event) => {
+  console.log('handleBetslipUpdate called:', event)
+  
+  // Handle different event formats for iOS compatibility
+  let bets = null
+  
+  if (event.detail) {
+    bets = event.detail
+  } else if (event.detail && typeof event.detail === 'object') {
+    bets = event.detail
+  } else if (event && typeof event === 'object') {
+    bets = event
+  }
+  
+  // Check if bets is in the detail property (for older iOS)
+  if (bets && bets.detail && !Array.isArray(bets)) {
+    bets = bets.detail
+  }
+  
+  if (bets && Array.isArray(bets)) {
+    if (JSON.stringify(sportsBets.value) !== JSON.stringify(bets)) {
+      sportsBets.value = bets
+      console.log('Betslip updated from event:', sportsBets.value)
+      // Force re-render for iOS
+      nextTick(() => {
+        forceUpdateKey.value++
+      })
+    }
+  } else if (bets && typeof bets === 'string') {
+    try {
+      const parsed = JSON.parse(bets)
+      if (Array.isArray(parsed)) {
+        sportsBets.value = parsed
+        nextTick(() => {
+          forceUpdateKey.value++
+        })
+      }
+    } catch (e) {
+      console.error('Error parsing bets from event:', e)
+    }
+  }
+}
+
+// Handle storage changes with iOS compatibility
+const handleStorageChange = (event) => {
+  if (event.key === 'betslip_selections' || event.key === null) {
+    // Small delay for iOS to ensure storage is written
+    setTimeout(() => {
+      loadFromLocalStorage()
+    }, 50)
+  }
+}
+
+// Watch sportsBets and save changes
+watch(sportsBets, (newBets) => {
+  if (newBets && Array.isArray(newBets)) {
+    saveToLocalStorage(newBets)
+  }
+}, { deep: true })
+
+// Computed properties with force update key for iOS
+const sportsSelections = computed(() => {
+  // Force recomputation when forceUpdateKey changes (iOS fix)
+  forceUpdateKey.value
+  return sportsBets.value
+})
+
+const totalSportsOdds = computed(() => {
+  if (sportsSelections.value.length === 0) return 0
+  return sportsSelections.value.reduce((product, bet) => {
+    return product * parseFloat(bet.odds)
+  }, 1)
+})
+
+const totalSportsReturns = computed(() => {
+  const stake = parseFloat(stakeAmount.value) || 0
+  return stake * totalSportsOdds.value
+})
+
+const virtualsSelections = computed(() => virtualsBets.value)
+
+const totalVirtualsOdds = computed(() => {
+  if (virtualsSelections.value.length === 0) return 0
+  return virtualsSelections.value.reduce((product, bet) => {
+    return product * parseFloat(bet.odds)
+  }, 1)
+})
+
+const totalVirtualsReturns = computed(() => {
+  const stake = parseFloat(stakeAmount.value) || 0
+  return stake * totalVirtualsOdds.value
+})
+
 const currentSelectionsCount = computed(() => {
-  return activeTab.value === 'sports' ? sportsBets.value.length : virtualsBets.value.length
+  return activeTab.value === 'sports' 
+    ? sportsSelections.value.length 
+    : virtualsSelections.value.length
 })
 
 const currentTotalOdds = computed(() => {
-  if (activeTab.value === 'sports') {
-    if (sportsBets.value.length === 0) return 0
-    return sportsBets.value.reduce((p, bet) => p * parseFloat(bet.odds), 1)
-  }
-  if (virtualsBets.value.length === 0) return 0
-  return virtualsBets.value.reduce((p, bet) => p * parseFloat(bet.odds), 1)
+  return activeTab.value === 'sports' ? totalSportsOdds.value : totalVirtualsOdds.value
 })
 
 const currentTotalReturns = computed(() => {
-  const stake = parseFloat(stakeAmount.value) || 0
-  return stake * currentTotalOdds.value
+  return activeTab.value === 'sports' ? totalSportsReturns.value : totalVirtualsReturns.value
 })
 
 const canPlaceBet = computed(() => {
@@ -80,27 +243,35 @@ const canPlaceBet = computed(() => {
          !insufficientBalance.value
 })
 
-const formatBalance = (amount) => {
-  return new Intl.NumberFormat('sw-TZ', {
-    style: 'currency',
-    currency: 'TZS',
-    minimumFractionDigits: 0,
-    maximumFractionDigits: 0
-  }).format(amount || 0)
-}
-
+// Methods
 const removeSportsBet = (index) => {
-  sportsBets.value.splice(index, 1)
-  saveBets()
+  const newBets = [...sportsBets.value]
+  newBets.splice(index, 1)
+  sportsBets.value = newBets
+  // Force update for iOS
+  nextTick(() => {
+    forceUpdateKey.value++
+  })
 }
 
 const removeVirtualBet = (index) => {
   virtualsBets.value.splice(index, 1)
 }
 
+// Auto-hide success message after 3 seconds
 const showSuccessMessage = (message) => {
   success.value = message
-  setTimeout(() => { success.value = null }, 3000)
+  setTimeout(() => {
+    success.value = null
+  }, 3000)
+}
+
+// Force reload bets from localStorage (iOS fix)
+const forceReloadBets = () => {
+  loadFromLocalStorage()
+  nextTick(() => {
+    forceUpdateKey.value++
+  })
 }
 
 // Load booking code
@@ -126,73 +297,199 @@ const loadBookingCode = async () => {
   loadingMessage.value = 'Loading bets from booking code...'
   
   try {
-    const response = await api.get(`/bets/active/${encodeURIComponent(cleanCode)}`)
-    let bet = response.data?.data || response.data
+    console.log('Loading booking code:', cleanCode)
     
-    if (bet && bet.selections && Array.isArray(bet.selections) && bet.selections.length > 0) {
-      const loadedBets = bet.selections.map((selection, index) => ({
-        id: `${bet.id}-${index}-${Date.now()}-${Math.random()}`,
-        match: selection.match || selection.matchName || 'Unknown Match',
-        league: selection.league || selection.leagueName || 'Unknown League',
-        time: selection.matchTime || selection.time || 'Today',
-        odds: selection.odds ? parseFloat(selection.odds) : 1.00,
-        selection: selection.selection || selection.prediction || 'Unknown',
-        betId: bet.id
-      }))
-      
-      sportsBets.value = loadedBets
-      saveBets()
-      bookingCode.value = ''
-      stakeAmount.value = 100
-      showSuccessMessage(`✅ Successfully loaded ${loadedBets.length} selection(s)!`)
+    const response = await api.get(`/bets/active/${encodeURIComponent(cleanCode)}`)
+    
+    let bet = null
+    
+    if (response.data && response.data.success === true && response.data.data) {
+      bet = response.data.data
+    } else if (response.data && response.data.data && !response.data.success) {
+      bet = response.data.data
+    } else if (response.data && !response.data.data) {
+      bet = response.data
+    }
+    
+    if (bet) {
+      if (bet.selections && Array.isArray(bet.selections) && bet.selections.length > 0) {
+        const loadedBets = bet.selections.map((selection, index) => ({
+          id: `${bet.id}-${index}-${Date.now()}-${Math.random()}`,
+          match: selection.match || selection.matchName || selection.event || 'Unknown Match',
+          league: selection.league || selection.leagueName || selection.competition || 'Unknown League',
+          time: selection.matchTime || selection.time || selection.datetime || 'Today',
+          odds: selection.odds ? selection.odds.toString() : '1.00',
+          selection: selection.selection || selection.prediction || selection.bet || 'Unknown',
+          betId: bet.id
+        }))
+        
+        sportsBets.value = loadedBets
+        bookingCode.value = ''
+        showSuccessMessage(`✅ Successfully loaded ${loadedBets.length} selection(s)!`)
+        stakeAmount.value = ''
+        
+        // Force iOS update
+        nextTick(() => {
+          forceUpdateKey.value++
+        })
+        
+        // Save to localStorage
+        saveToLocalStorage(loadedBets)
+        
+      } else if (bet.selections && typeof bet.selections === 'string') {
+        try {
+          const parsedSelections = JSON.parse(bet.selections)
+          if (Array.isArray(parsedSelections) && parsedSelections.length > 0) {
+            const loadedBets = parsedSelections.map((selection, index) => ({
+              id: `${bet.id}-${index}-${Date.now()}-${Math.random()}`,
+              match: selection.match || 'Unknown Match',
+              league: selection.league || 'Unknown League',
+              time: selection.matchTime || 'Today',
+              odds: selection.odds ? selection.odds.toString() : '1.00',
+              selection: selection.selection || 'Unknown',
+              betId: bet.id
+            }))
+            sportsBets.value = loadedBets
+            bookingCode.value = ''
+            showSuccessMessage(`✅ Successfully loaded ${loadedBets.length} selection(s)!`)
+            stakeAmount.value = ''
+            
+            nextTick(() => {
+              forceUpdateKey.value++
+            })
+            
+            saveToLocalStorage(loadedBets)
+            return
+          }
+        } catch (e) {
+          console.error('Failed to parse selections string:', e)
+        }
+        
+        error.value = '❌ No selections found in this booking code'
+        setTimeout(() => { error.value = null }, 3000)
+      } else {
+        error.value = '❌ No selections found in this booking code'
+        setTimeout(() => { error.value = null }, 3000)
+      }
     } else {
-      error.value = '❌ No selections found in this booking code'
+      error.value = 'Invalid response from server. Please try again.'
       setTimeout(() => { error.value = null }, 3000)
     }
   } catch (err) {
-    console.error('Error:', err)
-    error.value = '❌ Failed to load booking code'
-    setTimeout(() => { error.value = null }, 3000)
+    console.error('Error loading booking code:', err)
+    
+    if (err.response) {
+      const statusCode = err.response.status
+      const errorData = err.response.data
+      const errorMessage = errorData?.message || errorData?.error || ''
+      
+      if (statusCode === 404) {
+        error.value = '❌ Booking code not found. Please check and try again.'
+      } else if (statusCode === 400) {
+        if (errorMessage.toLowerCase().includes('settled')) {
+          error.value = '❌ This bet has already been settled and cannot be loaded'
+        } else if (errorMessage.toLowerCase().includes('expired')) {
+          error.value = '❌ This booking code has expired'
+        } else {
+          error.value = `❌ ${errorMessage || 'Cannot load this bet'}`
+        }
+      } else if (statusCode === 401) {
+        error.value = '❌ Please login again to load booking codes'
+      } else {
+        error.value = `❌ Server error (${statusCode}). Please try again later.`
+      }
+    } else if (err.request) {
+      error.value = '❌ Network error. Please check your connection.'
+    } else {
+      error.value = err.message || '❌ Failed to load booking code. Please try again.'
+    }
+    
+    setTimeout(() => { error.value = null }, 5000)
   } finally {
     isLoading.value = false
     loadingMessage.value = ''
   }
 }
 
-// Place bet
+// Place bet using API
 const placeBet = async () => {
   if (!canPlaceBet.value) return
   
-  const selections = activeTab.value === 'sports' ? sportsBets.value : virtualsBets.value
+  const selections = activeTab.value === 'sports' 
+    ? sportsSelections.value 
+    : virtualsSelections.value
+  
+  if (selections.length === 0) {
+    error.value = 'No selections to place'
+    setTimeout(() => { error.value = null }, 3000)
+    return
+  }
+  
+  const stake = parseFloat(stakeAmount.value)
+  if (stake < 100.00 ) {
+    error.value = 'Minimum stake is 100.00  Tsh'
+    setTimeout(() => { error.value = null }, 3000)
+    return
+  }
   
   isLoading.value = true
   loadingMessage.value = 'Placing your bet...'
   error.value = null
   
   try {
-    const formattedSelections = selections.map(s => ({
-      match: s.match,
-      selection: s.selection,
-      odds: parseFloat(s.odds),
-      league: s.league,
-      time: s.time
+    const formattedSelections = selections.map(selection => ({
+      match: selection.match,
+      selection: selection.selection,
+      odds: parseFloat(selection.odds),
+      league: selection.league,
+      time: selection.time
     }))
     
     const response = await api.post('/bets', {
       selections: formattedSelections,
-      stake: parseFloat(stakeAmount.value)
+      stake: stake
     })
     
     if (response.data.success) {
       await authStore.fetchUserBalance()
-      showSuccessMessage(`✅ Bet placed! Code: ${response.data.data.bookingCode}`)
-      sportsBets.value = []
-      virtualsBets.value = []
-      saveBets()
-      stakeAmount.value = 100
+      showSuccessMessage(`✅ Bet placed successfully! Code: ${response.data.data.bookingCode}`)
+      
+      if (activeTab.value === 'sports') {
+        sportsBets.value = []
+      } else {
+        virtualsBets.value = []
+      }
+      
+      stakeAmount.value = ''
+      
+      // Clear localStorage
+      localStorage.removeItem('betslip_selections')
+      
+      // iOS compatible event dispatch
+      try {
+        const clearEvent = new CustomEvent('bets-cleared')
+        window.dispatchEvent(clearEvent)
+      } catch (e) {
+        const clearEvent = document.createEvent('CustomEvent')
+        clearEvent.initCustomEvent('bets-cleared', true, true, null)
+        window.dispatchEvent(clearEvent)
+      }
+      
+      // Force iOS update
+      nextTick(() => {
+        forceUpdateKey.value++
+      })
     }
   } catch (err) {
-    error.value = err.response?.data?.message || 'Failed to place bet'
+    console.error('Error placing bet:', err)
+    
+    if (err.response?.data?.message) {
+      error.value = err.response.data.message
+    } else if (err.message) {
+      error.value = err.message
+    } else {
+      error.value = 'Failed to place bet. Please try again.'
+    }
     setTimeout(() => { error.value = null }, 3000)
   } finally {
     isLoading.value = false
@@ -200,43 +497,63 @@ const placeBet = async () => {
   }
 }
 
-// Handle add bet from other components
-const handleAddBet = (event) => {
-  const bet = event.detail
-  if (bet) {
-    const exists = sportsBets.value.some(b => b.id === bet.id)
-    if (!exists) {
-      sportsBets.value.push(bet)
-      saveBets()
-      showSuccessMessage('Bet added!')
-    }
-  }
-}
-
+// Lifecycle hooks with iOS/Safari optimizations
 onMounted(() => {
-  console.log('Component mounted')
-  loadBets()
+  console.log('Component mounted - iOS:', isIOS, 'Safari:', isSafari)
+  
+  // Load bets
+  loadFromLocalStorage()
   
   if (isAuthenticated.value) {
     authStore.fetchUserBalance()
   }
   
-  window.addEventListener('add-bet-to-slip', handleAddBet)
+  // Set up event listeners with iOS compatibility
+  window.addEventListener('storage', handleStorageChange)
+  window.addEventListener('betslip-update', handleBetslipUpdate)
   
-  // Debug: Check if data loads
-  setTimeout(() => {
-    console.log('Sports bets after mount:', sportsBets.value.length)
+  // iOS/Safari: Also listen for page visibility changes
+  document.addEventListener('visibilitychange', () => {
+    if (!document.hidden) {
+      // Page became visible again - reload bets
+      setTimeout(() => {
+        loadFromLocalStorage()
+        nextTick(() => {
+          forceUpdateKey.value++
+        })
+      }, 200)
+    }
+  })
+  
+  // iOS/Safari: Periodic check for localStorage changes (every 1 second)
+  let lastStoredValue = localStorage.getItem('betslip_selections')
+  const intervalId = setInterval(() => {
+    const currentValue = localStorage.getItem('betslip_selections')
+    if (currentValue !== lastStoredValue) {
+      lastStoredValue = currentValue
+      loadFromLocalStorage()
+      nextTick(() => {
+        forceUpdateKey.value++
+      })
+    }
   }, 1000)
+  
+  // Clean up interval on unmount
+  const originalUnmount = onBeforeUnmount
+  originalUnmount(() => {
+    clearInterval(intervalId)
+  })
 })
 
 onBeforeUnmount(() => {
-  window.removeEventListener('add-bet-to-slip', handleAddBet)
+  window.removeEventListener('storage', handleStorageChange)
+  window.removeEventListener('betslip-update', handleBetslipUpdate)
+  document.removeEventListener('visibilitychange', () => {})
 })
 </script>
 
-<!-- Template yako EXACTLY kama ilivyo, isipokuwa ondoa debug div baada ya kujaribu -->
 <template>
-  <div class="flex flex-col flex-[36%] bg-gray-300 h-full">
+  <div class=" flex flex-col flex-[36%] bg-gray-300  h-full ">
     <!-- Toast Messages -->
     <Transition name="fade">
       <div v-if="success" class="fixed top-4 right-4 z-50 bg-sky-500 text-white px-6 py-3 rounded-lg shadow-lg flex items-center gap-2">
@@ -257,7 +574,7 @@ onBeforeUnmount(() => {
     </Transition>
 
     <!-- Loading Overlay -->
-    <div v-if="isLoading" class="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
+    <div v-if="isLoading" class="fixed inset-0 bg-transparent flex items-center justify-center z-50">
       <div class="bg-white p-6 rounded-lg shadow-xl">
         <div class="animate-spin rounded-full h-10 w-10 border-b-2 border-sky-600 mx-auto"></div>
         <p class="text-gray-700 mt-3">{{ loadingMessage }}</p>
@@ -276,7 +593,7 @@ onBeforeUnmount(() => {
           <div>
             <router-link 
               to="/bets" 
-              class="bg-gradient-to-r from-sky-600 to-teal-700 hover:bg-sky-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-200 flex items-center gap-2"
+              class="bg-linear-to-r from-sky-600 to-teal-700 hover:bg-sky-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-200 flex items-center gap-2"
             >
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
@@ -410,7 +727,7 @@ onBeforeUnmount(() => {
           <div v-else class="space-y-4">
             <div v-for="(bet, index) in sportsBets" :key="bet.id" 
                  class="group relative bg-gradient-to-r from-gray-50 to-white rounded-lg border border-gray-200 p-3 hover:shadow-md transition-all duration-200">
-              <button @click="removeSportsBet(index)" class="absolute -top-2 -right-2 bg-red-500 text-white rounded-full p-1 shadow-lg hover:bg-red-600">
+              <button @click="removeSportsBet(index)" class="absolute -top-2 -right-2 bg-red-500 text-white rounded-full p-1  shadow-lg">
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
                 </svg>
@@ -426,8 +743,8 @@ onBeforeUnmount(() => {
 
               <div class="mt-2 flex items-center gap-2">
                 <span class="text-xs text-gray-600">Selected:</span>
-                <span class="text-sm font-medium bg-sky-100 text-sky-700 px-2 py-1 rounded">
-                  {{ bet.selection }} @ {{ bet.odds }}
+                <span class="text-sm font-medium text-sky-200 bg-sky-200 px-2 py-1 rounded">
+                  <!-- {{ bet.selection }} @ {{ bet.odds }} -->####****
                 </span>
                 <span class="text-xs text-gray-500 ml-auto">{{ bet.time }}</span>
               </div>
@@ -490,7 +807,7 @@ onBeforeUnmount(() => {
                 Tsh
               </span>
             </div>
-            <p v-if="stakeAmount && stakeAmount < 100" class="text-xs text-red-500 mt-1">
+            <p v-if="stakeAmount && stakeAmount < 100.00" class="text-xs text-red-500 mt-1">
               Minimum stake is 100.00 Tsh
             </p>
           </div>
@@ -572,7 +889,7 @@ onBeforeUnmount(() => {
   background: #09d6a0;
 }
 
-/* Animation */
+/* Your existing styles */
 @keyframes spin {
   from {
     transform: rotate(0deg);
@@ -588,30 +905,5 @@ onBeforeUnmount(() => {
 
 .h-full {
   height: 100vh;
-}
-
-
-/* Ongeza hii kwenye style yako */
-.flex {
-  display: flex;
-}
-
-.flex-col {
-  flex-direction: column;
-}
-
-.flex-1 {
-  flex: 1 1 0%;
-}
-
-.h-full {
-  height: 100%;
-}
-
-/* Kwa iPhone - ensure parent has height */
-html, body, #app {
-  height: 100%;
-  margin: 0;
-  padding: 0;
 }
 </style>
