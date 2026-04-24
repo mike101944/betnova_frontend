@@ -1,4 +1,3 @@
-// stores/betSlipStore.js
 import { defineStore } from 'pinia'
 
 export const useBetslipStore = defineStore('betslip', {
@@ -26,21 +25,7 @@ export const useBetslipStore = defineStore('betslip', {
       return state.sportsBets.some(
         bet => bet.eventId === eventId && bet.selection === selection
       )
-    },
-    
-    // Add for virtuals if needed
-    totalVirtualsOdds: (state) => {
-      if (state.virtualsBets.length === 0) return 0
-      return state.virtualsBets.reduce((product, bet) => {
-        return product * parseFloat(bet.odds)
-      }, 1)
-    },
-    
-    totalVirtualsReturns: (state) => {
-      return (parseFloat(state.stakeAmount) || 0) * state.totalVirtualsOdds
-    },
-    
-    virtualsSelectionsCount: (state) => state.virtualsBets.length
+    }
   },
   
   actions: {
@@ -48,7 +33,8 @@ export const useBetslipStore = defineStore('betslip', {
       const exists = this.sportsBets.some(bet => bet.id === selection.id)
       if (!exists) {
         this.sportsBets.push(selection)
-        // REMOVE saveToLocalStorage() - Pinia plugin itashughulikia
+        // Optional: Save to localStorage
+        this.saveToLocalStorage()
       }
     },
     
@@ -56,42 +42,39 @@ export const useBetslipStore = defineStore('betslip', {
       const index = this.sportsBets.findIndex(bet => bet.id === selectionId)
       if (index !== -1) {
         this.sportsBets.splice(index, 1)
-        // REMOVE saveToLocalStorage()
+        this.saveToLocalStorage()
       }
     },
     
     removeSportsBet(index) {
       this.sportsBets.splice(index, 1)
-      // REMOVE saveToLocalStorage()
-    },
-    
-    removeVirtualBet(index) {
-      this.virtualsBets.splice(index, 1)
+      this.saveToLocalStorage()
     },
     
     clearBetslip() {
       this.sportsBets = []
-      this.virtualsBets = []
-      // REMOVE saveToLocalStorage()
+      this.saveToLocalStorage()
     },
     
     setStakeAmount(amount) {
       this.stakeAmount = amount
     },
     
-    loadBetsFromBooking(bets) {
-      this.sportsBets = bets
+    // LocalStorage persistence
+    saveToLocalStorage() {
+      localStorage.setItem('betslip_store', JSON.stringify({
+        sportsBets: this.sportsBets,
+        stakeAmount: this.stakeAmount
+      }))
     },
     
-    // REMOVE these two methods completely - we don't need them anymore
-    // saveToLocalStorage() { ... },
-    // loadFromLocalStorage() { ... }
-  },
-  
-  // ADD THIS - Pinia persistence configuration
-  persist: {
-    key: 'betslip_store',  // Same key as before for compatibility
-    paths: ['sportsBets', 'virtualsBets', 'stakeAmount'], // Only store these states
-    storage: localStorage,  // Will work on iOS with fallback
+    loadFromLocalStorage() {
+      const saved = localStorage.getItem('betslip_store')
+      if (saved) {
+        const data = JSON.parse(saved)
+        this.sportsBets = data.sportsBets || []
+        this.stakeAmount = data.stakeAmount || 100
+      }
+    }
   }
 })
