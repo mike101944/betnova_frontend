@@ -523,34 +523,31 @@ const placeBet = async () => {
   }
 }
 
-onMounted(async () => {
-  console.log('Component mounted - iOS:', isIOS, 'Safari:', isSafari)
+// 1. Tengeneza function moja kwa ajili ya Pageshow
+const handlePageShow = () => {
+  loadFromLocalStorage()
+  forceUpdateKey.value++
+}
 
-  // 1. iOS Fix: Delay kidogo wakati wa kuanza (Storage Sync)
+onMounted(async () => {
+  console.log('Component mounted - iOS:', isIOS)
+
   setTimeout(() => {
     loadFromLocalStorage()
   }, 100)
 
-  // 2. Fetch Balance/Auth kwa usalama
   if (isAuthenticated.value) {
     try {
-      await authStore.checkAuth() // Hii ni bora kuliko fetchUserBalance pekee
+      await authStore.checkAuth()
     } catch (e) {
-      console.error("Auth check failed on mount")
+      console.error("Auth check failed")
     }
   }
 
-  // 3. Event Listeners (Zimeboreshwa)
   window.addEventListener('storage', handleStorageChange)
   window.addEventListener('betslip-update', handleBetslipUpdate)
-  
-  // iOS Fix: Hii ni muhimu kuliko visibilitychange
-  window.addEventListener('pageshow', () => {
-    loadFromLocalStorage()
-    forceUpdateKey.value++
-  })
+  window.addEventListener('pageshow', handlePageShow) // Tumia jina la function
 
-  // 4. Periodic Check (Iliyoboreshwa)
   let lastStoredValue = localStorage.getItem('betslip_selections')
   const intervalId = setInterval(() => {
     const currentValue = localStorage.getItem('betslip_selections')
@@ -558,17 +555,15 @@ onMounted(async () => {
       lastStoredValue = currentValue
       loadFromLocalStorage()
     }
-  }, 1500) // Tumeiongeza kidogo iwe 1.5s ili kupunguza mzigo kwa iPhone
+  }, 1500)
 
-  // Hifadhi interval ID ili tuweze kuifuta nje
   window._betslipInterval = intervalId
 })
 
-// Iweke hii NJE ya onMounted
 onBeforeUnmount(() => {
   window.removeEventListener('storage', handleStorageChange)
   window.removeEventListener('betslip-update', handleBetslipUpdate)
-  window.removeEventListener('pageshow', loadFromLocalStorage)
+  window.removeEventListener('pageshow', handlePageShow) // Sasa itafuta vizuri
   
   if (window._betslipInterval) {
     clearInterval(window._betslipInterval)
