@@ -504,7 +504,6 @@ onMounted(() => {
   // Load bets
   loadFromLocalStorage()
   
-  
   if (isAuthenticated.value) {
     authStore.fetchUserBalance()
   }
@@ -553,8 +552,9 @@ onBeforeUnmount(() => {
 })
 </script>
 
+
 <template>
-  <div class="betslip-container">
+  <div class="flex flex-col bg-gray-300 h-full w-full overflow-hidden">
     <!-- Toast Messages -->
     <Transition name="fade">
       <div v-if="success" class="fixed top-4 right-4 z-50 bg-sky-500 text-white px-6 py-3 rounded-lg shadow-lg flex items-center gap-2">
@@ -583,7 +583,7 @@ onBeforeUnmount(() => {
     </div>
 
     <!-- Header -->
-    <div class="betslip-header">
+    <div class="flex-shrink-0">
       <div class="max-w-2xl mt-4 mx-auto mb-4 px-3">
         <!-- Authenticated Header -->
         <div v-if="isAuthenticated" class="bg-sky-50 border flex items-center justify-between border-sky-200 rounded-lg px-4 py-2 w-full">
@@ -621,15 +621,15 @@ onBeforeUnmount(() => {
       </div>
     </div>
 
-    <!-- Main Scrollable Area - FIXED FOR iOS -->
-    <div class="betslip-main">
+    <!-- Main Content - iOS fixes applied with custom classes -->
+    <div class="flex-1 flex flex-col min-h-0 overflow-hidden">
       
-      <!-- Tabs Header -->
-      <div class="tabs-header">
+      <!-- Tabs -->
+      <div class="flex border-b border-gray-200 bg-gray-50 flex-shrink-0">
         <button
           @click="activeTab = 'sports'"
-          class="tab-button"
-          :class="activeTab === 'sports' ? 'tab-active' : 'tab-inactive'"
+          class="flex-1 py-2 px-6 text-sm md:text-base font-medium transition-all duration-200"
+          :class="activeTab === 'sports' ? 'text-sky-600 bg-white border-b-2 border-sky-600' : 'text-gray-500 hover:text-gray-700 hover:bg-gray-100'"
         >
           <div class="flex items-center justify-center gap-2">
             <svg class="w-5 h-5" :class="activeTab === 'sports' ? 'text-sky-600' : 'text-gray-400'" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -642,8 +642,8 @@ onBeforeUnmount(() => {
         
         <button
           @click="activeTab = 'virtuals'"
-          class="tab-button"
-          :class="activeTab === 'virtuals' ? 'tab-active' : 'tab-inactive'"
+          class="flex-1 py-2 px-6 text-sm md:text-base font-medium transition-all duration-200"
+          :class="activeTab === 'virtuals' ? 'text-sky-600 bg-white border-b-2 border-sky-600' : 'text-gray-500 hover:text-gray-700 hover:bg-gray-100'"
         >
           <div class="flex items-center justify-center gap-2">
             <svg class="w-5 h-5" :class="activeTab === 'virtuals' ? 'text-sky-600' : 'text-gray-400'" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -656,7 +656,7 @@ onBeforeUnmount(() => {
       </div>
 
       <!-- Warning Messages -->
-      <div class="warning-messages">
+      <div class="flex-shrink-0 px-4">
         <div v-if="isAuthenticated && insufficientBalance && currentSelectionsCount > 0" class="mb-4 bg-orange-100 border border-orange-400 text-orange-700 px-4 py-3 rounded relative">
           <strong class="font-bold">💰 Insufficient Balance! </strong>
           <span class="block sm:inline">You need Tsh {{ (parseFloat(stakeAmount) - userBalance).toFixed(0) }} more to place this bet.</span>
@@ -671,12 +671,11 @@ onBeforeUnmount(() => {
         </div>
       </div>
 
-      <!-- Scrollable Content -->
-      <div class="scrollable-content">
+      <!-- Scrollable Content - iOS scroll fix -->
+      <div class="scrollable-ios flex-1 px-4 pb-20 pt-4">
         
-        <!-- Sports Tab Content -->
+        <!-- Sports Tab -->
         <div v-if="activeTab === 'sports'" class="space-y-6">
-          <!-- Booking Code Input -->
           <div v-if="sportsBets.length === 0" class="space-y-4">
             <div class="bg-sky-50 border border-sky-200 rounded-lg p-4">
               <p class="text-sm text-sky-800 mb-3">Load your bets using a booking code</p>
@@ -700,7 +699,6 @@ onBeforeUnmount(() => {
               <p class="text-xs text-gray-500 mt-2">Only open and pending bets can be loaded</p>
             </div>
 
-            <!-- Empty State -->
             <div class="text-center py-8">
               <svg class="w-20 h-20 text-gray-300 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
@@ -710,7 +708,6 @@ onBeforeUnmount(() => {
             </div>
           </div>
 
-          <!-- Sports Bets List -->
           <div v-else class="space-y-4">
             <div v-for="(bet, index) in sportsBets" :key="bet.id" 
                  class="group relative bg-gradient-to-r from-gray-50 to-white rounded-lg border border-gray-200 p-3 hover:shadow-md transition-all duration-200">
@@ -739,7 +736,7 @@ onBeforeUnmount(() => {
           </div>
         </div>
 
-        <!-- Virtuals Tab Content -->
+        <!-- Virtuals Tab -->
         <div v-else class="space-y-6">
           <div v-if="virtualsBets.length > 0" class="space-y-4">
             <div v-for="(bet, index) in virtualsBets" :key="bet.id" 
@@ -857,105 +854,20 @@ onBeforeUnmount(() => {
   opacity: 0;
 }
 
-/* Main container - iOS fixed */
-.betslip-container {
-  display: flex;
-  flex-direction: column;
-  background-color: #d1d5db;
+/* iOS scroll fix - Tailwind haisupport hizi properties */
+.scrollable-ios {
+  -webkit-overflow-scrolling: touch;
+  overflow-y: auto;
+  min-height: 0;
+}
+
+/* iOS height fix */
+.h-full {
   height: 100vh;
   height: -webkit-fill-available;
-  height: 100dvh;
-  width: 100%;
-  overflow: hidden;
 }
 
-/* Header - fixed at top */
-.betslip-header {
-  flex-shrink: 0;
-}
-
-/* Main area - takes remaining space */
-.betslip-main {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  min-height: 0;
-  overflow: hidden;
-}
-
-/* Tabs header - fixed */
-.tabs-header {
-  display: flex;
-  border-bottom: 1px solid #e5e7eb;
-  background-color: #f9fafb;
-  flex-shrink: 0;
-}
-
-.tab-button {
-  flex: 1;
-  padding: 0.5rem 1.5rem;
-  font-size: 0.875rem;
-  font-weight: 500;
-  transition: all 0.2s;
-  position: relative;
-}
-
-@media (min-width: 768px) {
-  .tab-button {
-    font-size: 1rem;
-  }
-}
-
-.tab-active {
-  color: #0284c7;
-  background-color: white;
-  border-bottom: 2px solid #0284c7;
-}
-
-.tab-inactive {
-  color: #6b7280;
-}
-
-.tab-inactive:hover {
-  color: #374151;
-  background-color: #f3f4f6;
-}
-
-/* Warning messages - fixed */
-.warning-messages {
-  flex-shrink: 0;
-  padding: 0 1rem;
-}
-
-/* Scrollable content - THIS IS THE KEY FIX FOR iOS */
-.scrollable-content {
-  flex: 1;
-  overflow-y: auto;
-  padding: 1rem 1rem 5rem 1rem;
-  -webkit-overflow-scrolling: touch;
-  min-height: 0;
-}
-
-/* Scrollbar styling */
-.scrollable-content::-webkit-scrollbar {
-  width: 6px;
-}
-
-.scrollable-content::-webkit-scrollbar-track {
-  background: #f1f1f1;
-  border-radius: 10px;
-}
-
-.scrollable-content::-webkit-scrollbar-thumb {
-  background: #0AF0B5;
-  border-radius: 10px;
-}
-
-.scrollable-content::-webkit-scrollbar-thumb:hover {
-  background: #09d6a0;
-}
-
-/* Animation */
+/* Spin animation */
 @keyframes spin {
   from {
     transform: rotate(0deg);
@@ -967,23 +879,5 @@ onBeforeUnmount(() => {
 
 .animate-spin {
   animation: spin 1s linear infinite;
-}
-
-/* Space utilities */
-.space-y-4 > * + * {
-  margin-top: 1rem;
-}
-
-.space-y-6 > * + * {
-  margin-top: 1.5rem;
-}
-
-.space-y-2 > * + * {
-  margin-top: 0.5rem;
-}
-
-/* Force GPU acceleration for iOS */
-.scrollable-content {
-  transform: translateZ(0);
 }
 </style>
