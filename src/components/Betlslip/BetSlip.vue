@@ -728,7 +728,7 @@ onBeforeUnmount(() => {
               <div class="mt-2 flex items-center gap-2">
                 <span class="text-xs text-gray-600">Selected:</span>
                 <span class="text-sm font-medium bg-sky-100 text-sky-700 px-2 py-1 rounded">
-                  {{ bet.selection }} @ {{ bet.odds }}
+                  <!-- {{ bet.selection }} @ {{ bet.odds }} -->####****
                 </span>
                 <span class="text-xs text-gray-500 ml-auto">{{ bet.time }}</span>
               </div>
@@ -758,7 +758,7 @@ onBeforeUnmount(() => {
               <div class="mt-3 flex items-center gap-2">
                 <span class="text-sm text-gray-600">Selected:</span>
                 <span class="text-sm font-medium text-purple-600 bg-purple-50 px-2 py-1 rounded">
-                  {{ bet.selection }} @ {{ bet.odds }}
+                    <!-- {{ bet.selection }} @ {{ bet.odds }} -->####****
                 </span>
               </div>
             </div>
