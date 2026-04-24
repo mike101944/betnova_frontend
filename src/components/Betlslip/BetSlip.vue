@@ -1,16 +1,15 @@
 <script setup>
 import { ref, computed, onMounted, onBeforeUnmount } from 'vue'
 import { useAuthStore } from '../../store/authStore'
-import { useBetslipStore } from '../../store/betSlipStore'
 import api from '../../services/api'
 
 // Active tab
 const activeTab = ref('sports')
 const bookingCode = ref('')
+const stakeAmount = ref(100)
 
-// Stores
+// Auth store
 const authStore = useAuthStore()
-const betslipStore = useBetslipStore()
 
 // Loading and error states
 const isLoading = ref(false)
@@ -18,17 +17,30 @@ const error = ref(null)
 const success = ref(null)
 const loadingMessage = ref('')
 
-// Get data directly from store (reactive)
-const sportsBets = computed(() => betslipStore.sportsBets)
-const virtualsBets = computed(() => betslipStore.virtualsBets)
-const stakeAmount = computed({
-  get: () => betslipStore.stakeAmount,
-  set: (val) => betslipStore.setStakeAmount(parseFloat(val) || 0)
-})
+// Simple reactive data - direct, no store for bets yet
+const sportsBets = ref([])
+const virtualsBets = ref([])
 
-// Auth computed
+// Check if user is authenticated
 const isAuthenticated = computed(() => authStore.isAuthenticated)
 const userBalance = computed(() => authStore.userBalance || 0)
+
+// Simple localStorage functions
+const saveBets = () => {
+  try {
+    localStorage.setItem('betslip_sports', JSON.stringify(sportsBets.value))
+  } catch(e) { console.error('Save error:', e) }
+}
+
+const loadBets = () => {
+  try {
+    const saved = localStorage.getItem('betslip_sports')
+    if (saved) {
+      sportsBets.value = JSON.parse(saved)
+      console.log('Loaded bets:', sportsBets.value.length)
+    }
+  } catch(e) { console.error('Load error:', e) }
+}
 
 // Validation
 const insufficientBalance = computed(() => {
@@ -41,19 +53,17 @@ const isValidStake = computed(() => {
   return stake >= 100
 })
 
-// Computed for current tab
 const currentSelectionsCount = computed(() => {
-  return activeTab.value === 'sports' 
-    ? sportsBets.value.length 
-    : virtualsBets.value.length
+  return activeTab.value === 'sports' ? sportsBets.value.length : virtualsBets.value.length
 })
 
 const currentTotalOdds = computed(() => {
   if (activeTab.value === 'sports') {
-    return betslipStore.totalSportsOdds
-  } else {
-    return betslipStore.totalVirtualsOdds
+    if (sportsBets.value.length === 0) return 0
+    return sportsBets.value.reduce((p, bet) => p * parseFloat(bet.odds), 1)
   }
+  if (virtualsBets.value.length === 0) return 0
+  return virtualsBets.value.reduce((p, bet) => p * parseFloat(bet.odds), 1)
 })
 
 const currentTotalReturns = computed(() => {
@@ -70,7 +80,6 @@ const canPlaceBet = computed(() => {
          !insufficientBalance.value
 })
 
-// Format balance
 const formatBalance = (amount) => {
   return new Intl.NumberFormat('sw-TZ', {
     style: 'currency',
@@ -80,20 +89,18 @@ const formatBalance = (amount) => {
   }).format(amount || 0)
 }
 
-// Methods
 const removeSportsBet = (index) => {
-  betslipStore.removeSportsBet(index)
+  sportsBets.value.splice(index, 1)
+  saveBets()
 }
 
 const removeVirtualBet = (index) => {
-  betslipStore.removeVirtualBet(index)
+  virtualsBets.value.splice(index, 1)
 }
 
 const showSuccessMessage = (message) => {
   success.value = message
-  setTimeout(() => {
-    success.value = null
-  }, 3000)
+  setTimeout(() => { success.value = null }, 3000)
 }
 
 // Load booking code
@@ -120,27 +127,21 @@ const loadBookingCode = async () => {
   
   try {
     const response = await api.get(`/bets/active/${encodeURIComponent(cleanCode)}`)
-    
     let bet = response.data?.data || response.data
     
     if (bet && bet.selections && Array.isArray(bet.selections) && bet.selections.length > 0) {
       const loadedBets = bet.selections.map((selection, index) => ({
         id: `${bet.id}-${index}-${Date.now()}-${Math.random()}`,
-        match: selection.match || selection.matchName || selection.event || 'Unknown Match',
-        league: selection.league || selection.leagueName || selection.competition || 'Unknown League',
-        time: selection.matchTime || selection.time || selection.datetime || 'Today',
+        match: selection.match || selection.matchName || 'Unknown Match',
+        league: selection.league || selection.leagueName || 'Unknown League',
+        time: selection.matchTime || selection.time || 'Today',
         odds: selection.odds ? parseFloat(selection.odds) : 1.00,
-        selection: selection.selection || selection.prediction || selection.bet || 'Unknown',
-        betId: bet.id,
-        eventId: selection.eventId || selection.id || `${bet.id}-${index}`
+        selection: selection.selection || selection.prediction || 'Unknown',
+        betId: bet.id
       }))
       
-      // Clear existing bets and add new ones
-      betslipStore.clearBetslip()
-      loadedBets.forEach(bet => {
-        betslipStore.addToBetslip(bet)
-      })
-      
+      sportsBets.value = loadedBets
+      saveBets()
       bookingCode.value = ''
       stakeAmount.value = 100
       showSuccessMessage(`✅ Successfully loaded ${loadedBets.length} selection(s)!`)
@@ -149,30 +150,9 @@ const loadBookingCode = async () => {
       setTimeout(() => { error.value = null }, 3000)
     }
   } catch (err) {
-    console.error('Error loading booking code:', err)
-    
-    if (err.response) {
-      const statusCode = err.response.status
-      const errorMessage = err.response.data?.message || ''
-      
-      if (statusCode === 404) {
-        error.value = '❌ Booking code not found. Please check and try again.'
-      } else if (statusCode === 400 && errorMessage.toLowerCase().includes('settled')) {
-        error.value = '❌ This bet has already been settled and cannot be loaded'
-      } else if (statusCode === 400 && errorMessage.toLowerCase().includes('expired')) {
-        error.value = '❌ This booking code has expired'
-      } else if (statusCode === 401) {
-        error.value = '❌ Please login again to load booking codes'
-      } else {
-        error.value = errorMessage || '❌ Failed to load booking code'
-      }
-    } else if (err.request) {
-      error.value = '❌ Network error. Please check your connection.'
-    } else {
-      error.value = err.message || '❌ Failed to load booking code. Please try again.'
-    }
-    
-    setTimeout(() => { error.value = null }, 5000)
+    console.error('Error:', err)
+    error.value = '❌ Failed to load booking code'
+    setTimeout(() => { error.value = null }, 3000)
   } finally {
     isLoading.value = false
     loadingMessage.value = ''
@@ -185,55 +165,34 @@ const placeBet = async () => {
   
   const selections = activeTab.value === 'sports' ? sportsBets.value : virtualsBets.value
   
-  if (selections.length === 0) {
-    error.value = 'No selections to place'
-    setTimeout(() => { error.value = null }, 3000)
-    return
-  }
-  
-  const stake = parseFloat(stakeAmount.value)
-  if (stake < 100) {
-    error.value = 'Minimum stake is 100.00 Tsh'
-    setTimeout(() => { error.value = null }, 3000)
-    return
-  }
-  
   isLoading.value = true
   loadingMessage.value = 'Placing your bet...'
   error.value = null
   
   try {
-    const formattedSelections = selections.map(selection => ({
-      match: selection.match,
-      selection: selection.selection,
-      odds: parseFloat(selection.odds),
-      league: selection.league,
-      time: selection.time
+    const formattedSelections = selections.map(s => ({
+      match: s.match,
+      selection: s.selection,
+      odds: parseFloat(s.odds),
+      league: s.league,
+      time: s.time
     }))
     
     const response = await api.post('/bets', {
       selections: formattedSelections,
-      stake: stake
+      stake: parseFloat(stakeAmount.value)
     })
     
     if (response.data.success) {
       await authStore.fetchUserBalance()
-      showSuccessMessage(`✅ Bet placed successfully! Code: ${response.data.data.bookingCode}`)
-      
-      // Clear bets based on active tab
-      if (activeTab.value === 'sports') {
-        betslipStore.clearBetslip()
-      } else {
-        betslipStore.virtualsBets = []
-      }
+      showSuccessMessage(`✅ Bet placed! Code: ${response.data.data.bookingCode}`)
+      sportsBets.value = []
+      virtualsBets.value = []
+      saveBets()
       stakeAmount.value = 100
-    } else {
-      error.value = response.data.message || 'Failed to place bet'
-      setTimeout(() => { error.value = null }, 3000)
     }
   } catch (err) {
-    console.error('Error placing bet:', err)
-    error.value = err.response?.data?.message || err.message || 'Failed to place bet'
+    error.value = err.response?.data?.message || 'Failed to place bet'
     setTimeout(() => { error.value = null }, 3000)
   } finally {
     isLoading.value = false
@@ -241,40 +200,41 @@ const placeBet = async () => {
   }
 }
 
-// Handle add bet events from other components
+// Handle add bet from other components
 const handleAddBet = (event) => {
   const bet = event.detail
   if (bet) {
-    betslipStore.addToBetslip(bet)
-    showSuccessMessage('Bet added to slip!')
+    const exists = sportsBets.value.some(b => b.id === bet.id)
+    if (!exists) {
+      sportsBets.value.push(bet)
+      saveBets()
+      showSuccessMessage('Bet added!')
+    }
   }
 }
 
-// Handle clear bets event
-const handleClearBets = () => {
-  betslipStore.clearBetslip()
-  stakeAmount.value = 100
-}
-
 onMounted(() => {
-  console.log('Betslip component mounted')
+  console.log('Component mounted')
+  loadBets()
   
-  // Fetch balance if authenticated
   if (isAuthenticated.value) {
     authStore.fetchUserBalance()
   }
   
-  // Listen for events from other components
   window.addEventListener('add-bet-to-slip', handleAddBet)
-  window.addEventListener('bets-cleared', handleClearBets)
+  
+  // Debug: Check if data loads
+  setTimeout(() => {
+    console.log('Sports bets after mount:', sportsBets.value.length)
+  }, 1000)
 })
 
 onBeforeUnmount(() => {
   window.removeEventListener('add-bet-to-slip', handleAddBet)
-  window.removeEventListener('bets-cleared', handleClearBets)
 })
 </script>
 
+<!-- Template yako EXACTLY kama ilivyo, isipokuwa ondoa debug div baada ya kujaribu -->
 <template>
   <div class="flex flex-col flex-[36%] bg-gray-300 h-full">
     <!-- Toast Messages -->
@@ -628,5 +588,30 @@ onBeforeUnmount(() => {
 
 .h-full {
   height: 100vh;
+}
+
+
+/* Ongeza hii kwenye style yako */
+.flex {
+  display: flex;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.flex-1 {
+  flex: 1 1 0%;
+}
+
+.h-full {
+  height: 100%;
+}
+
+/* Kwa iPhone - ensure parent has height */
+html, body, #app {
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
 </style>
