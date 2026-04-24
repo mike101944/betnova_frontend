@@ -102,26 +102,46 @@ const saveToLocalStorage = (bets) => {
 }
 
 // Load from localStorage with iOS/Safari compatibility
+// const loadFromLocalStorage = () => {
+//   try {
+//     const savedBets = localStorage.getItem('betslip_selections')
+//     if (savedBets) {
+//       const parsed = JSON.parse(savedBets)
+//       if (JSON.stringify(sportsBets.value) !== JSON.stringify(parsed)) {
+//         sportsBets.value = parsed
+//         console.log('Bets loaded from localStorage:', sportsBets.value)
+//         // Force re-render for iOS
+//         nextTick(() => {
+//           forceUpdateKey.value++
+//         })
+//       }
+//     } else {
+//       if (sportsBets.value.length > 0) {
+//         sportsBets.value = []
+//       }
+//     }
+//   } catch (e) {
+//     console.error('Error parsing saved bets:', e)
+//     sportsBets.value = []
+//   }
+// }
+
 const loadFromLocalStorage = () => {
   try {
-    const savedBets = localStorage.getItem('betslip_selections')
-    if (savedBets) {
-      const parsed = JSON.parse(savedBets)
-      if (JSON.stringify(sportsBets.value) !== JSON.stringify(parsed)) {
-        sportsBets.value = parsed
-        console.log('Bets loaded from localStorage:', sportsBets.value)
-        // Force re-render for iOS
-        nextTick(() => {
-          forceUpdateKey.value++
-        })
+    const saved = localStorage.getItem('betslip_selections')
+    if (saved) {
+      const parsed = JSON.parse(saved)
+      if (Array.isArray(parsed)) {
+
+        sportsBets.value = [...parsed] 
       }
     } else {
-      if (sportsBets.value.length > 0) {
-        sportsBets.value = []
-      }
+      sportsBets.value = []
     }
+    // Force trigger re-render
+    forceUpdateKey.value++
   } catch (e) {
-    console.error('Error parsing saved bets:', e)
+    console.error('iOS Load Error:', e)
     sportsBets.value = []
   }
 }
@@ -181,11 +201,17 @@ const handleStorageChange = (event) => {
 }
 
 // Watch sportsBets and save changes
+// watch(sportsBets, (newBets) => {
+//   if (newBets && Array.isArray(newBets)) {
+//     saveToLocalStorage(newBets)
+//   }
+// }, { deep: true })
+
 watch(sportsBets, (newBets) => {
-  if (newBets && Array.isArray(newBets)) {
+  if (Array.isArray(newBets)) {
     saveToLocalStorage(newBets)
   }
-}, { deep: true })
+}, { deep: true, immediate: false })
 
 // Computed properties with force update key for iOS
 const sportsSelections = computed(() => {
@@ -497,59 +523,59 @@ const placeBet = async () => {
   }
 }
 
-// Lifecycle hooks with iOS/Safari optimizations
-onMounted(() => {
+onMounted(async () => {
   console.log('Component mounted - iOS:', isIOS, 'Safari:', isSafari)
-  
-  // Load bets
-  loadFromLocalStorage()
-  
+
+  // 1. iOS Fix: Delay kidogo wakati wa kuanza (Storage Sync)
+  setTimeout(() => {
+    loadFromLocalStorage()
+  }, 100)
+
+  // 2. Fetch Balance/Auth kwa usalama
   if (isAuthenticated.value) {
-    authStore.fetchUserBalance()
+    try {
+      await authStore.checkAuth() // Hii ni bora kuliko fetchUserBalance pekee
+    } catch (e) {
+      console.error("Auth check failed on mount")
+    }
   }
-  
-  // Set up event listeners with iOS compatibility
+
+  // 3. Event Listeners (Zimeboreshwa)
   window.addEventListener('storage', handleStorageChange)
   window.addEventListener('betslip-update', handleBetslipUpdate)
   
-  // iOS/Safari: Also listen for page visibility changes
-  document.addEventListener('visibilitychange', () => {
-    if (!document.hidden) {
-      // Page became visible again - reload bets
-      setTimeout(() => {
-        loadFromLocalStorage()
-        nextTick(() => {
-          forceUpdateKey.value++
-        })
-      }, 200)
-    }
+  // iOS Fix: Hii ni muhimu kuliko visibilitychange
+  window.addEventListener('pageshow', () => {
+    loadFromLocalStorage()
+    forceUpdateKey.value++
   })
-  
-  // iOS/Safari: Periodic check for localStorage changes (every 1 second)
+
+  // 4. Periodic Check (Iliyoboreshwa)
   let lastStoredValue = localStorage.getItem('betslip_selections')
   const intervalId = setInterval(() => {
     const currentValue = localStorage.getItem('betslip_selections')
     if (currentValue !== lastStoredValue) {
       lastStoredValue = currentValue
       loadFromLocalStorage()
-      nextTick(() => {
-        forceUpdateKey.value++
-      })
     }
-  }, 1000)
-  
-  // Clean up interval on unmount
-  const originalUnmount = onBeforeUnmount
-  originalUnmount(() => {
-    clearInterval(intervalId)
-  })
+  }, 1500) // Tumeiongeza kidogo iwe 1.5s ili kupunguza mzigo kwa iPhone
+
+  // Hifadhi interval ID ili tuweze kuifuta nje
+  window._betslipInterval = intervalId
 })
 
+// Iweke hii NJE ya onMounted
 onBeforeUnmount(() => {
   window.removeEventListener('storage', handleStorageChange)
   window.removeEventListener('betslip-update', handleBetslipUpdate)
-  document.removeEventListener('visibilitychange', () => {})
+  window.removeEventListener('pageshow', loadFromLocalStorage)
+  
+  if (window._betslipInterval) {
+    clearInterval(window._betslipInterval)
+  }
 })
+
+
 </script>
 
 <template>
