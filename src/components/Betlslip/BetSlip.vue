@@ -906,4 +906,29 @@ onBeforeUnmount(() => {
 .h-full {
   height: 100vh;
 }
+
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  .overflow-y-auto {
+    transform: translateZ(0); /* Force GPU acceleration for iOS rendering */
+  }
+}
+
+
+/* Add to your scoped styles */
+.h-full {
+  height: 100vh;
+  height: -webkit-fill-available; /* iOS Safari support */
+  height: 100dvh; /* Modern browsers with dynamic viewport */
+}
+
+/* Ensure scrollable area works on iOS */
+.overflow-y-auto {
+  -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+  min-height: 0; /* Critical for nested flex scrolling */
+}
+
+/* Fix flex children for iOS */
+.flex-col > .flex-1 {
+  min-height: 0; /* Allows flex children to shrink below content size */
+}
 </style>
