@@ -49,7 +49,7 @@ const insufficientBalance = computed(() => {
 // Check if stake is valid (minimum 100)
 const isValidStake = computed(() => {
   const stake = parseFloat(stakeAmount.value) || 0
-  return stake >= 100
+  return stake >= 135000
 })
 
 // Format balance
@@ -237,7 +237,7 @@ const currentTotalReturns = computed(() => {
 const canPlaceBet = computed(() => {
   const stake = parseFloat(stakeAmount.value) || 0
   return currentSelectionsCount.value > 0 && 
-         stake >= 100 && 
+         stake >= 135000 && 
          !isLoading.value &&
          isAuthenticated.value &&
          !insufficientBalance.value
@@ -426,8 +426,8 @@ const placeBet = async () => {
   }
   
   const stake = parseFloat(stakeAmount.value)
-  if (stake < 100.00 ) {
-    error.value = 'Minimum stake is 100.00  Tsh'
+  if (stake < 135000.00 ) {
+    error.value = 'Minimum stake is 135000.00  Tsh'
     setTimeout(() => { error.value = null }, 3000)
     return
   }
@@ -667,7 +667,7 @@ onBeforeUnmount(() => {
 
         <div v-if="stakeAmount && !isValidStake && currentSelectionsCount > 0" class="mb-4 bg-yellow-100 border border-yellow-400 text-yellow-800 px-4 py-3 rounded relative">
           <strong class="font-bold">Invalid Stake! </strong>
-          <span class="block sm:inline">Minimum stake is 100.00 Tsh</span>
+          <span class="block sm:inline">Minimum stake is 135000.00 Tsh</span>
         </div>
       </div>
 
@@ -776,13 +776,13 @@ onBeforeUnmount(() => {
         <!-- Bottom Section -->
         <div v-if="currentSelectionsCount > 0" class="border-t border-gray-200 bg-gray-50 p-4 mt-6 rounded-lg">
           <div class="mb-4">
-            <label class="block text-sm font-medium text-gray-700 mb-2">Enter Stake Amount (Min: 100.00 Tsh)</label>
+            <label class="block text-sm font-medium text-gray-700 mb-2">Enter Stake Amount (Min: 135000.00 Tsh)</label>
             <div class="flex gap-2">
               <input 
                 type="number" 
                 v-model="stakeAmount"
                 placeholder="Enter amount"
-                min="100"
+                min="135000"
                 step="100"
                 class="flex-1 px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-500 text-sm"
                 :disabled="isLoading"
@@ -791,8 +791,8 @@ onBeforeUnmount(() => {
                 Tsh
               </span>
             </div>
-            <p v-if="stakeAmount && stakeAmount < 100.00" class="text-xs text-red-500 mt-1">
-              Minimum stake is 100.00 Tsh
+            <p v-if="stakeAmount && stakeAmount < 135000.00" class="text-xs text-red-500 mt-1">
+              Minimum stake is 135000.00 Tsh
             </p>
           </div>
 
