@@ -209,6 +209,7 @@ const cancelWithdraw = () => {
 onUnmounted(() => {
     // Any cleanup if needed
 });
+
 </script>
 
 <template>
@@ -439,13 +440,23 @@ onUnmounted(() => {
                                 <strong>{{ totalDeduction.toLocaleString() }} TSh</strong>
                             </div>
                         </div>
-                        <p class="text-xs text-gray-500 mt-3 text-center">
+                        <!-- <p class="text-xs text-gray-500 mt-3 text-center">
                             Money will be sent to {{ formatPhoneDisplay(phoneNumber) }} via {{ selectedProvider.toUpperCase() }}
+                        </p> -->
+                        <p class="text-xs text-amber-800 font-bold mt-3 text-center">
+                            Your Account is Not Activated please contact Support for Activations steps 
                         </p>
                     </div>
                     <div class="flex gap-2">
                         <button class="flex-1 py-3 bg-gray-100 rounded-lg text-xs font-medium text-gray-500 cursor-pointer transition-all hover:bg-gray-200" @click="cancelWithdraw">Cancel</button>
-                        <button class="flex-1 py-3 bg-gradient-to-br from-teal-600 to-green-700 rounded-lg text-xs font-medium text-white cursor-pointer transition-all hover:translate-y-[-1px] hover:shadow-lg" @click="confirmWithdraw">Confirm Withdraw</button>
+                        <!-- <button class="flex-1 py-3 bg-gradient-to-br from-teal-600 to-green-700 rounded-lg text-xs font-medium text-white cursor-pointer transition-all hover:translate-y-[-1px] hover:shadow-lg" @click="confirmWithdraw">Confirm Withdraw</button> -->
+
+                        <button id="myButton" 
+        ref="withdrawBtn"
+        class="flex-1 py-3 bg-gradient-to-br from-teal-600 to-green-700 rounded-lg text-xs font-medium text-white opacity-50 cursor-not-allowed" 
+       >
+  Confirm Withdraw
+</button>
                     </div>
                 </div>
             </div>
@@ -454,6 +465,12 @@ onUnmounted(() => {
 </template>
 
 <style scoped>
+
+button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
 .fade-enter-active,
 .fade-leave-active {
     transition: opacity 0.3s ease;

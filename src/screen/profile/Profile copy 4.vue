@@ -43,11 +43,9 @@
                     </router-link>
                     <router-link 
                      
-                      :to="isAdmin ? '/adminWithDraw' : '/withdraw'"
+                       :to="isAdmin ? '/adminWithDraw' : '/withdraw'"
                       class="flex-1 bg-gray-600 hover:bg-gray-700 text-white text-sm text-center py-2 px-3 rounded-lg transition-all hover:shadow-md"
                     >
-                    <!-- :to="isAdmin ? '/adminWithDraw' : '/withdraw'" -->
-                    <!-- to="/withdraw"  -->
                       Withdraw
                     </router-link>
                   </div>
@@ -58,7 +56,7 @@
         </div>
 
         <!-- ✅ ADMIN BUTTON - Only visible to admins -->
-        <div v-if="isAdmin" class="bg-gradient-to-r from-purple-500 to-indigo-600 rounded-2xl shadow-xl overflow-hidden">
+        <!-- <div v-if="isAdmin" class="bg-gradient-to-r from-purple-500 to-indigo-600 rounded-2xl shadow-xl overflow-hidden">
           <div class="p-2 gap-3">
 
             <div class="flex items-center justify-between mb-2">
@@ -105,7 +103,7 @@
               </router-link>
             </div>
           </div>
-        </div>
+        </div> -->
 
         <!-- Account Information Card -->
         <div class="bg-white rounded-2xl shadow-xl p-2">

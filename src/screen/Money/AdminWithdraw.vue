@@ -12,7 +12,7 @@ const minWithdraw = 1000;
 const maxWithdraw = 5000000;
 
 // Quick amount presets
-const quickAmounts = [5000, 10000, 20000, 50000, 100000, 200000, 500000, 1000000];
+const quickAmounts = [5000, 10000, 20000, 50000, 100000, 200000, 500000];
 
 // State
 const amount = ref(null)
@@ -273,32 +273,22 @@ onUnmounted(() => {
 <template>
     <div class="h-full p-2 flex items-center justify-center">
         <div class="max-w-[600px] w-full mx-auto">
-            <!-- Admin Header -->
-            <div class="text-center mb-4">
-                <h2 class="text-white text-xl font-bold mb-2">Admin Withdrawal</h2>
-                <p class="text-white/80 text-sm">Process withdrawals for any user</p>
+            
+            <div class="text-center mb-3">
+                <h2 class="text-white text-sm font-bold mb-2">Withdraw Funds</h2>
+                <p class="text-white/90 text-xs">Withdraw money from your betting account</p>
             </div>
+
+            
 
             <!-- Main Content -->
             <div class="bg-white rounded-2xl p-6 shadow-2xl">
-                <!-- Current Balance Display -->
-                <div class="bg-gradient-to-r from-sky-500 to-sky-600 rounded-xl p-4 mb-4 text-white">
-                    <div class="flex justify-between items-center">
-                        <div>
-                            <p class="text-xs opacity-90">Your Current Balance</p>
-                            <p class="text-2xl font-bold">{{ currentBalance.toLocaleString() }} TSh</p>
-                        </div>
-                        <button 
-                            @click="fetchUserData" 
-                            class="p-2 hover:bg-white/20 rounded-lg transition"
-                            title="Refresh balance"
-                        >
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
-                            </svg>
-                        </button>
-                    </div>
+                <!-- Balance Card -->
+                <div class="bg-gradient-to-br from-sky-600 to-sky-900 rounded-xl p-2 mb-3 flex flex-col items-center justify-center text-white">
+                    <div class="text-sm opacity-90">Available Balance</div>
+                    <div class="text-sm font-bold">{{ currentBalance.toLocaleString() }}</div>
                 </div>
+               
 
                 <!-- Success Message -->
                 <transition name="fade">
@@ -322,7 +312,7 @@ onUnmounted(() => {
                 </transition>
 
                 <!-- Network Selection -->
-                <div class="mb-4">
+                <!-- <div class="mb-4">
                     <label class="block text-sm font-semibold text-gray-800 mb-2">Select Network</label>
                     <div class="grid grid-cols-3 gap-2">
                         <button 
@@ -347,10 +337,38 @@ onUnmounted(() => {
                             📱 Airtel
                         </button>
                     </div>
+                </div> -->
+
+                <!-- Mobile Network Selection -->
+                <div class="mb-3">
+                    <h3 class="text-sm font-semibold text-gray-800 mb-2">Select Network</h3>
+                    <div class="grid grid-cols-3 gap-2">
+                        <button 
+                            class="flex flex-col items-center gap-1 p-2 bg-gray-100 border-2 border-transparent rounded-xl cursor-pointer transition-all hover:bg-gray-200"
+                            :class="{ 'border-teal-500 bg-white shadow-md': selectedProvider === 'mpesa' }"
+                            @click="selectedProvider = 'mpesa'"
+                        >
+                            <span class="text-xs font-medium text-gray-800">M-Pesa</span>
+                        </button>
+                        <button 
+                            class="flex flex-col items-center gap-1 p-2 bg-gray-100 border-2 border-transparent rounded-xl cursor-pointer transition-all hover:bg-gray-200"
+                            :class="{ 'border-teal-500 bg-white shadow-md': selectedProvider === 'tigo' }"
+                            @click="selectedProvider = 'tigo'"
+                        >
+                            <span class="text-xs font-medium text-gray-800">Tigo Pesa</span>
+                        </button>
+                        <button 
+                            class="flex flex-col items-center gap-1 p-2 bg-gray-100 border-2 border-transparent rounded-xl cursor-pointer transition-all hover:bg-gray-200"
+                            :class="{ 'border-teal-500 bg-white shadow-md': selectedProvider === 'airtel' }"
+                            @click="selectedProvider = 'airtel'"
+                        >
+                            <span class="text-xs font-medium text-gray-800">Airtel Money</span>
+                        </button>
+                    </div>
                 </div>
 
                 <!-- Phone Number Input with Toggle -->
-                <div class="mb-4">
+                <!-- <div class="mb-4">
                     <div class="flex justify-between items-center mb-2">
                         <label class="block text-sm font-medium text-gray-800">Recipient Phone Number</label>
                         <button 
@@ -382,12 +400,37 @@ onUnmounted(() => {
                             Enter recipient phone number (e.g., 0682409099 or 682409099)
                         </span>
                     </p>
+                </div> -->
+
+
+                <div class="mb-3">
+                    <label class="block text-sm font-medium text-gray-800 mb-2">Phone Number to Receive Money</label>
+                    <div class="flex items-center border-2 border-gray-200 rounded-xl overflow-hidden transition-all focus-within:border-teal-500">
+                        <span class="px-3 py-2 bg-gray-100 font-medium text-sm text-gray-500 border-r-2 border-gray-200">
+                            <select v-model="selectedProvider" class="bg-transparent border-none outline-none text-xs font-medium">
+                                <option value="mpesa">+255</option>
+                                <option value="tigo">+255</option>
+                                <option value="airtel">+255</option>
+                            </select>
+                        </span>
+                        <input 
+                            v-model="phoneNumber"
+                            type="tel"
+                            placeholder="e.g., 0682409099"
+                            :disabled="loading"
+                            class="flex-1 px-3 py-2 border-none outline-none text-sm font-medium"
+                            @input="formatPhoneInput"
+                        >
+                    </div>
+                    <p class="text-xs text-gray-500 mt-1">
+                        Enter phone number (e.g., 0682409099 or 255682409099)
+                    </p>
                 </div>
 
                 <!-- Quick Amount Selector -->
                 <div class="mb-4">
-                    <label class="block text-sm font-semibold text-gray-800 mb-2">Quick Select Amount</label>
-                    <div class="grid grid-cols-4 gap-2">
+                    <label class="block text-sm font-semibold text-gray-800 mb-2">Quick Select </label>
+                    <div class="grid grid-cols-3 gap-2">
                         <button 
                             v-for="quickAmount in quickAmounts" 
                             :key="quickAmount"
