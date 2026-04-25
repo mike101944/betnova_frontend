@@ -9,7 +9,7 @@ const authStore = useAuthStore()
 
 // Constants
 const minWithdraw = 1000;
-const maxWithdraw = 5000000;
+const maxWithdraw = 5000000; // Admin can withdraw more
 
 // Quick amount presets
 const quickAmounts = [5000, 10000, 20000, 50000, 100000, 200000, 500000, 1000000];
@@ -24,23 +24,15 @@ const selectedProvider = ref('mpesa')
 const showConfirmation = ref(false)
 const isAdmin = ref(false)
 const termsAccepted = ref(false)
-const useOwnPhone = ref(true) // Toggle between own phone or manual entry
 
-// Get current user balance and phone from authStore
+// Get current user balance from authStore
 const currentBalance = computed(() => {
     return authStore.user?.balance || 0
 })
-
 const currentPhone = computed(() => {
-    // Get phone number from user data
-    let phone = authStore.user?.phone_number || authStore.user?.phone || ''
-    phone = '0' + phone
-    return phone
+    return authStore.user?.phoneNumber || 0
 })
-
-// Debug log
-console.log('Current user data:', authStore.user)
-console.log('Current phone from database:', currentPhone.value)
+console.log('Current user phone:',currentPhone.value);
 
 // Check if user is admin on mount
 onMounted(async () => {
@@ -49,14 +41,11 @@ onMounted(async () => {
         isAdmin.value = response.data.isAdmin;
         
         if (!isAdmin.value) {
+            // Not admin, redirect to home
             router.push({ name: 'home' });
         } else {
-            // Fetch latest user data including balance and phone
+            // Fetch latest user data including balance
             await fetchUserData();
-            // Set phone number from database
-            if (currentPhone.value) {
-                phoneNumber.value = currentPhone.value;
-            }
         }
     } catch (error) {
         console.error('Admin check failed:', error);
@@ -67,29 +56,12 @@ onMounted(async () => {
 // Fetch latest user data
 const fetchUserData = async () => {
     try {
-        const response = await api.get('/auth/me');
+        const response = await api.get('/auth/me'); // Adjust endpoint as needed
         if (response.data) {
             authStore.user = { ...authStore.user, ...response.data };
-            // Auto-fill phone number if using own phone
-            if (useOwnPhone.value && response.data.phone_number) {
-                phoneNumber.value = response.data.phone_number;
-            }
         }
     } catch (error) {
         console.error('Failed to fetch user data:', error);
-    }
-};
-
-// Toggle between own phone and manual entry
-const togglePhoneSource = () => {
-    useOwnPhone.value = !useOwnPhone.value;
-    if (useOwnPhone.value) {
-        // Use phone from database
-        phoneNumber.value = currentPhone.value;
-        errorMessage.value = '';
-    } else {
-        // Clear for manual entry
-        phoneNumber.value = '';
     }
 };
 
@@ -126,6 +98,9 @@ const numericAmount = computed(() => Number(amount.value) || 0)
 
 // Admin withdrawal - NO FEE
 const feeAmount = computed(() => 0)
+
+// Total deduction (amount + fee)
+const totalDeduction = computed(() => numericAmount.value + feeAmount.value)
 
 // Amount user will receive
 const userReceives = computed(() => numericAmount.value)
@@ -190,7 +165,7 @@ const handleWithdraw = async () => {
     showConfirmation.value = true;
 }
 
-// Confirm withdraw
+// Confirm withdraw - UPDATED to update balance
 const confirmWithdraw = async () => {
     loading.value = true;
     errorMessage.value = '';
@@ -214,24 +189,23 @@ const confirmWithdraw = async () => {
         if (response.data.success || response.status === 200) {
             // UPDATE BALANCE IN AUTH STORE
             if (response.data.data && response.data.data.new_balance !== undefined) {
+                // Update from response data
                 if (authStore.user) {
                     authStore.user.balance = response.data.data.new_balance;
                 }
                 console.log('Balance updated from response:', response.data.data.new_balance);
             } else {
+                // Fetch fresh user data from server
                 await fetchUserData();
                 console.log('Balance fetched from server:', currentBalance.value);
             }
             
-            successMessage.value = response.data.message || ` TZS ${numericAmount.value.toLocaleString()} sent to ${formatPhoneDisplay(phoneNumber.value)}`;
+            successMessage.value = response.data.message || `✅ TZS ${numericAmount.value.toLocaleString()} sent to ${formatPhoneDisplay(phoneNumber.value)}`;
             
-            // Clear form but keep phone if using own phone
+            // Clear form
             amount.value = null;
+            phoneNumber.value = '';
             termsAccepted.value = false;
-            
-            if (!useOwnPhone.value) {
-                phoneNumber.value = '';
-            }
             
             // Auto hide success message after 5 seconds
             setTimeout(() => {
@@ -246,6 +220,7 @@ const confirmWithdraw = async () => {
         
         if (error.response) {
             errorMessage.value = error.response.data.message || 'Withdrawal failed. Please try again.';
+            // If error is insufficient balance, refresh balance
             if (error.response.data.message && error.response.data.message.includes('Insufficient')) {
                 await fetchUserData();
             }
@@ -281,7 +256,7 @@ onUnmounted(() => {
 
             <!-- Main Content -->
             <div class="bg-white rounded-2xl p-6 shadow-2xl">
-                <!-- Current Balance Display -->
+                <!-- Current Balance Display - ADD THIS -->
                 <div class="bg-gradient-to-r from-sky-500 to-sky-600 rounded-xl p-4 mb-4 text-white">
                     <div class="flex justify-between items-center">
                         <div>
@@ -349,18 +324,9 @@ onUnmounted(() => {
                     </div>
                 </div>
 
-                <!-- Phone Number Input with Toggle -->
+                <!-- Phone Number Input -->
                 <div class="mb-4">
-                    <div class="flex justify-between items-center mb-2">
-                        <label class="block text-sm font-medium text-gray-800">Recipient Phone Number</label>
-                        <button 
-                            @click="togglePhoneSource"
-                            class="text-xs text-sky-600 hover:text-sky-700 font-medium"
-                        >
-                            {{ useOwnPhone ? ' Enter different number' : '📱 Use my number' }}
-                        </button>
-                    </div>
-                    
+                    <label class="block text-sm font-medium text-gray-800 mb-2">Recipient Phone Number</label>
                     <div class="flex items-center border-2 border-gray-200 rounded-xl overflow-hidden transition-all focus-within:border-sky-500">
                         <span class="px-3 py-2 bg-gray-100 font-medium text-sm text-gray-500 border-r-2 border-gray-200">+255</span>
                         <input 
@@ -369,18 +335,11 @@ onUnmounted(() => {
                             placeholder="e.g., 682409099"
                             :disabled="loading"
                             class="flex-1 px-3 py-2 border-none outline-none text-sm font-medium"
-                            :class="{ 'bg-gray-50 text-gray-500': useOwnPhone }"
                             @input="formatPhoneInput"
-                        />
+                        >
                     </div>
-                    
                     <p class="text-xs text-gray-500 mt-1">
-                        <span v-if="useOwnPhone">
-                             Using phone number from your account: {{ formatPhoneDisplay(currentPhone) }}
-                        </span>
-                        <span v-else>
-                            Enter recipient phone number (e.g., 0682409099 or 682409099)
-                        </span>
+                        Enter phone number (e.g., 0682409099 or 682409099)
                     </p>
                 </div>
 
@@ -456,7 +415,7 @@ onUnmounted(() => {
                     @click="handleWithdraw"
                 >
                     <span v-if="loading" class="inline-block w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin"></span>
-                    <span v-else> Process Withdrawal</span>
+                    <span v-else>💰 Process Withdrawal</span>
                 </button>
 
                 <!-- Info Note -->
@@ -494,7 +453,7 @@ onUnmounted(() => {
                             </div>
                         </div>
                         <p class="text-xs text-amber-600 mt-3 text-center">
-                             This will deduct TZS {{ numericAmount.toLocaleString() }} from your balance
+                            ⚠️ This will deduct TZS {{ numericAmount.toLocaleString() }} from your balance
                         </p>
                     </div>
                     <div class="flex gap-2">

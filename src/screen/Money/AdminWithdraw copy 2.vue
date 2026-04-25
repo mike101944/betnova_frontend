@@ -9,7 +9,7 @@ const authStore = useAuthStore()
 
 // Constants
 const minWithdraw = 1000;
-const maxWithdraw = 5000000;
+const maxWithdraw = 5000000; // Admin can withdraw more
 
 // Quick amount presets
 const quickAmounts = [5000, 10000, 20000, 50000, 100000, 200000, 500000, 1000000];
@@ -23,24 +23,6 @@ const successMessage = ref('')
 const selectedProvider = ref('mpesa')
 const showConfirmation = ref(false)
 const isAdmin = ref(false)
-const termsAccepted = ref(false)
-const useOwnPhone = ref(true) // Toggle between own phone or manual entry
-
-// Get current user balance and phone from authStore
-const currentBalance = computed(() => {
-    return authStore.user?.balance || 0
-})
-
-const currentPhone = computed(() => {
-    // Get phone number from user data
-    let phone = authStore.user?.phone_number || authStore.user?.phone || ''
-    phone = '0' + phone
-    return phone
-})
-
-// Debug log
-console.log('Current user data:', authStore.user)
-console.log('Current phone from database:', currentPhone.value)
 
 // Check if user is admin on mount
 onMounted(async () => {
@@ -49,49 +31,14 @@ onMounted(async () => {
         isAdmin.value = response.data.isAdmin;
         
         if (!isAdmin.value) {
+            // Not admin, redirect to home
             router.push({ name: 'home' });
-        } else {
-            // Fetch latest user data including balance and phone
-            await fetchUserData();
-            // Set phone number from database
-            if (currentPhone.value) {
-                phoneNumber.value = currentPhone.value;
-            }
         }
     } catch (error) {
         console.error('Admin check failed:', error);
         router.push('/');
     }
 });
-
-// Fetch latest user data
-const fetchUserData = async () => {
-    try {
-        const response = await api.get('/auth/me');
-        if (response.data) {
-            authStore.user = { ...authStore.user, ...response.data };
-            // Auto-fill phone number if using own phone
-            if (useOwnPhone.value && response.data.phone_number) {
-                phoneNumber.value = response.data.phone_number;
-            }
-        }
-    } catch (error) {
-        console.error('Failed to fetch user data:', error);
-    }
-};
-
-// Toggle between own phone and manual entry
-const togglePhoneSource = () => {
-    useOwnPhone.value = !useOwnPhone.value;
-    if (useOwnPhone.value) {
-        // Use phone from database
-        phoneNumber.value = currentPhone.value;
-        errorMessage.value = '';
-    } else {
-        // Clear for manual entry
-        phoneNumber.value = '';
-    }
-};
 
 // Format phone number for display
 const formatPhoneDisplay = (phone) => {
@@ -127,18 +74,22 @@ const numericAmount = computed(() => Number(amount.value) || 0)
 // Admin withdrawal - NO FEE
 const feeAmount = computed(() => 0)
 
+// Total deduction (amount + fee)
+const totalDeduction = computed(() => numericAmount.value + feeAmount.value)
+
 // Amount user will receive
 const userReceives = computed(() => numericAmount.value)
 
-// Check if admin has sufficient balance
-const hasSufficientBalance = computed(() => {
-    return currentBalance.value >= numericAmount.value;
-})
+// Admin always has sufficient balance (system balance)
+const hasSufficientBalance = computed(() => true)
 
 // Check if form is valid
 const isFormValid = computed(() => {
-    return isAmountValid.value && isPhoneValid.value && termsAccepted.value && hasSufficientBalance.value;
+    return isAmountValid.value && isPhoneValid.value && termsAccepted.value;
 })
+
+// Terms acceptance
+const termsAccepted = ref(false)
 
 // Set quick amount
 const setQuickAmount = (value) => {
@@ -168,8 +119,6 @@ watch(amount, (newValue) => {
         } else if (numericAmount.value > maxWithdraw) {
             errorMessage.value = `Maximum withdrawal is ${maxWithdraw.toLocaleString()} TSh`;
         }
-    } else if (newValue && !hasSufficientBalance.value) {
-        errorMessage.value = `Insufficient balance. Your balance is ${currentBalance.value.toLocaleString()} TSh`;
     } else {
         errorMessage.value = '';
     }
@@ -206,32 +155,18 @@ const confirmWithdraw = async () => {
     try {
         const response = await api.post('/auth/withdrawAdmin', { 
             amount: numericAmount.value,
-            phone_number: formattedPhone
+            phone_number: formattedPhone  // Make sure field name matches backend
         });
         
         console.log('Admin withdraw response:', response.data);
         
-        if (response.data.success || response.status === 200) {
-            // UPDATE BALANCE IN AUTH STORE
-            if (response.data.data && response.data.data.new_balance !== undefined) {
-                if (authStore.user) {
-                    authStore.user.balance = response.data.data.new_balance;
-                }
-                console.log('Balance updated from response:', response.data.data.new_balance);
-            } else {
-                await fetchUserData();
-                console.log('Balance fetched from server:', currentBalance.value);
-            }
+        if (response.data.success) {
+            successMessage.value = response.data.message || `✅ TZS ${numericAmount.value.toLocaleString()} sent to ${formatPhoneDisplay(phoneNumber.value)}`;
             
-            successMessage.value = response.data.message || ` TZS ${numericAmount.value.toLocaleString()} sent to ${formatPhoneDisplay(phoneNumber.value)}`;
-            
-            // Clear form but keep phone if using own phone
+            // Clear form
             amount.value = null;
+            phoneNumber.value = '';
             termsAccepted.value = false;
-            
-            if (!useOwnPhone.value) {
-                phoneNumber.value = '';
-            }
             
             // Auto hide success message after 5 seconds
             setTimeout(() => {
@@ -246,9 +181,6 @@ const confirmWithdraw = async () => {
         
         if (error.response) {
             errorMessage.value = error.response.data.message || 'Withdrawal failed. Please try again.';
-            if (error.response.data.message && error.response.data.message.includes('Insufficient')) {
-                await fetchUserData();
-            }
         } else if (error.request) {
             errorMessage.value = 'Network error. Please check your connection.';
         } else {
@@ -275,35 +207,28 @@ onUnmounted(() => {
         <div class="max-w-[600px] w-full mx-auto">
             <!-- Admin Header -->
             <div class="text-center mb-4">
+                
                 <h2 class="text-white text-xl font-bold mb-2">Admin Withdrawal</h2>
                 <p class="text-white/80 text-sm">Process withdrawals for any user</p>
             </div>
 
             <!-- Main Content -->
             <div class="bg-white rounded-2xl p-6 shadow-2xl">
-                <!-- Current Balance Display -->
-                <div class="bg-gradient-to-r from-sky-500 to-sky-600 rounded-xl p-4 mb-4 text-white">
-                    <div class="flex justify-between items-center">
-                        <div>
-                            <p class="text-xs opacity-90">Your Current Balance</p>
-                            <p class="text-2xl font-bold">{{ currentBalance.toLocaleString() }} TSh</p>
-                        </div>
-                        <button 
-                            @click="fetchUserData" 
-                            class="p-2 hover:bg-white/20 rounded-lg transition"
-                            title="Refresh balance"
-                        >
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
-                            </svg>
-                        </button>
+                <!-- Admin Info Banner -->
+                <!-- <div class="bg-red-50 rounded-xl p-3 mb-4 border border-red-200">
+                    <div class="flex items-center gap-2 text-red-700">
+                        <svg class="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+                        </svg>
+                        <span class="text-sm font-medium">You are logged in as ADMIN</span>
                     </div>
-                </div>
+                    <p class="text-xs text-red-600 mt-1">You can withdraw funds to any user's phone number. No fees apply.</p>
+                </div> -->
 
                 <!-- Success Message -->
                 <transition name="fade">
                     <div v-if="successMessage" 
-                         class="flex items-center gap-3 p-3 rounded-xl mb-4 text-sm bg-green-100 text-green-800 border border-green-200">
+                         class="flex items-center gap-3 p-3 rounded-xl mb-4 text-sm bg-sky-100 text-sky-800 border border-sky-200">
                         <svg class="w-5 h-5 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
                             <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
                         </svg>
@@ -313,7 +238,7 @@ onUnmounted(() => {
 
                 <!-- Error Message -->
                 <transition name="fade">
-                    <div v-if="errorMessage" class="flex items-center gap-3 p-3 rounded-xl mb-4 text-sm bg-red-100 text-red-800 border border-red-200">
+                    <div v-if="errorMessage" class="flex items-center gap-3 p-3 rounded-xl mb-4 text-sm bg-sky-100 text-sky-800 border border-sky-200">
                         <svg class="w-5 h-5 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
                             <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" />
                         </svg>
@@ -349,18 +274,9 @@ onUnmounted(() => {
                     </div>
                 </div>
 
-                <!-- Phone Number Input with Toggle -->
+                <!-- Phone Number Input -->
                 <div class="mb-4">
-                    <div class="flex justify-between items-center mb-2">
-                        <label class="block text-sm font-medium text-gray-800">Recipient Phone Number</label>
-                        <button 
-                            @click="togglePhoneSource"
-                            class="text-xs text-sky-600 hover:text-sky-700 font-medium"
-                        >
-                            {{ useOwnPhone ? ' Enter different number' : '📱 Use my number' }}
-                        </button>
-                    </div>
-                    
+                    <label class="block text-sm font-medium text-gray-800 mb-2">Recipient Phone Number</label>
                     <div class="flex items-center border-2 border-gray-200 rounded-xl overflow-hidden transition-all focus-within:border-sky-500">
                         <span class="px-3 py-2 bg-gray-100 font-medium text-sm text-gray-500 border-r-2 border-gray-200">+255</span>
                         <input 
@@ -369,18 +285,11 @@ onUnmounted(() => {
                             placeholder="e.g., 682409099"
                             :disabled="loading"
                             class="flex-1 px-3 py-2 border-none outline-none text-sm font-medium"
-                            :class="{ 'bg-gray-50 text-gray-500': useOwnPhone }"
                             @input="formatPhoneInput"
-                        />
+                        >
                     </div>
-                    
                     <p class="text-xs text-gray-500 mt-1">
-                        <span v-if="useOwnPhone">
-                             Using phone number from your account: {{ formatPhoneDisplay(currentPhone) }}
-                        </span>
-                        <span v-else>
-                            Enter recipient phone number (e.g., 0682409099 or 682409099)
-                        </span>
+                        Enter phone number (e.g., 0682409099 or 682409099)
                     </p>
                 </div>
 
@@ -421,7 +330,7 @@ onUnmounted(() => {
                     </div>
                 </div>
 
-                <!-- Summary -->
+                <!-- Summary (No fee for admin) -->
                 <div class="bg-gray-50 rounded-xl p-3 mb-4">
                     <div class="flex justify-between mb-2">
                         <span class="text-sm text-gray-600">Withdrawal Amount:</span>
@@ -456,7 +365,7 @@ onUnmounted(() => {
                     @click="handleWithdraw"
                 >
                     <span v-if="loading" class="inline-block w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin"></span>
-                    <span v-else> Process Withdrawal</span>
+                    <span v-else>💰 Process Withdrawal</span>
                 </button>
 
                 <!-- Info Note -->
@@ -493,8 +402,8 @@ onUnmounted(() => {
                                 <strong class="text-green-600">0 TSh (Admin)</strong>
                             </div>
                         </div>
-                        <p class="text-xs text-amber-600 mt-3 text-center">
-                             This will deduct TZS {{ numericAmount.toLocaleString() }} from your balance
+                        <p class="text-xs text-sky-500 mt-3 text-center">
+                            ⚠️ This action will send money from system balance to the user
                         </p>
                     </div>
                     <div class="flex gap-2">

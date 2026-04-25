@@ -621,7 +621,7 @@ onBeforeUnmount(() => {
     </div>
 
     <!-- Main Scrollable Area -->
-    <div class="flex-1 overflow-hidden flex flex-col">
+    <div class="flex-1 overflow-hidden flex flex-col ">
       <!-- Tabs Header - Fixed -->
       <div class="flex border-b border-gray-200 bg-gray-50 w-full flex-shrink-0">
         <!-- Sports Tab -->
