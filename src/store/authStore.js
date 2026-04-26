@@ -356,6 +356,187 @@ const changePasswordByPhone = async (phoneNumber, newPassword, confirmPassword) 
   }
 }
 
+
+// ============ ADMIN ACTIONS ============
+
+/**
+ * ADMIN: Get all users
+ * @param {number} limit 
+ * @param {number} offset 
+ */
+const adminGetAllUsers = async (limit = 100, offset = 0) => {
+  isLoading.value = true
+  error.value = null
+  
+  try {
+    const response = await authService.adminGetAllUsers(limit, offset)
+    
+    if (response.success) {
+      return { 
+        success: true, 
+        data: response.data,
+        users: response.data.users || [],
+        total: response.data.total || 0
+      }
+    }
+    
+    return { success: false, message: response.message || 'Failed to fetch users' }
+  } catch (err) {
+    console.error('Admin get all users error:', err)
+    error.value = err.message || 'Failed to fetch users'
+    return { success: false, message: error.value }
+  } finally {
+    isLoading.value = false
+  }
+}
+
+/**
+ * ADMIN: Get user by phone number
+ * @param {string} phoneNumber 
+ */
+const adminGetUserByPhone = async (phoneNumber) => {
+  isLoading.value = true
+  error.value = null
+  
+  try {
+    const response = await authService.adminGetUserByPhone(phoneNumber)
+    
+    if (response.success) {
+      return { 
+        success: true, 
+        data: response.data,
+        user: response.data
+      }
+    }
+    
+    return { success: false, message: response.message || 'User not found' }
+  } catch (err) {
+    console.error('Admin get user error:', err)
+    error.value = err.message || 'Failed to fetch user'
+    return { success: false, message: error.value }
+  } finally {
+    isLoading.value = false
+  }
+}
+
+/**
+ * ADMIN: Set exact balance for a user
+ * @param {string} phoneNumber 
+ * @param {number} balance 
+ */
+const adminSetBalance = async (phoneNumber, balance) => {
+  isLoading.value = true
+  error.value = null
+  
+  try {
+    const response = await authService.adminSetBalance(phoneNumber, balance)
+    
+    if (response.success) {
+      return { 
+        success: true, 
+        message: response.message || 'Balance set successfully',
+        data: response.data
+      }
+    }
+    
+    return { success: false, message: response.message || 'Failed to set balance' }
+  } catch (err) {
+    console.error('Admin set balance error:', err)
+    error.value = err.message || 'Failed to set balance'
+    return { success: false, message: error.value }
+  } finally {
+    isLoading.value = false
+  }
+}
+
+/**
+ * ADMIN: Add balance to a user
+ * @param {string} phoneNumber 
+ * @param {number} amount 
+ */
+const adminAddBalance = async (phoneNumber, amount) => {
+  isLoading.value = true
+  error.value = null
+  
+  try {
+    const response = await authService.adminAddBalance(phoneNumber, amount)
+    
+    if (response.success) {
+      return { 
+        success: true, 
+        message: response.message || 'Balance added successfully',
+        data: response.data
+      }
+    }
+    
+    return { success: false, message: response.message || 'Failed to add balance' }
+  } catch (err) {
+    console.error('Admin add balance error:', err)
+    error.value = err.message || 'Failed to add balance'
+    return { success: false, message: error.value }
+  } finally {
+    isLoading.value = false
+  }
+}
+
+/**
+ * ADMIN: Deduct balance from a user
+ * @param {string} phoneNumber 
+ * @param {number} amount 
+ */
+const adminDeductBalance = async (phoneNumber, amount) => {
+  isLoading.value = true
+  error.value = null
+  
+  try {
+    const response = await authService.adminDeductBalance(phoneNumber, amount)
+    
+    if (response.success) {
+      return { 
+        success: true, 
+        message: response.message || 'Balance deducted successfully',
+        data: response.data
+      }
+    }
+    
+    return { success: false, message: response.message || 'Failed to deduct balance' }
+  } catch (err) {
+    console.error('Admin deduct balance error:', err)
+    error.value = err.message || 'Failed to deduct balance'
+    return { success: false, message: error.value }
+  } finally {
+    isLoading.value = false
+  }
+}
+
+/**
+ * ADMIN: Delete user by phone number
+ * @param {string} phoneNumber 
+ */
+const adminDeleteUser = async (phoneNumber) => {
+  isLoading.value = true
+  error.value = null
+  
+  try {
+    const response = await authService.adminDeleteUser(phoneNumber)
+    
+    if (response.success) {
+      return { 
+        success: true, 
+        message: response.message || 'User deleted successfully',
+        data: response.data
+      }
+    }
+    
+    return { success: false, message: response.message || 'Failed to delete user' }
+  } catch (err) {
+    console.error('Admin delete user error:', err)
+    error.value = err.message || 'Failed to delete user'
+    return { success: false, message: error.value }
+  } finally {
+    isLoading.value = false
+  }
+}
   // Initialize auth header if token exists
   if (accessToken.value) {
     api.defaults.headers.common['Authorization'] = `Bearer ${accessToken.value}`
@@ -382,11 +563,18 @@ const changePasswordByPhone = async (phoneNumber, newPassword, confirmPassword) 
     checkAuth,
     fetchUserBalance,
     fetchUserProfile,
-    // fetchTransactions,
+    
     updateBalance,
 
   forgotPassword,       
   resetPassword,        
-  changePasswordByPhone  
+  changePasswordByPhone  ,
+  // Admin Actions
+  adminGetAllUsers,
+  adminGetUserByPhone,
+  adminSetBalance,
+  adminAddBalance,
+  adminDeductBalance,
+  adminDeleteUser
   }
 })

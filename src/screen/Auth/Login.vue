@@ -303,7 +303,7 @@ const goToRegister = () => {
               class="form-checkbox h-4 w-4 text-teal-500 rounded border-gray-300"
               :disabled="authStore.isLoading"
             />
-            <span class="ml-2 text-sm text-gray-600">Keep me logged in on this device</span>
+            <span class="ml-2 text-sm text-gray-600">Keep me logged in</span>
           </label>
           <div class=" text-right">
           <a href="#" @click.prevent="openForgotPassword" 

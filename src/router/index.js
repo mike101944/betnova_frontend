@@ -71,12 +71,19 @@ const routes = [
     },
 
     // Admin routes
+    // {
+    //   path: '/admin',
+    //   name: 'admin-bets',
+    //   component: () => import('../screen/profile/AdminBets.vue'),
+    //   meta: { requiresAdmin: true }
+    // },
     {
       path: '/admin',
       name: 'admin-bets',
-      component: () => import('../screen/profile/AdminBets.vue'),
+      component: () => import('../screen/profile/AdminLayout.vue'),
       meta: { requiresAdmin: true }
     },
+    
     {
       path: '/user/deposit/history',
       name: 'user-history',

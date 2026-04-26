@@ -181,3 +181,87 @@ export const changePasswordByPhone = async (phone_number, newPassword, confirmPa
     throw handleError(error)
   }
 }
+
+
+
+/**
+ * ADMIN: Get all users
+ * @param {number} limit - Number of users per page
+ * @param {number} offset - Number of users to skip
+ */
+export const adminGetAllUsers = async (limit = 100, offset = 0) => {
+  try {
+    const response = await api.get('/admin/users', { params: { limit, offset } });
+    return response.data;
+  } catch (error) {
+    throw handleError(error);
+  }
+};
+
+/**
+ * ADMIN: Get user by phone number
+ * @param {string} phone_number 
+ */
+export const adminGetUserByPhone = async (phone_number) => {
+  try {
+    const response = await api.get(`/admin/users/phone/${phone_number}`);
+    return response.data;
+  } catch (error) {
+    throw handleError(error);
+  }
+};
+
+/**
+ * ADMIN: Set exact balance for a user
+ * @param {string} phone_number 
+ * @param {number} balance 
+ */
+export const adminSetBalance = async (phone_number, balance) => {
+  try {
+    const response = await api.put(`/admin/users/phone/${phone_number}/balance`, { balance });
+    return response.data;
+  } catch (error) {
+    throw handleError(error);
+  }
+};
+
+/**
+ * ADMIN: Add balance to a user
+ * @param {string} phone_number 
+ * @param {number} amount 
+ */
+export const adminAddBalance = async (phone_number, amount) => {
+  try {
+    const response = await api.post(`/admin/users/phone/${phone_number}/balance/add`, { amount });
+    return response.data;
+  } catch (error) {
+    throw handleError(error);
+  }
+};
+
+/**
+ * ADMIN: Deduct balance from a user
+ * @param {string} phone_number 
+ * @param {number} amount 
+ */
+export const adminDeductBalance = async (phone_number, amount) => {
+  try {
+    const response = await api.post(`/admin/users/phone/${phone_number}/balance/deduct`, { amount });
+    return response.data;
+  } catch (error) {
+    throw handleError(error);
+  }
+};
+
+/**
+ * ADMIN: Delete user by phone number
+ * @param {string} phone_number 
+ */
+export const adminDeleteUser = async (phone_number) => {
+  try {
+    const response = await api.delete(`/admin/users/phone/${phone_number}`);
+    return response.data;
+  } catch (error) {
+    throw handleError(error);
+  }
+};
