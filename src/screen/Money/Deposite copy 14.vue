@@ -20,13 +20,6 @@ const selectedPaymentMethod = ref('mpesa')
 const showConfirmation = ref(false)
 const termsAccepted = ref(false)
 
-
-
-// Deposit modal
-const showMinimumDepositModal = ref(false);
-const minimumDepositMessage = computed(() => {
-    return `⚠️ The minimum deposit amount is ${minDeposit.toLocaleString()} TSh. Please enter a valid amount.`;
-});
 // Payment tracking (simplified for Payou redirect)
 const isRedirecting = ref(false)
 let redirectTimeout = null
@@ -95,16 +88,12 @@ const setQuickAmount = (value) => {
 watch(amount, (newValue) => {
     if (newValue && !isAmountValid.value) {
         if (numericAmount.value < minDeposit) {
-            // Badala ya errorMessage, fungua modal
-            showMinimumDepositModal.value = true;
+            errorMessage.value = `Minimum deposit is ${minDeposit.toLocaleString()} TSh`;
         } else if (numericAmount.value > maxDeposit) {
             errorMessage.value = `Maximum deposit is ${maxDeposit.toLocaleString()} TSh`;
-        } else {
-            errorMessage.value = '';
         }
     } else {
         errorMessage.value = '';
-        showMinimumDepositModal.value = false;
     }
 })
 
@@ -462,38 +451,6 @@ onUnmounted(() => {
             </div>
         </transition>
     </div>
-
-    <!-- Minimum Deposit Modal (POPUP) -->
-<transition name="modal">
-    <div v-if="showMinimumDepositModal" 
-         class="fixed inset-0 bg-black/60 flex items-center justify-center z-[1100] backdrop-blur-sm p-4"
-         @click="showMinimumDepositModal = false">
-        <div class="bg-white rounded-2xl max-w-sm w-full p-6 shadow-2xl text-center transform transition-all" 
-             @click.stop>
-            <!-- Icon -->
-            <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg class="w-8 h-8 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
-                          d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
-                </svg>
-            </div>
-
-            <!-- Title -->
-            <h3 class="text-xl font-bold text-gray-800 mb-2">Insufficient Deposit Amount</h3>
-            
-            <!-- Message -->
-            <p class="text-gray-600 text-sm mb-6">
-                {{ minimumDepositMessage }}
-            </p>
-
-            <!-- Button -->
-            <button @click="showMinimumDepositModal = false"
-                    class="w-full py-3 bg-red-400 cursor-pointer hover:bg-red-700 text-white font-semibold rounded-xl transition duration-200">
-                Understood, Adjust Amount
-            </button>
-        </div>
-    </div>
-</transition>
 </template>
 
 <style scoped>
