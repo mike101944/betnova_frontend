@@ -3,6 +3,7 @@ import axios from 'axios'
 // http://5.189.136.33/api/api
 // https://betnover.com/api/api
 // http://localhost:5000/api
+// https://betnover.com/api
 // Create axios instance
 const api = axios.create({
   baseURL: 'https://betnover.com/api',

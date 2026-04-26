@@ -127,3 +127,57 @@ const handleError = (error) => {
     }
   }
 }
+
+
+
+
+/**
+ * Forgot password - Request password reset
+ * @param {string} phone_number 
+ */
+export const forgotPassword = async (phone_number) => {
+  try {
+    const response = await api.post('/auth/forgot-password', { phone_number })
+    return response.data
+  } catch (error) {
+    throw handleError(error)
+  }
+}
+
+/**
+ * Reset password using userId
+ * @param {string} userId 
+ * @param {string} newPassword 
+ * @param {string} confirmPassword 
+ */
+export const resetPassword = async (userId, newPassword, confirmPassword) => {
+  try {
+    const response = await api.post('/auth/reset-password', { 
+      userId, 
+      newPassword, 
+      confirmPassword 
+    })
+    return response.data
+  } catch (error) {
+    throw handleError(error)
+  }
+}
+
+/**
+ * Change password directly using phone number (one step)
+ * @param {string} phone_number 
+ * @param {string} newPassword 
+ * @param {string} confirmPassword 
+ */
+export const changePasswordByPhone = async (phone_number, newPassword, confirmPassword) => {
+  try {
+    const response = await api.post('/auth/change-password', { 
+      phone_number, 
+      newPassword, 
+      confirmPassword 
+    })
+    return response.data
+  } catch (error) {
+    throw handleError(error)
+  }
+}

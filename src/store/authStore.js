@@ -278,6 +278,83 @@ export const useAuthStore = defineStore('auth', () => {
     }
     return false
   }
+  // ADD THESE ACTIONS TO authStore.js (inside the store)
+
+// Forgot password - Step 1 (request reset)
+const forgotPassword = async (phoneNumber) => {
+  isLoading.value = true
+  error.value = null
+  
+  try {
+    const response = await authService.forgotPassword(phoneNumber)
+    
+    if (response.success !== false) {
+      return { 
+        success: true, 
+        message: response.message || 'Password reset initiated',
+        userId: response.userId 
+      }
+    }
+    
+    return { success: false, message: response.message || 'Request failed' }
+  } catch (err) {
+    console.error('Forgot password error:', err)
+    error.value = err.message || 'Failed to process request'
+    return { success: false, message: error.value }
+  } finally {
+    isLoading.value = false
+  }
+}
+
+// Reset password - Step 2 (using userId)
+const resetPassword = async (userId, newPassword, confirmPassword) => {
+  isLoading.value = true
+  error.value = null
+  
+  try {
+    const response = await authService.resetPassword(userId, newPassword, confirmPassword)
+    
+    if (response.success !== false) {
+      return { 
+        success: true, 
+        message: response.message || 'Password reset successful' 
+      }
+    }
+    
+    return { success: false, message: response.message || 'Reset failed' }
+  } catch (err) {
+    console.error('Reset password error:', err)
+    error.value = err.message || 'Failed to reset password'
+    return { success: false, message: error.value }
+  } finally {
+    isLoading.value = false
+  }
+}
+
+// Change password by phone (one step alternative)
+const changePasswordByPhone = async (phoneNumber, newPassword, confirmPassword) => {
+  isLoading.value = true
+  error.value = null
+  
+  try {
+    const response = await authService.changePasswordByPhone(phoneNumber, newPassword, confirmPassword)
+    
+    if (response.success !== false) {
+      return { 
+        success: true, 
+        message: response.message || 'Password changed successfully' 
+      }
+    }
+    
+    return { success: false, message: response.message || 'Change failed' }
+  } catch (err) {
+    console.error('Change password error:', err)
+    error.value = err.message || 'Failed to change password'
+    return { success: false, message: error.value }
+  } finally {
+    isLoading.value = false
+  }
+}
 
   // Initialize auth header if token exists
   if (accessToken.value) {
@@ -306,6 +383,10 @@ export const useAuthStore = defineStore('auth', () => {
     fetchUserBalance,
     fetchUserProfile,
     // fetchTransactions,
-    updateBalance
+    updateBalance,
+
+  forgotPassword,       
+  resetPassword,        
+  changePasswordByPhone  
   }
 })
