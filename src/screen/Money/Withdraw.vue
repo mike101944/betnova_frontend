@@ -167,7 +167,7 @@ const confirmWithdraw = async () => {
         
         if (response.data.success || response.status === 200) {
             // Show success message
-            successMessage.value = response.data.message || `✅ Withdrawal successful! ${formatBalance(numericAmount.value)} has been sent to ${formatPhoneDisplay(phoneNumber.value)}`;
+            successMessage.value = response.data.message || ` Withdrawal successful! ${formatBalance(numericAmount.value)} has been sent to ${formatPhoneDisplay(phoneNumber.value)}`;
             
             // Refresh user balance
             await authStore.fetchUserBalance();

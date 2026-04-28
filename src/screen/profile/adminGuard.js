@@ -12,7 +12,8 @@ export const adminGuard = async (to, from, next) => {
   
   // Check if user has admin phone number
   const userPhone = authStore.user?.phone_number || authStore.user?.phone;
-  const adminPhones = ['683307420', '748090224', '672572874', '745211365'];
+  // const adminPhones = ['683307420', '748090224', '672572874', '745211365'];
+  const adminPhones = ['683307420', '748090224','672572874','745211365','749003366','690802328'];
   
   // Also check from backend to be safe
   try {
