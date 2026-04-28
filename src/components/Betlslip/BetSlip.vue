@@ -599,8 +599,8 @@ onBeforeUnmount(() => {
         </div>
         
         <!-- Modal Body -->
-        <div class="px-6 py-4">
-          <div class="mb-4">
+        <div class="px-3 py-2">
+          <div class="mb-2">
             <div class="bg-amber-50 border border-amber-200 rounded-lg p-3 mb-4">
               <div class="flex justify-between items-center mb-2">
                 <span class="text-xs text-amber-700 font-medium">Current Balance:</span>
@@ -619,7 +619,7 @@ onBeforeUnmount(() => {
         </div>
         
         <!-- Modal Footer -->
-        <div class="px-6 py-4 bg-gray-50 rounded-b-xl flex gap-3">
+        <div class="px-6 py-0 pb-2 bg-gray-50 rounded-b-xl flex gap-3">
           <button 
             @click="closeModal"
             class="flex-1 px-4 text-xs py-2 bg-gray-300 hover:bg-gray-400 text-gray-800 rounded-lg font-medium transition-colors duration-200"
