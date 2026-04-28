@@ -282,12 +282,6 @@ const closeModal = () => {
   modalMessage.value = ''
 }
 
-// Show withdrawal warning modal
-const showWithdrawalWarningModal = () => {
-  modalMessage.value = '⚠️ Withdrawal Required! Your account balance has reached the minimum withdrawal threshold. Please contact your agent/broker to process your withdrawal before placing new bets.'
-  showBalanceModal.value = true
-}
-
 // Force reload bets from localStorage (iOS fix)
 const forceReloadBets = () => {
   loadFromLocalStorage()
@@ -435,9 +429,10 @@ const loadBookingCode = async () => {
 
 // Place bet using API with balance check
 const placeBet = async () => {
-  // Check if user has exceeded withdrawal limit - show modal immediately
+  // Check if user has exceeded withdrawal limit
   if (hasExceededWithdrawalLimit.value) {
-    showWithdrawalWarningModal()
+    modalMessage.value = `Dear valued customer,\n\nWe notice that your account balance of ${formatBalance(userBalance.value)} has reached the minimum withdrawal threshold of ${formatBalance(5000000)}. To ensure the security of your funds and provide you with the best service possible, you will need to process a withdrawal before placing additional bets.\n\nPlease contact your dedicated agent or broker who will be happy to assist you with the withdrawal process. They will guide you through the necessary steps to complete your withdrawal smoothly and efficiently.\n\nThank you for your understanding and cooperation.\n\nBest regards,\nCustomer Support Team`
+    showBalanceModal.value = true
     return
   }
   
@@ -583,7 +578,7 @@ onBeforeUnmount(() => {
 
 <template>
   <div class="flex flex-col bg-gray-300 h-full w-full overflow-hidden">
-    <!-- Modal Popup for Withdrawal Warning -->
+    <!-- Modal Popup for Balance Limit -->
     <div v-if="showBalanceModal" class="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
       <div class="bg-white rounded-xl shadow-2xl max-w-md w-full transform transition-all animate-modal-pop">
         <!-- Modal Header -->
@@ -612,7 +607,7 @@ onBeforeUnmount(() => {
               </div>
             </div>
             
-            <div class="text-gray-700">
+            <div class="text-gray-700 space-y-3">
               <p class="leading-relaxed">{{ modalMessage }}</p>
             </div>
           </div>
@@ -736,8 +731,13 @@ onBeforeUnmount(() => {
         </button>
       </div>
 
-      <!-- Warning Messages - Only show insufficient balance warning here, withdrawal warning is now modal only -->
+      <!-- Warning Messages -->
       <div class="flex-shrink-0 px-4">
+        <div v-if="isAuthenticated && hasExceededWithdrawalLimit && currentSelectionsCount > 0" class="mb-4 bg-amber-100 border border-amber-400 text-amber-700 px-4 py-3 rounded relative">
+          <strong class="font-bold">⚠️ Withdrawal Required! </strong>
+          <span class="block sm:inline">Your account balance has reached the minimum withdrawal threshold. Please contact your agent/broker to process your withdrawal before placing new bets.</span>
+        </div>
+
         <div v-if="isAuthenticated && insufficientBalance && currentSelectionsCount > 0" class="mb-4 bg-orange-100 border border-orange-400 text-orange-700 px-4 py-3 rounded relative">
           <strong class="font-bold">💰 Insufficient Balance! </strong>
           <span class="block sm:inline">You need Tsh {{ (parseFloat(stakeAmount) - userBalance).toFixed(0) }} more to place this bet.</span>
@@ -906,10 +906,11 @@ onBeforeUnmount(() => {
 
           <div v-else-if="hasExceededWithdrawalLimit" class="mb-2">
             <button 
-              @click="showWithdrawalWarningModal"
-              class="block w-full py-3 bg-amber-500 text-white font-bold rounded-lg text-center hover:bg-amber-600 transition-colors"
+              @click="placeBet"
+              class="block w-full py-3 bg-amber-500 text-white font-bold rounded-lg text-center cursor-not-allowed opacity-75"
+              disabled
             >
-              ⚠️ Withdrawal Required - Click for Info
+              Unavailable - Withdrawal Required
             </button>
           </div>
 
