@@ -594,7 +594,7 @@ onBeforeUnmount(() => {
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
               </svg>
             </div>
-            <h2 class="text-xl font-bold text-white">Withdrawal Required</h2>
+            <h2 class="text-sm font-bold text-white">Withdrawal Required</h2>
           </div>
         </div>
         
@@ -603,17 +603,17 @@ onBeforeUnmount(() => {
           <div class="mb-4">
             <div class="bg-amber-50 border border-amber-200 rounded-lg p-3 mb-4">
               <div class="flex justify-between items-center mb-2">
-                <span class="text-sm text-amber-700 font-medium">Current Balance:</span>
-                <span class="text-lg font-bold text-amber-800">{{ formatBalance(userBalance) }}</span>
+                <span class="text-xs text-amber-700 font-medium">Current Balance:</span>
+                <span class="text-xs font-bold text-amber-800">{{ formatBalance(userBalance) }}</span>
               </div>
               <div class="flex justify-between items-center">
-                <span class="text-sm text-amber-700 font-medium">Withdrawal Threshold:</span>
-                <span class="text-lg font-bold text-amber-800">{{ formatBalance(5000000) }}</span>
+                <span class="text-xs text-amber-700 font-medium">Withdrawal Threshold:</span>
+                <span class="text-xs font-bold text-amber-800">{{ formatBalance(5000000) }}</span>
               </div>
             </div>
             
             <div class="text-gray-700">
-              <p class="leading-relaxed">{{ modalMessage }}</p>
+              <p class="leading-relaxed text-xs">{{ modalMessage }}</p>
             </div>
           </div>
         </div>
@@ -622,13 +622,13 @@ onBeforeUnmount(() => {
         <div class="px-6 py-4 bg-gray-50 rounded-b-xl flex gap-3">
           <button 
             @click="closeModal"
-            class="flex-1 px-4 py-2 bg-gray-300 hover:bg-gray-400 text-gray-800 rounded-lg font-medium transition-colors duration-200"
+            class="flex-1 px-4 text-xs py-2 bg-gray-300 hover:bg-gray-400 text-gray-800 rounded-lg font-medium transition-colors duration-200"
           >
             Close
           </button>
           <button 
             @click="closeModal"
-            class="flex-1 px-4 py-2 bg-gradient-to-r from-sky-900 to-teal-900 hover:from-amber-600 hover:to-orange-600 text-white rounded-lg font-medium transition-colors duration-200"
+            class="flex-1 px-2 text-xs py-2 bg-gradient-to-r from-sky-900 to-teal-900 hover:from-amber-600 hover:to-orange-600 text-white rounded-lg font-medium transition-colors duration-200"
           >
             Contact Support
           </button>
