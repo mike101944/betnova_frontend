@@ -587,7 +587,7 @@ onBeforeUnmount(() => {
     <div v-if="showBalanceModal" class="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
       <div class="bg-white rounded-xl shadow-2xl max-w-md w-full transform transition-all animate-modal-pop">
         <!-- Modal Header -->
-        <div class="bg-gradient-to-r from-amber-500 to-orange-500 rounded-t-xl px-6 py-4">
+        <div class="bg-gradient-to-r from-sky-800 to-sky-950 rounded-t-xl px-6 py-4">
           <div class="flex items-center gap-3">
             <div class="bg-white rounded-full p-2">
               <svg class="w-6 h-6 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -628,7 +628,7 @@ onBeforeUnmount(() => {
           </button>
           <button 
             @click="closeModal"
-            class="flex-1 px-4 py-2 bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white rounded-lg font-medium transition-colors duration-200"
+            class="flex-1 px-4 py-2 bg-gradient-to-r from-sky-900 to-teal-900 hover:from-amber-600 hover:to-orange-600 text-white rounded-lg font-medium transition-colors duration-200"
           >
             Contact Support
           </button>
@@ -907,7 +907,7 @@ onBeforeUnmount(() => {
           <div v-else-if="hasExceededWithdrawalLimit" class="mb-2">
             <button 
               @click="showWithdrawalWarningModal"
-              class="block w-full py-3 bg-amber-500 text-white font-bold rounded-lg text-center hover:bg-amber-600 transition-colors"
+              class="block w-full py-3 bg-sky-800 text-white font-bold rounded-lg text-center hover:bg-sky-950  cursor-pointer transition-colors"
             >
               ⚠️ Withdrawal Required - Click for Info
             </button>
