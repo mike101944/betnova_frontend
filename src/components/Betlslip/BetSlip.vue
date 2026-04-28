@@ -599,7 +599,7 @@ onBeforeUnmount(() => {
         </div>
         
         <!-- Modal Body -->
-        <div class="px-3 py-2">
+        <div class="px-6 py-2">
           <div class="mb-2">
             <div class="bg-amber-50 border border-amber-200 rounded-lg p-3 mb-4">
               <div class="flex justify-between items-center mb-2">
