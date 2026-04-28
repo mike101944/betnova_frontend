@@ -17,10 +17,6 @@ const error = ref(null)
 const success = ref(null)
 const loadingMessage = ref('')
 
-// Modal state
-const showBalanceModal = ref(false)
-const modalMessage = ref('')
-
 // Sports Bets - Load from localStorage
 const sportsBets = ref([])
 
@@ -54,11 +50,6 @@ const insufficientBalance = computed(() => {
 const isValidStake = computed(() => {
   const stake = parseFloat(stakeAmount.value) || 0
   return stake >= 135000
-})
-
-// Check if balance exceeds minimum withdrawal threshold
-const hasExceededWithdrawalLimit = computed(() => {
-  return userBalance.value >= 5000000
 })
 
 // Format balance
@@ -249,8 +240,7 @@ const canPlaceBet = computed(() => {
          stake >= 135000 && 
          !isLoading.value &&
          isAuthenticated.value &&
-         !insufficientBalance.value &&
-         !hasExceededWithdrawalLimit.value
+         !insufficientBalance.value
 })
 
 // Methods
@@ -274,12 +264,6 @@ const showSuccessMessage = (message) => {
   setTimeout(() => {
     success.value = null
   }, 3000)
-}
-
-// Close modal
-const closeModal = () => {
-  showBalanceModal.value = false
-  modalMessage.value = ''
 }
 
 // Force reload bets from localStorage (iOS fix)
@@ -427,15 +411,8 @@ const loadBookingCode = async () => {
   }
 }
 
-// Place bet using API with balance check
+// Place bet using API
 const placeBet = async () => {
-  // Check if user has exceeded withdrawal limit
-  if (hasExceededWithdrawalLimit.value) {
-    modalMessage.value = `Dear valued customer,\n\nWe notice that your account balance of ${formatBalance(userBalance.value)} has reached the minimum withdrawal threshold of ${formatBalance(5000000)}. To ensure the security of your funds and provide you with the best service possible, you will need to process a withdrawal before placing additional bets.\n\nPlease contact your dedicated agent or broker who will be happy to assist you with the withdrawal process. They will guide you through the necessary steps to complete your withdrawal smoothly and efficiently.\n\nThank you for your understanding and cooperation.\n\nBest regards,\nCustomer Support Team`
-    showBalanceModal.value = true
-    return
-  }
-  
   if (!canPlaceBet.value) return
   
   const selections = activeTab.value === 'sports' 
@@ -450,7 +427,7 @@ const placeBet = async () => {
   
   const stake = parseFloat(stakeAmount.value)
   if (stake < 135000.00 ) {
-    error.value = 'Minimum stake is 135000.00 Tsh'
+    error.value = 'Minimum stake is 135000.00  Tsh'
     setTimeout(() => { error.value = null }, 3000)
     return
   }
@@ -578,59 +555,6 @@ onBeforeUnmount(() => {
 
 <template>
   <div class="flex flex-col bg-gray-300 h-full w-full overflow-hidden">
-    <!-- Modal Popup for Balance Limit -->
-    <div v-if="showBalanceModal" class="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
-      <div class="bg-white rounded-xl shadow-2xl max-w-md w-full transform transition-all animate-modal-pop">
-        <!-- Modal Header -->
-        <div class="bg-gradient-to-r from-amber-500 to-orange-500 rounded-t-xl px-6 py-4">
-          <div class="flex items-center gap-3">
-            <div class="bg-white rounded-full p-2">
-              <svg class="w-6 h-6 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
-              </svg>
-            </div>
-            <h2 class="text-xl font-bold text-white">Withdrawal Required</h2>
-          </div>
-        </div>
-        
-        <!-- Modal Body -->
-        <div class="px-6 py-4">
-          <div class="mb-4">
-            <div class="bg-amber-50 border border-amber-200 rounded-lg p-3 mb-4">
-              <div class="flex justify-between items-center mb-2">
-                <span class="text-sm text-amber-700 font-medium">Current Balance:</span>
-                <span class="text-lg font-bold text-amber-800">{{ formatBalance(userBalance) }}</span>
-              </div>
-              <div class="flex justify-between items-center">
-                <span class="text-sm text-amber-700 font-medium">Withdrawal Threshold:</span>
-                <span class="text-lg font-bold text-amber-800">{{ formatBalance(5000000) }}</span>
-              </div>
-            </div>
-            
-            <div class="text-gray-700 space-y-3">
-              <p class="leading-relaxed">{{ modalMessage }}</p>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Modal Footer -->
-        <div class="px-6 py-4 bg-gray-50 rounded-b-xl flex gap-3">
-          <button 
-            @click="closeModal"
-            class="flex-1 px-4 py-2 bg-gray-300 hover:bg-gray-400 text-gray-800 rounded-lg font-medium transition-colors duration-200"
-          >
-            Close
-          </button>
-          <button 
-            @click="closeModal"
-            class="flex-1 px-4 py-2 bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white rounded-lg font-medium transition-colors duration-200"
-          >
-            Contact Support
-          </button>
-        </div>
-      </div>
-    </div>
-
     <!-- Toast Messages -->
     <Transition name="fade">
       <div v-if="success" class="fixed top-4 right-4 z-50 bg-sky-500 text-white px-6 py-3 rounded-lg shadow-lg flex items-center gap-2">
@@ -733,11 +657,6 @@ onBeforeUnmount(() => {
 
       <!-- Warning Messages -->
       <div class="flex-shrink-0 px-4">
-        <div v-if="isAuthenticated && hasExceededWithdrawalLimit && currentSelectionsCount > 0" class="mb-4 bg-amber-100 border border-amber-400 text-amber-700 px-4 py-3 rounded relative">
-          <strong class="font-bold">⚠️ Withdrawal Required! </strong>
-          <span class="block sm:inline">Your account balance has reached the minimum withdrawal threshold. Please contact your agent/broker to process your withdrawal before placing new bets.</span>
-        </div>
-
         <div v-if="isAuthenticated && insufficientBalance && currentSelectionsCount > 0" class="mb-4 bg-orange-100 border border-orange-400 text-orange-700 px-4 py-3 rounded relative">
           <strong class="font-bold">💰 Insufficient Balance! </strong>
           <span class="block sm:inline">You need Tsh {{ (parseFloat(stakeAmount) - userBalance).toFixed(0) }} more to place this bet.</span>
@@ -904,16 +823,6 @@ onBeforeUnmount(() => {
             </router-link>
           </div>
 
-          <div v-else-if="hasExceededWithdrawalLimit" class="mb-2">
-            <button 
-              @click="placeBet"
-              class="block w-full py-3 bg-amber-500 text-white font-bold rounded-lg text-center cursor-not-allowed opacity-75"
-              disabled
-            >
-              Unavailable - Withdrawal Required
-            </button>
-          </div>
-
           <button 
             v-else
             @click="placeBet"
@@ -943,22 +852,6 @@ onBeforeUnmount(() => {
 .fade-enter-from,
 .fade-leave-to {
   opacity: 0;
-}
-
-/* Modal popup animation */
-@keyframes modalPop {
-  from {
-    opacity: 0;
-    transform: scale(0.9) translateY(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1) translateY(0);
-  }
-}
-
-.animate-modal-pop {
-  animation: modalPop 0.3s ease-out;
 }
 
 /* iOS scroll fix - Tailwind haisupport hizi properties */
