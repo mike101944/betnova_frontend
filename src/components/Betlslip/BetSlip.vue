@@ -1013,8 +1013,17 @@ onBeforeUnmount(() => {
                 <div class="px-3 py-2">
                   <div class="text-center mb-2">
                     <p class="text-xs text-gray-500 mb-2">Share this code with friends to load your selections</p>
-                    <div class="bg-gray-100 rounded-lg p-2 ">
+                    <div class="flex items-center justify-center gap-3.5 bg-gray-100 rounded-lg p-2 ">
                       <p class="text-xl font-mono font-bold text-sky-600 tracking-wider">{{ generatedBookingCode }}</p>
+
+                      <button 
+                          @click="copyBookingCode"
+                          class="cursor-pointer"
+                        >
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+                              <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 17.25v3.375c0 .621-.504 1.125-1.125 1.125h-9.75a1.125 1.125 0 0 1-1.125-1.125V7.875c0-.621.504-1.125 1.125-1.125H6.75a9.06 9.06 0 0 1 1.5.124m7.5 10.376h3.375c.621 0 1.125-.504 1.125-1.125V11.25c0-4.46-3.243-8.161-7.5-8.876a9.06 9.06 0 0 0-1.5-.124H9.375c-.621 0-1.125.504-1.125 1.125v3.5m7.5 10.375H9.375a1.125 1.125 0 0 1-1.125-1.125v-9.25m12 6.625v-1.875a3.375 3.375 0 0 0-3.375-3.375h-1.5a1.125 1.125 0 0 1-1.125-1.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H9.75" />
+                            </svg>
+                        </button>
                     </div>
                     <!-- <div class="flex justify-between items-center text-xs text-gray-500 mt-2">
                       <span>Expires:</span>
@@ -1024,18 +1033,7 @@ onBeforeUnmount(() => {
                 </div>
                 
                 <!-- Modal Footer -->
-                <div class="px-3 py-4 bg-white rounded-b-xl flex gap-3">
-                
-                  <button 
-                    @click="copyBookingCode"
-                    class="flex-1 px-4 py-2 bg-white  text-gray-700 cursor-pointer text-sm rounded-lg font-medium transition-colors duration-200 flex items-center justify-center gap-2"
-                  >
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"></path>
-                    </svg>
-                    Copy Code
-                  </button>
-                </div>
+              
               </div>
             </div>
 
