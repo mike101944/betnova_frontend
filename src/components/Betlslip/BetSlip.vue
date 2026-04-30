@@ -1025,6 +1025,7 @@ onBeforeUnmount(() => {
                             </svg>
                         </button>
                     </div>
+
                     <!-- <div class="flex justify-between items-center text-xs text-gray-500 mt-2">
                       <span>Expires:</span>
                       <span class="font-medium text-amber-600">{{ new Date(bookingCodeExpiresAt).toLocaleString() }}</span>
@@ -1033,6 +1034,9 @@ onBeforeUnmount(() => {
                 </div>
                 
                 <!-- Modal Footer -->
+                 <div class="flex  items-center justify-center">
+                  <p class="text-xs  font-thin text-sky-500 mb-2 italic shadow-md">Betnover the winning platform</p>
+                 </div>
               
               </div>
             </div>
