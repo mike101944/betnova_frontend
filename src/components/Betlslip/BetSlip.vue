@@ -859,9 +859,9 @@ onBeforeUnmount(() => {
           <div v-else class="space-y-4">
             <!-- Action Buttons Row - Create Booking Code (Right) & Clear All (Left) -->
             <div v-if="currentSelectionsCount > 0"
-              class="flex flex-row-reverse justify-between items-center px-0  bg-transparent ">
+              class="flex flex-row-reverse  justify-between items-center px-0  bg-transparent ">
               <button @click="clearAllSelections"
-                class="px-1 py-1.5 bg-gray-300 cursor-pointer text-red-700 text-xs font-medium rounded-lg transition-colors duration-200 flex items-center gap-1">
+                class="px-1 py-1.5 bg-gray-300 underline cursor-pointer text-red-700 text-xs font-medium rounded-lg transition-colors duration-200 flex items-center gap-1">
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                     d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16">
@@ -871,7 +871,7 @@ onBeforeUnmount(() => {
               </button>
 
               <button @click="createBookingCode" :disabled="isCreatingCode"
-                class=" py-1.5 bg-gray-300 cursor-pointer text-sky-800 text-xs font-medium rounded-lg transition-colors duration-200 flex items-center gap-1 disabled:opacity-50 disabled:cursor-not-allowed">
+                class=" py-2 px-2 underline bg-sky-100 cursor-pointer text-sky-800 text-xs font-medium rounded transition-colors duration-200 flex items-center gap-1 disabled:opacity-50 disabled:cursor-not-allowed">
                 <!-- <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
                   </svg> -->
