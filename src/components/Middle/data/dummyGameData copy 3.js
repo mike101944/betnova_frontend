@@ -109,12 +109,7 @@ const allGamesData = parsed
 // Filter ONLY upcoming games (date/time not yet passed)
 const gamesData = allGamesData.filter(isUpcomingGame)
 
-// Optional: Sort by date/time (earliest first)
-// gamesData.sort((a, b) => {
-//   const dateA = parseGameDateTime(a.date, a.time)
-//   const dateB = parseGameDateTime(b.date, b.time)
-//   return dateA - dateB
-// })
+
 
 // If you want sorted games
 const sortedGamesData = sortByDateTime(gamesData)
