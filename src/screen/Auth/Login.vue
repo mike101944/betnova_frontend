@@ -306,7 +306,8 @@ const goToRegister = () => {
             <span class="ml-2 text-sm text-gray-600">Keep me logged in</span>
           </label>
           <div class=" text-right">
-          <a href="#" @click.prevent="openForgotPassword" 
+            <!-- <a href="#" @click.prevent="openForgotPassword"  -->
+          <a href="#"  
             class="text-sm text-sky-600 hover:text-sky-800 underline">
             Forgot Password?
           </a>
