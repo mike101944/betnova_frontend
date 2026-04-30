@@ -1013,7 +1013,7 @@ onBeforeUnmount(() => {
                 <div class="px-3 py-2">
                   <div class="text-center mb-2">
                     <p class="text-xs text-gray-500 mb-2">Share this code with friends to load your selections</p>
-                    <div class="bg-gray-100 rounded-lg p-4 ">
+                    <div class="bg-gray-100 rounded-lg p-2 ">
                       <p class="text-xl font-mono font-bold text-sky-600 tracking-wider">{{ generatedBookingCode }}</p>
                     </div>
                     <!-- <div class="flex justify-between items-center text-xs text-gray-500 mt-2">
