@@ -37,6 +37,11 @@ const generatedBookingCode = ref('')
 const bookingCodeExpiresAt = ref('')
 const isCreatingCode = ref(false)
 
+const bookingCodeCreatedTime = ref('')
+const bookingCodeTotalOdds = ref(0)
+const bookingCodeGamesCount = ref(0)
+
+
 
 // Detect iOS/Safari
 const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream
@@ -316,16 +321,9 @@ const createBookingCode = async () => {
     return
   }
 
-  // if (!isAuthenticated.value) {
-  //   error.value = 'Please login to create booking code'
-  //   setTimeout(() => { error.value = null }, 3000)
-  //   return
-  // }
-
   isCreatingCode.value = true
 
   try {
-    // Format selections for API
     const formattedSelections = selections.map(selection => ({
       matchId: selection.id || selection.match,
       match: selection.match,
@@ -343,6 +341,18 @@ const createBookingCode = async () => {
     if (response.data.success) {
       generatedBookingCode.value = response.data.data.bookingCode
       bookingCodeExpiresAt.value = response.data.data.expiresAt
+      
+      // ONGEZA HIZI DETAILS MPYA
+      bookingCodeCreatedTime.value = new Date().toLocaleString('en-US', {
+        year: 'numeric',
+        month: 'short',
+        day: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit'
+      })
+      bookingCodeTotalOdds.value = currentTotalOdds.value
+      bookingCodeGamesCount.value = currentSelectionsCount.value
+      
       showBookingCodeModal.value = true
       showSuccessMessage(' Booking code created successfully!')
     } else {
@@ -351,11 +361,7 @@ const createBookingCode = async () => {
     }
   } catch (err) {
     console.error('Error creating booking code:', err)
-    if (err.response?.data?.message) {
-      error.value = err.response.data.message
-    } else {
-      error.value = 'Failed to create booking code. Please try again.'
-    }
+    error.value = err.response?.data?.message || 'Failed to create booking code. Please try again.'
     setTimeout(() => { error.value = null }, 3000)
   } finally {
     isCreatingCode.value = false
@@ -384,6 +390,10 @@ const closeBookingCodeModal = () => {
   showBookingCodeModal.value = false
   generatedBookingCode.value = ''
   bookingCodeExpiresAt.value = ''
+
+  bookingCodeCreatedTime.value = ''
+  bookingCodeTotalOdds.value = 0
+  bookingCodeGamesCount.value = 0
 }
 
 // Clear all selections
@@ -998,22 +1008,25 @@ onBeforeUnmount(() => {
                 </button>
                 
                 <!-- Modal Header -->
-                <div class="bg-gradient-to-r from-sky-900 to-teal-950 rounded-t-xl px-6 py-4">
+                <div class="bg-gradient-to-r from-sky-600 rounded-t-xl px-2 py-2">
                   <div class="flex items-center gap-3">
                     <div class="bg-white rounded-full p-1">
                       <svg class="w-4 h-4 text-sky-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
                       </svg>
                     </div>
-                    <h2 class="text-sm font-bold text-white">Your Booking Code</h2>
+                    <div class="flex flex-col">
+                      <h5 class="text-sm font-bold text-white">Your Booking Code</h5>
+                    <p class="text-xs text-gray-900 ">Share this code with friends to load your bets</p>
+
+                    </div>
                   </div>
                 </div>
                 
                 <!-- Modal Body -->
-                <div class="px-3 py-2">
-                  <div class="text-center mb-2">
-                    <p class="text-xs text-gray-500 mb-2">Share this code with friends to load your selections</p>
-                    <div class="flex items-center justify-center gap-6 bg-gray-100 rounded-lg p-2 ">
+                <div class="px-2 py-2">
+                  <div class="text-center ">
+                    <div class="flex items-center justify-center gap-12 bg-gray-100 rounded-lg p-2 ">
                       <p class="text-xl font-mono font-bold text-sky-600 tracking-wider">{{ generatedBookingCode }}</p>
 
                       <button 
@@ -1031,8 +1044,23 @@ onBeforeUnmount(() => {
                 </div>
                 
                 <!-- Modal Footer -->
-                 <div class="flex  items-center justify-center">
-                  <p class="text-xs  font-thin text-sky-500 mb-2 italic shadow-md">Betnover the winning platform</p>
+                 <div class="flex  items-center justify-between p-2">
+                  <div class="flex justify-center flex-col  mb-2 text-xs">
+                      <span class="text-gray-500 text-xs">Created:</span>
+                      <span class="font-medium text-gray-700 text-xs">{{ bookingCodeCreatedTime }}</span>
+                    </div>
+                    
+                    <!-- Total Odds -->
+                    <div class="flex justify-center flex-col  mb-2 text-xs">
+                      <span class="text-gray-500 text-xs">Total Odds:</span>
+                      <span class="font-bold text-sky-600">{{ bookingCodeTotalOdds.toFixed(2) }}</span>
+                    </div>
+                    
+                    <!-- Number of Games -->
+                    <div class="flex justify-center flex-col  mb-1 text-xs">
+                      <span class="text-gray-500 text-xs">Bet Type:</span>
+                      <span class="font-medium text-gray-700 text-xs">Multi Bet({{ bookingCodeGamesCount }})</span>
+                    </div>
                  </div>
               
               </div>
