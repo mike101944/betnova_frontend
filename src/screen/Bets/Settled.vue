@@ -82,6 +82,13 @@ const goToBetDetails = (bet) => {
 }
 
 
+const calculateNetPayout = (bet) => {
+  const potentialWin = Number(bet.potentialReturn || bet.potentialWin || 0)
+  const tax = Math.round(potentialWin * 0.1)
+  const netPayout = potentialWin - tax
+  return Math.round(netPayout * 100) / 100  // Round to 2 decimal places
+}
+
 
 const formatBalance = (amount) => {
   return new Intl.NumberFormat('sw-TZ', {
@@ -193,7 +200,7 @@ const formatBalance = (amount) => {
                   <span class="text-xs font-medium text-gray-400 uppercase tracking-wider">Payout</span>
                 </div>
                 <div class="rounded-lg ">
-                  <span class="text-xs font-bold text-green-700">{{ formatBalance(bet.potentialReturn)}}</span>
+                  <span class="text-xs font-bold text-green-700">{{ formatBalance(calculateNetPayout(bet)) }}</span>
                 </div>
               </div>
 

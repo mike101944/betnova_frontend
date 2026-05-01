@@ -105,7 +105,7 @@
                     </div>
                     <div class="flex items-center justify-between">
                         <span class="text-xs  text-gray-500 font-inter">Gross Winnings</span>
-                        <span class="text-[10px] font-black text-gray-500 ">{{ formatCurrency(bet.potentialReturn) }}</span>
+                        <span class="text-[10px] font-black text-gray-500 ">{{ formatCurrency(bet.potentialWin || bet.potentialReturn) }}</span>
                     </div>
                     <div class="flex items-center justify-between mb-1">
                         <span class="text-xs  text-gray-500 font-inter">Tax (10%)</span>
