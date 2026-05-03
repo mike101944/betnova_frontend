@@ -308,6 +308,7 @@ const goToRegister = () => {
           <div class=" text-right">
             <!-- <a href="#" @click.prevent="openForgotPassword"  -->
           <a href="#"  
+             
             class="text-sm text-sky-600 hover:text-sky-800 underline">
             Forgot Password?
           </a>
