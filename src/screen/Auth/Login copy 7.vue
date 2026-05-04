@@ -320,11 +320,9 @@ const goToRegister = () => {
           </label>
           <div class=" text-right">
             <!-- <a href="#" @click.prevent="openForgotPassword"  -->
-              <a 
-                href="#" 
-                @click.prevent="isAdminLogin ? openForgotPassword() : null"
-                :class="isAdminLogin ? 'text-sky-600 hover:text-sky-800 underline cursor-pointer' : 'text-sky-600 cursor-pointer'"
-              >
+          <a href="#"  
+           
+            class="text-sm text-sky-600 hover:text-sky-800 underline">
             Forgot Password?
           </a>
         </div>
