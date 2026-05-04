@@ -47,9 +47,12 @@
                       Deposit
                     </router-link>
                     <router-link 
+                     
                       :to="isAdmin ? '/adminWithDraw' : '/withdraw'"
                       class="flex-1 bg-gray-600 hover:bg-gray-700 text-white text-sm text-center py-2 px-3 rounded-lg transition-all hover:shadow-md"
                     >
+                    <!-- :to="isAdmin ? '/adminWithDraw' : '/withdraw'" -->
+                    <!-- to="/withdraw"  -->
                       Withdraw
                     </router-link>
                   </div>
@@ -59,86 +62,7 @@
           </div>
         </div>
 
-        <!-- Account Activity Summary - Positive Only (No Loss Statistics) -->
-        <div class="bg-white rounded-2xl shadow-xl p-6">
-          <h3 class="font-semibold text-gray-800 mb-6 flex items-center gap-2">
-            <div class="p-2 bg-emerald-100 rounded-lg">
-              <svg class="w-5 h-5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
-              </svg>
-            </div>
-            Account Activity
-          </h3>
-          
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <div class="bg-gradient-to-br from-emerald-50 to-teal-50 p-4 rounded-xl text-center border border-emerald-100">
-              <svg class="w-8 h-8 text-emerald-600 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-              </svg>
-              <p class="text-xs text-gray-600 mb-1">Current Balance</p>
-              <p class="text-sm font-bold text-emerald-700">{{ formatBalance(userBalance) }}</p>
-            </div>
-            
-            <div class="bg-gradient-to-br from-blue-50 to-indigo-50 p-4 rounded-xl text-center border border-blue-100">
-              <svg class="w-8 h-8 text-blue-600 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-              </svg>
-              <p class="text-xs text-gray-600 mb-1">Account Status</p>
-              <p class="text-sm font-bold text-blue-700">✓ Active</p>
-            </div>
-            
-            <div class="bg-gradient-to-br from-purple-50 to-pink-50 p-4 rounded-xl text-center border border-purple-100">
-              <svg class="w-8 h-8 text-purple-600 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
-              </svg>
-              <p class="text-xs text-gray-600 mb-1">Win Rate</p>
-              <p class="text-xl font-bold text-purple-700">{{ winRate }}%</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Quick Actions Card -->
-        <div class="bg-white rounded-2xl shadow-xl p-6">
-          <h3 class="font-semibold text-gray-800 mb-6 flex items-center gap-2">
-            <div class="p-2 bg-emerald-100 rounded-lg">
-              <svg class="w-5 h-5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-              </svg>
-            </div>
-            Quick Actions
-          </h3>
-          
-          <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
-            <router-link to="/bets" class="bg-gray-50 hover:bg-gray-100 p-4 rounded-xl text-center transition-all group">
-              <svg class="w-6 h-6 text-gray-600 mx-auto mb-2 group-hover:text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
-              </svg>
-              <p class="text-xs font-medium text-gray-700">My Bets</p>
-            </router-link>
-            
-            <router-link to="/deposite" class="bg-gray-50 hover:bg-gray-100 p-4 rounded-xl text-center transition-all group">
-              <svg class="w-6 h-6 text-gray-600 mx-auto mb-2 group-hover:text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
-              </svg>
-              <p class="text-xs font-medium text-gray-700">Deposit</p>
-            </router-link>
-            
-            <router-link :to="isAdmin ? '/adminWithDraw' : '/withdraw'" class="bg-gray-50 hover:bg-gray-100 p-4 rounded-xl text-center transition-all group">
-              <svg class="w-6 h-6 text-gray-600 mx-auto mb-2 group-hover:text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4"></path>
-              </svg>
-              <p class="text-xs font-medium text-gray-700">Withdraw</p>
-            </router-link>
-            
-            <router-link to="/profile" class="bg-gray-50 hover:bg-gray-100 p-4 rounded-xl text-center transition-all group">
-              <svg class="w-6 h-6 text-gray-600 mx-auto mb-2 group-hover:text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
-              </svg>
-              <p class="text-xs font-medium text-gray-700">Settings</p>
-            </router-link>
-          </div>
-        </div>
+      
 
         <!-- Account Information Card -->
         <div class="bg-white rounded-2xl shadow-xl p-2">
@@ -234,6 +158,106 @@
           </div>
         </div>
 
+        <!-- Betting Statistics Card -->
+        <div class="bg-white rounded-2xl shadow-xl p-6">
+          <h3 class="font-semibold text-gray-800 mb-6 flex items-center gap-2">
+            <div class="p-2 bg-emerald-100 rounded-lg">
+              <svg class="w-5 h-5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+              </svg>
+            </div>
+            Betting Statistics
+          </h3>
+          
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div class="bg-gradient-to-br from-gray-50 to-gray-100 p-4 rounded-xl text-center">
+              <p class="text-xs text-gray-500 mb-1">Total Bets</p>
+              <p class="text-xl font-bold text-gray-800">{{ stats.totalBets || 0 }}</p>
+            </div>
+            <div class="bg-gradient-to-br from-gray-50 to-gray-100 p-4 rounded-xl text-center">
+              <p class="text-xs text-gray-500 mb-1">Total Stake</p>
+              <p class="text-sm font-bold text-gray-800">{{ formatBalance(stats.totalStake) }}</p>
+            </div>
+            <div class="bg-gradient-to-br from-gray-50 to-gray-100 p-4 rounded-xl text-center">
+              <p class="text-xs text-gray-500 mb-1">Total Won</p>
+              <p class="text-sm font-bold text-green-600">{{ formatBalance(stats.totalWon) }}</p>
+            </div>
+            <div class="bg-gradient-to-br from-gray-50 to-gray-100 p-4 rounded-xl text-center">
+              <p class="text-xs text-gray-500 mb-1">Win Rate</p>
+              <p class="text-sm font-bold text-gray-800">{{ stats.winRate || 0 }}%</p>
+            </div>
+          </div>
+
+          <!-- Progress Bar -->
+          <div class="mt-6">
+            <div class="flex justify-between text-sm text-gray-500 mb-2">
+              <span>Won: {{ stats.wonBets || 0 }}</span>
+              <span>Lost: {{ stats.lostBets || 0 }}</span>
+            </div>
+            <div class="w-full bg-gray-200 rounded-full h-3">
+              <div 
+                class="bg-gradient-to-r from-emerald-500 to-teal-500 h-3 rounded-full transition-all duration-500" 
+                :style="{ width: winRateProgress + '%' }"
+              ></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Recent Activity Card -->
+        <!-- <div class="bg-white rounded-2xl shadow-xl p-6">
+          <h3 class="font-semibold text-gray-800 mb-6 flex items-center gap-2">
+            <div class="p-2 bg-emerald-100 rounded-lg">
+              <svg class="w-5 h-5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+            </div>
+            Recent Activity
+          </h3>
+          
+          <div v-if="recentActivity.length > 0" class="space-y-3">
+            <div v-for="(activity, index) in recentActivity" :key="index" 
+                 class="flex items-center justify-between p-4 bg-gray-50 hover:bg-gray-100 rounded-xl transition-all">
+              <div class="flex items-center gap-4">
+                <div :class="getActivityIconClass(activity.type)" class="p-3 rounded-xl">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path v-if="activity.type === 'bet'" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
+                    <path v-if="activity.type === 'deposit'" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+                    <path v-if="activity.type === 'withdraw'" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4"></path>
+                  </svg>
+                </div>
+                <div>
+                  <p class="text-sm font-medium text-gray-800">{{ activity.description }}</p>
+                  <p class="text-xs text-gray-500 mt-1">{{ activity.time }}</p>
+                </div>
+              </div>
+              <span :class="getAmountClass(activity.type)" class="font-semibold text-lg">
+                {{ activity.type === 'bet' ? '- ' : '+' }}{{ formatBalance(activity.amount) }}
+              </span>
+            </div>
+          </div>
+
+        // Empty State 
+          <div v-else class="text-center py-12">
+            <div class="w-20 h-20 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <svg class="w-10 h-10 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+            </div>
+            <p class="text-gray-500 font-medium">No recent activity</p>
+            <p class="text-sm text-gray-400 mt-1">Your activity will appear here</p>
+          </div>
+
+         // View All Link 
+          <div v-if="recentActivity.length > 0" class="mt-6 text-center">
+            <router-link to="/bets" class="inline-flex items-center gap-2 text-emerald-600 hover:text-emerald-700 text-sm font-medium bg-emerald-50 hover:bg-emerald-100 px-6 py-3 rounded-xl transition-all">
+              View All Activity
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+              </svg>
+            </router-link>
+          </div>
+        </div> -->
+
         <!-- Security Settings Card -->
         <div class="bg-white rounded-2xl shadow-xl p-6">
           <h3 class="font-semibold text-gray-800 mb-6 flex items-center gap-2">
@@ -284,7 +308,7 @@ import { useRouter } from 'vue-router'
 const router = useRouter()
 const authStore = useAuthStore()
 
-// Admin phone numbers (same as backend)
+// ✅ Admin phone numbers (same as backend)
 const adminPhoneNumbers = ['683307420', '696684997','672572874','745211365','749003366','690802328']
 
 // State
@@ -295,11 +319,42 @@ const editForm = ref({
   fullName: ''
 })
 
-// Check if current user is admin
+// ✅ Check if current user is admin
 const isAdmin = computed(() => {
   const userPhone = authStore.user?.phone_number || ''
   return adminPhoneNumbers.includes(userPhone)
 })
+
+// Mock data - replace with actual API calls
+const stats = ref({
+  totalBets: 45,
+  totalStake: 250000,
+  totalWon: 125000,
+  wonBets: 18,
+  lostBets: 27,
+  winRate: 40
+})
+
+const recentActivity = ref([
+  {
+    type: 'bet',
+    description: 'Placed bet on Arsenal vs Chelsea',
+    amount: 5000,
+    time: '2 hours ago'
+  },
+  {
+    type: 'deposit',
+    description: 'Deposit via M-Pesa',
+    amount: 50000,
+    time: '1 day ago'
+  },
+  {
+    type: 'bet',
+    description: 'Won bet on Manchester United',
+    amount: 15000,
+    time: '3 days ago'
+  }
+])
 
 // Computed properties
 const userPhone = computed(() => {
@@ -314,6 +369,11 @@ const userBalance = computed(() => {
   return authStore.userBalance || 0
 })
 
+const userInitials = computed(() => {
+  const phone = userPhone.value
+  return phone !== 'Not available' ? phone.slice(-4) : '??'
+})
+
 const formattedPhone = computed(() => {
   const phone = userPhone.value
   if (phone && phone !== 'Not available') {
@@ -323,13 +383,17 @@ const formattedPhone = computed(() => {
 })
 
 const memberSince = computed(() => {
-  if (!user.value?.createdAt) return 'Not available'
-  const date = new Date(user.value.createdAt)
-  return isNaN(date.getTime()) ? 'Not available' : date.toLocaleDateString('en-US', { month: 'long', year: 'numeric' })
+  return authStore.user?.createdAt 
+    ? new Date(authStore.user.createdAt).toLocaleDateString('en-US', { month: 'long', year: 'numeric' }) 
+    : 'January 2024'
 })
 
 const lastLogin = computed(() => {
   return authStore.user?.lastLogin || 'Today, 10:30 AM'
+})
+
+const winRateProgress = computed(() => {
+  return stats.value.winRate || 0
 })
 
 // Methods
@@ -340,6 +404,32 @@ const formatBalance = (amount) => {
     minimumFractionDigits: 0,
     maximumFractionDigits: 0
   }).format(amount || 0)
+}
+
+const getActivityIconClass = (type) => {
+  switch(type) {
+    case 'bet':
+      return 'bg-blue-100 text-blue-600'
+    case 'deposit':
+      return 'bg-green-100 text-green-600'
+    case 'withdraw':
+      return 'bg-orange-100 text-orange-600'
+    default:
+      return 'bg-gray-100 text-gray-600'
+  }
+}
+
+const getAmountClass = (type) => {
+  switch(type) {
+    case 'bet':
+      return 'text-red-600'
+    case 'deposit':
+      return 'text-green-600'
+    case 'withdraw':
+      return 'text-orange-600'
+    default:
+      return 'text-gray-600'
+  }
 }
 
 const saveProfile = () => {
