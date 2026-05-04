@@ -1,9 +1,14 @@
 <template>
   <div class="bg-white shadow-sm p-6">
     <!-- Admin Header -->
-    <div class="mb-6 pb-4 border-b border-gray-200">
-      <h1 class="text-2xl font-bold text-gray-800">Admin Dashboard - All Bets</h1>
+    <div class="flex items-center justify-between ">
+      <div class="mb-6 pb-4 border-b border-gray-200">
+      <h1 class="text-2xl font-bold text-gray-800">bbAdmin Dashboard - All Bets</h1>
       <p class="text-sm text-gray-500 mt-1">Manage, approve, and edit all user bets</p>
+    </div>
+      <button>
+        forgot Password
+      </button>
     </div>
 
     <!-- Loading State -->

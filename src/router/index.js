@@ -83,6 +83,12 @@ const routes = [
       component: () => import('../screen/profile/AdminLayout.vue'),
       meta: { requiresAdmin: true }
     },
+    {
+      path: '/admin/forgot-password',
+      name: 'AdminForgotPassword',
+      component: () => import('../screen/Auth/ForgotPassword.vue'),
+      meta: { requiresAdmin: true } // Optional: add route guard
+    },
     
     {
       path: '/user/deposit/history',

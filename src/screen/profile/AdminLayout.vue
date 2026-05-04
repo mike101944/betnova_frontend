@@ -1,9 +1,17 @@
 <template>
     <div class="bg-white shadow-sm p-6">
       <!-- Admin Header -->
-      <div class="mb-6 pb-4 border-b border-gray-200">
+      <div class="flex items-center justify-between">
+        <div class="mb-6 pb-4 border-b border-gray-200">
         <h1 class="text-2xl font-bold text-gray-800">Admin Dashboard</h1>
         <p class="text-sm text-gray-500 mt-1">Manage bets, users, and system settings</p>
+      </div>
+      <router-link 
+        to="/admin/forgot-password"
+        class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg text-sm font-medium transition-all"
+      >
+        Forgot Password
+      </router-link>
       </div>
   
       <!-- Tabs Navigation -->
