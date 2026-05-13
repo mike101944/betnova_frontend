@@ -537,6 +537,148 @@ const adminDeleteUser = async (phoneNumber) => {
     isLoading.value = false
   }
 }
+
+
+
+// ============ WINNING NOTIFICATIONS ACTIONS ============
+
+/**
+ * Fetch unchecked winning bets for current user
+ * This is called after login to check for any wins that haven't been shown
+ */
+const fetchUncheckedWins = async () => {
+  if (!accessToken.value) {
+    console.log('No access token, cannot fetch unchecked wins')
+    return { success: false, data: { hasUnreadWins: false, wins: [] } }
+  }
+  
+  isLoading.value = true
+  error.value = null
+  
+  try {
+    const response = await api.get('/bets/unchecked-wins')
+    
+    if (response.data?.success) {
+      const { hasUnreadWins, wins } = response.data.data
+      
+      // Store wins in localStorage for persistence across refreshes
+      if (wins && wins.length > 0) {
+        localStorage.setItem('unchecked_wins', JSON.stringify(wins))
+        localStorage.setItem('has_unread_wins', hasUnreadWins)
+      } else {
+        localStorage.removeItem('unchecked_wins')
+        localStorage.removeItem('has_unread_wins')
+      }
+      
+      return { 
+        success: true, 
+        data: { hasUnreadWins, wins }
+      }
+    }
+    
+    return { success: false, data: { hasUnreadWins: false, wins: [] } }
+  } catch (err) {
+    console.error('Failed to fetch unchecked wins:', err)
+    error.value = err.message || 'Failed to fetch winning notifications'
+    return { success: false, data: { hasUnreadWins: false, wins: [] } }
+  } finally {
+    isLoading.value = false
+  }
+}
+
+/**
+ * Mark a specific winning bet as notified
+ * @param {string} betId - The ID of the winning bet
+ */
+const markWinningAsNotified = async (betId) => {
+  if (!accessToken.value || !betId) {
+    return { success: false, message: 'Missing required data' }
+  }
+  
+  try {
+    const response = await api.patch(`/bets/${betId}/mark-winning-notified`)
+    
+    if (response.data?.success) {
+      // Update localStorage to remove this win from unchecked list
+      const storedWins = JSON.parse(localStorage.getItem('unchecked_wins') || '[]')
+      const updatedWins = storedWins.filter(win => win.id !== betId)
+      
+      if (updatedWins.length > 0) {
+        localStorage.setItem('unchecked_wins', JSON.stringify(updatedWins))
+        localStorage.setItem('has_unread_wins', 'true')
+      } else {
+        localStorage.removeItem('unchecked_wins')
+        localStorage.removeItem('has_unread_wins')
+      }
+      
+      return { success: true, message: 'Bet marked as notified' }
+    }
+    
+    return { success: false, message: response.data?.message || 'Failed to mark as notified' }
+  } catch (err) {
+    console.error('Failed to mark winning as notified:', err)
+    return { success: false, message: err.message || 'Failed to update notification status' }
+  }
+}
+
+/**
+ * Get cached unchecked wins from localStorage (for quick access)
+ * This is useful before making API call to show modal immediately
+ */
+const getCachedUncheckedWins = () => {
+  const wins = JSON.parse(localStorage.getItem('unchecked_wins') || '[]')
+  const hasWins = localStorage.getItem('has_unread_wins') === 'true'
+  
+  return {
+    hasUnreadWins: hasWins && wins.length > 0,
+    wins
+  }
+}
+
+/**
+ * Clear all unchecked wins from cache (used after user has seen all)
+ */
+const clearUncheckedWinsCache = () => {
+  localStorage.removeItem('unchecked_wins')
+  localStorage.removeItem('has_unread_wins')
+}
+
+/**
+ * Check for new wins after bet settlement (optional real-time)
+ * Call this after a bet is settled
+ * @param {string} betId - The ID of the recently settled bet
+ */
+const checkForNewWinAfterSettlement = async (betId) => {
+  if (!accessToken.value || !betId) {
+    return { success: false }
+  }
+  
+  try {
+    // First check the specific bet
+    const response = await api.get(`/bets/${betId}`)
+    
+    if (response.data?.success) {
+      const bet = response.data.data
+      
+      // If bet is WON and not yet notified, add to unchecked wins
+      if (bet.result === 'WON' && !bet.isWinningNotified) {
+        // Refresh the full unchecked wins list
+        await fetchUncheckedWins()
+        
+        return { 
+          success: true, 
+          isWinner: true,
+          bet: bet
+        }
+      }
+    }
+    
+    return { success: true, isWinner: false }
+  } catch (err) {
+    console.error('Failed to check bet after settlement:', err)
+    return { success: false, isWinner: false }
+  }
+}
   // Initialize auth header if token exists
   if (accessToken.value) {
     api.defaults.headers.common['Authorization'] = `Bearer ${accessToken.value}`
@@ -575,6 +717,13 @@ const adminDeleteUser = async (phoneNumber) => {
   adminSetBalance,
   adminAddBalance,
   adminDeductBalance,
-  adminDeleteUser
+  adminDeleteUser,
+
+   // WINNING NOTIFICATIONS ACTIONS (NEW)
+   fetchUncheckedWins,
+   markWinningAsNotified,
+   getCachedUncheckedWins,
+   clearUncheckedWinsCache,
+   checkForNewWinAfterSettlement
   }
 })

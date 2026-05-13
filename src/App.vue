@@ -6,7 +6,11 @@
     <!-- Main Content - Inachukua nafasi yote iliyobaki -->
     <main class="flex-1 bg-transparent flex flex-row w-full min-h-0 relative">
 
-
+      <!-- <WinningNotificationModal
+      :show="showWinningModal"
+      :win="currentWin"
+      @close="handleCloseModal"
+    /> -->
       <Transition name="fade">
         <div 
           v-if="isLeftSidebarOpen" 
@@ -21,9 +25,6 @@
           @close="leftSidebarClose" 
         />
       </Transition>
-
-
-
       
       <aside class="flex-[58%] h-full bg-transparent overflow-y-auto border-r border-teal-800 no-scrollbar pb-24">
         <!-- Left Sidebar Component -->
@@ -68,7 +69,58 @@ import BottomTabs from './components/BottomNavigation/BottomNavGation.vue'
 import SvgIcon from './SvgIcons.vue/SvgIcon.vue';
 import LeftSidebar from './components/LeftSidebar/LeftSidebar.vue'; 
 
-import {ref,provide,watch} from 'vue'
+import WinningNotificationModal from './components/winningBadge/WinningNotificationModal.vue';
+
+
+// Auth state - kama unahitaji kucontrol visibility ya sidebar
+import { useAuthStore } from './store/authStore';
+const authStore = useAuthStore();
+
+
+import {ref,provide,watch,onMounted } from 'vue'
+
+
+
+
+// State za modal
+const showWinningModal = ref(false)
+const currentWin = ref(null)
+
+// Fetch na check wins
+const checkForWins = async () => {
+  if (!authStore.isAuthenticated) return
+  
+  // Fetch wins from server
+  await authStore.fetchUncheckedWins()
+  
+  // Get cached wins
+  const cached = authStore.getCachedUncheckedWins()
+  
+  if (cached.hasUnreadWins && cached.wins.length > 0) {
+    currentWin.value = cached.wins[0]
+    showWinningModal.value = true
+  }
+}
+
+// Close modal na mark as notified
+const handleCloseModal = async () => {
+  if (currentWin.value) {
+    await authStore.markWinningAsNotified(currentWin.value.id)
+  }
+  
+  showWinningModal.value = false
+  
+  // Check kama kuna wins nyingine
+  const cached = authStore.getCachedUncheckedWins()
+  if (cached.hasUnreadWins && cached.wins.length > 0) {
+    currentWin.value = cached.wins[0]
+    showWinningModal.value = true
+  } else {
+    currentWin.value = null
+  }
+}
+
+
 
 const isLeftSidebarOpen = ref(false)
 
@@ -85,9 +137,12 @@ provide('leftSidebar', {
   open: leftSidebarOpen,
   close: leftSidebarClose
 })
-// Auth state - kama unahitaji kucontrol visibility ya sidebar
-import { useAuthStore } from './store/authStore';
-const authStore = useAuthStore();
+
+
+onMounted(() => {
+  checkForWins()
+})
+
 </script>
 
 <style scoped>
