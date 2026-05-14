@@ -71,10 +71,10 @@
                 <svg class="w-5 h-5 text-[#00C853] mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                 </svg>
-                <div class="flex-1 min-w-0">
+                <!-- <div class="flex-1 min-w-0">
                   <p class="text-xs text-gray-500 mb-1">Telephone</p>
                   <a href="tel:+255748734790" class="text-white hover:text-[#00C853] transition-colors text-xs sm:text-sm font-medium break-all">+255748734790</a>
-                </div>
+                </div> -->
               </div>
               <div class="flex items-start gap-3 bg-[#0F1A3A]/50 p-3 sm:p-4 rounded-lg backdrop-blur-sm">
                 <svg class="w-5 h-5 text-[#00C853] mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -82,7 +82,7 @@
                 </svg>
                 <div class="flex-1 min-w-0">
                   <p class="text-xs text-gray-500 mb-1">Email</p>
-                  <a href="mailto:tanzania.support@betnover.com" class="text-white hover:text-[#00C853] transition-colors text-xs sm:text-sm break-all">russia.support@betnover.com</a>
+                  <a href="mailto:russia.support@betnover.com" class="text-white hover:text-[#00C853] transition-colors text-xs sm:text-sm break-all">russia.support@betnover.com</a>
                 </div>
               </div>
             </div>
@@ -115,7 +115,7 @@
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                 </svg>
                 <p class="text-xs text-gray-300 leading-relaxed">
-                  Marawin Ltd trading as Betnover Tanzania is licensed by the Gaming Board of Tanzania subject to the Gaming Act, 2007 under License No 1256.
+                  Marawin Ltd trading as Betnover Russia is licensed by the Gaming Board of Russia subject to the Gaming Act, 2007 under License No 1256.
                 </p>
               </div>
             </div>

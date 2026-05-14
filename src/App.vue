@@ -23,10 +23,6 @@
       <aside class="flex-[58%] h-full bg-transparent overflow-y-auto border-r border-teal-800 no-scrollbar pb-24">
         <!-- Left Sidebar Component -->
 
-
-
-
-
         <!-- RouterView container -->
         <div class="flex-1 flex flex-col">
           <!-- <router-view v-slot="{ Component }">
