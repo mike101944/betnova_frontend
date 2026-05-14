@@ -69,9 +69,12 @@
           <LeagueShortcut :activeLeagueId="selectedLeagueId" @league-changed="updateLeague"/>
           <CasionoGames/>
           <Football :leagueId="selectedLeagueId" :limit="5"/>
+            <MainFooter/>
       </div>
   </div>
 </template>
+
+
 
 <script setup>
 import { ref, onMounted } from 'vue';
@@ -79,8 +82,10 @@ import Football from '../../components/Middle/components/Football.vue';
 import CasionoGames from '../../components/Middle/components/CasionoGames.vue'
 import HomeCanvaCard from '../../components/Middle/components/CanvaCard/HomeCanvaCard.vue'
 import LeagueShortcut from '../../components/Middle/components/leagueShortcut/LeagueShortcut.vue';
+import Footer from '../../components/Footer/Footer.vue';
+import MainFooter from '../../components/Middle/components/Footer/MainFooter.vue';
 
-const selectedLeagueId = ref(0); // Default ni 0 (All Leagues)
+const selectedLeagueId = ref(0); 
 const loading = ref(true);
 
 const updateLeague = (id) => {
