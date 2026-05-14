@@ -1,8 +1,8 @@
 <template>
   <div class="flex flex-col min-h-screen px-0 sm:px-0 md:px-12 lg:px-16 xl:px-48 2xl:px-48 bg-sky-950/90">
-    <SvgIcon/>
+    <SvgIcon />
     <Header />
-    
+
     <!-- Main Content - Inachukua nafasi yote iliyobaki -->
     <main class="flex-1 bg-transparent flex flex-row w-full min-h-0 relative">
 
@@ -12,53 +12,51 @@
       @close="handleCloseModal"
     /> -->
       <Transition name="fade">
-        <div 
-          v-if="isLeftSidebarOpen" 
-          class="fixed inset-0 bg-transparent cursor-pointer z-[1000]" 
-          @click="leftSidebarClose"
-        ></div>
+        <div v-if="isLeftSidebarOpen" class="fixed inset-0 bg-transparent cursor-pointer z-[1000]"
+          @click="leftSidebarClose"></div>
       </Transition>
 
       <Transition name="slide-left">
-        <LeftSidebar 
-          v-if="isLeftSidebarOpen" 
-          @close="leftSidebarClose" 
-        />
+        <LeftSidebar v-if="isLeftSidebarOpen" @close="leftSidebarClose" />
       </Transition>
-      
+
       <aside class="flex-[58%] h-full bg-transparent overflow-y-auto border-r border-teal-800 no-scrollbar pb-24">
         <!-- Left Sidebar Component -->
-            
 
 
-       
-        
+
+
+
         <!-- RouterView container -->
         <div class="flex-1 flex flex-col">
           <!-- <router-view v-slot="{ Component }">
             <component :is="Component" class="flex-1 flex flex-col" />
           </router-view> -->
           <router-view v-slot="{ Component }">
-    <transition name="page" mode="out-in">
-      <component :is="Component" class="flex-1 flex flex-col" />
-    </transition>
-  </router-view>
+            <transition name="page" mode="out-in">
+              <component :is="Component" class="flex-1 flex flex-col" />
+            </transition>
+          </router-view>
 
         </div>
         <Footer />
       </aside>
-      
+
       <!-- Right Column - Fixed kwenye desktop (36%) -->
       <aside class="hidden flex-[36%] bg-sky-100 lg:flex xl:flex h-full overflow-y-auto no-scrollbar">
         <BetSlip />
       </aside>
     </main>
+  
 
     <!-- Bottom Tabs - Fixed chini kwa mobile (HAICHUKUI SPACE) -->
     <section class="fixed bottom-0 left-0 right-0 z-50 block lg:hidden">
-      <BottomTabs/>
+      <BottomTabs />
     </section>
+   
+
   </div>
+
 </template>
 
 <script setup>
@@ -67,7 +65,8 @@ import Footer from './components/Footer/Footer.vue'
 import BetSlip from './components/Betlslip/BetSlip.vue'
 import BottomTabs from './components/BottomNavigation/BottomNavGation.vue'
 import SvgIcon from './SvgIcons.vue/SvgIcon.vue';
-import LeftSidebar from './components/LeftSidebar/LeftSidebar.vue'; 
+import LeftSidebar from './components/LeftSidebar/LeftSidebar.vue';
+import MainFooter from './components/Middle/components/Footer/MainFooter.vue';
 
 import WinningNotificationModal from './components/winningBadge/WinningNotificationModal.vue';
 
@@ -77,7 +76,7 @@ import { useAuthStore } from './store/authStore';
 const authStore = useAuthStore();
 
 
-import {ref,provide,watch,onMounted } from 'vue'
+import { ref, provide, watch, onMounted } from 'vue'
 
 
 
@@ -89,13 +88,13 @@ const currentWin = ref(null)
 // Fetch na check wins
 const checkForWins = async () => {
   if (!authStore.isAuthenticated) return
-  
+
   // Fetch wins from server
   await authStore.fetchUncheckedWins()
-  
+
   // Get cached wins
   const cached = authStore.getCachedUncheckedWins()
-  
+
   if (cached.hasUnreadWins && cached.wins.length > 0) {
     currentWin.value = cached.wins[0]
     showWinningModal.value = true
@@ -107,9 +106,9 @@ const handleCloseModal = async () => {
   if (currentWin.value) {
     await authStore.markWinningAsNotified(currentWin.value.id)
   }
-  
+
   showWinningModal.value = false
-  
+
   // Check kama kuna wins nyingine
   const cached = authStore.getCachedUncheckedWins()
   if (cached.hasUnreadWins && cached.wins.length > 0) {
@@ -148,7 +147,8 @@ onMounted(() => {
 <style scoped>
 /* Hakikisha main inachukua nafasi zote zilizobaki */
 main {
-  height: calc(100vh - 91px); /* 91px ni urefu wa Header */
+  height: calc(100vh - 91px);
+  /* 91px ni urefu wa Header */
 }
 
 /* Scrollable aside */
@@ -160,28 +160,36 @@ aside {
 /* Padding chini kwa mobile */
 @media (max-width: 1024px) {
   aside.flex-\[58\%\] {
-    padding-bottom: 80px; /* Nafasi kwa bottom tabs */
+    padding-bottom: 80px;
+    /* Nafasi kwa bottom tabs */
   }
 }
 
 /* Optional: Hide sidebar kwa mobile ukitaka */
 @media (max-width: 768px) {
   aside.flex-\[58\%\] {
-    flex: 100%; /* Full width kwa mobile */
+    flex: 100%;
+    /* Full width kwa mobile */
   }
 }
 
-.slide-left-enter-active, .slide-left-leave-active {
+.slide-left-enter-active,
+.slide-left-leave-active {
   transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
-.slide-left-enter-from, .slide-left-leave-to {
+
+.slide-left-enter-from,
+.slide-left-leave-to {
   transform: translateX(-100%);
 }
 
-.fade-enter-active, .fade-leave-active {
+.fade-enter-active,
+.fade-leave-active {
   transition: opacity 0.3s ease;
 }
-.fade-enter-from, .fade-leave-to {
+
+.fade-enter-from,
+.fade-leave-to {
   opacity: 0;
 }
 
@@ -205,5 +213,4 @@ aside {
   opacity: 0;
   transform: translateX(-20px);
 }
-
 </style>

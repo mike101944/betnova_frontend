@@ -1,7 +1,7 @@
 <template>
     <footer class="bg-gradient-to-br from-[#0B1A3A] to-[#0A1128] text-gray-300">
       <!-- Premium Top Branding Bar -->
-      <div class="relative bg-gradient-to-r from-[#00C853] to-[#00A8FF] py-3 overflow-hidden">
+      <div class="relative bg-sky-900  py-3 overflow-hidden">
         <div class="absolute inset-0 bg-white opacity-10"></div>
         <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="flex flex-col sm:flex-row justify-between items-center text-white text-center sm:text-left">
@@ -86,7 +86,7 @@
                 </div>
               </div>
             </div>
-            
+
             <!-- Other Regions -->
             <div class="pt-2">
               <h4 class="text-gray-400 text-xs font-semibold uppercase tracking-wider mb-3">Other Regions</h4>
@@ -115,7 +115,7 @@
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                 </svg>
                 <p class="text-xs text-gray-300 leading-relaxed">
-                  Marawin Ltd trading as Betnover Tanzania is licensed by the Gaming Board of Tanzania subject to the Gaming Act, 2003 under License No 1277.
+                  Marawin Ltd trading as Betnover Tanzania is licensed by the Gaming Board of Tanzania subject to the Gaming Act, 2007 under License No 1256.
                 </p>
               </div>
             </div>
@@ -132,6 +132,8 @@
                 <span class="bg-gradient-to-r from-[#1E2A5A] to-[#16204A] text-white text-xs px-3 py-1.5 rounded-full font-medium">Yas Mix</span>
                 <span class="bg-gradient-to-r from-[#1E2A5A] to-[#16204A] text-white text-xs px-3 py-1.5 rounded-full font-medium">airtel</span>
                 <span class="bg-gradient-to-r from-[#1E2A5A] to-[#16204A] text-white text-xs px-3 py-1.5 rounded-full font-medium">vodacom</span>
+                <span class="bg-gradient-to-r from-[#1E2A5A] to-[#16204A] text-white text-xs px-3 py-1.5 rounded-full font-medium">Halotel</span>
+                <span class="bg-gradient-to-r from-[#1E2A5A] to-[#16204A] text-white text-xs px-3 py-1.5 rounded-full font-medium">TTCL</span>
               </div>
             </div>
           </div>
