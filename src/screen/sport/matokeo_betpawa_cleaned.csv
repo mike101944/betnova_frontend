@@ -1,1102 +1,471 @@
 homeTeam,awayTeam,league,drawOdds,awayOdds,homeOdds,Time,Date
-FC Zhenis,FC Kyzylzhar SK,Football / Kazakhstan / Kazakhstan Cup,3.05,2.45,2.75,5:00 pm,Wed 13/05
-FC Aktobe,FC Altai Oskemen,Football / Kazakhstan / Kazakhstan Cup,5.38,12.95,1.2,5:00 pm,Wed 13/05
-Haras El Hodood,Al Mokawloon Al Arab,Football / Egypt / Premier League,2.79,2.4,3.28,5:00 pm,Wed 13/05
-Zed FC,Ghazl El Mahallah,Football / Egypt / Premier League,2.74,2.34,2.54,5:00 pm,Wed 13/05
-APO Levadiakos FC,OFI Crete,Football / Greece / Super League 1,3.85,4.05,3.95,5:00 pm,Wed 13/05
-Volos NPS,Aris Thessaloniki,Football / Greece / Super League 1,3.37,2.18,3.08,5:00 pm,Wed 13/05
-Saham,Oman Club,Football / Oman / Omani League,3.17,2.06,3.45,5:05 pm,Wed 13/05
-PFC CSKA Sofia,FC CSKA 1948,Football / Bulgaria / Parva Liga,3.18,3.47,2.1,5:45 pm,Wed 13/05
-Al-Raed Club,Abha Club,Football / Saudi Arabia / Division 1,3.55,2.6,2.29,5:50 pm,Wed 13/05
-FC Shakhtar Donetsk,FC Obolon Kyiv,Football / Ukraine / Premier League,7.11,15.38,1.14,6:00 pm,Wed 13/05
-KS Warta Sieradz,Wisla Plock II,"Football / Poland / III Liga, Group 1",4.39,5.39,1.46,6:00 pm,Wed 13/05
-Swidniczanka Swidnik,Pogon Sokol Lubaczow,"Football / Poland / III Liga, Group 4",3.9,1.74,3.7,6:00 pm,Wed 13/05
-BFC Daugavpils,FC RFS,Football / Latvia / Virsliga,5.59,1.28,8.29,6:00 pm,Wed 13/05
-KaPa Kapylan Pallo,Myllykosken Pallo -47,Football / Finland / Suomen Cup,6.86,8.96,1.2,6:00 pm,Wed 13/05
-Deportes Recoleta Women,Universidad Catolica Women,"Football / Chile / Primera Division, Women",16.22,24.8,33.39,6:00 pm,Wed 13/05
-P-Iirot,Tampereen Ilves,Football / Finland / Suomen Cup,11.45,1.05,20.04,6:00 pm,Wed 13/05
-Kaisar Kyzylorda,Tobol Kostanay,Football / Kazakhstan / Kazakhstan Cup,3.15,2.6,2.5,6:00 pm,Wed 13/05
-FC Ordabasy,Zhetysu Taldykorgan,Football / Kazakhstan / Kazakhstan Cup,4.2,7.6,1.37,6:00 pm,Wed 13/05
-US Grosseto,AS Ostia Mare Lido Calcio,"Football / Italy / Serie D, Prom. Playoffs",3.25,2.8,2.3,6:00 pm,Wed 13/05
-Forge FC Hamilton,FC Supra Du Quebec,Football / Canada / Canadian Premier League,3.99,4.19,1.66,6:00 pm,Wed 13/05
-Zks Kluczevia Stargard,KS Lipno Steszew,"Football / Poland / III Liga, Group 2",4.1,4.8,1.54,6:00 pm,Wed 13/05
-Turun Palloseura,HJS,Football / Finland / Suomen Cup,10.55,21.1,1.06,6:00 pm,Wed 13/05
-FC Lahti,Mikkelin Palloilijat,Football / Finland / Suomen Cup,6.31,10.52,1.2,6:00 pm,Wed 13/05
-GKS Pniowek Pawlowice,KS Gornik Polkowice,"Football / Poland / III Liga, Group 3",5.38,1.25,8.97,6:00 pm,Wed 13/05
-SJK Akatemia,KPV Kokkola,Football / Finland / Suomen Cup,6.86,9.53,1.19,6:00 pm,Wed 13/05
-HIFK,JaPS,Football / Finland / Suomen Cup,3.82,1.75,3.91,6:00 pm,Wed 13/05
-Espoon Palloseura,FC Haka Valkeakoski,Football / Finland / Suomen Cup,10.49,1.06,20.03,6:00 pm,Wed 13/05
-Vaasan Palloseura,Abo IFK Turku,Football / Finland / Suomen Cup,18.02,94.82,56.42,6:00 pm,Wed 13/05
-CA Bizertin,ES Zarzis,Football / Tunisia / Ligue 1,2.96,3.53,2.14,6:00 pm,Wed 13/05
-AS Gabes,Stade Tunisien,Football / Tunisia / Ligue 1,3.91,1.39,8.59,6:00 pm,Wed 13/05
-GKS Belchatow,Widzew Lodz II,"Football / Poland / III Liga, Group 1",3.8,2.6,2.21,6:00 pm,Wed 13/05
-KS Ck Troszyn,Lechia Tomaszow Mazowiecki,"Football / Poland / III Liga, Group 1",4.09,4.09,1.64,6:00 pm,Wed 13/05
-Swit Nowy Dwor Mazowiecki,LKS 1926 Lomza,"Football / Poland / III Liga, Group 1",3.85,1.75,3.7,6:00 pm,Wed 13/05
-Legia Warszawa II,GKS Wikielec,"Football / Poland / III Liga, Group 1",4.9,6.6,1.34,6:00 pm,Wed 13/05
-Sks Unia Swarzedz,MKS Viktoria Wrzesnia,"Football / Poland / III Liga, Group 2",3.59,3.39,1.9,6:00 pm,Wed 13/05
-Gzs Tluchovia Tluchowo,Lech II Poznan,"Football / Poland / III Liga, Group 2",4.1,1.59,4.3,6:00 pm,Wed 13/05
-Coquimbo Unido Women,Deportes Iquique Women,"Football / Chile / Primera Division, Women",4.57,5.71,1.44,6:00 pm,Wed 13/05
-MSK Zilina Women,MFK Ruzomberok Women,Football / Slovakia / 1. League Women,3.7,2.38,2.44,6:00 pm,Wed 13/05
-Al-Tai,Jeddah Club,Football / Saudi Arabia / Division 1,3.7,3.9,1.75,6:05 pm,Wed 13/05
-Wisla II Krakow,Cracovia Krakow II,"Football / Poland / III Liga, Group 4",4.09,2.74,2.04,6:30 pm,Wed 13/05
-IFK Mariehamn,Puistolan Urheilijat,Football / Finland / Suomen Cup,9.13,17.12,1.08,6:30 pm,Wed 13/05
-VJS,FF Jaro,Football / Finland / Suomen Cup,4.29,1.51,5.15,6:30 pm,Wed 13/05
-Rovaniemen Palloseura,HJK Helsinki,Football / Finland / Suomen Cup,10.48,1.05,24.77,6:30 pm,Wed 13/05
-FC Hradec Kralove,FC Slovan Liberec,Football / Czech Republic / 1. Liga,3.29,2.82,2.56,6:30 pm,Wed 13/05
-Sokol Kolbuszowa Dolna,MKS Czarni Polaniec,"Football / Poland / III Liga, Group 4",3.55,2.43,2.46,6:30 pm,Wed 13/05
-Busaiteen,AL Hala,Football / Bahrain / 2nd Division,3.5,2.06,3.05,7:00 pm,Wed 13/05
-MKS Arka Gdynia,Gornik Zabrze,Football / Poland / Ekstraklasa,3.47,2.02,3.75,7:00 pm,Wed 13/05
-Esbo Bollklubb,Tampere United,Football / Finland / Suomen Cup,5.74,1.23,9.56,7:00 pm,Wed 13/05
-Tallinna FC Flora U21,FC Nomme United U21,Football / Estonia / Esiliiga,4.85,4.56,1.5,7:00 pm,Wed 13/05
-Al Ittihad,Um Alhassam,Football / Bahrain / 2nd Division,4.3,5.6,1.46,7:00 pm,Wed 13/05
-Manama Club,Etehad Alreef,Football / Bahrain / 2nd Division,5.4,8.0,1.27,7:00 pm,Wed 13/05
-FK Velez Mostar,HSK Zrinjski Mostar,Football / Bosnia and Herzegovina / Bosnia & Herzegovina Cup,2.95,2.85,2.41,7:00 pm,Wed 13/05
-Sabah Masazir,Zira FK,Football / Azerbaijan / Azerbaijan Cup,3.55,5.0,1.62,7:00 pm,Wed 13/05
-AB Gladsaxe,FC Roskilde,Football / Denmark / 2nd Division,4.62,5.66,1.46,7:00 pm,Wed 13/05
-SKRA Czestochowa,KS Sleza Wroclaw,"Football / Poland / III Liga, Group 3",3.65,3.7,1.8,7:00 pm,Wed 13/05
-HNK Rijeka,GNK Dinamo Zagreb,Football / Croatia / Croatian Cup,4.24,1.45,6.55,7:00 pm,Wed 13/05
-Al-Arabi SC (SA),AL Jandal,Football / Saudi Arabia / Division 1,3.75,3.55,1.8,7:10 pm,Wed 13/05
-Al-Adalah,Al Jubail,Football / Saudi Arabia / Division 1,3.9,4.2,1.65,7:10 pm,Wed 13/05
-Olympiacos Piraeus,Panathinaikos Athens,Football / Greece / Super League 1,4.72,8.28,6.5,7:30 pm,Wed 13/05
-PAOK Thessaloniki,AEK Athens,Football / Greece / Super League 1,3.42,4.14,1.83,7:30 pm,Wed 13/05
-FC Helsingoer,BK Fremad Amager,Football / Denmark / 2nd Division,3.32,2.54,2.59,7:30 pm,Wed 13/05
-KuPS Akatemia,FC Honka,Football / Finland / Suomen Cup,3.82,2.08,2.87,7:30 pm,Wed 13/05
-Bahla Club,AL Nasr SC (OMA),Football / Oman / Omani League,3.07,2.55,2.69,7:30 pm,Wed 13/05
-FC Mali Coura,Djoliba AC,Football / Mali / Ligue 1,3.78,1.36,8.24,7:30 pm,Wed 13/05
-Kuwait SC,Preah Khan Reach Svay Rieng FC,Football / International / AFC Challenge League,3.8,4.2,1.67,7:45 pm,Wed 13/05
-Villarreal CF,Sevilla FC,Football / Spain / LaLiga,3.54,3.86,3.7,8:00 pm,Wed 13/05
-FC Stockholm Internazionale,AFC Eskilstuna,"Football / Sweden / Ettan, Relegation/Promotion",4.73,6.44,1.36,8:00 pm,Wed 13/05
-Ishoej IF,Brabrand IF,Football / Denmark / 2nd Division,3.53,2.69,2.35,8:00 pm,Wed 13/05
-IK Brage,Ostersunds FK,Football / Sweden / Superettan,3.32,2.84,2.34,8:00 pm,Wed 13/05
-TSV Grafenstein,ATSV Wolfsberg,"Football / Austria / Karnten, Karntner Liga",3.79,1.93,3.14,8:00 pm,Wed 13/05
-Thisted FC,Vendsyssel FF,Football / Denmark / 2nd Division,3.44,1.92,3.74,8:00 pm,Wed 13/05
-SV Donau Klagenfurt,VST Voelkermarkt,"Football / Austria / Karnten, Karntner Liga",3.19,2.54,2.54,8:00 pm,Wed 13/05
-Al Ittihad Al Sakandary,Talaea El Gaish,Football / Egypt / Premier League,2.7,3.14,2.56,8:00 pm,Wed 13/05
-Falkenbergs FF,Varbergs BoIS,Football / Sweden / Superettan,3.28,2.51,2.65,8:00 pm,Wed 13/05
-Skive IK,Vsk Aarhus,Football / Denmark / 2nd Division,3.24,2.95,2.31,8:00 pm,Wed 13/05
-Bnei Sakhnin FC,Hapoel Ironi Kiryat Shmona FC,Football / Israel / Premier League,3.18,2.46,2.79,8:00 pm,Wed 13/05
-Sollentuna FK,Hammarby Talang FF,"Football / Sweden / Ettan, Relegation/Promotion",3.96,1.63,4.25,8:00 pm,Wed 13/05
-MS Ashdod,Hapoel Jerusalem FC,Football / Israel / Premier League,3.28,2.6,2.56,8:00 pm,Wed 13/05
-Osters IF,Sandvikens IF,Football / Sweden / Superettan,3.57,3.37,1.99,8:00 pm,Wed 13/05
-Espanyol Barcelona,Athletic Bilbao,Football / Spain / LaLiga,3.21,3.01,2.82,8:00 pm,Wed 13/05
-Hlm,ASC Linguere,Football / Senegal / Premier League,2.51,3.45,2.32,8:00 pm,Wed 13/05
-Ajel de Rufisque,Guediawaye FC,Football / Senegal / Premier League,2.5,3.48,2.31,8:00 pm,Wed 13/05
-Walidaan Dkr,Teungueth FC,Football / Senegal / Premier League,2.46,2.85,2.75,8:00 pm,Wed 13/05
-Zawisza Bydgoszcz,WDA Swiecie,"Football / Poland / III Liga, Group 2",5.6,9.6,1.22,8:00 pm,Wed 13/05
-Helsingborgs IF,IK Oddevold,Football / Sweden / Superettan,3.38,2.7,2.41,8:00 pm,Wed 13/05
-Torns IF,Lilla Torg FF,"Football / Sweden / Division 2, Promotion Playoffs",3.55,2.9,2.1,8:00 pm,Wed 13/05
-Ironi Tiberias,Maccabi Bney Reine,Football / Israel / Premier League,3.56,3.95,1.83,8:00 pm,Wed 13/05
-National Bank of Egypt SC,Petrojet FC,Football / Egypt / Premier League,3.42,3.52,1.99,8:00 pm,Wed 13/05
-Stade Brest 29,Strasbourg Alsace,Football / France / Ligue 1,3.55,3.1,2.64,8:00 pm,Wed 13/05
-Deutschlandsberger SC,SK Treibach,Football / Austria / Regionalliga Centre,5.2,6.0,1.35,8:00 pm,Wed 13/05
-Hassleholms IF,Eskilsminne IF,"Football / Sweden / Ettan, Relegation/Promotion",3.54,3.35,1.93,8:00 pm,Wed 13/05
-Kristianstad FC,FC Rosengaard 1917,"Football / Sweden / Ettan, Relegation/Promotion",3.31,2.25,2.83,8:00 pm,Wed 13/05
-FC Universitatea Cluj,CS Universitatea Craiova,Football / Romania / Romania Cup,3.06,2.53,2.72,8:00 pm,Wed 13/05
-Utsiktens BK,Skovde AIK,"Football / Sweden / Ettan, Relegation/Promotion",3.32,2.8,2.26,8:00 pm,Wed 13/05
-Maccabi Netanya FC,Hapoel Haifa FC,Football / Israel / Premier League,3.74,3.02,2.07,8:00 pm,Wed 13/05
-Naestved BK,HIK Hellerup,Football / Denmark / 2nd Division,4.41,6.12,1.45,8:00 pm,Wed 13/05
-Laholms FK,Lunds BK,"Football / Sweden / Ettan, Relegation/Promotion",3.46,1.9,3.5,8:00 pm,Wed 13/05
-IFK Norrkoping FK,Nordic United FC,Football / Sweden / Superettan,3.75,3.71,1.84,8:00 pm,Wed 13/05
-PFC Ludogorets 1945 Razgrad,PFC Levski Sofia,Football / Bulgaria / Parva Liga,3.51,4.42,1.76,8:15 pm,Wed 13/05
-FC Arlanda,Karlbergs BK,"Football / Sweden / Ettan, Relegation/Promotion",3.51,2.98,2.08,8:30 pm,Wed 13/05
-FC Jarfalla,Enkopings SK,"Football / Sweden / Ettan, Relegation/Promotion",3.72,3.11,1.96,8:30 pm,Wed 13/05
-Maccabi Tel Aviv FC,Maccabi Haifa FC,Football / Israel / Premier League,4.15,4.15,1.67,8:30 pm,Wed 13/05
-FC Union RB Weinland Gamlitz,SV Pachern,"Football / Austria / Steiermark, Landesliga",3.75,3.0,2.0,8:30 pm,Wed 13/05
-Throttur,Breidablik,Football / Iceland / Iceland Cup,4.09,1.63,4.28,8:30 pm,Wed 13/05
-Genclerbirligi SK,Trabzonspor,Football / Turkey / Turkiye Kupasi,3.48,1.79,4.1,8:30 pm,Wed 13/05
-KI Klaksvik,NSI Runavik,Football / Faroe Islands / Logmanssteypid,3.76,4.1,1.72,8:30 pm,Wed 13/05
-SV Strasswalchen,SV Schwarzach,Football / Austria / Regionalliga Salzburg,3.65,3.55,1.84,8:30 pm,Wed 13/05
-Bad Sauerbrunn,SV Leithaprodersdorf,"Football / Austria / Burgenland, Burgenlandliga",3.44,2.4,2.54,8:30 pm,Wed 13/05
-Criciuma EC SC U20,Fortaleza EC CE U20,Football / Brazil / U20 Campeonato Brasileiro,3.18,2.75,2.37,9:00 pm,Wed 13/05
-AC Renate,S.S.D. Casarano Calcio,"Football / Italy / Serie C, Promotion Playoffs",3.24,3.05,2.2,9:00 pm,Wed 13/05
-SC Internacional RS U20,Vila Nova FC GO U20,Football / Brazil / U20 Brasileiro Serie B,3.63,3.92,1.79,9:00 pm,Wed 13/05
-Ravenna FC 1913,AS Cittadella,"Football / Italy / Serie C, Promotion Playoffs",3.3,3.83,1.9,9:00 pm,Wed 13/05
-FC Progres Niederkorn,FC Victoria Rosport,Football / Luxembourg / Coupe de Luxembourg,3.45,3.65,1.87,9:00 pm,Wed 13/05
-Ferro Carril Oeste,Boca Juniors,"Football / Argentina / Liga Profesional, Reserves",4.08,1.38,8.27,9:00 pm,Wed 13/05
-Goias EC GO U20,Chapecoense SC U20,Football / Brazil / U20 Brasileiro Serie B,3.42,4.19,1.79,9:00 pm,Wed 13/05
-Argentinos Juniors Reserve,CA Tigre Reserve,"Football / Argentina / Liga Profesional, Reserves",3.31,4.14,1.83,9:00 pm,Wed 13/05
-Mauaense GE SP Women,Itacoatiara FC AM Women,"Football / Brazil / Copa do Brasil, Women",3.98,1.6,4.45,9:00 pm,Wed 13/05
-Almere City FC,Willem II Tilburg,Football / Netherlands / Eredivisie,3.6,3.08,2.28,9:00 pm,Wed 13/05
-Santos FC SP U20,EC Juventude RS U20,Football / Brazil / U20 Campeonato Brasileiro,5.29,7.93,1.27,9:00 pm,Wed 13/05
-Itabirito FC MG Women,Ceara SC CE Women,"Football / Brazil / Copa do Brasil, Women",4.94,12.34,1.22,9:00 pm,Wed 13/05
-Sampaio Correa FC MA Women,Heips RJ Women,"Football / Brazil / Copa do Brasil, Women",3.17,2.41,2.7,9:00 pm,Wed 13/05
-FK Vojvodina Novi Sad,FK Crvena Zvezda Belgrade,Football / Serbia / Serbia Cup,4.5,1.42,5.8,9:00 pm,Wed 13/05
-UDA AL Women,Ypiranga Clube AP Women,"Football / Brazil / Copa do Brasil, Women",4.94,7.78,1.3,9:00 pm,Wed 13/05
-SE Uniao De Natal RN Women,CA Piauiense PI Women,"Football / Brazil / Copa do Brasil, Women",3.77,1.67,4.24,9:00 pm,Wed 13/05
-Coritiba FC PR Women,Rio Negro RR Women,"Football / Brazil / Copa do Brasil, Women",3.45,4.35,1.72,9:00 pm,Wed 13/05
-Sao Jose EC Women,Prosperidade FC ES Women,"Football / Brazil / Copa do Brasil, Women",3.36,3.22,2.03,9:00 pm,Wed 13/05
-AD Taubate SP Women,3B Sport AM Women,"Football / Brazil / Copa do Brasil, Women",3.22,2.36,2.74,9:00 pm,Wed 13/05
-Calcio Lecco 1912,US Pianese,"Football / Italy / Serie C, Promotion Playoffs",3.15,3.91,1.94,9:00 pm,Wed 13/05
-Slavia Prague,FK Jablonec,Football / Czech Republic / 1. Liga,5.09,7.03,6.06,9:00 pm,Wed 13/05
-CD Aguila U20,Alianza FC U20,"Football / El Salvador / Primera Division, Reserves, Clausura",3.75,1.79,3.65,9:00 pm,Wed 13/05
-FC Differdange 03,FC Rodange 91,Football / Luxembourg / Coupe de Luxembourg,7.8,15.0,1.1,9:00 pm,Wed 13/05
-Bangor GG FC,Usher Celtic,Football / Ireland / Ireland Leinster Senior League,4.39,5.61,1.46,9:00 pm,Wed 13/05
-NK Brinje Grosuplje,Aluminij Kidricevo,Football / Slovenia / Slovenia Cup,3.1,2.25,3.0,9:00 pm,Wed 13/05
-Independiente Rivadavia de Mendoza Reserve,Colon de Santa Fe Reserve,"Football / Argentina / Liga Profesional, Reserves",3.32,4.0,1.86,9:00 pm,Wed 13/05
-CA Paranaense PR U20,Red Bull Bragantino SP U20,Football / Brazil / U20 Campeonato Brasileiro,3.59,2.6,2.29,9:00 pm,Wed 13/05
-Fluminense FC RJ U20,CR Vasco da Gama RJ U20,Football / Brazil / U20 Campeonato Brasileiro,3.11,2.5,2.64,9:00 pm,Wed 13/05
-Arsenal WFC Women,Everton FC Women,Football / England / The FA Women's Super League,8.7,17.4,1.1,9:00 pm,Wed 13/05
-CA Belgrano,CA Central Cordoba SE Reserve,"Football / Argentina / Liga Profesional, Reserves",3.9,7.07,1.44,9:00 pm,Wed 13/05
-Atletico Tucuman Reserve,CA Barracas Central Reserve,"Football / Argentina / Liga Profesional, Reserves",3.18,3.62,2.0,9:00 pm,Wed 13/05
-Sao Paulo FC SP U20,Cruzeiro EC MG U20,Football / Brazil / U20 Campeonato Brasileiro,3.4,2.5,2.46,9:00 pm,Wed 13/05
-Brusque SC U20,CR Brasil AL U20,Football / Brazil / U20 Brasileiro Serie B,3.91,1.55,5.34,9:30 pm,Wed 13/05
-RKS Rakow Czestochowa,Jagiellonia Bialystok,Football / Poland / Ekstraklasa,3.54,3.23,2.18,9:30 pm,Wed 13/05
-AS Bakaridjan,AS Korofina,Football / Mali / Ligue 1,2.75,3.09,2.31,9:30 pm,Wed 13/05
-AC Goianiense GO U20,Botafogo FC SP U20,Football / Brazil / U20 Brasileiro Serie B,3.53,1.87,3.67,9:30 pm,Wed 13/05
-Kilbarrack United,Finglas United,Football / Ireland / Ireland Leinster Senior League,3.89,4.08,1.7,9:30 pm,Wed 13/05
-US Salernitana,Casertana FC,"Football / Italy / Serie C, Promotion Playoffs",3.44,4.21,1.78,9:45 pm,Wed 13/05
-Alloa Athletic FC,Stenhousemuir FC,Football / Scotland / Championship,3.5,2.8,2.4,9:45 pm,Wed 13/05
-Potenza Calcio,Campobasso FC,"Football / Italy / Serie C, Promotion Playoffs",3.33,2.95,2.22,10:00 pm,Wed 13/05
-Glasgow Rangers,Hibernian FC,Football / Scotland / Premiership,4.45,5.03,4.74,10:00 pm,Wed 13/05
-Lazio Rome,Inter Milano,Football / Italy / Coppa Italia,3.73,4.58,5.43,10:00 pm,Wed 13/05
-Stockport County FC,Stevenage FC,Football / England / League One,3.37,3.91,2.01,10:00 pm,Wed 13/05
-Racing Club De Lens,Paris Saint-Germain,Football / France / Ligue 1,3.94,3.52,3.11,10:00 pm,Wed 13/05
-Real Cundinamarca,Independiente Yumbo,Football / Colombia / Copa Colombia,3.0,3.39,2.17,10:00 pm,Wed 13/05
-Motherwell FC,Celtic Glasgow,Football / Scotland / Premiership,4.35,4.56,4.77,10:00 pm,Wed 13/05
-Heart of Midlothian FC,Falkirk FC,Football / Scotland / Premiership,4.86,6.93,5.9,10:00 pm,Wed 13/05
-Manchester City,Crystal Palace,Football / England / Premier League,7.85,11.79,9.82,10:00 pm,Wed 13/05
-IA Akranes,UMF Grindavik,Football / Iceland / Iceland Cup,5.57,7.75,1.28,10:15 pm,Wed 13/05
-HK Kópavogs,Víkingur,Football / Iceland / Iceland Cup,6.11,1.22,9.28,10:15 pm,Wed 13/05
-CA Platense,San Martin de San Juan,Football / Argentina / Copa Argentina,3.09,4.44,1.88,10:15 pm,Wed 13/05
-Afturelding,UMFN Njarðvík,Football / Iceland / Iceland Cup,3.79,2.97,2.04,10:15 pm,Wed 13/05
-Deportivo Alaves,FC Barcelona,Football / Spain / LaLiga,3.85,3.58,3.31,10:30 pm,Wed 13/05
-Getafe CF,RCD Mallorca,Football / Spain / LaLiga,3.01,3.54,3.28,10:30 pm,Wed 13/05
-Santiago Wanderers Women,Union Espanola Women,"Football / Chile / Primera Division, Women",4.02,1.56,4.98,11:00 pm,Wed 13/05
-Sportivo San Lorenzo Reserves,Club 2 de Mayo Reserves,Football / Paraguay / Paraguay Reserve League,4.39,1.46,5.61,11:00 pm,Wed 13/05
-Botafogo FR RJ U20,CR Flamengo RJ U20,Football / Brazil / U20 Campeonato Brasileiro,3.35,3.73,1.88,11:00 pm,Wed 13/05
-Stjarnan,KR Reykjavik,Football / Iceland / Iceland Cup,4.66,1.57,4.17,11:00 pm,Wed 13/05
-Marica FC RJ,Sao Goncalo EC RJ,"Football / Brazil / Carioca, Serie A2",2.73,4.17,1.95,11:00 pm,Wed 13/05
-Cumbaya FC,LDU Portoviejo,Football / Ecuador / Serie B,3.15,4.0,1.88,11:30 pm,Wed 13/05
-Bogota FC,Barranquilla FC,Football / Colombia / Primera B,4.2,6.69,1.42,12:00 am,Thu 14/05
-CD Aguila San Miguel,CD Luis Angel Firpo Usulutan,"Football / El Salvador / Primera Division, Clausura",3.15,3.06,2.24,12:30 am,Thu 14/05
-CA Rosario Central,Racing Club Avellaneda,Football / Argentina / Liga Profesional,3.01,3.5,2.32,12:45 am,Thu 14/05
-Universidad de Chile Women,Club Deportivo Magallanes Women,"Football / Chile / Primera Division, Women",14.25,57.01,35.63,1:00 am,Thu 14/05
-Planalto EC GO Women,Paysandu SC PA Women,"Football / Brazil / Copa do Brasil, Women",3.22,3.08,2.15,1:00 am,Thu 14/05
-Minas Brasilia DF Women,Vila Nova FC GO Women,"Football / Brazil / Copa do Brasil, Women",6.98,15.1,1.12,1:00 am,Thu 14/05
-Mixto EC MT Women,Acao Futebol MT Women,"Football / Brazil / Copa do Brasil, Women",4.65,7.59,1.33,1:00 am,Thu 14/05
-SC Recife PE Women,Criciuma EC SC Women,"Football / Brazil / Copa do Brasil, Women",7.38,18.91,1.1,1:00 am,Thu 14/05
-EC Juventude RS,Sao Paulo FC SP,Football / Brazil / Copa do Brasil,3.08,2.19,3.35,1:00 am,Thu 14/05
-CR Vasco da Gama RJ,Paysandu SC PA,Football / Brazil / Copa do Brasil,5.16,10.08,1.27,1:00 am,Thu 14/05
-Rio Branco AC ES,Vitoria FC ES,Football / Brazil / Copa Espirito Santo,3.11,2.84,2.24,1:00 am,Thu 14/05
-Independiente Petrolero,Blooming Santa Cruz,Football / Bolivia / Division Profesional,3.69,2.62,2.28,1:00 am,Thu 14/05
-Ferroviaria Araraquara SP,CA Juventus SP,"Football / Brazil / Paulista, Serie A2",2.99,4.46,1.85,1:15 am,Thu 14/05
-Coritiba FC PR,Santos FC SP,Football / Brazil / Copa do Brasil,2.9,2.87,2.59,1:30 am,Thu 14/05
-Hercilio Luz FC SC,Blumenau EC SC,"Football / Brazil / Catarinense, Serie B",2.85,2.4,3.0,1:30 am,Thu 14/05
-AD Pasto,CD Tolima,"Football / Colombia / Primera A, Apertura",3.08,3.18,2.27,2:00 am,Thu 14/05
-One Knoxville SC,Union Omaha SC,Football / USA / USL League One,3.0,2.72,2.57,2:00 am,Thu 14/05
-Coquimbo Unido,Colo-Colo,Football / Chile / Copa de la Liga,3.3,2.11,3.2,2:00 am,Thu 14/05
-Waterhouse FC,Cavalier FC,Football / Jamaica / Premier League,3.0,3.0,2.3,2:00 am,Thu 14/05
-Carabobo FC,Estudiantes de Merida,Football / Venezuela / Primera Division,4.02,6.51,1.45,2:00 am,Thu 14/05
-Charlotte FC,New York City FC,Football / USA / Major League Soccer,3.53,2.96,2.28,2:15 am,Thu 14/05
-Academia Puerto Cabello,Portuguesa FC,Football / Venezuela / Primera Division,3.29,4.39,1.79,2:30 am,Thu 14/05
-Mirassol FC SP,Red Bull Bragantino SP,Football / Brazil / Copa do Brasil,3.05,3.18,2.28,2:30 am,Thu 14/05
-DC United,Chicago Fire,Football / USA / Major League Soccer,3.52,2.47,2.7,2:30 am,Thu 14/05
-Orlando City SC,Philadelphia Union,Football / USA / Major League Soccer,3.68,2.33,2.79,2:30 am,Thu 14/05
-FC Cincinnati,Inter Miami CF,Football / USA / Major League Soccer,4.07,2.09,2.97,2:30 am,Thu 14/05
-New England Revolution,Nashville SC,Football / USA / Major League Soccer,3.46,2.41,2.8,2:30 am,Thu 14/05
-CF Montreal,Portland Timbers,Football / USA / Major League Soccer,3.8,3.29,2.03,2:30 am,Thu 14/05
-New York Red Bulls,Columbus Crew,Football / USA / Major League Soccer,3.91,2.11,3.02,2:30 am,Thu 14/05
-Club Bolivar,CA Nacional Potosi,Football / Bolivia / Division Profesional,6.81,12.64,1.16,3:00 am,Thu 14/05
-Guadalajara U21,Club America U21,Football / Mexico / U21 Liga MX,3.4,2.42,2.55,3:00 am,Thu 14/05
-CA River Plate (ARG),Gimnasia y Esgrima La Plata,Football / Argentina / Liga Profesional,4.09,6.8,1.52,3:30 am,Thu 14/05
-Metropolitan FA San Juan,Ponce FC,Football / Puerto Rico / LPR Pro,4.3,4.2,1.59,3:30 am,Thu 14/05
-EC Jacuipense BA,SE Palmeiras SP,Football / Brazil / Copa do Brasil,5.29,1.29,8.51,3:30 am,Thu 14/05
-Ceara SC CE,Atletico Mineiro MG,Football / Brazil / Copa do Brasil,3.01,2.27,3.24,3:30 am,Thu 14/05
-Clube do Remo PA,EC Bahia BA,Football / Brazil / Copa do Brasil,3.33,2.06,3.4,3:30 am,Thu 14/05
-Sporting Kansas City,Los Angeles Galaxy,Football / USA / Major League Soccer,4.01,1.82,3.84,3:30 am,Thu 14/05
-Minnesota United FC,Colorado Rapids,Football / USA / Major League Soccer,3.94,4.28,1.75,3:30 am,Thu 14/05
-Saint Louis City SC,Los Angeles FC,Football / USA / Major League Soccer,3.62,2.44,2.68,3:30 am,Thu 14/05
-FC Dallas,Vancouver Whitecaps FC,Football / USA / Major League Soccer,3.66,2.02,3.43,3:30 am,Thu 14/05
-AC Boise,FC Naples,Football / USA / USL League One,3.24,3.52,2.01,4:00 am,Thu 14/05
-CD Junior FC,CD Once Caldas,"Football / Colombia / Primera A, Apertura",3.67,4.05,1.78,4:15 am,Thu 14/05
-Real Salt Lake,Houston Dynamo,Football / USA / Major League Soccer,3.89,4.29,1.75,4:30 am,Thu 14/05
-Seattle Sounders,San Jose Earthquakes,Football / USA / Major League Soccer,4.03,3.96,1.79,4:30 am,Thu 14/05
-San Diego FC,Austin FC,Football / USA / Major League Soccer,4.27,4.43,1.67,4:30 am,Thu 14/05
-Portmore United,Racing United FC,Football / Jamaica / Premier League,3.15,3.8,1.94,5:00 am,Thu 14/05
-CF Cruz Azul,CD Guadalajara,"Football / Mexico / Primera Division, Clausura",3.32,3.41,2.06,5:00 am,Thu 14/05
-Deportivo Saprissa San Jose,CS Herediano,"Football / Costa Rica / Primera Division, Clausura",3.38,4.05,1.86,5:00 am,Thu 14/05
-Sidama Bunna SC,Hadiya Hossana FC,Football / Ethiopia / Premier League,2.92,4.54,1.8,1:00 pm,Thu 14/05
-Skeid U19,Asker U19,Football / Norway / Norway Interkretsserie U19,4.87,2.34,2.19,2:00 pm,Thu 14/05
-Vasalunds IF,Gefle IF,"Football / Sweden / Ettan, Relegation/Promotion",3.86,4.05,1.68,2:00 pm,Thu 14/05
-Hobro IK,Aarhus Fremad,Football / Denmark / 1. Division,3.27,2.45,2.74,2:00 pm,Thu 14/05
-Tromsdalen UIL,Grorud IL,Football / Norway / 2nd Division Group 2,3.82,3.68,1.8,2:00 pm,Thu 14/05
-Bjarg,Brattvaag,Football / Norway / 2nd Division Group 1,3.54,2.58,2.38,2:00 pm,Thu 14/05
-Vastra Frolunda IF,IK Kongahalla,"Football / Sweden / Division 2, Promotion Playoffs",3.85,3.1,1.93,2:00 pm,Thu 14/05
-Torslanda IK,Qviding FIF,"Football / Sweden / Division 2, Promotion Playoffs",3.85,3.05,1.95,2:00 pm,Thu 14/05
-Piteaa IF,FBK Karlstad,"Football / Sweden / Ettan, Relegation/Promotion",3.68,1.86,3.44,2:00 pm,Thu 14/05
-IFK Berga,Rappe GOIF,"Football / Sweden / Division 2, Promotion Playoffs",3.55,3.05,2.03,2:00 pm,Thu 14/05
-Tvaakers IF,BK Olympic,"Football / Sweden / Ettan, Relegation/Promotion",3.5,2.46,2.46,2:00 pm,Thu 14/05
-Skedsmo U19,Lillehammer FK U19,Football / Norway / Norway Interkretsserie U19,4.86,2.97,1.83,2:00 pm,Thu 14/05
-Haslum U19,Ullern U19,Football / Norway / Norway Interkretsserie U19,5.1,3.69,1.6,3:00 pm,Thu 14/05
-Umea FF,Fransta IK,"Football / Sweden / Division 2, Promotion Playoffs",4.0,3.85,1.64,3:00 pm,Thu 14/05
-Shire Endaselassie FC,Ethiopian Coffee SC,Football / Ethiopia / Premier League,2.87,2.07,3.47,3:00 pm,Thu 14/05
-Ellidi,Vaengir Jupiters,Football / Iceland / 4. deild,4.15,3.21,1.83,3:00 pm,Thu 14/05
-Viking FK 2,Akra,Football / Norway / 3rd Division Group 4,5.2,6.2,1.34,3:00 pm,Thu 14/05
-Ntnui,Orkla,Football / Norway / 3rd Division Group 2,4.3,3.95,1.63,3:00 pm,Thu 14/05
-Vaxjo Norra,Linero IF,"Football / Sweden / Division 2, Promotion Playoffs",3.84,3.24,1.88,3:00 pm,Thu 14/05
-Stabaek Fotball 2,Brodd,Football / Norway / 3rd Division Group 4,3.99,2.04,2.79,3:00 pm,Thu 14/05
-Nardo FK,Byaasen,Football / Norway / 3rd Division Group 2,3.75,2.85,2.07,3:00 pm,Thu 14/05
-FK Septemvri Sofia,FK Spartak 1918 Varna,Football / Bulgaria / Parva Liga,3.57,4.82,1.69,3:15 pm,Thu 14/05
-FC Salzburg Frauen Women,FK Austria Wien Women,"Football / Austria / OFB Cup, Women",4.49,1.39,6.39,3:30 pm,Thu 14/05
-Lidkopings FK,Grebbestads IF,"Football / Sweden / Division 2, Promotion Playoffs",3.55,2.9,2.11,4:00 pm,Thu 14/05
-Hoenefoss BK,Stjordals-Blink,Football / Norway / 2nd Division Group 2,4.56,5.32,1.46,4:00 pm,Thu 14/05
-Mjallby AIF,Hammarby IF,Football / Sweden / Svenska Cup,3.4,2.15,3.02,4:00 pm,Thu 14/05
-Simal,Difai Agsu,Football / Azerbaijan / First Division,3.26,2.45,2.6,4:00 pm,Thu 14/05
-Lillehammer FK,FK Gjoevik-Lyn,Football / Norway / 3rd Division Group 6,3.8,2.39,2.39,4:00 pm,Thu 14/05
-Fk Kvik Trondheim,Strindheim TF,Football / Norway / 3rd Division Group 2,3.9,2.9,2.0,4:00 pm,Thu 14/05
-Wolaita Dicha SC,Saint George SC,Football / Ethiopia / Premier League,2.69,2.69,2.65,4:00 pm,Thu 14/05
-Raelingen,Brumunddal Fotball,Football / Norway / 3rd Division Group 6,4.39,2.79,1.95,4:00 pm,Thu 14/05
-Union Saint-Gilloise,RSC Anderlecht,Football / Belgium / Beker van Belgie,4.08,5.68,1.52,4:00 pm,Thu 14/05
-Herentals FC,Dynamos Harare FC,Football / Zimbabwe / Premier Soccer League,2.8,3.49,2.1,4:00 pm,Thu 14/05
-Red Arrows,Green Eagles,Football / Zambia / Super League,3.36,7.2,1.51,4:00 pm,Thu 14/05
-Mashujaa FC,Simba SC,Football / Tanzania / Premier League,3.69,1.43,6.7,4:15 pm,Thu 14/05
-FK Vidar,Sotra SK,Football / Norway / 2nd Division Group 1,4.68,1.42,5.74,4:30 pm,Thu 14/05
-Trelleborgs FF,Jonkopings Sodra IF,"Football / Sweden / Ettan, Relegation/Promotion",3.22,3.26,2.07,5:00 pm,Thu 14/05
-IF Vestri,Grotta,Football / Iceland / Iceland Cup,4.56,4.27,1.57,5:00 pm,Thu 14/05
-HB Torshavn,Vikingur Gota,Football / Faroe Islands / Logmanssteypid,3.62,2.67,2.28,5:00 pm,Thu 14/05
-Angelholms FF,Aatvidabergs FF,"Football / Sweden / Ettan, Relegation/Promotion",3.4,2.46,2.5,5:00 pm,Thu 14/05
-FC Trollhattan,Ariana FC,"Football / Sweden / Ettan, Relegation/Promotion",3.4,2.41,2.55,5:00 pm,Thu 14/05
-VfL Wolfsburg Women,Bayern Munich Women,Football / Germany / DFB Pokal Women,4.39,1.44,5.92,5:00 pm,Thu 14/05
-KA Akureyrar,Ægir,Football / Iceland / Iceland Cup,6.31,10.67,1.19,5:00 pm,Thu 14/05
-IF Karlstad Fotbol,IFK Stocksund,"Football / Sweden / Ettan, Relegation/Promotion",5.13,6.08,1.35,5:00 pm,Thu 14/05
-Throttur Vogum,KF Austfjardja,Football / Iceland / 2. deild,3.89,3.02,1.99,5:00 pm,Thu 14/05
-Dhofar SCSC,Al Shabab,Football / Oman / Omani League,3.47,1.75,4.33,5:05 pm,Thu 14/05
-FC Sion,FC Lugano,Football / Switzerland / Super League,3.57,3.1,2.24,5:30 pm,Thu 14/05
-FC Thun,Young Boys Bern,Football / Switzerland / Super League,3.96,3.19,2.07,5:30 pm,Thu 14/05
-FC Basel 1893,FC St. Gallen 1879,Football / Switzerland / Super League,3.9,2.52,2.52,5:30 pm,Thu 14/05
-AL Naft,AL Minaa,Football / Iraq / Iraqi League,3.15,3.34,2.11,5:30 pm,Thu 14/05
-AL Naft Maysan,AL Karma,Football / Iraq / Iraqi League,3.82,1.52,5.92,5:30 pm,Thu 14/05
-Al Jahra,Al-Nasr SC,Football / Kuwait / Premier League,3.28,2.04,3.38,5:40 pm,Thu 14/05
-POFC Botev Vratsa,PFC Montana 1921,Football / Bulgaria / Parva Liga,3.7,4.8,1.66,5:45 pm,Thu 14/05
-Young Violets Wien,Kapfenberger SV,Football / Austria / 2. Liga,3.85,4.05,1.74,6:00 pm,Thu 14/05
-FC Urartu Yerevan,FC Noah Yerevan,Football / Armenia / Armenian Cup,3.24,1.95,3.59,6:00 pm,Thu 14/05
-FC Copenhagen,FC Midtjylland,Football / Denmark / DBU Pokalen,3.47,2.82,2.46,6:00 pm,Thu 14/05
-Fylkir,FH Hafnarfjördur,Football / Iceland / Iceland Cup,4.56,1.6,4.07,6:00 pm,Thu 14/05
-SKN St Polten,FC Hertha Wels,Football / Austria / 2. Liga,4.72,6.55,1.4,6:00 pm,Thu 14/05
-Defense Force SC,Negelle Arsi,Football / Ethiopia / Premier League,2.88,2.79,2.42,6:00 pm,Thu 14/05
-First Vienna FC 1894,Schwarz-Weiss Bregenz,Football / Austria / 2. Liga,4.13,4.61,1.61,6:00 pm,Thu 14/05
-Austria Lustenau,SKU Amstetten,Football / Austria / 2. Liga,3.8,4.62,1.67,6:00 pm,Thu 14/05
-SK Austria Klagenfurt,FC Liefering,Football / Austria / 2. Liga,3.96,1.66,4.44,6:00 pm,Thu 14/05
-Ljungskile SK,GIF Sundsvall,Football / Sweden / Superettan,3.81,4.53,1.68,6:00 pm,Thu 14/05
-SK Sturm Graz II,Rapid Wien II,Football / Austria / 2. Liga,3.57,3.14,2.08,6:00 pm,Thu 14/05
-CS Sfaxien,ES Sahel,Football / Tunisia / Ligue 1,3.49,7.47,1.49,6:00 pm,Thu 14/05
-SV Kuchl,FC Kitzbuhel,Football / Austria / Regionalliga West,3.85,3.65,1.76,6:00 pm,Thu 14/05
-FC Admira Wacker Modling,FAC Wien,Football / Austria / 2. Liga,3.31,3.46,2.05,6:00 pm,Thu 14/05
-Samail SC,Sohar,Football / Oman / Omani League,3.12,2.21,3.17,6:20 pm,Thu 14/05
-Al-Fateh SC,Al-Najma,Football / Saudi Arabia / Saudi Prof. League,4.88,5.57,1.5,6:55 pm,Thu 14/05
-East Riffa,Qalali Club,Football / Bahrain / 2nd Division,10.0,23.0,1.04,7:00 pm,Thu 14/05
-Isa Town YOUTH,Al Ittifaq BHR,Football / Bahrain / 2nd Division,7.2,1.1,18.0,7:00 pm,Thu 14/05
-Ironi Modiin,Hapoel Acre FC,Football / Israel / National League,3.2,2.57,2.57,7:00 pm,Thu 14/05
-FC Tallinn,JK Tallinna Kalev,Football / Estonia / Esiliiga,4.48,1.58,4.29,7:00 pm,Thu 14/05
-Hapoel Hadera FC,Hapoel Ra`anana FC,Football / Israel / National League,3.22,2.78,2.39,7:00 pm,Thu 14/05
-Sandefjord Fotball 2,Drobak-Frogn,Football / Norway / 3rd Division Group 6,4.79,4.99,1.45,7:00 pm,Thu 14/05
-Bouri,AL Tadamun Buri,Football / Bahrain / 2nd Division,3.5,3.9,1.79,7:00 pm,Thu 14/05
-IK Sleipner,Smedby AIS,"Football / Sweden / Division 2, Promotion Playoffs",3.74,2.89,2.05,7:30 pm,Thu 14/05
-Al Nahda,Al-Seeb,Football / Oman / Omani League,3.16,2.01,3.63,7:35 pm,Thu 14/05
-Al-Wehda FC,Al-Jabalain,Football / Saudi Arabia / Division 1,3.4,2.08,3.05,7:35 pm,Thu 14/05
-Al-Orobah,AL Anwar,Football / Saudi Arabia / Division 1,3.6,3.0,2.04,7:45 pm,Thu 14/05
-Valencia CF,Rayo Vallecano,Football / Spain / LaLiga,3.27,3.31,2.26,8:00 pm,Thu 14/05
-Arborg,Alafoss,Football / Iceland / 4. deild,6.43,8.16,1.22,8:00 pm,Thu 14/05
-Ylojarvi United FC,TPV/2,Football / Finland / Kolmonen,3.79,2.12,2.75,8:00 pm,Thu 14/05
-FC Lokomotiv 1929 Sofia,PFK Beroe Stara Zagora,Football / Bulgaria / Parva Liga,3.75,4.23,1.73,8:15 pm,Thu 14/05
-Al Arabi,AL Tadhamon,Football / Kuwait / Premier League,4.67,7.62,1.34,8:15 pm,Thu 14/05
-Girona FC,Real Sociedad San Sebastian,Football / Spain / LaLiga,3.77,3.55,1.99,9:00 pm,Thu 14/05
-AL Draih,Al Bukiryah,Football / Saudi Arabia / Division 1,7.8,16.0,1.1,9:00 pm,Thu 14/05
-America FC MG U20,EC Bahia BA U20,Football / Brazil / U20 Campeonato Brasileiro,3.36,2.32,2.7,9:00 pm,Thu 14/05
-Sunderland U21,Burnley FC U21,Football / England / Premier League Cup,4.07,4.5,1.61,9:00 pm,Thu 14/05
-CD Godoy Cruz,Gimnasia de Mendoza Reserve,"Football / Argentina / Liga Profesional, Reserves",3.11,3.11,2.24,9:00 pm,Thu 14/05
-Al-Faisaly FC,Al-Batin,Football / Saudi Arabia / Division 1,6.2,11.0,1.18,9:00 pm,Thu 14/05
-Al Qadsiah,Al-Hazm,Football / Saudi Arabia / Saudi Prof. League,6.91,9.87,8.39,9:00 pm,Thu 14/05
-Al-Ittifaq FC,Al-Ittihad Club,Football / Saudi Arabia / Saudi Prof. League,4.07,1.88,3.68,9:00 pm,Thu 14/05
-AL Ula,Al-Zulfi FC,Football / Saudi Arabia / Division 1,4.0,5.2,1.51,9:00 pm,Thu 14/05
-Alftanes,KFR,Football / Iceland / 4. deild,9.63,14.82,1.08,9:30 pm,Thu 14/05
-IH Hafnarfjordur,Ulfanir,Football / Iceland / 4. deild,4.36,1.98,2.73,10:00 pm,Thu 14/05
-Bradford City FC,Bolton Wanderers,Football / England / League One,3.5,2.75,2.5,10:00 pm,Thu 14/05
-Always Ready,The Strongest,Football / Bolivia / Division Profesional,4.26,4.16,1.63,10:00 pm,Thu 14/05
-Real Madrid,Real Oviedo,Football / Spain / LaLiga,6.38,9.53,7.96,10:30 pm,Thu 14/05
-Libertad Asuncion,CS 2 de Mayo,"Football / Paraguay / Division de Honor, Apertura",3.39,4.39,1.76,11:00 pm,Thu 14/05
-Vinotinto FC Ecuador,Club Deportivo Cuenca Juniors,Football / Ecuador / Serie B,2.85,3.5,2.17,11:30 pm,Thu 14/05
-Chapecoense SC,Botafogo FR RJ,Football / Brazil / Copa do Brasil,3.29,2.11,3.32,12:00 am,Fri 15/05
-Real Potosi,Academia del Balompie Boliviano,Football / Bolivia / Division Profesional,4.15,4.39,1.61,1:00 am,Fri 15/05
-AD Confianca SE,Gremio FB Porto Alegrense RS,Football / Brazil / Copa do Brasil,3.66,1.6,5.55,1:00 am,Fri 15/05
-AC Goianiense GO,CA Paranaense PR,Football / Brazil / Copa do Brasil,3.15,2.23,3.18,1:00 am,Fri 15/05
-Tigres FC,Envigado FC,Football / Colombia / Primera B,3.01,2.82,2.48,1:00 am,Fri 15/05
-Club Fernando de La Mora,Independiente Campo Grande,Football / Paraguay / Segunda Division,3.0,3.15,2.28,1:30 am,Fri 15/05
-SC Corinthians SP,Barra FC SC,Football / Brazil / Copa do Brasil,6.06,14.14,1.18,1:30 am,Fri 15/05
-CR Brasil AL,Fortaleza EC CE,Football / Brazil / Copa do Brasil,2.87,3.48,2.25,2:00 am,Fri 15/05
-Oriente Petrolero,Guabira Montero,Football / Bolivia / Division Profesional,4.0,3.61,1.78,3:00 am,Fri 15/05
-EC Vitoria BA,CR Flamengo RJ,Football / Brazil / Copa do Brasil,3.75,1.69,4.54,3:30 am,Fri 15/05
-Deportes Quindio,Internacional FC De Palmira,Football / Colombia / Primera B,3.1,3.14,2.23,3:45 am,Fri 15/05
-CF Pachuca,Pumas UNAM,"Football / Mexico / Primera Division, Clausura",3.51,3.32,2.03,4:00 am,Fri 15/05
-CF Monterrey Women,Club America Women,"Football / Mexico / Liga MX, Women, Clausura",4.0,1.68,4.1,6:10 am,Fri 15/05
-Logan Lightning U23,Redlands United U23,Football / Australia / U23 Queensland Premier League 1,5.29,6.05,1.34,11:30 am,Fri 15/05
-Semen Padang FC,Persebaya Surabaya,Football / Indonesia / Liga 1,3.76,1.73,4.25,11:30 am,Fri 15/05
-Brisbane Roar FC YOUTH,Lions FC,Football / Australia / Queensland NPL,5.21,1.35,6.76,12:15 pm,Fri 15/05
-Wynnum Wolves FC,Eastern Suburbs FC,Football / Australia / Queensland NPL,3.86,2.08,2.95,12:30 pm,Fri 15/05
-Sydney FC Youth,Sydney Olympic FC,Football / Australia / NSW NPL 1,3.9,4.28,1.67,12:30 pm,Fri 15/05
-Peninsula Power FC,Gold Coast Knights,Football / Australia / Queensland NPL,3.71,2.74,2.24,12:30 pm,Fri 15/05
-Green Gully SC,Melbourne City FC 2,"Football / Australia / Victoria, NPL1",4.01,1.63,4.39,12:30 pm,Fri 15/05
-Adelaide United FC,Auckland FC,Football / Australia / A-League,3.6,2.89,2.35,12:35 pm,Fri 15/05
-Dandenong City SC,Oakleigh Cannons,"Football / Australia / Victoria, NPL1",4.58,1.41,6.11,12:45 pm,Fri 15/05
-Mekelle 70 Enderta FC,Ethiopian Medhin,Football / Ethiopia / Premier League,2.73,2.29,3.15,1:00 pm,Fri 15/05
-Maitland FC,Cooks Hill United,Football / Australia / Northern NSW NPL,4.48,4.57,1.54,1:00 pm,Fri 15/05
-Bentleigh Greens,Heidelberg United FC,"Football / Australia / Victoria, NPL1",4.3,1.45,5.92,1:30 pm,Fri 15/05
-Northcote City,FC Bulleen Lions,"Football / Australia / NPL 2, Victoria",3.92,3.83,1.74,1:30 pm,Fri 15/05
-Balcatta FC Women,Fremantle City FC Women,"Football / Australia / NPL Western Australia, Women",4.0,3.34,1.85,2:00 pm,Fri 15/05
-Club Libertad Asunción Reserves,Club 2 de Mayo Reserves,Football / Paraguay / Paraguay Reserve League,3.81,5.13,1.58,2:30 pm,Fri 15/05
-Tianjin Jinmen Tiger,Chengdu Rongcheng,Football / China / Chinese Super League,4.22,1.59,5.44,2:35 pm,Fri 15/05
-Henan,Shenzhen Peng City,Football / China / Chinese Super League,4.05,5.4,1.62,2:35 pm,Fri 15/05
-Shanghai Port FC,Zhejiang FC,Football / China / Chinese Super League,3.95,3.64,1.92,2:35 pm,Fri 15/05
-Beijing Guoan,Qingdao Hainiu FC,Football / China / Chinese Super League,5.31,6.72,1.4,3:00 pm,Fri 15/05
-Dalian Yingbo FC,Qingdao West Coast FC,Football / China / Chinese Super League,3.95,4.96,1.68,3:00 pm,Fri 15/05
-Club Olimpia,Recoleta FC,"Football / Paraguay / Division de Honor, Apertura",4.19,5.72,1.48,3:30 pm,Fri 15/05
-Energetik Mingechevir,Moik Baku,Football / Azerbaijan / First Division,3.97,4.73,1.57,4:00 pm,Fri 15/05
-Baku Sporting,Zaqatala FK,Football / Azerbaijan / First Division,4.06,6.04,1.45,4:00 pm,Fri 15/05
-Sabail FK,Shahdag Qusar FK,Football / Azerbaijan / First Division,4.07,5.29,1.5,4:00 pm,Fri 15/05
-Hapoel Tel Aviv FC,Hapoel Be`er Sheva FC,Football / Israel / Premier League,3.56,1.92,3.61,4:00 pm,Fri 15/05
-Ethiopia Nigd Bank,Sheger Ketema,Football / Ethiopia / Premier League,2.77,2.63,2.63,4:00 pm,Fri 15/05
-FK Karvan Yevlakh,Gabala FK,Football / Azerbaijan / Premier League,3.6,1.79,4.13,4:00 pm,Fri 15/05
-Mohammedan SC,Mumbai City,Football / India / Indian Super League,4.61,1.36,7.69,5:00 pm,Fri 15/05
-MSK Puchov,MSK Povazska Bystrica,Football / Slovakia / 2. Liga,3.54,3.09,2.02,6:00 pm,Fri 15/05
-MFK Stara Lubovna,OFK Dynamo Malzenice,Football / Slovakia / 2. Liga,3.35,2.21,2.85,6:00 pm,Fri 15/05
-FC Pirin Blagoevgrad,FK Sevlievo,Football / Bulgaria / Second Prof. League,3.28,3.43,2.03,6:00 pm,Fri 15/05
-MSK Zilina B,Slavia Tu Kosice,Football / Slovakia / 2. Liga,4.5,5.8,1.41,6:00 pm,Fri 15/05
-FK Inter Bratislava,MFk Dukla Banska Bystrica,Football / Slovakia / 2. Liga,3.59,1.87,3.49,6:00 pm,Fri 15/05
-SFC Etar Veliko Tarnovo,PFC Ludogorets Razgrad II,Football / Bulgaria / Second Prof. League,3.53,3.58,1.9,6:00 pm,Fri 15/05
-FK Babrungas Plunge,Vilnius FK Zalgiris B,Football / Lithuania / 1 Lyga,4.51,6.48,1.34,6:00 pm,Fri 15/05
-FC Dunav Ruse,FC Yantra Gabrovo,Football / Bulgaria / Second Prof. League,3.47,4.95,1.67,6:00 pm,Fri 15/05
-PFC Spartak Pleven,Gorna Oryahovitsa,Football / Bulgaria / Second Prof. League,3.19,3.38,2.08,6:00 pm,Fri 15/05
-Grobinas SC/LFS,FK Tukums 2000/TSS,Football / Latvia / Virsliga,3.43,2.8,2.32,6:00 pm,Fri 15/05
-FK Hebar Pazardzhik,Marek Dupnica,Football / Bulgaria / Second Prof. League,3.25,3.25,2.11,6:00 pm,Fri 15/05
-Araz Nakhchivan PFK,FK Kapaz,Football / Azerbaijan / Premier League,3.57,3.37,1.99,6:30 pm,Fri 15/05
-Nyiregyhaza Spartacus FC,Kazincbarcikai SC,Football / Hungary / NB I,5.0,6.74,1.37,6:45 pm,Fri 15/05
-FC Torpedo Kutaisi,FC Dila Gori,Football / Georgia / Erovnuli Liga,3.31,3.03,2.14,7:00 pm,Fri 15/05
-NK Rudar Velenje,NK Dekani,Football / Slovenia / 2. Liga,3.46,3.64,1.86,7:00 pm,Fri 15/05
-Kolding IF,Lyngby BK,Football / Denmark / 1. Division,3.75,1.84,3.71,7:00 pm,Fri 15/05
-ND Gorica,Ilirija Ljubljana,Football / Slovenia / 2. Liga,3.4,3.07,2.09,7:00 pm,Fri 15/05
-Pogon Siedlce,FKS Stal Mielec,Football / Poland / I Liga,3.41,2.24,2.93,7:00 pm,Fri 15/05
-Zaglebie Lubin,Pogon Szczecin,Football / Poland / Ekstraklasa,3.55,2.48,2.73,7:00 pm,Fri 15/05
-HNK Vukovar 1991,NK Varazdin,Football / Croatia / HNL,3.51,1.92,3.66,7:00 pm,Fri 15/05
-Ethnikos Achnas FC,Omonia Aradippou,Football / Cyprus / 1st Division,3.66,2.37,2.6,7:00 pm,Fri 15/05
-Akritas Chlorakas,AEL Limassol,Football / Cyprus / 1st Division,3.56,3.65,1.9,7:00 pm,Fri 15/05
-Olympiakos Nicosia,Anorthosis Famagusta,Football / Cyprus / 1st Division,3.86,4.73,1.64,7:00 pm,Fri 15/05
-Krka Novo Mesto,NK Jesenice,Football / Slovenia / 2. Liga,3.59,4.06,1.74,7:00 pm,Fri 15/05
-Dfk Dainava Alytus,Hegelmann Litauen B,Football / Lithuania / 1 Lyga,4.51,6.48,1.34,7:00 pm,Fri 15/05
-Tartu JK Tammeka,FC Nomme United,Football / Estonia / Premium Liiga,3.81,2.65,2.27,7:00 pm,Fri 15/05
-FK Transinvest B,Be1 Nfa,Football / Lithuania / 1 Lyga,4.13,1.5,4.71,7:00 pm,Fri 15/05
-Sandnes Ulf,Egersunds IK,Football / Norway / 1st Division,3.7,2.0,3.22,7:00 pm,Fri 15/05
-Damac FC,Al-Fayha FC,Football / Saudi Arabia / Saudi Prof. League,3.62,4.56,1.8,7:15 pm,Fri 15/05
-FC Rosengaard Malmo Women,Kristianstads DFF Women,Football / Sweden / Damallsvenskan,3.54,2.24,2.77,7:30 pm,Fri 15/05
-BK Forward,Orebro Syrianska IF,"Football / Sweden / Division 2, Promotion Playoffs",3.55,2.6,2.31,7:30 pm,Fri 15/05
-Valletta FC,Hamrun Spartans FC,Football / Malta / Premier League,3.34,2.21,2.96,8:00 pm,Fri 15/05
-FC Porto B YOUTH,SL Benfica B,Football / Portugal / Liga Portugal 2,3.61,2.01,3.27,8:00 pm,Fri 15/05
-Caykur Rizespor,Besiktas Istanbul,Football / Turkey / Super Lig,4.13,2.01,3.33,8:00 pm,Fri 15/05
-B93 Copenhagen,Aalborg BK,Football / Denmark / 1. Division,3.66,2.46,2.5,8:00 pm,Fri 15/05
-Husqvarna FF,IK Tord,"Football / Sweden / Division 2, Promotion Playoffs",4.6,6.59,1.37,8:00 pm,Fri 15/05
-Corum FK,Bodrum FK,Football / Turkey / 1. Lig,4.05,5.01,1.58,8:00 pm,Fri 15/05
-FK Riteriai,FK Panevezys,Football / Lithuania / A Lyga,4.08,1.48,6.32,8:00 pm,Fri 15/05
-Quevilly-Rouen Metropole,Paris 13 Atletico,Football / France / National,2.8,4.73,1.96,8:30 pm,Fri 15/05
-ACS Champions FC Arges,Rapid Bucuresti 1923,Football / Romania / Liga I,3.11,2.64,2.64,8:30 pm,Fri 15/05
-SC Aubagne Air Bel,SM Caen,Football / France / National,3.42,2.13,3.14,8:30 pm,Fri 15/05
-Valenciennes FC,LB Chateauroux,Football / France / National,3.85,1.74,4.05,8:30 pm,Fri 15/05
-Dijon FCO,US Orleans,Football / France / National,3.85,4.62,1.66,8:30 pm,Fri 15/05
-Wiener Sport-Club,SV Oberwart,Football / Austria / Regionalliga East,3.64,2.17,2.75,8:30 pm,Fri 15/05
-FC Fleury 91,FC Rouen,Football / France / National,3.47,2.65,2.41,8:30 pm,Fri 15/05
-Sochaux-Montbeliard,Le Puy Foot 43 Auvergne,Football / France / National,3.7,4.71,1.67,8:30 pm,Fri 15/05
-US Concarneau,FC Villefranche Beaujolais,Football / France / National,3.55,4.13,1.8,8:30 pm,Fri 15/05
-FC Versailles 78,Stade Briochin,Football / France / National,4.61,6.91,1.39,8:30 pm,Fri 15/05
-Al-Taawoun FC,Al-Riyadh SC,Football / Saudi Arabia / Saudi Prof. League,3.71,4.16,1.85,9:00 pm,Fri 15/05
-Maritimo Madeira,GD Chaves,Football / Portugal / Liga Portugal 2,3.37,3.27,2.1,9:00 pm,Fri 15/05
-SSC Bari,FC Sudtirol Bolzano,Football / Italy / Serie B,3.15,3.05,2.47,9:00 pm,Fri 15/05
-CWKS Resovia,ZKS Stal Stalowa Wola,Football / Poland / II Liga,3.33,2.81,2.3,9:00 pm,Fri 15/05
-Puskas Akademia FC Felcsut,MTK Budapest,Football / Hungary / NB I,3.62,3.57,1.91,9:00 pm,Fri 15/05
-Raagsveds IF,FOC Farsta,"Football / Sweden / Division 2, Promotion Playoffs",3.85,3.5,1.8,9:00 pm,Fri 15/05
-Etoile Carouge FC,AC Bellinzona,Football / Switzerland / Challenge League,3.95,4.62,1.64,9:15 pm,Fri 15/05
-FC Aarau,Yverdon-Sport,Football / Switzerland / Challenge League,4.44,5.22,1.51,9:15 pm,Fri 15/05
-Salford City,Grimsby Town,Football / England / League Two,3.41,3.08,2.16,9:15 pm,Fri 15/05
-Stade Lausanne Ouchy,Neuchatel Xamax,Football / Switzerland / Challenge League,3.85,3.13,2.0,9:15 pm,Fri 15/05
-FC Wil 1900,FC Vaduz,Football / Switzerland / Challenge League,3.94,1.71,4.13,9:15 pm,Fri 15/05
-FC Rapperswil-Jona,FC Stade Nyonnais,Football / Switzerland / Challenge League,3.76,3.33,1.95,9:15 pm,Fri 15/05
-Korona Kielce,Widzew Lodz,Football / Poland / Ekstraklasa,3.32,2.91,2.47,9:30 pm,Fri 15/05
-Polonia Warszawa,Wisla Krakow,Football / Poland / I Liga,3.81,2.84,2.15,9:30 pm,Fri 15/05
-AS Saint-Etienne,Rodez Aveyron Football,Football / France / Ligue 1,4.55,4.74,1.64,9:30 pm,Fri 15/05
-CD Castellon,Cadiz CF,Football / Spain / LaLiga 2,6.25,9.24,1.28,9:30 pm,Fri 15/05
-Treaty United,Finn Harps FC,Football / Ireland / First Division,3.1,3.05,2.28,9:45 pm,Fri 15/05
-Partick Thistle FC,Dunfermline Athletic FC,Football / Scotland / Premiership,3.64,4.15,1.84,9:45 pm,Fri 15/05
-Saint Patrick´s Athletic FC,Shelbourne FC,Football / Ireland / Premier Division,3.51,3.79,1.88,9:45 pm,Fri 15/05
-Kerry FC,Wexford FC,Football / Ireland / First Division,3.19,2.28,2.96,9:45 pm,Fri 15/05
-Oud-Heverlee Leuven,Royal Antwerp FC,Football / Belgium / Pro League,3.47,2.55,2.78,9:45 pm,Fri 15/05
-University College Dublin,Bray Wanderers AFC,Football / Ireland / First Division,3.24,2.91,2.29,9:45 pm,Fri 15/05
-Waterford FC,Derry City FC,Football / Ireland / Premier Division,3.76,1.66,4.73,9:45 pm,Fri 15/05
-Bohemians Dublin FC,Drogheda United FC,Football / Ireland / Premier Division,4.13,6.15,1.48,9:45 pm,Fri 15/05
-Cobh Ramblers,Athlone Town AFC,Football / Ireland / First Division,3.39,3.68,1.91,9:45 pm,Fri 15/05
-Aston Villa,Liverpool FC,Football / England / Premier League,3.87,2.26,2.94,10:00 pm,Fri 15/05
-Cordoba CF,Albacete Balompie,Football / Spain / LaLiga 2,4.14,4.91,1.65,10:00 pm,Fri 15/05
-Leixoes SC,Lusitania FC Lourosa,Football / Portugal / Liga Portugal 2,3.32,3.32,2.09,10:00 pm,Fri 15/05
-Notts County,Chesterfield FC,Football / England / League Two,3.22,3.03,2.27,10:00 pm,Fri 15/05
-Dundalk FC,Shamrock Rovers,Football / Ireland / Premier Division,3.43,2.26,2.9,10:00 pm,Fri 15/05
-Augnablik Kopavogur,KA Asvellir,Football / Iceland / 3. deild,5.98,7.72,1.25,10:15 pm,Fri 15/05
-Kari,Hviti Riddarinn,Football / Iceland / 2. deild,4.18,3.4,1.8,10:15 pm,Fri 15/05
-KH Hlidarendi,Ymir Kopavogur,Football / Iceland / 3. deild,4.46,3.47,1.7,10:15 pm,Fri 15/05
-Haukar Hafnarfjordur,Fjolnir,Football / Iceland / 2. deild,4.1,2.63,2.15,10:15 pm,Fri 15/05
-FC Cajamarca,Sporting Cristal,Football / Peru / Primera Division,3.27,2.4,2.79,11:00 pm,Fri 15/05
-Sportivo Trinidense,Cerro Porteno,"Football / Paraguay / Division de Honor, Apertura",3.14,2.23,3.1,11:00 pm,Fri 15/05
-Rubio Nu,Nacional Asuncion,"Football / Paraguay / Division de Honor, Apertura",3.1,2.0,3.72,11:00 pm,Fri 15/05
-LDU Quito,CD Tecnico Universitario,Football / Ecuador / LigaPro Primera A,4.04,5.76,1.52,12:30 am,Sat 16/05
-Montevideo City Torque,Club Nacional de Football,Football / Uruguay / Primera Division,3.33,2.15,3.18,2:00 am,Sat 16/05
-Kansas City NWSL Women,Houston Dash Women,Football / USA / National Womens Soccer League,4.39,6.49,1.41,3:00 am,Sat 16/05
-CA Racing de Cordoba,CA Central Norte Salta,Football / Argentina / Primera Nacional,2.8,4.24,2.05,3:00 am,Sat 16/05
-Libertad Loja,CD Cuenca,Football / Ecuador / LigaPro Primera A,3.13,3.18,2.24,3:00 am,Sat 16/05
-CD Palestino,Deportes La Serena,Football / Chile / Primera Division,3.28,3.76,1.97,3:00 am,Sat 16/05
-Coquimbo Unido,Audax Italiano,Football / Chile / Primera Division,3.43,4.15,1.83,3:00 am,Sat 16/05
-Universitario de Deportes,Atletico Grau,Football / Peru / Primera Division,5.2,10.59,1.26,4:00 am,Sat 16/05
-Seattle Reign FC Women,Gotham FC Women,Football / USA / National Womens Soccer League,3.34,1.76,4.48,5:00 am,Sat 16/05
-Bay FC Women,Boston Legacy FC Women,Football / USA / National Womens Soccer League,3.24,2.43,2.71,5:00 am,Sat 16/05
-San Diego Wave FC Women,Washington Spirit Women,Football / USA / National Womens Soccer League,3.08,2.42,2.84,5:00 am,Sat 16/05
-Adamstown Rosebud FC,Charlestown Azzurri FC,Football / Australia / Northern NSW NPL,4.1,1.88,3.19,7:00 am,Sat 16/05
-Hume City,Avondale FC,"Football / Australia / Victoria, NPL1",3.53,1.99,3.29,7:00 am,Sat 16/05
-Lambton Jaffas FC,Kahibah FC,Football / Australia / Northern NSW NPL,5.16,6.11,1.37,7:00 am,Sat 16/05
-University of Nsw,Rockdale Ilinden FC,Football / Australia / NSW NPL 1,3.93,1.76,3.73,8:00 am,Sat 16/05
-Mito Hollyhock,Tokyo Verdy,Football / Japan / J.League,3.03,2.64,2.93,8:00 am,Sat 16/05
-Western Sydney Youth,Blacktown City FC,Football / Australia / NSW NPL 1,3.48,2.86,2.2,8:00 am,Sat 16/05
-Para Hills Knights SC,Adelaide United FC YOUTH,Football / Australia / South Australia NPL,7.81,1.14,11.43,8:30 am,Sat 16/05
-Melbourne City FC Women,Wellington Phoenix Women,"Football / Australia / A-League, Women",3.62,3.57,1.91,9:15 am,Sat 16/05
-Belmont Swansea United FC,Valentine FC,Football / Australia / Northern NSW NPL,4.99,5.56,1.41,9:30 am,Sat 16/05
-Western Knights SC,Stirling Macedonia FC,Football / Australia / Western Australia NPL,3.44,2.58,2.43,10:00 am,Sat 16/05
-Sorrento FC,Perth Azzurri,Football / Australia / Western Australia NPL,3.63,2.03,3.1,10:00 am,Sat 16/05
-Perth Redstar FC,Armadale SC,Football / Australia / Western Australia NPL,3.91,4.2,1.68,10:00 am,Sat 16/05
-Urawa Red Diamonds,FC Tokyo,Football / Japan / J.League,3.23,2.54,2.89,10:00 am,Sat 16/05
-Dandenong Thunder,ST Albans Saints Dinamo SC,"Football / Australia / Victoria, NPL1",3.82,1.77,3.82,10:00 am,Sat 16/05
-Fremantle City,Olympic Kingsway SC,Football / Australia / Western Australia NPL,4.11,1.57,4.78,10:00 am,Sat 16/05
-FK Beograd,Campbelltown City SC,Football / Australia / South Australia NPL,3.81,2.57,2.28,10:30 am,Sat 16/05
-Daejeon Citizen FC,FC Seoul,Football / Republic of Korea / K-League 1,3.23,2.63,2.78,10:30 am,Sat 16/05
-Seoul E-Land FC,Yongin City FC,Football / Republic of Korea / K-League 2,4.01,5.35,1.53,10:30 am,Sat 16/05
-Jeonnam Dragons,Chungbuk Cheongju FC,Football / Republic of Korea / K-League 2,3.25,3.1,2.18,10:30 am,Sat 16/05
-North Eastern Metrostars SC,Adelaide Comets FC,Football / Australia / South Australia NPL,6.68,10.5,1.18,10:45 am,Sat 16/05
-ACS Sepsi OSK Sfantu Gheorghe,AFC Chindia Targoviste,Football / Romania / Liga 2,4.39,7.38,1.36,11:00 am,Sat 16/05
-FC Corvinul Hunedoara 1921,FC Bihor Oradea,Football / Romania / Liga 2,3.8,4.9,1.58,11:00 am,Sat 16/05
-Yokohama F Marinos,Kashiwa Reysol,Football / Japan / J.League,3.33,2.35,3.08,11:00 am,Sat 16/05
-CS Dinamo Bucuresti,CSC 1599 Selimbar,Football / Romania / Liga 2,3.08,2.7,2.47,11:00 am,Sat 16/05
-Perth Glory FC YOUTH,Bayswater City,Football / Australia / Western Australia NPL,3.91,1.8,3.58,11:00 am,Sat 16/05
-Csa Steaua Bucuresti,SC FC Voluntari,Football / Romania / Liga 2,3.4,2.07,3.1,11:00 am,Sat 16/05
-Altona Magic SC,Preston Lions FC,"Football / Australia / Victoria, NPL1",4.02,1.62,4.5,11:15 am,Sat 16/05
-Gold Coast United FC,Brisbane City FC,Football / Australia / Queensland NPL,3.71,2.13,2.94,11:30 am,Sat 16/05
-Persik Kediri,Persija Jakarta,Football / Indonesia / Liga 1,3.56,1.97,3.42,11:30 am,Sat 16/05
-St George Saints FC,Sydney United 58 FC,Football / Australia / NSW NPL 1,3.91,1.65,4.39,11:30 am,Sat 16/05
-Dianella White Eagles SC,Balcatta,Football / Australia / Western Australia NPL,4.57,5.53,1.45,12:00 pm,Sat 16/05
-Newcastle United Jets,Sydney FC,Football / Australia / A-League,3.86,2.82,2.3,12:40 pm,Sat 16/05
-SC Poltava,FC Dynamo Kyiv,Football / Ukraine / Premier League,9.46,1.08,20.27,1:00 pm,Sat 16/05
-FC Irtysh Pavlodar,FC Yelimai,Football / Kazakhstan / Premier League,3.58,1.89,3.68,1:00 pm,Sat 16/05
-SCU Torreense,FC Vizela,Football / Portugal / Liga Portugal 2,3.37,3.57,1.99,1:00 pm,Sat 16/05
-FC Metalist 1925 Kharkiv,FC Epitsentr Kamianets-Podilskyi,Football / Ukraine / Premier League,3.85,5.58,1.56,1:00 pm,Sat 16/05
-Academico de Viseu FC,Sporting Lisbon B,Football / Portugal / Liga Portugal 2,4.22,6.34,1.46,1:00 pm,Sat 16/05
-Cheonan City FC,Paju Citizen FC,Football / Republic of Korea / K-League 2,3.09,2.76,2.47,1:00 pm,Sat 16/05
-Ansan Greeners FC,Gimpo FC,Football / Republic of Korea / K-League 2,4.19,1.46,6.09,1:00 pm,Sat 16/05
-Incheon United FC,Gwangju FC,Football / Republic of Korea / K-League 1,4.05,6.68,1.53,1:00 pm,Sat 16/05
-FK Kudrivka,LNZ Cherkasy,Football / Ukraine / Premier League,3.77,1.54,5.99,1:00 pm,Sat 16/05
-FC Zorya Luhansk,FC Polissya Zhytomyr,Football / Ukraine / Premier League,3.77,1.62,5.03,1:00 pm,Sat 16/05
-Hillerod Fodbold,Esbjerg FB,Football / Denmark / 1. Division,3.42,3.13,2.14,2:00 pm,Sat 16/05
-FC Pacos Ferreira,FC Penafiel,Football / Portugal / Liga Portugal 2,3.71,4.23,1.74,2:00 pm,Sat 16/05
-HJK Helsinki,Tampereen Ilves,Football / Finland / Veikkausliiga,3.95,4.53,1.65,2:00 pm,Sat 16/05
-Karlbergs BK,FC Jarfalla,"Football / Sweden / Ettan, Relegation/Promotion",3.87,3.87,1.72,2:00 pm,Sat 16/05
-FC Neptunas Klaipeda,FK Minija 2017,Football / Lithuania / 1 Lyga,3.21,2.44,2.52,2:00 pm,Sat 16/05
-Viggbyholms IK FF,IK Franke,"Football / Sweden / Division 2, Promotion Playoffs",3.75,2.8,2.09,2:00 pm,Sat 16/05
-Onsala BK,Hestrafors IF,"Football / Sweden / Division 2, Promotion Playoffs",3.85,3.6,1.77,2:00 pm,Sat 16/05
-FK Tauras Taurage,FK Jonava,Football / Lithuania / 1 Lyga,3.82,5.1,1.51,2:00 pm,Sat 16/05
-Ulytau FC,FC Kaspiy Aktau,Football / Kazakhstan / Premier League,3.29,3.39,2.08,2:00 pm,Sat 16/05
-Wuhan Three Towns FC,Liaoning Tieren FC,Football / China / Chinese Super League,3.6,2.91,2.33,2:00 pm,Sat 16/05
-Gottne IF,Lucksta IF,"Football / Sweden / Division 2, Promotion Playoffs",3.7,2.85,2.01,2:00 pm,Sat 16/05
-FK Kauno Zalgiris,FA Siauliai,Football / Lithuania / A Lyga,6.04,11.59,1.21,2:15 pm,Sat 16/05
-MSV Duisburg,FC Viktoria Cologne,Football / Germany / 3. Liga,4.63,5.94,1.5,2:30 pm,Sat 16/05
-Celtic Glasgow,Heart of Midlothian FC,Football / Scotland / Premiership,4.16,5.03,1.61,2:30 pm,Sat 16/05
-JK Narva Trans,Tallinna FC Flora,Football / Estonia / Premium Liiga,5.0,1.38,6.54,2:30 pm,Sat 16/05
-SV Wehen Wiesbaden,TSG Hoffenheim II U23,Football / Germany / 3. Liga,4.11,3.45,1.93,2:30 pm,Sat 16/05
-VfB Stuttgart II U21,VfL 1899 Osnabruck,Football / Germany / 3. Liga,3.86,1.98,3.49,2:30 pm,Sat 16/05
-Alemannia Aachen,TSV Havelse,Football / Germany / 3. Liga,5.75,6.73,1.37,2:30 pm,Sat 16/05
-1. FC Schweinfurt 05,Erzgebirge Aue,Football / Germany / 3. Liga,4.05,2.0,3.3,2:30 pm,Sat 16/05
-SSV Ulm 1846,Rot-Weiss Essen,Football / Germany / 3. Liga,4.82,1.54,5.15,2:30 pm,Sat 16/05
-FC Ingolstadt 04,SV Waldhof Mannheim 07,Football / Germany / 3. Liga,4.0,3.14,2.08,2:30 pm,Sat 16/05
-SC Verl,TSV 1860 Munich,Football / Germany / 3. Liga,4.47,4.34,1.68,2:30 pm,Sat 16/05
-Hibernian FC,Motherwell FC,Football / Scotland / Premiership,3.55,2.57,2.58,2:30 pm,Sat 16/05
-1. FC Saarbrucken,Hansa Rostock,Football / Germany / 3. Liga,3.84,2.76,2.34,2:30 pm,Sat 16/05
-Jahn Regensburg,Energie Cottbus,Football / Germany / 3. Liga,4.57,1.62,4.7,2:30 pm,Sat 16/05
-Falkirk FC,Glasgow Rangers,Football / Scotland / Premiership,3.73,1.84,4.03,2:30 pm,Sat 16/05
-Shandong Taishan FC,Chongqing Tonglianglong FC,Football / China / Chinese Super League,4.39,5.8,1.54,2:35 pm,Sat 16/05
-NK Sesvete,NK Dugopolje,Football / Croatia / Prva NL,3.0,3.3,2.16,2:45 pm,Sat 16/05
-FC Van Charentsavan,FC Alashkert Yerevan,Football / Armenia / Premier League,3.66,1.71,4.53,3:00 pm,Sat 16/05
-Real Sociedad San Sebastian B,CD Mirandes,Football / Spain / LaLiga 2,3.53,2.12,3.39,3:00 pm,Sat 16/05
-Chelsea FC Women,Manchester United WFC Women,Football / England / The FA Women's Super League,4.26,5.61,1.5,3:00 pm,Sat 16/05
-London City Lionesses Women,Aston Villa WFC Women,Football / England / The FA Women's Super League,3.61,3.18,2.05,3:00 pm,Sat 16/05
-SK Brann,KFUM Oslo,Football / Norway / Eliteserien,5.01,6.28,1.43,3:00 pm,Sat 16/05
-Middelfart BK,HB Koege,Football / Denmark / 1. Division,4.06,1.58,5.03,3:00 pm,Sat 16/05
-Malut United,Persita Tangerang,Football / Indonesia / Liga 1,4.53,5.4,1.48,3:00 pm,Sat 16/05
-FK Karlskrona,Staffanstorp United,"Football / Sweden / Division 2, Promotion Playoffs",4.69,6.19,1.38,3:00 pm,Sat 16/05
-Brighton and Hove Albion WFC Women,Tottenham Hotspur FC Women,Football / England / The FA Women's Super League,3.71,2.94,2.13,3:00 pm,Sat 16/05
-Everton FC Women,Leicester City WFC Women,Football / England / The FA Women's Super League,4.25,4.06,1.67,3:00 pm,Sat 16/05
-Liverpool LFC Women,Arsenal WFC Women,Football / England / The FA Women's Super League,5.98,1.24,9.65,3:00 pm,Sat 16/05
-Yunnan Yukun,Shanghai Shenhua FC,Football / China / Chinese Super League,4.06,2.92,2.17,3:00 pm,Sat 16/05
-West Ham United FC Women,Manchester City WFC Women,Football / England / The FA Women's Super League,7.34,1.15,13.52,3:00 pm,Sat 16/05
-Dalstorps IF,Astorps FF,"Football / Sweden / Division 2, Promotion Playoffs",3.45,2.55,2.4,3:00 pm,Sat 16/05
-Persis Solo,Dewa United,Football / Indonesia / Liga 1,3.52,2.02,3.33,3:00 pm,Sat 16/05
-FC Okzhetpes,FC Astana,Football / Kazakhstan / Premier League,3.63,2.03,3.2,3:00 pm,Sat 16/05
-FC Dinamo Minsk,Bate Borisov,Football / Belarus / Belarus Cup,3.53,5.15,1.63,3:30 pm,Sat 16/05
-LKP Motor Lublin,MKS Cracovia Krakow,Football / Poland / Ekstraklasa,3.49,2.44,2.82,3:45 pm,Sat 16/05
-Qarabag FK,Imisli FK,Football / Azerbaijan / Premier League,5.74,10.52,1.23,4:00 pm,Sat 16/05
-Hammarby IF Women,Hacken Gothenburg Women,Football / Sweden / Svenska Cup Women,3.2,2.6,2.48,4:00 pm,Sat 16/05
-Shamakhi FK,Turan Tovuz,Football / Azerbaijan / Premier League,3.19,2.09,3.48,4:00 pm,Sat 16/05
-Chippa United FC,Lamontville Golden Arrows,Football / South Africa / Premier Soccer League,3.31,3.6,2.0,4:00 pm,Sat 16/05
-AC Horsens,Hvidovre IF,Football / Denmark / 1. Division,3.37,3.42,2.04,4:00 pm,Sat 16/05
-Polokwane City,Marumo Gallants FC,Football / South Africa / Premier Soccer League,3.12,2.19,3.31,4:00 pm,Sat 16/05
-Siwelele FC,Magesi FC,Football / South Africa / Premier Soccer League,3.08,2.88,2.45,4:00 pm,Sat 16/05
-AmaZulu FC,Kaizer Chiefs,Football / South Africa / Premier Soccer League,3.14,2.05,3.67,4:00 pm,Sat 16/05
-IFK Trelleborg,Osterlen FF,"Football / Sweden / Division 2, Promotion Playoffs",3.95,3.6,1.76,4:00 pm,Sat 16/05
-Richards Bay FC,Sekhukhune United,Football / South Africa / Premier Soccer League,2.78,2.64,2.93,4:00 pm,Sat 16/05
-FC CSKA 1948,PFC Ludogorets 1945 Razgrad,Football / Bulgaria / Parva Liga,3.37,2.04,3.42,4:00 pm,Sat 16/05
-Orlando Pirates FC,Durban City,Football / South Africa / Premier Soccer League,6.15,15.38,1.17,4:00 pm,Sat 16/05
-JaPS,FC KTP Kotka,Football / Finland / Ykkosliiga,3.56,1.97,3.42,4:00 pm,Sat 16/05
-PFC Levski Sofia,PFC CSKA Sofia,Football / Bulgaria / Parva Liga,3.24,3.82,1.96,4:00 pm,Sat 16/05
-Union Plaani,PPJ Helsinki,Football / Finland / Kakkonen Playoffs,3.83,2.12,2.8,4:00 pm,Sat 16/05
-Grankulla IFK,FC Honka,Football / Finland / Kakkonen Playoffs,6.11,1.24,8.28,4:00 pm,Sat 16/05
-Skellefteaa FF,IFK Luleaa,"Football / Sweden / Division 2, Promotion Playoffs",3.5,2.65,2.18,4:00 pm,Sat 16/05
-Stellenbosch FC,Orbit College FC,Football / South Africa / Premier Soccer League,3.66,4.14,1.77,4:00 pm,Sat 16/05
-GAIS,Degerfors IF,Football / Sweden / Allsvenskan,4.05,5.4,1.62,4:00 pm,Sat 16/05
-Halmstads BK,IF Elfsborg,Football / Sweden / Allsvenskan,3.45,2.0,3.84,4:00 pm,Sat 16/05
-SK Super Nova,Ogre United,Football / Latvia / Virsliga,3.75,4.42,1.7,4:00 pm,Sat 16/05
-Werder Bremen,Borussia Dortmund,Football / Germany / Bundesliga,4.08,1.98,3.44,4:30 pm,Sat 16/05
-1. FC Heidenheim,FSV Mainz,Football / Germany / Bundesliga,4.22,3.48,1.94,4:30 pm,Sat 16/05
-Bayer Leverkusen,Hamburger SV,Football / Germany / Bundesliga,6.85,9.31,8.08,4:30 pm,Sat 16/05
-Borussia Monchengladbach,TSG Hoffenheim,Football / Germany / Bundesliga,4.66,1.69,4.26,4:30 pm,Sat 16/05
-Eintracht Frankfurt,VfB Stuttgart,Football / Germany / Bundesliga,4.34,1.92,3.46,4:30 pm,Sat 16/05
-Union Berlin,FC Augsburg,Football / Germany / Bundesliga,3.89,2.49,2.63,4:30 pm,Sat 16/05
-Bayern Munich,1. FC Cologne,Football / Germany / Bundesliga,9.72,13.49,11.6,4:30 pm,Sat 16/05
-SC Freiburg,RB Leipzig,Football / Germany / Bundesliga,4.04,2.35,2.73,4:30 pm,Sat 16/05
-FC St. Pauli,VFL Wolfsburg,Football / Germany / Bundesliga,3.74,2.37,2.85,4:30 pm,Sat 16/05
-Fatih Karagumruk Istanbul,Alanyaspor,Football / Turkey / Super Lig,3.38,2.6,2.78,5:00 pm,Sat 16/05
-TP-47,FF Jaro Akademia U23,Football / Finland / Kakkonen Playoffs,4.5,1.67,3.71,5:00 pm,Sat 16/05
-Lyn 1896 FK,Kongsvinger IL Toppfotball,Football / Norway / 1st Division,3.76,1.97,3.28,5:00 pm,Sat 16/05
-MKS Chojniczanka Chojnice,Zaglebie Sosnowiec,Football / Poland / II Liga,3.77,4.01,1.74,5:00 pm,Sat 16/05
-FK Haugesund,Aasane Fotball,Football / Norway / 1st Division,5.58,7.31,1.31,5:00 pm,Sat 16/05
-Harju JK Laagri,Parnu JK Vaprus,Football / Estonia / Premium Liiga,3.75,2.55,2.38,5:00 pm,Sat 16/05
-Stroemsgodset IF,Ranheim,Football / Norway / 1st Division,4.32,4.32,1.62,5:00 pm,Sat 16/05
-Seinajoen JK,FC Inter Turku,Football / Finland / Veikkausliiga,3.23,2.09,3.42,5:00 pm,Sat 16/05
-Hammarby Talang FF,FC Stockholm Internazionale,"Football / Sweden / Ettan, Relegation/Promotion",3.36,2.25,2.79,5:00 pm,Sat 16/05
-HNK Gorica,NK Osijek,Football / Croatia / HNL,3.13,3.13,2.26,5:00 pm,Sat 16/05
-Hoedd IL,Sogndal Fotball,Football / Norway / 1st Division,3.51,2.4,2.64,5:00 pm,Sat 16/05
-Bryne FK,Stroemmen IF,Football / Norway / 1st Division,4.05,4.43,1.65,5:00 pm,Sat 16/05
-Bodens BK FF,Taftea IK,"Football / Sweden / Division 2, Promotion Playoffs",3.55,2.65,2.16,5:00 pm,Sat 16/05
-Syrianska FC,Nacka FC,"Football / Sweden / Division 2, Promotion Playoffs",3.6,2.7,2.21,5:00 pm,Sat 16/05
-IFK Haninge,Karlslunds IF HFK,"Football / Sweden / Division 2, Promotion Playoffs",5.18,6.37,1.33,5:00 pm,Sat 16/05
-Nosaby IF,Solvesborgs GIF,"Football / Sweden / Division 2, Promotion Playoffs",3.65,2.7,2.2,5:00 pm,Sat 16/05
-IFK Mariehamn,Kuopion Palloseura,Football / Finland / Veikkausliiga,4.43,1.44,6.16,5:00 pm,Sat 16/05
-HPS,Atlantis FC,Football / Finland / Kakkonen Playoffs,3.88,2.31,2.51,5:00 pm,Sat 16/05
-IFK Lidingo FK,FC Gute,"Football / Sweden / Division 2, Promotion Playoffs",3.54,2.47,2.43,5:00 pm,Sat 16/05
-Viking FK,IK Start,Football / Norway / Eliteserien,6.95,10.81,1.21,5:00 pm,Sat 16/05
-Chelsea FC,Manchester City,Football / England / FA Cup,3.91,1.77,4.56,5:00 pm,Sat 16/05
-Edinburgh City FC,Brora Rangers,Football / Scotland / League 2,3.62,2.81,2.18,5:00 pm,Sat 16/05
-Odisha FC,Punjab FC,Football / India / Indian Super League,4.24,1.46,6.36,5:00 pm,Sat 16/05
-Molde FK,Kristiansund BK,Football / Norway / Eliteserien,5.12,6.48,1.41,5:00 pm,Sat 16/05
-Rosenborg BK,Aalesunds FK,Football / Norway / Eliteserien,4.13,4.54,1.67,5:00 pm,Sat 16/05
-Taby FK,Sunnersta AIF,"Football / Sweden / Division 2, Promotion Playoffs",3.75,3.0,2.0,5:00 pm,Sat 16/05
-Fredrikstad FK,HamKam,Football / Norway / Eliteserien,3.66,3.27,2.08,5:00 pm,Sat 16/05
-Lillestroem SK,Sandefjord Fotball,Football / Norway / Eliteserien,3.99,4.06,1.78,5:00 pm,Sat 16/05
-FC Hegelmann Kaunas,FK Suduva Marijampole,Football / Lithuania / A Lyga,3.29,2.23,3.05,5:00 pm,Sat 16/05
-Odds BK,Moss FK,Football / Norway / 1st Division,4.24,4.82,1.57,5:00 pm,Sat 16/05
-Royal Charleroi SC,KVC Westerlo,Football / Belgium / Pro League,3.84,3.3,2.1,5:00 pm,Sat 16/05
-Stabaek IF,Raufoss IL,Football / Norway / 1st Division,5.03,6.77,1.36,5:00 pm,Sat 16/05
-Cultural Leonesa,SD Eibar,Football / Spain / LaLiga 2,3.35,2.38,3.01,5:15 pm,Sat 16/05
-AD Ceuta,Malaga CF,Football / Spain / LaLiga 2,4.03,1.76,4.3,5:15 pm,Sat 16/05
-FC Porto,Santa Clara Azores,Football / Portugal / Liga Portugal,5.13,9.18,1.36,5:30 pm,Sat 16/05
-Moreirense FC,AVS Futebol SAD,Football / Portugal / Liga Portugal,3.9,4.36,1.8,5:30 pm,Sat 16/05
-AS Trencin,FK Kosice,Football / Slovakia / Superliga,3.6,2.49,2.49,6:00 pm,Sat 16/05
-DAC 1904 Dunajska Streda,FC Spartak Trnava,Football / Slovakia / Superliga,3.36,2.88,2.3,6:00 pm,Sat 16/05
-FC Banik Ostrava,FC Zlin,Football / Czech Republic / 1. Liga,4.21,6.27,1.53,6:00 pm,Sat 16/05
-FK Usti nad Labem,SK Slavia Prague B,Football / Czech Republic / FNL,3.91,4.01,1.71,6:00 pm,Sat 16/05
-Maccabi Haifa FC,Hapoel Petah Tikva FC,Football / Israel / Premier League,3.94,4.03,1.73,6:00 pm,Sat 16/05
-AEK Larnaca,Pafos FC,Football / Cyprus / 1st Division,3.27,2.98,2.28,6:00 pm,Sat 16/05
-Apollon Limassol,Aris Limassol FC,Football / Cyprus / 1st Division,3.56,3.61,1.92,6:00 pm,Sat 16/05
-MFK Skalica,MFK Ruzomberok,Football / Slovakia / Superliga,3.87,4.84,1.63,6:00 pm,Sat 16/05
-APOEL Nikosia,AC Omonia Nicosia,Football / Cyprus / 1st Division,3.56,1.81,4.05,6:00 pm,Sat 16/05
-MFK Karvina,SK Sigma Olomouc,Football / Czech Republic / 1. Liga,3.52,2.32,2.98,6:00 pm,Sat 16/05
-SCR Altach,SV Ried,Football / Austria / Bundesliga,3.57,4.43,1.84,6:00 pm,Sat 16/05
-FC Dinamo Tbilisi,FC Iberia 1999,Football / Georgia / Erovnuli Liga,3.12,2.41,2.74,6:00 pm,Sat 16/05
-SK Slovan Bratislava,MFK Zemplin Michalovce,Football / Slovakia / Superliga,5.41,7.74,1.31,6:00 pm,Sat 16/05
-MSK Zilina,FK Zeleziarne Podbrezova,Football / Slovakia / Superliga,4.41,4.7,1.56,6:00 pm,Sat 16/05
-KFC Komarno,1. FC Tatran Presov,Football / Slovakia / Superliga,3.25,2.62,2.57,6:00 pm,Sat 16/05
-Sparta Prague B,FC Vysocina Jihlava,Football / Czech Republic / FNL,3.72,3.57,1.85,6:00 pm,Sat 16/05
-Wolfsberger AC,WSG Tirol,Football / Austria / Bundesliga,3.6,3.52,2.05,6:00 pm,Sat 16/05
-Blau-Weiss Linz,Grazer AK 1902,Football / Austria / Bundesliga,3.46,3.58,2.08,6:00 pm,Sat 16/05
-FK Teplice,Dukla Prague,Football / Czech Republic / 1. Liga,3.25,2.53,2.88,6:00 pm,Sat 16/05
-SK Artis Brno,FK Viktoria Zizkov,Football / Czech Republic / FNL,4.38,5.71,1.46,6:00 pm,Sat 16/05
-FC Vlasim,FC Banik Ostrava B,Football / Czech Republic / FNL,3.53,3.2,2.02,6:00 pm,Sat 16/05
-1. FC Slovacko Uherske Hradiste,FK Mlada Boleslav,Football / Czech Republic / 1. Liga,3.62,3.61,2.01,6:00 pm,Sat 16/05
-SK Hanacka Slavia Kromeriz,FC Zbrojovka Brno,Football / Czech Republic / FNL,3.58,1.76,4.1,6:00 pm,Sat 16/05
-FK Pribram,1.SK Prostejov,Football / Czech Republic / FNL,3.74,4.02,1.74,6:00 pm,Sat 16/05
-FC Silon Taborsko,SFC Opava,Football / Czech Republic / FNL,3.54,3.77,1.84,6:00 pm,Sat 16/05
-CA Boston River,CA Cerro,Football / Uruguay / Primera Division,3.13,3.56,2.09,6:00 pm,Sat 16/05
-SK Dynamo Ceske Budejovice,MFK Chrudim,Football / Czech Republic / FNL,3.58,2.62,2.33,6:00 pm,Sat 16/05
-IK Brage,IFK Norrkoping FK,Football / Sweden / Superettan,3.46,2.19,2.98,6:00 pm,Sat 16/05
-Debreceni VSC,Ujpest FC Budapest,Football / Hungary / NB I,3.87,4.16,1.72,6:15 pm,Sat 16/05
-Diosgyori VTK,Paksi FC,Football / Hungary / NB I,5.01,1.45,5.2,6:15 pm,Sat 16/05
-Ferencvarosi Budapest,Zalaegerszeg TE,Football / Hungary / NB I,5.4,7.91,1.3,6:15 pm,Sat 16/05
-Kisvarda FC,WKW ETO FC Gyor,Football / Hungary / NB I,4.82,1.38,6.75,6:15 pm,Sat 16/05
-Academica de Coimbra,CD Trofense,Football / Portugal / Liga Portugal 3,3.65,7.4,1.45,6:30 pm,Sat 16/05
-Wisla Plock,Gornik Zabrze,Football / Poland / Ekstraklasa,3.41,2.12,3.51,6:30 pm,Sat 16/05
-UD Santarem,Varzim SC,Football / Portugal / Liga Portugal 3,3.2,2.55,2.55,6:30 pm,Sat 16/05
-Vitoria Guimaraes B,Amarante FC,Football / Portugal / Liga Portugal 3,2.95,2.65,2.65,6:30 pm,Sat 16/05
-CF Os Belenenses,CD Mafra,Football / Portugal / Liga Portugal 3,3.8,4.9,1.58,6:30 pm,Sat 16/05
-AFK Csikszereda Miercurea Ciuc,FC Botosani,Football / Romania / Liga I,3.17,2.5,2.74,6:30 pm,Sat 16/05
-Dziugas,FK Banga Gargzdai,Football / Lithuania / A Lyga,3.3,2.81,2.38,6:30 pm,Sat 16/05
-NK Celje,FC Koper,Football / Slovenia / PrvaLiga,3.37,3.37,2.06,6:30 pm,Sat 16/05
-CA Atlanta,Atletico de Rafaela,Football / Argentina / Primera Nacional,2.7,4.53,2.04,7:00 pm,Sat 16/05
-FK Sloga Doboj,FK Radnik Bijeljina,Football / Bosnia and Herzegovina / Premijer Liga,3.25,4.21,1.84,7:00 pm,Sat 16/05
-Botev Plovdiv,PFC Cherno More Varna,Football / Bulgaria / Parva Liga,3.03,2.93,2.45,7:00 pm,Sat 16/05
-FC Winterthur,FC Luzern,Football / Switzerland / Super League,4.08,1.95,3.42,7:00 pm,Sat 16/05
-FK Borac Banja Luka,FK Zeljeznicar Sarajevo,Football / Bosnia and Herzegovina / Premijer Liga,5.71,12.37,1.2,7:00 pm,Sat 16/05
-Podbeskidzie Bielsko-Biała,Sokol Kleczew,Football / Poland / II Liga,4.2,4.96,1.54,7:00 pm,Sat 16/05
-FC Zurich,Servette Geneva,Football / Switzerland / Super League,3.94,2.09,3.15,7:00 pm,Sat 16/05
-AC Oulu,Turun Palloseura,Football / Finland / Veikkausliiga,3.79,4.99,1.62,7:00 pm,Sat 16/05
-FK Sarajevo,NK Siroki Brijeg,Football / Bosnia and Herzegovina / Premijer Liga,4.67,8.59,1.32,7:00 pm,Sat 16/05
-FK Velez Mostar,FK Rudar Prijedor,Football / Bosnia and Herzegovina / Premijer Liga,3.57,5.14,1.63,7:00 pm,Sat 16/05
-Lausanne-Sport,Grasshopper Club Zurich,Football / Switzerland / Super League,4.52,4.95,1.6,7:00 pm,Sat 16/05
-IF Gnistan,FF Jaro,Football / Finland / Veikkausliiga,3.37,3.03,2.2,7:00 pm,Sat 16/05
-FC Arda Kardzhali,PFC Lokomotiv Plovdiv,Football / Bulgaria / Parva Liga,3.08,3.42,2.16,7:00 pm,Sat 16/05
-Riga FC,FS Jelgava,Football / Latvia / Virsliga,7.72,15.44,1.13,7:00 pm,Sat 16/05
-Asteras Tripolis,AE Kifisia FC,Football / Greece / Super League 1,3.47,4.24,1.8,7:00 pm,Sat 16/05
-Bodoe/Glimt,Tromsoe IL,Football / Norway / Eliteserien,4.69,5.76,1.49,7:00 pm,Sat 16/05
-AE Larissa FC,Atromitos Athinon,Football / Greece / Super League 1,3.18,2.79,2.46,7:00 pm,Sat 16/05
-Panserraikos FC,Panaitolikos Agrinio,Football / Greece / Super League 1,2.98,2.59,2.79,7:00 pm,Sat 16/05
-Al Hilal SFC,Neom SC,Football / Saudi Arabia / Saudi Prof. League,5.56,7.74,1.35,7:05 pm,Sat 16/05
-Al-Okhdood Club,Al-Khaleej Club,Football / Saudi Arabia / Saudi Prof. League,4.24,1.71,4.34,7:05 pm,Sat 16/05
-NK Lokomotiva Zagreb,HNK Hajduk Split,Football / Croatia / HNL,3.61,1.89,3.66,7:15 pm,Sat 16/05
-Standard Liege,KRC Genk,Football / Belgium / Pro League,3.6,2.21,3.23,7:15 pm,Sat 16/05
-Granada CF,Burgos CF,Football / Spain / LaLiga 2,3.21,2.44,3.04,7:30 pm,Sat 16/05
-UD Almeria,UD Las Palmas,Football / Spain / LaLiga 2,3.61,3.51,2.05,7:30 pm,Sat 16/05
-Racing Santander,Real Valladolid,Football / Spain / LaLiga 2,4.79,5.98,1.48,7:30 pm,Sat 16/05
-Samsunspor,Goztepe Izmir,Football / Turkey / Super Lig,3.6,2.96,2.36,8:00 pm,Sat 16/05
-SC Braga,Estrela Amadora,Football / Portugal / Liga Portugal,4.25,5.32,1.62,8:00 pm,Sat 16/05
-Casa Pia Lisbon,Rio Ave FC,Football / Portugal / Liga Portugal,4.02,4.67,1.73,8:00 pm,Sat 16/05
-Nacional da Madeira,Vitoria SC Guimaraes,Football / Portugal / Liga Portugal,3.66,3.97,1.94,8:00 pm,Sat 16/05
-Gaziantep FK,Istanbul Basaksehir,Football / Turkey / Super Lig,4.27,1.78,4.08,8:00 pm,Sat 16/05
-FC Arouca,CD Tondela,Football / Portugal / Liga Portugal,3.65,2.29,3.04,8:00 pm,Sat 16/05
-Chrobry Glogow,MKS Znicz Pruszkow,Football / Poland / I Liga,3.38,3.09,2.17,8:30 pm,Sat 16/05
-Gornik Leczna,Odra Opole,Football / Poland / I Liga,3.57,3.86,1.85,8:30 pm,Sat 16/05
-Maccabi Tel Aviv FC,Beitar Jerusalem FC,Football / Israel / Premier League,3.77,2.71,2.24,8:30 pm,Sat 16/05
-ZKS Stal Rzeszow,Wieczysta Krakow,Football / Poland / I Liga,4.13,1.71,3.94,8:30 pm,Sat 16/05
-Al Nassr Club,Gamba Osaka,Football / International / AFC Cup,4.39,8.02,1.36,8:45 pm,Sat 16/05
-FK Napredak Krusevac,FK Radnicki 1923 Kragujevac,Football / Serbia / Superliga,4.54,1.33,9.08,9:00 pm,Sat 16/05
-FC Dinamo Bucuresti 1948,FC CFR 1907 Cluj,Football / Romania / Liga I,3.13,3.13,2.27,9:00 pm,Sat 16/05
-Juve Stabia,AC Monza,Football / Italy / Serie B,3.61,1.93,3.94,9:00 pm,Sat 16/05
-Club Atletico Los Andes,CD Godoy Cruz,Football / Argentina / Primera Nacional,2.51,2.84,3.04,9:00 pm,Sat 16/05
-Al Ahli Saudi FC,Al-Kholood,Football / Saudi Arabia / Saudi Prof. League,6.34,11.88,1.24,9:00 pm,Sat 16/05
-CA Juventud de Las Piedras,CA Progreso,Football / Uruguay / Primera Division,3.26,3.6,2.02,9:00 pm,Sat 16/05
-FK Javor Ivanjica,FK Mladost Lucani,Football / Serbia / Superliga,3.08,2.75,2.55,9:00 pm,Sat 16/05
-Vaalerenga IF,Sarpsborg 08,Football / Norway / Eliteserien,3.89,3.6,1.9,9:00 pm,Sat 16/05
-FBC Melgar,Sport Huancayo,Football / Peru / Primera Division,4.33,5.58,1.49,9:00 pm,Sat 16/05
-FK TSC Backa Topola,FK Radnicki Nis,Football / Serbia / Superliga,3.23,4.34,1.85,9:00 pm,Sat 16/05
-FK Spartak Subotica,FK IMT Novi Beograd,Football / Serbia / Superliga,3.94,1.43,7.87,9:00 pm,Sat 16/05
-Aluminij Kidricevo,Primorje Ajdovscina,Football / Slovenia / PrvaLiga,3.66,3.23,2.01,9:15 pm,Sat 16/05
-RKS Radomiak Radom,KKS Lech Poznan,Football / Poland / Ekstraklasa,3.77,2.01,3.47,9:15 pm,Sat 16/05
-Longford Town FC,Cork City FC,Football / Ireland / First Division,3.68,1.64,4.78,9:30 pm,Sat 16/05
-CA Estudiantes,Colon de Santa Fe,Football / Argentina / Primera Nacional,2.74,3.41,2.37,9:30 pm,Sat 16/05
-Club Almirante Brown,CA San Telmo,Football / Argentina / Primera Nacional,2.79,4.53,1.99,9:30 pm,Sat 16/05
-Sligo Rovers FC,Galway United FC,Football / Ireland / Premier Division,3.17,2.55,2.69,9:45 pm,Sat 16/05
-St. Truidense VV,KAA Gent,Football / Belgium / Pro League,3.81,3.51,2.03,9:45 pm,Sat 16/05
-Sao Bernardo FC,America FC MG,Football / Brazil / Brasileiro Serie B,3.08,3.27,2.22,10:00 pm,Sat 16/05
-CF Algeciras,Hercules de Alicante CF,Football / Spain / Primera Federacion,3.15,4.11,1.89,10:00 pm,Sat 16/05
-Gimnastic de Tarragona,CE Europa,Football / Spain / Primera Federacion,3.29,3.62,1.96,10:00 pm,Sat 16/05
-EC Bahia BA Women,SC Internacional RS Women,"Football / Brazil / Campeonato Brasileiro, Women",3.25,2.55,2.49,10:00 pm,Sat 16/05
-CA Colegiales,CA Guemes,Football / Argentina / Primera Nacional,2.65,3.76,2.29,10:00 pm,Sat 16/05
-UD Ibiza,FC Cartagena,Football / Spain / Primera Federacion,3.2,3.68,1.98,10:00 pm,Sat 16/05
-CD Teruel,Atletico Sanluqueno,Football / Spain / Primera Federacion,4.01,7.46,1.41,10:00 pm,Sat 16/05
-Club Deportivo Eldense,Atletico Madrid B,Football / Spain / Primera Federacion,3.58,4.01,1.78,10:00 pm,Sat 16/05
-Juventud Torremolinos CF,Real Murcia CF,Football / Spain / Primera Federacion,2.68,3.11,2.53,10:00 pm,Sat 16/05
-AD Alcorcon,Marbella FC,Football / Spain / Primera Federacion,4.18,7.41,1.4,10:00 pm,Sat 16/05
-CE Sabadell FC,Antequera CF,Football / Spain / Primera Federacion,3.99,6.84,1.44,10:00 pm,Sat 16/05
-Villarreal CF B U23,Sevilla Atletico,Football / Spain / Primera Federacion,4.98,9.58,1.27,10:00 pm,Sat 16/05
-Betis Deportivo Balompie,SD Tarazona,Football / Spain / Primera Federacion,3.2,2.72,2.44,10:00 pm,Sat 16/05
-CSD Macara,CSD Independiente del Valle,Football / Ecuador / LigaPro Primera A,3.13,2.41,2.89,10:00 pm,Sat 16/05
-Operario Ferroviario EC PR,Nautico PE,Football / Brazil / Brasileiro Serie B,3.13,3.62,2.06,10:00 pm,Sat 16/05
-Gremio FB Porto Alegrense RS Women,Mixto EC MT Women,"Football / Brazil / Campeonato Brasileiro, Women",4.3,6.0,1.42,10:00 pm,Sat 16/05
-Estoril Praia,SL Benfica,Football / Portugal / Liga Portugal,5.84,1.34,8.2,10:30 pm,Sat 16/05
-FC Famalicao,FC Alverca SAD,Football / Portugal / Liga Portugal,4.16,5.05,1.66,10:30 pm,Sat 16/05
-Sporting CP,Gil Vicente Barcelos,Football / Portugal / Liga Portugal,6.4,10.78,1.26,10:30 pm,Sat 16/05
-Club Guarani Asuncion,Sportivo Ameliano,"Football / Paraguay / Division de Honor, Apertura",3.01,2.96,2.39,11:15 pm,Sat 16/05
-Juan Pablo II College,Alianza Atletico,Football / Peru / Primera Division,3.28,2.6,2.56,11:15 pm,Sat 16/05
-CF Montreal,Chicago Fire,Football / USA / Major League Soccer,3.67,2.41,2.68,11:30 pm,Sat 16/05
-CD O´Higgins,Universidad de Concepcion,Football / Chile / Primera Division,3.67,4.15,1.77,12:30 am,Sun 17/05
-Goias EC GO,Botafogo FC SP,Football / Brazil / Brasileiro Serie B,3.36,4.42,1.8,12:30 am,Sun 17/05
-SC Internacional RS,CR Vasco da Gama RJ,Football / Brazil / Brasileiro Serie A,3.45,3.92,1.98,12:30 am,Sun 17/05
-CD Universidad Catolica del Ecuador,Delfin SC,Football / Ecuador / LigaPro Primera A,4.23,7.89,1.39,12:30 am,Sun 17/05
-CA Penarol Montevideo,Liverpool Montevideo,Football / Uruguay / Primera Division,3.47,4.63,1.74,12:30 am,Sun 17/05
-Atletico Mineiro MG,Mirassol FC SP,Football / Brazil / Brasileiro Serie A,3.38,3.72,2.06,12:30 am,Sun 17/05
-Fluminense FC RJ,Sao Paulo FC SP,Football / Brazil / Brasileiro Serie A,3.5,4.17,1.9,1:00 am,Sun 17/05
-North Carolina Courage Women,Chicago Stars FC Women,Football / USA / National Womens Soccer League,4.58,7.45,1.36,1:30 am,Sun 17/05
-CS Cienciano,Alianza Lima,Football / Peru / Primera Division,3.19,3.24,2.18,1:45 am,Sun 17/05
-Orlando City SC,Atlanta United FC,Football / USA / Major League Soccer,3.92,3.64,1.89,2:30 am,Sun 17/05
-Cuiaba EC MT,Gremio Novorizontino SP,Football / Brazil / Brasileiro Serie B,2.84,3.27,2.37,2:30 am,Sun 17/05
-Charlotte FC,Toronto FC,Football / USA / Major League Soccer,3.82,3.95,1.84,2:30 am,Sun 17/05
-New York Red Bulls,New York City FC,Football / USA / Major League Soccer,3.75,2.83,2.27,2:30 am,Sun 17/05
-New England Revolution,Minnesota United FC,Football / USA / Major League Soccer,3.56,3.11,2.19,2:30 am,Sun 17/05
-Philadelphia Union,Columbus Crew,Football / USA / Major League Soccer,3.57,2.69,2.45,2:30 am,Sun 17/05
-DC United,Saint Louis City SC,Football / USA / Major League Soccer,3.54,3.28,2.12,2:30 am,Sun 17/05
-Deportes Limache,CD Universidad Catolica,Football / Chile / Primera Division,3.5,2.59,2.45,3:00 am,Sun 17/05
-SE Palmeiras SP,Cruzeiro EC MG,Football / Brazil / Brasileiro Serie A,3.7,5.16,1.71,3:00 am,Sun 17/05
-Barcelona SC,SD Aucas,Football / Ecuador / LigaPro Primera A,3.38,3.86,1.9,3:00 am,Sun 17/05
-Austin FC,Sporting Kansas City,Football / USA / Major League Soccer,4.79,5.91,1.47,3:30 am,Sun 17/05
-Houston Dynamo,Vancouver Whitecaps FC,Football / USA / Major League Soccer,3.74,2.15,3.05,3:30 am,Sun 17/05
-Denver Summit FC Women,Orlando Pride Women,Football / USA / National Womens Soccer League,3.44,2.43,2.58,3:45 am,Sun 17/05
-Tepatitlan FC,Jaiba Brava,"Football / Mexico / Liga de Expansion MX, Clausura",3.3,3.68,1.94,4:00 am,Sun 17/05
-Seattle Sounders,Los Angeles Galaxy,Football / USA / Major League Soccer,4.03,4.85,1.65,4:15 am,Sun 17/05
-Real Salt Lake,Colorado Rapids,Football / USA / Major League Soccer,4.39,4.63,1.62,4:30 am,Sun 17/05
-San Diego FC,FC Cincinnati,Football / USA / Major League Soccer,4.04,3.27,1.97,4:30 am,Sun 17/05
-Sport Boys Association,Cusco FC,Football / Peru / Primera Division,3.37,2.89,2.28,4:30 am,Sun 17/05
-San Jose Earthquakes,FC Dallas,Football / USA / Major League Soccer,4.41,4.41,1.65,5:30 am,Sun 17/05
-V-Varen Nagasaki,Vissel Kobe,Football / Japan / J.League,3.73,1.75,4.77,7:00 am,Sun 17/05
-Fagiano Okayama,Shimizu S-Pulse,Football / Japan / J.League,3.21,3.07,2.42,8:00 am,Sun 17/05
-JEF United Chiba,Kashima Antlers,Football / Japan / J.League,3.87,1.7,4.96,8:00 am,Sun 17/05
-Kyoto Sanga FC,Sanfrecce Hiroshima,Football / Japan / J.League,3.62,1.94,3.87,9:00 am,Sun 17/05
-Cerezo Osaka,Nagoya Grampus,Football / Japan / J.League,3.46,2.97,2.36,9:00 am,Sun 17/05
-Gimhae FC,Daegu FC,Football / Republic of Korea / K-League 2,3.83,1.63,4.69,10:30 am,Sun 17/05
-Jeju SK FC,FC Anyang,Football / Republic of Korea / K-League 1,3.23,2.93,2.5,10:30 am,Sun 17/05
-Hwaseong FC,Busan I Park,Football / Republic of Korea / K-League 2,3.06,2.16,3.34,10:30 am,Sun 17/05
-Seongnam Ilhwa,Gyeongnam FC,Football / Republic of Korea / K-League 2,3.21,4.21,1.85,10:30 am,Sun 17/05
-Jeonbuk FC,Gimcheon Sangmu FC,Football / Republic of Korea / K-League 1,3.79,4.92,1.72,10:40 am,Sun 17/05
-Bali United,Bhayangkara Presisi Indonesia FC,Football / Indonesia / Liga 1,3.46,3.22,2.08,11:30 am,Sun 17/05
-UD Oliveirense,FC Felgueiras 1932,Football / Portugal / Liga Portugal 2,3.36,2.33,2.84,1:00 pm,Sun 17/05
-FC Rukh Lviv,FC Oleksandriya,Football / Ukraine / Premier League,3.28,2.71,2.46,1:00 pm,Sun 17/05
-Bucheon FC 1995,FC Pohang Steelers,Football / Republic of Korea / K-League 1,3.06,2.25,3.6,1:00 pm,Sun 17/05
-Chungnam Asan FC,Suwon FC,Football / Republic of Korea / K-League 2,3.53,2.43,2.53,1:00 pm,Sun 17/05
-Kawasaki Frontale,Machida Zelvia,Football / Japan / J.League,3.43,2.4,2.93,1:00 pm,Sun 17/05
-Gangwon FC,Ulsan HD FC,Football / Republic of Korea / K-League 1,3.25,3.25,2.3,1:00 pm,Sun 17/05
-FC Kryvbas Kriviy Rih,FC Shakhtar Donetsk,Football / Ukraine / Premier League,4.81,1.37,7.12,1:00 pm,Sun 17/05
-Sandecja Nowy Sacz,Olimpia Grudziadz,Football / Poland / II Liga,3.38,3.15,2.1,1:15 pm,Sun 17/05
-GKS Piast Gliwice,RKS Rakow Czestochowa,Football / Poland / Ekstraklasa,3.42,2.52,2.77,1:15 pm,Sun 17/05
-AS Roma,Lazio Rome,Football / Italy / Serie A,4.26,6.03,1.56,1:30 pm,Sun 17/05
-Juventus Turin,ACF Fiorentina,Football / Italy / Serie A,5.58,8.53,7.06,1:30 pm,Sun 17/05
-Como 1907,Parma Calcio,Football / Italy / Serie A,6.26,11.89,9.07,1:30 pm,Sun 17/05
-Pisa SC,SSC Napoli,Football / Italy / Serie A,4.83,6.23,7.63,1:30 pm,Sun 17/05
-Genoa CFC,AC Milan,Football / Italy / Serie A,3.82,1.76,4.73,1:30 pm,Sun 17/05
-Jonkopings Sodra IF,Hassleholms IF,"Football / Sweden / Ettan, Relegation/Promotion",3.41,3.65,1.88,2:00 pm,Sun 17/05
-FC Kyzylzhar SK,FC Altai Oskemen,Football / Kazakhstan / Premier League,3.47,4.05,1.83,2:00 pm,Sun 17/05
-Korsnas IF FK,Angby IF,"Football / Sweden / Division 2, Promotion Playoffs",3.7,2.6,2.24,2:00 pm,Sun 17/05
-FBK Karlstad,Umea FC,"Football / Sweden / Ettan, Relegation/Promotion",3.59,2.09,2.93,2:00 pm,Sun 17/05
-Ostersunds FK,Sandvikens IF,Football / Sweden / Superettan,3.51,3.41,1.99,2:00 pm,Sun 17/05
-Enskede IK,Helges IF,"Football / Sweden / Division 2, Promotion Playoffs",7.6,12.0,1.13,2:00 pm,Sun 17/05
-Vittsjo GIK Women,Djurgardens IF DFF Women,Football / Sweden / Damallsvenskan,3.35,2.29,2.82,2:00 pm,Sun 17/05
-Lunds BK,Utsiktens BK,"Football / Sweden / Ettan, Relegation/Promotion",3.59,3.63,1.83,2:00 pm,Sun 17/05
-BK Astrio,Galtabacks BK,"Football / Sweden / Division 2, Promotion Playoffs",3.79,2.75,2.12,2:00 pm,Sun 17/05
-Jonsereds IF,Lindome GIF,"Football / Sweden / Division 2, Promotion Playoffs",4.09,3.59,1.73,2:00 pm,Sun 17/05
-FK Transinvest,Vilnius FK Zalgiris,Football / Lithuania / A Lyga,3.58,2.32,2.71,2:15 pm,Sun 17/05
-Manchester United,Nottingham Forest,Football / England / Premier League,4.39,5.08,1.62,2:30 pm,Sun 17/05
-RSC Anderlecht,Yellow-Red KV Mechelen,Football / Belgium / Pro League,3.85,3.86,1.92,2:30 pm,Sun 17/05
-Paide Linnameeskond,FCI Levadia Tallinn,Football / Estonia / Premium Liiga,3.85,1.71,4.23,2:30 pm,Sun 17/05
-Sporting Club Delhi,Inter Kashi FC,Football / India / Indian Super League,3.03,3.7,2.09,2:33 pm,Sun 17/05
-RC Deportivo De La Coruna,FC Andorra,Football / Spain / LaLiga 2,4.17,5.22,1.62,3:00 pm,Sun 17/05
-FC Copenhagen,Randers FC,Football / Denmark / Superliga,4.66,6.05,1.49,3:00 pm,Sun 17/05
-PSM Makassar,Persib Bandung,Football / Indonesia / Liga 1,4.05,1.56,5.2,3:00 pm,Sun 17/05
-Persijap Jepara,Borneo Samarinda,Football / Indonesia / Liga 1,3.7,1.76,4.14,3:00 pm,Sun 17/05
-FC Zhenis,FC Kairat Almaty,Football / Kazakhstan / Premier League,3.58,1.72,4.55,3:00 pm,Sun 17/05
-Bollstanas SK,Falu BS FK,"Football / Sweden / Division 2, Promotion Playoffs",3.74,1.85,3.44,3:00 pm,Sun 17/05
-FC Fredericia,Silkeborg IF,Football / Denmark / Superliga,3.8,3.03,2.19,3:00 pm,Sun 17/05
-Odense Boldklub,Vejle BK,Football / Denmark / Superliga,4.59,5.26,1.56,3:00 pm,Sun 17/05
-IF Brommapojkarna,Kalmar FF,Football / Sweden / Allsvenskan,3.53,2.73,2.5,3:00 pm,Sun 17/05
-Hammarby IF,Malmo FF,Football / Sweden / Allsvenskan,4.21,5.03,1.63,3:00 pm,Sun 17/05
-Psim Yogyakarta,Madura United,Football / Indonesia / Liga 1,3.52,3.37,2.0,3:00 pm,Sun 17/05
-Sparta Rotterdam,Excelsior Rotterdam,Football / Netherlands / Eredivisie,4.21,3.3,2.0,3:30 pm,Sun 17/05
-FC Salzburg,TSV Hartberg,Football / Austria / Bundesliga,6.24,10.07,1.27,3:30 pm,Sun 17/05
-FC Utrecht,Fortuna Sittard,Football / Netherlands / Eredivisie,4.91,5.77,1.51,3:30 pm,Sun 17/05
-PSV Eindhoven,FC Twente Enschede,Football / Netherlands / Eredivisie,4.25,2.94,2.15,3:30 pm,Sun 17/05
-Kolos Kovalivka,FC Obolon Kyiv,Football / Ukraine / Premier League,3.18,4.24,1.89,3:30 pm,Sun 17/05
-AZ Alkmaar,NAC Breda,Football / Netherlands / Eredivisie,5.64,7.26,1.38,3:30 pm,Sun 17/05
-Heracles Almelo,FC Groningen,Football / Netherlands / Eredivisie,4.71,1.62,4.79,3:30 pm,Sun 17/05
-Miedz Legnica,Ruch Chorzow,Football / Poland / I Liga,3.51,3.36,2.01,3:30 pm,Sun 17/05
-FC Volendam,SC Telstar,Football / Netherlands / Eredivisie,3.78,2.53,2.63,3:30 pm,Sun 17/05
-SC Heerenveen,Ajax Amsterdam,Football / Netherlands / Eredivisie,4.27,2.12,3.0,3:30 pm,Sun 17/05
-PEC Zwolle,Feyenoord Rotterdam,Football / Netherlands / Eredivisie,4.55,1.68,4.44,3:30 pm,Sun 17/05
-FK Austria Wien,LASK Linz,Football / Austria / Bundesliga,3.45,2.3,3.07,3:30 pm,Sun 17/05
-NEC Nijmegen,Go Ahead Eagles,Football / Netherlands / Eredivisie,5.73,7.39,1.37,3:30 pm,Sun 17/05
-SK Sturm Graz,SK Rapid,Football / Austria / Bundesliga,3.73,3.64,1.97,3:30 pm,Sun 17/05
-GKS Katowice,Jagiellonia Bialystok,Football / Poland / Ekstraklasa,3.69,2.52,2.62,3:45 pm,Sun 17/05
-Inter Milano,Hellas Verona,Football / Italy / Serie A,7.42,13.79,10.6,4:00 pm,Sun 17/05
-St Mirren FC,Dundee United,Football / Scotland / Premiership,3.56,3.17,2.15,4:00 pm,Sun 17/05
-Eskilstuna United DFF Women,IK Uppsala Fotboll Women,Football / Sweden / Damallsvenskan,3.58,3.91,1.8,4:00 pm,Sun 17/05
-Central Espanol FC,Defensor Sporting,Football / Uruguay / Primera Division,3.07,2.49,2.83,4:00 pm,Sun 17/05
-Livingston FC,Kilmarnock FC,Football / Scotland / Premiership,3.51,2.35,2.86,4:00 pm,Sun 17/05
-Nordic United FC,Falkenbergs FF,Football / Sweden / Superettan,3.37,2.51,2.6,4:00 pm,Sun 17/05
-Dundee FC,Aberdeen FC,Football / Scotland / Premiership,3.38,3.05,2.3,4:00 pm,Sun 17/05
-Mura Murska Sobota,NK Maribor,Football / Slovenia / PrvaLiga,3.7,1.87,3.65,4:00 pm,Sun 17/05
-Ekenas Idrottsforening,SJK Akatemia,Football / Finland / Ykkosliiga,4.04,3.66,1.79,4:00 pm,Sun 17/05
-IFK Norrkoping DFK Women,IF Brommapojkarna Women,Football / Sweden / Damallsvenskan,3.57,3.57,1.89,4:00 pm,Sun 17/05
-Stenungsunds IF,Motala AIF FK,"Football / Sweden / Division 2, Promotion Playoffs",3.55,2.25,2.65,4:00 pm,Sun 17/05
-Osters IF,Ljungskile SK,Football / Sweden / Superettan,3.47,3.04,2.16,4:00 pm,Sun 17/05
-SV Darmstadt 98,SC Paderborn 07,Football / Germany / 2nd Bundesliga,4.32,1.91,3.29,4:30 pm,Sun 17/05
-Karlsruher SC,VfL Bochum,Football / Germany / 2nd Bundesliga,3.99,2.41,2.54,4:30 pm,Sun 17/05
-Arminia Bielefeld,Hertha BSC,Football / Germany / 2nd Bundesliga,4.38,4.15,1.69,4:30 pm,Sun 17/05
-SV 07 Elversberg,SC Preussen 06 Munster,Football / Germany / 2nd Bundesliga,6.67,10.59,1.23,4:30 pm,Sun 17/05
-Greuther Furth,Fortuna Dusseldorf,Football / Germany / 2nd Bundesliga,3.77,2.46,2.58,4:30 pm,Sun 17/05
-Hannover 96,1 FC Nuremberg,Football / Germany / 2nd Bundesliga,5.17,6.34,1.41,4:30 pm,Sun 17/05
-Dynamo Dresden,Holstein Kiel,Football / Germany / 2nd Bundesliga,4.13,4.48,1.68,4:30 pm,Sun 17/05
-1. FC Magdeburg,1 FC Kaiserslautern,Football / Germany / 2nd Bundesliga,4.4,4.19,1.68,4:30 pm,Sun 17/05
-Schalke 04,Eintracht Braunschweig,Football / Germany / 2nd Bundesliga,3.83,3.75,1.88,4:30 pm,Sun 17/05
-Wolverhampton Wanderers,Fulham FC,Football / England / Premier League,3.84,1.94,3.78,5:00 pm,Sun 17/05
-Leeds United,Brighton & Hove Albion,Football / England / Premier League,3.71,2.19,3.19,5:00 pm,Sun 17/05
-IFK Stocksund,Piteaa IF,"Football / Sweden / Ettan, Relegation/Promotion",3.78,2.68,2.16,5:00 pm,Sun 17/05
-BK Olympic,Aatvidabergs FF,"Football / Sweden / Ettan, Relegation/Promotion",3.54,2.68,2.26,5:00 pm,Sun 17/05
-FA Siauliai B,FK Ekranas,Football / Lithuania / 1 Lyga,3.49,2.07,2.85,5:00 pm,Sun 17/05
-Kayserispor,Konyaspor,Football / Turkey / Super Lig,3.6,3.15,2.25,5:00 pm,Sun 17/05
-Trelleborgs FF,FC Trollhattan,"Football / Sweden / Ettan, Relegation/Promotion",4.11,4.68,1.56,5:00 pm,Sun 17/05
-Skala IF,B36 Torshavn,Football / Faroe Islands / Premier League,3.86,1.58,5.02,5:00 pm,Sun 17/05
-Enkopings SK,Sollentuna FK,"Football / Sweden / Ettan, Relegation/Promotion",3.73,3.21,1.92,5:00 pm,Sun 17/05
-FK Cukaricki Belgrade,FK Partizan Belgrade,Football / Serbia / Superliga,3.85,1.87,3.51,5:00 pm,Sun 17/05
-Kaisar Kyzylorda,Tobol Kostanay,Football / Kazakhstan / Premier League,3.38,2.13,3.19,5:00 pm,Sun 17/05
-NK Slaven Belupo,GNK Dinamo Zagreb,Football / Croatia / HNL,4.86,1.39,6.42,5:00 pm,Sun 17/05
-Mamelodi Sundowns,AS Far Rabat,Football / International / CAF Champions League,3.23,5.4,1.68,5:00 pm,Sun 17/05
-Krasava ENY Ypsonas FC,Enosis Neon Paralimni FC,Football / Cyprus / 1st Division,6.99,12.63,1.17,5:00 pm,Sun 17/05
-FK Auda Riga,FC RFS,Football / Latvia / Virsliga,3.89,1.64,4.67,5:00 pm,Sun 17/05
-Everton FC,Sunderland AFC,Football / England / Premier League,3.75,4.33,1.84,5:00 pm,Sun 17/05
-OFI Crete,Volos NPS,Football / Greece / Super League 1,3.45,3.65,1.94,5:00 pm,Sun 17/05
-Eskilsminne IF,Skovde AIK,"Football / Sweden / Ettan, Relegation/Promotion",3.93,4.12,1.66,5:00 pm,Sun 17/05
-IF Karlstad Fotbol,Vasalunds IF,"Football / Sweden / Ettan, Relegation/Promotion",3.48,2.62,2.32,5:00 pm,Sun 17/05
-Santos FC SP,Coritiba FC PR,Football / Brazil / Brasileiro Serie A,3.48,4.79,1.81,5:00 pm,Sun 17/05
-FC Kuressaare,Nomme Kalju FC,Football / Estonia / Premium Liiga,5.43,1.28,8.73,5:00 pm,Sun 17/05
-Aris Thessaloniki,APO Levadiakos FC,Football / Greece / Super League 1,3.16,3.55,2.07,5:00 pm,Sun 17/05
-Mohun Bagan Super Giant,SC East Bengal,Football / India / Indian Super League,3.59,4.08,1.8,5:00 pm,Sun 17/05
-Brentford FC,Crystal Palace,Football / England / Premier League,4.07,4.34,1.77,5:00 pm,Sun 17/05
-UD Leiria,CD Feirense,Football / Portugal / Liga Portugal 2,3.6,4.09,1.79,5:30 pm,Sun 17/05
-Vasteraas SK,AIK,Football / Sweden / Allsvenskan,3.38,2.23,3.28,5:30 pm,Sun 17/05
-FC St. Gallen 1879,FC Thun,Football / Switzerland / Super League,3.92,2.8,2.28,5:30 pm,Sun 17/05
-Mjallby AIF,BK Hacken,Football / Sweden / Allsvenskan,3.8,3.42,2.02,5:30 pm,Sun 17/05
-FC Lugano,FC Basel 1893,Football / Switzerland / Super League,4.01,3.35,1.99,5:30 pm,Sun 17/05
-Young Boys Bern,FC Sion,Football / Switzerland / Super League,3.84,2.9,2.25,5:30 pm,Sun 17/05
-FC Viktoria Plzen,FK Jablonec,Football / Czech Republic / 1. Liga,3.9,4.91,1.7,6:00 pm,Sun 17/05
-FC Baltika Kaliningrad,FK Dinamo Moscow,Football / Russian Federation / Premier League,3.54,2.7,2.46,6:00 pm,Sun 17/05
-CSKA Moscow,Lokomotiv Moscow,Football / Russian Federation / Premier League,3.54,2.6,2.55,6:00 pm,Sun 17/05
-FK Sochi,RFK Akhmat Grozny,Football / Russian Federation / Premier League,3.64,2.55,2.55,6:00 pm,Sun 17/05
-CF Talavera de La Reina,Ourense CF,Football / Spain / Primera Federacion,3.18,3.38,2.08,6:00 pm,Sun 17/05
-IFK Varnamo,Norrby IF,Football / Sweden / Superettan,3.84,3.74,1.81,6:00 pm,Sun 17/05
-KaPa Kapylan Pallo,PK-35 Helsinki,Football / Finland / Ykkosliiga,3.36,2.17,3.11,6:00 pm,Sun 17/05
-PFK Krylia Sovetov Samara,FK Akron Tolyatti,Football / Russian Federation / Premier League,3.47,3.27,2.15,6:00 pm,Sun 17/05
-Caykur Rizespor U19,Besiktas JK U19,Football / Turkey / U19 Elit A,3.8,1.93,3.22,6:00 pm,Sun 17/05
-KS Hutnik Krakow SSA,Podhale Nowy Targ,Football / Poland / II Liga,3.36,2.55,2.5,6:00 pm,Sun 17/05
-FC Slovan Liberec,Sparta Prague,Football / Czech Republic / 1. Liga,3.45,2.2,3.28,6:00 pm,Sun 17/05
-Real Madrid Castilla YOUTH,Arenas Club Getxo,Football / Spain / Primera Federacion,4.43,8.48,1.34,6:00 pm,Sun 17/05
-Tenerife CD,Pontevedra CF,Football / Spain / Primera Federacion,3.23,3.76,1.95,6:00 pm,Sun 17/05
-FC Hradec Kralove,Slavia Prague,Football / Czech Republic / 1. Liga,3.85,1.72,4.81,6:00 pm,Sun 17/05
-Zamora CF,CP Cacereno SAD,Football / Spain / Primera Federacion,3.31,3.74,1.92,6:00 pm,Sun 17/05
-FK Krasnodar,FC Orenburg,Football / Russian Federation / Premier League,5.62,9.29,1.29,6:00 pm,Sun 17/05
-Athletic Bilbao B,CD Guadalajara,Football / Spain / Primera Federacion,3.43,3.86,1.85,6:00 pm,Sun 17/05
-Merida AD,Unionistas de Salamanca CF,Football / Spain / Primera Federacion,3.22,2.69,2.45,6:00 pm,Sun 17/05
-CD Arenteiro,SD Ponferradina,Football / Spain / Primera Federacion,3.42,1.7,4.82,6:00 pm,Sun 17/05
-RC Celta Fortuna,CD Lugo,Football / Spain / Primera Federacion,3.53,4.25,1.75,6:00 pm,Sun 17/05
-Racing Club de Ferrol,CA Osasuna B,Football / Spain / Primera Federacion,3.23,3.42,2.05,6:00 pm,Sun 17/05
-FK Rostov,FK Zenit Saint Petersburg,Football / Russian Federation / Premier League,5.2,1.31,9.48,6:00 pm,Sun 17/05
-FC Dynamo-Makhachkala,FK Spartak Moscow,Football / Russian Federation / Premier League,3.56,1.85,4.17,6:00 pm,Sun 17/05
-FK Kabel Novi Sad,RFK Graficar Beograd,Football / Serbia / Prva Liga,2.95,2.75,2.5,6:00 pm,Sun 17/05
-FC Ordabasy,Zhetysu Taldykorgan,Football / Kazakhstan / Premier League,4.47,8.26,1.36,6:00 pm,Sun 17/05
-FK Novi Pazar,FK Zeleznicar Pancevo,Football / Serbia / Superliga,3.41,2.87,2.28,6:00 pm,Sun 17/05
-Real Aviles CF,Barakaldo CF,Football / Spain / Primera Federacion,3.28,2.14,3.14,6:00 pm,Sun 17/05
-Karpaty Lviv,Veres Rivne,Football / Ukraine / Premier League,3.74,4.85,1.65,6:00 pm,Sun 17/05
-FK Rubin Kazan,FC Pari Nizhny Novgorod,Football / Russian Federation / Premier League,3.57,3.57,2.0,6:00 pm,Sun 17/05
-Pogon Grodzisk Mazowiecki,GKS Tychy,Football / Poland / I Liga,3.64,3.06,2.09,6:00 pm,Sun 17/05
-OKS Swit Szczecin,Slask II Wroclaw,Football / Poland / II Liga,3.48,2.57,2.42,6:15 pm,Sun 17/05
-Mikkelin Palloilijat,JIPPO,Football / Finland / Ykkosliiga,3.55,1.66,5.06,6:30 pm,Sun 17/05
-Southend United,Wealdstone FC,Football / England / FA Trophy,3.69,4.07,1.78,6:30 pm,Sun 17/05
-Olimpija Ljubljana,NK Radomlje,Football / Slovenia / PrvaLiga,4.46,5.63,1.47,6:30 pm,Sun 17/05
-KS Lechia Gdansk,Legia Warszawa,Football / Poland / Ekstraklasa,3.62,2.37,2.84,6:30 pm,Sun 17/05
-Atalanta BC,Bologna FC,Football / Italy / Serie A,4.36,5.21,1.62,7:00 pm,Sun 17/05
-IBV Vestmannaeyjar,Vikingur Reykjavik,Football / Iceland / Besta deild,5.8,1.29,7.73,7:00 pm,Sun 17/05
-FK Liepaja,BFC Daugavpils,Football / Latvia / Virsliga,3.7,3.6,1.88,7:00 pm,Sun 17/05
-FC Midtjylland,Broendby IF,Football / Denmark / Superliga,4.19,4.58,1.69,7:00 pm,Sun 17/05
-Thor Akureyri,IA Akranes,Football / Iceland / Besta deild,4.08,1.88,3.31,7:00 pm,Sun 17/05
-AGF Aarhus,Viborg FF,Football / Denmark / Superliga,3.86,3.2,2.09,7:00 pm,Sun 17/05
-Soenderjyske,FC Nordsjaelland,Football / Denmark / Superliga,3.82,2.16,3.08,7:00 pm,Sun 17/05
-Asociacion Deportiva Tarma,Comerciantes Unidos,Football / Peru / Primera Division,3.79,5.44,1.58,7:00 pm,Sun 17/05
-Newcastle United,West Ham United,Football / England / Premier League,3.89,3.29,2.09,7:30 pm,Sun 17/05
-Huachipato,Deportes Union La Calera,Football / Chile / Primera Division,3.36,3.31,2.08,7:30 pm,Sun 17/05
-AEK Athens,Olympiacos Piraeus,Football / Greece / Super League 1,3.1,2.71,2.57,7:30 pm,Sun 17/05
-Club Brugge,Union Saint-Gilloise,Football / Belgium / Pro League,3.79,3.24,2.14,7:30 pm,Sun 17/05
-FK Radnik Surdulica,FK Crvena Zvezda Belgrade,Football / Serbia / Superliga,5.27,1.32,7.61,7:30 pm,Sun 17/05
-Panathinaikos Athens,PAOK Thessaloniki,Football / Greece / Super League 1,3.06,2.41,2.96,7:30 pm,Sun 17/05
-NK Istra 1961,HNK Rijeka,Football / Croatia / HNL,3.4,1.81,4.28,7:45 pm,Sun 17/05
-Sevilla FC,Real Madrid,Football / Spain / LaLiga,3.59,2.23,3.2,8:00 pm,Sun 17/05
-Atletico Madrid,Girona FC,Football / Spain / LaLiga,4.01,4.67,1.74,8:00 pm,Sun 17/05
-Real Oviedo,Deportivo Alaves,Football / Spain / LaLiga,3.83,1.84,4.23,8:00 pm,Sun 17/05
-Fenerbahce Istanbul,Eyupspor,Football / Turkey / Super Lig,6.89,11.3,1.24,8:00 pm,Sun 17/05
-Atletico Ottawa,HFX Wanderers FC,Football / Canada / Canadian Premier League,3.42,3.52,1.95,8:00 pm,Sun 17/05
-Trabzonspor,Genclerbirligi SK,Football / Turkey / Super Lig,3.87,3.19,2.14,8:00 pm,Sun 17/05
-Rayo Vallecano,Villarreal CF,Football / Spain / LaLiga,3.59,2.82,2.46,8:00 pm,Sun 17/05
-FH Hafnarfjordur,KA Akureyri,Football / Iceland / Besta deild,3.7,2.3,2.67,8:00 pm,Sun 17/05
-Antalyaspor,Kocaelispor,Football / Turkey / Super Lig,4.29,6.29,1.54,8:00 pm,Sun 17/05
-Kasimpasa Istanbul,Galatasaray Istanbul,Football / Turkey / Super Lig,4.11,1.73,4.61,8:00 pm,Sun 17/05
-Elche CF,Getafe CF,Football / Spain / LaLiga,2.99,3.6,2.34,8:00 pm,Sun 17/05
-CA Osasuna,Espanyol Barcelona,Football / Spain / LaLiga,3.49,3.87,2.02,8:00 pm,Sun 17/05
-Real Sociedad San Sebastian,Valencia CF,Football / Spain / LaLiga,3.52,3.3,2.21,8:00 pm,Sun 17/05
-Levante UD,RCD Mallorca,Football / Spain / LaLiga,3.53,3.34,2.19,8:00 pm,Sun 17/05
-Athletic Bilbao,RC Celta de Vigo,Football / Spain / LaLiga,3.24,3.45,2.27,8:00 pm,Sun 17/05
-KKS 1925 Kalisz,Warta Poznan,Football / Poland / II Liga,3.42,1.88,3.76,8:30 pm,Sun 17/05
-CS Universitatea Craiova,FC Universitatea Cluj,Football / Romania / Liga I,3.36,3.84,1.92,8:30 pm,Sun 17/05
-Keflavik IF,Stjarnan Gardabae,Football / Iceland / Besta deild,3.74,2.19,2.82,8:30 pm,Sun 17/05
-US Catanzaro,Palermo FC,Football / Italy / Serie B,3.56,2.25,3.08,9:00 pm,Sun 17/05
-Leones Futbol Club,Mushuc Runa SC,Football / Ecuador / LigaPro Primera A,3.02,2.31,3.17,9:00 pm,Sun 17/05
-Deportivo Madryn,Ferro Carril Oeste,Football / Argentina / Primera Nacional,2.68,3.21,2.53,9:00 pm,Sun 17/05
-Racing Club Montevideo,Cerro Largo FC,Football / Uruguay / Primera Division,3.39,4.85,1.73,9:00 pm,Sun 17/05
-OFK Beograd,FK Vojvodina Novi Sad,Football / Serbia / Superliga,3.45,2.18,3.01,9:00 pm,Sun 17/05
-Polonia Bytom,WKS Slask Wroclaw,Football / Poland / I Liga,3.4,2.52,2.57,9:15 pm,Sun 17/05
-Valur Reykjavik,Breidablik Kopavogur,Football / Iceland / Besta deild,3.83,2.1,2.91,9:15 pm,Sun 17/05
-Deportivo Garcilaso,UTC de Cajamarca,Football / Peru / Primera Division,3.45,4.08,1.84,9:15 pm,Sun 17/05
-KR Reykjavik,Fram Reykjavik,Football / Iceland / Besta deild,4.5,3.91,1.66,9:15 pm,Sun 17/05
-Gimnasia y Esgrima de Jujuy,CA Temperley,Football / Argentina / Primera Nacional,3.3,5.63,1.67,9:30 pm,Sun 17/05
-Club Almagro,San Martin de San Juan,Football / Argentina / Primera Nacional,2.87,2.21,3.6,9:30 pm,Sun 17/05
-Sassuolo Calcio,US Lecce,Football / Italy / Serie A,3.29,2.66,2.77,9:45 pm,Sun 17/05
-Udinese Calcio,US Cremonese,Football / Italy / Serie A,3.37,3.05,2.41,9:45 pm,Sun 17/05
-Cagliari Calcio,Torino FC,Football / Italy / Serie A,3.17,3.15,2.46,9:45 pm,Sun 17/05
-FC Nantes,Toulouse FC,Football / France / Ligue 1,3.64,2.63,2.6,10:00 pm,Sun 17/05
-Cobresal,Universidad de Chile,Football / Chile / Primera Division,3.4,1.98,3.55,10:00 pm,Sun 17/05
-FC Lorient,Le Havre AC,Football / France / Ligue 1,3.49,2.66,2.64,10:00 pm,Sun 17/05
-Olympique Lyon,Racing Club De Lens,Football / France / Ligue 1,4.09,3.91,1.85,10:00 pm,Sun 17/05
-CA Patronato Parana,Chacarita Juniors,Football / Argentina / Primera Nacional,2.73,3.37,2.4,10:00 pm,Sun 17/05
-Mitre Santiago del Estero,CA San Miguel,Football / Argentina / Primera Nacional,2.81,4.27,2.04,10:00 pm,Sun 17/05
-Stade Brest 29,Angers SCO,Football / France / Ligue 1,3.81,4.36,1.82,10:00 pm,Sun 17/05
-Lille OSC,AJ Auxerre,Football / France / Ligue 1,5.16,8.06,1.38,10:00 pm,Sun 17/05
-Olympique Marseille,Stade Rennais FC,Football / France / Ligue 1,3.84,3.43,2.05,10:00 pm,Sun 17/05
-Athletic Club Sjdr MG,EC Juventude RS,Football / Brazil / Brasileiro Serie B,2.91,3.11,2.41,10:00 pm,Sun 17/05
-Botafogo FR RJ,SC Corinthians SP,Football / Brazil / Brasileiro Serie A,3.31,3.46,2.18,10:00 pm,Sun 17/05
-EC Bahia BA,Gremio FB Porto Alegrense RS,Football / Brazil / Brasileiro Serie A,3.69,4.34,1.82,10:00 pm,Sun 17/05
-OGC Nice,FC Metz,Football / France / Ligue 1,5.36,7.87,1.38,10:00 pm,Sun 17/05
-Paris FC,Paris Saint-Germain,Football / France / Ligue 1,5.63,1.4,6.86,10:00 pm,Sun 17/05
-Strasbourg Alsace,AS Monaco,Football / France / Ligue 1,3.96,2.22,2.97,10:00 pm,Sun 17/05
-Real Zaragoza,Sporting Gijon,Football / Spain / LaLiga 2,3.76,4.13,1.85,10:15 pm,Sun 17/05
-FC Barcelona,Real Betis Seville,Football / Spain / LaLiga,5.89,6.95,6.42,10:15 pm,Sun 17/05
-Portimonense SAD,SC Farense,Football / Portugal / Liga Portugal 2,3.41,2.42,2.68,10:30 pm,Sun 17/05
-CA Ferrocarril Midland,Agropecuario Argentino,Football / Argentina / Primera Nacional,3.01,4.18,1.96,10:30 pm,Sun 17/05
-Sportivo San Lorenzo,Sportivo Luqueno,"Football / Paraguay / Division de Honor, Apertura",3.23,2.12,3.23,11:00 pm,Sun 17/05
-CD Maipu,Nueva Chicago,Football / Argentina / Primera Nacional,3.17,4.19,1.9,11:00 pm,Sun 17/05
-Quilmes AC,CSD Tristan Suarez,Football / Argentina / Primera Nacional,2.72,3.74,2.25,11:00 pm,Sun 17/05
-Gimnasia Y Tiro de Salta,San Martin de Tucuman,Football / Argentina / Primera Nacional,2.62,2.82,2.91,11:00 pm,Sun 17/05
-Los Chankas CYC,CD Moquegua,Football / Peru / Primera Division,4.69,7.42,1.37,11:30 pm,Sun 17/05
-Pacific FC,Inter Toronto FC,Football / Canada / Canadian Premier League,3.46,2.0,3.32,12:00 am,Mon 18/05
-Vila Nova FC GO,Avai FC SC,Football / Brazil / Brasileiro Serie B,3.3,3.84,1.93,12:00 am,Mon 18/05
-Santos FC SP Women,Red Bull Bragantino SP Women,"Football / Brazil / Campeonato Brasileiro, Women",3.3,2.6,2.45,12:00 am,Mon 18/05
-Albion FC,Montevideo Wanderers,Football / Uruguay / Primera Division,3.22,4.0,1.92,12:00 am,Mon 18/05
-Criciuma EC SC,AC Goianiense GO,Football / Brazil / Brasileiro Serie B,3.02,4.09,1.98,12:30 am,Mon 18/05
-Colo-Colo,Nublense,Football / Chile / Primera Division,3.59,4.85,1.68,12:30 am,Mon 18/05
-Ceara SC CE,Fortaleza EC CE,Football / Brazil / Brasileiro Serie B,2.96,3.21,2.32,12:30 am,Mon 18/05
-Chapecoense SC,Clube do Remo PA,Football / Brazil / Brasileiro Serie A,3.42,2.96,2.38,12:30 am,Mon 18/05
-Red Bull Bragantino SP,EC Vitoria BA,Football / Brazil / Brasileiro Serie A,3.68,5.12,1.71,12:30 am,Mon 18/05
-Portland Thorns FC Women,Angel City FC Women,Football / USA / National Womens Soccer League,3.61,3.85,1.81,1:00 am,Mon 18/05
-Inter Miami CF,Portland Timbers,Football / USA / Major League Soccer,5.92,7.46,1.32,1:00 am,Mon 18/05
-CA Paranaense PR,CR Flamengo RJ,Football / Brazil / Brasileiro Serie A,3.4,2.19,3.35,1:30 am,Mon 18/05
-Manta FC,CS Emelec,Football / Ecuador / LigaPro Primera A,3.17,2.28,3.07,2:00 am,Mon 18/05
-SC Recife PE,CR Brasil AL,Football / Brazil / Brasileiro Serie B,3.16,3.5,2.09,2:30 am,Mon 18/05
-Deportes Concepcion,CD Everton Vina del Mar,Football / Chile / Primera Division,3.15,2.95,2.36,3:00 am,Mon 18/05
-Nashville SC,Los Angeles FC,Football / USA / Major League Soccer,3.59,3.07,2.2,3:00 am,Mon 18/05
-Utah Royals FC Women,Racing Louisville FC Women,Football / USA / National Womens Soccer League,3.62,3.95,1.78,3:00 am,Mon 18/05
-Vancouver FC,Cavalry FC,Football / Canada / Canadian Premier League,3.6,1.72,4.32,4:00 am,Mon 18/05
-FC Shirak Gyumri,FC Urartu Yerevan,Football / Armenia / Premier League,3.97,1.61,4.84,4:00 pm,Mon 18/05
-Kerala Blasters FC,FC Goa,Football / India / Indian Super League,3.2,2.15,3.3,5:00 pm,Mon 18/05
-MKS Arka Gdynia,Bruk-Bet Termalica Nieciecza,Football / Poland / Ekstraklasa,3.73,3.84,1.92,6:00 pm,Mon 18/05
-FC Lahti,Vaasan Palloseura,Football / Finland / Veikkausliiga,3.25,2.96,2.31,6:00 pm,Mon 18/05
-FC Haka Valkeakoski,HJK Klubi 04,Football / Finland / Ykkosliiga,4.86,6.23,1.4,6:30 pm,Mon 18/05
-Puszcza Niepolomice,LKS Lodz,Football / Poland / I Liga,3.36,2.1,3.26,7:00 pm,Mon 18/05
-FC Lokomotiv 1929 Sofia,PFC Slavia Sofia,Football / Bulgaria / Parva Liga,4.09,5.06,1.57,7:30 pm,Mon 18/05
-PFC Montana 1921,FK Spartak 1918 Varna,Football / Bulgaria / Parva Liga,3.11,3.11,2.29,7:30 pm,Mon 18/05
-PFC Dobrudzha Dobrich,POFC Botev Vratsa,Football / Bulgaria / Parva Liga,3.06,3.35,2.2,7:30 pm,Mon 18/05
-GIF Sundsvall,Landskrona BoIS,Football / Sweden / Superettan,3.45,2.4,2.67,8:00 pm,Mon 18/05
-Orgryte IS,IFK Goteborg,Football / Sweden / Allsvenskan,3.93,1.84,3.99,8:00 pm,Mon 18/05
-Djurgardens IF,IK Sirius,Football / Sweden / Allsvenskan,3.95,2.96,2.18,8:00 pm,Mon 18/05
-IK Oddevold,Orebro SK,Football / Sweden / Superettan,3.5,3.31,2.03,8:05 pm,Mon 18/05
-FC Farul Constanta,Metaloglobus Bucuresti,Football / Romania / Liga I,6.24,11.7,1.2,8:30 pm,Mon 18/05
-FC Petrolul Ploiesti,ASC Otelul Galati,Football / Romania / Liga I,3.7,5.25,1.62,8:30 pm,Mon 18/05
-FC Unirea 2004 Slobozia,FC Uta Arad,Football / Romania / Liga I,3.39,3.1,2.16,8:30 pm,Mon 18/05
-CD Leganes,SD Huesca,Football / Spain / LaLiga 2,3.57,4.08,1.9,9:30 pm,Mon 18/05
-CA Defensores de Belgrano,CA Chaco For Ever,Football / Argentina / Primera Nacional,2.81,4.27,2.04,9:30 pm,Mon 18/05
-Arsenal FC,Burnley FC,Football / England / Premier League,10.82,25.8,18.31,10:00 pm,Mon 18/05
-Deportivo Maldonado,Danubio FC,Football / Uruguay / Primera Division,3.16,3.55,2.07,12:30 am,Tue 19/05
-AA Ponte Preta SP,Londrina EC PR,Football / Brazil / Brasileiro Serie B,3.07,3.36,2.19,1:00 am,Tue 19/05
-CA All Boys,Deportivo Moron,Football / Argentina / Primera Nacional,2.48,3.16,2.77,2:00 am,Tue 19/05
-Guayaquil City FC,Orense SC,Football / Ecuador / LigaPro Primera A,2.96,2.72,2.67,3:00 am,Tue 19/05
-Helsingborgs IF,Varbergs BoIS,Football / Sweden / Superettan,3.32,2.78,2.39,8:00 pm,Tue 19/05
-Royal Charleroi SC,Oud-Heverlee Leuven,Football / Belgium / Pro League,3.94,4.29,1.81,9:30 pm,Tue 19/05
-KVC Westerlo,Standard Liege,Football / Belgium / Pro League,3.83,3.49,2.03,9:30 pm,Tue 19/05
-KRC Genk,Royal Antwerp FC,Football / Belgium / Pro League,4.09,4.41,1.76,9:30 pm,Tue 19/05
-Chelsea FC,Tottenham Hotspur,Football / England / Premier League,3.8,3.36,2.09,10:15 pm,Tue 19/05
-Fluminense FC RJ,Club Bolivar,Football / International / Copa Libertadores,5.85,10.61,1.27,1:00 am,Wed 20/05
-CA Rosario Central,UCV FC,Football / International / Copa Libertadores,7.31,17.13,1.17,1:00 am,Wed 20/05
-Montevideo City Torque,Deportivo Riestra AFBC,Football / International / Copa Sudamericana,3.16,3.79,2.0,1:00 am,Wed 20/05
-Audax Italiano,CA Barracas Central,Football / International / Copa Sudamericana,3.41,2.92,2.25,1:00 am,Wed 20/05
-Coquimbo Unido,CD Tolima,Football / International / Copa Libertadores,3.34,3.48,2.16,1:00 am,Wed 20/05
-Always Ready,Mirassol FC SP,Football / International / Copa Libertadores,4.34,5.66,1.56,3:00 am,Wed 20/05
-Independiente Santa Fe,CA Platense,Football / International / Copa Libertadores,3.33,3.36,2.21,3:00 am,Wed 20/05
-Sao Paulo FC SP,Millonarios FC,Football / International / Copa Sudamericana,3.74,5.64,1.57,3:30 am,Wed 20/05
-Boca Juniors,Cruzeiro EC MG,Football / International / Copa Libertadores,3.3,4.09,1.99,3:30 am,Wed 20/05
-CSD Independiente del Valle,Libertad Asuncion,Football / International / Copa Libertadores,4.99,7.19,1.41,5:00 am,Wed 20/05
-CD Cuenca,Recoleta FC,Football / International / Copa Sudamericana,3.56,4.87,1.69,5:00 am,Wed 20/05
-America de Cali,CA Tigre,Football / International / Copa Sudamericana,3.16,3.74,2.01,5:00 am,Wed 20/05
-FK Jablonec,MFK Karvina,Football / Czech Republic / Cup,3.18,3.71,1.98,7:00 pm,Wed 20/05
-Pyramids FC,Smouha SC,Football / Egypt / Premier League,3.99,7.98,1.42,8:00 pm,Wed 20/05
-Al Masry Club,AL Ahly SC (EGY),Football / Egypt / Premier League,3.4,1.81,4.28,8:00 pm,Wed 20/05
-SC Freiburg,Aston Villa,Football / International / UEFA Europa League,3.72,1.76,4.9,10:00 pm,Wed 20/05
-Club Olimpia,CR Vasco da Gama RJ,Football / International / Copa Sudamericana,3.11,2.34,3.01,1:00 am,Thu 21/05
-CA Boston River,CD O´Higgins,Football / International / Copa Sudamericana,3.21,2.04,3.6,1:00 am,Thu 21/05
-Santos FC SP,CA San Lorenzo de Almagro,Football / International / Copa Sudamericana,3.5,4.48,1.75,1:00 am,Thu 21/05
-Club Nacional de Football,Universitario de Deportes,Football / International / Copa Libertadores,3.46,3.95,1.97,1:00 am,Thu 21/05
-Gremio FB Porto Alegrense RS,CD Palestino,Football / International / Copa Sudamericana,4.38,6.81,1.42,3:00 am,Thu 21/05
-Independiente Petrolero,Botafogo FR RJ,Football / International / Copa Sudamericana,4.67,1.44,5.84,3:00 am,Thu 21/05
-LDU Quito,CA Lanus,Football / International / Copa Libertadores,3.46,3.7,2.04,3:30 am,Thu 21/05
-SE Palmeiras SP,Cerro Porteno,Football / International / Copa Libertadores,5.37,10.69,1.3,3:30 am,Thu 21/05
-CA River Plate (ARG),Red Bull Bragantino SP,Football / International / Copa Sudamericana,3.31,4.57,1.79,3:30 am,Thu 21/05
-CR Flamengo RJ,Estudiantes de La Plata,Football / International / Copa Libertadores,4.41,8.26,1.42,3:30 am,Thu 21/05
-CD Junior FC,Sporting Cristal,Football / International / Copa Libertadores,3.87,4.8,1.72,5:00 am,Thu 21/05
-Cusco FC,Independiente Medellin,Football / International / Copa Libertadores,3.22,2.87,2.56,5:00 am,Thu 21/05
-Deportivo La Guaira,Independiente Rivadavia,Football / International / Copa Libertadores,3.78,1.67,5.32,1:00 am,Fri 22/05
-Atletico Mineiro MG,CS Cienciano,Football / International / Copa Sudamericana,7.38,15.54,1.14,1:00 am,Fri 22/05
-Academia Puerto Cabello,CA Juventud de Las Piedras,Football / International / Copa Sudamericana,3.26,3.02,2.26,1:00 am,Fri 22/05
-Racing Club Avellaneda,Caracas FC,Football / International / Copa Sudamericana,7.78,17.5,1.12,3:00 am,Fri 22/05
-Blooming Santa Cruz,Carabobo FC,Football / International / Copa Sudamericana,3.36,2.1,3.26,3:30 am,Fri 22/05
-CA Penarol Montevideo,SC Corinthians SP,Football / International / Copa Libertadores,3.25,2.6,2.79,3:30 am,Fri 22/05
-CD Universidad Catolica,Barcelona SC,Football / International / Copa Libertadores,3.49,4.27,1.89,3:30 am,Fri 22/05
-CSD Macara,Alianza Atletico,Football / International / Copa Sudamericana,3.69,4.85,1.66,5:00 am,Fri 22/05
-Hull City,Southampton FC,Football / England / Championship,3.29,1.85,4.62,10:00 pm,Fri 22/05
-Racing Club De Lens,OGC Nice,Football / France / Coupe de France,3.94,4.73,1.74,10:00 pm,Fri 22/05
-Celtic Glasgow,Dunfermline Athletic FC,Football / Scotland / Scottish Cup,6.31,10.49,1.2,5:00 pm,Sat 23/05
-FC Barcelona Women,Olympique Lyon Women,Football / International / UEFA Champions League Women,5.44,7.78,1.3,7:00 pm,Sat 23/05
-Bayern Munich,VfB Stuttgart,Football / Germany / DFB Pokal,5.97,7.45,1.35,9:00 pm,Sat 23/05
-EC Vitoria BA,SC Internacional RS,Football / Brazil / Brasileiro Serie A,3.21,2.79,2.63,11:00 pm,Sat 23/05
-Sao Paulo FC SP,Botafogo FR RJ,Football / Brazil / Brasileiro Serie A,3.46,3.95,1.97,11:00 pm,Sat 23/05
+Portland Thorns FC Women,Angel City FC Women,Football / USA / National Womens Soccer League,3.43,3.52,1.94,1:00 am,Mon 18/05
+Inter San Carlos,Adr Jicaral,"Football / Costa Rica / Liga de Ascenso, Clausura",2.85,3.15,2.33,1:00 am,Mon 18/05
+Cavalier FC,Montego Bay United,Football / Jamaica / Premier League,3.25,2.03,3.3,1:00 am,Mon 18/05
+Metropolitanos FC,Deportivo Tachira,Football / Venezuela / Primera Division,3.01,2.82,2.48,1:00 am,Mon 18/05
+Inter Miami CF,Portland Timbers,Football / USA / Major League Soccer,6.54,7.15,6.85,1:00 am,Mon 18/05
+Barranquilla FC,Union Magdalena,Football / Colombia / Primera B,3.39,1.9,3.72,1:00 am,Mon 18/05
+CA Paranaense PR,CR Flamengo RJ,Football / Brazil / Brasileiro Serie A,3.31,3.45,3.59,1:30 am,Mon 18/05
+Spokane Velocity FC,Las Vegas Lights,Football / USA / USL League One Cup,3.45,2.1,3.0,2:00 am,Mon 18/05
+Manta FC,CS Emelec,Football / Ecuador / LigaPro Primera A,3.18,3.08,2.99,2:00 am,Mon 18/05
+SC Recife PE,CR Brasil AL,Football / Brazil / Brasileiro Serie B,3.17,3.17,3.17,2:30 am,Mon 18/05
+Club Oriental de Football,La Luz FC,Football / Uruguay / Segunda Division,2.82,3.06,2.44,2:30 am,Mon 18/05
+Guabira Montero,CA Nacional Potosi,Football / Bolivia / Division Profesional,3.79,3.59,1.83,2:30 am,Mon 18/05
+Deportes Concepcion,CD Everton Vina del Mar,Football / Chile / Primera Division,3.14,2.7,2.56,3:00 am,Mon 18/05
+Nashville SC,Los Angeles FC,Football / USA / Major League Soccer,3.54,3.2,3.37,3:00 am,Mon 18/05
+Utah Royals FC Women,Racing Louisville FC Women,Football / USA / National Womens Soccer League,3.67,3.77,1.81,3:00 am,Mon 18/05
+Independiente Yumbo,Aguilas Doradas Rionegro,Football / Colombia / Copa Colombia,3.04,2.19,3.28,3:30 am,Mon 18/05
+Portmore United,Mount Pleasant FC,Football / Jamaica / Premier League,2.8,2.45,2.95,3:30 am,Mon 18/05
+Bogota FC,Real Cartagena FC,Football / Colombia / Primera B,3.19,2.08,3.38,3:40 am,Mon 18/05
+Vancouver FC,Cavalry FC,Football / Canada / Canadian Premier League,3.3,2.17,3.06,4:00 am,Mon 18/05
+CD FAS Santa Ana,Municipal Limeno,"Football / El Salvador / Primera Division, Clausura",3.72,5.35,1.58,4:00 am,Mon 18/05
+Pumas UNAM,CF Pachuca,"Football / Mexico / Primera Division, Clausura",3.53,2.61,3.07,4:00 am,Mon 18/05
+South Melbourne FC,Caroline Springs George Cross FC,"Football / Australia / Victoria, NPL1",5.17,1.31,7.47,12:30 pm,Mon 18/05
+Tanjong Pagar United,Hougang United FC,Football / Singapore / Premier League,5.13,1.37,6.08,2:30 pm,Mon 18/05
+FC Shirak Gyumri,FC Urartu Yerevan,Football / Armenia / Premier League,4.04,1.53,5.58,4:00 pm,Mon 18/05
+Talaea El Gaish,Pharco FC,Football / Egypt / Premier League,2.98,5.2,1.81,5:00 pm,Mon 18/05
+Kerala Blasters FC,FC Goa,Football / India / Indian Super League,3.23,2.09,3.42,5:00 pm,Mon 18/05
+Kahrabaa Ismailia,Haras El Hodood,Football / Egypt / Premier League,3.28,4.53,1.8,5:00 pm,Mon 18/05
+Club Deportivo Magallanes Women,Deportes Recoleta Women,"Football / Chile / Primera Division, Women",4.49,5.73,1.44,6:00 pm,Mon 18/05
+FC Lahti,Vaasan Palloseura,Football / Finland / Veikkausliiga,3.17,3.12,2.25,6:00 pm,Mon 18/05
+Al Shabab,Al-Seeb,Football / Oman / Omani League,3.45,1.96,3.45,6:20 pm,Mon 18/05
+Sohar,Saham,Football / Oman / Omani League,3.25,3.15,2.15,6:20 pm,Mon 18/05
+Ibri,Dhofar SCSC,Football / Oman / Omani League,3.17,2.21,3.12,6:20 pm,Mon 18/05
+Bahla Club,Al Nahda,Football / Oman / Omani League,3.16,2.01,3.63,6:20 pm,Mon 18/05
+AL Nasr SC (OMA),Samail SC,Football / Oman / Omani League,3.45,4.41,1.74,6:20 pm,Mon 18/05
+Al-Khaboora,Al-Rustaq,Football / Oman / Omani League,3.17,3.6,2.02,6:20 pm,Mon 18/05
+Oman Club,Sur SC,Football / Oman / Omani League,3.12,3.26,2.16,6:20 pm,Mon 18/05
+NK Samobor U19,GNK Dinamo Zagreb U19,Football / Croatia / U19 Prva NL Juniori,6.77,1.14,13.95,6:30 pm,Mon 18/05
+SJK Akatemia/2,VPS Akatemia,Football / Finland / Kakkonen Playoffs,3.93,2.29,2.51,6:30 pm,Mon 18/05
+FC Haka Valkeakoski,HJK Klubi 04,Football / Finland / Ykkosliiga,4.8,5.95,1.42,6:30 pm,Mon 18/05
+Universidad de Concepcion Women,Colo Colo Women,"Football / Chile / Primera Division, Women",18.09,42.37,66.65,7:00 pm,Mon 18/05
+HIFK,FC Kiffen,Football / Finland / Kakkonen Playoffs,4.52,5.11,1.48,7:00 pm,Mon 18/05
+Puszcza Niepolomice,LKS Lodz,Football / Poland / I Liga,3.37,2.05,3.37,7:00 pm,Mon 18/05
+AL Draih,Al-Jabalain,Football / Saudi Arabia / Division 1,4.78,6.5,1.38,7:05 pm,Mon 18/05
+Abo IFK Turku,Nurmijarven Jalkapalloseura,Football / Finland / Kakkonen Playoffs,8.25,14.73,1.11,7:30 pm,Mon 18/05
+FC Lokomotiv 1929 Sofia,PFC Slavia Sofia,Football / Bulgaria / Parva Liga,4.05,5.2,1.56,7:30 pm,Mon 18/05
+PFC Montana 1921,FK Spartak 1918 Varna,Football / Bulgaria / Parva Liga,5.6,1.22,12.55,7:30 pm,Mon 18/05
+PFC Dobrudzha Dobrich,POFC Botev Vratsa,Football / Bulgaria / Parva Liga,3.71,5.4,1.6,7:30 pm,Mon 18/05
+PFK Beroe Stara Zagora,FK Septemvri Sofia,Football / Bulgaria / Parva Liga,3.24,2.8,2.42,7:30 pm,Mon 18/05
+Al Mokawloon Al Arab,Wadi Degla SC,Football / Egypt / Premier League,2.83,3.65,2.21,8:00 pm,Mon 18/05
+GIF Sundsvall,Landskrona BoIS,Football / Sweden / Superettan,3.41,2.19,3.03,8:00 pm,Mon 18/05
+Ghazl El Mahallah,Al Ittihad Al Sakandary,Football / Egypt / Premier League,2.55,2.59,3.31,8:00 pm,Mon 18/05
+MKS Arka Gdynia,Bruk-Bet Termalica Nieciecza,Football / Poland / Ekstraklasa,4.1,4.42,1.72,8:00 pm,Mon 18/05
+Hapoel Jerusalem FC,Ironi Tiberias,Football / Israel / Premier League,3.28,3.14,2.19,8:00 pm,Mon 18/05
+Maccabi Bney Reine,Maccabi Netanya FC,Football / Israel / Premier League,3.95,1.78,3.76,8:00 pm,Mon 18/05
+Orgryte IS,IFK Goteborg,Football / Sweden / Allsvenskan,3.87,1.87,3.88,8:00 pm,Mon 18/05
+Djurgardens IF,IK Sirius,Football / Sweden / Allsvenskan,3.69,2.9,2.3,8:00 pm,Mon 18/05
+Hapoel Ironi Kiryat Shmona FC,MS Ashdod,Football / Israel / Premier League,3.46,2.84,2.28,8:00 pm,Mon 18/05
+Angelholms FF,Kristianstad FC,"Football / Sweden / Ettan, Relegation/Promotion",3.46,3.32,1.96,8:00 pm,Mon 18/05
+Laholms FK,FC Rosengaard 1917,"Football / Sweden / Ettan, Relegation/Promotion",3.78,1.68,4.16,8:00 pm,Mon 18/05
+Hapoel Haifa FC,Bnei Sakhnin FC,Football / Israel / Premier League,3.6,4.23,1.77,8:00 pm,Mon 18/05
+Ariana FC,Tvaakers IF,"Football / Sweden / Ettan, Relegation/Promotion",3.64,3.98,1.74,8:00 pm,Mon 18/05
+IK Oddevold,Orebro SK,Football / Sweden / Superettan,3.56,3.42,1.97,8:05 pm,Mon 18/05
+FC Farul Constanta,Metaloglobus Bucuresti,Football / Romania / Liga I,6.36,11.57,1.2,8:30 pm,Mon 18/05
+FC Petrolul Ploiesti,ASC Otelul Galati,Football / Romania / Liga I,3.72,5.42,1.6,8:30 pm,Mon 18/05
+HB Torshavn,Eb/Streymur,Football / Faroe Islands / Premier League,5.91,10.49,1.21,8:30 pm,Mon 18/05
+FC Unirea 2004 Slobozia,FC Uta Arad,Football / Romania / Liga I,3.42,3.18,2.11,8:30 pm,Mon 18/05
+AFC Hermannstadt,Fotbal Club FCSB,Football / Romania / Liga I,3.47,2.34,2.74,8:30 pm,Mon 18/05
+AB Argir,Vikingur Gota,Football / Faroe Islands / Premier League,3.59,1.66,4.79,8:30 pm,Mon 18/05
+AFC Eskilstuna,FC Arlanda,"Football / Sweden / Ettan, Relegation/Promotion",3.56,2.52,2.37,8:30 pm,Mon 18/05
+AL Ula,Al-Orobah,Football / Saudi Arabia / Division 1,4.2,5.16,1.52,9:00 pm,Mon 18/05
+EC Bahia BA U20,CA Paranaense PR U20,Football / Brazil / U20 Campeonato Brasileiro,3.73,3.73,1.77,9:00 pm,Mon 18/05
+FC Aarau,Grasshopper Club Zurich,Football / Switzerland / Super League,3.61,3.1,2.22,9:15 pm,Mon 18/05
+CS Barracas,Defensores de Cambaceres,Football / Argentina / Primera C,2.98,3.59,2.06,9:30 pm,Mon 18/05
+CD Leganes,SD Huesca,Football / Spain / LaLiga 2,3.57,4.05,1.91,9:30 pm,Mon 18/05
+CS Italiano,CSCD Laferrere,Football / Argentina / Primera B,2.94,4.63,1.91,9:30 pm,Mon 18/05
+CA Defensores de Belgrano,CA Chaco For Ever,Football / Argentina / Primera Nacional,3.04,4.83,1.84,9:30 pm,Mon 18/05
+CSDC Espanol,Club Mercedes,Football / Argentina / Primera C,2.98,3.88,1.97,9:30 pm,Mon 18/05
+Waterford FC,Drogheda United FC,Football / Ireland / Premier Division,3.43,2.36,2.75,9:45 pm,Mon 18/05
+Arsenal FC,Burnley FC,Football / England / Premier League,11.83,28.34,20.08,10:00 pm,Mon 18/05
+Fylkir Reykjavik,IR Reykjavik,Football / Iceland / 1. deild,4.51,5.89,1.45,10:15 pm,Mon 18/05
+Throttur Reykjavik,Leiknir Reykjavik,Football / Iceland / 1. deild,4.62,5.66,1.46,10:15 pm,Mon 18/05
+Grotta,Afturelding,Football / Iceland / 1. deild,4.62,1.47,5.4,10:15 pm,Mon 18/05
+HK Kopavogur,UMF Njardvik,Football / Iceland / 1. deild,3.83,2.6,2.3,10:15 pm,Mon 18/05
+Envigado FC,Deportes Quindio,Football / Colombia / Primera B,3.14,4.1,1.9,11:00 pm,Mon 18/05
+Criciuma EC SC Women,AE Realidade Jovem SP Women,"Football / Brazil / Brasileiro A3, Women",4.16,1.72,3.59,12:00 am,Tue 19/05
+Deportivo Maldonado,Danubio FC,Football / Uruguay / Primera Division,3.23,3.77,1.98,12:30 am,Tue 19/05
+AA Ponte Preta SP,Londrina EC PR,Football / Brazil / Brasileiro Serie B,3.04,3.48,2.15,1:00 am,Tue 19/05
+Ferroviaria SP Women,EC Vitoria BA Women,"Football / Brazil / Campeonato Brasileiro, Women",10.0,35.0,1.03,1:00 am,Tue 19/05
+AD Confianca SE,Maranhao AC MA,Football / Brazil / Brasileiro Serie C,3.11,3.93,1.94,2:00 am,Tue 19/05
+CA All Boys,Deportivo Moron,Football / Argentina / Primera Nacional,2.6,3.03,2.74,2:00 am,Tue 19/05
+America de Cali Sa Women,Asociacion Deportivo Pasto Women,Football / Colombia / Liga Femenina,5.2,13.0,1.21,2:00 am,Tue 19/05
+CD Santa Cruz,Deportes Temuco,Football / Chile / Primera B,3.43,3.58,1.93,2:00 am,Tue 19/05
+Union Espanola,Deportes Iquique,Football / Chile / Primera B,3.3,3.25,2.09,2:00 am,Tue 19/05
+Sao Paulo FC SP Women,EC Juventude RS Women,"Football / Brazil / Campeonato Brasileiro, Women",6.6,19.0,1.12,2:00 am,Tue 19/05
+Botafogo FC PB,AA Internacional Limeira SP,Football / Brazil / Brasileiro Serie C,3.0,3.43,2.15,2:00 am,Tue 19/05
+Guayaquil City FC,Orense SC,Football / Ecuador / LigaPro Primera A,3.04,2.37,3.04,3:00 am,Tue 19/05
+Cruzeiro EC MG Women,SC Corinthians SP Women,"Football / Brazil / Campeonato Brasileiro, Women",3.2,2.03,3.35,3:00 am,Tue 19/05
+SE Palmeiras SP Women,Botafogo Fr RJ Women,"Football / Brazil / Campeonato Brasileiro, Women",7.4,23.0,1.09,3:00 am,Tue 19/05
+Internacional FC De Palmira,Tigres FC,Football / Colombia / Primera B,3.11,4.11,1.9,3:00 am,Tue 19/05
+Northeast United FC,Mohammedan SC,Football / India / Indian Super League,5.8,8.9,1.26,2:30 pm,Tue 19/05
+Shenzhen Peng City,Dalian Yingbo FC,Football / China / Chinese Super League,3.34,2.6,2.73,2:35 pm,Tue 19/05
+Tianjin Jinmen Tiger,Henan,Football / China / Chinese Super League,3.17,2.45,3.06,2:35 pm,Tue 19/05
+Chengdu Rongcheng,Shanghai Port FC,Football / China / Chinese Super League,4.94,6.1,1.46,3:00 pm,Tue 19/05
+Qingdao West Coast FC,Beijing Guoan,Football / China / Chinese Super League,3.41,2.11,3.54,3:00 pm,Tue 19/05
+FC Noah Yerevan,Ararat Yerevan FC,Football / Armenia / Premier League,9.46,20.27,1.08,6:00 pm,Tue 19/05
+Tallinna FC Flora,Tartu JK Tammeka,Football / Estonia / Premium Liiga,5.19,6.92,1.35,7:00 pm,Tue 19/05
+SV Ried,Wolfsberger AC,Football / Austria / Bundesliga,3.3,3.18,2.31,7:30 pm,Tue 19/05
+Helsingborgs IF,Varbergs BoIS,Football / Sweden / Superettan,3.47,2.41,2.65,8:00 pm,Tue 19/05
+Hapoel Be`er Sheva FC,Maccabi Tel Aviv FC,Football / Israel / Premier League,3.95,4.15,1.71,8:30 pm,Tue 19/05
+Maccabi Haifa FC,Hapoel Tel Aviv FC,Football / Israel / Premier League,3.53,2.56,2.46,8:30 pm,Tue 19/05
+Hapoel Petah Tikva FC,Beitar Jerusalem FC,Football / Israel / Premier League,5.21,1.33,7.33,8:30 pm,Tue 19/05
+AC Monza,Juve Stabia,Football / Italy / Serie B,4.01,5.11,1.65,9:00 pm,Tue 19/05
+Royal Charleroi SC,Oud-Heverlee Leuven,Football / Belgium / Pro League,3.95,4.58,1.76,9:30 pm,Tue 19/05
+AFC Bournemouth,Manchester City,Football / England / Premier League,4.23,4.22,4.2,9:30 pm,Tue 19/05
+KVC Westerlo,Standard Liege,Football / Belgium / Pro League,3.69,3.56,2.05,9:30 pm,Tue 19/05
+KRC Genk,Royal Antwerp FC,Football / Belgium / Pro League,4.08,5.11,1.67,9:30 pm,Tue 19/05
+Chelsea FC,Tottenham Hotspur,Football / England / Premier League,3.7,3.54,3.62,10:15 pm,Tue 19/05
+Fluminense FC RJ,Club Bolivar,Football / International / Copa Libertadores,6.48,12.75,1.22,1:00 am,Wed 20/05
+CA Rosario Central,UCV FC,Football / International / Copa Libertadores,7.83,18.04,1.15,1:00 am,Wed 20/05
+Montevideo City Torque,Deportivo Riestra AFBC,Football / International / Copa Sudamericana,3.17,3.7,2.02,1:00 am,Wed 20/05
+Audax Italiano,CA Barracas Central,Football / International / Copa Sudamericana,3.32,2.98,2.26,1:00 am,Wed 20/05
+Coquimbo Unido,CD Tolima,Football / International / Copa Libertadores,3.31,3.4,2.2,1:00 am,Wed 20/05
+Orlando City SC,Atlanta United FC,Football / USA / US Open Cup,3.71,2.6,2.35,2:30 am,Wed 20/05
+Always Ready,Mirassol FC SP,Football / International / Copa Libertadores,4.2,1.69,4.51,3:00 am,Wed 20/05
+Independiente Santa Fe,CA Platense,Football / International / Copa Libertadores,3.27,3.47,2.19,3:00 am,Wed 20/05
+Saint Louis City SC,Houston Dynamo,Football / USA / US Open Cup,3.75,2.98,2.09,3:00 am,Wed 20/05
+Sao Paulo FC SP,Millonarios FC,Football / International / Copa Sudamericana,3.75,5.58,1.58,3:30 am,Wed 20/05
+Boca Juniors,Cruzeiro EC MG,Football / International / Copa Libertadores,3.31,4.12,1.98,3:30 am,Wed 20/05
+CSD Independiente del Valle,Libertad Asuncion,Football / International / Copa Libertadores,4.88,7.25,1.41,5:00 am,Wed 20/05
+CD Cuenca,Recoleta FC,Football / International / Copa Sudamericana,3.55,4.99,1.67,5:00 am,Wed 20/05
+America de Cali,CA Tigre,Football / International / Copa Sudamericana,3.23,3.62,2.02,5:00 am,Wed 20/05
+Liaoning Tieren FC,Qingdao Hainiu FC,Football / China / Chinese Super League,3.45,2.84,2.45,2:00 pm,Wed 20/05
+Shanghai Shenhua FC,Wuhan Three Towns FC,Football / China / Chinese Super League,5.03,6.38,1.44,2:35 pm,Wed 20/05
+Chongqing Tonglianglong FC,Yunnan Yukun,Football / China / Chinese Super League,3.31,2.84,2.53,3:00 pm,Wed 20/05
+Zhejiang FC,Shandong Taishan FC,Football / China / Chinese Super League,3.64,2.27,2.98,3:00 pm,Wed 20/05
+FK Ural Yekaterinburg,FC Dynamo-Makhachkala,Football / Russian Federation / Premier League,3.08,3.15,2.39,5:30 pm,Wed 20/05
+Tampereen Ilves,FC Inter Turku,Football / Finland / Veikkausliiga,3.33,2.05,3.43,6:00 pm,Wed 20/05
+FK Tukums 2000/TSS,Riga FC,Football / Latvia / Virsliga,6.37,1.21,10.62,6:00 pm,Wed 20/05
+FC Kuressaare,FC Nomme United,Football / Estonia / Premium Liiga,3.71,2.18,2.84,7:00 pm,Wed 20/05
+JK Narva Trans,Paide Linnameeskond,Football / Estonia / Premium Liiga,3.96,1.69,4.25,7:00 pm,Wed 20/05
+PFC Lokomotiv Plovdiv,PFC CSKA Sofia,Football / Bulgaria / Bulgarian Cup,3.74,1.52,5.78,7:00 pm,Wed 20/05
+IK Start,Bodoe/Glimt,Football / Norway / Eliteserien,6.76,8.28,9.8,7:00 pm,Wed 20/05
+Grobinas SC/LFS,SK Super Nova,Football / Latvia / Virsliga,3.13,2.89,2.41,7:00 pm,Wed 20/05
+FK Jablonec,MFK Karvina,Football / Czech Republic / Cup,3.68,4.11,1.74,7:00 pm,Wed 20/05
+Kuopion Palloseura,FF Jaro,Football / Finland / Veikkausliiga,5.0,7.89,1.33,7:00 pm,Wed 20/05
+Nomme Kalju FC,Harju JK Laagri,Football / Estonia / Premium Liiga,5.58,9.24,1.26,7:00 pm,Wed 20/05
+SK Rotor Volgograd,FK Akron Tolyatti,Football / Russian Federation / Premier League,3.0,2.81,2.7,7:30 pm,Wed 20/05
+Hacken Gothenburg Women,Vaxjo DFF Women,Football / Sweden / Damallsvenskan,8.21,15.28,1.11,7:30 pm,Wed 20/05
+Ranheim,Hoedd IL,Football / Norway / 1st Division,4.15,4.83,1.58,8:00 pm,Wed 20/05
+Moss FK,Stroemsgodset IF,Football / Norway / 1st Division,4.23,1.73,3.75,8:00 pm,Wed 20/05
+Stroemmen IF,FK Haugesund,Football / Norway / 1st Division,3.87,1.79,3.82,8:00 pm,Wed 20/05
+Egersunds IK,Lyn 1896 FK,Football / Norway / 1st Division,4.04,4.24,1.68,8:00 pm,Wed 20/05
+Zamalek SC,Ceramica Cleopatra,Football / Egypt / Premier League,3.57,5.98,1.58,8:00 pm,Wed 20/05
+Pyramids FC,Smouha SC,Football / Egypt / Premier League,4.65,10.65,7.65,8:00 pm,Wed 20/05
+Lillestroem SK,Kristiansund BK,Football / Norway / Eliteserien,5.3,6.82,1.38,8:00 pm,Wed 20/05
+Al Masry Club,AL Ahly SC (EGY),Football / Egypt / Premier League,3.38,1.81,4.34,8:00 pm,Wed 20/05
+Kongsvinger IL Toppfotball,Odds BK,Football / Norway / 1st Division,3.66,2.94,2.15,8:00 pm,Wed 20/05
+Raufoss IL,Bryne FK,Football / Norway / 1st Division,3.46,2.22,2.93,8:00 pm,Wed 20/05
+FC Dila Gori,FC Dinamo Tbilisi,Football / Georgia / Erovnuli Liga,3.22,3.17,2.11,8:00 pm,Wed 20/05
+Sogndal Fotball,Stabaek IF,Football / Norway / 1st Division,3.7,2.22,2.79,8:00 pm,Wed 20/05
+Aasane Fotball,Sandnes Ulf,Football / Norway / 1st Division,3.56,2.21,2.89,8:00 pm,Wed 20/05
+GAIS,Hammarby IF,Football / Sweden / Allsvenskan,3.62,1.91,4.0,8:00 pm,Wed 20/05
+Aalesunds FK,SK Brann,Football / Norway / Eliteserien,4.22,1.73,4.09,9:00 pm,Wed 20/05
+Al-Najma,Al-Shabab FC (SA),Football / Saudi Arabia / Saudi Prof. League,4.97,1.48,5.76,9:00 pm,Wed 20/05
+Al-Khaleej Club,Al Ahli Saudi FC,Football / Saudi Arabia / Saudi Prof. League,4.66,1.5,5.95,9:00 pm,Wed 20/05
+SC Freiburg,Aston Villa,Football / International / UEFA Europa League,3.81,4.54,5.27,10:00 pm,Wed 20/05
+Club Olimpia,CR Vasco da Gama RJ,Football / International / Copa Sudamericana,3.15,2.86,2.42,1:00 am,Thu 21/05
+CA Boston River,CD O´Higgins,Football / International / Copa Sudamericana,3.22,2.03,3.61,1:00 am,Thu 21/05
+Santos FC SP,CA San Lorenzo de Almagro,Football / International / Copa Sudamericana,3.58,4.64,1.71,1:00 am,Thu 21/05
+Club Nacional de Football,Universitario de Deportes,Football / International / Copa Libertadores,3.46,4.24,1.9,1:00 am,Thu 21/05
+Detroit City FC,Miami FC,Football / USA / USL Championship,4.14,5.19,1.55,2:30 am,Thu 21/05
+Houston Dash Women,San Diego Wave FC Women,Football / USA / National Womens Soccer League,3.77,1.65,4.58,3:00 am,Thu 21/05
+Gremio FB Porto Alegrense RS,CD Palestino,Football / International / Copa Sudamericana,4.53,7.51,1.38,3:00 am,Thu 21/05
+Independiente Petrolero,Botafogo FR RJ,Football / International / Copa Sudamericana,5.78,1.28,7.9,3:00 am,Thu 21/05
+LDU Quito,CA Lanus,Football / International / Copa Libertadores,3.36,3.81,2.04,3:30 am,Thu 21/05
+SE Palmeiras SP,Cerro Porteno,Football / International / Copa Libertadores,5.42,10.81,1.29,3:30 am,Thu 21/05
+CA River Plate (ARG),Red Bull Bragantino SP,Football / International / Copa Sudamericana,3.33,4.44,1.8,3:30 am,Thu 21/05
+CR Flamengo RJ,Estudiantes de La Plata,Football / International / Copa Libertadores,4.44,8.0,1.43,3:30 am,Thu 21/05
+New Mexico United,Tampa Bay Rowdies,Football / USA / USL Championship,3.48,2.0,3.43,4:00 am,Thu 21/05
+CD Junior FC,Sporting Cristal,Football / International / Copa Libertadores,3.99,4.99,1.67,5:00 am,Thu 21/05
+Cusco FC,Independiente Medellin,Football / International / Copa Libertadores,3.24,2.97,2.47,5:00 am,Thu 21/05
+Punjab FC,Mumbai City,Football / India / Indian Super League,3.22,3.03,2.27,2:30 pm,Thu 21/05
+Mohun Bagan Super Giant,Sporting Club Delhi,Football / India / Indian Super League,6.54,13.46,1.17,5:00 pm,Thu 21/05
+Inter Kashi FC,SC East Bengal,Football / India / Indian Super League,4.23,1.49,5.77,5:00 pm,Thu 21/05
+FC Spaeri,FC Dinamo Batumi,Football / Georgia / Erovnuli Liga,3.49,3.63,1.86,6:00 pm,Thu 21/05
+BFC Daugavpils,Ogre United,Football / Latvia / Virsliga,3.84,5.19,1.59,6:00 pm,Thu 21/05
+AE Kifisia FC,AE Larissa FC,Football / Greece / Super League 1,3.13,3.18,2.24,7:00 pm,Thu 21/05
+Atromitos Athinon,Panserraikos FC,Football / Greece / Super League 1,3.86,5.79,1.54,7:00 pm,Thu 21/05
+Panaitolikos Agrinio,Asteras Tripolis,Football / Greece / Super League 1,3.18,3.08,2.27,7:00 pm,Thu 21/05
+IF Elfsborg,Mjallby AIF,Football / Sweden / Allsvenskan,3.09,2.6,2.92,8:00 pm,Thu 21/05
+FC RFS,FS Jelgava,Football / Latvia / Virsliga,6.16,12.51,1.19,8:00 pm,Thu 21/05
+IK Tord,Skara FC,"Football / Sweden / Division 2, Promotion Playoffs",3.59,2.54,2.34,8:00 pm,Thu 21/05
+Neom SC,Al-Ittifaq FC,Football / Saudi Arabia / Saudi Prof. League,4.06,3.91,1.82,9:00 pm,Thu 21/05
+Al-Riyadh SC,Al-Okhdood Club,Football / Saudi Arabia / Saudi Prof. League,4.83,6.51,1.45,9:00 pm,Thu 21/05
+Al Nassr Club,Damac FC,Football / Saudi Arabia / Saudi Prof. League,9.9,15.84,12.87,9:00 pm,Thu 21/05
+Al-Hazm,Al-Taawoun FC,Football / Saudi Arabia / Saudi Prof. League,3.77,2.01,3.47,9:00 pm,Thu 21/05
+IA Akranes,IBV Vestmannaeyjar,Football / Iceland / Besta deild,4.33,4.62,1.58,9:00 pm,Thu 21/05
+Al-Fayha FC,Al Hilal SFC,Football / Saudi Arabia / Saudi Prof. League,5.93,7.12,8.3,9:00 pm,Thu 21/05
+Al-Kholood,Al-Fateh SC,Football / Saudi Arabia / Saudi Prof. League,3.81,2.63,2.46,9:00 pm,Thu 21/05
+VFL Wolfsburg,SC Paderborn 07,Football / Germany / Bundesliga,4.05,5.19,1.67,9:30 pm,Thu 21/05
+KAA Gent,Union Saint-Gilloise,Football / Belgium / Pro League,3.69,1.81,4.6,9:30 pm,Thu 21/05
+RSC Anderlecht,St. Truidense VV,Football / Belgium / Pro League,3.72,2.95,2.31,9:30 pm,Thu 21/05
+Yellow-Red KV Mechelen,Club Brugge,Football / Belgium / Pro League,5.2,1.44,6.45,9:30 pm,Thu 21/05
+Partick Thistle FC,St Mirren FC,Football / Scotland / Premiership,3.24,2.67,2.65,10:00 pm,Thu 21/05
+Deportivo La Guaira,Independiente Rivadavia,Football / International / Copa Libertadores,3.45,1.85,4.55,1:00 am,Fri 22/05
+Atletico Mineiro MG,CS Cienciano,Football / International / Copa Sudamericana,6.8,14.58,1.16,1:00 am,Fri 22/05
+Academia Puerto Cabello,CA Juventud de Las Piedras,Football / International / Copa Sudamericana,3.25,3.16,2.19,1:00 am,Fri 22/05
+Racing Club Avellaneda,Caracas FC,Football / International / Copa Sudamericana,6.84,13.67,1.16,3:00 am,Fri 22/05
+Blooming Santa Cruz,Carabobo FC,Football / International / Copa Sudamericana,3.26,2.08,3.41,3:30 am,Fri 22/05
+CA Penarol Montevideo,SC Corinthians SP,Football / International / Copa Libertadores,3.17,2.74,2.71,3:30 am,Fri 22/05
+CD Universidad Catolica,Barcelona SC,Football / International / Copa Libertadores,3.54,4.58,1.82,3:30 am,Fri 22/05
+CSD Macara,Alianza Atletico,Football / International / Copa Sudamericana,3.59,4.56,1.72,5:00 am,Fri 22/05
+Arema FC,Psim Yogyakarta,Football / Indonesia / Liga 1,3.48,2.76,2.32,11:30 am,Fri 22/05
+Machida Zelvia,Urawa Red Diamonds,Football / Japan / J.League,3.29,3.29,2.26,1:30 pm,Fri 22/05
+Dewa United,Bali United,Football / Indonesia / Liga 1,4.29,4.87,1.56,3:00 pm,Fri 22/05
+NK Osijek,NK Slaven Belupo,Football / Croatia / HNL,3.35,3.4,2.05,5:00 pm,Fri 22/05
+Aris Limassol FC,AEK Larnaca,Football / Cyprus / 1st Division,3.31,2.33,2.87,5:30 pm,Fri 22/05
+AC Omonia Nicosia,Apollon Limassol,Football / Cyprus / 1st Division,3.59,3.74,1.87,5:30 pm,Fri 22/05
+FK Spartak 1918 Varna,FC Lokomotiv 1929 Sofia,Football / Bulgaria / Parva Liga,3.41,2.15,3.11,6:00 pm,Fri 22/05
+FK Auda Riga,FK Liepaja,Football / Latvia / Virsliga,3.65,3.26,2.0,6:00 pm,Fri 22/05
+FK Septemvri Sofia,PFC Dobrudzha Dobrich,Football / Bulgaria / Parva Liga,3.11,2.96,2.38,6:00 pm,Fri 22/05
+SJK Akatemia,FC Haka Valkeakoski,Football / Finland / Ykkosliiga,3.78,1.77,3.97,6:30 pm,Fri 22/05
+JaPS,Mikkelin Palloilijat,Football / Finland / Ykkosliiga,3.68,4.36,1.73,6:30 pm,Fri 22/05
+Aarhus Fremad,Aalborg BK,Football / Denmark / 1. Division,3.65,3.45,1.94,7:00 pm,Fri 22/05
+Dfk Dainava Alytus,Be1 Nfa,Football / Lithuania / 1 Lyga,3.29,2.75,2.21,7:00 pm,Fri 22/05
+Zaglebie Sosnowiec,KKS 1925 Kalisz,Football / Poland / II Liga,3.71,3.81,1.79,7:00 pm,Fri 22/05
+Vaasan Palloseura,HJK Helsinki,Football / Finland / Veikkausliiga,3.79,1.7,4.38,7:00 pm,Fri 22/05
+Hegelmann Litauen B,FC Neptunas Klaipeda,Football / Lithuania / 1 Lyga,4.43,1.36,6.3,7:00 pm,Fri 22/05
+FK Jonava,FK Babrungas Plunge,Football / Lithuania / 1 Lyga,3.39,1.83,3.59,7:00 pm,Fri 22/05
+FK Ekranas,FK Transinvest B,Football / Lithuania / 1 Lyga,3.83,3.69,1.7,7:00 pm,Fri 22/05
+PPJ Helsinki,Lahden Reipas,Football / Finland / Kakkonen Playoffs,3.64,2.36,2.56,7:00 pm,Fri 22/05
+HNK Hajduk Split,HNK Vukovar 1991,Football / Croatia / HNL,6.2,11.62,1.2,7:15 pm,Fri 22/05
+Hestrafors IF,Jonsereds IF,"Football / Sweden / Division 2, Promotion Playoffs",3.65,2.13,2.8,8:00 pm,Fri 22/05
+Kristianstad FC,Hassleholms IF,"Football / Sweden / Ettan, Relegation/Promotion",3.48,2.22,2.76,8:00 pm,Fri 22/05
+Lindome GIF,Torslanda IK,"Football / Sweden / Division 2, Promotion Playoffs",3.75,2.6,2.22,8:00 pm,Fri 22/05
+Vilnius FK Zalgiris B,Baltijos Futbolo Akademija,Football / Lithuania / 1 Lyga,3.18,2.31,2.69,8:00 pm,Fri 22/05
+Lunds BK,Eskilsminne IF,"Football / Sweden / Ettan, Relegation/Promotion",3.49,2.82,2.18,8:00 pm,Fri 22/05
+Staffanstorp United,Nosaby IF,"Football / Sweden / Division 2, Promotion Playoffs",3.55,2.24,2.7,8:00 pm,Fri 22/05
+Solvesborgs GIF,Osterlen FF,"Football / Sweden / Division 2, Promotion Playoffs",3.69,3.04,2.0,8:00 pm,Fri 22/05
+Linero IF,IFK Trelleborg,"Football / Sweden / Division 2, Promotion Playoffs",3.7,2.27,2.55,8:00 pm,Fri 22/05
+Keflavik IF,Thor Akureyri,Football / Iceland / Besta deild,4.1,3.71,1.77,9:00 pm,Fri 22/05
+Unia Skierniewice,MKS Chojniczanka Chojnice,Football / Poland / II Liga,3.57,3.76,1.84,9:00 pm,Fri 22/05
+FC Sudtirol Bolzano,SSC Bari,Football / Italy / Serie B,3.52,4.06,1.92,9:00 pm,Fri 22/05
+FK Crvena Zvezda Belgrade,OFK Beograd,Football / Serbia / Superliga,7.61,13.67,1.14,9:00 pm,Fri 22/05
+NK Radomlje,Mura Murska Sobota,Football / Slovenia / PrvaLiga,3.64,1.85,3.79,9:00 pm,Fri 22/05
+KA Akureyri,Valur Reykjavik,Football / Iceland / Besta deild,3.78,2.67,2.27,9:00 pm,Fri 22/05
+Rot-Weiss Essen,Greuther Furth,Football / Germany / 2nd Bundesliga,3.43,2.37,2.88,9:30 pm,Fri 22/05
+Wexford FC,University College Dublin,Football / Ireland / First Division,3.27,2.5,2.6,9:45 pm,Fri 22/05
+Athlone Town AFC,Cork City FC,Football / Ireland / First Division,3.85,1.57,5.2,9:45 pm,Fri 22/05
+Galway United FC,Bohemians Dublin FC,Football / Ireland / Premier Division,3.4,1.98,3.55,9:45 pm,Fri 22/05
+Kerry FC,Bray Wanderers AFC,Football / Ireland / First Division,3.28,2.0,3.52,9:45 pm,Fri 22/05
+Treaty United,Cobh Ramblers,Football / Ireland / First Division,3.32,2.39,2.7,9:45 pm,Fri 22/05
+Shelbourne FC,Waterford FC,Football / Ireland / Premier Division,5.07,7.42,1.34,9:45 pm,Fri 22/05
+Derry City FC,Saint Patrick´s Athletic FC,Football / Ireland / Premier Division,3.2,2.43,2.81,9:45 pm,Fri 22/05
+Finn Harps FC,Longford Town FC,Football / Ireland / First Division,3.27,2.6,2.5,9:45 pm,Fri 22/05
+Drogheda United FC,Dundalk FC,Football / Ireland / Premier Division,3.45,2.33,2.77,10:00 pm,Fri 22/05
+Shamrock Rovers,Sligo Rovers FC,Football / Ireland / Premier Division,5.07,8.57,1.31,10:00 pm,Fri 22/05
+Racing Club De Lens,OGC Nice,Football / France / Coupe de France,4.32,5.38,1.61,10:00 pm,Fri 22/05
+Vikingur Reykjavik,FH Hafnarfjordur,Football / Iceland / Besta deild,6.42,8.75,1.23,10:15 pm,Fri 22/05
+Breidablik Kopavogur,KR Reykjavik,Football / Iceland / Besta deild,4.09,2.2,2.63,10:15 pm,Fri 22/05
+Stjarnan Gardabae,Fram Reykjavik,Football / Iceland / Besta deild,3.99,2.35,2.48,10:15 pm,Fri 22/05
+Nautico PE,Cuiaba EC MT,Football / Brazil / Brasileiro Serie B,3.07,4.78,1.83,1:00 am,Sat 23/05
+Liverpool Montevideo,Racing Club Montevideo,Football / Uruguay / Primera Division,3.05,2.52,2.81,1:30 am,Sat 23/05
+Boston Legacy FC Women,Seattle Reign FC Women,Football / USA / National Womens Soccer League,3.14,3.38,2.1,3:00 am,Sat 23/05
+FC Tulsa,Hartford Athletic,Football / USA / USL Championship,3.51,3.55,1.95,3:30 am,Sat 23/05
+Sanfrecce Hiroshima,Nagoya Grampus,Football / Japan / J.League,4.0,4.5,1.72,8:00 am,Sat 23/05
+Avispa Fukuoka,Vissel Kobe,Football / Japan / J.League,3.55,1.8,4.7,8:00 am,Sat 23/05
+Jeonnam Dragons,Gimhae FC,Football / Republic of Korea / K-League 2,3.51,3.94,1.82,10:30 am,Sat 23/05
+Gyeongnam FC,Suwon FC,Football / Republic of Korea / K-League 2,3.67,1.98,3.19,10:30 am,Sat 23/05
+CSC 1599 Selimbar,CS Dinamo Bucuresti,Football / Romania / Liga 2,3.48,4.19,1.74,11:00 am,Sat 23/05
+Auckland FC,Sydney FC,Football / Australia / A-League,3.56,3.67,2.01,11:10 am,Sat 23/05
+Kashima Antlers,FC Tokyo,Football / Japan / J.League,3.29,2.89,2.49,11:30 am,Sat 23/05
+Madura United,PSM Makassar,Football / Indonesia / Liga 1,3.59,3.25,2.03,12:00 pm,Sat 23/05
+Persija Jakarta,Semen Padang FC,Football / Indonesia / Liga 1,12.63,33.99,1.03,12:00 pm,Sat 23/05
+Persebaya Surabaya,Persik Kediri,Football / Indonesia / Liga 1,3.98,4.27,1.68,12:00 pm,Sat 23/05
+Persib Bandung,Persijap Jepara,Football / Indonesia / Liga 1,6.61,12.64,1.18,12:00 pm,Sat 23/05
+Borneo Samarinda,Malut United,Football / Indonesia / Liga 1,4.27,4.66,1.58,12:00 pm,Sat 23/05
+Kashiwa Reysol,JEF United Chiba,Football / Japan / J.League,4.2,6.0,1.55,12:00 pm,Sat 23/05
+Persita Tangerang,Persis Solo,Football / Indonesia / Liga 1,3.69,1.86,3.69,12:00 pm,Sat 23/05
+Kyoto Sanga FC,V-Varen Nagasaki,Football / Japan / J.League,3.55,3.8,1.97,1:00 pm,Sat 23/05
+Chungbuk Cheongju FC,Hwaseong FC,Football / Republic of Korea / K-League 2,3.03,2.79,2.5,1:00 pm,Sat 23/05
+FC Oleksandriya,FC Kryvbas Kriviy Rih,Football / Ukraine / Premier League,3.84,1.74,4.08,1:00 pm,Sat 23/05
+FC Inter Turku,Turun Palloseura,Football / Finland / Veikkausliiga,4.37,6.41,1.44,2:00 pm,Sat 23/05
+Norrby IF,Ljungskile SK,Football / Sweden / Superettan,3.35,2.31,2.87,2:00 pm,Sat 23/05
+Dukla Prague,FC Banik Ostrava,Football / Czech Republic / 1. Liga,3.53,2.08,3.49,3:00 pm,Sat 23/05
+FK Mlada Boleslav,FK Teplice,Football / Czech Republic / 1. Liga,3.48,3.39,2.14,3:00 pm,Sat 23/05
+Middelfart BK,B93 Copenhagen,Football / Denmark / 1. Division,3.88,1.6,5.05,3:00 pm,Sat 23/05
+FC Zlin,1. FC Slovacko Uherske Hradiste,Football / Czech Republic / 1. Liga,3.63,3.33,2.11,3:00 pm,Sat 23/05
+SK Sigma Olomouc,MFK Karvina,Football / Czech Republic / 1. Liga,4.1,5.0,1.64,3:00 pm,Sat 23/05
+FC Zbrojovka Brno,SK Dynamo Ceske Budejovice,Football / Czech Republic / FNL,5.19,9.22,1.27,3:00 pm,Sat 23/05
+SFC Opava,FK Pribram,Football / Czech Republic / FNL,3.62,3.95,1.78,3:00 pm,Sat 23/05
+SK Slavia Prague B,FC Vlasim,Football / Czech Republic / FNL,3.37,2.7,2.37,3:00 pm,Sat 23/05
+FC Banik Ostrava B,Sparta Prague B,Football / Czech Republic / FNL,3.8,3.27,1.92,3:00 pm,Sat 23/05
+MFK Chrudim,SK Artis Brno,Football / Czech Republic / FNL,3.72,1.71,4.25,3:00 pm,Sat 23/05
+1.SK Prostejov,FC Silon Taborsko,Football / Czech Republic / FNL,3.71,2.13,2.85,3:00 pm,Sat 23/05
+FC Vysocina Jihlava,FK Usti nad Labem,Football / Czech Republic / FNL,3.95,3.08,1.95,3:00 pm,Sat 23/05
+FK Viktoria Zizkov,SK Hanacka Slavia Kromeriz,Football / Czech Republic / FNL,3.66,3.56,1.87,3:00 pm,Sat 23/05
+FC Epitsentr Kamianets-Podilskyi,SC Poltava,Football / Ukraine / Premier League,4.88,7.02,1.37,3:30 pm,Sat 23/05
+Marumo Gallants FC,Stellenbosch FC,Football / South Africa / Premier Soccer League,3.25,2.87,2.36,4:00 pm,Sat 23/05
+JIPPO,PK-35 Helsinki,Football / Finland / Ykkosliiga,3.21,3.98,1.93,4:00 pm,Sat 23/05
+Halmstads BK,Orgryte IS,Football / Sweden / Allsvenskan,3.45,3.06,2.31,4:00 pm,Sat 23/05
+IK Oddevold,Ostersunds FK,Football / Sweden / Superettan,3.39,3.25,2.09,4:00 pm,Sat 23/05
+Durban City FC 2024,AmaZulu FC,Football / South Africa / Premier Soccer League,2.92,3.65,2.16,4:00 pm,Sat 23/05
+Sekhukhune United,Siwelele FC,Football / South Africa / Premier Soccer League,2.95,3.68,2.13,4:00 pm,Sat 23/05
+Orbit College FC,Orlando Pirates FC,Football / South Africa / Premier Soccer League,6.8,1.15,16.51,4:00 pm,Sat 23/05
+Lamontville Golden Arrows,TS Galaxy FC,Football / South Africa / Premier Soccer League,3.06,3.45,2.16,4:00 pm,Sat 23/05
+Magesi FC,Richards Bay FC,Football / South Africa / Premier Soccer League,3.16,3.84,1.99,4:00 pm,Sat 23/05
+Kalmar FF,Degerfors IF,Football / Sweden / Allsvenskan,3.27,3.7,2.11,4:00 pm,Sat 23/05
+Kaizer Chiefs,Chippa United FC,Football / South Africa / Premier Soccer League,3.84,6.22,1.52,4:00 pm,Sat 23/05
+CA Progreso,Montevideo City Torque,Football / Uruguay / Primera Division,3.16,2.08,3.55,4:00 pm,Sat 23/05
+Nordic United FC,IK Brage,Football / Sweden / Superettan,3.49,2.67,2.39,4:00 pm,Sat 23/05
+Kuopion Palloseura,FC Lahti,Football / Finland / Veikkausliiga,3.74,4.85,1.65,5:00 pm,Sat 23/05
+HNK Rijeka,HNK Gorica,Football / Croatia / HNL,3.6,4.57,1.71,5:00 pm,Sat 23/05
+NK Varazdin,NK Istra 1961,Football / Croatia / HNL,2.87,3.46,2.26,5:00 pm,Sat 23/05
+Seinajoen JK,AC Oulu,Football / Finland / Veikkausliiga,3.46,2.63,2.44,5:00 pm,Sat 23/05
+Ekenas Idrottsforening,KaPa Kapylan Pallo,Football / Finland / Ykkosliiga,3.74,3.45,1.91,5:00 pm,Sat 23/05
+Celtic Glasgow,Dunfermline Athletic FC,Football / Scotland / Scottish Cup,6.63,11.65,1.17,5:00 pm,Sat 23/05
+Tampereen Ilves,IF Gnistan,Football / Finland / Veikkausliiga,4.47,4.86,1.54,5:00 pm,Sat 23/05
+FF Jaro,IFK Mariehamn,Football / Finland / Veikkausliiga,3.83,4.07,1.74,5:00 pm,Sat 23/05
+Falkenbergs FF,IFK Varnamo,Football / Sweden / Superettan,3.31,2.77,2.4,6:00 pm,Sat 23/05
+Karpaty Lviv,FC Zorya Luhansk,Football / Ukraine / Premier League,3.36,3.41,2.05,6:00 pm,Sat 23/05
+Pogon Szczecin,GKS Katowice,Football / Poland / Ekstraklasa,3.84,2.5,2.56,6:30 pm,Sat 23/05
+RKS Rakow Czestochowa,MKS Arka Gdynia,Football / Poland / Ekstraklasa,3.98,5.51,1.62,6:30 pm,Sat 23/05
+MKS Cracovia Krakow,Korona Kielce,Football / Poland / Ekstraklasa,3.37,3.29,2.23,6:30 pm,Sat 23/05
+Widzew Lodz,GKS Piast Gliwice,Football / Poland / Ekstraklasa,3.6,3.24,2.16,6:30 pm,Sat 23/05
+KKS Lech Poznan,Wisla Plock,Football / Poland / Ekstraklasa,5.12,7.08,1.4,6:30 pm,Sat 23/05
+Jagiellonia Bialystok,Zaglebie Lubin,Football / Poland / Ekstraklasa,4.11,5.02,1.65,6:30 pm,Sat 23/05
+Legia Warszawa,LKP Motor Lublin,Football / Poland / Ekstraklasa,4.37,5.25,1.59,6:30 pm,Sat 23/05
+Bruk-Bet Termalica Nieciecza,KS Lechia Gdansk,Football / Poland / Ekstraklasa,3.85,2.13,3.12,6:30 pm,Sat 23/05
+Gornik Zabrze,RKS Radomiak Radom,Football / Poland / Ekstraklasa,4.43,6.0,1.52,6:30 pm,Sat 23/05
+NK Maribor,Aluminij Kidricevo,Football / Slovenia / PrvaLiga,4.87,6.03,1.41,6:30 pm,Sat 23/05
+Hull City,Southampton FC,Football / England / Championship,3.3,1.85,4.64,6:30 pm,Sat 23/05
+FC Barcelona Women,Olympique Lyon Women,Football / International / UEFA Champions League Women,5.64,7.77,1.29,7:00 pm,Sat 23/05
+GNK Dinamo Zagreb,NK Lokomotiva Zagreb,Football / Croatia / HNL,6.41,10.68,1.2,7:45 pm,Sat 23/05
+FC Universitatea Cluj,FC Dinamo Bucuresti 1948,Football / Romania / Liga I,3.21,2.87,2.38,8:30 pm,Sat 23/05
+FC CFR 1907 Cluj,ACS Champions FC Arges,Football / Romania / Liga I,4.06,5.03,1.58,8:30 pm,Sat 23/05
+CD Moquegua,Universitario de Deportes,Football / Peru / Primera Division,3.68,1.64,5.04,8:45 pm,Sat 23/05
+Bayern Munich,VfB Stuttgart,Football / Germany / DFB Pokal,5.93,7.36,6.64,9:00 pm,Sat 23/05
+Cerro Largo FC,CA Boston River,Football / Uruguay / Primera Division,3.02,3.16,2.31,9:00 pm,Sat 23/05
+Bravo Ljubljana,Olimpija Ljubljana,Football / Slovenia / PrvaLiga,3.31,2.48,2.67,9:15 pm,Sat 23/05
+Saint Louis City SC,Austin FC,Football / USA / Major League Soccer,4.13,4.72,1.65,9:45 pm,Sat 23/05
+Oud-Heverlee Leuven,KRC Genk,Football / Belgium / Pro League,3.9,2.01,3.5,9:45 pm,Sat 23/05
+Royal Antwerp FC,KVC Westerlo,Football / Belgium / Pro League,3.77,2.96,2.29,9:45 pm,Sat 23/05
+Standard Liege,Royal Charleroi SC,Football / Belgium / Pro League,3.5,2.55,2.77,9:45 pm,Sat 23/05
+Gremio Novorizontino SP,Ceara SC CE,Football / Brazil / Brasileiro Serie B,2.92,3.7,2.14,10:00 pm,Sat 23/05
+EC Vitoria BA,SC Internacional RS,Football / Brazil / Brasileiro Serie A,3.16,2.76,2.7,11:00 pm,Sat 23/05
+Sao Paulo FC SP,Botafogo FR RJ,Football / Brazil / Brasileiro Serie A,3.48,3.8,2.0,11:00 pm,Sat 23/05
+Minnesota United FC,Real Salt Lake,Football / USA / Major League Soccer,3.59,3.1,2.18,11:30 pm,Sat 23/05
 Mirassol FC SP,Fluminense FC RJ,Football / Brazil / Brasileiro Serie A,3.24,2.64,2.75,1:00 am,Sun 24/05
-Gremio FB Porto Alegrense RS,Santos FC SP,Football / Brazil / Brasileiro Serie A,3.34,3.81,2.05,1:00 am,Sun 24/05
+Gremio FB Porto Alegrense RS,Santos FC SP,Football / Brazil / Brasileiro Serie A,3.29,3.74,2.09,1:00 am,Sun 24/05
+Cusco FC,Atletico Grau,Football / Peru / Primera Division,3.51,4.2,1.8,1:15 am,Sun 24/05
+Atletico Nacional Medellin,CD Tolima,"Football / Colombia / Primera A, Apertura",3.76,4.73,1.66,2:00 am,Sun 24/05
+Indy Eleven,Lexington SC,Football / USA / USL Championship,3.31,2.83,2.36,2:00 am,Sun 24/05
+FC Cincinnati,Orlando City SC,Football / USA / Major League Soccer,4.7,4.69,1.58,2:30 am,Sun 24/05
+Charlotte FC,New England Revolution,Football / USA / Major League Soccer,3.72,3.93,1.86,2:30 am,Sun 24/05
+DC United,CF Montreal,Football / USA / Major League Soccer,3.77,3.87,1.87,2:30 am,Sun 24/05
+Rhode Island FC,Brooklyn FC,Football / USA / USL Championship,3.98,5.05,1.58,2:30 am,Sun 24/05
+CD Cuenca,LDU Quito,Football / Ecuador / LigaPro Primera A,3.2,2.43,2.81,3:00 am,Sun 24/05
 CR Flamengo RJ,SE Palmeiras SP,Football / Brazil / Brasileiro Serie A,3.4,4.31,1.91,3:00 am,Sun 24/05
-FK Spartak Moscow,FK Krasnodar,Football / Russian Federation / Russian Cup,3.39,2.36,2.7,6:00 pm,Sun 24/05
-Sporting CP,SCU Torreense,Football / Portugal / Taca de Portugal,8.91,18.41,1.09,7:15 pm,Sun 24/05
+Sporting Kansas City,New York Red Bulls,Football / USA / Major League Soccer,4.14,2.06,3.0,3:30 am,Sun 24/05
+Nashville SC,New York City FC,Football / USA / Major League Soccer,3.79,4.54,1.74,3:30 am,Sun 24/05
+Chicago Fire,Toronto FC,Football / USA / Major League Soccer,4.6,5.43,1.52,3:30 am,Sun 24/05
+San Antonio FC,Sacramento Republic FC,Football / USA / USL Championship,2.92,3.07,2.43,3:30 am,Sun 24/05
+San Diego FC,Vancouver Whitecaps FC,Football / USA / Major League Soccer,3.93,1.86,3.72,4:30 am,Sun 24/05
+CD Junior FC,Independiente Santa Fe,"Football / Colombia / Primera A, Apertura",3.3,3.49,2.04,4:30 am,Sun 24/05
+Colorado Rapids,FC Dallas,Football / USA / Major League Soccer,3.76,2.84,2.27,4:30 am,Sun 24/05
+Alianza Lima,Los Chankas CYC,Football / Peru / Primera Division,5.05,9.32,1.29,4:30 am,Sun 24/05
+Monterey Bay FC,Birmingham Legion FC,Football / USA / USL Championship,3.35,2.28,2.91,5:00 am,Sun 24/05
+Orange County SC,Oakland Roots SC,Football / USA / USL Championship,3.12,2.68,2.58,5:00 am,Sun 24/05
+Las Vegas Lights,Colorado Springs Switchbacks FC,Football / USA / USL Championship,3.51,2.05,3.26,5:30 am,Sun 24/05
+Los Angeles Galaxy,Houston Dynamo,Football / USA / Major League Soccer,3.79,3.49,1.96,5:30 am,Sun 24/05
+Fagiano Okayama,Cerezo Osaka,Football / Japan / J.League,3.4,2.5,2.8,6:55 am,Sun 24/05
+Mito Hollyhock,Kawasaki Frontale,Football / Japan / J.League,3.45,2.28,3.1,8:00 am,Sun 24/05
+Tokyo Verdy,Yokohama F Marinos,Football / Japan / J.League,3.15,2.8,2.65,8:00 am,Sun 24/05
+Yongin City FC,Chungnam Asan FC,Football / Republic of Korea / K-League 2,3.19,2.16,3.19,10:30 am,Sun 24/05
+Shimizu S-Pulse,Gamba Osaka,Football / Japan / J.League,3.4,2.44,2.9,11:00 am,Sun 24/05
+Daegu FC,Ansan Greeners FC,Football / Republic of Korea / K-League 2,5.2,7.5,1.31,1:00 pm,Sun 24/05
+Seoul E-Land FC,Seongnam Ilhwa,Football / Republic of Korea / K-League 2,3.27,3.56,1.98,1:00 pm,Sun 24/05
+Veres Rivne,FC Metalist 1925 Kharkiv,Football / Ukraine / Premier League,3.8,1.62,5.06,1:00 pm,Sun 24/05
+FC Dynamo Kyiv,FK Kudrivka,Football / Ukraine / Premier League,8.76,15.57,1.11,1:00 pm,Sun 24/05
+FC Polissya Zhytomyr,FC Rukh Lviv,Football / Ukraine / Premier League,7.77,12.63,1.15,1:00 pm,Sun 24/05
+FC Obolon Kyiv,LNZ Cherkasy,Football / Ukraine / Premier League,3.84,1.54,5.83,1:00 pm,Sun 24/05
+Stockport County FC,Bolton Wanderers,Football / England / League One,3.47,2.69,2.57,3:00 pm,Sun 24/05
+FK Jablonec,FC Slovan Liberec,Football / Czech Republic / 1. Liga,3.42,3.22,2.24,3:00 pm,Sun 24/05
+Slavia Prague,FC Viktoria Plzen,Football / Czech Republic / 1. Liga,3.64,3.77,1.96,3:00 pm,Sun 24/05
+Sparta Prague,FC Hradec Kralove,Football / Czech Republic / 1. Liga,3.89,4.96,1.69,3:00 pm,Sun 24/05
+Hammarby IF,AIK,Football / Sweden / Allsvenskan,4.79,6.34,1.46,3:00 pm,Sun 24/05
+IK Sirius,GAIS,Football / Sweden / Allsvenskan,3.92,3.96,1.84,3:00 pm,Sun 24/05
+CA Cerro,Central Espanol FC,Football / Uruguay / Primera Division,2.91,2.72,2.72,4:00 pm,Sun 24/05
+Varbergs BoIS,GIF Sundsvall,Football / Sweden / Superettan,3.75,4.29,1.72,4:00 pm,Sun 24/05
+HB Koege,Hobro IK,Football / Denmark / 1. Division,3.31,2.48,2.67,5:00 pm,Sun 24/05
+Bodoe/Glimt,SK Brann,Football / Norway / Eliteserien,4.74,6.09,1.46,5:00 pm,Sun 24/05
+MKS Znicz Pruszkow,Ruch Chorzow,Football / Poland / I Liga,3.65,2.06,3.11,5:30 pm,Sun 24/05
+FKS Stal Mielec,Polonia Bytom,Football / Poland / I Liga,3.41,2.68,2.42,5:30 pm,Sun 24/05
+GKS Tychy,ZKS Stal Rzeszow,Football / Poland / I Liga,3.89,3.21,1.96,5:30 pm,Sun 24/05
+Wisla Krakow,Pogon Siedlce,Football / Poland / I Liga,5.24,7.96,1.31,5:30 pm,Sun 24/05
+Wieczysta Krakow,Chrobry Glogow,Football / Poland / I Liga,4.57,6.22,1.43,5:30 pm,Sun 24/05
+Malmo FF,Vasteraas SK,Football / Sweden / Allsvenskan,4.07,4.99,1.66,5:30 pm,Sun 24/05
+Odra Opole,Polonia Warszawa,Football / Poland / I Liga,3.56,2.05,3.22,5:30 pm,Sun 24/05
+WKS Slask Wroclaw,Pogon Grodzisk Mazowiecki,Football / Poland / I Liga,4.74,6.0,1.42,5:30 pm,Sun 24/05
+Burnley FC,Wolverhampton Wanderers,Football / England / Premier League,3.52,2.87,2.45,6:00 pm,Sun 24/05
+Manchester City,Aston Villa,Football / England / Premier League,5.34,6.47,1.43,6:00 pm,Sun 24/05
+Sandvikens IF,Landskrona BoIS,Football / Sweden / Superettan,3.46,2.82,2.29,6:00 pm,Sun 24/05
+FK Spartak Moscow,FK Krasnodar,Football / Russian Federation / Russian Cup,3.53,2.5,2.45,6:00 pm,Sun 24/05
+Fulham FC,Newcastle United,Football / England / Premier League,3.74,2.59,2.59,6:00 pm,Sun 24/05
+Sunderland AFC,Chelsea FC,Football / England / Premier League,3.73,1.97,3.79,6:00 pm,Sun 24/05
+Brighton & Hove Albion,Manchester United,Football / England / Premier League,3.82,3.12,2.18,6:00 pm,Sun 24/05
+Sporting Cristal,Asociacion Deportiva Tarma,Football / Peru / Primera Division,3.6,4.67,1.7,7:00 pm,Sun 24/05
+Kristiansund BK,Viking FK,Football / Norway / Eliteserien,5.22,1.35,7.98,7:00 pm,Sun 24/05
+Sporting CP,SCU Torreense,Football / Portugal / Taca de Portugal,8.72,19.37,1.09,7:15 pm,Sun 24/05
+SD Eibar,Cordoba CF,Football / Spain / LaLiga 2,3.78,3.59,1.97,7:30 pm,Sun 24/05
+FC Andorra,AD Ceuta,Football / Spain / LaLiga 2,4.45,5.46,1.56,7:30 pm,Sun 24/05
+Sporting Gijon,UD Almeria,Football / Spain / LaLiga 2,4.07,1.89,3.62,7:30 pm,Sun 24/05
+Cultural Leonesa,Burgos CF,Football / Spain / LaLiga 2,3.11,2.45,3.12,7:30 pm,Sun 24/05
+SD Huesca,CD Castellon,Football / Spain / LaLiga 2,3.75,1.84,4.15,7:30 pm,Sun 24/05
+CD Mirandes,Granada CF,Football / Spain / LaLiga 2,4.05,4.95,1.66,7:30 pm,Sun 24/05
+Malaga CF,Racing Santander,Football / Spain / LaLiga 2,4.35,4.16,1.72,7:30 pm,Sun 24/05
+Albacete Balompie,Real Sociedad San Sebastian B,Football / Spain / LaLiga 2,3.99,3.99,1.82,7:30 pm,Sun 24/05
+Real Valladolid,RC Deportivo De La Coruna,Football / Spain / LaLiga 2,4.06,1.61,5.44,7:30 pm,Sun 24/05
+UD Las Palmas,Real Zaragoza,Football / Spain / LaLiga 2,4.33,5.95,1.54,7:30 pm,Sun 24/05
+Cadiz CF,CD Leganes,Football / Spain / LaLiga 2,3.42,2.72,2.57,7:30 pm,Sun 24/05
+Union Saint-Gilloise,RSC Anderlecht,Football / Belgium / Pro League,4.45,6.39,1.52,7:30 pm,Sun 24/05
+Club Brugge,KAA Gent,Football / Belgium / Pro League,5.96,8.77,1.32,7:30 pm,Sun 24/05
+St. Truidense VV,Yellow-Red KV Mechelen,Football / Belgium / Pro League,4.15,4.28,1.77,7:30 pm,Sun 24/05
+CD Tecnico Universitario,Leones Futbol Club,Football / Ecuador / LigaPro Primera A,3.36,4.87,1.73,9:00 pm,Sun 24/05
+Sport Huancayo,CS Cienciano,Football / Peru / Primera Division,3.21,2.92,2.35,9:15 pm,Sun 24/05
+Cruzeiro EC MG,Chapecoense SC,Football / Brazil / Brasileiro Serie A,5.32,9.25,1.33,10:00 pm,Sun 24/05
 Clube do Remo PA,CA Paranaense PR,Football / Brazil / Brasileiro Serie A,3.23,2.66,2.74,10:00 pm,Sun 24/05
-Cruzeiro EC MG,Chapecoense SC,Football / Brazil / Brasileiro Serie A,5.44,9.5,1.31,10:00 pm,Sun 24/05
-SC Corinthians SP,Atletico Mineiro MG,Football / Brazil / Brasileiro Serie A,3.4,4.31,1.91,12:30 am,Mon 25/05
+AC Goianiense GO,Sao Bernardo FC,Football / Brazil / Brasileiro Serie B,3.31,4.87,1.74,10:00 pm,Sun 24/05
+Alianza Atletico,FC Cajamarca,Football / Peru / Primera Division,3.79,5.44,1.58,11:30 pm,Sun 24/05
+Avai FC SC,Goias EC GO,Football / Brazil / Brasileiro Serie B,3.02,3.12,2.34,12:00 am,Mon 25/05
+Columbus Crew,Atlanta United FC,Football / USA / Major League Soccer,4.6,5.96,1.48,12:00 am,Mon 25/05
+SC Corinthians SP,Atletico Mineiro MG,Football / Brazil / Brasileiro Serie A,3.29,4.33,1.94,12:30 am,Mon 25/05
+Inter Miami CF,Philadelphia Union,Football / USA / Major League Soccer,5.37,6.83,1.37,2:00 am,Mon 25/05
 CR Vasco da Gama RJ,Red Bull Bragantino SP,Football / Brazil / Brasileiro Serie A,3.42,3.88,2.0,2:30 am,Mon 25/05
+Los Angeles FC,Seattle Sounders,Football / USA / Major League Soccer,3.8,3.69,1.9,4:00 am,Mon 25/05
+IK Start,Vaalerenga IF,Football / Norway / Eliteserien,3.65,2.16,3.1,3:30 pm,Mon 25/05
+Notts County,Salford City,Football / England / League Two,3.1,2.66,2.62,5:00 pm,Mon 25/05
+KFUM Oslo,Rosenborg BK,Football / Norway / Eliteserien,3.49,2.97,2.29,6:00 pm,Mon 25/05
+Tromsoe IL,Aalesunds FK,Football / Norway / Eliteserien,4.46,6.35,1.47,6:00 pm,Mon 25/05
+Sarpsborg 08,Molde FK,Football / Norway / Eliteserien,3.68,2.36,2.74,6:00 pm,Mon 25/05
+HamKam,Lillestroem SK,Football / Norway / Eliteserien,3.58,2.11,3.27,6:00 pm,Mon 25/05
+Sandefjord Fotball,Fredrikstad FK,Football / Norway / Eliteserien,3.69,4.01,1.85,8:15 pm,Mon 25/05
 Coritiba FC PR,EC Bahia BA,Football / Brazil / Brasileiro Serie A,3.23,2.66,2.74,2:00 am,Tue 26/05
 Crystal Palace,Rayo Vallecano,Football / International / UEFA Conference League,3.49,4.08,1.97,10:00 pm,Wed 27/05
-Paris Saint-Germain,Arsenal FC,Football / International / UEFA Champions League,3.51,3.23,2.24,7:00 pm,Sat 30/05
+Paris Saint-Germain,Arsenal FC,Football / International / UEFA Champions League,3.45,3.18,3.32,7:00 pm,Sat 30/05
 Mexico,South Africa,Football / International / FIFA World Cup,4.35,6.38,1.53,10:00 pm,Thu 11/06
 Korea Republic,Czechia,Football / International / FIFA World Cup,3.22,2.74,2.75,5:00 am,Fri 12/06
 Canada,Bosnia and Herzegovina,Football / International / FIFA World Cup,3.75,4.34,1.84,10:00 pm,Fri 12/06
 USA,Paraguay,Football / International / FIFA World Cup,3.55,3.65,2.06,4:00 am,Sat 13/06
-Qatar,Switzerland,Football / International / FIFA World Cup,5.83,1.3,10.24,10:00 pm,Sat 13/06
+Qatar,Switzerland,Football / International / FIFA World Cup,5.83,8.04,10.24,10:00 pm,Sat 13/06
 Brazil,Morocco,Football / International / FIFA World Cup,4.1,5.53,1.62,1:00 am,Sun 14/06
 Haiti,Scotland,Football / International / FIFA World Cup,4.83,1.44,7.2,4:00 am,Sun 14/06
 Australia,Turkiye,Football / International / FIFA World Cup,3.69,1.86,4.34,7:00 am,Sun 14/06
-Germany,Curacao,Football / International / FIFA World Cup,21.44,50.56,1.03,8:00 pm,Sun 14/06
+Germany,Curacao,Football / International / FIFA World Cup,21.44,50.56,36.0,8:00 pm,Sun 14/06
 Netherlands,Japan,Football / International / FIFA World Cup,3.65,3.56,2.06,11:00 pm,Sun 14/06
-Ivory Coast,Ecuador,Football / International / FIFA World Cup,3.13,2.4,3.29,2:00 am,Mon 15/06
+Ivory Coast,Ecuador,Football / International / FIFA World Cup,3.12,2.41,3.28,2:00 am,Mon 15/06
 Sweden,Tunisia,Football / International / FIFA World Cup,3.4,4.08,2.0,5:00 am,Mon 15/06
-Spain,Cape Verde,Football / International / FIFA World Cup,11.08,28.43,1.09,7:00 pm,Mon 15/06
+Spain,Cape Verde,Football / International / FIFA World Cup,11.23,29.56,20.4,7:00 pm,Mon 15/06
 Belgium,Egypt,Football / International / FIFA World Cup,4.08,5.12,1.67,10:00 pm,Mon 15/06
-Saudi Arabia,Uruguay,Football / International / FIFA World Cup,4.32,1.54,6.3,1:00 am,Tue 16/06
-IR Iran,New Zealand,Football / International / FIFA World Cup,3.74,4.71,1.78,4:00 am,Tue 16/06
-France,Senegal,Football / International / FIFA World Cup,4.62,6.96,1.47,10:00 pm,Tue 16/06
+Saudi Arabia,Uruguay,Football / International / FIFA World Cup,4.39,1.52,6.52,1:00 am,Tue 16/06
+IR Iran,New Zealand,Football / International / FIFA World Cup,3.62,4.44,1.86,4:00 am,Tue 16/06
+France,Senegal,Football / International / FIFA World Cup,4.62,6.96,5.79,10:00 pm,Tue 16/06
 Iraq,Norway,Football / International / FIFA World Cup,6.29,1.26,11.45,1:00 am,Wed 17/06
-Argentina,Algeria,Football / International / FIFA World Cup,4.71,7.96,1.42,4:00 am,Wed 17/06
-Austria,Jordan,Football / International / FIFA World Cup,5.39,8.54,1.36,7:00 am,Wed 17/06
+Argentina,Algeria,Football / International / FIFA World Cup,4.71,7.96,6.34,4:00 am,Wed 17/06
+Austria,Jordan,Football / International / FIFA World Cup,5.33,8.2,1.37,7:00 am,Wed 17/06
 Portugal,Congo DR,Football / International / FIFA World Cup,5.76,9.9,1.31,8:00 pm,Wed 17/06
 England,Croatia,Football / International / FIFA World Cup,3.95,4.94,1.71,11:00 pm,Wed 17/06
-Ghana,Panama,Football / International / FIFA World Cup,3.56,3.7,2.05,2:00 am,Thu 18/06
+Ghana,Panama,Football / International / FIFA World Cup,3.59,3.81,2.0,2:00 am,Thu 18/06
 Uzbekistan,Colombia,Football / International / FIFA World Cup,4.79,1.43,7.55,5:00 am,Thu 18/06
-Belgium,IR Iran,Football / International / FIFA World Cup,4.47,7.35,1.47,10:00 pm,Sun 21/06
