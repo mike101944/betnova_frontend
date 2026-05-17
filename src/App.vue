@@ -5,8 +5,8 @@
 
     <!-- Main Content - Inachukua nafasi yote iliyobaki -->
     <main class="flex-1 bg-transparent flex flex-row w-full min-h-0 relative">
-
-      <!-- <WinningNotificationModal
+<!-- 
+      <WinningNotificationModal
       :show="showWinningModal"
       :win="currentWin"
       @close="handleCloseModal"
