@@ -13,7 +13,7 @@
   import Papa from 'papaparse'
   
   // 🔥 import raw CSV (hakuna fetch)
-  import csvFile from './matokeo_betpawa_final_removeNAN.csv?raw'
+  import csvFile from './matokeo_betpawa_clean.csv?raw'
   
   const games = ref([])
   
