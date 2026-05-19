@@ -136,7 +136,7 @@
             </div>
             
             <!-- Bottom Decoration -->
-            <div class="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-yellow-500 via-amber-500 to-yellow-500 rounded-b-3xl"></div>
+            <!-- <div class="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-yellow-500 via-amber-500 to-yellow-500 rounded-b-3xl"></div> -->
           </div>
         </div>
       </div>
