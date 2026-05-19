@@ -11,7 +11,7 @@
     >
       <div v-if="show" class="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-md">
         <!-- Dark Background with Stars -->
-        <div class="absolute inset-0 bg-transparent">
+        <div class="absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900">
           <!-- Stars Background -->
           <div class="absolute inset-0">
             <div v-for="i in 100" :key="i" class="star" :style="getStarStyle(i)"></div>
@@ -65,26 +65,26 @@
               <!-- Champion Badge with Trophy -->
               <div class="inline-flex items-center gap-2 bg-gradient-to-r from-yellow-600 to-amber-600 text-white px-5 py-2 rounded-full text-sm font-bold mb-4 shadow-lg border border-yellow-400/50">
                 <TrophyIcon class="w-4 h-4 text-yellow-300" />
-                <span>🏆 YOUR A CHAMPION 🏆</span>
+                <span>🏆 WORLD CHAMPION 🏆</span>
                 <TrophyIcon class="w-4 h-4 text-yellow-300" />
               </div>
               
               <!-- Title with Trophy Icons -->
-              <h2 class="text-xl font-black bg-gradient-to-r from-yellow-400 via-amber-400 to-yellow-500 bg-clip-text text-transparent mb-2 flex items-center justify-center gap-2">
+              <h2 class="text-4xl font-black bg-gradient-to-r from-yellow-400 via-amber-400 to-yellow-500 bg-clip-text text-transparent mb-2 flex items-center justify-center gap-2">
                 <TrophyIcon class="w-8 h-8 text-yellow-500" />
                 CONGRATULATIONS!
                 <TrophyIcon class="w-8 h-8 text-yellow-500" />
               </h2>
               <p class="text-yellow-500 font-semibold mb-4 flex items-center justify-center gap-2">
                 <TrophyIcon class="w-4 h-4 text-yellow-400" />
-                BETNOVER CHAMPIONSHIP WINNER!
+                WORLD CUP CHAMPIONSHIP WINNER!
                 <TrophyIcon class="w-4 h-4 text-yellow-400" />
               </p>
               
               <!-- Winning Prize Card -->
               <div class="relative mb-6">
                 <div class="absolute inset-0 bg-gradient-to-r from-yellow-500 to-amber-600 rounded-2xl blur-lg opacity-60"></div>
-                <div class="relative bg-transparentrounded-2xl p-1 shadow-2xl border border-yellow-300/50">
+                <div class="relative bg-gradient-to-br from-yellow-500 to-amber-600 rounded-2xl p-6 shadow-2xl border border-yellow-300/50">
                   <!-- Trophy Icons Top -->
                   <div class="flex items-center justify-center gap-2 mb-3">
                     <TrophyIcon class="w-6 h-6 text-yellow-200 drop-shadow" />
@@ -93,7 +93,7 @@
                   </div>
                   
                   <p class="text-white/90 font-bold text-sm uppercase tracking-wider mb-1">YOU WON</p>
-                  <p class="text-xl font-black text-white drop-shadow-lg mb-2">
+                  <p class="text-5xl font-black text-white drop-shadow-lg mb-2">
                     {{ formatMoney(win?.potentialReturn) }}
                   </p>
                   

@@ -5,12 +5,12 @@
 
     <!-- Main Content - Inachukua nafasi yote iliyobaki -->
     <main class="flex-1 bg-transparent flex flex-row w-full min-h-0 relative">
-<!-- 
+
       <WinningNotificationModal
       :show="showWinningModal"
       :win="currentWin"
       @close="handleCloseModal"
-    /> -->
+    />
       <Transition name="fade">
         <div v-if="isLeftSidebarOpen" class="fixed inset-0 bg-transparent cursor-pointer z-[1000]"
           @click="leftSidebarClose"></div>
