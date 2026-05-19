@@ -13,7 +13,7 @@
       <div 
         v-if="show" 
         class="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-md"
-        @click="handleClose"
+        @click="$emit('close')"
       >
         <!-- Dark Background with Stars -->
         <div class="absolute inset-0 bg-transparent pointer-events-none">
@@ -30,12 +30,12 @@
           <!-- Animated Background Glow -->
           <div class="absolute -inset-1 bg-gradient-to-r from-yellow-500 via-amber-500 to-yellow-600 rounded-3xl blur-xl opacity-50 animate-pulse"></div>
           
-          <!-- Main Card -->
+          <!-- Main Card - Remove overflow-hidden so close button can be outside -->
           <div class="relative bg-gradient-to-br from-gray-800 via-gray-900 to-gray-800 rounded-3xl shadow-2xl border border-yellow-500/30">
             
             <!-- Close Button - Top Right Corner (outside the card) -->
             <button 
-              @click="handleClose"
+              @click="$emit('close')"
               class="absolute -top-3 -right-3 z-20 w-8 h-8 cursor-pointer rounded-full bg-gray-800 hover:bg-gray-700 flex items-center justify-center text-gray-400 hover:text-white transition-all duration-200 border border-yellow-500/50 shadow-lg"
             >
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -80,11 +80,8 @@
             
             <!-- Content -->
             <div class="p-6 pt-16 text-center relative z-10">
-              <!-- Champion Badge with Trophy - Also clickable to close -->
-              <div 
-                @click="handleClose"
-                class="inline-flex items-center gap-2 bg-gradient-to-r from-yellow-600 to-amber-600 text-white px-5 py-2 rounded-full text-sm font-bold mb-4 shadow-lg border border-yellow-400/50 cursor-pointer hover:scale-105 transition-transform"
-              >
+              <!-- Champion Badge with Trophy -->
+              <div class="inline-flex items-center gap-2 bg-gradient-to-r from-yellow-600 to-amber-600 text-white px-5 py-2 rounded-full text-sm font-bold mb-4 shadow-lg border border-yellow-400/50">
                 <TrophyIcon class="w-4 h-4 text-yellow-300" />
                 <span>🏆 YOUR A CHAMPION 🏆</span>
                 <TrophyIcon class="w-4 h-4 text-yellow-300" />
@@ -100,10 +97,10 @@
               
               <!-- Winning Prize Card -->
               <div class="relative mb-6">
-                <div class="absolute inset-0 bg-gradient-to-r from-sky-900 to-sky-700 rounded-2xl blur-lg opacity-60"></div>
+                <div class="absolute inset-0 bg-gradient-to-r from-yellow-500 to-amber-600 rounded-2xl blur-lg opacity-60"></div>
                 <div class="relative bg-transparent rounded-2xl p-1 shadow-2xl border border-yellow-300/50">
                   <!-- Trophy Icons Top -->
-                  <div class="flex items-center justify-between gap-2 mb-3">
+                  <div class="flex items-center justify-center gap-2 mb-3">
                     <TrophyIcon class="w-6 h-6 text-yellow-200 drop-shadow" />
                     <TrophyIcon class="w-8 h-8 text-yellow-200 drop-shadow" />
                     <TrophyIcon class="w-6 h-6 text-yellow-200 drop-shadow" />
@@ -154,12 +151,6 @@ const props = defineProps({
 })
 
 const emit = defineEmits(['close'])
-
-// Close handler function
-const handleClose = () => {
-  console.log('Closing modal...')
-  emit('close')
-}
 
 const formatMoney = (amount) => {
   if (!amount) return '0 Tsh'

@@ -9,7 +9,7 @@
       <WinningNotificationModal
       :show="showWinningModal"
       :win="currentWin"
-      @close="handleCloseModal"
+      @close="showWinningModal = false"
     />
       <Transition name="fade">
         <div v-if="isLeftSidebarOpen" class="fixed inset-0 bg-transparent cursor-pointer z-[1000]"

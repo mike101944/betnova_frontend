@@ -9,34 +9,26 @@
       leave-from-class="opacity-100 scale-100"
       leave-to-class="opacity-0 scale-95"
     >
-      <!-- Click outside to close - background click -->
-      <div 
-        v-if="show" 
-        class="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-md"
-        @click="handleClose"
-      >
+      <div v-if="show" class="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-md">
         <!-- Dark Background with Stars -->
-        <div class="absolute inset-0 bg-transparent pointer-events-none">
+        <div class="absolute inset-0 bg-transparent">
           <!-- Stars Background -->
           <div class="absolute inset-0">
             <div v-for="i in 100" :key="i" class="star" :style="getStarStyle(i)"></div>
           </div>
         </div>
         
-        <div 
-          class="relative max-w-md w-full mx-4"
-          @click.stop
-        >
+        <div class="relative max-w-md w-full mx-4">
           <!-- Animated Background Glow -->
           <div class="absolute -inset-1 bg-gradient-to-r from-yellow-500 via-amber-500 to-yellow-600 rounded-3xl blur-xl opacity-50 animate-pulse"></div>
           
           <!-- Main Card -->
-          <div class="relative bg-gradient-to-br from-gray-800 via-gray-900 to-gray-800 rounded-3xl shadow-2xl border border-yellow-500/30">
+          <div class="relative bg-gradient-to-br from-gray-800 via-gray-900 to-gray-800 rounded-3xl shadow-2xl overflow-hidden border border-yellow-500/30">
             
-            <!-- Close Button - Top Right Corner (outside the card) -->
+            <!-- Close Button - Top Right Corner -->
             <button 
-              @click="handleClose"
-              class="absolute -top-3 -right-3 z-20 w-8 h-8 cursor-pointer rounded-full bg-gray-800 hover:bg-gray-700 flex items-center justify-center text-gray-400 hover:text-white transition-all duration-200 border border-yellow-500/50 shadow-lg"
+              @click="$emit('close')"
+              class="absolute -top-3 -right-7 z-20 w-8 h-8 cursor-pointer rounded-full bg-gray-700/50 hover:bg-gray-600/70 flex items-center justify-center text-gray-300 hover:text-white transition-all duration-200 backdrop-blur-sm border border-gray-600"
             >
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
@@ -44,7 +36,7 @@
             </button>
             
             <!-- Confetti Animation Background -->
-            <div class="absolute inset-0 pointer-events-none overflow-hidden rounded-3xl">
+            <div class="absolute inset-0 pointer-events-none">
               <div v-for="i in 40" :key="i" class="confetti" :style="getConfettiStyle(i)"></div>
             </div>
             
@@ -80,11 +72,8 @@
             
             <!-- Content -->
             <div class="p-6 pt-16 text-center relative z-10">
-              <!-- Champion Badge with Trophy - Also clickable to close -->
-              <div 
-                @click="handleClose"
-                class="inline-flex items-center gap-2 bg-gradient-to-r from-yellow-600 to-amber-600 text-white px-5 py-2 rounded-full text-sm font-bold mb-4 shadow-lg border border-yellow-400/50 cursor-pointer hover:scale-105 transition-transform"
-              >
+              <!-- Champion Badge with Trophy -->
+              <div class="inline-flex items-center gap-2 bg-gradient-to-r from-yellow-600 to-amber-600 text-white px-5 py-2 rounded-full text-sm font-bold mb-4 shadow-lg border border-yellow-400/50">
                 <TrophyIcon class="w-4 h-4 text-yellow-300" />
                 <span>🏆 YOUR A CHAMPION 🏆</span>
                 <TrophyIcon class="w-4 h-4 text-yellow-300" />
@@ -96,14 +85,18 @@
                 CONGRATULATIONS!
                 <TrophyIcon class="w-8 h-8 text-yellow-500" />
               </h2>
-             
+              <p class="text-yellow-500 font-semibold mb-4 flex items-center justify-center gap-2">
+                <TrophyIcon class="w-4 h-4 text-yellow-400" />
+                BETNOVER CHAMPIONSHIP WINNER!
+                <TrophyIcon class="w-4 h-4 text-yellow-400" />
+              </p>
               
               <!-- Winning Prize Card -->
               <div class="relative mb-6">
-                <div class="absolute inset-0 bg-gradient-to-r from-sky-900 to-sky-700 rounded-2xl blur-lg opacity-60"></div>
+                <div class="absolute inset-0 bg-gradient-to-r from-yellow-500 to-amber-600 rounded-2xl blur-lg opacity-60"></div>
                 <div class="relative bg-transparent rounded-2xl p-1 shadow-2xl border border-yellow-300/50">
                   <!-- Trophy Icons Top -->
-                  <div class="flex items-center justify-between gap-2 mb-3">
+                  <div class="flex items-center justify-center gap-2 mb-3">
                     <TrophyIcon class="w-6 h-6 text-yellow-200 drop-shadow" />
                     <TrophyIcon class="w-8 h-8 text-yellow-200 drop-shadow" />
                     <TrophyIcon class="w-6 h-6 text-yellow-200 drop-shadow" />
@@ -121,7 +114,23 @@
                     <TrophyIcon class="w-4 h-4 text-yellow-200" />
                   </div>
                   
-                
+                  <!-- <div class="flex items-center justify-center gap-6 mt-3 pt-3 border-t border-yellow-400/30">
+                    <div class="text-center">
+                      <p class="text-xs text-white/80">Stake</p>
+                      <p class="text-base font-bold text-white flex items-center gap-1">
+                        <TrophyIcon class="w-3 h-3 text-yellow-200" />
+                        {{ formatMoney(win?.stake) }}
+                      </p>
+                    </div>
+                    <div class="w-px h-8 bg-yellow-400/30"></div>
+                    <div class="text-center">
+                      <p class="text-xs text-white/80">Odds</p>
+                      <p class="text-base font-bold text-white flex items-center gap-1">
+                        <TrophyIcon class="w-3 h-3 text-yellow-200" />
+                        {{ win?.totalOdds }}x
+                      </p>
+                    </div>
+                  </div> -->
                 </div>
               </div>
               
@@ -136,7 +145,7 @@
             </div>
             
             <!-- Bottom Decoration -->
-            <div class="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-yellow-500 via-amber-500 to-yellow-500 rounded-b-3xl"></div>
+            <div class="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-yellow-500 via-amber-500 to-yellow-500"></div>
           </div>
         </div>
       </div>
@@ -154,12 +163,6 @@ const props = defineProps({
 })
 
 const emit = defineEmits(['close'])
-
-// Close handler function
-const handleClose = () => {
-  console.log('Closing modal...')
-  emit('close')
-}
 
 const formatMoney = (amount) => {
   if (!amount) return '0 Tsh'
