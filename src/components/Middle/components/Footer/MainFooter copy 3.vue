@@ -60,7 +60,7 @@
       </div>
 
       <!-- Footer Grid -->
-      <div class="grid grid-cols-1 md:grid-cols-2  gap-5 px-2 ">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 px-2 ">
         
         <!-- About Column -->
         <div class="space-y-2">
@@ -89,57 +89,6 @@
           </div>
         </div>
 
-
-          <!-- Payment Methods -->
-      <div class="mb-3">
-        <div class="text-center mb-8">
-          <h3 class="text-l font-bold text-white mb-2">Payment Methods</h3>
-          <p class="text-slate-400 text-sm">Fast deposits and withdrawals supported</p>
-        </div>
-        
-        <div class="flex flex-wrap justify-center gap-4">
-          <div class="px-2 py-2 text-sm bg-white/5 border border-white/10 rounded-xl text-white font-medium hover:border-emerald-500 hover:-translate-y-1 transition-all duration-300 cursor-pointer">
-            M-Pesa
-          </div>
-          <div class="px-2 py-2 text-sm bg-white/5 border border-white/10 rounded-xl text-white font-medium hover:border-emerald-500 hover:-translate-y-1 transition-all duration-300 cursor-pointer">
-            Airtel Money
-          </div>
-          <div class="px-2 py-2 text-sm bg-white/5 border border-white/10 rounded-xl text-white font-medium hover:border-emerald-500 hover:-translate-y-1 transition-all duration-300 cursor-pointer">
-            Mixx
-          </div>
-          <div class="px-2 py-2 text-sm bg-white/5 border border-white/10 rounded-xl text-white font-medium hover:border-emerald-500 hover:-translate-y-1 transition-all duration-300 cursor-pointer">
-            HaloPesa
-          </div>
-          <div class="px-2 py-2 text-sm bg-white/5 border border-white/10 rounded-xl text-white font-medium hover:border-emerald-500 hover:-translate-y-1 transition-all duration-300 cursor-pointer">
-            T-Pesa
-          </div>
-        </div>
-      </div>
-
-
-      
-
-      
-      
-      </div>
-      <div class="grid grid-cols-1 md:grid-cols-2  gap-5 px-2 mt-3 ">
-
-          <!-- Products Column -->
-          <div>
-          <h3 class="text-lg font-bold text-white mb-6 relative inline-block">
-            Products
-            <div class="absolute -bottom-2 left-0 w-12 h-0.5 bg-gradient-to-r from-emerald-500 to-cyan-500 rounded-full"></div>
-          </h3>
-          
-          <ul class="space-y-3 flex gap-1">
-            <li><a href="#" class="text-slate-400 hover:text-white hover:translate-x-2 transition-all duration-300 inline-block">Sports Betting</a></li>
-            <li><a href="#" class="text-slate-400 hover:text-white hover:translate-x-2 transition-all duration-300 inline-block">Live Betting</a></li>
-            <li><a href="#" class="text-slate-400 hover:text-white hover:translate-x-2 transition-all duration-300 inline-block">Virtual Games</a></li>
-            <li><a href="#" class="text-slate-400 hover:text-white hover:translate-x-2 transition-all duration-300 inline-block">Jackpot</a></li>
-          </ul>
-        </div>
-
-        
         <!-- Company Column -->
         <div>
           <h3 class="text-lg font-bold text-white mb-6 relative inline-block">
@@ -154,12 +103,51 @@
             <li><a href="#" class="text-slate-400 hover:text-white hover:translate-x-2 transition-all duration-300 inline-block">Responsible Gaming</a></li>
           </ul>
         </div>
-       
+
+        <!-- Products Column -->
+        <div>
+          <h3 class="text-lg font-bold text-white mb-6 relative inline-block">
+            Products
+            <div class="absolute -bottom-2 left-0 w-12 h-0.5 bg-gradient-to-r from-emerald-500 to-cyan-500 rounded-full"></div>
+          </h3>
+          
+          <ul class="space-y-3 flex gap-1">
+            <li><a href="#" class="text-slate-400 hover:text-white hover:translate-x-2 transition-all duration-300 inline-block">Sports Betting</a></li>
+            <li><a href="#" class="text-slate-400 hover:text-white hover:translate-x-2 transition-all duration-300 inline-block">Live Betting</a></li>
+            <li><a href="#" class="text-slate-400 hover:text-white hover:translate-x-2 transition-all duration-300 inline-block">Virtual Games</a></li>
+            <li><a href="#" class="text-slate-400 hover:text-white hover:translate-x-2 transition-all duration-300 inline-block">Jackpot</a></li>
+          </ul>
         </div>
 
 
+         <!-- Payment Methods -->
+      <div class="mb-3">
+        <div class="text-center mb-8">
+          <h3 class="text-2xl font-bold text-white mb-2">Payment Methods</h3>
+          <p class="text-slate-400">Fast deposits and withdrawals supported</p>
+        </div>
+        
+        <div class="flex flex-wrap justify-center gap-4">
+          <div class="px-6 py-3 bg-white/5 border border-white/10 rounded-xl text-white font-medium hover:border-emerald-500 hover:-translate-y-1 transition-all duration-300 cursor-pointer">
+            M-Pesa
+          </div>
+          <div class="px-6 py-3 bg-white/5 border border-white/10 rounded-xl text-white font-medium hover:border-emerald-500 hover:-translate-y-1 transition-all duration-300 cursor-pointer">
+            Airtel Money
+          </div>
+          <div class="px-6 py-3 bg-white/5 border border-white/10 rounded-xl text-white font-medium hover:border-emerald-500 hover:-translate-y-1 transition-all duration-300 cursor-pointer">
+            Mixx
+          </div>
+          <div class="px-6 py-3 bg-white/5 border border-white/10 rounded-xl text-white font-medium hover:border-emerald-500 hover:-translate-y-1 transition-all duration-300 cursor-pointer">
+            HaloPesa
+          </div>
+          <div class="px-6 py-3 bg-white/5 border border-white/10 rounded-xl text-white font-medium hover:border-emerald-500 hover:-translate-y-1 transition-all duration-300 cursor-pointer">
+            T-Pesa
+          </div>
+        </div>
+      </div>
+
       <!-- Contact Column -->
-      <div class="">
+        <div class="">
           <h6 class="text-l font-bold text-white mb-6 relative inline-block">
             Contact
             <div class="absolute -bottom-2 left-0 w-12 h-0.5 bg-gradient-to-r from-emerald-500 to-cyan-500 rounded-full"></div>
@@ -171,13 +159,13 @@
             <div class="flex flex-col py-4">
               <div class="flex flex-col">
                 <div class="flex  gap-2">
-                    <span class="text-slate-400 text-sm  tracking-wider">Support</span>
+                    <span class="text-slate-400 text-sm uppercase tracking-wider">Support</span>
                     <h6 class="text-sm  font-bold text-white  px-4 bg-sky-500 rounded-2xl">24/7</h6>
                 </div>
-                <p class="text-slate-400 text-xs">Contact us if you still have questions</p>
+                <p class="text-slate-400 text-sm">Contact us if you still have questions</p>
               
               </div>
-              <button class="w-full mt-2 px-2 bg-gradient-to-r from-emerald-500 to-cyan-500 rounded-xl text-black font-semibold hover:shadow-lg hover:shadow-emerald-500/25 transition-all duration-300 hover:scale-80">
+              <button class="w-full mt-4 px-6 py-3 bg-gradient-to-r from-emerald-500 to-cyan-500 rounded-xl text-black font-semibold hover:shadow-lg hover:shadow-emerald-500/25 transition-all duration-300 hover:scale-105">
                 Contact support
               </button>
             </div>
@@ -187,22 +175,23 @@
 
             <!-- Commercial Offers -->
             <div>
-              <span class="text-slate-400 text-sm  tracking-wider">Commercial offers</span>
-              <a href="mailto:business@betnover.com" class="text-white block mt-2 text-xs hover:text-emerald-400 transition-colors break-all">
+              <span class="text-slate-400 text-sm uppercase tracking-wider">Commercial offers</span>
+              <a href="mailto:business@betnover.com" class="text-white block mt-2 hover:text-emerald-400 transition-colors break-all">
                 business@betnover.com
               </a>
             </div>
 
             <!-- Partner Program -->
             <div>
-              <span class="text-slate-400 text-sm  tracking-wider">Partner program</span>
-              <a href="mailto:partners@betnover.com" class="text-white block mt-2 text-xs hover:text-emerald-400 transition-colors break-all">
+              <span class="text-slate-400 text-sm uppercase tracking-wider">Partner program</span>
+              <a href="mailto:partners@betnover.com" class="text-white block mt-2 hover:text-emerald-400 transition-colors break-all">
                 partners@betnover.com
               </a>
             </div>
 
           </div>
         </div>
+      </div>
 
      
 
