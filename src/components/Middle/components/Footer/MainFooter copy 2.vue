@@ -1,5 +1,5 @@
 <template>
-  <footer class="relative bg-gradient-to-b from-[#040816] to-[#0a0f2a] overflow-hidden py-5">
+  <footer class="relative bg-gradient-to-b from-[#040816] to-[#0a0f2a] overflow-hidden pt-20">
     <!-- Glow Backgrounds -->
     <div class="absolute w-[500px] h-[500px] rounded-full bg-emerald-500/15 blur-[140px] -top-[100px] -left-[150px]"></div>
     <div class="absolute w-[500px] h-[500px] rounded-full bg-cyan-500/15 blur-[140px] -bottom-[100px] -right-[150px]"></div>
@@ -8,26 +8,26 @@
     <div class="absolute top-1/4 right-10 w-72 h-72 bg-purple-500/10 rounded-full blur-3xl animate-pulse"></div>
     <div class="absolute bottom-1/3 left-10 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
 
-    <div class="relative max-w-7xl mx-auto px-1  z-10">
+    <div class="relative max-w-7xl mx-auto px-6 lg:px-8 z-10">
       
       <!-- Hero Card -->
-      <div class="relative bg-gradient-to-br from-white/5 to-white/0 border border-white/10 rounded-3xl p-2 backdrop-blur-xl mb-20 overflow-hidden group">
+      <div class="relative bg-gradient-to-br from-white/5 to-white/0 border border-white/10 rounded-3xl p-8 lg:p-12 backdrop-blur-xl mb-20 overflow-hidden group">
         <div class="absolute inset-0 bg-gradient-to-r from-emerald-500/10 to-cyan-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
         
-        <div class="relative flex flex-col lg:flex-row justify-between gap-3">
+        <div class="relative flex flex-col lg:flex-row justify-between gap-8">
           <!-- Brand Side -->
-          <div class="flex items-center gap-2">
+          <div class="flex items-center gap-6">
             <div class="relative">
-              <div class="absolute inset-0 bg-gradient-to-r from-sky-800 to-cyan-900 rounded-2xl blur-xl opacity-70 group-hover:opacity-100 transition-opacity"></div>
-              <div class="relative w-14 h-14 bg-gradient-to-br from-sky-500 to-cyan-800 rounded-2xl flex items-center justify-center shadow-2xl">
-                <span class="text-xl font-black text-white">B</span>
+              <div class="absolute inset-0 bg-gradient-to-r from-emerald-500 to-cyan-500 rounded-2xl blur-xl opacity-70 group-hover:opacity-100 transition-opacity"></div>
+              <div class="relative w-20 h-20 bg-gradient-to-br from-emerald-500 to-cyan-500 rounded-2xl flex items-center justify-center shadow-2xl">
+                <span class="text-3xl font-black text-black">B</span>
               </div>
             </div>
             
             <div>
-              <h6 class="text-sm font-bold text-white  bg-gradient-to-r from-white to-white/70 bg-clip-text text-transparent">
+              <h4 class="text-3xl lg:text-4xl font-bold text-white mb-2 bg-gradient-to-r from-white to-white/70 bg-clip-text text-transparent">
                 BetNover
-              </h6>
+              </h4>
               <p class="text-slate-400 text-sm lg:text-base">
                 Premium Sportsbook Experience For Modern Players
               </p>
@@ -36,23 +36,23 @@
 
          <!-- Stats -->
           <div class="stats-grid ">
-           <div class="flex justify-between gap-1.5">
-            <div class=" flex-1 relative group/stat bg-white/5 border border-white/10 rounded-md p-2 backdrop-blur-sm hover:bg-white/10 transition-all duration-300 hover:scale-105">
+           <div class="flex justify-between">
+            <div class="relative group/stat bg-white/5 border border-white/10 rounded-2xl p-2 backdrop-blur-sm hover:bg-white/10 transition-all duration-300 hover:scale-105">
               <div class="absolute inset-0 bg-gradient-to-r from-emerald-500/20 to-cyan-500/20 rounded-2xl opacity-0 group-hover/stat:opacity-100 transition-opacity"></div>
-              <h6 class="text-l font-extrabold text-white ">Instant</h6>
+              <h6 class="text-l font-extrabold text-white mb-1">Instant</h6>
               <span class="text-slate-400 text-sm">Withdrawals</span>
             </div>
 
-            <div class=" flex-1 relative group/stat bg-white/5 border border-white/10 rounded-md p-2 backdrop-blur-sm hover:bg-white/10 transition-all duration-300 hover:scale-105">
+            <div class="relative group/stat bg-white/5 border border-white/10 rounded-2xl p-2 backdrop-blur-sm hover:bg-white/10 transition-all duration-300 hover:scale-105">
               <div class="absolute inset-0 bg-gradient-to-r from-emerald-500/20 to-cyan-500/20 rounded-2xl opacity-0 group-hover/stat:opacity-100 transition-opacity"></div>
-              <h6 class="text-l font-extrabold text-white ">24/7</h6>
+              <h2 class="text-l font-extrabold text-white mb-1">24/7</h2>
               <span class="text-slate-400 text-sm">Live Support</span>
             </div>
            </div>
 
-            <div class="relative group/stat bg-white/5 border border-white/10 rounded-md p-2 backdrop-blur-sm hover:bg-white/10 transition-all duration-300 hover:scale-105">
+            <div class="relative group/stat bg-white/5 border border-white/10 rounded-2xl p-5 backdrop-blur-sm hover:bg-white/10 transition-all duration-300 hover:scale-105">
               <div class="absolute inset-0 bg-gradient-to-r from-emerald-500/20 to-cyan-500/20 rounded-2xl opacity-0 group-hover/stat:opacity-100 transition-opacity"></div>
-              <h6 class="text-l font-extrabold text-white mb-1">100%</h6>
+              <h2 class="text-l font-extrabold text-white mb-1">100%</h2>
               <span class="text-slate-400 text-sm">Secure Platform</span>
             </div>
           </div>
@@ -60,11 +60,11 @@
       </div>
 
       <!-- Footer Grid -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 px-2 ">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 mb-16">
         
         <!-- About Column -->
-        <div class="space-y-2">
-          <h3 class="text-l font-bold text-white relative inline-block">
+        <div class="space-y-6">
+          <h3 class="text-lg font-bold text-white relative inline-block">
             About Platform
             <div class="absolute -bottom-2 left-0 w-12 h-0.5 bg-gradient-to-r from-emerald-500 to-cyan-500 rounded-full"></div>
           </h3>
@@ -119,9 +119,39 @@
           </ul>
         </div>
 
+        <!-- Contact Column -->
+        <div>
+          <h3 class="text-lg font-bold text-white mb-6 relative inline-block">
+            Contact
+            <div class="absolute -bottom-2 left-0 w-12 h-0.5 bg-gradient-to-r from-emerald-500 to-cyan-500 rounded-full"></div>
+          </h3>
+          
+          <div class="bg-white/5 border border-white/10 rounded-2xl p-6 space-y-5">
+            <div>
+              <span class="text-slate-500 text-xs uppercase tracking-wider">Email</span>
+              <a href="mailto:support@betnover.com" class="text-white block mt-1 hover:text-emerald-400 transition-colors">
+                support@betnover.com
+              </a>
+            </div>
+            
+            <div>
+              <span class="text-slate-500 text-xs uppercase tracking-wider">Status</span>
+              <div class="flex items-center gap-2 mt-1">
+                <div class="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></div>
+                <p class="text-white">All systems operational</p>
+              </div>
+            </div>
+            
+            <div>
+              <span class="text-slate-500 text-xs uppercase tracking-wider">Support</span>
+              <p class="text-white mt-1">Available 24/7</p>
+            </div>
+          </div>
+        </div>
+      </div>
 
-         <!-- Payment Methods -->
-      <div class="mb-3">
+      <!-- Payment Methods -->
+      <div class="mb-16">
         <div class="text-center mb-8">
           <h3 class="text-2xl font-bold text-white mb-2">Payment Methods</h3>
           <p class="text-slate-400">Fast deposits and withdrawals supported</p>
@@ -146,57 +176,8 @@
         </div>
       </div>
 
-      <!-- Contact Column -->
-        <div class="">
-          <h6 class="text-l font-bold text-white mb-6 relative inline-block">
-            Contact
-            <div class="absolute -bottom-2 left-0 w-12 h-0.5 bg-gradient-to-r from-emerald-500 to-cyan-500 rounded-full"></div>
-          </h6>
-          
-          <div class="bg-white/5 border border-white/10 rounded-2xl px-2 py-1">
-            
-            <!-- Support 24/7 Section -->
-            <div class="flex flex-col py-4">
-              <div class="flex flex-col">
-                <div class="flex  gap-2">
-                    <span class="text-slate-400 text-sm uppercase tracking-wider">Support</span>
-                    <h6 class="text-sm  font-bold text-white  px-4 bg-sky-500 rounded-2xl">24/7</h6>
-                </div>
-                <p class="text-slate-400 text-sm">Contact us if you still have questions</p>
-              
-              </div>
-              <button class="w-full mt-4 px-6 py-3 bg-gradient-to-r from-emerald-500 to-cyan-500 rounded-xl text-black font-semibold hover:shadow-lg hover:shadow-emerald-500/25 transition-all duration-300 hover:scale-105">
-                Contact support
-              </button>
-            </div>
-
-            <!-- Divider -->
-            <div class="border-t border-white/10"></div>
-
-            <!-- Commercial Offers -->
-            <div>
-              <span class="text-slate-400 text-sm uppercase tracking-wider">Commercial offers</span>
-              <a href="mailto:business@betnover.com" class="text-white block mt-2 hover:text-emerald-400 transition-colors break-all">
-                business@betnover.com
-              </a>
-            </div>
-
-            <!-- Partner Program -->
-            <div>
-              <span class="text-slate-400 text-sm uppercase tracking-wider">Partner program</span>
-              <a href="mailto:partners@betnover.com" class="text-white block mt-2 hover:text-emerald-400 transition-colors break-all">
-                partners@betnover.com
-              </a>
-            </div>
-
-          </div>
-        </div>
-      </div>
-
-     
-
       <!-- Warning Box -->
-      <!-- <div class="relative bg-gradient-to-r from-amber-500/10 to-orange-500/5 border border-amber-500/20 rounded-3xl p-8 mb-16 overflow-hidden group">
+      <div class="relative bg-gradient-to-r from-amber-500/10 to-orange-500/5 border border-amber-500/20 rounded-3xl p-8 mb-16 overflow-hidden group">
         <div class="absolute inset-0 bg-gradient-to-r from-amber-500/5 to-orange-500/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
         
         <div class="relative flex flex-col md:flex-row gap-6 items-start">
@@ -211,7 +192,7 @@
             </p>
           </div>
         </div>
-      </div> -->
+      </div>
 
       <!-- Bottom Bar -->
       <div class="py-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
