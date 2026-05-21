@@ -152,8 +152,8 @@ const handleAlertClose = () => {
               >
                 <!-- Small Screen Logo -->
                 <div class="flex md:hidden items-center justify-center">
-                  <h1 class="text-2xl text-white font-bold">b</h1>
-                  <h1 class="text-2xl text-[#0AF0B5] font-bold italic">N</h1>
+                  <h1 class="text-2xl text-white font-bold">V</h1>
+                  <h1 class="text-2xl text-[#0AF0B5] font-bold italic">B</h1>
                 </div>
 
                 <!-- Large Screen Logo -->
