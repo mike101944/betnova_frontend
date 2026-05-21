@@ -159,8 +159,8 @@ const handleAlertClose = () => {
                 <!-- Large Screen Logo -->
                 <div class="hidden md:block">
                   <svg class="w-[94px] h-4" viewBox="0 0 92 16">
-                    <text x="0" y="12" fill="#0AF0B5" font-weight="bold">Vates</text>
-                    <text x="40" y="12" fill="white" font-weight="bold">Bet</text>
+                    <text x="0" y="12" fill="#0AF0B5" font-weight="bold">VateS</text>
+                    <text x="41" y="12" fill="white" font-weight="bold">Bet</text>
                   </svg>
                 </div>
               </router-link>
