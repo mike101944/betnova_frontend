@@ -26,7 +26,7 @@
             
             <div>
               <h6 class="text-sm font-bold text-white  bg-gradient-to-r from-white to-white/70 bg-clip-text text-transparent">
-                BetNover
+                VatesBet
               </h6>
               <p class="text-slate-400 text-sm lg:text-base">
                 Premium Sportsbook Experience For Modern Players
@@ -70,7 +70,7 @@
           </h3>
           
           <p class="text-slate-400 leading-relaxed">
-            BetNover provides a world-class betting experience with fast payouts, secure transactions, live betting markets, and premium gaming technology.
+            VatesBet provides a world-class betting experience with fast payouts, secure transactions, live betting markets, and premium gaming technology.
           </p>
 
           <div class="flex gap-3 pt-4">
@@ -188,16 +188,16 @@
             <!-- Commercial Offers -->
             <div>
               <span class="text-slate-400 text-sm  tracking-wider">Commercial offers</span>
-              <a href="mailto:business@betnover.com" class="text-white block mt-2 text-xs hover:text-emerald-400 transition-colors break-all">
-                business@betnover.com
+              <a href="mailto:business@vatesbet.com" class="text-white block mt-2 text-xs hover:text-emerald-400 transition-colors break-all">
+                business@vatesbet.com
               </a>
             </div>
 
             <!-- Partner Program -->
             <div>
               <span class="text-slate-400 text-sm  tracking-wider">Partner program</span>
-              <a href="mailto:partners@betnover.com" class="text-white block mt-2 text-xs hover:text-emerald-400 transition-colors break-all">
-                partners@betnover.com
+              <a href="mailto:partners@vatesbet.com" class="text-white block mt-2 text-xs hover:text-emerald-400 transition-colors break-all">
+                partners@vatesbet.com
               </a>
             </div>
 
@@ -210,7 +210,7 @@
       <!-- Bottom Bar -->
       <div class="py-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
         <p class="text-slate-500 text-sm">
-          © 2026 BetNover. All rights reserved.
+          © 2026 VatesBet. All rights reserved.
         </p>
         
         <div class="flex gap-6">

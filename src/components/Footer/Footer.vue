@@ -1,7 +1,6 @@
 <template>
-    <div>
-        <!-- <h1>hello i am footer</h1> -->
-
+    <div class="text-center text-gray-500 mt-4 bg-amber-200">
+        hello
     </div>
 </template>
 

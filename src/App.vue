@@ -57,12 +57,10 @@
 
 <script setup>
 import Header from './components/Header/Header.vue'
-import Footer from './components/Footer/Footer.vue'
 import BetSlip from './components/Betlslip/BetSlip.vue'
 import BottomTabs from './components/BottomNavigation/BottomNavGation.vue'
 import SvgIcon from './SvgIcons.vue/SvgIcon.vue';
 import LeftSidebar from './components/LeftSidebar/LeftSidebar.vue';
-import MainFooter from './components/Middle/components/Footer/MainFooter.vue';
 
 import WinningNotificationModal from './components/winningBadge/WinningNotificationModal.vue';
 

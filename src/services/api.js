@@ -1,12 +1,12 @@
 // services/api.js
 import axios from 'axios'
 // http://5.189.136.33/api/api
-// https://betnover.com/api/api
+// https://vatesbet.com//api/api
 // http://localhost:5000/api
-// https://betnover.com/api
+// https://vatesbet.com//api
 // Create axios instance
 const api = axios.create({
-  baseURL: 'https://betnover.com/api',
+  baseURL: 'https://vatesbet.com/api',
   timeout: 30000,
   headers: {
     'Content-Type': 'application/json',
