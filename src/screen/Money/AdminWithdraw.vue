@@ -470,10 +470,10 @@ onUnmounted(() => {
                         <span class="text-sm text-gray-600">Withdrawal Amount:</span>
                         <span class="text-sm font-bold text-gray-800">{{ numericAmount.toLocaleString() }} TSh</span>
                     </div>
-                    <div class="flex justify-between mb-2">
+                    <!-- <div class="flex justify-between mb-2">
                         <span class="text-sm text-gray-600">Processing Fee:</span>
-                        <span class="text-sm text-green-600">0 TSh (Admin)</span>
-                    </div>
+                        <span class="text-sm text-green-600">0 TSh </span>
+                    </div> -->
                     <div class="flex justify-between pt-2 mt-2 border-t border-gray-200">
                         <span class="text-base font-bold text-gray-800">User Receives:</span>
                         <span class="text-base font-bold text-green-600">{{ userReceives.toLocaleString() }} TSh</span>
@@ -507,7 +507,7 @@ onUnmounted(() => {
                     <svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
                         <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
                     </svg>
-                    <span>Admin withdrawal - No fees. Money sent instantly.</span>
+                    <span> Withdrawal - Money sent instantly.</span>
                 </div>
             </div>
         </div>
@@ -516,7 +516,7 @@ onUnmounted(() => {
         <transition name="modal">
             <div v-if="showConfirmation" class="fixed inset-0 bg-black/50 flex items-center justify-center z-[1000] backdrop-blur-sm" @click="cancelWithdraw">
                 <div class="bg-white rounded-2xl p-5 max-w-[380px] w-[90%] shadow-2xl" @click.stop>
-                    <h3 class="text-lg font-bold text-gray-800 mb-3 text-center">Confirm Admin Withdrawal</h3>
+                    <h3 class="text-lg font-bold text-gray-800 mb-3 text-center">Confirm  Withdrawal</h3>
                     <div class="mb-4">
                         <div class="bg-gray-100 rounded-xl p-3">
                             <div class="flex justify-between mb-2 text-sm">
@@ -531,10 +531,10 @@ onUnmounted(() => {
                                 <span class="text-gray-600">Amount:</span>
                                 <strong class="text-sky-600">{{ numericAmount.toLocaleString() }} TSh</strong>
                             </div>
-                            <div class="flex justify-between pt-2 mt-2 border-t border-gray-200">
+                            <!-- <div class="flex justify-between pt-2 mt-2 border-t border-gray-200">
                                 <span class="text-sm text-gray-600">Fee:</span>
                                 <strong class="text-green-600">0 TSh (Admin)</strong>
-                            </div>
+                            </div> -->
                         </div>
                         <p class="text-xs text-amber-600 mt-3 text-center">
                              This will deduct TZS {{ numericAmount.toLocaleString() }} from your balance
