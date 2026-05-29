@@ -52,6 +52,12 @@ const routes = [
     props: true
   },
   {
+    path: '/casino' ,
+    name: 'casino',
+    component: () => import('../components/Middle/components/GamePlay.vue'),
+    props: true
+  },
+  {
     path: '/betList/:id',
     name: 'bet-details',
     component: () => import('../screen/Bets/ApproveBet/BetDetails.vue'),
@@ -121,6 +127,11 @@ const routes = [
       path: '/register',
       name:'register',
       component: () => import('../screen/Auth/Register.vue'),     // This has the tabs
+    },
+    {
+      path: '/live',
+      name:'live',
+      component: () => import('../screen/live/LivePage.vue'),     // This has the tabs
     },
     {
       path: '/sportDetail',

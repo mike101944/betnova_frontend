@@ -251,7 +251,7 @@ body {
 }
 
 .tabs-selector.active {
-  @apply bg-sky-950/90 font-bold  text-white;
+  @apply border-b-2 border-sky-950 font-bold  text-white;
 }
 
 .tabs-selector.active .tab-text {

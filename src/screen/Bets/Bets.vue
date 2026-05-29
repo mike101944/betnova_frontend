@@ -56,7 +56,7 @@ const openBetsCount = computed(() => {
               'border-l': true,
               'tabs-selector': true
             }" 
-            class="flex-1 overflow-hidden cursor-pointer  py-4 bg-sky-950 first:border-l-0 not-last:border-r-0"
+            class="flex-1 overflow-hidden cursor-pointer  py-4 bg-transparent first:border-l-0 not-last:border-r-0"
             data-test-id="tabs-pending"
           >
             <div class="tab-item h-full ">
@@ -79,7 +79,7 @@ const openBetsCount = computed(() => {
               active: isActive('/bets/settled'),
               'tabs-selector': true
             }" 
-            class="flex-1 overflow-hidden cursor-pointer  bg-white not-last:border-r-0"
+            class="flex-1 overflow-hidden cursor-pointer  bg-transparent not-last:border-r-0"
             data-test-id="tabs-settled"
           >
             <div class="tab-item h-full">
@@ -96,7 +96,7 @@ const openBetsCount = computed(() => {
               active: isActive('/bets/jackpots'),
               'tabs-selector': true
             }" 
-            class="flex-1 overflow-hidden cursor-pointer  bg-white not-last:border-r-0"
+            class="flex-1 overflow-hidden cursor-pointer  bg-transparent not-last:border-r-0"
             data-test-id="tabs-jackpot"
           >
             <div class="tab-item h-full">
@@ -111,7 +111,7 @@ const openBetsCount = computed(() => {
             to="/bets/virtuals" 
             :class="{ 
               active: isActive('/bets/virtuals'),
-              'border-r-0': true,
+              '': true,
               'tabs-selector': true
             }" 
             class="flex-1 overflow-hidden cursor-pointer bg-transparent"

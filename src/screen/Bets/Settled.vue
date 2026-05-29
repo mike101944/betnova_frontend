@@ -134,10 +134,10 @@ const formatBalance = (amount) => {
           v-for="bet in settledBets" 
           :key="bet.id"
           @click="goToBetDetails(bet)"
-          class="group bg-white rounded-2xl hover:shadow-xl transition-all duration-300 border border-gray-200 overflow-hidden"
+          class="group bg-sky-950/60 rounded-0 hover:shadow-xl transition-all duration-300 border-y border-gray-500 overflow-hidden"
         >
           <!-- Header with Gradient -->
-          <div class="bg-white px-2  py-2 border-b border-gray-200">
+          <div class="bg-sky-950/20 px-2  py-2 border-b border-gray-600">
 
             <div class="flex justify-between items-center bg-transparent mb-1"> 
                 <div class="flex gap-2 flex-row items-center justify-center rounded-[14px] bg-emerald-700 px-2 py-1">
@@ -156,9 +156,9 @@ const formatBalance = (amount) => {
 
 
             <div class="flex items-center space-x-2 py-1">
-                    <span class="text-xs font-medium text-gray-400">{{ formatBetDate(bet.createdAt).time }}</span>
+                    <span class="text-xs font-medium text-gray-300">{{ formatBetDate(bet.createdAt).time }}</span>
                     <span class="text-xs text-gray-400">•</span>
-                    <span class="text-xs text-gray-600">{{ formatBetDate(bet.createdAt).date }}</span>
+                    <span class="text-xs text-gray-400">{{ formatBetDate(bet.createdAt).date }}</span>
             </div>
           </div>
           <!-- Main Content -->
@@ -175,7 +175,7 @@ const formatBalance = (amount) => {
                   <span class="text-xs font-medium text-gray-400 uppercase tracking-wider">Stake</span>
                 </div>
                 <div class="rounded-lg ">
-                  <span class="text-xs font-bold text-gray-600">{{ formatBalance(bet.stake) }}</span>
+                  <span class="text-xs font-bold text-gray-500">{{ formatBalance(bet.stake) }}</span>
                 </div>
               </div>
 
@@ -221,20 +221,20 @@ const formatBalance = (amount) => {
 
       <!-- NO DATA - Enhanced Empty State -->
       <section v-else class="flex flex-col items-center justify-center min-h-[60vh]">
-        <div class="bg-white rounded-2xl shadow-xl p-12 text-center max-w-md">
-          <div class="relative mb-6">
+        <div class="bg-transparent rounded-2xl shadow-xl px-3 py-2 text-center max-w-md">
+          <div class="relative ">
             <div class="absolute inset-0 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full blur-3xl opacity-20"></div>
-            <svg class="relative w-32 h-32 mx-auto text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg class="relative w-10 h-10 mx-auto text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
             </svg>
           </div>
-          <h3 class="text-2xl font-bold text-gray-900 mb-2">No Open Bets</h3>
-          <p class="text-gray-500 mb-8">You don't have any active bets at the moment. Start betting now!</p>
+          <h3 class="text-sm font-bold text-gray-400 mb-2">No settled Bets</h3>
+          <p class="text-gray-500 mb-8 text-xs">You don't have any active bets at the moment. Start betting now!</p>
           <a 
             href="/bets" 
-            class="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:from-blue-700 hover:to-purple-700 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl"
+            class="inline-flex items-center justify-center gap-2 bg-sky-600/50 text-white px-2 py-2 rounded-xl font-semibold text-lgtransition-all duration-300 shadow-lg hover:shadow-xl"
           >
-            <span>Browse Matches</span>
+            <span class="text-sm text-gray-400">Browse Matches</span>
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
             </svg>

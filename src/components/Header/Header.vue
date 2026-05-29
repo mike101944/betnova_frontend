@@ -244,32 +244,33 @@ const handleAlertClose = () => {
 
             <!-- Live - Restricted -->
             <li 
-              class="flex-1 min-w-fit px-3 py-2.5 text-gray-600 border-b-2 border-transparent hover:text-[#0AF0B5] hover:border-[#0AF0B5] transition-colors cursor-pointer"
-              @click="handleRestrictedTab('Live betting')"
+              
+             class="flex-1 min-w-fit px-3 py-2.5 text-gray-600 border-b-2 border-transparent hover:text-[#0AF0B5] hover:border-[#0AF0B5] transition-colors cursor-pointer"
+                :class="{ '!text-[#0AF0B5] !border-[#0AF0B5]': $route.path === '/live' }"
               data-test-id="tabs-Live"
             >
-              <div class="flex items-center justify-center gap-2">
+              <router-link to="/live" class="flex items-center justify-center gap-2">
                 <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 14 14">
                   <circle cx="7" cy="7" r="2" fill="currentColor"/>
                   <circle cx="7" cy="7" r="5" stroke="currentColor" fill="none"/>
                 </svg>
                 <span class="text-xs font-bold uppercase">Live</span>
-              </div>
+              </router-link>
             </li>
 
             <!-- Casino - Restricted -->
             <li 
               class="flex-1 min-w-fit px-3 py-2.5 text-gray-600 border-b-2 border-transparent hover:text-[#0AF0B5] hover:border-[#0AF0B5] transition-colors cursor-pointer"
-              @click="handleRestrictedTab('Casino games')"
+              :class="{ '!text-[#0AF0B5] !border-[#0AF0B5]': $route.path === '/casino' }"
               data-test-id="tabs-Casino"
             >
-              <div class="flex items-center justify-center gap-2">
+              <router-link to="/casino" class="flex items-center justify-center gap-2">
                 <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 14 14">
                   <rect x="2" y="2" width="10" height="10" stroke="currentColor" fill="none"/>
                   <circle cx="7" cy="7" r="1" fill="currentColor"/>
                 </svg>
                 <span class="text-xs font-bold uppercase">Casino</span>
-              </div>
+              </router-link>
             </li>
 
             <!-- Virtuals - Restricted -->

@@ -1,6 +1,8 @@
 import Papa from 'papaparse'
 // import csvFile from '../../../screen/sport/matokeo_betpawa_cleaned.csv?raw'
-import csvFile from '../../../screen/sport/matokeo_betpawa_clean.csv?raw'
+// import csvFile from '../../../screen/sport/matokeo_betpawa_clean.csv?raw'
+import {GameData} from '../../../assets/DataManager/DataManager'
+
 
 // ========== HELPER FUNCTIONS FOR DATE/TIME FILTERING ==========
 // Get current East Africa Time (EAT) - UTC+3
@@ -121,7 +123,7 @@ const generateConsistentMarket = (eventId) => {
 }
 
 // Parse CSV data
-const parsed = Papa.parse(csvFile, {
+const parsed = Papa.parse(GameData, {
   header: true,
   skipEmptyLines: true,
   transformHeader: h => h.trim()
