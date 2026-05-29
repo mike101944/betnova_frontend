@@ -40,11 +40,11 @@ const routes = [
     name: 'sport',
     component: () => import('../screen/sport/SportScreen.vue'),
   },
-  {
-    path: '/csv',
-    name: 'csv',
-    component: () => import('../screen/sport/demoDataCsv.vue'),
-  },
+  // {
+  //   path: '/csv',
+  //   name: 'csv',
+  //   component: () => import('../screen/sport/demoDataCsv.vue'),
+  // },
   {
     path: '/gamePlay/:id' ,
     name: 'gamePlay',
