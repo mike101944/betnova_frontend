@@ -24,7 +24,7 @@
         <!-- Left Sidebar Component -->
 
         <!-- RouterView container -->
-        <div class="flex-1 flex flex-col">
+        <div class="flex-1 flex flex-col bg-sky-900">
           <!-- <router-view v-slot="{ Component }">
             <component :is="Component" class="flex-1 flex flex-col" />
           </router-view> -->
@@ -35,7 +35,7 @@
           </router-view>
 
         </div>
-        <Footer />
+        <MainFooter />
       </aside>
 
       <!-- Right Column - Fixed kwenye desktop (36%) -->
@@ -61,7 +61,7 @@ import BetSlip from './components/Betlslip/BetSlip.vue'
 import BottomTabs from './components/BottomNavigation/BottomNavGation.vue'
 import SvgIcon from './SvgIcons.vue/SvgIcon.vue';
 import LeftSidebar from './components/LeftSidebar/LeftSidebar.vue';
-
+import MainFooter from './components/Footer/MainFooter.vue';
 import WinningNotificationModal from './components/winningBadge/WinningNotificationModal.vue';
 
 

@@ -1,5 +1,5 @@
 <template>
-  <footer class="relative bg-gradient-to-b from-[#040816] to-[#0a0f2a] overflow-hidden py-5">
+  <footer class="relative bg-sky-950 overflow-hidden py-5">
     <!-- Glow Backgrounds -->
     <div class="absolute w-[500px] h-[500px] rounded-full bg-emerald-500/15 blur-[140px] -top-[100px] -left-[150px]"></div>
     <div class="absolute w-[500px] h-[500px] rounded-full bg-cyan-500/15 blur-[140px] -bottom-[100px] -right-[150px]"></div>
