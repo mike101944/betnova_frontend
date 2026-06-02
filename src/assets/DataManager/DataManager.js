@@ -1,3 +1,3 @@
-import csvFile from './matokeo_betpawa_clean.csv?raw'
+import csvFile from './matokeo_betpawa_cleaned.csv?raw';
 
 export {csvFile as GameData}
