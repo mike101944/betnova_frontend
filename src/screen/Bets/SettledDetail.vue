@@ -146,7 +146,7 @@
                     </div>
 
                     <!-- Selection Details -->
-                    <div class="p-2 bg-sky-900">
+                    <div class="p-2 bg-sky-800">
                         <!-- League & Competition -->
                         <p class="text-xs text-gray-300 mb-3 font-inter">
                             {{ selection.league || selection.tournament || 'Football' }}
