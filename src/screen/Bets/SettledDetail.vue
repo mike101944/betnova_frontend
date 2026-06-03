@@ -123,12 +123,12 @@
 
 
             <!-- Selections Section -->
-            <div class="space-y-2">
+            <div class="space-y-2 mt-10">
                 <div v-for="(selection, index) in parsedSelections" :key="index" 
                      class="bg-white rounded-xl shadow-sm overflow-hidden">
                     
                     <!-- Selection Header -->
-                    <div class="bg-gradient-to-r from-sky-800/45 to-sky-800/45 px-2 py-1 border-b border-gray-200">
+                    <div class="bg-gradient-to-r from-sky-800/45 to-sky-800/45 px-2 py-1">
                         <div class="flex items-center justify-between">
                             <div class="flex items-center space-x-3">
                                 
@@ -138,7 +138,7 @@
                             </div>
                             <div class="flex items-center space-x-2">
                                
-                                <span class="px-2.5 py-1 bg-green-50 text-green-700 rounded-full text-xs font-semibold font-inter">
+                                <span class="px-2.5 py-1 bg-green-50/45 text-green-700 rounded-full text-xs font-semibold font-inter">
                                     WON
                                 </span>
                             </div>
