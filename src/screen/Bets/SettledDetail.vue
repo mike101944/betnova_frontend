@@ -96,20 +96,20 @@
              
                 <div class="flex items-center justify-between mt-1">
                         <span class="text-sm  text-gray-500 font-inter">Total Odds</span>
-                        <span class="text-sm font-black text-gray-500 ">{{ Number(bet.totalOdds).toFixed(2) }}</span>
+                        <span class="text-[12px] font-black text-gray-500 ">{{ Number(bet.totalOdds).toFixed(2) }}</span>
                     </div>
 
                 <div class="flex items-center justify-between ">
                         <span class="text-sm  text-gray-500 font-inter">Stake</span>
-                        <span class="text-sm  font-black text-gray-500">{{ formatCurrency(bet.stake) }}</span>
+                        <span class="text-[12px]  font-black text-gray-500">{{ formatCurrency(bet.stake) }}</span>
                     </div>
                     <div class="flex items-center justify-between">
                         <span class="text-sm  text-gray-500 font-inter">Gross Winnings</span>
-                        <span class="text-sm font-black text-gray-500 ">{{ formatCurrency(bet.potentialReturn) }}</span>
+                        <span class="text-[12px] font-black text-gray-500 ">{{ formatCurrency(bet.potentialReturn) }}</span>
                     </div>
                     <div class="flex items-center justify-between mb-1">
                         <span class="text-sm  text-gray-500 font-inter">Tax (10%)</span>
-                        <span class="text-sm font-black text-gray-500 ">- {{ formatCurrency(calculateTax(bet)) }}</span>
+                        <span class="text-[12px] font-black text-gray-500 ">- {{ formatCurrency(calculateTax(bet)) }}</span>
                     </div>
 
                 <!-- Net Payout -->
