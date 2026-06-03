@@ -54,9 +54,9 @@
 
                 <!-- Bet ID Badge -->
                 <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/3">
-                    <div class="bg-white backdrop-blur-sm px-1 py-1 rounded-full shadow-lg border border-emerald-100">
-                        <span class="text-xs font-medium text-gray-600 font-mono">BET ID</span>
-                        <span class="ml-1 text-xs font-bold text-emerald-700 font-mono">#{{ bet?.id?.toString().slice(0, 10) }}</span>
+                    <div class="bg-transparent backdrop-blur-sm px-1 py-1  shadow-lg ">
+                        <span class="text-xs font-medium text-gray-100 font-mono">BET ID</span>
+                        <span class="ml-1 text-xs font-bold text-sky-200 font-mono">#{{ bet?.id?.toString().slice(0, 10) }}</span>
                     </div>
                 </div>
 
