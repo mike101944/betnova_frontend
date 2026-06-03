@@ -95,21 +95,21 @@
             <div class="bg-sky-100/80 rounded-b-xl shadow-sm border-b border-gray-200 p-1 py-2 gap-2  px-3 mb-1">
              
                 <div class="flex items-center justify-between mt-1">
-                        <span class="text-xs  text-gray-500 font-inter">Total Odds</span>
+                        <span class="text-sm  text-gray-500 font-inter">Total Odds</span>
                         <span class="text-sm font-black text-gray-500 ">{{ Number(bet.totalOdds).toFixed(2) }}</span>
                     </div>
 
                 <div class="flex items-center justify-between ">
-                        <span class="text-sm  text-gray-700 font-inter">Stake</span>
-                        <span class="text-sm  text-gray-900">{{ formatCurrency(bet.stake) }}</span>
+                        <span class="text-sm  text-gray-500 font-inter">Stake</span>
+                        <span class="text-sm  font-black text-gray-500">{{ formatCurrency(bet.stake) }}</span>
                     </div>
                     <div class="flex items-center justify-between">
-                        <span class="text-sm  text-gray-700 font-inter">Gross Winnings</span>
-                        <span class="text-sm font-black text-gray-700 ">{{ formatCurrency(bet.potentialReturn) }}</span>
+                        <span class="text-sm  text-gray-500 font-inter">Gross Winnings</span>
+                        <span class="text-sm font-black text-gray-500 ">{{ formatCurrency(bet.potentialReturn) }}</span>
                     </div>
                     <div class="flex items-center justify-between mb-1">
-                        <span class="text-sm  text-gray-700 font-inter">Tax (10%)</span>
-                        <span class="text-sm font-black text-gray-800 ">- {{ formatCurrency(calculateTax(bet)) }}</span>
+                        <span class="text-sm  text-gray-500 font-inter">Tax (10%)</span>
+                        <span class="text-sm font-black text-gray-500 ">- {{ formatCurrency(calculateTax(bet)) }}</span>
                     </div>
 
                 <!-- Net Payout -->
