@@ -54,7 +54,7 @@
 
                 <!-- Bet ID Badge -->
                 <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/3">
-                    <div class="bg-transparent backdrop-blur-sm px-1 py-1  shadow-lg ">
+                    <div class="bg-transparent backdrop-blur-sm shadow-lg  px-1 py-1  ">
                         <span class="text-xs font-medium text-gray-100 font-mono">BET ID</span>
                         <span class="ml-1 text-xs font-bold text-sky-200 font-mono">#{{ bet?.id?.toString().slice(0, 10) }}</span>
                     </div>
@@ -125,7 +125,7 @@
             <!-- Selections Section -->
             <div class="space-y-2">
                 <div v-for="(selection, index) in parsedSelections" :key="index" 
-                     class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
+                     class="bg-white rounded-xl shadow-sm overflow-hidden">
                     
                     <!-- Selection Header -->
                     <div class="bg-gradient-to-r from-gray-50 to-white px-2 py-1 border-b border-gray-200">
@@ -146,26 +146,26 @@
                     </div>
 
                     <!-- Selection Details -->
-                    <div class="p-2">
+                    <div class="p-2 bg-sky-900">
                         <!-- League & Competition -->
-                        <p class="text-xs text-gray-500 mb-3 font-inter">
+                        <p class="text-xs text-gray-300 mb-3 font-inter">
                             {{ selection.league || selection.tournament || 'Football' }}
                         </p>
 
                         <!-- Prediction & Result -->
-                        <div class="bg-gray-50 rounded-lg p-0 mb-2">
+                        <div class=" rounded-lg p-0 mb-2">
                             <div class="flex items-center justify-between text-sm">
                                 <div class="flex gap-2 items-center">
-                                    <span class="text-xs text-gray-500 block mb-0.5 font-inter">Selection FT: </span>
-                                    <span class="font-medium text-gray-900 font-inter">({{ selection.selection }})</span>
+                                    <span class="text-xs text-gray-300 block mb-0.5 font-inter">Selection FT: </span>
+                                    <span class="font-medium text-gray-400 font-inter">({{ selection.selection }})</span>
                                 </div>
                                 <div class="text-right flex items-center justify-center gap-2">
-                                    <span class="text-xs text-gray-500 block mb-0.5 font-inter">Odds</span>
-                                    <span class="font-medium text-gray-900 font-inter">{{ selection.odds }}</span>
+                                    <span class="text-xs text-gray-300 block mb-0.5 font-inter">Odds</span>
+                                    <span class="font-medium text-gray-400 font-inter">{{ selection.odds }}</span>
                                 </div>
                                 <div class="text-right flex items-center justify-center gap-2">
-                                    <span class="text-xs text-gray-500 block mb-0.5 font-inter">Final Result</span>
-                                    <span class="font-medium text-gray-900 font-inter">{{selection.selection }}</span>
+                                    <span class="text-xs text-gray-300 block mb-0.5 font-inter">Final Result</span>
+                                    <span class="font-medium text-gray-400 font-inter">{{selection.selection }}</span>
                                 </div>
                             </div>
                         </div>
