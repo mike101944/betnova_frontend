@@ -127,10 +127,10 @@ const formatBalance = (amount) => {
         <div 
           v-for="bet in openBets" 
           :key="bet.id"
-          class="group bg-sky-950/60 rounded-bl-[80px] rounded-tr-[80px] shadow-lg   cursor-pointer  transition-all duration-300  border-y border-gray-500  overflow-hidden"
+          class="group bg-sky-950/60 rounded-bl-[50px] rounded-tr-[50px] shadow-lg   cursor-pointer  transition-all duration-300  border-y border-gray-500  overflow-hidden"
         >
           <!-- Header with Gradient -->
-          <div class=" px-2  py-2 border-b pr-8 border-gray-200">
+          <div class=" px-2  py-2 border-b pr-4 border-gray-200">
 
             <div class="flex justify-between items-center bg-transparent mb-1"> 
 
@@ -157,7 +157,7 @@ const formatBalance = (amount) => {
          
 
           <!-- Main Content -->
-          <div class="px-2 py-2 pl-8 bg-white">
+          <div class="px-2 py-2 pl-4 bg-white">
             <!-- Stats Grid -->
             <div class="flex flex-row items-center justify-between">
              
