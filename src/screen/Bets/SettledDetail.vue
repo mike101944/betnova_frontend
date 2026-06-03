@@ -128,7 +128,7 @@
                      class="bg-white rounded-xl shadow-sm overflow-hidden">
                     
                     <!-- Selection Header -->
-                    <div class="bg-gradient-to-r from-gray-50 to-white px-2 py-1 border-b border-gray-200">
+                    <div class="bg-gradient-to-r from-sky-800/45 to-sky-800/45 px-2 py-1 border-b border-gray-200">
                         <div class="flex items-center justify-between">
                             <div class="flex items-center space-x-3">
                                 
