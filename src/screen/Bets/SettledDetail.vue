@@ -1,15 +1,15 @@
 <template>
-    <div class="h-full bg-gray-50">
+    <div class="h-full bg-sky-800">
         <!-- Header with proper typography -->
-        <div class="sticky top-0 bg-white border-b border-gray-200 z-10">
+        <div class="sticky top-0 bg-sky-800  z-10">
             <div class="max-w-3xl mx-auto px-4">
                 <!-- Back Button -->
                 <button @click="router.back()" 
-                        class="inline-flex items-center py-3 text-sm font-medium text-gray-600 hover:text-emerald-600 transition-colors">
+                        class="inline-flex items-center py-3 text-sm font-medium text-gray-300 hover:text-emerald-600 transition-colors">
                     <svg class="w-5 h-5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
                     </svg>
-                    <span class="font-inter">Back to Bets</span>
+                    <span class="font-inter ">Back to Bets</span>
                 </button>
             </div>
         </div>
@@ -54,9 +54,9 @@
 
                 <!-- Bet ID Badge -->
                 <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/3">
-                    <div class="bg-white backdrop-blur-sm px-5 py-2 rounded-full shadow-lg border border-emerald-100">
+                    <div class="bg-white backdrop-blur-sm px-1 py-1 rounded-full shadow-lg border border-emerald-100">
                         <span class="text-xs font-medium text-gray-600 font-mono">BET ID</span>
-                        <span class="ml-2 text-sm font-bold text-emerald-700 font-mono">#{{ bet?.id?.toString().slice(0, 10) }}</span>
+                        <span class="ml-1 text-xs font-bold text-emerald-700 font-mono">#{{ bet?.id?.toString().slice(0, 10) }}</span>
                     </div>
                 </div>
 
@@ -180,8 +180,8 @@
 
             <!-- Progress Timeline -->
             <div class="bg-transparent rounded-xl  px-5 mt-2 flex items-center justify-center gap-2">
-                <span class="text-xs font-medium text-gray-700 font-inter">Bet Placed</span>
-                <span class="text-[10px] text-gray-500 font-inter mt-1">{{ formatDate(bet.createdAt) }}</span>
+                <span class="text-xs font-medium text-gray-300 font-inter">Bet Placed</span>
+                <span class="text-[10px] text-gray-300 font-inter mt-1">{{ formatDate(bet.createdAt) }}</span>
             </div>
 
         </div>
