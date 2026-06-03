@@ -134,10 +134,10 @@ const formatBalance = (amount) => {
           v-for="bet in settledBets" 
           :key="bet.id"
           @click="goToBetDetails(bet)"
-          class="group bg-sky-950/60 rounded-0 hover:shadow-xl transition-all duration-300 border-y border-gray-500 overflow-hidden"
+          class="group bg-sky-950/60 rounded-bl-[80px] rounded-tr-[80px] hover:shadow-xl transition-all duration-300 border-y border-gray-500 overflow-hidden"
         >
           <!-- Header with Gradient -->
-          <div class="bg-sky-950/20 px-2  py-2 border-b border-gray-600">
+          <div class="bg-sky-950/20 px-2  py-2 pr-8 border-b border-gray-600">
 
             <div class="flex justify-between items-center bg-transparent mb-1"> 
                 <div class="flex gap-2 flex-row items-center justify-center rounded-[14px] bg-emerald-700 px-2 py-1">
@@ -162,9 +162,9 @@ const formatBalance = (amount) => {
             </div>
           </div>
           <!-- Main Content -->
-          <div class="px-2 py-2">
+          <div class="px-2 py-2 bg-white pl-8">
             <!-- Stats Grid -->
-            <div class="flex flex-row items-center justify-between">
+            <div class="flex flex-row items-center  justify-between">
 
 
               <!-- Stake -->

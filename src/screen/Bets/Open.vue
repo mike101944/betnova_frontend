@@ -127,18 +127,18 @@ const formatBalance = (amount) => {
         <div 
           v-for="bet in openBets" 
           :key="bet.id"
-          class="group rounded-2xl shadow-lg  bg-white cursor-pointer  transition-all duration-300   overflow-hidden"
+          class="group bg-sky-950/60 rounded-bl-[80px] rounded-tr-[80px] shadow-lg   cursor-pointer  transition-all duration-300  border-y border-gray-500  overflow-hidden"
         >
           <!-- Header with Gradient -->
-          <div class=" px-2  py-2 border-b border-gray-200">
+          <div class=" px-2  py-2 border-b pr-8 border-gray-200">
 
             <div class="flex justify-between items-center bg-transparent mb-1"> 
 
-                <div class="flex gap-2 flex-row items-center justify-center rounded-[14px] bg-zinc-200/70 px-2 py-1">
+                <div class="flex gap-2 flex-row items-center justify-center rounded-[14px] bg-yellow-900/70 px-2 py-1">
                     <div class=" p-1 rounded-full bg-white flex items-center justify-center  ">
-                      <CheckIcon class="w-3 h-3  text-emerald-600  font-bold" />
+                      <!-- <CheckIcon class="w-3 h-3  text-emerald-600  font-bold" /> -->
                     </div>
-                    <span  class="text-[10px] font-bold text-gray-600">{{ (bet.result).toUpperCase() }}</span>
+                    <span  class="text-[10px] font-bold text-gray-300">{{ (bet.result).toUpperCase() }}</span>
                     <span class="text-xs font-bold text-gray-400">({{ getSelectionsCount(bet) }})</span>
                 </div>
                 <div class="flex flex-row items-center justify-center">
@@ -150,14 +150,14 @@ const formatBalance = (amount) => {
             <div class="flex items-center space-x-2 py-1">
                     <span class="text-xs font-medium text-gray-400">{{ formatBetDate(bet.createdAt).time }}</span>
                     <span class="text-xs text-gray-400">•</span>
-                    <span class="text-xs text-gray-600">{{ formatBetDate(bet.createdAt).date }}</span>
+                    <span class="text-xs text-gray-400">{{ formatBetDate(bet.createdAt).date }}</span>
             </div>
           </div>
 
          
 
           <!-- Main Content -->
-          <div class="px-2 py-2 ">
+          <div class="px-2 py-2 pl-8 bg-white">
             <!-- Stats Grid -->
             <div class="flex flex-row items-center justify-between">
              
