@@ -1,368 +1,714 @@
 homeTeam,awayTeam,league,drawOdds,awayOdds,homeOdds,Time,Date
-North Star U23,Brisbane Strikers U23,Football / Australia / U23 Queensland Premier League 1,4.06,1.97,2.88,11:15 am,Tue 02/06
-Wynnum Wolves FC,Brisbane Roar FC YOUTH,Football / Australia / Queensland NPL,4.34,4.05,1.66,12:30 pm,Tue 02/06
-Lake Macquarie City FC Women,New Lambton FC Women,"Football / Australia / Northern NSW NPL, Women",4.02,2.38,2.37,1:00 pm,Tue 02/06
-Podbeskidzie Bielsko-Biała,Slask II Wroclaw,Football / Poland / II Liga,4.28,5.33,1.49,2:00 pm,Tue 02/06
-Hellenic Athletic Club,Darwin Olympic SC,Football / Australia / Northern Territory Premier League,5.1,1.38,5.88,2:00 pm,Tue 02/06
-Brunei Darussalam,Timor-Leste,Football / International / AFF Championship,3.1,2.75,2.41,3:15 pm,Tue 02/06
-China YOUTH,Congo Dr Youth,Football / International / Toulon Tournament,3.1,2.1,3.3,4:00 pm,Tue 02/06
-Olimpia Grudziadz,Sandecja Nowy Sacz,Football / Poland / II Liga,3.72,3.53,1.86,5:00 pm,Tue 02/06
-Al Kahrabaa SC,AL Karma,Football / Iraq / Iraqi League,3.29,1.97,3.58,6:00 pm,Tue 02/06
-Al Quwa Al Jawiya,Zakho FC,Football / Iraq / Iraqi League,3.19,3.43,2.06,6:00 pm,Tue 02/06
-Al Shorta SC,AL Minaa,Football / Iraq / Iraqi League,6.15,10.57,1.2,6:00 pm,Tue 02/06
-Al-Gharraf SC,AL Naft Maysan,Football / Iraq / Iraqi League,3.15,3.3,2.13,6:00 pm,Tue 02/06
-Erbil SC,Amanat Baghdad SC,Football / Iraq / Iraqi League,4.29,5.72,1.47,6:00 pm,Tue 02/06
-JJK Jyvaskyla,VJS,Football / Finland / Ykkonen,3.74,2.24,2.74,6:30 pm,Tue 02/06
-Rovaniemen Palloseura,Oulun Luistinseura,Football / Finland / Ykkonen,3.7,3.12,2.05,7:00 pm,Tue 02/06
-FC Haka J,AC Estudiantes,Football / Finland / Kolmonen,5.3,4.93,1.41,7:00 pm,Tue 02/06
-Croatia,Belgium,Football / International / Int. Friendly Games,3.54,3.05,2.56,7:00 pm,Tue 02/06
-SV Grodig,TSV Neumarkt,Football / Austria / Regionalliga Salzburg,6.8,12.0,1.15,7:30 pm,Tue 02/06
-Saudi Arabia YOUTH,Colombia YOUTH,Football / International / Toulon Tournament,3.4,2.03,3.2,7:30 pm,Tue 02/06
-Salon Palloilijat 2,Masku,Football / Finland / Kolmonen,4.35,1.62,3.97,7:30 pm,Tue 02/06
-Djoliba AC,Binga FC,Football / Mali / Ligue 1,3.01,4.24,1.81,7:30 pm,Tue 02/06
-Georgia,Romania,Football / International / Int. Friendly Games,3.41,3.28,3.34,8:00 pm,Tue 02/06
-Morocco,Madagascar,Football / International / Int. Friendly Games,10.01,25.16,17.58,8:00 pm,Tue 02/06
-FC Vaajakoski/2,JPS,Football / Finland / Kolmonen,11.32,1.03,25.47,8:00 pm,Tue 02/06
-CA Boston River Reserves,Defensor Sporting Reserves,Football / Uruguay / Uruguay Primera División Reserves,3.31,2.34,2.78,8:00 pm,Tue 02/06
-Central Español Reserves,Club Oriental de La Paz Reserves,Football / Uruguay / Uruguay Primera División Reserves,3.41,2.58,2.44,8:00 pm,Tue 02/06
-Deportivo Maldonado Reserves,Cerro Largo FC Reserves,Football / Uruguay / Uruguay Primera División Reserves,3.59,3.11,2.04,8:00 pm,Tue 02/06
-Club Atletico Penarol Reserves,Montevideo City Torque Reserves,Football / Uruguay / Uruguay Primera División Reserves,3.31,3.12,2.14,8:00 pm,Tue 02/06
-FC Rosengaard 1917,Angelholms FF,"Football / Sweden / Ettan, Relegation/Promotion",3.63,3.87,1.77,8:00 pm,Tue 02/06
-Brusque SC U20,Criciuma EC SC U20,"Football / Brazil / U20 Catarinense, Serie A",4.98,1.32,7.18,9:00 pm,Tue 02/06
-Colon de Santa Fe Reserve,CA Huracan,"Football / Argentina / Liga Profesional, Reserves",3.1,2.08,3.49,9:00 pm,Tue 02/06
-CA Quilmes Reserve,Deportivo Riestra Afbc Reserve,"Football / Argentina / Liga Profesional, Reserves",3.05,3.87,1.98,9:00 pm,Tue 02/06
-Liverpool Montevideo Reserves,Progreso Reserves,Football / Uruguay / Uruguay Primera División Reserves,3.69,3.3,1.94,9:00 pm,Tue 02/06
-CA Banfield,CA Sarmiento de Junin,"Football / Argentina / Liga Profesional, Reserves",3.17,4.0,1.9,9:00 pm,Tue 02/06
-Ferro Carril Oeste,Estudiantes de Rio Cuarto Reserve,"Football / Argentina / Liga Profesional, Reserves",3.5,3.6,1.9,9:00 pm,Tue 02/06
-CA Tigre Reserve,CA River Plate (Arg),"Football / Argentina / Liga Profesional, Reserves",3.59,1.83,3.79,9:00 pm,Tue 02/06
-Independiente Reserve,Newells Old Boys,"Football / Argentina / Liga Profesional, Reserves",3.17,3.13,2.2,9:00 pm,Tue 02/06
-Wales,Ghana,Football / International / Int. Friendly Games,3.29,3.5,3.4,9:45 pm,Tue 02/06
-USM Alger,CR Belouizdad,Football / Algeria / Ligue 1,3.28,1.79,4.64,10:00 pm,Tue 02/06
-Union Brescia,Ascoli Calcio 1898,"Football / Italy / Serie C, Promotion Playoffs",2.9,2.71,2.66,10:15 pm,Tue 02/06
-New Jersey Copa FC,Cedar Stars,Football / USA / USL League Two,3.72,2.1,2.91,11:00 pm,Tue 02/06
-Club La Union,CD Cuenca,Football / Ecuador / Copa Ecuador,3.34,1.66,5.34,11:30 pm,Tue 02/06
-Independiente Medellin,Cucuta Deportivo FC,Football / Colombia / Copa Colombia,3.82,5.92,1.52,12:00 am,Wed 03/06
-Deportivo Merlo,CSCD Laferrere,Football / Argentina / Primera B,2.75,3.23,2.46,1:00 am,Wed 03/06
-Nona FC,Brave SC,Football / USA / USL League Two,3.54,2.68,2.3,2:00 am,Wed 03/06
-Haiti,New Zealand,Football / International / Int. Friendly Games,3.37,3.14,2.9,3:00 am,Wed 03/06
-Fortaleza EC CE,EC Vitoria BA,Football / Brazil / Copa do Nordeste,3.15,3.43,2.08,3:00 am,Wed 03/06
-CA Barracas Central,CA Huracan,Football / Argentina / Copa Argentina,2.88,2.11,3.84,3:10 am,Wed 03/06
-CD Junior FC,Atletico Nacional Medellin,"Football / Colombia / Primera A, Apertura",3.2,2.81,2.43,3:30 am,Wed 03/06
-Broadmeadow Magic FC Women,Maitland FC Women,"Football / Australia / Northern NSW NPL, Women",15.26,26.71,38.16,11:15 am,Wed 03/06
-Sydney Olympic FC U20,University of NSW U20,Football / Australia / U20 NSW NPL,4.06,1.64,4.06,12:00 pm,Wed 03/06
-Belconnen United,Tuggeranong Utd,Football / Australia / Capital NPL 1,3.73,2.92,2.09,12:30 pm,Wed 03/06
-Rochedale Rovers,Magic United Tfa,Football / Australia / Queensland NPL,4.45,4.06,1.64,1:00 pm,Wed 03/06
-Capalaba FC Women,Olympic FC Brisbane Women,"Football / Australia / Queensland NPL, Women",3.92,1.65,4.4,1:30 pm,Wed 03/06
-Philippines,Guam,Football / International / Int. Friendly Games,14.99,37.2,26.1,2:30 pm,Wed 03/06
-China PR Women,Russia Women,Football / International / Int. Friendly Games W,3.87,5.22,1.59,2:35 pm,Wed 03/06
-SK Polanka Nad Odrou,FK Hodonin,Football / Czech Republic / MSFL,4.47,1.41,6.46,6:30 pm,Wed 03/06
-SV Anthering,SV Burmoos,Football / Austria / Regionalliga Salzburg,4.2,1.63,4.0,7:00 pm,Wed 03/06
-Renaissance Zemamra,US Yacoub Mansour,Football / Morocco / Botola,2.95,3.09,2.34,7:00 pm,Wed 03/06
-BK Olympic,Lunds BK,"Football / Sweden / Ettan, Relegation/Promotion",3.59,2.41,2.46,8:00 pm,Wed 03/06
-Gibraltar,"Virgin Islands, British",Football / International / Int. Friendly Games,6.42,9.5,7.96,8:00 pm,Wed 03/06
-Vasalunds IF,FC Jarfalla,"Football / Sweden / Ettan, Relegation/Promotion",4.15,4.25,1.6,8:30 pm,Wed 03/06
-Storfors AIK,Skellefteaa FF,Football / Sweden / Division 2,4.1,1.54,4.3,8:30 pm,Wed 03/06
-SV Leobendorf,FCM Traiskirchen,Football / Austria / Regionalliga East,3.59,2.19,2.75,8:30 pm,Wed 03/06
-Ittihad Tanger,Wydad AC,Football / Morocco / Botola,3.24,1.83,4.28,9:00 pm,Wed 03/06
-Albania,Israel,Football / International / Int. Friendly Games,3.41,3.15,2.28,9:00 pm,Wed 03/06
-Denmark,Congo DR,Football / International / Int. Friendly Games,4.14,6.66,5.4,9:00 pm,Wed 03/06
-Luxembourg,Italy,Football / International / Int. Friendly Games,4.04,5.06,6.08,9:45 pm,Wed 03/06
-Poland,Nigeria,Football / International / Int. Friendly Games,3.54,3.53,2.07,9:45 pm,Wed 03/06
-Netherlands,Algeria,Football / International / Int. Friendly Games,4.87,8.15,6.51,9:45 pm,Wed 03/06
-Raja Casablanca Athletic,Rs Berkane,Football / Morocco / Botola,3.05,3.91,1.97,11:00 pm,Wed 03/06
-GV Club Deportivo San Jose de Oruro,CD Real Tomayapo,Football / Bolivia / Division Profesional,4.28,4.28,1.61,1:00 am,Thu 04/06
-Real Potosi,Academia del Balompie Boliviano,Football / Bolivia / Division Profesional,4.18,4.62,1.58,3:00 am,Thu 04/06
-Birmingham Legion FC,Louisville City FC,Football / USA / USL Championship,3.71,1.89,3.56,3:00 am,Thu 04/06
-Panama,Dominican Republic,Football / International / Int. Friendly Games,7.14,14.36,10.75,3:45 am,Thu 04/06
-Korea Republic,El Salvador,Football / International / Int. Friendly Games,5.37,9.65,7.51,4:00 am,Thu 04/06
-Wolaita Dicha SC,Negelle Arsi,Football / Ethiopia / Premier League,2.55,2.87,2.64,4:00 pm,Thu 04/06
-Northern Ireland,Guinea,Football / International / Int. Friendly Games,3.39,3.96,1.99,7:00 pm,Thu 04/06
-PEPO Lappeenranta,Lahden Reipas,Football / Finland / Kakkonen,4.01,3.03,1.96,7:00 pm,Thu 04/06
-Slovenia,Cyprus,Football / International / Int. Friendly Games,5.21,11.27,8.24,7:00 pm,Thu 04/06
-Laholms FK,Hassleholms IF,"Football / Sweden / Ettan, Relegation/Promotion",3.6,1.85,3.55,8:00 pm,Thu 04/06
-Andorra,Liechtenstein,Football / International / Int. Friendly Games,3.74,6.54,1.59,8:00 pm,Thu 04/06
-Sweden,Greece,Football / International / Int. Friendly Games,3.5,3.66,2.04,8:00 pm,Thu 04/06
-Stenungsunds IF,Vanersborgs IF,Football / Sweden / Division 2,3.65,3.2,1.95,8:00 pm,Thu 04/06
-AFC Eskilstuna,Karlbergs BK,"Football / Sweden / Ettan, Relegation/Promotion",3.65,2.61,2.26,8:30 pm,Thu 04/06
-Solvesborgs GIF,Torns IF,Football / Sweden / Division 2,4.1,3.9,1.67,8:30 pm,Thu 04/06
-Spain,Iraq,Football / International / Int. Friendly Games,18.07,51.56,34.82,10:00 pm,Thu 04/06
-France,Ivory Coast,Football / International / Int. Friendly Games,5.09,8.36,6.72,10:10 pm,Thu 04/06
-Millonarios FC Women,Independiente Medellin Women,Football / Colombia / Liga Femenina,3.6,5.2,1.58,11:30 pm,Thu 04/06
-Mexico,Serbia,Football / International / Int. Friendly Games,4.58,8.75,6.66,5:00 am,Fri 05/06
-Busan I Park,Chungnam Asan FC,Football / Republic of Korea / K-League 2,3.45,3.83,1.86,1:30 pm,Fri 05/06
-Seongnam Ilhwa,Gimhae FC,Football / Republic of Korea / K-League 2,3.38,4.38,1.77,1:30 pm,Fri 05/06
-Daegu FC,Paju Citizen FC,Football / Republic of Korea / K-League 2,4.39,6.11,1.43,1:30 pm,Fri 05/06
-FC Haka Valkeakoski,JaPS,Football / Finland / Ykkosliiga,4.34,5.98,1.47,6:30 pm,Fri 05/06
-JS Hercules,VPS Akatemia,Football / Finland / Kakkonen,4.32,1.93,2.95,6:30 pm,Fri 05/06
-FK Ekranas,FC Neptunas Klaipeda,Football / Lithuania / 1 Lyga,3.59,1.67,4.13,7:00 pm,Fri 05/06
-Musan Salama,Nurmijarven Jalkapalloseura,Football / Finland / Kakkonen,4.12,3.78,1.72,7:00 pm,Fri 05/06
-KaPa Kapylan Pallo,FC KTP Kotka,Football / Finland / Ykkosliiga,3.69,1.76,4.12,7:00 pm,Fri 05/06
-Grebbestads IF,Husqvarna FF,Football / Sweden / Division 2,3.9,1.64,4.3,7:30 pm,Fri 05/06
-IF Boljan Falkenberg,BK Astrio,Football / Sweden / Division 2,3.8,3.3,1.87,8:00 pm,Fri 05/06
-Jonsereds IF,Galtabacks BK,Football / Sweden / Division 2,4.0,3.65,1.72,8:00 pm,Fri 05/06
-Lindome GIF,IK Kongahalla,Football / Sweden / Division 2,3.9,2.95,1.98,8:00 pm,Fri 05/06
-FBK Karlstad,IF Karlstad Fotbol,"Football / Sweden / Ettan, Relegation/Promotion",3.54,2.08,2.97,8:00 pm,Fri 05/06
-Landvetter IS,Vastra Frolunda IF,Football / Sweden / Division 2,3.8,3.3,1.87,8:00 pm,Fri 05/06
-Vanersborgs FK,Skara FC,Football / Sweden / Division 2,3.7,2.09,2.85,8:15 pm,Fri 05/06
-JS Saoura,CS Constantine,Football / Algeria / Ligue 1,3.2,4.56,1.82,10:00 pm,Fri 05/06
-KF Aegir,Leiknir Reykjavik,Football / Iceland / 1. deild,3.5,2.54,2.49,10:15 pm,Fri 05/06
-HK Kopavogur,Afturelding,Football / Iceland / 1. deild,3.75,2.26,2.69,10:15 pm,Fri 05/06
-UMF Njardvik,IR Reykjavik,Football / Iceland / 1. deild,4.05,3.38,1.86,10:15 pm,Fri 05/06
+Norway Women U23,Mexico Women U23,"Football / International / U23 Friendly Games, Women",3.2,2.7,2.38,4:00 pm,Fri 05/06
+Georgia Women,Faroe Islands Women,"Football / International / FIFA World Cup, Women, Qualification, UEFA",3.15,2.18,3.1,4:30 pm,Fri 05/06
+Dukla Prague B,FC Pisek,Football / Czech Republic / CFL,3.7,2.21,2.65,5:00 pm,Fri 05/06
+Belarus U21,Kazakhstan U21,Football / International / U21 Friendly Games,3.74,4.99,1.63,5:00 pm,Fri 05/06
+Slovakia Women,Finland Women,"Football / International / FIFA World Cup, Women, Qualification, UEFA",5.0,6.0,7.0,5:00 pm,Fri 05/06
+Azerbaijan Women,Hungary Women,"Football / International / FIFA World Cup, Women, Qualification, UEFA",4.8,7.0,9.2,5:00 pm,Fri 05/06
+Armenia Women,Kazakhstan Women,"Football / International / FIFA World Cup, Women, Qualification, UEFA",3.8,4.35,4.9,5:00 pm,Fri 05/06
+Bulgaria Women,Gibraltar Women,"Football / International / FIFA World Cup, Women, Qualification, UEFA",30.0,30.0,30.0,6:00 pm,Fri 05/06
+Bosnia and Herzegovina Women,Lithuania Women,"Football / International / FIFA World Cup, Women, Qualification, UEFA",5.2,9.4,7.3,6:00 pm,Fri 05/06
+Tajikistan,India,Football / International / Int. Friendly Games,4.19,4.43,3.12,6:00 pm,Fri 05/06
+Latvia U21,Estonia U21,Football / International / Baltic Cup U21,3.68,4.02,1.79,6:00 pm,Fri 05/06
+FK Kudrivka,Agrobiznes Volochisk,Football / Ukraine / Premier League,4.43,6.74,5.58,6:00 pm,Fri 05/06
+Nigeria Women,Senegal Women,Football / International / Int. Friendly Games W,5.57,12.48,9.02,6:00 pm,Fri 05/06
+Moldova Women,Romania Women,"Football / International / FIFA World Cup, Women, Qualification, UEFA",6.0,8.5,11.0,6:00 pm,Fri 05/06
+Montenegro U21,Cyprus U21,Football / International / U21 Friendly Games,3.32,3.85,1.93,6:00 pm,Fri 05/06
+FC Viktoria Plzen B,FK Loko Prague,Football / Czech Republic / CFL,3.9,3.81,1.72,6:00 pm,Fri 05/06
+LPS Laajasalon,Atlantis FC/2,Football / Finland / Kolmonen,4.75,3.75,1.61,6:15 pm,Fri 05/06
+KuPS Akatemia,KPV Kokkola,Football / Finland / Ykkonen,4.99,5.56,1.43,6:30 pm,Fri 05/06
+Czechia Women,Albania Women,"Football / International / FIFA World Cup, Women, Qualification, UEFA",11.0,35.0,23.0,6:30 pm,Fri 05/06
+Tunisia U20,Algeria U20,Football / International / U20 Friendly Games,3.43,2.56,2.51,6:30 pm,Fri 05/06
+FC Haka Valkeakoski,JaPS,Football / Finland / Ykkosliiga,4.43,5.98,1.46,6:30 pm,Fri 05/06
+JS Hercules,VPS Akatemia,Football / Finland / Kakkonen,4.24,1.88,3.1,6:30 pm,Fri 05/06
+Kopa,Kultsu FC,Football / Finland / Kolmonen,6.45,1.17,11.38,6:30 pm,Fri 05/06
+Ips,Mikkelin Pallo-Kissat,Football / Finland / Kolmonen,4.16,2.05,2.69,6:30 pm,Fri 05/06
+Vg-62,Eupa,Football / Finland / Kolmonen,3.98,1.89,3.13,6:30 pm,Fri 05/06
+FK Ekranas,FC Neptunas Klaipeda,Football / Lithuania / 1 Lyga,3.44,1.66,4.42,7:00 pm,Fri 05/06
+ES Mostaganem,El Bayadh,Football / Algeria / Ligue 1,3.05,2.88,2.71,7:00 pm,Fri 05/06
+USM Khenchela,MB Rouissat,Football / Algeria / Ligue 1,3.31,3.79,3.55,7:00 pm,Fri 05/06
+Paradou AC,ES Setif,Football / Algeria / Ligue 1,3.29,2.76,3.02,7:00 pm,Fri 05/06
+Mps,Hoogee,Football / Finland / Kolmonen,4.34,1.84,3.07,7:00 pm,Fri 05/06
+New Zealand Women,Haiti Women,Football / International / Int. Friendly Games W,3.32,3.03,3.18,7:00 pm,Fri 05/06
+Montenegro Women,Wales Women,"Football / International / FIFA World Cup, Women, Qualification, UEFA",10.0,20.0,30.0,7:00 pm,Fri 05/06
+Georgia,Bahrain,Football / International / Int. Friendly Games,4.19,4.43,3.12,7:00 pm,Fri 05/06
+Austria Women,Slovenia Women,"Football / International / FIFA World Cup, Women, Qualification, UEFA",4.2,7.8,6.0,7:00 pm,Fri 05/06
+KaPa Kapylan Pallo,FC KTP Kotka,Football / Finland / Ykkosliiga,4.13,1.54,5.37,7:00 pm,Fri 05/06
+Belarus,Syria,Football / International / Int. Friendly Games,4.19,4.43,3.12,7:00 pm,Fri 05/06
+EIF Akademi,Sexypoxyt,Football / Finland / Kolmonen,5.3,3.45,1.61,7:00 pm,Fri 05/06
+JJK Jyvaskyla/2,FC Blackbird Jyvaskyla,Football / Finland / Kolmonen,4.42,1.86,2.96,7:00 pm,Fri 05/06
+Scotland Women,Israel Women,"Football / International / FIFA World Cup, Women, Qualification, UEFA",11.0,50.0,30.5,7:00 pm,Fri 05/06
+Musan Salama,Nurmijarven Jalkapalloseura,Football / Finland / Kakkonen,4.11,3.18,1.88,7:00 pm,Fri 05/06
+TiPS Vantaa,FC Kontu,Football / Finland / Kolmonen,4.25,2.83,1.95,6:30 pm,Fri 05/06
+MPS/Atletico Malmi,Toukolan Teras,Football / Finland / Kolmonen,3.95,2.11,2.68,7:00 pm,Fri 05/06
+Ukraine Women,Iceland Women,"Football / International / FIFA World Cup, Women, Qualification, UEFA",4.3,6.15,8.0,7:00 pm,Fri 05/06
+Poland Women,France Women,"Football / International / FIFA World Cup, Women, Qualification, UEFA",6.4,8.7,11.0,7:00 pm,Fri 05/06
+MK United,Tups,Football / Finland / Kolmonen,3.75,2.38,2.42,7:00 pm,Fri 05/06
+Italy Women,Serbia Women,"Football / International / FIFA World Cup, Women, Qualification, UEFA",7.0,16.0,11.5,7:15 pm,Fri 05/06
+SK Treibach,LASK Amateure OO,Football / Austria / Regionalliga Centre,3.95,2.15,2.6,7:30 pm,Fri 05/06
+FAC Wien Amateure,SK Slovan HAC,"Football / Austria / Wien, Wiener Stadtliga",4.3,4.4,1.55,7:30 pm,Fri 05/06
+FC Lahti 69,Tips U21,Football / Finland / Kolmonen,4.63,4.25,1.54,7:30 pm,Fri 05/06
+Slovakia,Montenegro,Football / International / Int. Friendly Games,4.19,4.43,3.12,7:30 pm,Fri 05/06
+Vejgaard BK,IF Lyseng,Football / Denmark / Denmark 3.Division,4.07,4.36,1.63,7:30 pm,Fri 05/06
+Valtti,Hps/2,Football / Finland / Kolmonen,4.26,2.65,2.05,7:30 pm,Fri 05/06
+Union Gurten,SC Weiz,Football / Austria / Regionalliga Centre,4.89,5.58,1.4,7:30 pm,Fri 05/06
+Saudi Arabia YOUTH,Tunisia Youth,Football / International / Toulon Tournament,3.85,1.63,4.4,7:30 pm,Fri 05/06
+AS Real Bamako,Afrique Football Elite,Football / Mali / Ligue 1,3.05,5.12,1.67,7:30 pm,Fri 05/06
+FC Diarra,Djoliba AC,Football / Mali / Ligue 1,3.15,1.73,4.43,7:30 pm,Fri 05/06
+SK Hranice,SK Sigma Olomouc B,Football / Czech Republic / MSFL,3.47,1.93,3.52,8:00 pm,Fri 05/06
+USV Gnas,DSV Leoben,"Football / Austria / Steiermark, Landesliga",4.7,4.7,1.48,8:00 pm,Fri 05/06
+Liechtenstein Women,Estonia Women,"Football / International / FIFA World Cup, Women, Qualification, UEFA",8.8,12.9,17.0,8:00 pm,Fri 05/06
+TUS Bad Waltersdorf,SV Wildon,"Football / Austria / Steiermark, Landesliga",4.0,2.06,2.75,8:00 pm,Fri 05/06
+Jonsereds IF,Galtabacks BK,Football / Sweden / Division 2,3.85,3.55,1.79,8:00 pm,Fri 05/06
+Lindome GIF,IK Kongahalla,Football / Sweden / Division 2,3.8,4.0,1.7,8:00 pm,Fri 05/06
+Moldova,Bulgaria,Football / International / Int. Friendly Games,4.19,4.43,3.12,8:00 pm,Fri 05/06
+San Marino,Bangladesh,Football / International / Int. Friendly Games,4.19,4.43,3.12,8:00 pm,Fri 05/06
+Abo Club de Futbol,Pargas Idrottsforening,Football / Finland / Kolmonen,6.43,1.14,14.18,8:00 pm,Fri 05/06
+IF Boljan Falkenberg,BK Astrio,Football / Sweden / Division 2,3.6,3.45,1.87,8:00 pm,Fri 05/06
+Turkiye Women,Northern Ireland Women,"Football / International / FIFA World Cup, Women, Qualification, UEFA",3.5,4.4,1.7,8:00 pm,Fri 05/06
+Kosovo Women,Croatia Women,"Football / International / FIFA World Cup, Women, Qualification, UEFA",3.35,2.75,2.26,8:00 pm,Fri 05/06
+FBK Karlstad,IF Karlstad Fotbol,"Football / Sweden / Ettan, Relegation/Promotion",3.21,2.36,2.74,8:00 pm,Fri 05/06
+Russia,Burkina Faso,Football / International / Int. Friendly Games,4.19,4.43,3.12,8:00 pm,Fri 05/06
+Goerslev IF,Taarnby FF,Football / Denmark / Danmarksserien,4.34,4.34,1.56,8:00 pm,Fri 05/06
+Landvetter IS,Vastra Frolunda IF,Football / Sweden / Division 2,3.6,2.8,2.14,8:00 pm,Fri 05/06
+Vanersborgs FK,Skara FC,Football / Sweden / Division 2,3.65,1.9,3.35,8:15 pm,Fri 05/06
+Denmark Women,Sweden Women,"Football / International / FIFA World Cup, Women, Qualification, UEFA",3.3,1.94,3.55,8:15 pm,Fri 05/06
+MC Alger,ASO Chlef,Football / Algeria / Ligue 1,3.89,6.81,5.35,8:30 pm,Fri 05/06
+TWL Elektra,SV Horn,Football / Austria / Regionalliga East,8.0,1.09,17.0,8:30 pm,Fri 05/06
+Esbjerg FB 2,Vorup FB,Football / Denmark / Danmarksserien,3.93,1.96,2.97,8:30 pm,Fri 05/06
+Andorra Women,North Macedonia Women,"Football / International / FIFA World Cup, Women, Qualification, UEFA",3.3,3.12,2.95,8:30 pm,Fri 05/06
+SV Oberwart,Kremser SC,Football / Austria / Regionalliga East,4.19,3.44,1.75,8:30 pm,Fri 05/06
+Switzerland Women,Malta Women,"Football / International / FIFA World Cup, Women, Qualification, UEFA",10.0,30.0,20.0,8:30 pm,Fri 05/06
+Hungary,Finland,Football / International / Int. Friendly Games,4.19,4.43,3.12,8:45 pm,Fri 05/06
+Morocco Women,Benin Women,Football / International / Int. Friendly Games W,4.62,9.05,6.84,9:00 pm,Fri 05/06
+SE Itapirense SP U20,Ferroviaria SP U20,Football / Brazil / U20 Paulista,3.59,1.79,3.94,9:00 pm,Fri 05/06
+Gremio FB Porto Alegrense RS U20,EC Novo Hamburgo RS U20,"Football / Brazil / U20 Gaucho, Serie A1",5.18,10.96,1.23,9:00 pm,Fri 05/06
+EC Santo Andre SP U20,Sao Paulo FC SP U20,Football / Brazil / U20 Paulista,4.11,1.41,7.25,9:00 pm,Fri 05/06
+Botafogo FC SP U20,Uniao Sao Joao EC SP U20,Football / Brazil / U20 Paulista,6.09,11.79,1.19,9:00 pm,Fri 05/06
+Horizonte FC CE U20,FC Atletico Cearense CE U20,Football / Brazil / U20 Cearense,3.17,2.03,3.21,9:00 pm,Fri 05/06
+Coimbra Sports MG U20,Minas Boca Futebol MG U20,"Football / Brazil / U20 Mineiro, 1. Divisao",4.81,8.51,1.26,9:00 pm,Fri 05/06
+Red Bull Bragantino SP U20,AA Flamengo SP U20,Football / Brazil / U20 Paulista,6.65,13.69,1.15,9:00 pm,Fri 05/06
+Azerbaijan,Malta,Football / International / Int. Friendly Games,4.19,4.43,3.12,9:00 pm,Fri 05/06
+Ibrachina FC SP U20,SC Aguai SP U20,Football / Brazil / U20 Paulista,6.08,14.7,1.17,9:00 pm,Fri 05/06
+CA Platense,CA Belgrano,"Football / Argentina / Liga Profesional, Reserves",3.2,2.28,2.96,9:00 pm,Fri 05/06
+CA Bandeirante SP U20,AD Sao Caetano SP U20,Football / Brazil / U20 Paulista,3.24,2.4,2.75,9:00 pm,Fri 05/06
+Referencia FC SP U20,EC Agua Santa SP U20,Football / Brazil / U20 Paulista,3.39,2.03,3.29,9:00 pm,Fri 05/06
+UCD AFC LSL,Ballymun United,Football / Ireland / Ireland Leinster Senior League,3.9,2.14,2.73,9:00 pm,Fri 05/06
+Ituano FC SP U20,Gremio Osasco Audax EC SP U20,Football / Brazil / U20 Paulista,4.82,7.09,1.35,9:00 pm,Fri 05/06
+Capivariano FC SP U20,Sfera FC SP U20,Football / Brazil / U20 Paulista,3.92,5.68,1.52,9:00 pm,Fri 05/06
+EC Sao Bento SP U20,Uniao Suzano AC SP U20,Football / Brazil / U20 Paulista,3.28,2.55,2.55,9:00 pm,Fri 05/06
+Egypt Women,Tunisia Women,Football / International / Int. Friendly Games W,3.41,2.83,3.12,9:00 pm,Fri 05/06
+Mirassol FC SP U20,SC Corinthians SP U20,Football / Brazil / U20 Paulista,3.33,2.31,2.79,9:00 pm,Fri 05/06
+EC XV de Novembro de Jau SP U20,Maua FC SP U20,Football / Brazil / U20 Paulista,3.58,4.9,1.65,9:00 pm,Fri 05/06
+Gremio Novorizontino SP U20,Desportivo Brasil SP U20,Football / Brazil / U20 Paulista,4.21,5.68,1.48,9:00 pm,Fri 05/06
+Benin,Niger,Football / International / Int. Friendly Games,4.19,4.43,3.12,9:00 pm,Fri 05/06
+AA Portuguesa Santista SP U20,AA Ponte Preta SP U20,Football / Brazil / U20 Paulista,3.33,2.2,2.99,9:00 pm,Fri 05/06
+SC Paulinense SP U20,EC XV de Novembro Piracicaba SP U20,Football / Brazil / U20 Paulista,3.72,1.81,3.72,9:00 pm,Fri 05/06
+Criciuma EC SC U20,Joinville EC SC U20,"Football / Brazil / U20 Catarinense, Serie A",4.9,8.8,1.27,9:00 pm,Fri 05/06
+Jabaquara AC SP U20,Associacao Portuguesa de Desportos SP U20,Football / Brazil / U20 Paulista,3.73,1.58,5.3,9:00 pm,Fri 05/06
+Slovenia U21,Albania U21,Football / International / U21 Friendly Games,3.17,3.7,2.02,9:15 pm,Fri 05/06
+Belgium Women,Luxembourg Women,"Football / International / FIFA World Cup, Women, Qualification, UEFA",15.0,26.0,20.5,9:15 pm,Fri 05/06
+Germany Women,Norway Women,"Football / International / FIFA World Cup, Women, Qualification, UEFA",5.2,7.8,6.5,9:30 pm,Fri 05/06
+Anapolis FC GO U20,Cerrado EC GO U20,"Football / Brazil / U20 Goiano, 1. Divisao",2.98,2.38,2.75,9:30 pm,Fri 05/06
+Ireland Women,Netherlands Women,"Football / International / FIFA World Cup, Women, Qualification, UEFA",3.4,1.77,4.1,9:30 pm,Fri 05/06
+Binga FC,Union Sportive Bougouba,Football / Mali / Ligue 1,3.04,5.11,1.68,9:30 pm,Fri 05/06
+Tolka Rovers,Inchicore Athletic FC,Football / Ireland / Ireland Leinster Senior League,3.99,2.68,2.14,9:45 pm,Fri 05/06
+JS Kabylie,CR Belouizdad,Football / Algeria / Ligue 1,3.29,3.68,4.06,10:00 pm,Fri 05/06
+JS Saoura,CS Constantine,Football / Algeria / Ligue 1,3.97,7.74,1.43,10:00 pm,Fri 05/06
+Angola,Mauritania,Football / International / Int. Friendly Games,4.19,4.43,3.12,10:00 pm,Fri 05/06
+Portugal Women,Latvia Women,"Football / International / FIFA World Cup, Women, Qualification, UEFA",12.0,30.0,21.0,10:00 pm,Fri 05/06
+CE Sabadell FC,Real Madrid Castilla YOUTH,Football / Spain / Primera Federacion,3.2,3.15,2.18,10:00 pm,Fri 05/06
+Spain Women,England Women,"Football / International / FIFA World Cup, Women, Qualification, UEFA",4.1,4.8,1.55,10:00 pm,Fri 05/06
+KF Aegir,Leiknir Reykjavik,Football / Iceland / 1. deild,3.62,2.34,2.65,10:15 pm,Fri 05/06
+Kormakur/Hvot,IF Magni Grenivik,Football / Iceland / 2. deild,4.48,4.87,1.51,10:15 pm,Fri 05/06
+Reynir Sandgerdi,Augnablik Kopavogur,Football / Iceland / 3. deild,3.99,2.99,1.94,10:15 pm,Fri 05/06
+HK Kopavogur,Afturelding,Football / Iceland / 1. deild,3.86,2.16,2.8,10:15 pm,Fri 05/06
+UMF Njardvik,IR Reykjavik,Football / Iceland / 1. deild,3.85,3.61,1.84,10:15 pm,Fri 05/06
+Ulfanir,Alftanes,Football / Iceland / 4. deild,4.44,1.63,3.85,11:00 pm,Fri 05/06
+Hviti Riddarinn,Haukar Hafnarfjordur,Football / Iceland / 2. deild,5.1,1.36,6.31,11:00 pm,Fri 05/06
+CA Ituzaingo,Real Pilar FC,Football / Argentina / Primera B,2.99,2.03,3.95,12:00 am,Sat 06/06
 Montevideo Wanderers,Danubio FC,Football / Uruguay / Primera Division,3.09,3.28,2.22,1:00 am,Sat 06/06
-Paraguay,Nicaragua,Football / International / Int. Friendly Games,9.93,26.32,1.1,1:15 am,Sat 06/06
-Operario Ferroviario EC PR,EC Juventude RS,Football / Brazil / Brasileiro Serie B,2.75,3.71,2.24,2:00 am,Sat 06/06
-Canada,Ireland,Football / International / Int. Friendly Games,4.42,6.96,1.47,2:30 am,Sat 06/06
-Deportes Concepcion,Coquimbo Unido,Football / Chile / Copa de la Liga,3.6,1.63,5.0,3:00 am,Sat 06/06
-Gimnasia Y Tiro de Salta,CA Ferrocarril Midland,Football / Argentina / Primera Nacional,2.8,2.95,2.61,3:30 am,Sat 06/06
-Kashima Antlers,Vissel Kobe,Football / Japan / J.League,3.25,2.85,2.55,8:00 am,Sat 06/06
-JEF United Chiba,Avispa Fukuoka,Football / Japan / J.League,3.1,2.6,2.9,8:00 am,Sat 06/06
-FC Tokyo,Cerezo Osaka,Football / Japan / J.League,3.6,4.0,1.91,8:00 am,Sat 06/06
-Mito Hollyhock,V-Varen Nagasaki,Football / Japan / J.League,3.3,2.95,2.45,9:00 am,Sat 06/06
-Machida Zelvia,Nagoya Grampus,Football / Japan / J.League,3.3,3.5,2.17,9:00 am,Sat 06/06
-Urawa Red Diamonds,Fagiano Okayama,Football / Japan / J.League,3.3,4.0,2.01,10:00 am,Sat 06/06
-Tokyo Verdy,Gamba Osaka,Football / Japan / J.League,3.1,2.5,3.05,10:00 am,Sat 06/06
-Yokohama F Marinos,Shimizu S-Pulse,Football / Japan / J.League,3.2,3.1,2.41,11:00 am,Sat 06/06
-Kashiwa Reysol,Kyoto Sanga FC,Football / Japan / J.League,3.4,3.8,2.03,12:00 pm,Sat 06/06
+Plaza Colonia,Huracan FC,Football / Uruguay / Segunda Division,3.34,4.2,1.81,1:00 am,Sat 06/06
+Paraguay,Nicaragua,Football / International / Int. Friendly Games,4.19,4.43,3.12,1:15 am,Sat 06/06
+Bolivia Women,Paraguay Women,"Football / International / CONMEBOL Nations League, Women",11.0,1.02,30.0,2:00 am,Sat 06/06
+Chile Women,Ecuador Women,"Football / International / CONMEBOL Nations League, Women",3.6,4.6,1.66,2:00 am,Sat 06/06
+Colombia Women,Uruguay Women,"Football / International / CONMEBOL Nations League, Women",4.7,7.4,1.33,2:00 am,Sat 06/06
+CA Talleres de Remedios,Deportivo Merlo,Football / Argentina / Primera B,2.52,3.49,2.52,2:00 am,Sat 06/06
+Operario Ferroviario EC PR,EC Juventude RS,Football / Brazil / Brasileiro Serie B,4.19,4.43,3.12,2:00 am,Sat 06/06
+Argentina Women,Peru Women,"Football / International / CONMEBOL Nations League, Women",9.2,25.0,1.05,2:00 am,Sat 06/06
+Canada,Ireland,Football / International / Int. Friendly Games,4.19,4.43,3.12,2:30 am,Sat 06/06
+Deportes Concepcion,Coquimbo Unido,Football / Chile / Copa de la Liga,3.52,1.72,4.43,3:00 am,Sat 06/06
+Nomads United AFC,Northern AFC,Football / New Zealand / National League,4.1,3.5,1.76,3:00 am,Sat 06/06
+San Luis de Quillota,San Marcos de Arica,Football / Chile / Primera B,3.1,3.29,2.16,3:00 am,Sat 06/06
+Haiti,Peru,Football / International / Int. Friendly Games,4.19,4.43,3.12,3:00 am,Sat 06/06
+Western Suburbs FC,Napier City Rovers AFC,Football / New Zealand / National League,3.6,2.09,2.9,3:30 am,Sat 06/06
+Gimnasia Y Tiro de Salta,CA Ferrocarril Midland,Football / Argentina / Primera Nacional,4.19,4.43,3.12,3:30 am,Sat 06/06
+Dunedin City Royals FC,Christchurch United FC,Football / New Zealand / National League,3.9,1.82,3.4,3:45 am,Sat 06/06
+Snohomish United,Midlakes United,Football / USA / USL League Two,4.31,4.69,1.55,4:00 am,Sat 06/06
+Panama Women,Jamaica Women,Football / International / Int. Friendly Games W,3.32,2.69,2.45,4:00 am,Sat 06/06
+El Salvador Women,Costa Rica Women,Football / International / Int. Friendly Games W,3.56,1.89,3.71,5:00 am,Sat 06/06
+Vancouver FC,Atletico Ottawa,Football / Canada / Canadian Premier League,3.63,2.68,2.27,5:00 am,Sat 06/06
+Waterside Karori,Island Bay United,Football / New Zealand / National League,4.9,1.37,6.2,5:30 am,Sat 06/06
+Green Gully SC U23,Avondale FC U23,Football / Australia / U23 Victoria NPL,4.09,2.02,2.86,5:30 am,Sat 06/06
+Ferrymead Bays,Wanaka AFC,Football / New Zealand / National League,7.2,12.0,1.15,5:45 am,Sat 06/06
+East Coast Bays,Western Springs AFC,Football / New Zealand / National League,3.7,2.49,2.33,6:00 am,Sat 06/06
+Upper Hutt City FC,Petone FC,Football / New Zealand / National League,3.9,2.29,2.46,6:00 am,Sat 06/06
+Selwyn United FC,Cashmere Technical,Football / New Zealand / National League,11.0,1.03,27.0,6:00 am,Sat 06/06
+Birkenhead United AFC,Auckland FC Reserves,Football / New Zealand / National League,5.2,7.2,1.31,6:00 am,Sat 06/06
+Fencibles United FC,Tauranga City AFC,Football / New Zealand / National League,4.3,4.3,1.57,6:00 am,Sat 06/06
+Eastern Suburbs AFC,Melville United AFC,Football / New Zealand / National League,5.2,8.4,1.27,6:00 am,Sat 06/06
+Auckland City FC,Auckland United FC,Football / New Zealand / National League,3.55,2.95,2.08,6:00 am,Sat 06/06
+Bentleigh Greens SC U23,Hume City FC U23,Football / Australia / U23 Victoria NPL,4.69,4.31,1.55,6:00 am,Sat 06/06
+Campbelltown City SC Reserve,Para Hills Knights SC Reserve,"Football / Australia / South Australia NPL, Reserves",5.09,5.66,1.38,6:15 am,Sat 06/06
+Playford City Reserve,Adelaide Comets Reserves,"Football / Australia / South Australia NPL, Reserves",5.49,1.4,4.92,6:15 am,Sat 06/06
+Bay Olympic,Manukau United FC,Football / New Zealand / National League,4.0,4.1,1.65,6:30 am,Sat 06/06
+Wellington Olympic,Miramar Rangers,Football / New Zealand / National League,3.65,3.55,1.83,6:45 am,Sat 06/06
+Port Melbourne Sharks,Brunswick City SC,"Football / Australia / NPL 2, Victoria",4.59,1.49,4.97,7:00 am,Sat 06/06
+Seoul Jungnang FC,Seosan FC,Football / Republic of Korea / Korea Republic K4 League,3.89,4.27,1.67,7:00 am,Sat 06/06
+Magic United Tfa,Brisbane Roar FC YOUTH,Football / Australia / Queensland NPL,4.15,2.01,2.94,7:30 am,Sat 06/06
+Unsw FC Women,Western City Rangers FC Women,"Football / Australia / NSW Premier League, Women",8.96,17.16,1.09,7:45 am,Sat 06/06
+Brisbane Strikers U23,Robina City U23,Football / Australia / U23 Queensland Premier League 1,4.23,3.39,1.76,7:45 am,Sat 06/06
+Avondale FC Women,Melbourne Victory FC Youth Women,"Football / Australia / Victoria NPL, Women",4.11,4.31,1.63,8:00 am,Sat 06/06
+Keilor Park SC Women,FC Bulleen Lions Women,"Football / Australia / Victoria NPL, Women",5.73,1.28,7.45,8:00 am,Sat 06/06
+Tochigi City FC,Reilac Shiga FC,Football / Japan / J.League 2,3.57,4.06,1.81,8:00 am,Sat 06/06
+SC Sagamihara,Roasso Kumamoto,Football / Japan / J.League 2,3.23,2.85,2.38,8:00 am,Sat 06/06
+Kashima Antlers,Vissel Kobe,Football / Japan / J.League,4.19,4.43,3.12,8:00 am,Sat 06/06
+Yokohama FC,Renofa Yamaguchi,Football / Japan / J.League 2,3.62,4.44,1.73,8:00 am,Sat 06/06
+Matsumoto Yamaga FC,Nara Club,Football / Japan / J.League 2,3.75,4.62,1.67,8:00 am,Sat 06/06
+Albirex Niigata,Hokkaido Consadole Sapporo,Football / Japan / J.League 2,3.23,2.7,2.5,8:00 am,Sat 06/06
+Tegevajaro Miyazaki,Ventforet Kofu,Football / Japan / J.League 2,3.22,4.04,1.91,8:00 am,Sat 06/06
+JEF United Chiba,Avispa Fukuoka,Football / Japan / J.League,4.19,4.43,3.12,8:00 am,Sat 06/06
+FC Tokyo,Cerezo Osaka,Football / Japan / J.League,4.19,4.43,3.12,8:00 am,Sat 06/06
+Vegalta Sendai,Kataller Toyama,Football / Japan / J.League 2,3.28,3.09,2.22,8:00 am,Sat 06/06
+RB Omiya Ardija,Kochi United SC,Football / Japan / J.League 2,3.81,4.33,1.71,8:00 am,Sat 06/06
+Fujieda MYFC,Ehime FC,Football / Japan / J.League 2,3.17,2.55,2.69,8:00 am,Sat 06/06
+Alamein FC Women,Melbourne City Youth Women,"Football / Australia / Victoria NPL, Women",11.45,20.04,1.05,8:00 am,Sat 06/06
+Western Sydney Youth,Sydney United 58 FC,Football / Australia / NSW NPL 1,3.72,1.92,3.34,8:00 am,Sat 06/06
+Pocheon Citizen FC,Busan Transportation Corporation FC,Football / Republic of Korea / K3 League,3.5,3.89,1.83,8:00 am,Sat 06/06
+Gold Coast United FC Women,Olympic FC Brisbane Women,"Football / Australia / Queensland NPL, Women",3.57,2.27,2.71,8:00 am,Sat 06/06
+Essendon Royals SC Women,Spring Hills FC Women,"Football / Australia / Victoria NPL, Women",7.44,13.36,1.14,8:00 am,Sat 06/06
+North Sunshine Eagles FC,Melbourne Knights,"Football / Australia / NPL 2, Victoria",4.1,1.71,3.81,8:00 am,Sat 06/06
+FK Beograd Reserve,North Eastern Metrostars SC Reserves,"Football / Australia / South Australia NPL, Reserves",8.89,1.1,13.23,8:15 am,Sat 06/06
+Manningham United Blues,Western United FC Youth,"Football / Australia / NPL 2, Victoria",4.38,3.24,1.81,8:15 am,Sat 06/06
+Adelaide Atletico VSC,Cumberland United,Football / Australia / South Australia State League 1,4.0,4.0,1.7,8:30 am,Sat 06/06
+South Adelaide FC,Adelaide Cobras,Football / Australia / South Australia State League 1,4.1,1.76,3.58,8:30 am,Sat 06/06
+South Melbourne FC Women,Heidelberg United FC Women,"Football / Australia / Victoria NPL, Women",5.14,5.71,1.39,8:30 am,Sat 06/06
+Salisbury United,Adelaide Croatia Raiders SC,Football / Australia / South Australia State League 1,3.92,1.91,3.2,8:30 am,Sat 06/06
+Adelaide Blue Eagles,Adelaide Olympic FC,Football / Australia / South Australia State League 1,4.21,4.21,1.63,8:30 am,Sat 06/06
+APIA Leichhardt Tigers U20,Manly United FC U20,Football / Australia / U20 NSW NPL,4.24,4.24,1.59,8:30 am,Sat 06/06
+Playford City,Adelaide Comets FC,Football / Australia / South Australia NPL,4.57,4.95,1.49,8:30 am,Sat 06/06
+Campbelltown City SC,Para Hills Knights SC,Football / Australia / South Australia NPL,8.44,12.47,1.12,8:30 am,Sat 06/06
+Broadbeach United U23,Holland Park Hawks U23,Football / Australia / U23 Queensland Premier League 1,3.74,2.55,2.27,8:45 am,Sat 06/06
+Brisbane City FC Women,Queenland Lions FC Women,"Football / Australia / Queensland NPL, Women",3.62,3.34,1.94,8:45 am,Sat 06/06
+FC Gifu,Gainare Tottori,Football / Japan / J.League 2,3.37,3.28,2.09,9:00 am,Sat 06/06
+Mito Hollyhock,V-Varen Nagasaki,Football / Japan / J.League,4.19,4.43,3.12,9:00 am,Sat 06/06
+Machida Zelvia,Nagoya Grampus,Football / Japan / J.League,4.19,4.43,3.12,9:00 am,Sat 06/06
+Port Melbourne Sharks SC U23,Brunswick City SC U23,Football / Australia / U23 Victoria Premier League 1,4.34,2.07,2.59,9:15 am,Sat 06/06
+Rydalmere Lions FC U20,Macarthur Rams FC U20,Football / Australia / U20 NSW Premier League 2,5.47,1.33,6.04,9:30 am,Sat 06/06
+St George FC U20,Sutherland Sharks FC U20,Football / Australia / U20 NSW NPL,3.73,1.99,3.02,9:30 am,Sat 06/06
+Valentine FC,Broadmeadow Magic FC,Football / Australia / Northern NSW NPL,5.89,1.26,7.79,9:30 am,Sat 06/06
+Rochedale Rovers U23,Peninsula Power U23,Football / Australia / U23 Queensland NPL,5.51,5.32,1.39,9:45 am,Sat 06/06
+Jubilo Iwata,FC Osaka,Football / Japan / J.League 2,3.13,2.65,2.6,10:00 am,Sat 06/06
+Western City Rangers FC U20,Canterbury Bankstown Berries U20,Football / Australia / U20 NSW Premier League 2,3.87,2.45,2.3,10:00 am,Sat 06/06
+Urawa Red Diamonds,Fagiano Okayama,Football / Japan / J.League,4.19,4.43,3.12,10:00 am,Sat 06/06
+Balcatta,Sorrento FC,Football / Australia / Western Australia NPL,3.77,2.68,2.22,10:00 am,Sat 06/06
+Jinju Citizen FC,Jecheon Citizen FC,Football / Republic of Korea / Korea Republic K4 League,4.47,5.83,1.44,10:00 am,Sat 06/06
+Armadale SC,Fremantle City,Football / Australia / Western Australia NPL,4.01,2.77,2.09,10:00 am,Sat 06/06
+Jeonbuk FC II,Gyeongju FC,Football / Republic of Korea / K3 League,3.88,1.6,4.84,10:00 am,Sat 06/06
+Perth Redstar FC,Western Knights SC,Football / Australia / Western Australia NPL,3.72,3.05,2.03,10:00 am,Sat 06/06
+Perth Glory FC YOUTH,Olympic Kingsway SC,Football / Australia / Western Australia NPL,4.11,1.75,3.63,10:00 am,Sat 06/06
+SD Raiders FC,University of Nsw,Football / Australia / NSW NPL 1,3.68,2.96,2.08,10:00 am,Sat 06/06
+Tokyo Verdy,Gamba Osaka,Football / Japan / J.League,4.19,4.43,3.12,10:00 am,Sat 06/06
+Dandenong Thunder,Caroline Springs George Cross FC,"Football / Australia / Victoria, NPL1",3.44,3.25,2.03,10:00 am,Sat 06/06
+FK Beograd,North Eastern Metrostars SC,Football / Australia / South Australia NPL,3.9,1.75,3.81,10:30 am,Sat 06/06
+North Sunshine Eagles FC U23,Melbourne Knights FC U23,Football / Australia / U23 Victoria Premier League 1,6.06,1.27,6.82,10:45 am,Sat 06/06
+Brisbane City FC,Lions FC,Football / Australia / Queensland NPL,4.8,1.52,4.7,11:00 am,Sat 06/06
+APIA Leichhardt,Manly United FC,Football / Australia / NSW NPL 1,4.49,5.92,1.43,11:00 am,Sat 06/06
+Yokohama F Marinos,Shimizu S-Pulse,Football / Japan / J.League,4.19,4.43,3.12,11:00 am,Sat 06/06
+MFk Karvina B,FC Zbrojovka Brno B,Football / Czech Republic / MSFL,4.01,2.28,2.48,11:15 am,Sat 06/06
+Azzurri United FC,Palmerston Rovers,Football / Australia / Northern Territory Premier League,10.83,20.67,1.05,11:30 am,Sat 06/06
+Hakoah Sydney City East FC U20,Blacktown Spartans FC U20,Football / Australia / U20 NSW Premier League 2,4.74,5.69,1.4,11:30 am,Sat 06/06
+St George Saints FC,Sutherland Sharks,Football / Australia / NSW NPL 1,3.48,2.23,2.82,11:30 am,Sat 06/06
+Rochedale Rovers,Peninsula Power FC,Football / Australia / Queensland NPL,4.43,1.59,4.43,12:00 pm,Sat 06/06
+Bankstown City FC U20,Northern Tigers FC U20,Football / Australia / U20 NSW Premier League 2,4.27,1.61,4.08,12:00 pm,Sat 06/06
+Serbia U19,Kazakhstan U19,"Football / International / U19 European Championship, Qualification",4.43,8.48,1.36,12:00 pm,Sat 06/06
+Eastern Suburbs FC Women,Capalaba FC Women,"Football / Australia / Queensland NPL, Women",11.48,38.27,1.02,12:00 pm,Sat 06/06
+Kashiwa Reysol,Kyoto Sanga FC,Football / Japan / J.League,4.19,4.43,3.12,12:00 pm,Sat 06/06
+St George City FA,Sydney Olympic FC,Football / Australia / NSW NPL 1,3.91,4.1,1.7,12:15 pm,Sat 06/06
+Australia Women,Mexico Women,Football / International / Int. Friendly Games W,3.94,4.61,1.64,12:15 pm,Sat 06/06
+IF Sibbo Vargarna,Riihimaen Palloseura,Football / Finland / Kolmonen,3.99,2.8,2.03,1:00 pm,Sat 06/06
+Brisbane City U23,Queensland Lions FC U23,Football / Australia / U23 Queensland NPL,4.59,1.55,4.4,1:00 pm,Sat 06/06
 Linero IF,IFK Berga,Football / Sweden / Division 2,3.6,2.75,2.17,1:00 pm,Sat 06/06
-Kawasaki Frontale,Sanfrecce Hiroshima,Football / Japan / J.League,3.6,2.11,3.35,1:00 pm,Sat 06/06
+Sagan Tosu,Shonan Bellmare,Football / Japan / J.League 2,3.27,3.61,2.01,1:00 pm,Sat 06/06
+Ulsan Citizen FC,FC Gangneung,Football / Republic of Korea / K3 League,3.01,2.52,2.77,1:00 pm,Sat 06/06
+Kawasaki Frontale,Sanfrecce Hiroshima,Football / Japan / J.League,4.19,4.43,3.12,1:00 pm,Sat 06/06
 Nacka FC,IFK Haninge,Football / Sweden / Division 2,3.84,2.24,2.54,1:00 pm,Sat 06/06
-Gyeongnam FC,Yongin City FC,Football / Republic of Korea / K-League 2,3.27,2.88,2.29,1:30 pm,Sat 06/06
-Hwaseong FC,Suwon Bluewings,Football / Republic of Korea / K-League 2,3.32,1.95,3.61,1:30 pm,Sat 06/06
+Pyeongtaek Citizen FC,Haman FC,Football / Republic of Korea / Korea Republic K4 League,3.39,3.58,1.94,1:00 pm,Sat 06/06
+Chuncheon FC,Daejeon Korail FC,Football / Republic of Korea / K3 League,3.21,2.19,3.11,1:00 pm,Sat 06/06
+Slovenia Women U19,Bosnia and Herzegovina Women U19,"Football / International / U19 Friendly Games, Women",3.58,2.58,2.37,1:00 pm,Sat 06/06
+Gyeongnam FC,Yongin City FC,Football / Republic of Korea / K-League 2,3.29,2.86,2.29,1:30 pm,Sat 06/06
+Thailand Women,Uzbekistan Women,Football / International / Int. Friendly Games W,3.19,2.94,2.35,1:30 pm,Sat 06/06
+Mindil Aces,Darwin Hearts FC,Football / Australia / Northern Territory Premier League,4.41,3.38,1.76,1:30 pm,Sat 06/06
+Hwaseong FC,Suwon Bluewings,Football / Republic of Korea / K-League 2,3.34,1.94,3.62,1:30 pm,Sat 06/06
 Nykopings BIS,Fittja IF,Football / Sweden / Division 2,4.1,4.2,1.61,2:00 pm,Sat 06/06
-Torslanda IK,Hestrafors IF,Football / Sweden / Division 2,3.95,3.55,1.77,2:00 pm,Sat 06/06
-IK Tord,Lidkopings FK,Football / Sweden / Division 2,3.54,2.74,2.21,2:00 pm,Sat 06/06
+Torslanda IK,Hestrafors IF,Football / Sweden / Division 2,3.85,3.1,1.93,2:00 pm,Sat 06/06
+FC Jazz,VJS,Football / Finland / Ykkonen,4.14,1.69,4.04,2:00 pm,Sat 06/06
+Lapuan Virkia,Sporting Kristina,Football / Finland / Kolmonen,3.97,2.84,2.02,2:00 pm,Sat 06/06
+Odder IGF Fodbold,BK Frem,Football / Denmark / Denmark 3.Division,3.7,3.02,2.05,2:00 pm,Sat 06/06
 Angby IF,Taby FK,Football / Sweden / Division 2,3.8,1.99,3.0,2:00 pm,Sat 06/06
-Brabrand IF,BK Fremad Amager,Football / Denmark / 2nd Division,3.35,2.56,2.56,3:00 pm,Sat 06/06
-Vsk Aarhus,FC Helsingoer,Football / Denmark / 2nd Division,3.68,3.34,1.96,3:00 pm,Sat 06/06
+Valerenga IF 2,Nordstrand,Football / Norway / 3rd Division Group 1,4.3,3.55,1.7,2:00 pm,Sat 06/06
+IK Tord,Lidkopings FK,Football / Sweden / Division 2,3.45,3.3,1.97,2:00 pm,Sat 06/06
+Myanmar,Guam,Football / International / Int. Friendly Games,9.48,19.76,14.62,2:30 pm,Sat 06/06
+BK Marienlyst,ASA Aarhus,Football / Denmark / Danmarksserien,3.85,2.02,2.89,2:30 pm,Sat 06/06
+Podbeskidzie Bielsko-Biała,Sandecja Nowy Sacz,Football / Poland / II Liga,3.44,3.06,2.11,2:45 pm,Sat 06/06
 FOC Farsta,BK Forward,Football / Sweden / Division 2,3.75,2.7,2.16,3:00 pm,Sat 06/06
-Skive IK,Ishoej IF,Football / Denmark / 2nd Division,3.64,3.69,1.87,3:00 pm,Sat 06/06
+Skive IK,Ishoej IF,Football / Denmark / 2nd Division,4.1,4.4,1.64,3:00 pm,Sat 06/06
 Rappe GOIF,IFK Trelleborg,Football / Sweden / Division 2,3.75,1.85,3.4,3:00 pm,Sat 06/06
-AB Gladsaxe,Thisted FC,Football / Denmark / 2nd Division,4.22,5.4,1.52,3:00 pm,Sat 06/06
-FC Roskilde,HIK Hellerup,Football / Denmark / 2nd Division,4.22,5.4,1.52,3:00 pm,Sat 06/06
-Vendsyssel FF,Naestved BK,Football / Denmark / 2nd Division,3.84,4.52,1.67,3:00 pm,Sat 06/06
+Raagsveds IF,Lindo FF,Football / Sweden / Division 2,3.75,3.6,1.8,3:00 pm,Sat 06/06
+Næsby BK,Frederiksberg Alliancen 2000,Football / Denmark / Denmark 3.Division,3.69,3.3,1.94,3:00 pm,Sat 06/06
+FC Roskilde,HIK Hellerup,Football / Denmark / 2nd Division,5.36,7.55,1.31,3:00 pm,Sat 06/06
+Vendsyssel FF,Naestved BK,Football / Denmark / 2nd Division,4.13,5.16,1.55,3:00 pm,Sat 06/06
+Vanløse Idrætsforening,Horsholm-Usserod IK,Football / Denmark / Denmark 3.Division,3.8,3.32,1.9,3:00 pm,Sat 06/06
+Brønshøj Boldklub,Nykøbing FC,Football / Denmark / Denmark 3.Division,4.0,1.68,4.1,3:00 pm,Sat 06/06
+Brabrand IF,BK Fremad Amager,Football / Denmark / 2nd Division,3.53,2.69,2.35,3:00 pm,Sat 06/06
+Vsk Aarhus,FC Helsingoer,Football / Denmark / 2nd Division,3.54,2.61,2.41,3:00 pm,Sat 06/06
+SV Seekirchen,SV Wals-Grunau,Football / Austria / Regionalliga West,5.59,7.19,1.28,3:00 pm,Sat 06/06
+AB Gladsaxe,Thisted FC,Football / Denmark / 2nd Division,4.52,6.39,1.42,3:00 pm,Sat 06/06
+Szeged-Csanad Grosics Akademia U19,Budapest Honved U19,Football / Hungary / U19 National,5.39,1.27,7.98,3:00 pm,Sat 06/06
+WAF Vorwarts Brigittenau,Vienna Amateure,"Football / Austria / Wien, Wiener Stadtliga",4.2,1.65,3.9,3:00 pm,Sat 06/06
 Sunnersta AIF,FC Gute,Football / Sweden / Division 2,4.2,4.3,1.58,3:30 pm,Sat 06/06
-Ekenas Idrottsforening,Mikkelin Palloilijat,Football / Finland / Ykkosliiga,3.55,3.69,1.9,4:00 pm,Sat 06/06
-Union Plaani,HPS,Football / Finland / Kakkonen,4.02,1.79,3.53,4:00 pm,Sat 06/06
-Atlantis FC,HIFK,Football / Finland / Kakkonen,4.22,1.85,3.19,4:00 pm,Sat 06/06
-Central Espanol FC,Racing Club Montevideo,Football / Uruguay / Primera Division,3.31,2.03,3.5,4:00 pm,Sat 06/06
-FC Honka,Esbo Bollklubb,Football / Finland / Kakkonen,9.82,18.65,1.07,4:00 pm,Sat 06/06
-Belgium,Tunisia,Football / International / Int. Friendly Games,5.7,12.11,8.9,4:00 pm,Sat 06/06
-Jonkopings Sodra IF,FC Trollhattan,"Football / Sweden / Ettan, Relegation/Promotion",3.82,4.58,1.61,5:00 pm,Sat 06/06
-Falu BS FK,Korsnas IF FK,Football / Sweden / Division 2,4.4,5.8,1.42,5:00 pm,Sat 06/06
-Qviding FIF,Astorps FF,Football / Sweden / Division 2,3.74,2.42,2.39,5:00 pm,Sat 06/06
+Excelsior Maassluis,FC Rijnvogels,Football / Netherlands / Tweede Divisie,4.24,4.34,1.63,3:30 pm,Sat 06/06
+Atlantis FC,HIFK,Football / Finland / Kakkonen,4.02,1.97,2.99,4:00 pm,Sat 06/06
+Central Espanol FC,Racing Club Montevideo,Football / Uruguay / Primera Division,3.28,1.92,3.95,4:00 pm,Sat 06/06
+IJsselmeervogels,ADO 20 Heemskerk,Football / Netherlands / Tweede Divisie,5.0,6.54,1.38,4:00 pm,Sat 06/06
+Japan YOUTH,Canada Youth,Football / International / Toulon Tournament,3.15,3.05,2.19,4:00 pm,Sat 06/06
+Belgium,Tunisia,Football / International / Int. Friendly Games,4.19,4.43,3.12,4:00 pm,Sat 06/06
+Ekenas Idrottsforening,Mikkelin Palloilijat,Football / Finland / Ykkosliiga,3.55,3.7,1.89,4:00 pm,Sat 06/06
+Union Plaani,HPS,Football / Finland / Kakkonen,4.24,1.7,3.74,4:00 pm,Sat 06/06
+SJK Akatemia/2,Narpes Kraft,Football / Finland / Kakkonen,4.23,3.15,1.87,4:00 pm,Sat 06/06
+FC Honka,Esbo Bollklubb,Football / Finland / Kakkonen,9.59,17.62,1.08,4:00 pm,Sat 06/06
+Rovaniemen Palloseura,Tampere United,Football / Finland / Ykkonen,3.51,3.03,2.15,4:00 pm,Sat 06/06
+Herentals FC,Scottland FC,Football / Zimbabwe / Premier Soccer League,2.74,2.83,2.49,4:00 pm,Sat 06/06
+CA Fenix Montevideo,CA River Plate (URU),Football / Uruguay / Segunda Division,3.15,3.34,2.11,4:00 pm,Sat 06/06
+Lithuania,Latvia,Football / International / Baltic Cup,3.15,2.85,2.32,4:00 pm,Sat 06/06
+Huima/Urho,FF Jaro Akademia U23,Football / Finland / Kakkonen,4.21,2.41,2.29,4:00 pm,Sat 06/06
+Carapegua,Independiente Campo Grande,Football / Paraguay / Segunda Division,3.21,3.11,2.19,4:00 pm,Sat 06/06
+Club Dr Benjamin Aceval,Tacuary Asuncion,Football / Paraguay / Segunda Division,3.8,6.09,1.51,4:00 pm,Sat 06/06
+Oulun Luistinseura,SalPa,Football / Finland / Ykkonen,3.67,2.75,2.25,4:00 pm,Sat 06/06
+SV Wienerberg 1921,Hellas Kagran,"Football / Austria / Wien, Wiener Stadtliga",5.6,8.2,1.25,5:00 pm,Sat 06/06
+TPV Tampere,FC Inter Turku 2,Football / Finland / Ykkonen,4.03,2.36,2.45,5:00 pm,Sat 06/06
+TP-47,Jakobstads Bollklubb,Football / Finland / Kakkonen,3.94,2.71,2.14,5:00 pm,Sat 06/06
+Fylkir Reykjavik,Throttur Reykjavik,Football / Iceland / 1. deild,3.71,4.15,1.76,5:00 pm,Sat 06/06
+Myllykosken Pallo -47,PPJ Helsinki,Football / Finland / Kakkonen,4.01,1.87,3.28,5:00 pm,Sat 06/06
+Armenia,Kazakhstan,Football / International / Int. Friendly Games,4.19,4.43,3.12,5:00 pm,Sat 06/06
+GBK Kokkola,FC Vaajakoski,Football / Finland / Kakkonen,4.62,4.43,1.54,5:00 pm,Sat 06/06
+Gefle IF,Hammarby Talang FF,"Football / Sweden / Ettan, Relegation/Promotion",3.78,1.71,3.97,5:00 pm,Sat 06/06
+Jonkopings Sodra IF,FC Trollhattan,"Football / Sweden / Ettan, Relegation/Promotion",3.6,4.36,1.69,5:00 pm,Sat 06/06
+Arbaer,Sindri,Football / Iceland / 3. deild,4.22,3.37,1.77,5:00 pm,Sat 06/06
+Qviding FIF,Astorps FF,Football / Sweden / Division 2,3.85,2.55,2.23,5:00 pm,Sat 06/06
 Nosaby IF,FK Karlskrona,Football / Sweden / Division 2,3.59,2.03,3.05,5:00 pm,Sat 06/06
-Fylkir Reykjavik,Throttur Reykjavik,Football / Iceland / 1. deild,3.56,3.07,2.11,5:00 pm,Sat 06/06
-Myllykosken Pallo -47,PPJ Helsinki,Football / Finland / Kakkonen,3.91,2.19,2.64,5:00 pm,Sat 06/06
-HJS,Espoon Palloseura,Football / Finland / Kakkonen,5.28,6.46,1.34,5:00 pm,Sat 06/06
-Criciuma EC SC,Londrina EC PR,Football / Brazil / Brasileiro Serie B,3.46,5.26,1.67,5:00 pm,Sat 06/06
-Skiljebo SK,Enskede IK,Football / Sweden / Division 2,3.55,3.2,1.97,5:00 pm,Sat 06/06
-Armenia,Kazakhstan,Football / International / Int. Friendly Games,3.46,3.82,2.0,5:00 pm,Sat 06/06
-GBK Kokkola,FC Vaajakoski,Football / Finland / Kakkonen,4.51,3.83,1.65,5:00 pm,Sat 06/06
-Gefle IF,Hammarby Talang FF,"Football / Sweden / Ettan, Relegation/Promotion",3.83,1.77,3.64,5:00 pm,Sat 06/06
-Grotta,UMF Grindavik,Football / Iceland / 1. deild,3.69,2.27,2.72,5:00 pm,Sat 06/06
-CA Atlanta,Gimnasia y Esgrima de Jujuy,Football / Argentina / Primera Nacional,2.72,3.84,2.21,8:00 pm,Sat 06/06
-Portugal,Chile,Football / International / Int. Friendly Games,6.75,13.19,9.97,8:45 pm,Sat 06/06
+Vado FC,Scafatese Calcio 1922,"Football / Italy / Serie D, Prom. Playoffs",3.35,2.65,2.38,5:00 pm,Sat 06/06
+HJS,Espoon Palloseura,Football / Finland / Kakkonen,4.31,4.71,1.55,5:00 pm,Sat 06/06
+Criciuma EC SC,Londrina EC PR,Football / Brazil / Brasileiro Serie B,4.19,4.43,3.12,5:00 pm,Sat 06/06
+KA Asvellir,UMF Vidir,Football / Iceland / 3. deild,4.22,1.64,3.97,5:00 pm,Sat 06/06
+Grotta,UMF Grindavik,Football / Iceland / 1. deild,3.86,2.46,2.41,5:00 pm,Sat 06/06
+Fjolnir,UMF Selfoss,Football / Iceland / 2. deild,3.99,2.77,2.09,5:00 pm,Sat 06/06
+KF Austfjardja,KFG Gardabaer,Football / Iceland / 2. deild,4.48,3.9,1.64,5:00 pm,Sat 06/06
+FK Hodonin,MFK Vitkovice,Football / Czech Republic / MSFL,4.66,6.85,1.37,6:00 pm,Sat 06/06
+SV Strasswalchen,SV Anthering,Football / Austria / Regionalliga Salzburg,4.5,4.8,1.49,6:00 pm,Sat 06/06
+Estonia,Faroe Islands,Football / International / Baltic Cup,3.2,2.7,2.4,6:00 pm,Sat 06/06
+SV Dinamo Helfort 15,FC 1980 Wien,"Football / Austria / Wien, Wiener Stadtliga",4.6,6.8,1.36,6:00 pm,Sat 06/06
+SV Gloggnitz,Wiener Sport-Club,Football / Austria / Regionalliga East,3.94,3.89,1.7,6:00 pm,Sat 06/06
+KS Gornik Polkowice,Sokol Kleczew,Football / Poland / II Liga,3.49,2.77,2.26,6:00 pm,Sat 06/06
+TJ Unie Hlubina,SK Unicov,Football / Czech Republic / MSFL,3.68,2.28,2.63,6:00 pm,Sat 06/06
+IF Vestri,Volsungur,Football / Iceland / 1. deild,5.0,6.34,1.38,6:00 pm,Sat 06/06
+Iceland U19,Montenegro U19,"Football / International / U19 European Championship, Qualification",3.14,2.95,2.37,6:00 pm,Sat 06/06
+KSZO Ostrowiec Swietokrzyski,CWKS Resovia,Football / Poland / II Liga,3.38,2.57,2.47,6:00 pm,Sat 06/06
+UFV Thalgau,Ufc Hallein,Football / Austria / Regionalliga Salzburg,4.2,1.5,5.0,6:00 pm,Sat 06/06
+Portugal U19,Greece U19,"Football / International / U19 European Championship, Qualification",4.05,5.2,1.56,6:00 pm,Sat 06/06
+Breidablik/Augn/Smari U19,Thor/THK/Volsungur U19,Football / Iceland / Iceland League U19,5.11,5.36,1.41,6:00 pm,Sat 06/06
+Twin City Toucans,Houston FC,Football / USA / USL League Two,3.67,2.91,2.11,6:00 pm,Sat 06/06
+JJK Jyvaskyla,PK Keski-Uusimaa,Football / Finland / Ykkonen,4.04,4.24,1.68,6:30 pm,Sat 06/06
+Vikingur Olafsvik,Kari,Football / Iceland / 2. deild,4.28,1.63,4.09,6:30 pm,Sat 06/06
+Dalvik Reynir,Throttur Vogum,Football / Iceland / 2. deild,3.79,2.58,2.28,7:00 pm,Sat 06/06
+Olympique Akbou,Ben Aknoun,Football / Algeria / Ligue 1,3.77,6.28,1.53,7:00 pm,Sat 06/06
+KV Vesturbaer,UMF Tindastoll,Football / Iceland / 3. deild,3.95,2.12,2.66,7:00 pm,Sat 06/06
+Sierra Leone,Liberia,Football / International / Int. Friendly Games,4.19,4.43,3.12,7:00 pm,Sat 06/06
+Japan Women U20,Canada Women U20,"Football / International / U20 Friendly Games, Women",3.19,3.1,2.2,7:00 pm,Sat 06/06
+Atletico Madrid B,SD Ponferradina,Football / Spain / Primera Federacion,3.09,3.19,2.21,7:30 pm,Sat 06/06
+Portugal YOUTH,Ivory Coast YOUTH,Football / International / Toulon Tournament,3.4,3.5,1.93,7:30 pm,Sat 06/06
+Puerto Montt,CD Cobreloa Calama,Football / Chile / Primera B,3.35,2.68,2.39,7:30 pm,Sat 06/06
+Deportes Copiapo,Santiago Wanderers,Football / Chile / Primera B,3.62,3.53,1.89,7:30 pm,Sat 06/06
+MC Oran,USM Alger,Football / Algeria / Ligue 1,3.57,5.07,1.66,8:00 pm,Sat 06/06
+CA Atlanta,Gimnasia y Esgrima de Jujuy,Football / Argentina / Primera Nacional,4.19,4.43,3.12,8:00 pm,Sat 06/06
+Cape Verde,Bermuda,Football / International / Int. Friendly Games,8.73,21.83,1.11,8:00 pm,Sat 06/06
+Gibraltar,Cayman Islands,Football / International / Int. Friendly Games,4.19,4.43,3.12,8:00 pm,Sat 06/06
+Arsenal de Sarandi,CS Italiano,Football / Argentina / Primera B,2.94,3.8,2.1,8:30 pm,Sat 06/06
+Perolas Negras RJ,Serrano FC RJ,"Football / Brazil / Carioca, Serie A2",2.83,2.78,2.46,8:45 pm,Sat 06/06
+Romania,Wales,Football / International / Int. Friendly Games,4.19,4.43,3.12,8:45 pm,Sat 06/06
+Sao Goncalo EC RJ,Olaria RJ,"Football / Brazil / Carioca, Serie A2",2.79,2.75,2.51,8:45 pm,Sat 06/06
+Portugal,Chile,Football / International / Int. Friendly Games,4.19,4.43,3.12,8:45 pm,Sat 06/06
 Montevideo City Torque,Deportivo Maldonado,Football / Uruguay / Primera Division,3.22,2.88,2.37,9:00 pm,Sat 06/06
-Club Atletico Los Andes,CA Estudiantes,Football / Argentina / Primera Nacional,2.67,3.99,2.2,9:00 pm,Sat 06/06
-CA Acassuso,CA Central Norte Salta,Football / Argentina / Primera Nacional,2.63,3.27,2.54,9:30 pm,Sat 06/06
-USA,Germany,Football / International / Int. Friendly Games,4.1,1.71,4.51,9:30 pm,Sat 06/06
-CA San Miguel,CA Defensores de Belgrano,Football / Argentina / Primera Nacional,2.67,3.74,2.28,9:30 pm,Sat 06/06
-San Martin de San Juan,Nueva Chicago,Football / Argentina / Primera Nacional,3.5,6.61,1.56,10:00 pm,Sat 06/06
-CD Castellon,UD Almeria,Football / Spain / LaLiga 2,4.04,4.12,1.79,10:00 pm,Sat 06/06
-Switzerland,Australia,Football / International / Int. Friendly Games,3.85,5.0,1.69,10:00 pm,Sat 06/06
-England,New Zealand,Football / International / Int. Friendly Games,8.36,16.84,1.15,11:00 pm,Sat 06/06
-Bolivia,Scotland,Football / International / Int. Friendly Games,4.94,1.4,7.45,11:00 pm,Sat 06/06
-Atletico de Rafaela,CA Colegiales,Football / Argentina / Primera Nacional,2.77,3.78,2.2,12:00 am,Sun 07/06
-Club Nacional de Football,CA Juventud de Las Piedras,Football / Uruguay / Primera Division,4.0,4.88,1.6,12:30 am,Sun 07/06
-Brazil,Egypt,Football / International / Int. Friendly Games,5.4,8.84,1.33,1:00 am,Sun 07/06
-CD Universidad Catolica,Cobresal,Football / Chile / Copa de la Liga,4.14,5.59,1.49,1:00 am,Sun 07/06
-Nublense,Universidad de Concepcion,Football / Chile / Copa de la Liga,2.99,3.33,2.2,1:00 am,Sun 07/06
-CSD Tristan Suarez,Club Almagro,Football / Argentina / Primera Nacional,3.31,5.45,1.68,1:00 am,Sun 07/06
-Argentina,Honduras,Football / International / Int. Friendly Games,8.59,18.35,1.14,3:00 am,Sun 07/06
-Gimpo FC,Jeonnam Dragons,Football / Republic of Korea / K-League 2,3.12,3.85,1.96,1:30 pm,Sun 07/06
-Seoul E-Land FC,Chungbuk Cheongju FC,Football / Republic of Korea / K-League 2,3.66,4.62,1.67,1:30 pm,Sun 07/06
-Cheonan City FC,Suwon FC,Football / Republic of Korea / K-League 2,3.51,2.08,3.08,1:30 pm,Sun 07/06
-CA Progreso,Albion FC,Football / Uruguay / Primera Division,3.3,2.13,3.25,4:00 pm,Sun 07/06
-Ranheim,Stroemmen IF,Football / Norway / 1st Division,4.67,5.26,1.48,6:00 pm,Sun 07/06
-Deportes La Serena,Deportes Union La Calera,Football / Chile / Copa de la Liga,3.23,2.0,3.56,7:30 pm,Sun 07/06
-Denmark,Ukraine,Football / International / Int. Friendly Games,3.67,5.54,1.68,7:30 pm,Sun 07/06
-Universidad de Chile,Audax Italiano,Football / Chile / Copa de la Liga,3.62,4.64,1.67,7:30 pm,Sun 07/06
-CA Cerro,CA Penarol Montevideo,Football / Uruguay / Primera Division,4.08,1.5,6.02,9:00 pm,Sun 07/06
-Deportivo Moron,Club Almirante Brown,Football / Argentina / Primera Nacional,3.02,5.66,1.75,9:00 pm,Sun 07/06
-CA San Telmo,Deportivo Madryn,Football / Argentina / Primera Nacional,2.86,2.86,2.62,9:00 pm,Sun 07/06
-Chacarita Juniors,CA Temperley,Football / Argentina / Primera Nacional,2.81,3.98,2.11,9:30 pm,Sun 07/06
-CA All Boys,CA Racing de Cordoba,Football / Argentina / Primera Nacional,2.72,4.27,2.09,9:30 pm,Sun 07/06
-Croatia,Slovenia,Football / International / Int. Friendly Games,4.84,9.96,7.4,9:45 pm,Sun 07/06
-CR Brasil AL,Sao Bernardo FC,Football / Brazil / Brasileiro Serie B,3.5,4.57,1.74,10:00 pm,Sun 07/06
-Greece,Italy,Football / International / Int. Friendly Games,3.53,3.45,2.1,10:00 pm,Sun 07/06
-Agropecuario Argentino,CA Patronato Parana,Football / Argentina / Primera Nacional,2.88,4.1,2.04,10:00 pm,Sun 07/06
-UD Las Palmas,Malaga CF,Football / Spain / LaLiga 2,3.44,3.75,2.03,10:00 pm,Sun 07/06
-CA Chaco For Ever,Ferro Carril Oeste,Football / Argentina / Primera Nacional,2.82,2.53,3.02,10:00 pm,Sun 07/06
-CA Guemes,CD Maipu,Football / Argentina / Primera Nacional,2.87,3.5,2.25,10:00 pm,Sun 07/06
-Real Potosi,San Antonio Bulo Bulo,Football / Bolivia / Division Profesional,3.9,4.2,1.68,10:00 pm,Sun 07/06
-Morocco,Norway,Football / International / Int. Friendly Games,3.35,2.31,3.14,10:00 pm,Sun 07/06
-Huachipato,Colo-Colo,Football / Chile / Copa de la Liga,3.51,1.65,5.0,10:00 pm,Sun 07/06
-CD Godoy Cruz,Mitre Santiago del Estero,Football / Argentina / Primera Nacional,3.35,6.81,1.57,10:30 pm,Sun 07/06
-Ecuador,Guatemala,Football / International / Int. Friendly Games,7.45,12.74,1.19,11:00 pm,Sun 07/06
-Colon de Santa Fe,Club Ciudad de Bolivar,Football / Argentina / Primera Nacional,3.01,5.24,1.8,11:00 pm,Sun 07/06
-San Martin de Tucuman,Quilmes AC,Football / Argentina / Primera Nacional,2.98,4.88,1.85,11:30 pm,Sun 07/06
-Defensor Sporting,CA Boston River,Football / Uruguay / Primera Division,3.26,3.65,2.0,12:30 am,Mon 08/06
-CD O´Higgins,CD Palestino,Football / Chile / Copa de la Liga,3.42,2.56,2.46,1:00 am,Mon 08/06
+Albania,Luxembourg,Football / International / Int. Friendly Games,4.19,4.43,3.12,9:00 pm,Sat 06/06
+Club Atletico Los Andes,CA Estudiantes,Football / Argentina / Primera Nacional,4.19,4.43,3.12,9:00 pm,Sat 06/06
+CA Brown de Adrogue,Club Comunicaciones,Football / Argentina / Primera B,2.83,2.59,2.93,9:00 pm,Sat 06/06
+La Luz FC,Paysandu FC,Football / Uruguay / Segunda Division,3.11,4.4,1.85,9:00 pm,Sat 06/06
+Yupanqui,CA Central Cordoba Rosario,Football / Argentina / Primera C,2.79,2.7,2.7,9:30 pm,Sat 06/06
+CSDC Espanol,CA Claypole,Football / Argentina / Primera C,2.75,3.46,2.24,9:30 pm,Sat 06/06
+CA Acassuso,CA Central Norte Salta,Football / Argentina / Primera Nacional,4.19,4.43,3.12,9:30 pm,Sat 06/06
+USA,Germany,Football / International / Int. Friendly Games,4.19,4.43,3.12,9:30 pm,Sat 06/06
+CA Excursionistas,CSD San Martin,Football / Argentina / Primera B,2.98,4.42,1.93,9:30 pm,Sat 06/06
+CSD Flandria,Argentino de Quilmes,Football / Argentina / Primera B,2.75,2.79,2.79,9:30 pm,Sat 06/06
+CA San Miguel,CA Defensores de Belgrano,Football / Argentina / Primera Nacional,4.19,4.43,3.12,9:30 pm,Sat 06/06
+Argentino de Merlo,Deportivo Camioneros,Football / Argentina / Primera B,2.8,3.57,2.26,9:30 pm,Sat 06/06
+Villa Dalmine,CA Villa San Carlos,Football / Argentina / Primera B,3.27,5.57,1.68,9:30 pm,Sat 06/06
+Leones de Rosario FC,CS Barracas,Football / Argentina / Primera C,2.88,3.59,2.11,9:30 pm,Sat 06/06
+CA Atlas,CA Fenix Pilar,Football / Argentina / Primera C,2.79,3.6,2.16,9:30 pm,Sat 06/06
+Club Estrella Del Sur (Alejandro Korn),Sacachispas FC,Football / Argentina / Primera C,2.79,2.79,2.6,9:30 pm,Sat 06/06
+Panama,Bosnia and Herzegovina,Football / International / Int. Friendly Games,4.19,4.43,3.12,10:00 pm,Sat 06/06
+Club Mercedes,Deportivo Paraguayo,Football / Argentina / Primera C,2.97,3.87,1.98,10:00 pm,Sat 06/06
+EC Vitoria BA,Fortaleza EC CE,Football / Brazil / Copa do Nordeste,3.35,4.11,1.83,10:00 pm,Sat 06/06
+CD Castellon,UD Almeria,Football / Spain / LaLiga 2,3.74,4.21,1.84,10:00 pm,Sat 06/06
+Switzerland,Australia,Football / International / Int. Friendly Games,4.19,4.43,3.12,10:00 pm,Sat 06/06
+San Martin de San Juan,Nueva Chicago,Football / Argentina / Primera Nacional,4.19,4.43,3.12,10:00 pm,Sat 06/06
+Santiago City FC,Atletico Colina,Football / Chile / Segunda Division,3.37,2.98,2.18,10:00 pm,Sat 06/06
+SSA Swarm FC Women,Birmingham Legion FC Women,Football / USA / USL W League,3.65,1.8,3.7,10:30 pm,Sat 06/06
+Atletico de Rafaela,CA Colegiales,Football / Argentina / Primera Nacional,4.19,4.43,3.12,10:30 pm,Sat 06/06
+Philadelphia Lone Star Usl2,LVU Rush,Football / USA / USL League Two,3.82,2.53,2.3,11:00 pm,Sat 06/06
+Yaracuyanos FC,Club Atletico Barinas,Football / Venezuela / Segunda Division,3.59,4.56,1.66,11:00 pm,Sat 06/06
+England,New Zealand,Football / International / Int. Friendly Games,4.19,4.43,3.12,11:00 pm,Sat 06/06
+Qatar,El Salvador,Football / International / Int. Friendly Games,4.19,4.43,3.12,11:00 pm,Sat 06/06
+Bolivia,Scotland,Football / International / Int. Friendly Games,4.19,4.43,3.12,11:00 pm,Sat 06/06
+Deportivo Lara,Urena SC,Football / Venezuela / Segunda Division,3.31,3.99,1.83,11:00 pm,Sat 06/06
+Club Fernando de La Mora,Guairena FC,Football / Paraguay / Segunda Division,3.17,2.58,2.58,11:00 pm,Sat 06/06
+CS Maritimo de la Guaira,Dynamo Puerto FC,Football / Venezuela / Segunda Division,3.16,4.38,1.8,11:00 pm,Sat 06/06
+Aragua FC,Monagas SC B,Football / Venezuela / Segunda Division,3.03,3.12,2.23,11:00 pm,Sat 06/06
+Edgewater Castle,Rochester FC,Football / USA / USL League Two,4.1,3.91,1.7,12:00 am,Sun 07/06
+LDU Portoviejo,Gualaceo SC,Football / Ecuador / Serie B,2.95,3.3,2.18,12:00 am,Sun 07/06
+Club Nacional de Football,CA Juventud de Las Piedras,Football / Uruguay / Primera Division,3.79,4.99,1.62,12:30 am,Sun 07/06
+Brazil Women,USA Women,Football / International / Int. Friendly Games W,3.41,1.92,3.75,12:30 am,Sun 07/06
+Loudoun United FC,Richmond Kickers,Football / USA / USL League One Cup,3.75,4.1,1.7,1:00 am,Sun 07/06
+Nublense,Universidad de Concepcion,Football / Chile / Copa de la Liga,3.22,3.75,1.95,1:00 am,Sun 07/06
+Venezuela,Turkiye,Football / International / Int. Friendly Games,4.19,4.43,3.12,1:00 am,Sun 07/06
+CSD Tristan Suarez,Club Almagro,Football / Argentina / Primera Nacional,4.19,4.43,3.12,1:00 am,Sun 07/06
+Brazil,Egypt,Football / International / Int. Friendly Games,4.19,4.43,3.12,1:00 am,Sun 07/06
+12 de Junio de Villa Hayes,Deportivo Capiata,Football / Paraguay / Segunda Division,3.21,3.99,1.9,1:00 am,Sun 07/06
+CD Universidad Catolica,Cobresal,Football / Chile / Copa de la Liga,4.73,6.95,1.36,1:00 am,Sun 07/06
+FC Supra Du Quebec,Pacific FC,Football / Canada / Canadian Premier League,4.2,5.16,1.52,2:00 am,Sun 07/06
+Indy Eleven,Forward Madison FC,Football / USA / USL League One Cup,4.3,6.6,1.4,2:00 am,Sun 07/06
+New York Cosmos,Hartford Athletic,Football / USA / USL League One Cup,3.9,1.63,4.3,2:00 am,Sun 07/06
+Charleston Battery,Pittsburgh Riverhounds,Football / USA / USL League One Cup,3.3,3.2,2.07,2:00 am,Sun 07/06
+Detroit City FC,Lexington SC,Football / USA / USL League One Cup,3.45,4.4,1.72,2:00 am,Sun 07/06
+Lorain County Leviathan FC,Pittsburgh Riverhounds 2,Football / USA / USL League Two,3.72,2.43,2.43,2:00 am,Sun 07/06
+Manhattan SC,FC Motown STA,Football / USA / USL League Two,4.69,1.37,6.88,2:00 am,Sun 07/06
+Cavalry FC,HFX Wanderers FC,Football / Canada / Canadian Premier League,3.83,4.98,1.59,2:00 am,Sun 07/06
+New England FC,Black Rock FC,Football / USA / USL League Two,4.19,4.57,1.58,2:00 am,Sun 07/06
+Connecticut Rush,Seacoast United Phantoms,Football / USA / USL League Two,4.1,3.81,1.71,2:00 am,Sun 07/06
+Sporting Jax,Tampa Bay Rowdies,Football / USA / USL League One Cup,4.2,1.45,6.0,2:00 am,Sun 07/06
+East Atlanta FC,Apotheos FC,Football / USA / USL League Two,3.78,2.49,2.36,2:30 am,Sun 07/06
+FC Naples,Sarasota Paradise,Football / USA / USL League One Cup,3.5,4.2,1.75,2:30 am,Sun 07/06
+Rhode Island FC,Westchester SC,Football / USA / USL League One Cup,4.4,6.4,1.39,2:30 am,Sun 07/06
+City SC San Diego,FC Tucson,Football / USA / USL League Two,4.95,1.34,7.04,3:00 am,Sun 07/06
+Union Omaha SC,Fort Wayne FC,Football / USA / USL League One Cup,3.7,5.0,1.58,3:00 am,Sun 07/06
+Argentina,Honduras,Football / International / Int. Friendly Games,4.19,4.43,3.12,3:00 am,Sun 07/06
+Club Atletico Rentistas,Colon FC,Football / Uruguay / Segunda Division,3.1,3.91,1.95,3:00 am,Sun 07/06
+Rockford Raptors,River Light FC,Football / USA / USL League Two,3.83,2.34,2.49,3:00 am,Sun 07/06
+Minneapolis City SC,Sueno FC,Football / USA / USL League Two,3.99,3.57,1.79,3:00 am,Sun 07/06
+Deportes Iquique,Deportes Recoleta,Football / Chile / Primera B,3.57,4.29,1.73,3:30 am,Sun 07/06
+CSD Rangers,CD Santa Cruz,Football / Chile / Primera B,3.35,3.16,2.11,3:30 am,Sun 07/06
+Coastal Spirit FC,Nelson Suburbs FC,Football / New Zealand / National League,3.9,3.65,1.75,5:00 am,Sun 07/06
+South Melbourne FC U23,Altona Magic SC U23,Football / Australia / U23 Victoria NPL,4.68,4.01,1.59,5:30 am,Sun 07/06
+Gold Coast United FC U23,Wynnum Wolves FC U23,Football / Australia / U23 Queensland NPL,4.0,1.93,3.1,6:00 am,Sun 07/06
+Blacktown City FC U20,Rockdale Ilinden FC U20,Football / Australia / U20 NSW NPL,3.79,3.03,1.98,6:00 am,Sun 07/06
+Marconi Stallions FC U20,Wollongong Wolves FC U20,Football / Australia / U20 NSW NPL,4.25,3.96,1.63,6:00 am,Sun 07/06
+Vanraure Hachinohe FC,FC Imabari,Football / Japan / J.League 2,2.99,3.28,2.27,7:00 am,Sun 07/06
+Tokushima Vortis,Iwaki FC,Football / Japan / J.League 2,3.14,2.56,2.7,7:05 am,Sun 07/06
+St George Willawong U23,Redlands United U23,Football / Australia / U23 Queensland Premier League 1,4.26,1.9,2.94,7:30 am,Sun 07/06
+Bulls FC Academy Women,Hills United FC Women,"Football / Australia / NSW Premier League, Women",5.13,6.47,1.35,7:40 am,Sun 07/06
+Preston Lions Women,Box Hill United Women,"Football / Australia / Victoria NPL, Women",4.1,1.59,4.58,8:00 am,Sun 07/06
+Zweigen Kanazawa,Thespakusatsu,Football / Japan / J.League 2,3.37,3.47,2.02,8:00 am,Sun 07/06
+Blaublitz Akita,Kagoshima United,Football / Japan / J.League 2,3.14,2.51,2.75,8:00 am,Sun 07/06
+Marconi Stallions,Wollongong Wolves FC,Football / Australia / NSW NPL 1,4.39,6.11,1.43,8:00 am,Sun 07/06
+Souths Strikers Women,Sunshine Coast Wanderers FC Women,"Football / Australia / Queensland NPL, Women",4.22,1.55,4.79,8:00 am,Sun 07/06
+Tochigi SC,Giravanz Kitakyushu,Football / Japan / J.League 2,3.46,4.13,1.82,8:00 am,Sun 07/06
+Blacktown City FC,Rockdale Ilinden FC,Football / Australia / NSW NPL 1,3.67,1.95,3.29,8:00 am,Sun 07/06
+Eastern Suburbs U23,Moreton City Excelsior U23,Football / Australia / U23 Queensland NPL,4.02,1.92,3.11,8:00 am,Sun 07/06
+Jincheon HR FC,Gijang United,Football / Republic of Korea / Korea Republic K4 League,4.57,6.81,1.38,8:00 am,Sun 07/06
+Namyangju FC,Geoje FC,Football / Republic of Korea / Korea Republic K4 League,3.51,2.59,2.39,8:00 am,Sun 07/06
+Fukushima United FC,FC Ryukyu,Football / Japan / J.League 2,3.37,2.6,2.51,8:00 am,Sun 07/06
+Gladesville Ravens Women,Northern Tigers Women,"Football / Australia / NSW Premier League, Women",3.76,1.94,3.24,8:10 am,Sun 07/06
+Gold Coast United FC,Wynnum Wolves FC,Football / Australia / Queensland NPL,4.33,1.77,3.51,8:15 am,Sun 07/06
+South Melbourne FC,Altona Magic SC,"Football / Australia / Victoria, NPL1",4.7,5.37,1.45,8:30 am,Sun 07/06
+The Gap FC Women,Virginia United Women,"Football / Australia / Queensland Premier League 1, Women",4.58,4.39,1.55,9:00 am,Sun 07/06
+Sydney University SFC Women,Apia Leichhardt FC Women,"Football / Australia / NSW Premier League, Women",4.38,1.53,4.76,10:00 am,Sun 07/06
+Oita Trinita,Montedio Yamagata,Football / Japan / J.League 2,3.12,3.03,2.33,10:00 am,Sun 07/06
+Manly United FC Women,Macarthur Rams Women,"Football / Australia / NSW Premier League, Women",3.93,2.69,2.16,10:00 am,Sun 07/06
+Western Sydney Wanderers Youth Women,Illawarra Stingrays Women,"Football / Australia / NSW Premier League, Women",5.16,7.26,1.32,10:00 am,Sun 07/06
+FC Mokpo,Yangpyeong FC,Football / Republic of Korea / K3 League,3.02,2.43,2.87,1:00 pm,Sun 07/06
+Yeoju FC,Siheung Citizen FC,Football / Republic of Korea / K3 League,3.7,1.58,5.36,1:00 pm,Sun 07/06
+Seoul E-Land FC,Chungbuk Cheongju FC,Football / Republic of Korea / K-League 2,3.67,4.67,1.66,1:30 pm,Sun 07/06
+Gimpo FC,Jeonnam Dragons,Football / Republic of Korea / K-League 2,3.25,4.02,1.87,1:30 pm,Sun 07/06
+Cheonan City FC,Suwon FC,Football / Republic of Korea / K-League 2,3.43,2.13,3.05,1:30 pm,Sun 07/06
+Karlslunds IF HFK,IK Sleipner,Football / Sweden / Division 2,3.75,1.83,3.5,2:00 pm,Sun 07/06
+IK Franke,Bollstanas SK,Football / Sweden / Division 2,3.85,3.45,1.81,2:00 pm,Sun 07/06
+Herrestads AIF,Motala AIF FK,Football / Sweden / Division 2,3.74,2.74,2.14,2:00 pm,Sun 07/06
+Ariana FC,Eskilsminne IF,"Football / Sweden / Ettan, Relegation/Promotion",3.6,3.6,1.84,2:00 pm,Sun 07/06
+Afghanistan,Pakistan,Football / International / Int. Friendly Games,3.42,4.96,1.77,2:00 pm,Sun 07/06
+Viggbyholms IK FF,IFK Lidingo FK,Football / Sweden / Division 2,3.69,3.14,1.96,2:00 pm,Sun 07/06
+Kristianstad FC,Lunds BK,"Football / Sweden / Ettan, Relegation/Promotion",3.28,2.52,2.52,2:00 pm,Sun 07/06
+Dalstorps IF,Onsala BK,Football / Sweden / Division 2,3.55,2.65,2.25,3:00 pm,Sun 07/06
+IFK Kumla,Ahlafors IF,Football / Sweden / Division 2,3.65,2.19,2.7,3:00 pm,Sun 07/06
+Piteaa IF,Enkopings SK,"Football / Sweden / Ettan, Relegation/Promotion",3.64,1.96,3.16,3:00 pm,Sun 07/06
+Oskarshamns AIK,Osterlen FF,Football / Sweden / Division 2,3.85,4.0,1.69,3:00 pm,Sun 07/06
+Sollentuna FK,Umea FC,"Football / Sweden / Ettan, Relegation/Promotion",3.44,2.45,2.5,4:00 pm,Sun 07/06
+CA Progreso,Albion FC,Football / Uruguay / Primera Division,3.23,2.19,3.18,4:00 pm,Sun 07/06
+IFK Karlshamn,Lilla Torg FF,Football / Sweden / Division 2,3.49,3.04,2.06,4:00 pm,Sun 07/06
+Liechtenstein,Cyprus,Football / International / Int. Friendly Games,4.04,1.44,8.48,4:00 pm,Sun 07/06
+Kenya,Lesotho,Football / International / Int. Friendly Games,3.43,3.98,1.93,4:00 pm,Sun 07/06
+Trelleborgs FF,Skovde AIK,"Football / Sweden / Ettan, Relegation/Promotion",5.29,7.56,1.28,5:00 pm,Sun 07/06
+Orebro Syrianska IF,Smedby AIS,Football / Sweden / Division 2,3.7,2.75,2.14,5:00 pm,Sun 07/06
+Staffanstorp United,Vaxjo Norra,Football / Sweden / Division 2,3.85,1.84,3.35,5:00 pm,Sun 07/06
+IF Karlstad Fotbollutveckling,IFK Skovde FK,Football / Sweden / Division 2,4.2,1.52,4.9,5:00 pm,Sun 07/06
+Chapecoense SC,Avai FC SC,Football / Brazil / Copa Sul-Sudeste,3.98,5.05,1.54,5:00 pm,Sun 07/06
+Aatvidabergs FF,Tvaakers IF,"Football / Sweden / Ettan, Relegation/Promotion",3.87,4.24,1.65,5:00 pm,Sun 07/06
+RC Celta Fortuna,CE Europa,Football / Spain / Primera Federacion,3.24,3.48,2.02,5:15 pm,Sun 07/06
+Ranheim,Stroemmen IF,Football / Norway / 1st Division,5.0,5.96,1.4,6:00 pm,Sun 07/06
+FK Jonava,FK Minija 2017,Football / Lithuania / 1 Lyga,3.88,1.5,5.1,6:00 pm,Sun 07/06
+Ascoli Calcio 1898,Union Brescia,"Football / Italy / Serie C, Promotion Playoffs",3.05,4.0,1.95,7:00 pm,Sun 07/06
+Denmark,Ukraine,Football / International / Int. Friendly Games,4.19,4.43,3.12,7:30 pm,Sun 07/06
+Universidad de Chile,Audax Italiano,Football / Chile / Copa de la Liga,3.85,5.0,1.59,7:30 pm,Sun 07/06
+Zamora CF,Villarreal CF B U23,Football / Spain / Primera Federacion,3.15,3.05,2.25,7:30 pm,Sun 07/06
+Deportes La Serena,Deportes Union La Calera,Football / Chile / Copa de la Liga,3.17,2.06,3.46,7:30 pm,Sun 07/06
+CSCD Laferrere,CS Dock Sud,Football / Argentina / Primera B,2.84,3.47,2.27,8:30 pm,Sun 07/06
+CA Victoriano Arenas,Defensores de Cambaceres,Football / Argentina / Primera C,2.78,3.68,2.13,8:30 pm,Sun 07/06
+CA Cerro,CA Penarol Montevideo,Football / Uruguay / Primera Division,3.81,1.55,5.78,9:00 pm,Sun 07/06
+Deportivo Moron,Club Almirante Brown,Football / Argentina / Primera Nacional,4.19,4.43,3.12,9:00 pm,Sun 07/06
+CA San Telmo,Deportivo Madryn,Football / Argentina / Primera Nacional,4.19,4.43,3.12,9:00 pm,Sun 07/06
+Kosovo,Andorra,Football / International / Int. Friendly Games,6.76,16.89,1.17,9:00 pm,Sun 07/06
+Inter Toronto FC,Forge FC Hamilton,Football / Canada / Canadian Premier League,3.38,2.01,3.38,9:00 pm,Sun 07/06
+Chacarita Juniors,CA Temperley,Football / Argentina / Primera Nacional,4.19,4.43,3.12,9:30 pm,Sun 07/06
+CA General Lamadrid,Club Lujan,Football / Argentina / Primera C,2.79,3.07,2.41,9:30 pm,Sun 07/06
+CA All Boys,CA Racing de Cordoba,Football / Argentina / Primera Nacional,4.19,4.43,3.12,9:30 pm,Sun 07/06
+Canuelas FC,Club El Porvenir,Football / Argentina / Primera C,2.77,2.96,2.49,9:30 pm,Sun 07/06
+Croatia,Slovenia,Football / International / Int. Friendly Games,4.19,4.43,3.12,9:45 pm,Sun 07/06
+Agropecuario Argentino,CA Patronato Parana,Football / Argentina / Primera Nacional,4.19,4.43,3.12,10:00 pm,Sun 07/06
+UD Las Palmas,Malaga CF,Football / Spain / LaLiga 2,3.22,3.71,2.13,10:00 pm,Sun 07/06
+CA Chaco For Ever,Ferro Carril Oeste,Football / Argentina / Primera Nacional,4.19,4.43,3.12,10:00 pm,Sun 07/06
+CA Guemes,CD Maipu,Football / Argentina / Primera Nacional,4.19,4.43,3.12,10:00 pm,Sun 07/06
+CR Brasil AL,Sao Bernardo FC,Football / Brazil / Brasileiro Serie B,4.19,4.43,3.12,10:00 pm,Sun 07/06
+Greece,Italy,Football / International / Int. Friendly Games,4.19,4.43,3.12,10:00 pm,Sun 07/06
+Real Potosi,San Antonio Bulo Bulo,Football / Bolivia / Division Profesional,4.19,4.43,3.12,10:00 pm,Sun 07/06
+Atletico Avila FC,Mineros de Guayana,Football / Venezuela / Segunda Division,3.11,3.65,1.98,10:00 pm,Sun 07/06
+Morocco,Norway,Football / International / Int. Friendly Games,4.19,4.43,3.12,10:00 pm,Sun 07/06
+Huachipato,Colo-Colo,Football / Chile / Copa de la Liga,3.8,1.64,4.62,10:00 pm,Sun 07/06
+CD Godoy Cruz,Mitre Santiago del Estero,Football / Argentina / Primera Nacional,4.19,4.43,3.12,10:30 pm,Sun 07/06
+CD Antofagasta,Deportes Magallanes,Football / Chile / Primera B,3.82,3.91,1.75,10:30 pm,Sun 07/06
+Ecuador,Guatemala,Football / International / Int. Friendly Games,4.19,4.43,3.12,11:00 pm,Sun 07/06
+Colon de Santa Fe,Club Ciudad de Bolivar,Football / Argentina / Primera Nacional,4.19,4.43,3.12,11:00 pm,Sun 07/06
+San Martin de Tucuman,Quilmes AC,Football / Argentina / Primera Nacional,4.19,4.43,3.12,11:30 pm,Sun 07/06
+Defensor Sporting,CA Boston River,Football / Uruguay / Primera Division,3.23,3.76,1.98,12:30 am,Mon 08/06
+Provincial Osorno,Deportes Linares,Football / Chile / Segunda Division,3.43,4.51,1.73,1:00 am,Mon 08/06
 Deportes Limache,CD Everton Vina del Mar,Football / Chile / Copa de la Liga,3.28,2.75,2.37,1:00 am,Mon 08/06
-Liverpool Montevideo,Cerro Largo FC,Football / Uruguay / Primera Division,3.31,4.28,1.84,1:00 am,Tue 09/06
-America FC MG,AC Goianiense GO,Football / Brazil / Brasileiro Serie B,2.96,2.96,2.47,2:00 am,Tue 09/06
-Vila Nova FC GO,Botafogo FC SP,Football / Brazil / Brasileiro Serie B,3.06,4.46,1.89,2:00 am,Tue 09/06
-Nautico PE,Fortaleza EC CE,Football / Brazil / Brasileiro Serie B,3.07,3.21,2.26,1:00 am,Wed 10/06
-England,Costa Rica,Football / International / Int. Friendly Games,7.07,14.58,1.19,11:00 pm,Wed 10/06
-Goias EC GO,Gremio Novorizontino SP,Football / Brazil / Brasileiro Serie B,3.06,3.69,2.07,2:00 am,Thu 11/06
-Ceara SC CE,Avai FC SC,Football / Brazil / Brasileiro Serie B,3.31,4.57,1.79,2:00 am,Thu 11/06
-Tampa Bay Rowdies,Charleston Battery,Football / USA / USL Championship,3.75,4.18,1.74,2:00 am,Thu 11/06
-Detroit City FC,El Paso Locomotive FC,Football / USA / USL Championship,3.55,3.8,1.87,2:30 am,Thu 11/06
-SC Recife PE,Athletic Club Sjdr MG,Football / Brazil / Brasileiro Serie B,3.36,4.87,1.73,3:00 am,Thu 11/06
-Phoenix Rising FC,Louisville City FC,Football / USA / USL Championship,3.4,2.23,2.96,5:30 am,Thu 11/06
-Mexico,South Africa,Football / International / FIFA World Cup,4.52,7.87,1.45,10:00 pm,Thu 11/06
-Korea Republic,Czechia,Football / International / FIFA World Cup,3.19,2.82,2.69,5:00 am,Fri 12/06
-Shelbourne FC,Shamrock Rovers,Football / Ireland / Premier Division,3.25,2.47,2.72,9:45 pm,Fri 12/06
-Waterford FC,Sligo Rovers FC,Football / Ireland / Premier Division,3.3,2.96,2.28,9:45 pm,Fri 12/06
-Saint Patrick´s Athletic FC,Drogheda United FC,Football / Ireland / Premier Division,4.46,7.38,1.39,9:45 pm,Fri 12/06
-Galway United FC,Dundalk FC,Football / Ireland / Premier Division,3.46,2.48,2.58,9:45 pm,Fri 12/06
-Derry City FC,Bohemians Dublin FC,Football / Ireland / Premier Division,3.26,2.32,2.92,9:45 pm,Fri 12/06
-Canada,Bosnia and Herzegovina,Football / International / FIFA World Cup,3.71,4.48,1.83,10:00 pm,Fri 12/06
-Audax Italiano,Deportes La Serena,Football / Chile / Primera Division,3.41,2.92,2.25,3:00 am,Sat 13/06
-USA,Paraguay,Football / International / FIFA World Cup,3.44,3.98,2.01,4:00 am,Sat 13/06
+CD O´Higgins,CD Palestino,Football / Chile / Copa de la Liga,3.42,2.56,2.46,1:00 am,Mon 08/06
+Colombia,Jordan,Football / International / Int. Friendly Games,4.19,4.43,3.12,2:00 am,Mon 08/06
+Dfk Dainava Alytus,FK Garliava,Football / Lithuania / 1 Lyga,3.43,2.89,2.08,7:00 pm,Mon 08/06
+Angelholms FF,BK Olympic,"Football / Sweden / Ettan, Relegation/Promotion",3.46,2.89,2.15,8:00 pm,Mon 08/06
+FC Stockholm Internazionale,Vasalunds IF,"Football / Sweden / Ettan, Relegation/Promotion",4.07,4.36,1.6,8:00 pm,Mon 08/06
+FC Jarfalla,IFK Stocksund,"Football / Sweden / Ettan, Relegation/Promotion",4.17,3.98,1.64,8:30 pm,Mon 08/06
+Utsiktens BK,FC Rosengaard 1917,"Football / Sweden / Ettan, Relegation/Promotion",4.07,1.5,5.29,8:30 pm,Mon 08/06
+CD UAI Urquiza,CSD Liniers,Football / Argentina / Primera B,2.8,3.09,2.51,9:30 pm,Mon 08/06
+AD Berazategui,Juventud Unida San Miguel,Football / Argentina / Primera C,3.61,6.26,1.51,9:30 pm,Mon 08/06
+Netherlands,Uzbekistan,Football / International / Int. Friendly Games,4.19,4.43,3.12,9:45 pm,Mon 08/06
+France,Northern Ireland,Football / International / Int. Friendly Games,4.19,4.43,3.12,10:10 pm,Mon 08/06
+Liverpool Montevideo,Cerro Largo FC,Football / Uruguay / Primera Division,3.23,4.05,1.91,1:00 am,Tue 09/06
+Atletico Nacional Medellin,CD Junior FC,"Football / Colombia / Primera A, Apertura",4.72,5.05,1.49,1:00 am,Tue 09/06
+America FC MG,AC Goianiense GO,Football / Brazil / Brasileiro Serie B,4.19,4.43,3.12,2:00 am,Tue 09/06
+Vila Nova FC GO,Botafogo FC SP,Football / Brazil / Brasileiro Serie B,4.19,4.43,3.12,2:00 am,Tue 09/06
+Spain,Peru,Football / International / Int. Friendly Games,6.93,16.83,1.17,5:00 am,Tue 09/06
+Armenia,Moldova,Football / International / Int. Friendly Games,3.77,5.15,1.67,7:00 pm,Tue 09/06
+SJK Akatemia,JIPPO,Football / Finland / Ykkosliiga,3.99,1.55,5.45,7:00 pm,Tue 09/06
+Sandvikens IF,Falkenbergs FF,Football / Sweden / Superettan,3.5,2.72,2.34,8:00 pm,Tue 09/06
+Nordic United FC,Ostersunds FK,Football / Sweden / Superettan,3.46,2.93,2.22,8:00 pm,Tue 09/06
+IK Oddevold,IFK Norrkoping FK,Football / Sweden / Superettan,3.51,2.41,2.63,8:00 pm,Tue 09/06
+Osters IF,IFK Varnamo,Football / Sweden / Superettan,3.59,3.15,2.07,8:00 pm,Tue 09/06
+Russia,Trinidad and Tobago,Football / International / Int. Friendly Games,12.86,21.76,1.07,8:00 pm,Tue 09/06
+IK Brage,Ljungskile SK,Football / Sweden / Superettan,3.4,2.52,2.57,8:00 pm,Tue 09/06
+AA Ponte Preta SP,Cuiaba EC MT,Football / Brazil / Brasileiro Serie B,4.19,4.43,3.12,1:00 am,Wed 10/06
+Nautico PE,Fortaleza EC CE,Football / Brazil / Brasileiro Serie B,4.19,4.43,3.12,1:00 am,Wed 10/06
+Argentina,Iceland,Football / International / Int. Friendly Games,6.14,15.85,1.2,3:30 am,Wed 10/06
+Iraq,Venezuela,Football / International / Int. Friendly Games,3.46,1.89,4.15,4:00 am,Wed 10/06
+Varbergs BoIS,Norrby IF,Football / Sweden / Superettan,3.75,4.87,1.65,8:00 pm,Wed 10/06
+Orebro SK,GIF Sundsvall,Football / Sweden / Superettan,3.39,4.17,1.83,8:00 pm,Wed 10/06
+Portugal,Nigeria,Football / International / Int. Friendly Games,4.19,4.43,3.12,10:45 pm,Wed 10/06
+England,Costa Rica,Football / International / Int. Friendly Games,4.19,4.43,3.12,11:00 pm,Wed 10/06
+Goias EC GO,Gremio Novorizontino SP,Football / Brazil / Brasileiro Serie B,4.19,4.43,3.12,2:00 am,Thu 11/06
+Ceara SC CE,Avai FC SC,Football / Brazil / Brasileiro Serie B,4.19,4.43,3.12,2:00 am,Thu 11/06
+Tampa Bay Rowdies,Charleston Battery,Football / USA / USL Championship,3.65,3.89,1.82,2:00 am,Thu 11/06
+Detroit City FC,El Paso Locomotive FC,Football / USA / USL Championship,3.5,3.74,1.9,2:30 am,Thu 11/06
+SC Recife PE,Athletic Club Sjdr MG,Football / Brazil / Brasileiro Serie B,4.19,4.43,3.12,3:00 am,Thu 11/06
+Monterey Bay FC,Sporting Jax,Football / USA / USL Championship,3.64,4.08,1.79,5:00 am,Thu 11/06
+Phoenix Rising FC,Louisville City FC,Football / USA / USL Championship,3.4,2.11,3.21,5:30 am,Thu 11/06
+Helsingborgs IF,Landskrona BoIS,Football / Sweden / Superettan,3.36,2.77,2.37,8:00 pm,Thu 11/06
+Mexico,South Africa,Football / International / FIFA World Cup,4.19,4.43,3.12,10:00 pm,Thu 11/06
+Korea Republic,Czechia,Football / International / FIFA World Cup,4.19,4.43,3.12,5:00 am,Fri 12/06
+Shelbourne FC,Shamrock Rovers,Football / Ireland / Premier Division,3.18,2.59,2.64,9:45 pm,Fri 12/06
+Waterford FC,Sligo Rovers FC,Football / Ireland / Premier Division,3.4,3.06,2.18,9:45 pm,Fri 12/06
+Saint Patrick´s Athletic FC,Drogheda United FC,Football / Ireland / Premier Division,4.75,9.5,1.31,9:45 pm,Fri 12/06
+Galway United FC,Dundalk FC,Football / Ireland / Premier Division,3.49,2.22,2.91,9:45 pm,Fri 12/06
+Derry City FC,Bohemians Dublin FC,Football / Ireland / Premier Division,3.16,2.57,2.67,9:45 pm,Fri 12/06
+Canada,Bosnia and Herzegovina,Football / International / FIFA World Cup,4.19,4.43,3.12,10:00 pm,Fri 12/06
+Audax Italiano,Deportes La Serena,Football / Chile / Primera Division,4.19,4.43,3.12,3:00 am,Sat 13/06
+USA,Paraguay,Football / International / FIFA World Cup,4.19,4.43,3.12,4:00 am,Sat 13/06
 Harju JK Laagri,FC Kuressaare,Football / Estonia / Premium Liiga,3.74,3.55,1.88,12:30 pm,Sat 13/06
 Spartak Moscow Women,CSKA Moscow Women,"Football / Russian Federation / Super Cup, Women",3.16,2.59,2.59,1:30 pm,Sat 13/06
-Qatar,Switzerland,Football / International / FIFA World Cup,6.59,1.23,12.92,10:00 pm,Sat 13/06
-CD Everton Vina del Mar,CD Palestino,Football / Chile / Primera Division,3.27,2.54,2.63,10:00 pm,Sat 13/06
-Colo-Colo,Cobresal,Football / Chile / Primera Division,6.24,12.67,1.19,12:30 am,Sun 14/06
-Brazil,Morocco,Football / International / FIFA World Cup,4.03,5.81,1.61,1:00 am,Sun 14/06
-Loudoun United FC,Rhode Island FC,Football / USA / USL Championship,3.45,2.18,3.01,1:00 am,Sun 14/06
-Pittsburgh Riverhounds,Indy Eleven,Football / USA / USL Championship,3.41,3.46,2.01,2:00 am,Sun 14/06
-Lexington SC,San Antonio FC,Football / USA / USL Championship,3.3,3.44,2.06,2:00 am,Sun 14/06
+JK Narva Trans,FC Nomme United,Football / Estonia / Premium Liiga,3.68,2.62,2.35,2:30 pm,Sat 13/06
+Tampereen Ilves,Turun Palloseura,Football / Finland / Veikkausliiga,3.5,3.36,2.01,3:00 pm,Sat 13/06
+FC Inter Turku,AC Oulu,Football / Finland / Veikkausliiga,3.59,4.76,1.69,3:00 pm,Sat 13/06
+Vaasan Palloseura,Kuopion Palloseura,Football / Finland / Veikkausliiga,3.22,2.2,3.17,5:00 pm,Sat 13/06
+FF Jaro,HJK Helsinki,Football / Finland / Veikkausliiga,3.89,1.68,4.38,5:00 pm,Sat 13/06
+Tartu JK Tammeka,Parnu JK Vaprus,Football / Estonia / Premium Liiga,3.69,3.01,2.1,5:00 pm,Sat 13/06
+IFK Mariehamn,IF Gnistan,Football / Finland / Veikkausliiga,3.46,2.0,3.46,7:00 pm,Sat 13/06
+Tallinna FC Flora,FCI Levadia Tallinn,Football / Estonia / Premium Liiga,3.8,1.87,3.55,7:00 pm,Sat 13/06
+FC Lahti,Seinajoen JK,Football / Finland / Veikkausliiga,3.46,3.17,2.1,7:00 pm,Sat 13/06
+Qatar,Switzerland,Football / International / FIFA World Cup,4.19,4.43,3.12,10:00 pm,Sat 13/06
+CD Everton Vina del Mar,CD Palestino,Football / Chile / Primera Division,4.19,4.43,3.12,10:00 pm,Sat 13/06
+Colo-Colo,Cobresal,Football / Chile / Primera Division,4.19,4.43,3.12,12:30 am,Sun 14/06
+Brazil,Morocco,Football / International / FIFA World Cup,4.19,4.43,3.12,1:00 am,Sun 14/06
+Loudoun United FC,Rhode Island FC,Football / USA / USL Championship,3.51,1.89,3.75,1:00 am,Sun 14/06
+Pittsburgh Riverhounds,Indy Eleven,Football / USA / USL Championship,3.12,3.8,2.02,2:00 am,Sun 14/06
+Lexington SC,San Antonio FC,Football / USA / USL Championship,3.3,3.54,2.02,2:00 am,Sun 14/06
 Tampa Bay Rowdies,Hartford Athletic,Football / USA / USL Championship,4.37,6.22,1.45,2:30 am,Sun 14/06
 Charleston Battery,FC Tulsa,Football / USA / USL Championship,3.59,4.27,1.76,2:30 am,Sun 14/06
-Birmingham Legion FC,Las Vegas Lights,Football / USA / USL Championship,3.55,3.4,1.98,3:00 am,Sun 14/06
-Nublense,Huachipato,Football / Chile / Primera Division,3.31,3.5,2.03,3:00 am,Sun 14/06
-Colorado Springs Switchbacks FC,Sacramento Republic FC,Football / USA / USL Championship,3.41,3.11,2.15,4:00 am,Sun 14/06
-Haiti,Scotland,Football / International / FIFA World Cup,4.72,1.45,7.25,4:00 am,Sun 14/06
+Birmingham Legion FC,Las Vegas Lights,Football / USA / USL Championship,3.45,3.45,2.0,3:00 am,Sun 14/06
+Nublense,Huachipato,Football / Chile / Primera Division,4.19,4.43,3.12,3:00 am,Sun 14/06
+Haiti,Scotland,Football / International / FIFA World Cup,4.19,4.43,3.12,4:00 am,Sun 14/06
+Colorado Springs Switchbacks FC,Sacramento Republic FC,Football / USA / USL Championship,3.26,3.31,2.12,4:00 am,Sun 14/06
 El Paso Locomotive FC,Phoenix Rising FC,Football / USA / USL Championship,3.55,3.26,2.03,4:00 am,Sun 14/06
-New Mexico United,Orange County SC,Football / USA / USL Championship,3.56,3.07,2.11,4:30 am,Sun 14/06
+New Mexico United,Orange County SC,Football / USA / USL Championship,3.36,3.31,2.08,4:30 am,Sun 14/06
 Oakland Roots SC,Miami FC,Football / USA / USL Championship,3.84,4.18,1.72,5:00 am,Sun 14/06
-Australia,Turkiye,Football / International / FIFA World Cup,3.64,1.84,4.53,7:00 am,Sun 14/06
-Deportes Concepcion,Deportes Limache,Football / Chile / Primera Division,3.4,2.18,3.06,7:30 pm,Sun 14/06
-Germany,Curacao,Football / International / FIFA World Cup,29.32,69.63,1.01,8:00 pm,Sun 14/06
-Deportes Union La Calera,Universidad de Chile,Football / Chile / Primera Division,3.36,1.88,3.99,10:00 pm,Sun 14/06
-Netherlands,Japan,Football / International / FIFA World Cup,3.67,3.57,2.05,11:00 pm,Sun 14/06
-CD Universidad Catolica,Universidad de Concepcion,Football / Chile / Primera Division,4.57,8.18,1.35,12:30 am,Mon 15/06
-Ivory Coast,Ecuador,Football / International / FIFA World Cup,3.22,2.21,3.6,2:00 am,Mon 15/06
-Coquimbo Unido,CD O´Higgins,Football / Chile / Primera Division,3.49,4.07,1.82,3:00 am,Mon 15/06
-Sweden,Tunisia,Football / International / FIFA World Cup,3.41,4.1,1.99,5:00 am,Mon 15/06
-Spain,Cape Verde,Football / International / FIFA World Cup,12.91,34.37,1.07,7:00 pm,Mon 15/06
-Belgium,Egypt,Football / International / FIFA World Cup,4.05,5.06,1.68,10:00 pm,Mon 15/06
-Saudi Arabia,Uruguay,Football / International / FIFA World Cup,4.55,1.48,6.98,1:00 am,Tue 16/06
-IR Iran,New Zealand,Football / International / FIFA World Cup,3.48,4.31,1.92,4:00 am,Tue 16/06
-France,Senegal,Football / International / FIFA World Cup,4.74,7.45,1.44,10:00 pm,Tue 16/06
-Iraq,Norway,Football / International / FIFA World Cup,7.06,1.21,13.81,1:00 am,Wed 17/06
-Argentina,Algeria,Football / International / FIFA World Cup,4.8,8.18,1.41,4:00 am,Wed 17/06
-Austria,Jordan,Football / International / FIFA World Cup,5.76,9.21,1.32,7:00 am,Wed 17/06
-Portugal,Congo DR,Football / International / FIFA World Cup,6.44,11.46,1.25,8:00 pm,Wed 17/06
-England,Croatia,Football / International / FIFA World Cup,3.81,4.8,1.76,11:00 pm,Wed 17/06
-Ghana,Panama,Football / International / FIFA World Cup,3.53,3.76,2.04,2:00 am,Thu 18/06
-Uzbekistan,Colombia,Football / International / FIFA World Cup,4.79,1.41,8.05,5:00 am,Thu 18/06
-Czechia,South Africa,Football / International / FIFA World Cup,3.33,4.08,2.02,7:00 pm,Thu 18/06
-Switzerland,Bosnia and Herzegovina,Football / International / FIFA World Cup,4.15,5.98,1.58,10:00 pm,Thu 18/06
-Canada,Qatar,Football / International / FIFA World Cup,5.25,10.7,1.32,1:00 am,Fri 19/06
-Mexico,Korea Republic,Football / International / FIFA World Cup,3.52,4.72,1.84,4:00 am,Fri 19/06
-USA,Australia,Football / International / FIFA World Cup,3.77,4.71,1.78,10:00 pm,Fri 19/06
-Scotland,Morocco,Football / International / FIFA World Cup,3.33,2.05,3.98,1:00 am,Sat 20/06
-Brazil,Haiti,Football / International / FIFA World Cup,16.89,42.53,1.04,3:30 am,Sat 20/06
-Turkiye,Paraguay,Football / International / FIFA World Cup,3.25,3.49,2.25,6:00 am,Sat 20/06
-Netherlands,Sweden,Football / International / FIFA World Cup,4.09,5.35,1.64,8:00 pm,Sat 20/06
-Germany,Ivory Coast,Football / International / FIFA World Cup,4.43,6.11,1.54,11:00 pm,Sat 20/06
-Ecuador,Curacao,Football / International / FIFA World Cup,5.98,11.72,1.27,3:00 am,Sun 21/06
-Tunisia,Japan,Football / International / FIFA World Cup,3.54,1.82,4.77,7:00 am,Sun 21/06
-Spain,Saudi Arabia,Football / International / FIFA World Cup,10.3,26.89,1.1,7:00 pm,Sun 21/06
-Belgium,IR Iran,Football / International / FIFA World Cup,4.85,8.11,1.41,10:00 pm,Sun 21/06
-Uruguay,Cape Verde,Football / International / FIFA World Cup,4.67,7.45,1.45,1:00 am,Mon 22/06
-New Zealand,Egypt,Football / International / FIFA World Cup,3.74,1.71,5.36,4:00 am,Mon 22/06
-Argentina,Austria,Football / International / FIFA World Cup,3.9,5.5,1.66,8:00 pm,Mon 22/06
-France,Iraq,Football / International / FIFA World Cup,10.8,29.57,1.09,12:00 am,Tue 23/06
-Norway,Senegal,Football / International / FIFA World Cup,3.5,3.58,2.11,3:00 am,Tue 23/06
-Jordan,Algeria,Football / International / FIFA World Cup,3.95,1.66,5.44,6:00 am,Tue 23/06
-Portugal,Uzbekistan,Football / International / FIFA World Cup,6.49,11.14,1.26,8:00 pm,Tue 23/06
-England,Ghana,Football / International / FIFA World Cup,5.63,9.61,1.32,11:00 pm,Tue 23/06
-Panama,Croatia,Football / International / FIFA World Cup,4.21,1.53,6.67,2:00 am,Wed 24/06
-Colombia,Congo DR,Football / International / FIFA World Cup,4.3,7.46,1.48,5:00 am,Wed 24/06
-Bosnia and Herzegovina,Qatar,Football / International / FIFA World Cup,4.06,6.02,1.59,10:00 pm,Wed 24/06
-Switzerland,Canada,Football / International / FIFA World Cup,3.37,3.63,2.14,10:00 pm,Wed 24/06
-Scotland,Brazil,Football / International / FIFA World Cup,5.08,1.38,8.59,1:00 am,Thu 25/06
-Morocco,Haiti,Football / International / FIFA World Cup,6.1,11.15,1.27,1:00 am,Thu 25/06
-South Africa,Korea Republic,Football / International / FIFA World Cup,3.48,1.99,3.99,4:00 am,Thu 25/06
-Czechia,Mexico,Football / International / FIFA World Cup,3.45,2.0,3.99,4:00 am,Thu 25/06
-Curacao,Ivory Coast,Football / International / FIFA World Cup,5.54,1.32,9.76,11:00 pm,Thu 25/06
-Ecuador,Germany,Football / International / FIFA World Cup,4.02,1.66,5.27,11:00 pm,Thu 25/06
-Japan,Sweden,Football / International / FIFA World Cup,3.44,3.61,2.12,2:00 am,Fri 26/06
-Tunisia,Netherlands,Football / International / FIFA World Cup,4.34,1.54,6.32,2:00 am,Fri 26/06
-Paraguay,Australia,Football / International / FIFA World Cup,3.3,3.52,2.21,5:00 am,Fri 26/06
-Turkiye,USA,Football / International / FIFA World Cup,3.49,2.56,2.76,5:00 am,Fri 26/06
-Qingdao Hainiu FC,Yunnan Yukun,Football / China / Chinese Super League,3.8,2.54,2.54,2:35 pm,Fri 26/06
-Norway,France,Football / International / FIFA World Cup,3.71,1.8,4.63,10:00 pm,Fri 26/06
-Senegal,Iraq,Football / International / FIFA World Cup,4.66,7.45,1.45,10:00 pm,Fri 26/06
-Uruguay,Spain,Football / International / FIFA World Cup,4.09,1.63,5.5,3:00 am,Sat 27/06
-Cape Verde,Saudi Arabia,Football / International / FIFA World Cup,3.35,2.76,2.64,3:00 am,Sat 27/06
-New Zealand,Belgium,Football / International / FIFA World Cup,6.13,1.28,10.32,6:00 am,Sat 27/06
-Egypt,IR Iran,Football / International / FIFA World Cup,3.06,3.66,2.27,6:00 am,Sat 27/06
-Liaoning Tieren FC,Shandong Taishan FC,Football / China / Chinese Super League,3.92,2.38,2.66,2:00 pm,Sat 27/06
-Shenzhen Peng City,Chengdu Rongcheng,Football / China / Chinese Super League,4.06,1.7,4.68,2:35 pm,Sat 27/06
-Henan,Shanghai Port FC,Football / China / Chinese Super League,3.69,3.55,2.01,2:35 pm,Sat 27/06
-Beijing Guoan,Wuhan Three Towns FC,Football / China / Chinese Super League,5.27,7.26,1.38,3:00 pm,Sat 27/06
-Chongqing Tonglianglong FC,Tianjin Jinmen Tiger,Football / China / Chinese Super League,3.19,3.76,2.13,3:00 pm,Sat 27/06
-Panama,England,Football / International / FIFA World Cup,6.75,1.23,12.42,12:00 am,Sun 28/06
-Croatia,Ghana,Football / International / FIFA World Cup,3.76,5.1,1.73,12:00 am,Sun 28/06
-Congo DR,Uzbekistan,Football / International / FIFA World Cup,3.32,2.89,2.54,2:30 am,Sun 28/06
-Colombia,Portugal,Football / International / FIFA World Cup,3.38,2.15,3.59,2:30 am,Sun 28/06
-Algeria,Austria,Football / International / FIFA World Cup,3.25,2.27,3.42,5:00 am,Sun 28/06
-Jordan,Argentina,Football / International / FIFA World Cup,7.85,1.17,16.42,5:00 am,Sun 28/06
-Qingdao West Coast FC,Zhejiang FC,Football / China / Chinese Super League,3.73,2.9,2.29,1:00 pm,Sun 28/06
-Dalian Yingbo FC,Shanghai Shenhua FC,Football / China / Chinese Super League,3.58,2.69,2.5,2:00 pm,Sun 28/06
-Degerfors IF,Malmo FF,Football / Sweden / Allsvenskan,3.58,2.44,2.77,4:00 pm,Sat 04/07
+Australia,Turkiye,Football / International / FIFA World Cup,4.19,4.43,3.12,7:00 am,Sun 14/06
+Nomme Kalju FC,Paide Linnameeskond,Football / Estonia / Premium Liiga,3.78,3.49,1.89,2:30 pm,Sun 14/06
+Deportes Concepcion,Deportes Limache,Football / Chile / Primera Division,4.19,4.43,3.12,7:30 pm,Sun 14/06
+Germany,Curacao,Football / International / FIFA World Cup,4.19,4.43,3.12,8:00 pm,Sun 14/06
+Deportes Union La Calera,Universidad de Chile,Football / Chile / Primera Division,4.19,4.43,3.12,10:00 pm,Sun 14/06
+Netherlands,Japan,Football / International / FIFA World Cup,4.19,4.43,3.12,11:00 pm,Sun 14/06
+CD Universidad Catolica,Universidad de Concepcion,Football / Chile / Primera Division,4.19,4.43,3.12,12:30 am,Mon 15/06
+Ivory Coast,Ecuador,Football / International / FIFA World Cup,4.19,4.43,3.12,2:00 am,Mon 15/06
+Coquimbo Unido,CD O´Higgins,Football / Chile / Primera Division,4.19,4.43,3.12,3:00 am,Mon 15/06
+Sweden,Tunisia,Football / International / FIFA World Cup,4.19,4.43,3.12,5:00 am,Mon 15/06
+Spain,Cape Verde,Football / International / FIFA World Cup,4.19,4.43,3.12,7:00 pm,Mon 15/06
+Belgium,Egypt,Football / International / FIFA World Cup,4.19,4.43,3.12,10:00 pm,Mon 15/06
+Saudi Arabia,Uruguay,Football / International / FIFA World Cup,4.19,4.43,3.12,1:00 am,Tue 16/06
+IR Iran,New Zealand,Football / International / FIFA World Cup,4.19,4.43,3.12,4:00 am,Tue 16/06
+France,Senegal,Football / International / FIFA World Cup,4.19,4.43,3.12,10:00 pm,Tue 16/06
+Iraq,Norway,Football / International / FIFA World Cup,4.19,4.43,3.12,1:00 am,Wed 17/06
+Argentina,Algeria,Football / International / FIFA World Cup,4.19,4.43,3.12,4:00 am,Wed 17/06
+Austria,Jordan,Football / International / FIFA World Cup,4.19,4.43,3.12,7:00 am,Wed 17/06
+Portugal,Congo DR,Football / International / FIFA World Cup,4.19,4.43,3.12,8:00 pm,Wed 17/06
+England,Croatia,Football / International / FIFA World Cup,4.19,4.43,3.12,11:00 pm,Wed 17/06
+Ghana,Panama,Football / International / FIFA World Cup,4.19,4.43,3.12,2:00 am,Thu 18/06
+Uzbekistan,Colombia,Football / International / FIFA World Cup,4.19,4.43,3.12,5:00 am,Thu 18/06
+Czechia,South Africa,Football / International / FIFA World Cup,4.19,4.43,3.12,7:00 pm,Thu 18/06
+Switzerland,Bosnia and Herzegovina,Football / International / FIFA World Cup,4.19,4.43,3.12,10:00 pm,Thu 18/06
+Canada,Qatar,Football / International / FIFA World Cup,4.19,4.43,3.12,1:00 am,Fri 19/06
+Universidad de Chile,CD O´Higgins,Football / Chile / Primera Division,4.19,4.43,3.12,3:00 am,Fri 19/06
+Mexico,Korea Republic,Football / International / FIFA World Cup,4.19,4.43,3.12,4:00 am,Fri 19/06
+USA,Australia,Football / International / FIFA World Cup,4.19,4.43,3.12,10:00 pm,Fri 19/06
+Scotland,Morocco,Football / International / FIFA World Cup,4.19,4.43,3.12,1:00 am,Sat 20/06
+Brazil,Haiti,Football / International / FIFA World Cup,4.19,4.43,3.12,3:30 am,Sat 20/06
+Turkiye,Paraguay,Football / International / FIFA World Cup,4.19,4.43,3.12,6:00 am,Sat 20/06
+Netherlands,Sweden,Football / International / FIFA World Cup,4.19,4.43,3.12,8:00 pm,Sat 20/06
+Germany,Ivory Coast,Football / International / FIFA World Cup,4.19,4.43,3.12,11:00 pm,Sat 20/06
+Ecuador,Curacao,Football / International / FIFA World Cup,4.19,4.43,3.12,3:00 am,Sun 21/06
+Tunisia,Japan,Football / International / FIFA World Cup,4.19,4.43,3.12,7:00 am,Sun 21/06
+Spain,Saudi Arabia,Football / International / FIFA World Cup,4.19,4.43,3.12,7:00 pm,Sun 21/06
+Belgium,IR Iran,Football / International / FIFA World Cup,4.19,4.43,3.12,10:00 pm,Sun 21/06
+Uruguay,Cape Verde,Football / International / FIFA World Cup,4.19,4.43,3.12,1:00 am,Mon 22/06
+New Zealand,Egypt,Football / International / FIFA World Cup,4.19,4.43,3.12,4:00 am,Mon 22/06
+Argentina,Austria,Football / International / FIFA World Cup,4.19,4.43,3.12,8:00 pm,Mon 22/06
+France,Iraq,Football / International / FIFA World Cup,4.19,4.43,3.12,12:00 am,Tue 23/06
+Norway,Senegal,Football / International / FIFA World Cup,4.19,4.43,3.12,3:00 am,Tue 23/06
+Jordan,Algeria,Football / International / FIFA World Cup,4.19,4.43,3.12,6:00 am,Tue 23/06
+Portugal,Uzbekistan,Football / International / FIFA World Cup,4.19,4.43,3.12,8:00 pm,Tue 23/06
+England,Ghana,Football / International / FIFA World Cup,4.19,4.43,3.12,11:00 pm,Tue 23/06
+Panama,Croatia,Football / International / FIFA World Cup,4.19,4.43,3.12,2:00 am,Wed 24/06
+Colombia,Congo DR,Football / International / FIFA World Cup,4.19,4.43,3.12,5:00 am,Wed 24/06
+Switzerland,Canada,Football / International / FIFA World Cup,4.19,4.43,3.12,10:00 pm,Wed 24/06
+Bosnia and Herzegovina,Qatar,Football / International / FIFA World Cup,4.19,4.43,3.12,10:00 pm,Wed 24/06
+Scotland,Brazil,Football / International / FIFA World Cup,4.19,4.43,3.12,1:00 am,Thu 25/06
+Morocco,Haiti,Football / International / FIFA World Cup,4.19,4.43,3.12,1:00 am,Thu 25/06
+Czechia,Mexico,Football / International / FIFA World Cup,4.19,4.43,3.12,4:00 am,Thu 25/06
+South Africa,Korea Republic,Football / International / FIFA World Cup,4.19,4.43,3.12,4:00 am,Thu 25/06
+Curacao,Ivory Coast,Football / International / FIFA World Cup,4.19,4.43,3.12,11:00 pm,Thu 25/06
+Ecuador,Germany,Football / International / FIFA World Cup,4.19,4.43,3.12,11:00 pm,Thu 25/06
+Japan,Sweden,Football / International / FIFA World Cup,4.19,4.43,3.12,2:00 am,Fri 26/06
+Tunisia,Netherlands,Football / International / FIFA World Cup,4.19,4.43,3.12,2:00 am,Fri 26/06
+Paraguay,Australia,Football / International / FIFA World Cup,4.19,4.43,3.12,5:00 am,Fri 26/06
+Turkiye,USA,Football / International / FIFA World Cup,4.19,4.43,3.12,5:00 am,Fri 26/06
+Qingdao Hainiu FC,Yunnan Yukun,Football / China / Chinese Super League,4.19,4.43,3.12,2:35 pm,Fri 26/06
+Norway,France,Football / International / FIFA World Cup,4.19,4.43,3.12,10:00 pm,Fri 26/06
+Senegal,Iraq,Football / International / FIFA World Cup,4.19,4.43,3.12,10:00 pm,Fri 26/06
+Uruguay,Spain,Football / International / FIFA World Cup,4.19,4.43,3.12,3:00 am,Sat 27/06
+Cape Verde,Saudi Arabia,Football / International / FIFA World Cup,4.19,4.43,3.12,3:00 am,Sat 27/06
+New Zealand,Belgium,Football / International / FIFA World Cup,4.19,4.43,3.12,6:00 am,Sat 27/06
+Egypt,IR Iran,Football / International / FIFA World Cup,4.19,4.43,3.12,6:00 am,Sat 27/06
+Liaoning Tieren FC,Shandong Taishan FC,Football / China / Chinese Super League,4.19,4.43,3.12,2:00 pm,Sat 27/06
+Shenzhen Peng City,Chengdu Rongcheng,Football / China / Chinese Super League,4.19,4.43,3.12,2:35 pm,Sat 27/06
+Henan,Shanghai Port FC,Football / China / Chinese Super League,4.19,4.43,3.12,2:35 pm,Sat 27/06
+Beijing Guoan,Wuhan Three Towns FC,Football / China / Chinese Super League,4.19,4.43,3.12,3:00 pm,Sat 27/06
+Chongqing Tonglianglong FC,Tianjin Jinmen Tiger,Football / China / Chinese Super League,4.19,4.43,3.12,3:00 pm,Sat 27/06
+Panama,England,Football / International / FIFA World Cup,4.19,4.43,3.12,12:00 am,Sun 28/06
+Croatia,Ghana,Football / International / FIFA World Cup,4.19,4.43,3.12,12:00 am,Sun 28/06
+Congo DR,Uzbekistan,Football / International / FIFA World Cup,4.19,4.43,3.12,2:30 am,Sun 28/06
+Colombia,Portugal,Football / International / FIFA World Cup,4.19,4.43,3.12,2:30 am,Sun 28/06
+Algeria,Austria,Football / International / FIFA World Cup,4.19,4.43,3.12,5:00 am,Sun 28/06
+Jordan,Argentina,Football / International / FIFA World Cup,4.19,4.43,3.12,5:00 am,Sun 28/06
+Qingdao West Coast FC,Zhejiang FC,Football / China / Chinese Super League,4.19,4.43,3.12,1:00 pm,Sun 28/06
+Dalian Yingbo FC,Shanghai Shenhua FC,Football / China / Chinese Super League,4.19,4.43,3.12,2:00 pm,Sun 28/06
+Libertad Loja,Leones Futbol Club,Football / Ecuador / LigaPro Primera A,3.25,3.44,2.08,11:00 pm,Wed 01/07
+CSD Independiente del Valle,Manta FC,Football / Ecuador / LigaPro Primera A,6.25,13.66,1.18,11:00 pm,Wed 01/07
+Degerfors IF,Malmo FF,Football / Sweden / Allsvenskan,3.59,2.44,2.77,4:00 pm,Sat 04/07
 Halmstads BK,Vasteraas SK,Football / Sweden / Allsvenskan,3.42,2.68,2.6,4:00 pm,Sat 04/07
-IFK Goteborg,AIK,Football / Sweden / Allsvenskan,3.49,2.68,2.56,3:00 pm,Sun 05/07
-Kalmar FF,Orgryte IS,Football / Sweden / Allsvenskan,4.84,6.67,1.44,3:00 pm,Sun 05/07
+IFK Goteborg,AIK,Football / Sweden / Allsvenskan,3.49,2.69,2.55,3:00 pm,Sun 05/07
+Kalmar FF,Orgryte IS,Football / Sweden / Allsvenskan,4.82,6.62,1.45,3:00 pm,Sun 05/07
 IF Elfsborg,Hammarby IF,Football / Sweden / Allsvenskan,3.79,2.01,3.46,5:30 pm,Sun 05/07
-IF Brommapojkarna,GAIS,Football / Sweden / Allsvenskan,3.58,2.16,3.25,8:00 pm,Mon 06/07
-BK Hacken,Djurgardens IF,Football / Sweden / Allsvenskan,3.82,2.95,2.22,8:00 pm,Mon 06/07
-SC Corinthians SP,Clube do Remo PA,Football / Brazil / Brasileiro Serie A,3.93,6.28,1.57,9:00 pm,Wed 22/07
+IF Brommapojkarna,GAIS,Football / Sweden / Allsvenskan,3.57,2.17,3.24,8:00 pm,Mon 06/07
+BK Hacken,Djurgardens IF,Football / Sweden / Allsvenskan,3.81,2.96,2.23,8:00 pm,Mon 06/07
+CS Universitatea Craiova,FC Universitatea Cluj,Football / Romania / Super Cup,3.31,3.7,1.97,6:00 pm,Sun 12/07
+Club Nacional de Football,CA Tigre,Football / International / Copa Sudamericana,4.19,4.43,3.12,1:00 am,Wed 22/07
+UCV FC,Santos FC SP,Football / International / Copa Sudamericana,4.19,4.43,3.12,3:30 am,Wed 22/07
+SC Corinthians SP,Clube do Remo PA,Football / Brazil / Brasileiro Serie A,3.98,6.49,1.55,9:00 pm,Wed 22/07
 Coritiba FC PR,SE Palmeiras SP,Football / Brazil / Brasileiro Serie A,3.38,1.94,4.17,9:00 pm,Wed 22/07
 Botafogo FR RJ,Santos FC SP,Football / Brazil / Brasileiro Serie A,3.38,4.17,1.94,9:00 pm,Wed 22/07
-Atletico Mineiro MG,EC Bahia BA,Football / Brazil / Brasileiro Serie A,3.38,3.53,2.13,9:00 pm,Wed 22/07
-Fluminense FC RJ,Red Bull Bragantino SP,Football / Brazil / Brasileiro Serie A,3.64,4.95,1.74,9:00 pm,Wed 22/07
-Chapecoense SC,CR Flamengo RJ,Football / Brazil / Brasileiro Serie A,4.32,1.5,6.57,9:00 pm,Wed 22/07
-Mirassol FC SP,Gremio FB Porto Alegrense RS,Football / Brazil / Brasileiro Serie A,3.39,3.64,2.08,9:00 pm,Wed 22/07
-EC Vitoria BA,CR Vasco da Gama RJ,Football / Brazil / Brasileiro Serie A,3.32,2.96,2.43,9:00 pm,Wed 22/07
-Sao Paulo FC SP,CA Paranaense PR,Football / Brazil / Brasileiro Serie A,3.46,4.28,1.9,9:00 pm,Wed 22/07
-SC Internacional RS,Cruzeiro EC MG,Football / Brazil / Brasileiro Serie A,3.34,3.21,2.28,9:00 pm,Wed 22/07
-Independiente Santa Fe,Caracas FC,Football / International / Copa Sudamericana,3.98,6.22,1.5,12:00 am,Thu 23/07
-CA Lanus,Cienciano,Football / International / Copa Sudamericana,5.24,7.96,1.31,12:00 am,Thu 23/07
-Club Bolivar,Gremio FB Porto Alegrense RS,Football / International / Copa Sudamericana,4.28,4.19,1.65,12:00 am,Thu 23/07
-Boca Juniors,CD O´Higgins,Football / International / Copa Sudamericana,4.67,6.81,1.39,12:00 am,Thu 23/07
-UCV FC,Santos FC SP,Football / International / Copa Sudamericana,4.08,1.73,3.89,12:00 am,Thu 23/07
-Independiente Medellin,CR Vasco da Gama RJ,Football / International / Copa Sudamericana,3.21,2.68,2.53,12:00 am,Thu 23/07
-Club Nacional de Football,CA Tigre,Football / International / Copa Sudamericana,3.4,4.47,1.78,12:00 am,Thu 23/07
-Vaalerenga IF,HamKam,Football / Norway / Eliteserien,4.26,4.13,1.71,8:00 pm,Fri 31/07
-SE Palmeiras SP,Fortaleza EC CE,Football / Brazil / Copa do Brasil,5.19,14.1,1.22,12:00 am,Sun 02/08
-SC Internacional RS,SC Corinthians SP,Football / Brazil / Copa do Brasil,3.22,3.37,2.11,12:00 am,Sun 02/08
-Atletico Mineiro MG,EC Juventude RS,Football / Brazil / Copa do Brasil,4.32,9.91,1.34,12:00 am,Sun 02/08
-Santos FC SP,Clube do Remo PA,Football / Brazil / Copa do Brasil,3.59,4.92,1.67,12:00 am,Sun 02/08
-Chapecoense SC,Cruzeiro EC MG,Football / Brazil / Copa do Brasil,3.09,1.99,3.93,12:00 am,Sun 02/08
+Atletico Mineiro MG,EC Bahia BA,Football / Brazil / Brasileiro Serie A,3.37,3.53,2.13,9:00 pm,Wed 22/07
+Fluminense FC RJ,Red Bull Bragantino SP,Football / Brazil / Brasileiro Serie A,3.63,4.93,1.75,9:00 pm,Wed 22/07
+Chapecoense SC,CR Flamengo RJ,Football / Brazil / Brasileiro Serie A,4.3,1.51,6.53,9:00 pm,Wed 22/07
+Mirassol FC SP,Gremio FB Porto Alegrense RS,Football / Brazil / Brasileiro Serie A,3.39,3.63,2.09,9:00 pm,Wed 22/07
+EC Vitoria BA,CR Vasco da Gama RJ,Football / Brazil / Brasileiro Serie A,3.31,2.96,2.44,9:00 pm,Wed 22/07
+Sao Paulo FC SP,CA Paranaense PR,Football / Brazil / Brasileiro Serie A,3.45,4.27,1.9,9:00 pm,Wed 22/07
+SC Internacional RS,Cruzeiro EC MG,Football / Brazil / Brasileiro Serie A,3.33,3.21,2.28,9:00 pm,Wed 22/07
+Independiente Medellin,CR Vasco da Gama RJ,Football / International / Copa Sudamericana,4.19,4.43,3.12,1:00 am,Thu 23/07
+Sporting Cristal,Red Bull Bragantino SP,Football / International / Copa Sudamericana,4.19,4.43,3.12,3:30 am,Thu 23/07
+CA Lanus,Cienciano,Football / International / Copa Sudamericana,4.19,4.43,3.12,3:30 am,Thu 23/07
+Club Bolivar,Gremio FB Porto Alegrense RS,Football / International / Copa Sudamericana,4.19,4.43,3.12,1:00 am,Fri 24/07
+Independiente Santa Fe,Caracas FC,Football / International / Copa Sudamericana,4.19,4.43,3.12,3:30 am,Fri 24/07
+Boca Juniors,CD O´Higgins,Football / International / Copa Sudamericana,4.19,4.43,3.12,3:30 am,Fri 24/07
+Vaalerenga IF,HamKam,Football / Norway / Eliteserien,4.25,4.13,1.72,8:00 pm,Fri 31/07
+SE Palmeiras SP,Fortaleza EC CE,Football / Brazil / Copa do Brasil,5.21,12.75,1.23,12:00 am,Sun 02/08
+SC Internacional RS,SC Corinthians SP,Football / Brazil / Copa do Brasil,3.22,3.37,2.12,12:00 am,Sun 02/08
+Atletico Mineiro MG,EC Juventude RS,Football / Brazil / Copa do Brasil,4.37,9.0,1.35,12:00 am,Sun 02/08
+Santos FC SP,Clube do Remo PA,Football / Brazil / Copa do Brasil,3.58,4.92,1.67,12:00 am,Sun 02/08
+Chapecoense SC,Cruzeiro EC MG,Football / Brazil / Copa do Brasil,3.1,2.13,3.46,12:00 am,Sun 02/08
 Mirassol FC SP,Gremio FB Porto Alegrense RS,Football / Brazil / Copa do Brasil,3.19,3.34,2.14,12:00 am,Sun 02/08
-CR Vasco da Gama RJ,Fluminense FC RJ,Football / Brazil / Copa do Brasil,3.18,2.69,2.54,12:00 am,Sun 02/08
-CA Paranaense PR,EC Vitoria BA,Football / Brazil / Copa do Brasil,3.27,4.41,1.83,12:00 am,Sun 02/08
-Estudiantes de La Plata,CD Universidad Catolica,Football / International / Copa Libertadores,3.81,4.85,1.72,4:00 pm,Wed 12/08
-Mirassol FC SP,LDU Quito,Football / International / Copa Libertadores,3.54,4.02,1.93,4:00 pm,Wed 12/08
-SE Palmeiras SP,Cerro Porteno,Football / International / Copa Libertadores,5.75,9.09,1.31,4:00 pm,Wed 12/08
-CA Platense,Coquimbo Unido,Football / International / Copa Libertadores,3.4,5.31,1.76,4:00 pm,Wed 12/08
-CD Tolima,CSD Independiente del Valle,Football / International / Copa Libertadores,3.3,2.8,2.57,4:00 pm,Wed 12/08
-Fluminense FC RJ,Independiente Rivadavia,Football / International / Copa Libertadores,4.55,5.21,1.57,4:00 pm,Wed 12/08
-CA Rosario Central,SC Corinthians SP,Football / International / Copa Libertadores,3.36,3.34,2.21,4:00 pm,Wed 12/08
-Cruzeiro EC MG,CR Flamengo RJ,Football / International / Copa Libertadores,3.29,2.74,2.62,4:00 pm,Wed 12/08
+CR Vasco da Gama RJ,Fluminense FC RJ,Football / Brazil / Copa do Brasil,3.17,2.7,2.54,12:00 am,Sun 02/08
+CA Paranaense PR,EC Vitoria BA,Football / Brazil / Copa do Brasil,3.26,4.39,1.83,12:00 am,Sun 02/08
+Fluminense FC RJ,Independiente Rivadavia,Football / International / Copa Libertadores,4.19,4.43,3.12,1:00 am,Wed 12/08
+Estudiantes de La Plata,CD Universidad Catolica,Football / International / Copa Libertadores,4.19,4.43,3.12,3:30 am,Wed 12/08
+CD Tolima,CSD Independiente del Valle,Football / International / Copa Libertadores,4.19,4.43,3.12,3:30 am,Wed 12/08
+AEK Athens,OFI Crete,Football / Greece / Super Cup,3.98,6.41,1.49,9:00 pm,Wed 12/08
+Paris Saint-Germain,Aston Villa,Football / International / UEFA Super Cup,4.54,5.13,1.6,10:00 pm,Wed 12/08
+SE Palmeiras SP,Cerro Porteno,Football / International / Copa Libertadores,4.19,4.43,3.12,1:00 am,Thu 13/08
+CA Platense,Coquimbo Unido,Football / International / Copa Libertadores,4.19,4.43,3.12,1:00 am,Thu 13/08
+Cruzeiro EC MG,CR Flamengo RJ,Football / International / Copa Libertadores,4.19,4.43,3.12,3:30 am,Thu 13/08
+Mirassol FC SP,LDU Quito,Football / International / Copa Libertadores,4.19,4.43,3.12,1:00 am,Fri 14/08
+CA Rosario Central,SC Corinthians SP,Football / International / Copa Libertadores,4.19,4.43,3.12,3:30 am,Fri 14/08
