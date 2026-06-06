@@ -117,7 +117,7 @@ const handleError = (error) => {
     // Request made but no response
     throw {
       status: 503,
-      message: 'Cannot connect to server. Please check your internet connection.'
+      message: 'Cannot connect to vatesbet servers. Please check your internet connection.'
     }
   } else {
     // Something else happened
