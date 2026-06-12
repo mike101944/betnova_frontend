@@ -124,80 +124,34 @@
       <!-- ============ MODALS ============ -->
   
       <!-- View User Modal -->
-     <div v-if="showViewModal" class="fixed inset-0 bg-slate-900/40 flex items-center justify-center z-[1000] backdrop-blur-md transition-all duration-300" @click.self="closeViewModal">
-  <div class="bg-white rounded-2xl max-w-[380px] w-[92%] max-h-[90vh] overflow-y-auto shadow-[0_25px_50px_-12px_rgba(0,0,0,0.25)] border border-slate-100 transform transition-all">
-    
-    <div class="relative px-4 pt-8 pb-6 rounded-t-2xl bg-gradient-to-br from-slate-900 via-indigo-950 to-blue-900">
-      <button @click="closeViewModal" class="absolute top-4 right-4 w-8 h-8 rounded-full flex items-center justify-center text-slate-300 hover:text-white hover:bg-white/15 active:scale-95 transition-all bg-white/5 backdrop-blur-sm" aria-label="Close modal">
-        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-        </svg>
-      </button>
-
-      <div class="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 border-2 border-white/20 shadow-inner bg-gradient-to-tr from-blue-500 to-violet-500">
-        <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-        </svg>
-      </div>
-
-      <p class="text-white text-xl font-semibold tracking-wide text-center">{{ selectedUser?.phone_number?.startsWith('0') ? '+255' + selectedUser.phone_number.slice(1) : '+255' + selectedUser?.phone_number }}</p>
-      <p class="text-slate-400 font-mono text-[12px] tracking-widest text-center mt-1 select-all ">ID: {{ selectedUser?.id }}</p>
-    </div>
-
-    <div v-if="selectedUser" class="px-6 py-6 space-y-5">
-      
-      <div class="rounded-2xl p-4 flex items-center justify-between border transition-colors"
-           :class="selectedUser.balance < 1000 ? 'bg-rose-50/60 border-rose-100' : 'bg-emerald-50/60 border-emerald-100'">
-        <div>
-          <p class="text-[10px] uppercase tracking-wider font-bold mb-1"
-             :class="selectedUser.balance < 1000 ? 'text-rose-500' : 'text-emerald-600'">
-            Account Balance
-          </p>
-          <p class="text-2xl font-bold tracking-tight" 
-             :class="selectedUser.balance < 1000 ? 'text-rose-600' : 'text-emerald-700'">
-            {{ formatCurrency(selectedUser.balance) }}
-          </p>
-        </div>
-        <div class="w-11 h-11 rounded-xl flex items-center justify-center shadow-sm" 
-             :class="selectedUser.balance < 1000 ? 'bg-white text-rose-500' : 'bg-white text-emerald-600'">
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
-          </svg>
-        </div>
-      </div>
-
-      <div class="space-y-1">
-        <div class="flex items-center justify-between py-3 border-b border-slate-100 last:border-0">
-          <div class="flex items-center gap-3">
-            <div class="w-8 h-8 rounded-lg bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-500">
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-              </svg>
-            </div>
-            <span class="text-sm font-medium text-slate-500">Member since</span>
+      <div v-if="showViewModal" class="fixed inset-0 bg-black/50 flex items-center justify-center z-[1000] backdrop-blur-sm" @click.self="closeViewModal">
+        <div class="bg-white rounded-2xl p-5 max-w-[380px] w-[90%] max-h-[90vh] overflow-y-auto shadow-2xl">
+          <div class="flex justify-between items-center mb-4">
+            <h2 class="text-xl font-bold">User Details</h2>
+            <button @click="closeViewModal" class="text-gray-500 hover:text-gray-700 cursor-pointer">&times;</button>
           </div>
-          <span class="text-sm font-semibold text-slate-800">{{ formatFullDate(selectedUser.created_at) }}</span>
-        </div>
-
-        <div class="flex items-center justify-between py-3 border-b border-slate-100 last:border-0">
-          <div class="flex items-center gap-3">
-            <div class="w-8 h-8 rounded-lg bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-500">
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
-              </svg>
+          <div v-if="selectedUser" class="space-y-3">
+            <div class="border-b pb-2">
+              <p class="text-sm text-gray-500">Phone Number</p>
+              <p class="font-mono">{{ selectedUser.phone_number }}</p>
             </div>
-            <span class="text-sm font-medium text-slate-500">Last updated</span>
+            <div class="border-b pb-2">
+              <p class="text-sm text-gray-500">Balance</p>
+              <p class="text-xl font-bold" :class="selectedUser.balance < 1000 ? 'text-red-600' : 'text-green-600'">
+                {{ formatCurrency(selectedUser.balance) }}
+              </p>
+            </div>
+            <div class="border-b pb-2">
+              <p class="text-sm text-gray-500">Joined</p>
+              <p>{{ formatFullDate(selectedUser.created_at) }}</p>
+            </div>
+            <div class="border-b pb-2">
+              <p class="text-sm text-gray-500">Last Updated</p>
+              <p>{{ formatFullDate(selectedUser.updated_at) }}</p>
+            </div>
           </div>
-          <span class="text-sm font-semibold text-slate-800">{{ formatFullDate(selectedUser.updated_at) }}</span>
         </div>
       </div>
-
-      <button @click="closeViewModal" class="w-full bg-slate-100 text-slate-700 py-3 rounded-xl font-semibold text-sm hover:bg-slate-200 active:scale-[0.99] transition-all mt-2 focus:outline-none focus:ring-2 focus:ring-slate-300">
-        Close
-      </button>
-    </div>
-  </div>
-</div>
   
       <!-- Set Balance Modal -->
       <div v-if="showSetBalanceModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50" @click.self="closeSetBalanceModal">
