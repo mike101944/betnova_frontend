@@ -6,7 +6,7 @@ import axios from 'axios'
 // https://vatesbet.com//api
 // Create axios instance
 const api = axios.create({
-  baseURL: 'https://vatesbet.com/api',
+  baseURL: 'https://vetisbet.com/api',
   timeout: 30000,
   headers: {
     'Content-Type': 'application/json',
