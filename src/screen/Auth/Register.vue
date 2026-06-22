@@ -62,7 +62,7 @@ const handlePhoneInput = (e) => {
 
   // If starts with 0, reject and show error
   if (raw.startsWith('0')) {
-    phoneError.value = 'Invalid format — remove the leading 0 (e.g. 688997526)'
+    phoneError.value = 'Invalid format — remove the leading 0 (e.g. 688997xxx)'
     raw = raw.slice(1)
   }
 
@@ -168,7 +168,7 @@ const goToLogin = () => {
                   name="phoneNumber"
                   type="tel"
                   inputmode="numeric"
-                  placeholder="688 997 526"
+                  placeholder="688 997 xxx"
                   @input="handlePhoneInput"
                   :disabled="authStore.isLoading"
                   class="flex-1 min-w-0 py-2.5 px-3 bg-transparent outline-none text-sm text-slate-800 placeholder:text-slate-300" />

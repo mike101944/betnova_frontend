@@ -67,7 +67,7 @@ const handlePhoneInput = (e) => {
   phoneError.value = ''
   let raw = e.target.value.replace(/\D/g, '')
   if (raw.startsWith('0')) {
-    phoneError.value = 'Invalid format — remove the leading 0 (e.g. 683307426)'
+    phoneError.value = 'Invalid format — remove the leading 0 (e.g. 688997xxx)'
     raw = raw.slice(1)
   }
   if (raw.length > 9) raw = raw.slice(0, 9)
@@ -244,7 +244,7 @@ const goToRegister = () => {
                   name="phoneNumber"
                   type="tel"
                   inputmode="numeric"
-                  placeholder="683 307 426"
+                  placeholder="688 997 xxx"
                   @input="handlePhoneInput"
                   :disabled="authStore.isLoading"
                   class="flex-1 min-w-0 py-2.5 px-3 bg-transparent outline-none text-sm text-slate-800 placeholder:text-slate-300" />
@@ -264,7 +264,7 @@ const goToRegister = () => {
                   <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
                 </svg>
                 <p class="text-xs" :class="phoneError ? 'text-red-400' : 'text-slate-400'">
-                  {{ phoneError || `${phoneNumber.length}/9 digits — e.g. 683307426` }}
+                  {{ phoneError || `${phoneNumber.length}/9 digits — e.g. 688997xxx` }}
                 </p>
               </div>
             </div>
