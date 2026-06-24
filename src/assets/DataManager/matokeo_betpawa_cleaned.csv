@@ -1,379 +1,261 @@
-homeTeam,awayTeam,homeOdds,drawOdds,awayOdds,Timestamp,Time,Date
-Xiamen Feilu,Hubei Istar,1.85,3.3,4.1,2026-06-23 07:10:18,11:00 am,Tue 23/06
-Qingdao Red Lions,Dalian Kewei,3.5,3.0,2.1,2026-06-23 07:10:18,11:00 am,Tue 23/06
-Changchun Xidu,Lanzhou Longyuan Athletic,3.8,2.5,2.35,2026-06-23 07:10:18,11:00 am,Tue 23/06
-Shanghai Second,Dalian Yingbo B,2.9,3.0,2.45,2026-06-23 07:10:18,11:00 am,Tue 23/06
-Logan Lightning U23,Holland Park Hawks U23,1.18,7.07,9.56,2026-06-23 07:10:18,11:30 am,Tue 23/06
-Gold Coast Knights,Eastern Suburbs FC,2.11,3.82,3.17,2026-06-23 07:10:18,12:30 pm,Tue 23/06
-Edgeworth FC,Lambton Jaffas FC,2.79,3.8,2.18,2026-06-23 07:10:18,1:00 pm,Tue 23/06
-Capalaba FC Women,Queenland Lions FC Women,22.22,10.63,1.06,2026-06-23 07:10:18,1:30 pm,Tue 23/06
-Guangdong Mingtu,Guizhou Guiyang Athletic,4.4,3.3,1.78,2026-06-23 07:10:18,2:30 pm,Tue 23/06
-Nantong Haimen Codion,Shanghai Port B,2.35,3.1,2.9,2026-06-23 07:10:18,2:30 pm,Tue 23/06
-Albion FC Reserves,Montevideo City Torque Reserves,3.36,3.45,2.07,2026-06-23 07:10:18,4:00 pm,Tue 23/06
-FK Humenne,MFK Zemplin Michalovce,6.17,5.36,1.39,2026-06-23 07:10:18,5:00 pm,Tue 23/06
-Kuopion Palloseura,Tampereen Ilves,1.67,4.06,4.85,2026-06-23 07:10:18,6:00 pm,Tue 23/06
-FC Zbrojovka Brno,1.SK Prostejov,1.26,5.54,10.35,2026-06-23 07:10:18,6:00 pm,Tue 23/06
-Vaasan Palloseura,AC Oulu,2.47,3.37,2.87,2026-06-23 07:10:18,6:00 pm,Tue 23/06
-FC Lahti,Turun Palloseura,1.78,3.67,4.66,2026-06-23 07:10:18,6:00 pm,Tue 23/06
-Lohjan Pallo,Gilla FC,2.36,4.11,2.36,2026-06-23 07:10:18,6:30 pm,Tue 23/06
-PFC Levski Sofia,SFC Etar Veliko Tarnovo,1.19,6.42,13.78,2026-06-23 07:10:18,6:30 pm,Tue 23/06
-Botev Plovdiv,PFC Spartak Pleven,1.19,6.71,12.63,2026-06-23 07:10:18,6:30 pm,Tue 23/06
-FK Minija 2017,FK Panevezys,3.0,3.4,2.11,2026-06-23 07:10:18,6:30 pm,Tue 23/06
-FC Inter Turku,Seinajoen JK,1.55,4.36,5.75,2026-06-23 07:10:18,7:00 pm,Tue 23/06
-Olimpija Ljubljana,Vllaznia Shkoder,1.58,4.02,5.26,2026-06-23 07:10:18,7:00 pm,Tue 23/06
-KPV/Akatemia,FC Ylivieska,4.19,4.95,1.54,2026-06-23 07:10:18,7:00 pm,Tue 23/06
-FF Jaro,IF Gnistan,3.32,3.56,2.14,2026-06-23 07:10:18,7:00 pm,Tue 23/06
-Shkendija Tetovo,HNK Hajduk Split,5.0,3.87,1.63,2026-06-23 07:10:18,7:15 pm,Tue 23/06
-Salon Palloilijat 2,KaaPo,2.64,3.83,2.22,2026-06-23 07:10:18,7:30 pm,Tue 23/06
-FC Dinamo Tbilisi,FC Dinamo Batumi,1.72,3.58,4.39,2026-06-23 07:10:18,8:00 pm,Tue 23/06
-BK Astrio,Angelholms FF,7.32,4.72,1.37,2026-06-23 07:10:18,8:00 pm,Tue 23/06
-IFK Mariehamn,HJK Helsinki,7.33,5.35,1.38,2026-06-23 07:10:18,8:00 pm,Tue 23/06
-Portugal,Uzbekistan,1.16,9.08,21.46,2026-06-23 07:10:18,8:00 pm,Tue 23/06
-FC Jarfalla,FC Arlanda,3.32,3.65,1.98,2026-06-23 07:10:18,8:30 pm,Tue 23/06
-Americano FC RJ,Macae Esporte FC RJ,1.11,7.08,21.04,2026-06-23 07:10:18,8:45 pm,Tue 23/06
-Perolas Negras RJ,Santa Cruz FC RJ,1.26,5.73,8.21,2026-06-23 07:10:18,8:45 pm,Tue 23/06
-AD Cabofriense RJ,Bonsucesso FC RJ,1.75,3.29,4.68,2026-06-23 07:10:18,8:45 pm,Tue 23/06
-Olaria RJ,Duque de Caxias FC RJ,1.4,4.3,7.08,2026-06-23 07:10:18,8:45 pm,Tue 23/06
-La Luz FC Reserves,Cerro Largo FC Reserves,2.72,3.56,2.37,2026-06-23 07:10:18,9:00 pm,Tue 23/06
-IA/Kari/Skallagrimur/Vikingur Olafsvík U19,Fylkir/Ellidi U19,1.31,6.19,6.94,2026-06-23 07:10:18,9:00 pm,Tue 23/06
-Gremio FB Porto Alegrense RS U20,EC Bahia BA U20,2.76,3.52,2.25,2026-06-23 07:10:18,9:00 pm,Tue 23/06
-Sao Paulo FC SP U20,Fortaleza EC CE U20,1.55,3.91,5.34,2026-06-23 07:10:18,9:00 pm,Tue 23/06
-EC Vitoria BA U20,Santos FC SP U20,2.92,3.35,2.23,2026-06-23 07:10:18,9:00 pm,Tue 23/06
-Cruzeiro EC MG U20,America FC MG U20,1.43,4.3,6.3,2026-06-23 07:10:18,9:00 pm,Tue 23/06
-Coquimbo Unido,Deportes Limache,1.8,3.86,4.25,2026-06-23 07:10:18,10:00 pm,Tue 23/06
-FH Hafnarfjordur Women,Valur Reykjavik Women,1.51,4.47,5.46,2026-06-23 07:10:18,10:15 pm,Tue 23/06
-Alftanes,Arborg,1.95,4.0,3.0,2026-06-23 07:10:18,10:15 pm,Tue 23/06
-Grindavik/Njarovik Women,Vikingur Reykjavik Women,1.64,4.56,4.17,2026-06-23 07:10:18,10:15 pm,Tue 23/06
-England,Ghana,1.21,7.46,16.6,2026-06-23 07:10:18,11:00 pm,Tue 23/06
-Chattanooga Red Wolves SC Women,SSA Swarm FC Women,2.9,3.5,2.14,2026-06-23 07:10:18,12:30 am,Wed 24/06
-Nueva Chicago,Atletico de Rafaela,2.29,2.75,4.0,2026-06-23 07:10:18,12:30 am,Wed 24/06
-Vitoria FC ES,Vilavelhense FC ES,1.37,4.27,7.41,2026-06-23 07:10:18,12:45 am,Wed 24/06
-EC Mamore MG,AA Caldense MG,2.23,2.93,3.22,2026-06-23 07:10:18,1:00 am,Wed 24/06
-Resende FC RJ,SE Belford Roxo RJ,14.3,47.66,30.98,2026-06-23 07:10:18,1:30 am,Wed 24/06
-Uberaba SC MG,Guarani MG,2.41,2.83,3.02,2026-06-23 07:10:18,1:30 am,Wed 24/06
-Panama,Croatia,6.73,4.66,1.52,2026-06-23 07:10:18,2:00 am,Wed 24/06
-Sporting Jax II,Shark Coast FC,1.8,3.7,3.94,2026-06-23 07:10:18,2:00 am,Wed 24/06
-America FC MG,Criciuma EC SC,3.08,3.03,2.53,2026-06-23 07:10:18,2:00 am,Wed 24/06
-Union FC Macomb,Lansing City Football,1.15,7.5,12.5,2026-06-23 07:10:18,2:00 am,Wed 24/06
-SSA Swarm FC,Montgomery United FC,1.45,4.61,5.76,2026-06-23 07:10:18,2:30 am,Wed 24/06
-Hill Country Lobos,Laredo Heat SC,6.19,5.41,1.36,2026-06-23 07:10:18,3:00 am,Wed 24/06
-Peoria City,FC Ambush,1.45,4.61,5.76,2026-06-23 07:10:18,3:30 am,Wed 24/06
-CD Everton Vina del Mar,CD Universidad Catolica,3.75,3.51,2.01,2026-06-23 07:10:18,3:30 am,Wed 24/06
-CD Palestino,Audax Italiano,1.96,3.47,3.96,2026-06-23 07:10:18,3:30 am,Wed 24/06
-Midlakes United,Snohomish United,5.19,4.52,1.5,2026-06-23 07:10:18,4:30 am,Wed 24/06
-Colombia,Congo DR,1.57,4.19,6.88,2026-06-23 07:10:18,5:00 am,Wed 24/06
-Shaanxi Chang An Athletic FC Women,Liaoning Shenbei Hefeng Women,6.2,3.5,1.54,2026-06-23 07:10:18,11:00 am,Wed 24/06
-Changchun Jiuyin Loans Women,Shandong Ticai Women,1.84,3.15,4.2,2026-06-23 07:10:18,12:00 pm,Wed 24/06
-MFK Ruzomberok,OFK Dynamo Malzenice,1.67,4.1,4.05,2026-06-23 07:10:18,12:00 pm,Wed 24/06
-Sunshine Coast Wanderers FC Women,Brisbane City FC Women,6.36,4.34,1.45,2026-06-23 07:10:18,12:30 pm,Wed 24/06
-1. FC Slovacko Uherske Hradiste,FC Vysocina Jihlava,1.35,4.88,8.06,2026-06-23 07:10:18,1:00 pm,Wed 24/06
-Kahibah FC,Adamstown Rosebud FC,2.6,3.8,2.31,2026-06-23 07:10:18,1:00 pm,Wed 24/06
-Charlestown Azzurri FC,Cooks Hill United,2.22,3.86,2.7,2026-06-23 07:10:18,1:00 pm,Wed 24/06
-Gold Coast Knights Women,Olympic FC Brisbane Women,1.23,6.18,9.66,2026-06-23 07:10:18,1:30 pm,Wed 24/06
-Sichuan WFC Women,Beijing WFC Women,10.0,4.8,1.26,2026-06-23 07:10:18,2:00 pm,Wed 24/06
-Jiangxi Lushan,Ganzhou Ruishi FC,1.78,3.15,4.7,2026-06-23 07:10:18,2:30 pm,Wed 24/06
-Guangxi Pingguo Women,Wuhan Jiangda Women,5.2,3.45,1.62,2026-06-23 07:10:18,2:35 pm,Wed 24/06
-Zhejiang Hangzhou Women,Shanghai Shengli Women,5.8,3.65,1.53,2026-06-23 07:10:18,2:35 pm,Wed 24/06
-Guangdong Meizhou Hakka FC Women,Jiangsu LFC Women,4.4,3.15,1.8,2026-06-23 07:10:18,2:35 pm,Wed 24/06
-Chengdu Rongcheng B,Guangzhou Dandelion Alpha FC,3.05,3.1,2.3,2026-06-23 07:10:18,3:00 pm,Wed 24/06
-MFk Dukla Banska Bystrica,1. FC Tatran Presov,2.09,3.74,3.1,2026-06-23 07:10:18,3:00 pm,Wed 24/06
-Al Ahed FC,Safa SC,2.08,3.21,3.6,2026-06-23 07:10:18,3:30 pm,Wed 24/06
-Paksi FC,Szentlorinc SE,1.06,10.74,30.95,2026-06-23 07:10:18,4:00 pm,Wed 24/06
-Shabab AL Sahel,Reyady Abaseya,2.1,3.16,3.6,2026-06-23 07:10:18,4:00 pm,Wed 24/06
-Sao Goncalo EC RJ,Serrano FC RJ,2.03,2.91,3.92,2026-06-23 07:10:18,5:00 pm,Wed 24/06
-FA Siauliai,Dziugas,4.2,3.9,1.66,2026-06-23 07:10:18,6:00 pm,Wed 24/06
-FK Babrungas Plunge,FK Kauno Zalgiris B,1.19,5.99,10.98,2026-06-23 07:10:18,6:00 pm,Wed 24/06
-Lapuan Virkia,SJK-J,2.48,4.0,2.29,2026-06-23 07:10:18,7:00 pm,Wed 24/06
-TPV/2,NOPS,2.09,3.91,2.81,2026-06-23 07:10:18,7:00 pm,Wed 24/06
-JJK Jyvaskyla/2,FC Metso,5.74,4.78,1.42,2026-06-23 07:10:18,7:00 pm,Wed 24/06
-IK Uppsala Fotboll Women,Hacken Gothenburg Women,13.57,6.98,1.17,2026-06-23 07:10:18,7:00 pm,Wed 24/06
-FC Gagra,FC Samgurali Tskaltubo,2.38,3.47,2.62,2026-06-23 07:10:18,7:00 pm,Wed 24/06
-FC Rosengaard Malmo Women,Djurgardens IF DFF Women,2.39,3.5,2.73,2026-06-23 07:10:18,7:00 pm,Wed 24/06
-Saaksjaerven Loiske,Fish United,1.67,4.21,3.92,2026-06-23 07:10:18,7:00 pm,Wed 24/06
-Grebbestads IF,IFK Kumla,2.23,3.5,2.7,2026-06-23 07:10:18,7:00 pm,Wed 24/06
-Dfk Dainava Alytus,FK Transinvest,4.3,4.0,1.63,2026-06-23 07:10:18,7:00 pm,Wed 24/06
-JIPPO-J/Punamusta,SC Zulimanit,1.6,4.31,4.31,2026-06-23 07:10:18,7:30 pm,Wed 24/06
-FC Santa Claus,Kemin Palloseura,4.02,4.21,1.66,2026-06-23 07:10:18,7:30 pm,Wed 24/06
-Vaxjo DFF Women,IF Brommapojkarna Women,2.16,3.73,2.95,2026-06-23 07:10:18,8:00 pm,Wed 24/06
-AIK DFF Women,Eskilstuna United DFF Women,1.79,3.76,4.1,2026-06-23 07:10:18,8:00 pm,Wed 24/06
-Vastra Frolunda IF,Qviding FIF,1.86,4.0,3.2,2026-06-23 07:10:18,8:00 pm,Wed 24/06
-Toolon Taisto,VJS/Akatemia,3.09,4.09,1.91,2026-06-23 07:10:18,8:00 pm,Wed 24/06
-Karlbergs BK,Piteaa IF,1.48,4.41,5.37,2026-06-23 07:10:18,8:00 pm,Wed 24/06
-Lilla Torg FF,Torns IF,2.33,3.55,2.55,2026-06-23 07:10:18,8:00 pm,Wed 24/06
-Japs 47,Atlantis FC/Akatemia,1.55,4.4,4.59,2026-06-23 07:10:18,8:00 pm,Wed 24/06
-IFK Norrkoping DFK Women,Vittsjo GIK Women,1.96,3.59,3.55,2026-06-23 07:10:18,8:00 pm,Wed 24/06
-Leppavaaran Pallo,Espoon Palloseura Reserve,1.64,4.22,4.12,2026-06-23 07:10:18,8:15 pm,Wed 24/06
-Angby IF,Enskede IK,2.6,3.65,2.24,2026-06-23 07:10:18,8:30 pm,Wed 24/06
-Lindo FF,Smedby AIS,2.6,3.65,2.26,2026-06-23 07:10:18,8:30 pm,Wed 24/06
-NSI Runavik,KI Klaksvik,3.11,3.59,2.13,2026-06-23 07:10:18,8:30 pm,Wed 24/06
-Bosnia and Herzegovina,Qatar,1.44,5.21,7.63,2026-06-23 07:10:18,10:00 pm,Wed 24/06
-AL Ansar SC,Jwaaya FC,1.79,3.41,4.58,2026-06-23 07:10:18,10:00 pm,Wed 24/06
-Switzerland,Canada,2.46,3.17,3.37,2026-06-23 07:10:18,10:00 pm,Wed 24/06
-Hamar,Ellidi,1.68,4.49,3.69,2026-06-23 07:10:18,10:15 pm,Wed 24/06
-Deportes La Serena,Cobresal,1.9,3.67,3.97,2026-06-23 07:10:18,11:00 pm,Wed 24/06
-Scotland,Brazil,8.76,5.29,1.39,2026-06-23 07:10:18,1:00 am,Thu 25/06
-Morocco,Haiti,1.19,8.06,18.23,2026-06-23 07:10:18,1:00 am,Thu 25/06
-Miami FC,Orange County SC,2.72,3.26,2.67,2026-06-23 07:10:18,2:00 am,Thu 25/06
-Charleston Battery,Loudoun United FC,1.46,4.75,6.54,2026-06-23 07:10:18,2:00 am,Thu 25/06
-Deportes Concepcion,Huachipato,2.67,3.41,2.62,2026-06-23 07:10:18,2:30 am,Thu 25/06
-Deportes Union La Calera,Universidad de Chile,4.27,3.77,1.82,2026-06-23 07:10:18,2:30 am,Thu 25/06
-Colorado Springs Switchbacks FC,San Antonio FC,1.73,3.87,4.66,2026-06-23 07:10:18,3:00 am,Thu 25/06
-South Africa,Korea Republic,5.63,4.01,1.69,2026-06-23 07:10:18,4:00 am,Thu 25/06
-Czechia,Mexico,3.92,3.88,1.97,2026-06-23 07:10:18,4:00 am,Thu 25/06
-Darwin Hearts FC,Port Darwin FC,2.44,4.06,2.36,2026-06-23 07:10:18,12:00 pm,Thu 25/06
-Grobinas SC/LFS,FK Auda Riga,4.77,3.92,1.71,2026-06-23 07:10:18,5:00 pm,Thu 25/06
-BFC Daugavpils,Riga FC,7.35,4.77,1.42,2026-06-23 07:10:18,6:00 pm,Thu 25/06
-Piteaa IF DFF Women,Hammarby IF Women,5.86,4.2,1.51,2026-06-23 07:10:18,7:00 pm,Thu 25/06
-Nykopings BIS,Nacka FC,1.76,3.9,3.65,2026-06-23 07:10:18,8:00 pm,Thu 25/06
-SK Super Nova,FS Jelgava,2.45,3.42,2.87,2026-06-23 07:10:18,8:00 pm,Thu 25/06
-IFK Skovde FK,Lidkopings FK,1.38,4.7,6.0,2026-06-23 07:10:18,8:00 pm,Thu 25/06
-Galtabacks BK,IF Boljan Falkenberg,2.15,3.75,2.7,2026-06-23 07:10:18,8:00 pm,Thu 25/06
-Breidablik Kopavogur,Vikingur Reykjavik,4.96,4.76,1.57,2026-06-23 07:10:18,10:15 pm,Thu 25/06
-Curacao,Ivory Coast,19.84,8.78,1.17,2026-06-23 07:10:18,11:00 pm,Thu 25/06
-Ecuador,Germany,3.72,3.98,2.0,2026-06-23 07:10:18,11:00 pm,Thu 25/06
-Japan,Sweden,2.0,3.57,4.17,2026-06-23 07:10:18,2:00 am,Fri 26/06
-Tunisia,Netherlands,25.74,9.96,1.14,2026-06-23 07:10:18,2:00 am,Fri 26/06
-Cuiaba EC MT,Londrina EC PR,1.8,3.3,5.2,2026-06-23 07:10:18,2:30 am,Fri 26/06
-Paraguay,Australia,2.93,2.34,3.99,2026-06-23 07:10:18,5:00 am,Fri 26/06
-Turkiye,USA,3.7,4.09,1.98,2026-06-23 07:10:18,5:00 am,Fri 26/06
-Qingdao Hainiu FC,Yunnan Yukun,2.7,3.65,2.45,2026-06-23 07:10:18,2:35 pm,Fri 26/06
-Ogre United,FK Tukums 2000/TSS,3.52,3.76,2.0,2026-06-23 07:10:18,6:00 pm,Fri 26/06
-Abo IFK Turku,FC Honka,3.76,3.81,1.81,2026-06-23 07:10:18,6:30 pm,Fri 26/06
-Be1 Nfa,Vilnius FK Zalgiris B,1.43,4.5,5.6,2026-06-23 07:10:18,6:30 pm,Fri 26/06
-PK-35 Helsinki,Mikkelin Palloilijat,1.75,3.66,4.85,2026-06-23 07:10:18,7:00 pm,Fri 26/06
-HJK Klubi 04,SJK Akatemia,2.1,3.56,3.41,2026-06-23 07:10:18,7:00 pm,Fri 26/06
-FK Liepaja,FC RFS,5.93,4.45,1.52,2026-06-23 07:10:18,7:00 pm,Fri 26/06
-FK Garliava,FK Minija 2017,4.59,3.79,1.62,2026-06-23 07:10:18,7:30 pm,Fri 26/06
-Kristianstad FC,Trelleborgs FF,4.49,3.82,1.65,2026-06-23 07:10:18,8:00 pm,Fri 26/06
-Sollentuna FK,AFC Eskilstuna,2.34,3.57,2.62,2026-06-23 07:10:18,8:00 pm,Fri 26/06
-FBK Karlstad,Hammarby Talang FF,3.63,3.82,1.81,2026-06-23 07:10:18,8:00 pm,Fri 26/06
-Onsala BK,Landvetter IS,2.49,3.6,2.37,2026-06-23 07:10:18,8:00 pm,Fri 26/06
-Parnu JK Vaprus,FC Kuressaare,1.86,3.86,3.96,2026-06-23 07:10:18,8:00 pm,Fri 26/06
-IK Brage,Falkenbergs FF,2.38,3.56,2.87,2026-06-23 07:10:18,8:00 pm,Fri 26/06
-Vanersborgs IF,Stenungsunds IF,3.2,3.7,1.94,2026-06-23 07:10:18,8:15 pm,Fri 26/06
-Skara FC,Herrestads AIF,1.9,3.85,3.15,2026-06-23 07:10:18,8:30 pm,Fri 26/06
-Hassleholms IF,Tvaakers IF,1.78,3.77,3.82,2026-06-23 07:10:18,8:30 pm,Fri 26/06
-Dalstorps IF,Lindome GIF,1.93,3.9,3.1,2026-06-23 07:10:18,8:30 pm,Fri 26/06
-IFK Berga,Vaxjo Norra,2.55,3.5,2.38,2026-06-23 07:10:18,8:30 pm,Fri 26/06
-Shamrock Rovers,Galway United FC,1.45,4.56,7.14,2026-06-23 07:10:18,9:30 pm,Fri 26/06
-Derry City FC,Drogheda United FC,1.59,3.95,5.93,2026-06-23 07:10:18,9:45 pm,Fri 26/06
-University College Dublin,Cobh Ramblers,1.92,3.48,3.67,2026-06-23 07:10:18,9:45 pm,Fri 26/06
-Kerry FC,Longford Town FC,2.25,3.28,3.04,2026-06-23 07:10:18,9:45 pm,Fri 26/06
-Athlone Town AFC,Finn Harps FC,1.76,3.56,4.33,2026-06-23 07:10:18,9:45 pm,Fri 26/06
-Wexford FC,Treaty United,1.71,3.86,4.25,2026-06-23 07:10:18,9:45 pm,Fri 26/06
-Dundalk FC,Waterford FC,1.52,4.74,5.53,2026-06-23 07:10:18,9:45 pm,Fri 26/06
-Cork City FC,Bray Wanderers AFC,1.61,3.96,4.83,2026-06-23 07:10:18,9:45 pm,Fri 26/06
-Norway,France,4.77,4.16,1.75,2026-06-23 07:10:18,10:00 pm,Fri 26/06
-Bohemians Dublin FC,Saint Patrick´s Athletic FC,2.67,3.26,2.72,2026-06-23 07:10:18,10:00 pm,Fri 26/06
-Senegal,Iraq,1.26,6.56,13.04,2026-06-23 07:10:18,10:00 pm,Fri 26/06
-UMF Grindavik,KF Aegir,1.74,4.17,4.27,2026-06-23 07:10:18,10:15 pm,Fri 26/06
-Leiknir Reykjavik,IR Reykjavik,2.68,3.92,2.37,2026-06-23 07:10:18,10:15 pm,Fri 26/06
-Afturelding,UMF Njardvik,1.9,3.97,3.67,2026-06-23 07:10:18,10:15 pm,Fri 26/06
-Fylkir Reykjavik,HK Kopavogur,1.88,3.91,3.81,2026-06-23 07:10:18,10:15 pm,Fri 26/06
-Gremio Novorizontino SP,Vila Nova FC GO,1.96,3.25,4.3,2026-06-23 07:10:18,1:00 am,Sat 27/06
-Uruguay,Spain,7.09,4.58,1.51,2026-06-23 07:10:18,3:00 am,Sat 27/06
-Cape Verde,Saudi Arabia,2.41,3.59,3.06,2026-06-23 07:10:18,3:00 am,Sat 27/06
-New Zealand,Belgium,15.24,7.47,1.22,2026-06-23 07:10:18,6:00 am,Sat 27/06
-Egypt,IR Iran,2.49,2.86,3.71,2026-06-23 07:10:18,6:00 am,Sat 27/06
-Tampereen Ilves,Seinajoen JK,2.16,3.85,3.05,2026-06-23 07:10:18,2:00 pm,Sat 27/06
-IFK Umea,Storfors AIK,4.3,4.1,1.55,2026-06-23 07:10:18,2:00 pm,Sat 27/06
-IK Franke,Viggbyholms IK FF,1.64,4.0,4.1,2026-06-23 07:10:18,2:00 pm,Sat 27/06
-Liaoning Tieren FC,Shandong Taishan FC,2.95,3.85,2.21,2026-06-23 07:10:18,2:00 pm,Sat 27/06
-FC Okzhetpes,FC Kairat Almaty,3.58,3.58,2.04,2026-06-23 07:10:18,2:00 pm,Sat 27/06
-FC Trollhattan,Angelholms FF,2.02,3.77,3.04,2026-06-23 07:10:18,2:00 pm,Sat 27/06
-IFK Haninge,IK Sleipner,2.02,3.8,2.95,2026-06-23 07:10:18,2:00 pm,Sat 27/06
-FC Stockholm Internazionale,Enkopings SK,1.4,4.62,6.35,2026-06-23 07:10:18,2:00 pm,Sat 27/06
-Union Plaani,HIFK,6.54,5.55,1.34,2026-06-23 07:10:18,2:00 pm,Sat 27/06
-Shenzhen Peng City,Chengdu Rongcheng,4.8,4.1,1.67,2026-06-23 07:10:18,2:35 pm,Sat 27/06
-Henan,Shanghai Port FC,2.22,3.44,3.24,2026-06-23 07:10:18,2:35 pm,Sat 27/06
-Malmo FF Women,Kristianstads DFF Women,1.62,4.02,4.91,2026-06-23 07:10:18,3:00 pm,Sat 27/06
-GBK Kokkola,JS Hercules,1.89,4.25,3.17,2026-06-23 07:10:18,3:00 pm,Sat 27/06
-IFK Luleaa,Skellefteaa FF,2.1,3.5,2.8,2026-06-23 07:10:18,3:00 pm,Sat 27/06
-Beijing Guoan,Wuhan Three Towns FC,1.36,5.57,7.36,2026-06-23 07:10:18,3:00 pm,Sat 27/06
-Hegelmann Litauen B,FK Jonava,4.29,3.74,1.67,2026-06-23 07:10:18,3:00 pm,Sat 27/06
-Chongqing Tonglianglong FC,Tianjin Jinmen Tiger,2.05,3.2,4.0,2026-06-23 07:10:18,3:00 pm,Sat 27/06
-FK Transinvest B,FK Tauras Taurage,7.0,5.0,1.32,2026-06-23 07:10:18,4:00 pm,Sat 27/06
-FC Haka Valkeakoski,FC KTP Kotka,2.44,3.35,2.9,2026-06-23 07:10:18,4:00 pm,Sat 27/06
-FK Ekranas,FK Atmosfera,3.84,3.54,1.8,2026-06-23 07:10:18,4:00 pm,Sat 27/06
-CA Atenas de San Carlos,Tacuarembo FC,2.53,2.97,2.87,2026-06-23 07:10:18,4:00 pm,Sat 27/06
-Dfk Dainava Alytus,FC Neptunas Klaipeda,2.5,3.4,2.46,2026-06-23 07:10:18,4:00 pm,Sat 27/06
-Ljungskile SK,Orebro SK,1.93,3.79,3.74,2026-06-23 07:10:18,4:00 pm,Sat 27/06
-JIPPO,Ekenas Idrottsforening,1.8,3.75,4.4,2026-06-23 07:10:18,4:00 pm,Sat 27/06
-Musan Salama,P-Iirot,5.35,4.75,1.47,2026-06-23 07:10:18,4:00 pm,Sat 27/06
-Huima/Urho,Jakobstads Bollklubb,2.3,3.91,2.57,2026-06-23 07:10:18,4:00 pm,Sat 27/06
-Taby FK,FC Gute,1.64,3.95,4.3,2026-06-23 07:10:18,4:00 pm,Sat 27/06
-Varbergs BoIS,Osters IF,1.82,3.89,4.09,2026-06-23 07:10:18,4:00 pm,Sat 27/06
-Throttur Reykjavik,IF Vestri,1.63,4.4,4.7,2026-06-23 07:10:18,5:00 pm,Sat 27/06
-Osterlen FF,FK Karlskrona,3.05,3.65,2.01,2026-06-23 07:10:18,5:00 pm,Sat 27/06
-Falu BS FK,IFK Lidingo FK,1.42,4.5,5.6,2026-06-23 07:10:18,5:00 pm,Sat 27/06
-FC Arlanda,IF Karlstad Fotbol,2.7,3.47,2.32,2026-06-23 07:10:18,5:00 pm,Sat 27/06
-Ariana FC,Jonkopings Sodra IF,2.73,3.45,2.3,2026-06-23 07:10:18,5:00 pm,Sat 27/06
-Solvesborgs GIF,Oskarshamns AIK,2.9,3.65,2.08,2026-06-23 07:10:18,5:00 pm,Sat 27/06
-BK Astrio,Hestrafors IF,2.65,3.6,2.24,2026-06-23 07:10:18,5:00 pm,Sat 27/06
-Espoon Palloseura,Grankulla IFK,2.11,3.87,2.88,2026-06-23 07:10:18,5:00 pm,Sat 27/06
-Stroemmen IF,Moss FK,2.8,3.75,2.35,2026-06-23 07:10:18,5:00 pm,Sat 27/06
-FK Haugesund,Kongsvinger IL Toppfotball,2.0,3.99,3.35,2026-06-23 07:10:18,5:00 pm,Sat 27/06
-FC Yelimai,FC Kyzylzhar SK,1.77,3.74,4.58,2026-06-23 07:10:18,5:00 pm,Sat 27/06
-Husqvarna FF,IF Karlstad Fotbollutveckling,1.37,4.7,6.6,2026-06-23 07:10:18,5:00 pm,Sat 27/06
-PEPO Lappeenranta,PPJ Helsinki,1.87,3.96,3.41,2026-06-23 07:10:18,5:00 pm,Sat 27/06
-HJS,Nurmijarven Jalkapalloseura,1.1,9.13,15.88,2026-06-23 07:10:18,5:00 pm,Sat 27/06
-Aatvidabergs FF,FC Rosengaard 1917,2.52,3.39,2.52,2026-06-23 07:10:18,5:00 pm,Sat 27/06
-Lunds BK,Skovde AIK,1.69,3.87,4.16,2026-06-23 07:10:18,5:00 pm,Sat 27/06
-Sandnes Ulf,Raufoss IL,1.75,4.09,4.29,2026-06-23 07:10:18,5:00 pm,Sat 27/06
-Aasane Fotball,Ranheim,3.69,4.08,1.87,2026-06-23 07:10:18,5:00 pm,Sat 27/06
-Lyn 1896 FK,Hoedd IL,2.1,3.59,3.39,2026-06-23 07:10:18,5:00 pm,Sat 27/06
-Bollstanas SK,Korsnas IF FK,1.72,3.95,3.75,2026-06-23 07:10:18,5:00 pm,Sat 27/06
-Gefle IF,IFK Stocksund,1.6,4.34,4.25,2026-06-23 07:10:18,5:00 pm,Sat 27/06
-TP-47,VPS Akatemia,2.3,4.16,2.47,2026-06-23 07:10:18,5:00 pm,Sat 27/06
-Myllykosken Pallo -47,Atlantis FC,2.68,4.26,2.12,2026-06-23 07:10:18,5:00 pm,Sat 27/06
-Astorps FF,Torslanda IK,1.85,3.85,3.35,2026-06-23 07:10:18,5:00 pm,Sat 27/06
-Motala AIF FK,Vanersborgs FK,1.73,3.8,3.85,2026-06-23 07:10:18,5:00 pm,Sat 27/06
-Rappe GOIF,Staffanstorp United,2.38,3.5,2.55,2026-06-23 07:10:18,5:00 pm,Sat 27/06
-IF Eker Orebro,FOC Farsta,3.1,3.95,1.92,2026-06-23 07:10:18,5:00 pm,Sat 27/06
-HJK Helsinki,Kuopion Palloseura,2.36,3.65,2.85,2026-06-23 07:10:18,5:00 pm,Sat 27/06
-IFK Mariehamn,FC Inter Turku,7.8,4.8,1.4,2026-06-23 07:10:18,5:00 pm,Sat 27/06
-Nosaby IF,IFK Trelleborg,2.6,3.7,2.24,2026-06-23 07:10:18,5:00 pm,Sat 27/06
-Stabaek IF,Bryne FK,1.8,4.1,3.95,2026-06-23 07:10:18,5:00 pm,Sat 27/06
-Puistolan Urheilijat,HPS,2.48,3.72,2.45,2026-06-23 07:10:18,5:00 pm,Sat 27/06
-Nordic United FC,IK Oddevold,2.5,3.45,2.75,2026-06-23 07:10:18,6:00 pm,Sat 27/06
-Volsungur,Grotta,3.55,3.95,1.94,2026-06-23 07:10:18,6:00 pm,Sat 27/06
-GIF Sundsvall,Ostersunds FK,3.8,3.4,2.03,2026-06-23 07:10:18,6:00 pm,Sat 27/06
-FA Siauliai B,FK Babrungas Plunge,7.6,5.0,1.3,2026-06-23 07:10:18,6:00 pm,Sat 27/06
-IF Gnistan,Vaasan Palloseura,2.55,3.55,2.65,2026-06-23 07:10:18,7:00 pm,Sat 27/06
-Stroemsgodset IF,Odds BK,1.65,4.5,4.5,2026-06-23 07:10:18,7:00 pm,Sat 27/06
-Turun Palloseura,FF Jaro,2.27,3.55,3.05,2026-06-23 07:10:18,7:00 pm,Sat 27/06
-FC Kiffen,Lahden Reipas,2.36,3.86,2.52,2026-06-23 07:10:18,7:26 pm,Sat 27/06
-Sogndal Fotball,Egersunds IK,2.32,3.94,2.74,2026-06-23 07:10:18,9:00 pm,Sat 27/06
-AC Oulu,FC Lahti,2.03,3.59,3.59,2026-06-23 07:10:18,9:00 pm,Sat 27/06
-Sligo Rovers FC,Shelbourne FC,4.6,3.7,1.78,2026-06-23 07:10:18,9:45 pm,Sat 27/06
-Panama,England,14.02,7.34,1.23,2026-06-23 07:10:18,12:00 am,Sun 28/06
-Croatia,Ghana,1.65,4.07,5.99,2026-06-23 07:10:18,12:00 am,Sun 28/06
-Congo DR,Uzbekistan,2.16,3.61,3.57,2026-06-23 07:10:18,2:30 am,Sun 28/06
-Colombia,Portugal,3.8,3.54,2.11,2026-06-23 07:10:18,2:30 am,Sun 28/06
-Algeria,Austria,3.97,2.44,2.79,2026-06-23 07:10:18,5:00 am,Sun 28/06
-Jordan,Argentina,13.42,7.18,1.24,2026-06-23 07:10:18,5:00 am,Sun 28/06
-Qingdao West Coast FC,Zhejiang FC,2.55,3.6,2.6,2026-06-23 07:10:18,1:00 pm,Sun 28/06
-Dalian Yingbo FC,Shanghai Shenhua FC,2.5,3.55,2.7,2026-06-23 07:10:18,2:00 pm,Sun 28/06
-IFK Norrkoping FK,Norrby IF,1.51,4.6,5.8,2026-06-23 07:10:18,4:00 pm,Sun 28/06
-Landskrona BoIS,IFK Varnamo,1.88,3.64,4.09,2026-06-23 07:10:18,4:00 pm,Sun 28/06
-KaPa Kapylan Pallo,JaPS,2.46,3.4,2.85,2026-06-23 07:10:18,4:00 pm,Sun 28/06
-Breidablik Kopavogur,Vikingur Reykjavik,5.44,4.66,1.47,2026-06-23 07:10:18,5:00 pm,Sun 28/06
-Sandvikens IF,Helsingborgs IF,2.13,3.7,3.2,2026-06-23 07:10:18,6:00 pm,Sun 28/06
-FC Zhenis,FC Astana,2.98,3.13,2.53,2026-06-23 07:10:18,6:00 pm,Sun 28/06
-Stjarnan Gardabae,KA Akureyri,1.96,4.09,3.39,2026-06-23 07:10:18,8:00 pm,Sun 28/06
-Keflavik IF,KR Reykjavik,3.75,4.5,1.78,2026-06-23 07:10:18,8:00 pm,Sun 28/06
-FH Hafnarfjordur,IBV Vestmannaeyjar,2.49,3.8,2.6,2026-06-23 07:10:18,8:00 pm,Sun 28/06
-Thor Akureyri,Valur Reykjavik,3.54,4.49,1.84,2026-06-23 07:10:18,8:00 pm,Sun 28/06
-AC Goianiense GO,AA Ponte Preta SP,1.5,4.1,7.2,2026-06-23 07:10:18,10:00 pm,Sun 28/06
-Athletic Club Sjdr MG,Avai FC SC,1.92,3.45,4.2,2026-06-23 07:10:18,10:00 pm,Sun 28/06
-EC Juventude RS,Ceara SC CE,2.07,3.15,4.0,2026-06-23 07:10:18,10:00 pm,Sun 28/06
-Nautico PE,Goias EC GO,1.86,3.5,4.4,2026-06-23 07:10:18,12:30 am,Mon 29/06
-Fortaleza EC CE,SC Recife PE,2.04,3.25,3.9,2026-06-23 07:10:18,12:30 am,Mon 29/06
-IA Akranes,Fram Reykjavik,2.7,3.9,2.36,2026-06-23 07:10:18,10:15 pm,Mon 29/06
-Afturelding,KF Aegir,1.32,6.0,7.99,2026-06-23 07:10:18,10:15 pm,Mon 29/06
-Botafogo FC SP,CR Brasil AL,2.32,3.23,3.23,2026-06-23 07:10:18,2:00 am,Wed 01/07
-SD Aucas,Guayaquil City FC,1.51,4.2,6.6,2026-06-23 07:10:18,11:00 pm,Wed 01/07
-Libertad Loja,Leones Futbol Club,2.13,3.34,3.54,2026-06-23 07:10:18,11:00 pm,Wed 01/07
-CSD Macara,LDU Quito,3.79,3.39,2.04,2026-06-23 07:10:18,11:00 pm,Wed 01/07
-Barcelona SC,CD Cuenca,1.49,4.08,7.37,2026-06-23 07:10:18,11:00 pm,Wed 01/07
-CSD Independiente del Valle,Manta FC,1.21,6.4,14.0,2026-06-23 07:10:18,11:00 pm,Wed 01/07
-Delfin SC,CS Emelec,2.8,3.1,2.7,2026-06-23 07:10:18,11:00 pm,Wed 01/07
-CD Universidad Catolica del Ecuador,Mushuc Runa SC,1.58,4.2,5.6,2026-06-23 07:10:18,11:00 pm,Wed 01/07
-Orense SC,CD Tecnico Universitario,1.75,3.55,5.0,2026-06-23 07:10:18,11:00 pm,Wed 01/07
-IK Sirius,Mjallby AIF,1.61,4.22,5.25,2026-06-23 07:10:18,8:00 pm,Fri 03/07
-Degerfors IF,Malmo FF,2.77,3.58,2.44,2026-06-23 07:10:18,4:00 pm,Sat 04/07
-Halmstads BK,Vasteraas SK,2.6,3.42,2.68,2026-06-23 07:10:18,4:00 pm,Sat 04/07
-IFK Goteborg,AIK,2.56,3.49,2.68,2026-06-23 07:10:18,3:00 pm,Sun 05/07
-Kalmar FF,Orgryte IS,1.46,4.75,6.43,2026-06-23 07:10:18,3:00 pm,Sun 05/07
-IF Elfsborg,Hammarby IF,3.46,3.79,2.01,2026-06-23 07:10:18,5:30 pm,Sun 05/07
-IF Brommapojkarna,GAIS,3.25,3.58,2.16,2026-06-23 07:10:18,8:00 pm,Mon 06/07
-BK Hacken,Djurgardens IF,2.22,3.82,2.95,2026-06-23 07:10:18,8:00 pm,Mon 06/07
-FK Vojvodina Novi Sad,Ferencvarosi Budapest,3.81,3.64,2.07,2026-06-23 07:10:18,10:00 pm,Thu 09/07
-Fredrikstad FK,Lillestroem SK,2.84,3.61,2.49,2026-06-23 07:10:18,3:00 pm,Sat 11/07
-Aalesunds FK,Molde FK,3.7,3.97,1.97,2026-06-23 07:10:18,5:00 pm,Sat 11/07
-Tromsoe IL,Vaalerenga IF,1.87,3.78,4.32,2026-06-23 07:10:18,7:00 pm,Sat 11/07
-KFUM Oslo,Bodoe/Glimt,6.96,4.97,1.46,2026-06-23 07:10:18,3:30 pm,Sun 12/07
-SK Brann,IK Start,1.37,5.76,8.07,2026-06-23 07:10:18,6:00 pm,Sun 12/07
-Rosenborg BK,Kristiansund BK,1.66,4.26,5.22,2026-06-23 07:10:18,6:00 pm,Sun 12/07
-Sandefjord Fotball,HamKam,1.92,3.86,3.98,2026-06-23 07:10:18,6:00 pm,Sun 12/07
-CS Universitatea Craiova,FC Universitatea Cluj,2.08,3.3,3.75,2026-06-23 07:10:18,6:00 pm,Sun 12/07
-Sarpsborg 08,Viking FK,4.37,4.25,1.77,2026-06-23 07:10:18,8:15 pm,Sun 12/07
-Botafogo FR RJ,Santos FC SP,1.94,3.38,4.17,2026-06-23 07:10:18,1:30 am,Fri 17/07
-EC Vitoria BA,CR Vasco da Gama RJ,2.43,3.32,2.96,2026-06-23 07:10:18,1:30 am,Fri 17/07
-Mirassol FC SP,Gremio FB Porto Alegrense RS,2.08,3.39,3.64,2026-06-23 07:10:18,3:30 am,Fri 17/07
-Fluminense FC RJ,Red Bull Bragantino SP,1.74,3.64,4.95,2026-06-23 07:10:18,3:30 am,Sat 18/07
-AGF Aarhus,KKS Lech Poznan,2.36,3.43,3.27,2026-06-23 07:10:18,4:00 pm,Tue 21/07
-Fenerbahce Istanbul,Gornik Zabrze,1.3,6.14,11.67,2026-06-23 07:10:18,4:00 pm,Tue 21/07
-Club Nacional de Football,CA Tigre,1.83,3.5,4.6,2026-06-23 07:10:18,1:00 am,Wed 22/07
-Atletico Mineiro MG,EC Bahia BA,2.13,3.38,3.53,2026-06-23 07:10:18,1:30 am,Wed 22/07
-UCV FC,Santos FC SP,3.85,4.2,1.81,2026-06-23 07:10:18,3:30 am,Wed 22/07
-Independiente Medellin,CR Vasco da Gama RJ,2.6,3.3,2.75,2026-06-23 07:10:18,1:00 am,Thu 23/07
-Sporting Cristal,Red Bull Bragantino SP,3.05,3.45,2.32,2026-06-23 07:10:18,3:30 am,Thu 23/07
-CA Lanus,Cienciano,1.35,5.39,8.18,2026-06-23 07:10:18,3:30 am,Thu 23/07
-Chapecoense SC,CR Flamengo RJ,7.4,4.73,1.42,2026-06-23 07:10:18,3:30 am,Thu 23/07
-Sao Paulo FC SP,CA Paranaense PR,1.9,3.46,4.28,2026-06-23 07:10:18,3:30 am,Thu 23/07
-SC Internacional RS,Cruzeiro EC MG,2.28,3.34,3.21,2026-06-23 07:10:18,3:30 am,Thu 23/07
-Paksi FC,Panathinaikos Athens,6.52,4.3,1.58,2026-06-23 07:10:18,4:00 pm,Thu 23/07
-RKS Rakow Czestochowa,Valletta FC,1.12,10.83,28.41,2026-06-23 07:10:18,4:00 pm,Thu 23/07
-Club Bolivar,Gremio FB Porto Alegrense RS,1.68,4.3,4.4,2026-06-23 07:10:18,1:00 am,Fri 24/07
-SC Corinthians SP,Clube do Remo PA,1.55,4.0,6.52,2026-06-23 07:10:18,1:30 am,Fri 24/07
-Independiente Santa Fe,Caracas FC,1.54,4.0,6.6,2026-06-23 07:10:18,3:30 am,Fri 24/07
-Boca Juniors,CD O´Higgins,1.41,4.7,7.8,2026-06-23 07:10:18,3:30 am,Fri 24/07
-Coritiba FC PR,SE Palmeiras SP,4.17,3.38,1.94,2026-06-23 07:10:18,3:30 am,Fri 24/07
-Vaalerenga IF,HamKam,1.76,4.38,4.25,2026-06-23 07:10:18,8:00 pm,Fri 31/07
-Dundee United,Glasgow Rangers,6.1,4.8,1.52,2026-06-23 07:10:18,10:00 pm,Fri 31/07
-Falkirk FC,St Mirren FC,1.93,4.05,3.76,2026-06-23 07:10:18,5:00 pm,Sat 01/08
-Aberdeen FC,Heart of Midlothian FC,3.74,3.85,1.99,2026-06-23 07:10:18,7:30 pm,Sat 01/08
-CR Vasco da Gama RJ,Fluminense FC RJ,2.61,3.27,2.77,2026-06-23 07:10:18,11:30 pm,Sat 01/08
-Atletico Mineiro MG,EC Juventude RS,1.38,4.53,9.34,2026-06-23 07:10:18,1:30 am,Sun 02/08
-Santos FC SP,Clube do Remo PA,1.72,3.69,5.06,2026-06-23 07:10:18,3:00 am,Sun 02/08
-St. Johnstone FC,Kilmarnock FC,2.45,3.65,2.87,2026-06-23 07:10:18,4:00 pm,Sun 02/08
-Hibernian FC,Motherwell FC,2.19,3.73,3.29,2026-06-23 07:10:18,6:30 pm,Sun 02/08
-SE Palmeiras SP,Fortaleza EC CE,1.28,5.35,12.2,2026-06-23 07:10:18,10:00 pm,Sun 02/08
-Mirassol FC SP,Gremio FB Porto Alegrense RS,2.2,3.28,3.43,2026-06-23 07:10:18,12:00 am,Mon 03/08
-Chapecoense SC,Cruzeiro EC MG,3.57,3.29,2.15,2026-06-23 07:10:18,12:30 am,Mon 03/08
-SC Internacional RS,SC Corinthians SP,2.17,3.32,3.47,2026-06-23 07:10:18,1:30 am,Mon 03/08
-Celtic Glasgow,Dundee FC,1.19,8.45,14.28,2026-06-23 07:10:18,9:30 pm,Mon 03/08
-CA Paranaense PR,EC Vitoria BA,1.88,3.36,4.54,2026-06-23 07:10:18,3:00 am,Tue 04/08
-Fluminense FC RJ,Independiente Rivadavia,1.55,4.28,5.78,2026-06-23 07:10:18,1:00 am,Wed 12/08
-Estudiantes de La Plata,CD Universidad Catolica,1.73,3.69,4.99,2026-06-23 07:10:18,3:30 am,Wed 12/08
-CD Tolima,CSD Independiente del Valle,2.55,3.3,2.8,2026-06-23 07:10:18,3:30 am,Wed 12/08
-AEK Athens,OFI Crete,1.53,4.1,6.59,2026-06-23 07:10:18,9:00 pm,Wed 12/08
-Paris Saint-Germain,Aston Villa,1.58,4.4,6.2,2026-06-23 07:10:18,10:00 pm,Wed 12/08
-SE Palmeiras SP,Cerro Porteno,1.32,5.2,9.6,2026-06-23 07:10:18,1:00 am,Thu 13/08
-CA Platense,Coquimbo Unido,1.78,3.35,5.2,2026-06-23 07:10:18,1:00 am,Thu 13/08
-Cruzeiro EC MG,CR Flamengo RJ,2.6,3.3,2.75,2026-06-23 07:10:18,3:30 am,Thu 13/08
-Mirassol FC SP,LDU Quito,1.93,3.34,4.29,2026-06-23 07:10:18,1:00 am,Fri 14/08
-CA Rosario Central,SC Corinthians SP,2.31,3.15,3.35,2026-06-23 07:10:18,3:30 am,Fri 14/08
-Arsenal FC,Manchester City,2.21,3.7,3.37,2026-06-23 07:10:18,5:00 pm,Sun 16/08
-Racing Club De Lens,Paris Saint-Germain,4.89,3.86,1.7,2026-06-23 07:10:18,9:45 pm,Sun 16/08
-SSV Jeddeloh II,1. FC Heidenheim,16.26,9.46,1.13,2026-06-23 07:10:18,3:00 pm,Fri 21/08
-Luneburger SK Hansa,Werder Bremen,84.77,51.77,68.27,2026-06-23 07:10:18,3:00 pm,Fri 21/08
-Rot-Weiss Essen,FC St. Pauli,2.76,3.47,2.5,2026-06-23 07:10:18,3:00 pm,Fri 21/08
-SV Hemelingen,Hannover 96,83.48,53.67,68.58,2026-06-23 07:10:18,3:00 pm,Fri 21/08
-VfB 1921 Krieschow,FSV Mainz,96.29,87.91,92.1,2026-06-23 07:10:18,3:00 pm,Fri 21/08
-MSV Duisburg,SV 07 Elversberg,4.42,3.73,1.8,2026-06-23 07:10:18,3:00 pm,Fri 21/08
-SC Preussen 06 Munster,Karlsruher SC,2.91,3.48,2.38,2026-06-23 07:10:18,3:00 pm,Fri 21/08
-Energie Cottbus,FC Augsburg,5.03,4.32,1.61,2026-06-23 07:10:18,3:00 pm,Fri 21/08
-SG Sonnenhof Grossaspach,Arminia Bielefeld,5.26,4.02,1.64,2026-06-23 07:10:18,3:00 pm,Fri 21/08
-Arsenal FC,Coventry City,1.19,8.14,17.99,2026-06-23 07:10:18,10:00 pm,Fri 21/08
-Hull City,Manchester United,6.78,4.83,1.5,2026-06-23 07:10:18,2:30 pm,Sat 22/08
-Genoa CFC,SSC Napoli,5.49,3.74,1.75,2026-06-23 07:10:18,4:00 pm,Sat 22/08
-Venezia FC,US Lecce,2.39,3.35,3.29,2026-06-23 07:10:18,4:00 pm,Sat 22/08
-Parma Calcio,Cagliari Calcio,2.62,3.25,3.03,2026-06-23 07:10:18,4:00 pm,Sat 22/08
-Bologna FC,Lazio Rome,2.11,3.44,3.93,2026-06-23 07:10:18,4:00 pm,Sat 22/08
-Inter Milano,AC Monza,1.21,7.57,15.59,2026-06-23 07:10:18,4:00 pm,Sat 22/08
-Frosinone Calcio,Juventus Turin,7.06,4.77,1.5,2026-06-23 07:10:18,4:00 pm,Sat 22/08
-Atalanta BC,Sassuolo Calcio,1.58,4.45,6.24,2026-06-23 07:10:18,4:00 pm,Sat 22/08
-Udinese Calcio,Como 1907,5.0,3.77,1.8,2026-06-23 07:10:18,4:00 pm,Sat 22/08
-Torino FC,AC Milan,4.7,3.84,1.83,2026-06-23 07:10:18,4:00 pm,Sat 22/08
-AS Roma,ACF Fiorentina,1.58,4.34,6.36,2026-06-23 07:10:18,4:00 pm,Sat 22/08
-Nottingham Forest,Leeds United,2.3,3.62,3.25,2026-06-23 07:10:18,5:00 pm,Sat 22/08
-Everton FC,Crystal Palace,2.16,3.62,3.56,2026-06-23 07:10:18,5:00 pm,Sat 22/08
-Ipswich Town,Sunderland AFC,2.79,3.47,2.68,2026-06-23 07:10:18,5:00 pm,Sat 22/08
-Brentford FC,Tottenham Hotspur,2.63,3.72,2.69,2026-06-23 07:10:18,7:30 pm,Sat 22/08
-Borussia Dortmund,Bayern Munich,4.56,4.55,1.64,2026-06-23 07:10:18,9:30 pm,Sat 22/08
-Manchester City,AFC Bournemouth,1.46,5.54,6.51,2026-06-23 07:10:18,4:00 pm,Sun 23/08
-Brighton & Hove Albion,Aston Villa,2.36,3.8,3.01,2026-06-23 07:10:18,4:00 pm,Sun 23/08
-Newcastle United,Liverpool FC,2.98,4.02,2.3,2026-06-23 07:10:18,6:30 pm,Sun 23/08
-Fulham FC,Chelsea FC,3.17,3.79,2.27,2026-06-23 07:10:18,10:00 pm,Mon 24/08
+league,homeTeam,awayTeam,homeOdds,drawOdds,awayOdds,Timestamp,Time,Date
+Football / Australia / Northern NSW League One,Lake Macquarie City FC,West Wallsend SFC,1.24,6.61,8.74,2026-06-24 09:58:59,1:00 pm,Wed 24/06
+Football / International / Club Friendly Games,1. FC Slovacko Uherske Hradiste,FC Vysocina Jihlava,1.29,5.61,8.41,2026-06-24 09:58:59,1:00 pm,Wed 24/06
+Football / Australia / Northern NSW NPL,Kahibah FC,Adamstown Rosebud FC,2.69,4.23,2.12,2026-06-24 09:58:59,1:00 pm,Wed 24/06
+Football / Australia / Northern NSW NPL,Charlestown Azzurri FC,Cooks Hill United,1.93,4.32,3.03,2026-06-24 09:58:59,1:00 pm,Wed 24/06
+"Football / Australia / Queensland NPL, Women",Gold Coast Knights Women,Olympic FC Brisbane Women,1.14,7.7,14.43,2026-06-24 09:58:59,1:30 pm,Wed 24/06
+"Football / China / Chinese Super League, Women",Sichuan WFC Women,Beijing WFC Women,14.0,6.2,1.15,2026-06-24 09:58:59,2:00 pm,Wed 24/06
+"Football / Australia / Northern Territory Premier League, Women",Hellenic Athletic Women,Mindil Aces Women,1.07,11.95,20.91,2026-06-24 09:58:59,2:00 pm,Wed 24/06
+Football / China / China League 2,Beijing Institute of Technology,Shandong Taishan B,4.9,3.4,1.68,2026-06-24 09:58:59,2:00 pm,Wed 24/06
+Football / China / China League 2,Jiangxi Lushan,Ganzhou Ruishi FC,1.62,3.5,5.25,2026-06-24 09:58:59,2:30 pm,Wed 24/06
+Football / China / China League 2,Wenzhou Professional FC,Wuhan Three Towns B,2.45,2.9,3.0,2026-06-24 09:58:59,2:30 pm,Wed 24/06
+Football / China / China League 2,Shenzhen 2028 FC,Hangzhou Linping Wuyue,1.58,3.6,5.75,2026-06-24 09:58:59,2:30 pm,Wed 24/06
+"Football / China / Chinese Super League, Women",Guangxi Pingguo Women,Wuhan Jiangda Women,7.6,4.7,1.32,2026-06-24 09:58:59,2:35 pm,Wed 24/06
+"Football / China / Chinese Super League, Women",Zhejiang Hangzhou Women,Shanghai Shengli Women,7.6,4.4,1.35,2026-06-24 09:58:59,2:35 pm,Wed 24/06
+"Football / China / Chinese Super League, Women",Guangdong Meizhou Hakka FC Women,Jiangsu LFC Women,5.0,3.35,1.66,2026-06-24 09:58:59,2:35 pm,Wed 24/06
+Football / International / Club Friendly Games,Mjallby AIF,Halmstads BK,1.38,4.8,7.27,2026-06-24 09:58:59,3:00 pm,Wed 24/06
+Football / China / China League 2,Chengdu Rongcheng B,Guangzhou Dandelion Alpha FC,3.4,3.05,2.15,2026-06-24 09:58:59,3:00 pm,Wed 24/06
+Football / Tanzania / Premier League,Fountain Gate FC,Mashujaa FC,2.7,2.9,2.6,2026-06-24 09:58:59,4:00 pm,Wed 24/06
+Football / International / Club Friendly Games,Paksi FC,Szentlorinc SE,19.31,88.25,53.78,2026-06-24 09:58:59,4:00 pm,Wed 24/06
+Football / Lebanon / Premier League,Al Ahed FC,Safa SC,2.08,3.21,3.6,2026-06-24 09:58:59,4:00 pm,Wed 24/06
+Football / Lebanon / Premier League,Shabab AL Sahel,Reyady Abaseya,1.94,3.17,4.19,2026-06-24 09:58:59,4:00 pm,Wed 24/06
+Football / Tanzania / Premier League,Young Africans SC,Azam FC,1.35,4.1,8.6,2026-06-24 09:58:59,4:00 pm,Wed 24/06
+Football / Brazil / Copa Rio,Sao Goncalo EC RJ,Serrano FC RJ,2.2,2.91,3.44,2026-06-24 09:58:59,5:00 pm,Wed 24/06
+Football / Brazil / U20 Campeonato Brasileiro,Avai FC SC U20,CA Paranaense PR U20,3.9,3.71,1.77,2026-06-24 09:58:59,5:00 pm,Wed 24/06
+Football / Lithuania / LFF Cup,FA Siauliai,Dziugas,3.9,3.8,1.73,2026-06-24 09:58:59,6:00 pm,Wed 24/06
+Football / Lithuania / 1 Lyga,FK Babrungas Plunge,FK Kauno Zalgiris B,1.19,5.99,10.98,2026-06-24 09:58:59,6:00 pm,Wed 24/06
+Football / International / Club Friendly Games,Grazer AK 1902,SK Slovan Bratislava,3.3,3.66,2.03,2026-06-24 09:58:59,6:00 pm,Wed 24/06
+Football / Finland / Kolmonen,Lapuan Virkia,SJK-J,2.48,4.0,2.29,2026-06-24 09:58:59,7:00 pm,Wed 24/06
+Football / Finland / Kolmonen,TPV/2,NOPS,2.12,4.01,2.72,2026-06-24 09:58:59,7:00 pm,Wed 24/06
+Football / Finland / Kolmonen,JJK Jyvaskyla/2,FC Metso,5.33,4.95,1.43,2026-06-24 09:58:59,7:00 pm,Wed 24/06
+Football / Sweden / Damallsvenskan,IK Uppsala Fotboll Women,Hacken Gothenburg Women,16.56,8.57,1.12,2026-06-24 09:58:59,7:00 pm,Wed 24/06
+Football / International / Club Friendly Games,CS Universitatea Craiova,Sabah Masazir,1.91,3.62,3.72,2026-06-24 09:58:59,7:00 pm,Wed 24/06
+Football / International / Club Friendly Games,SC Weiz,First Vienna FC 1894,10.75,7.25,1.19,2026-06-24 09:58:59,7:00 pm,Wed 24/06
+Football / Finland / Kolmonen,JPS,Keupa,1.16,8.06,9.59,2026-06-24 09:58:59,7:00 pm,Wed 24/06
+Football / Georgia / Erovnuli Liga,FC Gagra,FC Samgurali Tskaltubo,2.82,3.3,2.31,2026-06-24 09:58:59,7:00 pm,Wed 24/06
+Football / Finland / Kolmonen,Lautp,Kumu,1.18,6.89,10.52,2026-06-24 09:58:59,7:00 pm,Wed 24/06
+"Football / Ecuador / Superliga, Women",Dragonas IDV Women,CS Emelec Women,16.0,27.0,21.5,2026-06-24 09:58:59,7:00 pm,Wed 24/06
+Football / Sweden / Damallsvenskan,FC Rosengaard Malmo Women,Djurgardens IF DFF Women,2.09,3.55,3.21,2026-06-24 09:58:59,7:00 pm,Wed 24/06
+Football / Finland / Kolmonen,Saaksjaerven Loiske,Fish United,1.68,4.37,3.75,2026-06-24 09:58:59,7:00 pm,Wed 24/06
+Football / Sweden / Division 2,Grebbestads IF,IFK Kumla,2.55,3.45,2.38,2026-06-24 09:58:59,7:00 pm,Wed 24/06
+Football / Lithuania / LFF Cup,Dfk Dainava Alytus,FK Transinvest,7.4,5.2,1.29,2026-06-24 09:58:59,7:00 pm,Wed 24/06
+Football / International / Club Friendly Games,FC Freienbach,FC Rapperswil-Jona,6.26,5.17,1.4,2026-06-24 09:58:59,7:30 pm,Wed 24/06
+Football / Finland / Kolmonen,JIPPO-J/Punamusta,SC Zulimanit,1.52,4.59,4.68,2026-06-24 09:58:59,7:30 pm,Wed 24/06
+Football / Finland / Kolmonen,FC Lahti 69,IF Sibbo Vargarna,2.16,4.19,2.57,2026-06-24 09:58:59,7:30 pm,Wed 24/06
+Football / Finland / Kolmonen,FC Santa Claus,Kemin Palloseura,4.1,4.76,1.57,2026-06-24 09:58:59,7:30 pm,Wed 24/06
+Football / International / Club Friendly Games,WKW ETO FC Gyor,FK Vojvodina Novi Sad,2.72,3.59,2.36,2026-06-24 09:58:59,7:30 pm,Wed 24/06
+Football / Finland / Kolmonen,FC Haka J,Toip-49,17.12,33.28,25.2,2026-06-24 09:58:59,8:00 pm,Wed 24/06
+Football / Sweden / Damallsvenskan,Vaxjo DFF Women,IF Brommapojkarna Women,2.4,3.5,2.72,2026-06-24 09:58:59,8:00 pm,Wed 24/06
+Football / Sweden / Division 2,Kubikenborgs IF,Fransta IK,1.44,4.4,5.0,2026-06-24 09:58:59,8:00 pm,Wed 24/06
+Football / International / Club Friendly Games,SV Tasmania Berlin,BFC Preussen Berlin,3.25,3.71,2.03,2026-06-24 09:58:59,8:00 pm,Wed 24/06
+Football / Sweden / Damallsvenskan,AIK DFF Women,Eskilstuna United DFF Women,1.63,3.98,4.86,2026-06-24 09:58:59,8:00 pm,Wed 24/06
+Football / Sweden / Division 2,Vastra Frolunda IF,Qviding FIF,1.94,3.8,3.1,2026-06-24 09:58:59,8:00 pm,Wed 24/06
+"Football / Ecuador / Superliga, Women",Csd Macara Women,Barcelona SC Women,11.0,6.4,1.17,2026-06-24 09:58:59,8:00 pm,Wed 24/06
+Football / Finland / Kolmonen,Toolon Taisto,VJS/Akatemia,2.96,4.3,1.92,2026-06-24 09:58:59,8:00 pm,Wed 24/06
+"Football / Sweden / Ettan, Relegation/Promotion",Karlbergs BK,Piteaa IF,1.37,4.98,6.32,2026-06-24 09:58:59,8:00 pm,Wed 24/06
+Football / Sweden / Division 2,Lilla Torg FF,Torns IF,2.22,3.4,2.8,2026-06-24 09:58:59,8:00 pm,Wed 24/06
+Football / Norway / 3rd Division Group 1,Gamle Oslo FK,Lokomotiv Oslo,1.25,6.0,7.4,2026-06-24 09:58:59,8:00 pm,Wed 24/06
+Football / Finland / Kolmonen,Japs 47,Atlantis FC/Akatemia,1.57,4.58,4.29,2026-06-24 09:58:59,8:00 pm,Wed 24/06
+Football / Sweden / Damallsvenskan,IFK Norrkoping DFK Women,Vittsjo GIK Women,2.04,3.35,3.55,2026-06-24 09:58:59,8:00 pm,Wed 24/06
+Football / Finland / Kolmonen,Leppavaaran Pallo,Espoon Palloseura Reserve,1.76,4.2,3.53,2026-06-24 09:58:59,8:15 pm,Wed 24/06
+Football / Sweden / Division 2,Angby IF,Enskede IK,2.49,3.25,2.55,2026-06-24 09:58:59,8:30 pm,Wed 24/06
+Football / Sweden / Division 2,Lindo FF,Smedby AIS,2.6,3.4,2.39,2026-06-24 09:58:59,8:30 pm,Wed 24/06
+Football / Faroe Islands / Logmanssteypid,NSI Runavik,KI Klaksvik,3.25,3.45,2.12,2026-06-24 09:58:59,8:30 pm,Wed 24/06
+"Football / Brazil / Carioca, Serie A2",America FC RJ,Araruama FC RJ,1.63,3.27,5.5,2026-06-24 09:58:59,8:45 pm,Wed 24/06
+"Football / Brazil / U20 Catarinense, Serie A",Brusque SC U20,Nacao U20,3.15,3.55,2.01,2026-06-24 09:58:59,9:00 pm,Wed 24/06
+"Football / Brazil / Mineiro, Modulo II",Coimbra Sports MG,SC Aymores MG,2.61,2.89,2.7,2026-06-24 09:58:59,9:00 pm,Wed 24/06
+"Football / Brazil / Catarinense, Serie B",Blumenau EC SC,CF Caravaggio SC,1.72,3.3,4.6,2026-06-24 09:58:59,9:00 pm,Wed 24/06
+Football / International / Club Friendly Games,Glentoran FC,The New Saints FC,2.74,3.56,2.36,2026-06-24 09:58:59,9:45 pm,Wed 24/06
+Football / International / FIFA World Cup,Bosnia and Herzegovina,Qatar,1.41,5.48,7.93,2026-06-24 09:58:59,10:00 pm,Wed 24/06
+Football / Lebanon / Premier League,AL Ansar SC,Jwaaya FC,1.76,3.55,4.56,2026-06-24 09:58:59,10:00 pm,Wed 24/06
+Football / International / FIFA World Cup,Switzerland,Canada,2.44,3.19,3.38,2026-06-24 09:58:59,10:00 pm,Wed 24/06
+Football / Iceland / 4. deild,Hamar,Ellidi,1.45,5.0,5.0,2026-06-24 09:58:59,10:15 pm,Wed 24/06
+Football / Venezuela / Copa Venezuela,Deportivo Rayo Zuliano,Trujillanos FC,1.72,3.5,4.3,2026-06-24 09:58:59,10:30 pm,Wed 24/06
+"Football / Brazil / Mineiro, Modulo II",Democrata Sete Lagoas FC MG,Villa Nova AC MG,2.15,2.89,3.46,2026-06-24 09:58:59,10:30 pm,Wed 24/06
+Football / Venezuela / Copa Venezuela,Mineros de Guayana,Bolivar SC,3.2,2.95,2.22,2026-06-24 09:58:59,10:30 pm,Wed 24/06
+Football / Venezuela / Copa Venezuela,Real Frontera FC,Club Atletico Barinas,3.1,3.45,2.05,2026-06-24 09:58:59,10:30 pm,Wed 24/06
+Football / Venezuela / Copa Venezuela,Urena SC,Deportivo Lara,2.5,3.1,2.65,2026-06-24 09:58:59,11:00 pm,Wed 24/06
+Football / Chile / Copa Chile,Deportes La Serena,Cobresal,1.59,4.25,5.34,2026-06-24 09:58:59,11:00 pm,Wed 24/06
+Football / Venezuela / Copa Venezuela,Caracas FC,Aragua FC,1.47,3.75,6.4,2026-06-24 09:58:59,11:00 pm,Wed 24/06
+Football / Venezuela / Copa Venezuela,Barquisimeto SC,Yaracuyanos FC,1.57,3.8,5.0,2026-06-24 09:58:59,11:00 pm,Wed 24/06
+Football / Venezuela / Copa Venezuela,Academia Anzoategui FC,Atletico Avila FC,1.56,3.65,5.4,2026-06-24 09:58:59,11:00 pm,Wed 24/06
+Football / USA / USL W League,Northern Virginia FC Women,Eagle FC Women,9.6,6.2,1.2,2026-06-24 09:58:59,12:00 am,Thu 25/06
+"Football / Ecuador / Superliga, Women",CD Espuce Women,Deportivo Ibarra Women,4.4,3.55,1.7,2026-06-24 09:58:59,12:00 am,Thu 25/06
+Football / Venezuela / Copa Venezuela,Zamora FC,Atletico El Vigia,1.21,5.8,10.0,2026-06-24 09:58:59,12:00 am,Thu 25/06
+Football / International / FIFA World Cup,Scotland,Brazil,10.17,5.75,1.34,2026-06-24 09:58:59,1:00 am,Thu 25/06
+Football / International / FIFA World Cup,Morocco,Haiti,1.21,7.69,16.08,2026-06-24 09:58:59,1:00 am,Thu 25/06
+Football / USA / National Premier Soccer League,FC Pride Elite,Gios Lions SC,1.49,4.73,5.01,2026-06-24 09:58:59,2:00 am,Thu 25/06
+Football / USA / USL League Two,AFC Ann Arbor,Flint City Bucks,7.31,5.77,1.3,2026-06-24 09:58:59,2:00 am,Thu 25/06
+Football / USA / USL League Two,Connecticut Rush,New England FC,3.61,3.85,1.84,2026-06-24 09:58:59,2:00 am,Thu 25/06
+Football / Venezuela / Copa Venezuela,Deportivo Miranda,CS Maritimo de la Guaira,2.04,3.0,3.6,2026-06-24 09:58:59,2:00 am,Thu 25/06
+Football / USA / USL Championship,Miami FC,Orange County SC,2.36,3.46,2.97,2026-06-24 09:58:59,2:00 am,Thu 25/06
+Football / USA / USL League One,Portland Hearts of Pine,Richmond Kickers,1.8,3.62,4.05,2026-06-24 09:58:59,2:00 am,Thu 25/06
+Football / USA / USL League Two,Brave SC,Inter Gainesville KF,1.26,5.2,10.59,2026-06-24 09:58:59,2:00 am,Thu 25/06
+Football / USA / National Premier Soccer League,Hub City FC,Ristozi FC,6.92,5.19,1.35,2026-06-24 09:58:59,2:00 am,Thu 25/06
+Football / USA / USL Championship,Charleston Battery,Loudoun United FC,1.46,4.75,6.54,2026-06-24 09:58:59,2:00 am,Thu 25/06
+Football / USA / National Premier Soccer League,Ambassadors FC Ohio,Erie Commodores FC,3.71,4.15,1.76,2026-06-24 09:58:59,2:00 am,Thu 25/06
+Football / USA / USL League Two,Ballard FC,West Seattle Junction FC,1.19,6.74,10.59,2026-06-24 09:58:59,2:00 am,Thu 25/06
+Football / USA / USL League Two,Bethesda SC,Annapolis Blues FC,2.97,4.12,2.0,2026-06-24 09:58:59,2:30 am,Thu 25/06
+Football / USA / USL League Two,Westchester Flames,Hudson Valley Hammers,6.94,5.78,1.31,2026-06-24 09:58:59,2:30 am,Thu 25/06
+Football / USA / USL League One Cup,Charlotte Independence,Greenville Triumph SC,1.53,4.2,4.8,2026-06-24 09:58:59,2:30 am,Thu 25/06
+Football / USA / USL League Two,Morris Elite SC,New Jersey Copa FC,3.71,4.05,1.77,2026-06-24 09:58:59,2:30 am,Thu 25/06
+Football / Chile / Copa Chile,Deportes Concepcion,Huachipato,2.63,3.47,2.63,2026-06-24 09:58:59,2:30 am,Thu 25/06
+Football / Chile / Copa Chile,Deportes Union La Calera,Universidad de Chile,3.46,3.51,2.1,2026-06-24 09:58:59,2:30 am,Thu 25/06
+Football / USA / USL League Two,Northern Virginia FC,Hill City FC,2.1,3.87,2.9,2026-06-24 09:58:59,2:45 am,Thu 25/06
+Football / USA / USL Championship,Colorado Springs Switchbacks FC,San Antonio FC,1.66,3.94,5.12,2026-06-24 09:58:59,3:00 am,Thu 25/06
+Football / USA / USL W League,Rally Madison FC Women,RKC Third Coast Women,1.38,4.9,5.8,2026-06-24 09:58:59,3:00 am,Thu 25/06
+Football / USA / USL League Two,AC Houston Sur,AHFC Royals,7.15,5.6,1.31,2026-06-24 09:58:59,3:00 am,Thu 25/06
+Football / USA / USL League Two,Lubbock Matadors SC,McKinney Chupacabras FC,2.88,3.75,2.14,2026-06-24 09:58:59,3:00 am,Thu 25/06
+Football / USA / USL League Two,Rockford Raptors,Edgewater Castle,2.78,4.12,2.1,2026-06-24 09:58:59,3:00 am,Thu 25/06
+Football / USA / USL League Two,Minneapolis City SC,RKC Third Coast,1.25,5.78,9.25,2026-06-24 09:58:59,3:00 am,Thu 25/06
+Football / USA / USL League Two,Charlottesville Blues,Lionsbridge FC,3.32,3.75,1.95,2026-06-24 09:58:59,3:00 am,Thu 25/06
+Football / USA / USL W League,Challenge SC Women,Ahfc Royals Women,4.1,4.3,1.6,2026-06-24 09:58:59,3:00 am,Thu 25/06
+Football / USA / USL League One,Corpus Christi FC,Av Alta FC,1.94,3.66,3.42,2026-06-24 09:58:59,3:30 am,Thu 25/06
+"Football / Brazil / Mineiro, Modulo II",CA Patrocinense MG,Boa EC MG,2.26,2.84,3.27,2026-06-24 09:58:59,3:30 am,Thu 25/06
+Football / USA / USL League Two,Marin FC Legends,San Juan FC,2.34,3.95,2.5,2026-06-24 09:58:59,4:00 am,Thu 25/06
+Football / International / FIFA World Cup,South Africa,Korea Republic,5.4,3.94,1.72,2026-06-24 09:58:59,4:00 am,Thu 25/06
+Football / USA / USL League One,Spokane Velocity FC,Westchester SC,1.63,3.87,4.84,2026-06-24 09:58:59,4:00 am,Thu 25/06
+Football / International / FIFA World Cup,Czechia,Mexico,3.82,3.88,2.0,2026-06-24 09:58:59,4:00 am,Thu 25/06
+Football / USA / USL W League,West Seattle Rhodies FC Women,FC Olympia Women,1.43,4.7,5.4,2026-06-24 09:58:59,5:00 am,Thu 25/06
+Football / USA / USL League Two,Stars FC,City SC San Diego,2.44,3.83,2.44,2026-06-24 09:58:59,5:30 am,Thu 25/06
+Football / USA / USL W League,Salmon Bay FC Women,Tacoma Galaxy Women,1.05,9.6,23.0,2026-06-24 09:58:59,5:30 am,Thu 25/06
+Football / Australia / Northern Territory Premier League,Darwin Hearts FC,Port Darwin FC,2.58,3.86,2.31,2026-06-24 09:58:59,12:00 pm,Thu 25/06
+Football / Lebanon / Premier League,Nejmeh SC,AL Tadamon Sour,1.23,5.62,12.6,2026-06-24 09:58:59,3:30 pm,Thu 25/06
+Football / Mozambique / Mocambola,AD Vilankulo,Ferroviario de Maputo,2.34,2.74,3.24,2026-06-24 09:58:59,3:45 pm,Thu 25/06
+Football / Latvia / Virsliga,Grobinas SC/LFS,FK Auda Riga,4.94,3.85,1.7,2026-06-24 09:58:59,5:00 pm,Thu 25/06
+Football / Latvia / Virsliga,BFC Daugavpils,Riga FC,7.35,4.77,1.42,2026-06-24 09:58:59,6:00 pm,Thu 25/06
+Football / Finland / Kolmonen,Abo Club de Futbol,Jyty Turku,2.4,3.79,2.45,2026-06-24 09:58:59,6:00 pm,Thu 25/06
+Football / Norway / 3rd Division Group 6,Bjoerkelangen,Sarpsborg 08 2,4.6,4.6,1.51,2026-06-24 09:58:59,6:00 pm,Thu 25/06
+Football / Finland / Kolmonen,Kultsu FC,Lautp/2,21.93,38.14,30.04,2026-06-24 09:58:59,6:30 pm,Thu 25/06
+Football / Finland / Kolmonen,Piikkion Palloseura,Peimari Utd,6.53,4.8,1.37,2026-06-24 09:58:59,6:30 pm,Thu 25/06
+Football / Norway / 3rd Division Group 4,Staal Joerpeland IL,Hinna,1.84,3.9,3.35,2026-06-24 09:58:59,7:00 pm,Thu 25/06
+Football / Finland / Kolmonen,FC Kiisto,Vasa IFK,2.53,3.91,2.28,2026-06-24 09:58:59,7:00 pm,Thu 25/06
+Football / Finland / Kolmonen,Larsmo Bollklubb,Nykarleby IK,4.5,4.5,1.55,2026-06-24 09:58:59,7:00 pm,Thu 25/06
+Football / Finland / Kolmonen,FC Blackbird Jyvaskyla,FC Vaajakoski/2,19.08,33.4,26.24,2026-06-24 09:58:59,7:00 pm,Thu 25/06
+Football / Finland / Ykkonen,FC Jazz,Tampere United,4.56,4.16,1.69,2026-06-24 09:58:59,7:00 pm,Thu 25/06
+Football / Sweden / Damallsvenskan,Piteaa IF DFF Women,Hammarby IF Women,7.38,4.37,1.42,2026-06-24 09:58:59,7:00 pm,Thu 25/06
+Football / Finland / Kolmonen,Atlantis FC/2,TiPS Vantaa,2.48,4.38,2.18,2026-06-24 09:58:59,7:00 pm,Thu 25/06
+Football / Norway / 3rd Division Group 4,Vaag IK,Viking FK 2,3.55,4.4,1.7,2026-06-24 09:58:59,7:00 pm,Thu 25/06
+Football / Finland / Ykkonen,JJK Jyvaskyla,FC Inter Turku 2,1.54,4.86,5.16,2026-06-24 09:58:59,7:00 pm,Thu 25/06
+Football / Norway / 3rd Division Group 3,Aasane Fotball 2,Os,6.2,5.4,1.34,2026-06-24 09:58:59,7:00 pm,Thu 25/06
+Football / Kuwait / Premier League,Al-Fahaheel,Qadsia SC,5.77,4.23,1.49,2026-06-24 09:58:59,7:05 pm,Thu 25/06
+Football / Morocco / Botola,CODM Meknes,Hassania Union Sport Agadir,2.72,2.91,2.72,2026-06-24 09:58:59,8:00 pm,Thu 25/06
+Football / Morocco / Botola,Wydad AC,Maghreb AS de Fes,2.04,3.11,3.74,2026-06-24 09:58:59,8:00 pm,Thu 25/06
+Football / Morocco / Botola,Olympique Dcheira,Ittihad Tanger,2.58,2.92,2.87,2026-06-24 09:58:59,8:00 pm,Thu 25/06
+Football / Morocco / Botola,US Yacoub Mansour,Raja Casablanca Athletic,4.19,3.26,1.87,2026-06-24 09:58:59,8:00 pm,Thu 25/06
+Football / Morocco / Botola,Rs Berkane,AS Far Rabat,2.87,2.92,2.58,2026-06-24 09:58:59,8:00 pm,Thu 25/06
+Football / Morocco / Botola,Union Touarga,Difaa Hassani d'el-Jadida,1.77,3.23,4.89,2026-06-24 09:58:59,8:00 pm,Thu 25/06
+Football / Morocco / Botola,Renaissance Zemamra,Olympique Club de Safi,2.68,2.88,2.78,2026-06-24 09:58:59,8:00 pm,Thu 25/06
+Football / Morocco / Botola,Kawkab Athletic Club of Marrakech,FUS Rabat,2.88,2.88,2.59,2026-06-24 09:58:59,8:00 pm,Thu 25/06
+Football / Finland / Kolmonen,Vpv,SIF,3.66,4.28,1.71,2026-06-24 09:58:59,8:00 pm,Thu 25/06
+Football / Sweden / Division 2,Nykopings BIS,Nacka FC,1.4,4.7,5.8,2026-06-24 09:58:59,8:00 pm,Thu 25/06
+Football / Iceland / 3. deild,UMF Tindastoll,Sindri,1.52,4.7,4.5,2026-06-24 09:58:59,8:00 pm,Thu 25/06
+Football / Latvia / Virsliga,SK Super Nova,FS Jelgava,2.45,3.42,2.87,2026-06-24 09:58:59,8:00 pm,Thu 25/06
+Football / Finland / Kolmonen,FC Lasten,FC LeKi,1.14,7.65,12.43,2026-06-24 09:58:59,8:00 pm,Thu 25/06
+Football / Sweden / Division 2,IFK Skovde FK,Lidkopings FK,1.38,4.7,6.0,2026-06-24 09:58:59,8:00 pm,Thu 25/06
+Football / Sweden / Division 2,Galtabacks BK,IF Boljan Falkenberg,2.15,3.75,2.7,2026-06-24 09:58:59,8:00 pm,Thu 25/06
+Football / Finland / Kolmonen,PPJ/Ruoholahti,Nups,2.77,3.67,2.19,2026-06-24 09:58:59,8:00 pm,Thu 25/06
+Football / Norway / 3rd Division Group 2,Strindheim TF,Melhus,3.3,3.9,1.85,2026-06-24 09:58:59,8:00 pm,Thu 25/06
+Football / Finland / Kolmonen,Hps/2,Toukolan Teras,3.49,4.11,1.79,2026-06-24 09:58:59,8:15 pm,Thu 25/06
+Football / Finland / Kolmonen,Hoogee,EIF Akademi,6.88,5.92,1.29,2026-06-24 09:58:59,8:15 pm,Thu 25/06
+Football / Norway / 3rd Division Group 1,Konnerud,Ready Fotball,3.95,4.2,1.64,2026-06-24 09:58:59,8:30 pm,Thu 25/06
+Football / Faroe Islands / Logmanssteypid,Vikingur Gota,HB Torshavn,2.24,3.5,2.97,2026-06-24 09:58:59,8:30 pm,Thu 25/06
+Football / Kuwait / Premier League,Kuwait SC,Kazma SC,1.39,4.82,6.56,2026-06-24 09:58:59,8:45 pm,Thu 25/06
+Football / Brazil / U20 Campeonato Brasileiro,Fluminense FC RJ U20,SE Palmeiras SP U20,3.4,3.3,2.03,2026-06-24 09:58:59,9:00 pm,Thu 25/06
+Football / Sweden / Division 2,Helges IF,Sunnersta AIF,6.8,4.7,1.35,2026-06-24 09:58:59,9:00 pm,Thu 25/06
+Football / Brazil / U20 Campeonato Brasileiro,Red Bull Bragantino SP U20,Botafogo FR RJ U20,1.82,3.51,3.89,2026-06-24 09:58:59,9:00 pm,Thu 25/06
+Football / Brazil / U20 Campeonato Brasileiro,SC Corinthians SP U20,CR Flamengo RJ U20,2.13,3.59,2.92,2026-06-24 09:58:59,9:00 pm,Thu 25/06
+Football / Lebanon / Premier League,Al Hikma,AL Mabarrah,2.0,3.26,3.79,2026-06-24 09:58:59,9:30 pm,Thu 25/06
+Football / Kuwait / Premier League,Al-Salmiya SC,Al Arabi,3.85,3.47,1.88,2026-06-24 09:58:59,9:45 pm,Thu 25/06
+Football / Iceland / Besta deild,Breidablik Kopavogur,Vikingur Reykjavik,4.45,4.55,1.65,2026-06-24 09:58:59,10:15 pm,Thu 25/06
+Football / Iceland / 4. deild,Vaengir Jupiters,Hafnir,1.32,5.75,6.25,2026-06-24 09:58:59,10:15 pm,Thu 25/06
+Football / International / FIFA World Cup,Curacao,Ivory Coast,20.63,8.88,1.16,2026-06-24 09:58:59,11:00 pm,Thu 25/06
+Football / International / FIFA World Cup,Ecuador,Germany,3.91,4.14,1.91,2026-06-24 09:58:59,11:00 pm,Thu 25/06
+Football / Iceland / 4. deild,Alafoss,Ulfanir,4.49,4.79,1.52,2026-06-24 09:58:59,11:00 pm,Thu 25/06
+Football / USA / USL W League,Brooke House FC Women,Brevard SC Riptide Women,2.24,3.7,2.6,2026-06-24 09:58:59,1:00 am,Fri 26/06
+Football / USA / National Premier Soccer League,Dmv Elite FC,District Elite FC,1.83,4.14,3.42,2026-06-24 09:58:59,2:00 am,Fri 26/06
+Football / International / FIFA World Cup,Japan,Sweden,1.93,3.65,4.38,2026-06-24 09:58:59,2:00 am,Fri 26/06
+Football / USA / USL League Two,Seacoast United Phantoms,Boston Bolts,2.45,3.79,2.45,2026-06-24 09:58:59,2:00 am,Fri 26/06
+Football / International / FIFA World Cup,Tunisia,Netherlands,24.67,9.89,1.14,2026-06-24 09:58:59,2:00 am,Fri 26/06
+Football / Brazil / Brasileiro Serie B,Cuiaba EC MT,Londrina EC PR,1.82,3.24,5.18,2026-06-24 09:58:59,2:30 am,Fri 26/06
+Football / Chile / Copa Chile,Nublense,Universidad de Concepcion,1.97,3.61,3.76,2026-06-24 09:58:59,2:30 am,Fri 26/06
+Football / Chile / Copa Chile,Colo-Colo,CD O´Higgins,1.67,3.88,5.17,2026-06-24 09:58:59,2:30 am,Fri 26/06
+Football / USA / USL League Two,Long Island Rough Riders,Cedar Stars,1.51,4.32,5.38,2026-06-24 09:58:59,3:00 am,Fri 26/06
+Football / International / FIFA World Cup,Paraguay,Australia,2.96,2.32,3.98,2026-06-24 09:58:59,5:00 am,Fri 26/06
+Football / International / FIFA World Cup,Turkiye,USA,3.7,4.09,1.98,2026-06-24 09:58:59,5:00 am,Fri 26/06
+Football / Australia / U20 NSW Premier League 2,Blacktown Spartans FC U20,Rydalmere Lions FC U20,1.46,4.93,4.93,2026-06-24 09:58:59,11:00 am,Fri 26/06
+Football / Australia / U23 Queensland Premier League 1,Brisbane Strikers U23,Ipswich FC U23,2.48,3.91,2.32,2026-06-24 09:58:59,11:30 am,Fri 26/06
+Football / Australia / U23 Queensland Premier League 1,Holland Park Hawks U23,Redlands United U23,1.97,3.77,3.15,2026-06-24 09:58:59,11:30 am,Fri 26/06
+Football / Australia / Queensland NPL,Rochedale Rovers,Gold Coast Knights,4.96,4.57,1.59,2026-06-24 09:58:59,12:30 pm,Fri 26/06
+Football / Australia / NSW NPL 1,Sydney FC Youth,Sydney United 58 FC,3.75,3.75,1.83,2026-06-24 09:58:59,12:30 pm,Fri 26/06
+"Football / Australia / Victoria, NPL1",Heidelberg United FC,Oakleigh Cannons,2.76,3.44,2.39,2026-06-24 09:58:59,12:30 pm,Fri 26/06
+"Football / Australia / Victoria, NPL1",Dandenong City SC,Avondale FC,5.45,4.48,1.51,2026-06-24 09:58:59,12:45 pm,Fri 26/06
+Football / Australia / South Australia NPL,Croydon FC,Adelaide United FC YOUTH,2.41,3.86,2.46,2026-06-24 09:58:59,1:00 pm,Fri 26/06
+"Football / Australia / Victoria, NPL1",Bentleigh Greens,Altona Magic SC,3.22,3.61,2.08,2026-06-24 09:58:59,1:30 pm,Fri 26/06
+Football / Australia / South Australia NPL,West Torrens Birkalla,Sturt Lions,2.01,3.86,3.08,2026-06-24 09:58:59,1:30 pm,Fri 26/06
+"Football / Australia / Victoria, NPL1",ST Albans Saints Dinamo SC,Melbourne City FC 2,2.91,3.58,2.24,2026-06-24 09:58:59,1:30 pm,Fri 26/06
+Football / Australia / South Australia NPL,Adelaide Comets FC,Adelaide City FC,5.02,4.44,1.53,2026-06-24 09:58:59,2:00 pm,Fri 26/06
+Football / Australia / Western Australia NPL,Bayswater City,Perth Redstar FC,2.1,3.52,3.13,2026-06-24 09:58:59,2:00 pm,Fri 26/06
+Football / China / Chinese Super League,Qingdao Hainiu FC,Yunnan Yukun,2.7,3.65,2.45,2026-06-24 09:58:59,2:35 pm,Fri 26/06
+Football / Latvia / Virsliga,Ogre United,FK Tukums 2000/TSS,3.41,3.76,2.04,2026-06-24 09:58:59,6:00 pm,Fri 26/06
+Football / Ethiopia / Premier League,Arba Minch Ketema,Welwalo Adigrat,2.75,2.56,2.89,2026-06-24 09:58:59,6:00 pm,Fri 26/06
+Football / Finland / Kakkonen,Abo IFK Turku,FC Honka,3.76,3.81,1.81,2026-06-24 09:58:59,6:30 pm,Fri 26/06
+Football / Lithuania / 1 Lyga,Be1 Nfa,Vilnius FK Zalgiris B,1.43,4.5,5.6,2026-06-24 09:58:59,6:30 pm,Fri 26/06
+Football / Finland / Ykkosliiga,PK-35 Helsinki,Mikkelin Palloilijat,1.75,3.66,4.85,2026-06-24 09:58:59,7:00 pm,Fri 26/06
+Football / Finland / Ykkosliiga,HJK Klubi 04,SJK Akatemia,2.06,3.62,3.47,2026-06-24 09:58:59,7:00 pm,Fri 26/06
+Football / Latvia / Virsliga,FK Liepaja,FC RFS,5.55,4.26,1.57,2026-06-24 09:58:59,7:00 pm,Fri 26/06
+Football / Lithuania / 1 Lyga,FK Garliava,FK Minija 2017,4.59,3.79,1.62,2026-06-24 09:58:59,7:30 pm,Fri 26/06
+"Football / Sweden / Ettan, Relegation/Promotion",Kristianstad FC,Trelleborgs FF,4.8,3.94,1.59,2026-06-24 09:58:59,8:00 pm,Fri 26/06
+"Football / Sweden / Ettan, Relegation/Promotion",Sollentuna FK,AFC Eskilstuna,2.34,3.57,2.62,2026-06-24 09:58:59,8:00 pm,Fri 26/06
+"Football / Sweden / Ettan, Relegation/Promotion",FBK Karlstad,Hammarby Talang FF,3.49,3.73,1.87,2026-06-24 09:58:59,8:00 pm,Fri 26/06
+Football / Sweden / Division 2,Onsala BK,Landvetter IS,2.49,3.6,2.37,2026-06-24 09:58:59,8:00 pm,Fri 26/06
+Football / Estonia / Premium Liiga,Parnu JK Vaprus,FC Kuressaare,1.86,3.86,3.96,2026-06-24 09:58:59,8:00 pm,Fri 26/06
+Football / Sweden / Superettan,IK Brage,Falkenbergs FF,2.38,3.56,2.87,2026-06-24 09:58:59,8:00 pm,Fri 26/06
+Football / Sweden / Division 2,Vanersborgs IF,Stenungsunds IF,3.2,3.7,1.94,2026-06-24 09:58:59,8:15 pm,Fri 26/06
+Football / Sweden / Division 2,Skara FC,Herrestads AIF,1.9,3.85,3.15,2026-06-24 09:58:59,8:30 pm,Fri 26/06
+"Football / Sweden / Ettan, Relegation/Promotion",Hassleholms IF,Tvaakers IF,1.8,3.73,3.77,2026-06-24 09:58:59,8:30 pm,Fri 26/06
+Football / Sweden / Division 2,Dalstorps IF,Lindome GIF,1.93,3.9,3.1,2026-06-24 09:58:59,8:30 pm,Fri 26/06
+Football / Sweden / Division 2,IFK Berga,Vaxjo Norra,2.55,3.5,2.38,2026-06-24 09:58:59,8:30 pm,Fri 26/06
+Football / Ireland / Premier Division,Shamrock Rovers,Galway United FC,1.42,4.65,7.52,2026-06-24 09:58:59,9:30 pm,Fri 26/06
+Football / Ireland / Premier Division,Derry City FC,Drogheda United FC,1.59,4.05,5.73,2026-06-24 09:58:59,9:45 pm,Fri 26/06
+Football / Ireland / First Division,University College Dublin,Cobh Ramblers,1.92,3.48,3.67,2026-06-24 09:58:59,9:45 pm,Fri 26/06
+Football / Ireland / First Division,Kerry FC,Longford Town FC,2.25,3.28,3.04,2026-06-24 09:58:59,9:45 pm,Fri 26/06
+Football / Ireland / First Division,Athlone Town AFC,Finn Harps FC,1.76,3.56,4.33,2026-06-24 09:58:59,9:45 pm,Fri 26/06
+Football / Ireland / First Division,Wexford FC,Treaty United,1.71,3.86,4.25,2026-06-24 09:58:59,9:45 pm,Fri 26/06
+Football / Ireland / Premier Division,Dundalk FC,Waterford FC,1.51,4.73,5.71,2026-06-24 09:58:59,9:45 pm,Fri 26/06
+Football / Ireland / First Division,Cork City FC,Bray Wanderers AFC,1.61,3.96,4.83,2026-06-24 09:58:59,9:45 pm,Fri 26/06
+Football / International / FIFA World Cup,Norway,France,4.87,4.45,1.7,2026-06-24 09:58:59,10:00 pm,Fri 26/06
+Football / Ireland / Premier Division,Bohemians Dublin FC,Saint Patrick´s Athletic FC,2.67,3.26,2.72,2026-06-24 09:58:59,10:00 pm,Fri 26/06
+Football / International / FIFA World Cup,Senegal,Iraq,1.25,7.1,13.11,2026-06-24 09:58:59,10:00 pm,Fri 26/06
+Football / Iceland / 1. deild,UMF Grindavik,KF Aegir,1.74,4.17,4.27,2026-06-24 09:58:59,10:15 pm,Fri 26/06
+Football / Iceland / 1. deild,Leiknir Reykjavik,IR Reykjavik,2.68,3.92,2.37,2026-06-24 09:58:59,10:15 pm,Fri 26/06
+Football / Iceland / 1. deild,Afturelding,UMF Njardvik,1.9,3.97,3.67,2026-06-24 09:58:59,10:15 pm,Fri 26/06
+Football / Iceland / 1. deild,Fylkir Reykjavik,HK Kopavogur,1.88,3.91,3.81,2026-06-24 09:58:59,10:15 pm,Fri 26/06
+Football / Canada / Canadian Premier League,HFX Wanderers FC,Pacific FC,2.12,3.37,3.22,2026-06-24 09:58:59,12:30 am,Sat 27/06
+Football / Brazil / Brasileiro Serie B,Gremio Novorizontino SP,Vila Nova FC GO,1.96,3.25,4.3,2026-06-24 09:58:59,1:00 am,Sat 27/06
+Football / International / FIFA World Cup,Uruguay,Spain,6.73,4.48,1.54,2026-06-24 09:58:59,3:00 am,Sat 27/06
+Football / International / FIFA World Cup,Cape Verde,Saudi Arabia,2.48,3.52,3.01,2026-06-24 09:58:59,3:00 am,Sat 27/06
+Football / International / FIFA World Cup,New Zealand,Belgium,16.2,7.75,1.21,2026-06-24 09:58:59,6:00 am,Sat 27/06
+Football / International / FIFA World Cup,Egypt,IR Iran,2.52,2.78,3.79,2026-06-24 09:58:59,6:00 am,Sat 27/06
+Football / Australia / U20 NSW NPL,University of NSW U20,Sutherland Sharks FC U20,2.56,3.66,2.35,2026-06-24 09:58:59,6:00 am,Sat 27/06
+Football / Australia / Tasmania NPL,South Hobart FC,Glenorchy Knights FC,1.3,5.4,7.91,2026-06-24 09:58:59,7:00 am,Sat 27/06
+Football / Australia / Tasmania NPL,Riverside Olympic FC,Ulverstone SC,1.34,5.37,6.71,2026-06-24 09:58:59,7:30 am,Sat 27/06
+Football / Australia / Queensland NPL,Magic United Tfa,Brisbane City FC,5.53,5.14,1.48,2026-06-24 09:58:59,7:30 am,Sat 27/06
+Football / Australia / Capital NPL 1,O'Connor Knights FC,Canberra Olympic,3.69,4.41,1.72,2026-06-24 09:58:59,7:30 am,Sat 27/06
+Football / Australia / U23 Queensland Premier League 1,St George Willawong U23,North Star U23,8.96,6.29,1.22,2026-06-24 09:58:59,7:30 am,Sat 27/06
+Football / Australia / Tasmania NPL,Clarence Zebras FC,Launceston United SC,1.39,5.2,5.98,2026-06-24 09:58:59,7:30 am,Sat 27/06
+Football / Australia / U23 Queensland Premier League 1,Logan Lightning U23,Caboolture Sports FC U23,1.54,4.77,4.29,2026-06-24 09:58:59,7:45 am,Sat 27/06
+Football / Australia / NSW NPL 1,University of Nsw,Sutherland Sharks,2.35,3.52,2.7,2026-06-24 09:58:59,8:00 am,Sat 27/06
+Football / Australia / Capital NPL 1,Queanbeyan City FC,Canberra White Eagles FC,1.28,5.59,8.29,2026-06-24 09:58:59,8:00 am,Sat 27/06
+Football / Australia / NSW NPL 1,Western Sydney Youth,Manly United FC,2.17,3.46,3.03,2026-06-24 09:58:59,8:00 am,Sat 27/06
+"Football / Australia / NSW Premier League, Women",NWS Spirit FC Women,Northern Tigers Women,2.22,3.76,2.74,2026-06-24 09:58:59,8:00 am,Sat 27/06
+Football / Australia / South Australia NPL,Campbelltown City SC,West Adelaide SC,1.76,4.22,3.65,2026-06-24 09:58:59,8:30 am,Sat 27/06
+Football / Australia / South Australia NPL,Playford City,FK Beograd,2.39,3.81,2.51,2026-06-24 09:58:59,8:30 am,Sat 27/06
+Football / Australia / South Australia NPL,Para Hills Knights SC,North Eastern Metrostars SC,43.21,15.36,1.01,2026-06-24 09:58:59,8:30 am,Sat 27/06
+Football / Australia / U23 Queensland Premier League 1,Broadbeach United U23,Capalaba FC U23,1.72,4.11,3.77,2026-06-24 09:58:59,8:45 am,Sat 27/06
+Football / Australia / U23 Queensland Premier League 1,Sunshine Coast Wanderers U23,Robina City U23,2.06,4.01,2.81,2026-06-24 09:58:59,8:45 am,Sat 27/06
+Football / Australia / Queensland NPL,Peninsula Power FC,Brisbane Roar FC YOUTH,1.3,5.93,8.7,2026-06-24 09:58:59,9:00 am,Sat 27/06
+Football / Australia / U20 NSW NPL,St George FC U20,Sydney Olympic FC U20,1.6,4.4,4.21,2026-06-24 09:58:59,9:30 am,Sat 27/06
+Football / Australia / U23 Queensland NPL,Eastern Suburbs U23,Olympic Football Club U23,1.77,4.15,3.67,2026-06-24 09:58:59,9:45 am,Sat 27/06
+Football / Australia / NSW NPL 1,SD Raiders FC,St George City FA,2.44,3.35,2.68,2026-06-24 09:58:59,10:00 am,Sat 27/06
+Football / Australia / Western Australia NPL,Olympic Kingsway SC,Balcatta,1.4,4.7,6.52,2026-06-24 09:58:59,10:00 am,Sat 27/06
