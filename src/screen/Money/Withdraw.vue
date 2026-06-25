@@ -4,8 +4,8 @@ import { useAuthStore } from '../../store/authStore'
 import api from '../../services/api'
 
 // Constants
-const minWithdraw = 10000000;
-const maxWithdraw = 1000000;
+const minWithdraw = 5000000;
+const maxWithdraw = 10000000;
 
 // Quick amount presets
 const quickAmounts = [5000, 10000, 20000, 50000, 100000, 200000, 500000];
