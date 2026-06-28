@@ -271,7 +271,7 @@ const goToLogin = () => {
                 <input
                   v-model="promoCode"
                   type="text"
-                  placeholder="e.g. SUNBET100"
+                  placeholder="e.g.   ADST160"
                   :disabled="promoApplied"
                   class="flex-1 h-10 px-3 rounded-xl border-2 border-slate-200 bg-white text-sm text-slate-700 placeholder:text-slate-300 uppercase tracking-widest outline-none transition-all focus:border-sky-400 disabled:opacity-60" />
                 <button
