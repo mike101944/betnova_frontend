@@ -4,7 +4,7 @@ import { useAuthStore } from '../../store/authStore'
 import api from '../../services/api'
 
 // Constants
-const minDeposit = 1000.00;
+const minDeposit = 135000.00;
 const maxDeposit = 3000000;
 
 // Quick amount presets
