@@ -1,6 +1,4 @@
 import Papa from 'papaparse'
-// import csvFile from '../../../screen/sport/matokeo_betpawa_cleaned.csv?raw'
-// import csvFile from '../../../screen/sport/matokeo_betpawa_clean.csv?raw'
 import {GameData} from '../../../assets/DataManager/DataManager'
 
 
